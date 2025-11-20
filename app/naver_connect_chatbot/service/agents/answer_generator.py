@@ -4,12 +4,12 @@ Adaptive RAG용 답변 생성 에이전트 구현.
 검색된 문맥과 질문 의도에 따라 서로 다른 생성 전략을 적용합니다.
 """
 
-from typing import Any, List
+from typing import Any
 from langchain_core.runnables import Runnable
 from langchain_core.documents import Document
 from langchain.agents import create_agent
 
-from naver_connect_chatbot.prompts import get_answer_generation_prompt
+from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
 
 
@@ -43,15 +43,15 @@ def create_answer_generator(
         ...     }]
         ... })
     """
-    try:
-        # 전략에 맞는 생성 프롬프트를 불러옵니다.
-        system_prompt = get_answer_generation_prompt(strategy=strategy)
+    try:        
+        prompt_template = get_prompt(f"answer_generation_{strategy}")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
-        # 도구 없이 순수 생성만 수행하는 에이전트를 구성합니다.
         agent = create_agent(
             model=llm,
             tools=[],
             system_prompt=system_prompt,
+            name=f"answer_generator_{strategy}",
         )
         
         logger.debug(f"Answer generator agent created successfully with strategy: {strategy}")
@@ -64,7 +64,7 @@ def create_answer_generator(
 
 def generate_answer(
     question: str,
-    context: List[Document],
+    context: list[Document],
     intent: str,
     llm: Runnable
 ) -> str:

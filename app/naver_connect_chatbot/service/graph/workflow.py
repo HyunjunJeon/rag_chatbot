@@ -6,10 +6,12 @@ LangGraph StateGraph API를 사용해 전체 워크플로를 구축하고 설정
 
 from typing import Any
 from functools import partial
-from langchain_core.runnables import Runnable, RunnableConfig
+from langchain_core.runnables import Runnable
 from langchain_core.retrievers import BaseRetriever
+from langgraph.checkpoint.base import BaseCheckpointSaver
 from langgraph.graph import END, StateGraph
 
+from langgraph.graph.state import CompiledStateGraph
 from naver_connect_chatbot.service.graph.state import AdaptiveRAGState
 from naver_connect_chatbot.service.graph.nodes import (
     classify_intent_node,
@@ -22,7 +24,6 @@ from naver_connect_chatbot.service.graph.nodes import (
     finalize_node,
 )
 from naver_connect_chatbot.service.graph.routing import (
-    route_by_intent,
     check_document_sufficiency,
     check_answer_quality,
     route_after_correction,
@@ -34,7 +35,8 @@ def build_adaptive_rag_graph(
     retriever: BaseRetriever,
     llm: Runnable,
     fast_llm: Runnable | None = None,
-) -> Any:
+    check_pointers: BaseCheckpointSaver | None = None,
+) -> CompiledStateGraph:
     """
     Adaptive RAG 워크플로 그래프를 구성합니다.
     
@@ -163,31 +165,5 @@ def build_adaptive_rag_graph(
     logger.info("Adaptive RAG workflow graph built successfully")
     
     # 컴파일 후 반환합니다.
-    return workflow.compile()
+    return workflow.compile(checkpointer=check_pointers, debug=True, name="NaverConnectChatbot")
 
-
-def build_graph(
-    retriever: BaseRetriever,
-    llm: Runnable
-) -> Any:
-    """
-    하위 호환성을 위한 레거시 함수입니다.
-    
-    새로운 시스템을 사용해 Adaptive RAG 그래프를 구성합니다.
-    
-    매개변수:
-        retriever: 문서 검색기
-        llm: 언어 모델
-    
-    반환값:
-        컴파일된 워크플로 그래프
-    """
-    logger.info("Building graph via legacy build_graph function")
-    return build_adaptive_rag_graph(retriever=retriever, llm=llm)
-
-
-# 호환성을 위해 두 함수 모두를 공개합니다.
-__all__ = [
-    "build_adaptive_rag_graph",
-    "build_graph",
-]

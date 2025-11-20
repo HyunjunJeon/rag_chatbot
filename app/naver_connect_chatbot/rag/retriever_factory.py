@@ -7,6 +7,7 @@
 3. 모든 전략을 결합한 종합 검색 파이프라인
 """
 
+from pathlib import Path
 from typing import Any
 
 from langchain_core.documents import Document
@@ -300,6 +301,103 @@ def build_advanced_hybrid_retriever(
     )
 
     return final_hybrid
+
+
+def build_dense_sparse_hybrid_from_saved(
+    bm25_index_path: str | Path,
+    embedding_model: Embeddings,
+    qdrant_url: str,
+    collection_name: str,
+    qdrant_api_key: str | None = None,
+    weights: list[float] | None = None,
+    k: int | None = None,
+    method: HybridMethod = HybridMethod.RRF,
+    rrf_c: int | None = None,
+) -> HybridRetriever:
+    """
+    저장된 KiwiBM25Retriever 인덱스를 로드하여 Dense+Sparse 하이브리드 검색기를 생성합니다.
+    
+    이 함수는 이미 저장된 BM25 인덱스를 로드하므로 문서 재처리 없이
+    빠르게 Hybrid Retriever를 초기화할 수 있습니다.
+    
+    매개변수:
+        bm25_index_path: 저장된 KiwiBM25Retriever 인덱스 디렉토리 경로 (bm25_index.pkl이 포함됨)
+        embedding_model: Dense 검색에 사용할 임베딩 모델
+        qdrant_url: Qdrant 인스턴스 URL
+        collection_name: Qdrant 컬렉션 이름
+        qdrant_api_key: Qdrant API 키 (선택)
+        weights: [Sparse, Dense] 가중치 (기본값: [0.5, 0.5])
+        k: 반환할 문서 수
+        method: 하이브리드 방식 (RRF 또는 CC)
+        rrf_c: RRF 상수 (기본값: 60)
+    
+    반환값:
+        HybridRetriever: Dense + Sparse 하이브리드 검색기
+    
+    예시:
+        >>> from naver_connect_chatbot.config.embedding import OpenRouterEmbeddings
+        >>> embeddings = OpenRouterEmbeddings(model="qwen/qwen3-embedding-4b")
+        >>> 
+        >>> retriever = build_dense_sparse_hybrid_from_saved(
+        ...     bm25_index_path="sparse_index/kiwi_bm25_slack_qa",
+        ...     embedding_model=embeddings,
+        ...     qdrant_url="http://localhost:6333",
+        ...     collection_name="slack_qa",
+        ...     weights=[0.5, 0.5],  # Sparse 50%, Dense 50%
+        ...     k=10,
+        ... )
+        >>> 
+        >>> # 검색 수행
+        >>> results = retriever.invoke("GPU 메모리 부족 해결 방법")
+    """
+    # 기본값 설정
+    if weights is None:
+        weights = [
+            settings.retriever.default_sparse_weight,
+            settings.retriever.default_dense_weight,
+        ]
+    
+    if k is None:
+        k = settings.retriever.default_k
+    
+    if rrf_c is None:
+        rrf_c = settings.retriever.default_rrf_c
+    
+    # 1. Sparse Retriever (저장된 KiwiBM25Retriever 인덱스 로드)
+    bm25_path = Path(bm25_index_path)
+    if not bm25_path.exists():
+        raise FileNotFoundError(
+            f"BM25 인덱스 디렉토리를 찾을 수 없습니다: {bm25_path}\n"
+            f"document_processing/rebuild_bm25_for_chatbot.py를 실행하여 인덱스를 생성하세요."
+        )
+    
+    # KiwiBM25Retriever.load()로 저장된 인덱스 로드
+    sparse_retriever = KiwiBM25Retriever.load(
+        path=bm25_path,
+        load_user_dict=True,
+    )
+    
+    # k 값 업데이트 (필요한 경우)
+    sparse_retriever.k = k
+    
+    # 2. Dense Retriever (Qdrant)
+    qdrant_client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
+    dense_retriever = QdrantVDBRetriever(
+        client=qdrant_client,
+        embedding_model=embedding_model,
+        collection_name=collection_name,
+        default_k=k,
+    )
+    
+    # 3. Hybrid Retriever (Sparse + Dense)
+    hybrid_retriever = HybridRetriever(
+        retrievers=[sparse_retriever, dense_retriever],
+        weights=weights,
+        method=method,
+        c=rrf_c,
+    )
+    
+    return hybrid_retriever
 
 
 def get_hybrid_retriever(

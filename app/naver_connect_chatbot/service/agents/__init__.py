@@ -10,26 +10,26 @@ Adaptive RAG 시스템을 구성하는 에이전트 구현 모음.
 - 교정 및 개선
 """
 
-from naver_connect_chatbot.agent.agents.intent_classifier import (
+from naver_connect_chatbot.service.agents.intent_classifier import (
     create_intent_classifier,
     IntentClassification,
 )
-from naver_connect_chatbot.agent.agents.query_analyzer import (
+from naver_connect_chatbot.service.agents.query_analyzer import (
     create_query_analyzer,
     QueryAnalysis,
 )
-from naver_connect_chatbot.agent.agents.document_evaluator import (
+from naver_connect_chatbot.service.agents.document_evaluator import (
     create_document_evaluator,
     DocumentEvaluation,
 )
-from naver_connect_chatbot.agent.agents.answer_generator import (
+from naver_connect_chatbot.service.agents.answer_generator import (
     create_answer_generator,
 )
-from naver_connect_chatbot.agent.agents.answer_validator import (
+from naver_connect_chatbot.service.agents.answer_validator import (
     create_answer_validator,
     AnswerValidation,
 )
-from naver_connect_chatbot.agent.agents.corrector import (
+from naver_connect_chatbot.service.agents.corrector import (
     create_corrector,
     CorrectionStrategy,
 )

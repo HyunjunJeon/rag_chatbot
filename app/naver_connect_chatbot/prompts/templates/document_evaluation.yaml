@@ -16,12 +16,19 @@ messages:
       2. Sufficiency – Decide if the collected relevant documents can fully answer the question without additional retrieval.
       3. Quality – Check clarity, factual accuracy, and internal consistency of the evidence.
       
-      Reporting requirements:
-      - relevant_count: number of documents scored 0.5 or above.
-      - irrelevant_count: number of documents scored below 0.5.
-      - is_sufficient: boolean indicating whether the question can be answered with current documents.
-      - confidence: float between 0.0 and 1.0 summarizing evaluation certainty.
-      - recommendations: actionable guidance for improving retrieval when needed.
+      JSON response contract:
+      {
+        "relevant_count": integer >= 0,
+        "irrelevant_count": integer >= 0,
+        "sufficient": boolean,
+        "confidence": 0.0-1.0 float,
+        "improvement_suggestions": ["actionable tip 1", ...]
+      }
+
+      Output requirements:
+      - improvement_suggestions must be an array (can be empty).
+      - Return only a JSON object that satisfies the contract.
+      - Use double quotes for keys/strings and avoid code fences or commentary.
       
       Apply consistent, evidence-based judgments.
   

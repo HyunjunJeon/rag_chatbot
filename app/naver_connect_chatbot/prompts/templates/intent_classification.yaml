@@ -21,6 +21,18 @@ messages:
       - Analyze the question, select exactly one category, and explain the rationale referencing key words or structures.
       - Provide a confidence score between 0.0 and 1.0 reflecting certainty.
       - Suggest a clarification question when the result is CLARIFICATION_NEEDED.
+
+      JSON response contract:
+      {
+        "intent": "SIMPLE_QA | COMPLEX_REASONING | EXPLORATORY | CLARIFICATION_NEEDED",
+        "confidence": 0.0-1.0 float,
+        "reasoning": "Concise natural-language justification"
+      }
+
+      Output requirements:
+      - Return a single JSON object that matches the contract exactly.
+      - Use double quotes for every key and string.
+      - Do not wrap the JSON with code fences or add extra commentary.
   
   - role: human
     content: |

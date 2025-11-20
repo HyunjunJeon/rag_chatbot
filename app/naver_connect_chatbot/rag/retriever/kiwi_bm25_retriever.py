@@ -307,17 +307,34 @@ def get_kiwi_instance(
     )
 
     if cache_key not in _KIWI_INSTANCES:
-        _KIWI_INSTANCES[cache_key] = Kiwi(
-            model_type=model_type,
-            typos=typos,
-            model_path=model_path,
-            load_default_dict=load_default_dict,
-            load_typo_dict=load_typo_dict,
-            load_multi_dict=load_multi_dict,
-            integrate_allomorph=integrate_allomorph,
-            typo_cost_threshold=typo_cost_threshold,
-            num_workers=num_workers,
-        )
+        try:
+            _KIWI_INSTANCES[cache_key] = Kiwi(
+                model_type=model_type,
+                typos=typos,
+                model_path=model_path,
+                load_default_dict=load_default_dict,
+                load_typo_dict=load_typo_dict,
+                load_multi_dict=load_multi_dict,
+                integrate_allomorph=integrate_allomorph,
+                typo_cost_threshold=typo_cost_threshold,
+                num_workers=num_workers,
+            )
+        except OSError as e:
+            # 모델 파일을 찾을 수 없는 경우 기본 Kiwi() 사용
+            if "Cannot open" in str(e):
+                print(f"⚠️  Kiwi 모델 파일을 찾을 수 없습니다: {e}")
+                print("   → 기본 설정으로 Kiwi를 초기화합니다.")
+                _KIWI_INSTANCES[cache_key] = Kiwi(
+                    typos=typos,
+                    load_default_dict=load_default_dict,
+                    load_typo_dict=load_typo_dict,
+                    load_multi_dict=load_multi_dict,
+                    integrate_allomorph=integrate_allomorph,
+                    typo_cost_threshold=typo_cost_threshold,
+                    num_workers=num_workers,
+                )
+            else:
+                raise
 
     return _KIWI_INSTANCES[cache_key]
 

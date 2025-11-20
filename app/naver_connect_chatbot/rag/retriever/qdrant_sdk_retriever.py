@@ -58,10 +58,10 @@ class QdrantVDBRetriever(BaseRetriever):
         return NamedVector(name=self.vector_name, vector=list(embedding))
 
     def _search(self, query_embedding: Sequence[float], limit: int) -> list[ScoredPoint]:
-        """Qdrant `search` API를 호출하여 점수화된 포인트를 반환합니다."""
+        """Qdrant `query_points` API를 호출하여 점수화된 포인트를 반환합니다."""
         search_kwargs: dict[str, Any] = {
             "collection_name": self.collection_name,
-            "query_vector": self._build_query_vector(query_embedding),
+            "query": list(query_embedding),  # query_points는 query 파라미터 사용
             "limit": limit,
             "with_payload": True,
             "with_vectors": False,
@@ -69,9 +69,9 @@ class QdrantVDBRetriever(BaseRetriever):
         if self.search_params is not None:
             search_kwargs["search_params"] = self.search_params
         if self.query_filter is not None:
-            search_kwargs["filter"] = self.query_filter
+            search_kwargs["query_filter"] = self.query_filter  # filter -> query_filter
 
-        return self.client.search(**search_kwargs)
+        return self.client.query_points(**search_kwargs).points
 
     def _normalize_payload(self, payload: Any) -> dict[str, Any]:
         """Qdrant 포인트의 payload를 dict 형식으로 정규화합니다."""

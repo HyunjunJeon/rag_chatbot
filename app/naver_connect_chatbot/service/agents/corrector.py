@@ -4,12 +4,13 @@ Adaptive RAG용 교정 에이전트 구현.
 검증 실패 원인을 분석하여 적절한 교정 전략을 제안합니다.
 """
 
-from typing import Any, Dict
+from typing import Annotated, Any, Dict
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
+from langchain_core.tools import tool
 from langchain.agents import create_agent
 
-from naver_connect_chatbot.prompts import get_correction_prompt
+from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
 
 
@@ -30,6 +31,33 @@ class CorrectionStrategy(BaseModel):
     )
     priority: str = Field(
         description="Priority level: HIGH | MEDIUM | LOW"
+    )
+
+
+@tool(args_schema=CorrectionStrategy)
+def emit_correction_strategy(
+    action: Annotated[str, Field(description="Correction action: REGENERATE | REFINE_QUERY | ADD_CONTEXT | CLARIFY")],
+    feedback: Annotated[str, Field(description="Detailed feedback for improvement")],
+    priority: Annotated[str, Field(description="Priority level: HIGH | MEDIUM | LOW")],
+) -> CorrectionStrategy:
+    """
+    Emit structured correction strategy.
+    
+    Call this tool after analyzing validation failures to recommend the best
+    correction approach.
+    
+    Args:
+        action: The recommended correction action
+        feedback: Detailed feedback explaining what needs improvement
+        priority: Priority level for the correction
+    
+    Returns:
+        CorrectionStrategy instance with correction recommendations
+    """
+    return CorrectionStrategy(
+        action=action,
+        feedback=feedback,
+        priority=priority,
     )
 
 
@@ -61,21 +89,24 @@ def create_corrector(llm: Runnable) -> Any:
         ...     }]
         ... })
     """
-    try:
-        # 교정 프롬프트를 불러옵니다.
-        system_prompt = get_correction_prompt()
+    try:        
+        prompt_template = get_prompt("correction")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
-        # 구조화된 출력을 반환하도록 LLM을 구성합니다.
-        structured_llm = llm.with_structured_output(CorrectionStrategy)
-        
-        # 도구 없이 분석만 수행하는 에이전트를 생성합니다.
-        agent = create_agent(
-            model=structured_llm,
-            tools=[],
-            system_prompt=system_prompt,
+        enhanced_prompt = (
+            f"{system_prompt}\n\n"
+            "IMPORTANT: After analyzing the validation failure, you MUST call the emit_correction_strategy tool "
+            "with all required parameters to return your correction recommendation."
         )
         
-        logger.debug("Corrector agent created successfully")
+        agent = create_agent(
+            model=llm,
+            tools=[emit_correction_strategy],
+            system_prompt=enhanced_prompt,
+            name="corrector",
+        )
+        
+        logger.debug("Corrector agent created successfully with emit_correction_strategy tool")
         return agent
         
     except Exception as e:

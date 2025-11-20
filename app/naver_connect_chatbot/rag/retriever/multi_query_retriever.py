@@ -15,13 +15,11 @@ from langchain_core.callbacks import (
 )
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import Runnable
 from pydantic import ConfigDict, Field
 
-from naver_connect_chatbot.prompts import get_multi_query_generation_prompt
+from naver_connect_chatbot.prompts import get_prompt
 
 DocumentList = list[Document]
 DocumentMatrix = list[DocumentList]
@@ -46,7 +44,7 @@ class MultiQueryRetriever(BaseRetriever):
     def _generate_queries(self, query: str) -> list[str]:
         """LLM으로 생성한 다양한 질의를 중복 없이 수집합니다."""
         # YAML에서 다중 질의 생성 프롬프트를 불러옵니다.
-        _prompt = get_multi_query_generation_prompt()
+        _prompt = get_prompt("multi_query_generation")
 
         chain: Runnable = _prompt | self.llm | StrOutputParser()
 

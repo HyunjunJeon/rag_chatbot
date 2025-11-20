@@ -4,12 +4,13 @@ Adaptive RAG용 의도 분류 에이전트 구현.
 사용자 질문을 다양한 의도 카테고리로 분류해 적응형 검색 전략을 돕습니다.
 """
 
-from typing import Any
+from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
+from langchain_core.tools import tool
 from langchain.agents import create_agent
 
-from naver_connect_chatbot.prompts import get_intent_classification_prompt
+from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
 
 
@@ -35,6 +36,33 @@ class IntentClassification(BaseModel):
     )
 
 
+@tool(args_schema=IntentClassification)
+def emit_intent_classification(
+    intent: Annotated[str, Field(description="Classified intent: SIMPLE_QA | COMPLEX_REASONING | EXPLORATORY | CLARIFICATION_NEEDED")],
+    confidence: Annotated[float, Field(description="Confidence score (0.0 ~ 1.0)", ge=0.0, le=1.0)],
+    reasoning: Annotated[str, Field(description="Explanation for the classification")],
+) -> IntentClassification:
+    """
+    Emit structured intent classification results.
+    
+    Call this tool after analyzing the user's question to return the classification
+    with confidence score and reasoning.
+    
+    Args:
+        intent: The classified intent category
+        confidence: Classification confidence (0.0 ~ 1.0)
+        reasoning: Detailed explanation for why this intent was chosen
+    
+    Returns:
+        IntentClassification instance with all classification results
+    """
+    return IntentClassification(
+        intent=intent,
+        confidence=confidence,
+        reasoning=reasoning,
+    )
+
+
 def create_intent_classifier(llm: Runnable) -> Any:
     """
     의도 분류 에이전트를 생성합니다.
@@ -57,21 +85,25 @@ def create_intent_classifier(llm: Runnable) -> Any:
         >>> classifier = create_intent_classifier(llm)
         >>> result = classifier.invoke({"messages": [{"role": "user", "content": "What is PyTorch?"}]})
     """
-    try:
-        # 분류 프롬프트를 불러옵니다.
-        system_prompt = get_intent_classification_prompt()
+    try:        
+        prompt_template = get_prompt("intent_classification")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
-        # 구조화된 출력을 반환하도록 LLM을 구성합니다.
-        structured_llm = llm.with_structured_output(IntentClassification)
-        
-        # 도구 없이 분류만 수행하는 에이전트를 생성합니다.
-        agent = create_agent(
-            model=structured_llm,
-            tools=[],
-            system_prompt=system_prompt,
+        # 도구 사용 가이드 추가
+        enhanced_prompt = (
+            f"{system_prompt}\n\n"
+            "IMPORTANT: After classifying the intent, you MUST call the emit_intent_classification tool "
+            "with all required parameters (intent, confidence, reasoning) to return your classification."
         )
         
-        logger.debug("Intent classifier agent created successfully")
+        agent = create_agent(
+            model=llm,
+            tools=[emit_intent_classification],
+            system_prompt=enhanced_prompt,
+            name="intent_classifier",
+        )
+        
+        logger.debug("Intent classifier agent created successfully with emit_intent_classification tool")
         return agent
         
     except Exception as e:
@@ -102,17 +134,64 @@ def classify_intent(question: str, llm: Runnable) -> IntentClassification:
         "messages": [{"role": "user", "content": question}]
     })
     
-    # 응답에서 구조화된 출력을 추출합니다.
-    if hasattr(response, "content") and isinstance(response.content, IntentClassification):
-        return response.content
-    elif isinstance(response, dict) and "output" in response:
-        return response["output"]
-    else:
-        # 폴백: 기본 분류 결과를 반환합니다.
-        logger.warning(f"Unexpected response format from intent classifier: {type(response)}")
-        return IntentClassification(
-            intent="SIMPLE_QA",
-            confidence=0.5,
-            reasoning="Default classification due to unexpected response format"
-        )
+    # 에이전트 응답에서 ToolMessage를 찾아 IntentClassification을 추출합니다.
+    try:
+        if isinstance(response, dict) and "messages" in response:
+            messages = response["messages"]
+            for msg in reversed(messages):
+                is_tool_msg = (
+                    msg.__class__.__name__ == "ToolMessage" or
+                    (hasattr(msg, "type") and msg.type == "tool")
+                )
+                
+                if is_tool_msg:
+                    tool_content = msg.content
+                    if isinstance(tool_content, IntentClassification):
+                        logger.debug("Successfully extracted IntentClassification from ToolMessage")
+                        return tool_content
+                    elif isinstance(tool_content, dict):
+                        logger.debug("Converting dict content to IntentClassification")
+                        return IntentClassification(**tool_content)
+                    elif isinstance(tool_content, str):
+                        try:
+                            logger.debug("Attempting to parse string content as IntentClassification")
+                            import re
+                            data = {}
+                            
+                            # intent 추출
+                            intent_match = re.search(r"intent='?\"?([^'\"]+)'?\"?", tool_content)
+                            if intent_match:
+                                data["intent"] = intent_match.group(1)
+                            
+                            # confidence 추출
+                            conf_match = re.search(r"confidence=([\d.]+)", tool_content)
+                            if conf_match:
+                                data["confidence"] = float(conf_match.group(1))
+                            
+                            # reasoning 추출
+                            reasoning_match = re.search(r"reasoning='?\"?([^'\"]+(?:[^'\"]*[^'\"]+)?)'?\"?", tool_content)
+                            if reasoning_match:
+                                data["reasoning"] = reasoning_match.group(1)
+                            
+                            if data:
+                                logger.debug(f"Successfully parsed IntentClassification from string: {data}")
+                                return IntentClassification(**data)
+                        except Exception as e:
+                            logger.warning(f"Failed to parse string content: {e}")
+        
+        # 직접 반환된 경우
+        if isinstance(response, IntentClassification):
+            return response
+        
+        logger.warning(f"Unable to extract IntentClassification from response: {type(response)}")
+        
+    except Exception as e:
+        logger.error(f"Error extracting IntentClassification from response: {e}")
+    
+    # 최종 폴백
+    return IntentClassification(
+        intent="CLARIFICATION_NEEDED",
+        confidence=0.5,
+        reasoning="Unable to classify intent properly"
+    )
 
