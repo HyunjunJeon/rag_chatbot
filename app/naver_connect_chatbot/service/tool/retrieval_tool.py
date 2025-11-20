@@ -4,7 +4,7 @@ Adaptive RAG에서 사용하는 검색 도구 모음.
 검색 기능을 LangChain 도구 형태로 감싸 에이전트나 워크플로에서 재사용합니다.
 """
 
-from typing import list, Any
+from typing import Any
 from langchain_core.documents import Document
 from langchain_core.tools import tool
 from langchain_core.retrievers import BaseRetriever

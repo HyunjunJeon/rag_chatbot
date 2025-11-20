@@ -1,0 +1,89 @@
+# ============================================================================
+# .dockerignore
+# Docker 이미지 빌드 시 제외할 파일 및 디렉토리
+# ============================================================================
+
+# Git 관련
+.git
+.gitignore
+.gitattributes
+
+# Python 캐시 및 바이트코드
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 가상환경 (빌드 시 새로 생성)
+.venv/
+venv/
+env/
+ENV/
+
+# 환경 설정 파일 (보안)
+.env
+.env.*
+!env.example
+
+# IDE 및 에디터 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 테스트 및 커버리지
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# 문서 및 가이드
+*.md
+!README.md
+docs/
+CLAUDE.md
+
+# 로그 파일
+logs/
+*.log
+
+# 원본 데이터 (빌드에 포함되지 않음, 처리된 데이터만 포함)
+original_documents/
+
+# 개발용 스크립트 및 도구
+document_processing/
+tests/
+
+# VectorDB 로컬 저장소 (Qdrant 컨테이너에서 관리)
+vdb_store/
+
+# 임시 파일
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Docker 관련
+docker-compose.yml
+docker-compose.*.yml
+Dockerfile
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# 빌드 아티팩트
+*.egg-info/
+dist/
+build/
+
+# 기타
+*.bak
+*.orig
+

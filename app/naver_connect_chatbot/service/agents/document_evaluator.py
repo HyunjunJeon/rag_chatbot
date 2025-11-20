@@ -4,13 +4,14 @@ Adaptive RAG용 문서 평가 에이전트 구현.
 검색된 문서의 관련성과 충분성을 판별합니다.
 """
 
-from typing import Any, List
+from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
 from langchain_core.documents import Document
+from langchain_core.tools import tool
 from langchain.agents import create_agent
 
-from naver_connect_chatbot.prompts import get_document_evaluation_prompt
+from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
 
 
@@ -41,9 +42,35 @@ class DocumentEvaluation(BaseModel):
         ge=0.0,
         le=1.0
     )
-    improvement_suggestions: List[str] = Field(
+    improvement_suggestions: list[str] = Field(
         description="Suggestions for improving retrieval",
         default_factory=list
+    )
+
+
+@tool(args_schema=DocumentEvaluation)
+def emit_document_evaluation(
+    relevant_count: Annotated[int, Field(description="Number of relevant documents", ge=0)],
+    irrelevant_count: Annotated[int, Field(description="Number of irrelevant documents", ge=0)],
+    sufficient: Annotated[bool, Field(description="Whether documents are sufficient to answer the question")],
+    confidence: Annotated[float, Field(description="Confidence in the evaluation (0.0 ~ 1.0)", ge=0.0, le=1.0)],
+    improvement_suggestions: Annotated[list[str], Field(description="Suggestions for improving retrieval")],
+) -> DocumentEvaluation:
+    """
+    Emit structured document evaluation results.
+    
+    Call this tool after evaluating retrieved documents to return assessment
+    of relevance and sufficiency.
+    
+    Returns:
+        DocumentEvaluation instance with all evaluation results
+    """
+    return DocumentEvaluation(
+        relevant_count=relevant_count,
+        irrelevant_count=irrelevant_count,
+        sufficient=sufficient,
+        confidence=confidence,
+        improvement_suggestions=improvement_suggestions,
     )
 
 
@@ -74,21 +101,26 @@ def create_document_evaluator(llm: Runnable) -> Any:
         ...     }]
         ... })
     """
-    try:
-        # 평가 프롬프트를 불러옵니다.
-        system_prompt = get_document_evaluation_prompt()
+    try:        
+        prompt_template = get_prompt("document_evaluation")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
-        # 구조화된 출력을 반환하도록 LLM을 구성합니다.
-        structured_llm = llm.with_structured_output(DocumentEvaluation)
-        
-        # 도구 없이 평가만 수행하는 에이전트를 생성합니다.
-        agent = create_agent(
-            model=structured_llm,
-            tools=[],
-            system_prompt=system_prompt,
+        # 도구 사용 가이드 추가
+        enhanced_prompt = (
+            f"{system_prompt}\n\n"
+            "IMPORTANT: After evaluating the documents, you MUST call the emit_document_evaluation tool "
+            "with all required parameters (relevant_count, irrelevant_count, sufficient, confidence, "
+            "improvement_suggestions) to return your evaluation."
         )
         
-        logger.debug("Document evaluator agent created successfully")
+        agent = create_agent(
+            model=llm,
+            tools=[emit_document_evaluation],
+            system_prompt=enhanced_prompt,
+            name="document_evaluator",
+        )
+        
+        logger.debug("Document evaluator agent created successfully with emit_document_evaluation tool")
         return agent
         
     except Exception as e:
@@ -98,7 +130,7 @@ def create_document_evaluator(llm: Runnable) -> Any:
 
 def evaluate_documents(
     question: str,
-    documents: List[Document],
+    documents: list[Document],
     llm: Runnable
 ) -> DocumentEvaluation:
     """
@@ -136,19 +168,75 @@ def evaluate_documents(
         }]
     })
     
-    # 응답에서 구조화된 출력을 추출합니다.
-    if hasattr(response, "content") and isinstance(response.content, DocumentEvaluation):
-        return response.content
-    elif isinstance(response, dict) and "output" in response:
-        return response["output"]
-    else:
-        # 폴백: 기본 평가 결과를 반환합니다.
-        logger.warning(f"Unexpected response format from document evaluator: {type(response)}")
-        return DocumentEvaluation(
-            relevant_count=len(documents),
-            irrelevant_count=0,
-            sufficient=len(documents) > 0,
-            confidence=0.5,
-            improvement_suggestions=["Unable to evaluate documents properly"]
-        )
+    # 에이전트 응답에서 ToolMessage를 찾아 DocumentEvaluation을 추출합니다.
+    try:
+        if isinstance(response, dict) and "messages" in response:
+            messages = response["messages"]
+            for msg in reversed(messages):
+                is_tool_msg = (
+                    msg.__class__.__name__ == "ToolMessage" or
+                    (hasattr(msg, "type") and msg.type == "tool")
+                )
+                
+                if is_tool_msg:
+                    tool_content = msg.content
+                    if isinstance(tool_content, DocumentEvaluation):
+                        logger.debug("Successfully extracted DocumentEvaluation from ToolMessage")
+                        return tool_content
+                    elif isinstance(tool_content, dict):
+                        logger.debug("Converting dict content to DocumentEvaluation")
+                        return DocumentEvaluation(**tool_content)
+                    elif isinstance(tool_content, str):
+                        try:
+                            logger.debug("Attempting to parse string content as DocumentEvaluation")
+                            import re
+                            import ast
+                            data = {}
+                            
+                            # 숫자 필드 추출
+                            for field in ['relevant_count', 'irrelevant_count']:
+                                match = re.search(rf'{field}=(\d+)', tool_content)
+                                if match:
+                                    data[field] = int(match.group(1))
+                            
+                            # confidence 추출
+                            conf_match = re.search(r'confidence=([\d.]+)', tool_content)
+                            if conf_match:
+                                data['confidence'] = float(conf_match.group(1))
+                            
+                            # sufficient 추출
+                            suff_match = re.search(r'sufficient=(True|False)', tool_content)
+                            if suff_match:
+                                data['sufficient'] = suff_match.group(1) == 'True'
+                            
+                            # improvement_suggestions 추출
+                            sugg_match = re.search(r'improvement_suggestions=(\[.*?\](?=\s+\w+=|$))', tool_content, re.DOTALL)
+                            if sugg_match:
+                                try:
+                                    data['improvement_suggestions'] = ast.literal_eval(sugg_match.group(1))
+                                except Exception:
+                                    data['improvement_suggestions'] = []
+                            
+                            if data:
+                                logger.debug(f"Successfully parsed DocumentEvaluation from string: {data}")
+                                return DocumentEvaluation(**data)
+                        except Exception as e:
+                            logger.warning(f"Failed to parse string content: {e}")
+        
+        if isinstance(response, DocumentEvaluation):
+            return response
+        
+        logger.warning(f"Unable to extract DocumentEvaluation from response: {type(response)}")
+        
+    except Exception as e:
+        logger.error(f"Error extracting DocumentEvaluation from response: {e}")
+    
+    # 최종 폴백
+    return DocumentEvaluation(
+        relevant_count=len(documents),
+        irrelevant_count=0,
+        sufficient=len(documents) > 0,
+        confidence=0.5,
+        improvement_suggestions=["Unable to evaluate documents properly"]
+    )
 

@@ -34,6 +34,10 @@ document_chunks/
 # document_processing/
 original_documents/
 
+# Sparse Retriever Index
+sparse_index/*.pkl
+sparse_index/kiwi_bm25_*/
+
 # AI Assistant
 .claude/
 CLAUDE.md

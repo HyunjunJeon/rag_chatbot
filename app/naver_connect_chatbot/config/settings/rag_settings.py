@@ -5,10 +5,11 @@ Adaptive RAG 구성을 위한 설정 정의 모듈.
 Adaptive RAG 시스템 전반에 필요한 설정을 한곳에서 정의합니다.
 """
 
-from pydantic import BaseModel, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class AdaptiveRAGSettings(BaseModel):
+class AdaptiveRAGSettings(BaseSettings):
     """
     Adaptive RAG 시스템을 제어하기 위한 세부 설정 컬렉션.
     
@@ -142,10 +143,10 @@ class AdaptiveRAGSettings(BaseModel):
         description="Enable caching of intermediate results"
     )
     
-    class Config:
-        """Pydantic 설정 옵션."""
-        env_prefix = "ADAPTIVE_RAG_"
-        case_sensitive = False
+    model_config = SettingsConfigDict(
+        env_prefix="ADAPTIVE_RAG_",
+        case_sensitive=False,
+    )
 
 
 # Default instance

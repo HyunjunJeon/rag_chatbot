@@ -4,22 +4,195 @@ Adaptive RAG 워크플로에서 사용하는 노드 함수 집합.
 각 노드는 RAG 프로세스의 개별 단계를 나타냅니다.
 """
 
-from typing import Any, Dict
+from __future__ import annotations
+
+import json
+from typing import Any, Dict, Type, TypeVar, List
+
+from pydantic import BaseModel
 from langchain_core.runnables import Runnable
 from langchain_core.retrievers import BaseRetriever
+from langchain_core.messages import AIMessage
 
 from naver_connect_chatbot.service.graph.state import AdaptiveRAGState
 from naver_connect_chatbot.service.agents import (
     create_intent_classifier,
+    IntentClassification,
     create_query_analyzer,
+    QueryAnalysis,
     create_document_evaluator,
+    DocumentEvaluation,
     create_answer_generator,
     create_answer_validator,
     create_corrector,
+    CorrectionStrategy,
+    AnswerValidation,
 )
 from naver_connect_chatbot.service.agents.answer_generator import get_generation_strategy
 from naver_connect_chatbot.service.tool import retrieve_documents_async
 from naver_connect_chatbot.config import logger
+
+_ModelT = TypeVar("_ModelT", bound=BaseModel)
+
+
+def _coerce_model_response(model_type: Type[_ModelT], response: Any) -> _ModelT:
+    """
+    LangChain 에이전트 응답을 지정된 Pydantic 모델로 강제 변환합니다.
+
+    에이전트가 dict, 문자열(JSON), BaseModel, AIMessage 등을 반환해도
+    일관된 모델 객체를 돌려줍니다.
+    """
+    if isinstance(response, model_type):
+        return response
+
+    if isinstance(response, BaseModel):
+        return model_type.model_validate(response.model_dump())
+
+    if isinstance(response, dict):
+        # 에이전트 응답에서 ToolMessage를 찾아 추출합니다.
+        if "messages" in response:
+            messages = response["messages"]
+            for msg in reversed(messages):
+                # ToolMessage인지 확인
+                is_tool_msg = (
+                    msg.__class__.__name__ == "ToolMessage" or
+                    (hasattr(msg, "type") and msg.type == "tool")
+                )
+                
+                if is_tool_msg:
+                    tool_content = msg.content
+                    if isinstance(tool_content, model_type):
+                        return tool_content
+                    elif isinstance(tool_content, BaseModel):
+                        return model_type.model_validate(tool_content.model_dump())
+                    elif isinstance(tool_content, dict):
+                        return model_type.model_validate(tool_content)
+                    elif isinstance(tool_content, str):
+                        try:
+                            # JSON 문자열 시도
+                            data = json.loads(tool_content)
+                            return model_type.model_validate(data)
+                        except json.JSONDecodeError:
+                            # Python 표현식 시도
+                            try:
+                                import re
+                                import ast
+                                # 모델의 모든 필드를 추출 시도
+                                data = {}
+                                for field_name, field_info in model_type.model_fields.items():
+                                    # 리스트 필드는 특별 처리
+                                    is_list_field = (
+                                        hasattr(field_info.annotation, '__origin__') and
+                                        field_info.annotation.__origin__ in (list, List)
+                                    )
+                                    
+                                    if is_list_field:
+                                        # 리스트 패턴: field_name=[...] (다음 필드 또는 끝까지)
+                                        pattern = rf'{field_name}=(\[.*?\])(?=\s+\w+=|$)'
+                                        match = re.search(pattern, tool_content, re.DOTALL)
+                                        if match:
+                                            value_str = match.group(1).strip()
+                                            try:
+                                                data[field_name] = ast.literal_eval(value_str)
+                                            except (ValueError, SyntaxError):
+                                                pass  # 파싱 실패시 건너뜀
+                                    else:
+                                        # 일반 필드: field_name=value (공백이나 줄바꿈 전까지)
+                                        pattern = rf'{field_name}=([^\s]+)'
+                                        match = re.search(pattern, tool_content)
+                                        if match:
+                                            value_str = match.group(1).strip()
+                                            try:
+                                                data[field_name] = ast.literal_eval(value_str)
+                                            except (ValueError, SyntaxError):
+                                                # 문자열로 처리
+                                                if value_str.lower() == 'true':
+                                                    data[field_name] = True
+                                                elif value_str.lower() == 'false':
+                                                    data[field_name] = False
+                                                else:
+                                                    data[field_name] = value_str
+                                
+                                if data:
+                                    return model_type.model_validate(data)
+                            except Exception as e:
+                                logger.debug(f"Failed to parse tool content using regex: {e}")
+                            
+                            raise ValueError(
+                                f"Unable to parse ToolMessage content into {model_type.__name__}: {tool_content}"
+                            )
+        
+        if "output" in response:
+            output_data = response["output"]
+            if isinstance(output_data, BaseModel):
+                return model_type.model_validate(output_data.model_dump())
+            if isinstance(output_data, dict):
+                return model_type.model_validate(output_data)
+            if isinstance(output_data, str):
+                try:
+                    data = json.loads(output_data)
+                except json.JSONDecodeError as exc:
+                    raise ValueError(
+                        f"Unable to parse agent output into {model_type.__name__}: {output_data}"
+                    ) from exc
+                return model_type.model_validate(data)
+
+        return model_type.model_validate(response)
+
+    # LangChain 메시지 또는 기타 객체에서 content 추출
+    content = getattr(response, "content", None)
+    if isinstance(content, BaseModel):
+        return model_type.model_validate(content.model_dump())
+    if isinstance(content, dict):
+        return model_type.model_validate(content)
+    if isinstance(content, str):
+        try:
+            data = json.loads(content)
+        except json.JSONDecodeError as exc:  # pragma: no cover
+            raise ValueError(
+                f"Unable to parse JSON content into {model_type.__name__}: {content}"
+            ) from exc
+        return model_type.model_validate(data)
+
+    if isinstance(response, str):
+        try:
+            data = json.loads(response)
+        except json.JSONDecodeError as exc:  # pragma: no cover
+            raise ValueError(
+                f"Unable to parse JSON string into {model_type.__name__}: {response}"
+            ) from exc
+        return model_type.model_validate(data)
+
+    raise ValueError(
+        f"Agent response could not be parsed into {model_type.__name__}: {type(response)}"
+    )
+
+
+def _extract_text_response(response: Any) -> str:
+    """
+    LangChain 에이전트 응답에서 텍스트를 안전하게 추출합니다.
+    """
+    if isinstance(response, AIMessage):
+        if isinstance(response.content, str):
+            return response.content
+        return str(response.content)
+
+    if hasattr(response, "content"):
+        content = response.content  # type: ignore[attr-defined]
+        if isinstance(content, str):
+            return content
+        return str(content)
+
+    if isinstance(response, dict):
+        if isinstance(response.get("output"), str):
+            return response["output"]  # type: ignore[index]
+        if isinstance(response.get("content"), str):
+            return response["content"]  # type: ignore[index]
+
+    if isinstance(response, str):
+        return response
+
+    return str(response)
 
 
 async def classify_intent_node(
@@ -44,27 +217,17 @@ async def classify_intent_node(
         classifier = create_intent_classifier(llm)
         
         # 의도를 분류합니다.
-        response = await classifier.ainvoke({
+        response_raw = await classifier.ainvoke({
             "messages": [{"role": "user", "content": question}]
         })
+
+        response = _coerce_model_response(IntentClassification, response_raw)
         
         # 분류 결과를 추출합니다.
-        if hasattr(response, "messages") and response.messages:
-            last_msg = response.messages[-1]
-            if hasattr(last_msg, "content"):
-                result = last_msg.content
-                return {
-                    "intent": result.intent if hasattr(result, "intent") else "SIMPLE_QA",
-                    "intent_confidence": result.confidence if hasattr(result, "confidence") else 0.8,
-                    "intent_reasoning": result.reasoning if hasattr(result, "reasoning") else "",
-                }
-        
-        # 폴백
-        logger.warning("Could not extract intent from response, using default")
         return {
-            "intent": "SIMPLE_QA",
-            "intent_confidence": 0.8,
-            "intent_reasoning": "Default classification"
+            "intent": response.intent,
+            "intent_confidence": response.confidence,
+            "intent_reasoning": response.reasoning,
         }
         
     except Exception as e:
@@ -99,33 +262,23 @@ async def analyze_query_node(
         analyzer = create_query_analyzer(llm)
         
         # 질의를 분석합니다.
-        response = await analyzer.ainvoke({
+        response_raw = await analyzer.ainvoke({
             "messages": [{
                 "role": "user",
                 "content": f"question: {question}\nintent: {intent}"
             }]
         })
+
+        response = _coerce_model_response(QueryAnalysis, response_raw)
         
         # 분석 결과를 추출합니다.
-        if hasattr(response, "messages") and response.messages:
-            last_msg = response.messages[-1]
-            if hasattr(last_msg, "content"):
-                result = last_msg.content
-                improved = result.improved_queries if hasattr(result, "improved_queries") else [question]
-                return {
-                    "query_analysis": {
-                        "clarity_score": getattr(result, "clarity_score", 0.8),
-                        "specificity_score": getattr(result, "specificity_score", 0.8),
-                        "searchability_score": getattr(result, "searchability_score", 0.8),
-                    },
-                    "refined_queries": improved if improved else [question],
-                    "original_query": question,
-                }
-        
-        # 폴백
         return {
-            "query_analysis": {"clarity_score": 0.8, "specificity_score": 0.8, "searchability_score": 0.8},
-            "refined_queries": [question],
+            "query_analysis": {
+                "clarity_score": response.clarity_score,
+                "specificity_score": response.specificity_score,
+                "searchability_score": response.searchability_score,
+            },
+            "refined_queries": response.improved_queries if response.improved_queries else [question],
             "original_query": question,
         }
         
@@ -216,33 +369,24 @@ async def evaluate_documents_node(
         ])
         
         # 평가를 수행합니다.
-        response = await evaluator.ainvoke({
+        response_raw = await evaluator.ainvoke({
             "messages": [{
                 "role": "user",
                 "content": f"question: {question}\n\ndocuments:\n{doc_text}"
             }]
         })
+
+        response = _coerce_model_response(DocumentEvaluation, response_raw)
         
         # 평가 결과를 추출합니다.
-        if hasattr(response, "messages") and response.messages:
-            last_msg = response.messages[-1]
-            if hasattr(last_msg, "content"):
-                result = last_msg.content
-                return {
-                    "document_evaluation": {
-                        "relevant_count": getattr(result, "relevant_count", len(documents)),
-                        "irrelevant_count": getattr(result, "irrelevant_count", 0),
-                        "confidence": getattr(result, "confidence", 0.8),
-                    },
-                    "sufficient_context": getattr(result, "sufficient", True),
-                    "relevant_doc_count": getattr(result, "relevant_count", len(documents)),
-                }
-        
-        # 폴백: 문서가 있으면 충분하다고 가정합니다.
         return {
-            "document_evaluation": {"relevant_count": len(documents), "irrelevant_count": 0, "confidence": 0.7},
-            "sufficient_context": len(documents) > 0,
-            "relevant_doc_count": len(documents),
+            "document_evaluation": {
+                "relevant_count": response.relevant_count,
+                "irrelevant_count": response.irrelevant_count,
+                "confidence": response.confidence,
+            },
+            "sufficient_context": response.sufficient,
+            "relevant_doc_count": response.relevant_count,
         }
         
     except Exception as e:
@@ -278,7 +422,7 @@ async def generate_answer_node(
         strategy = get_generation_strategy(intent)
         
         # 답변 생성 에이전트를 생성합니다.
-        generator = create_answer_generator(llm, strategy=strategy)
+        generator: Runnable = create_answer_generator(llm, strategy=strategy)
         
         # 생성에 사용할 문맥을 포맷합니다.
         context_text = "\n\n".join([
@@ -290,7 +434,7 @@ async def generate_answer_node(
             context_text = "참고할 수 있는 문서가 없습니다."
         
         # 답변을 생성합니다.
-        response = await generator.ainvoke({
+        response_raw = await generator.ainvoke({
             "messages": [{
                 "role": "user",
                 "content": f"question: {question}\n\ncontext:\n{context_text}"
@@ -298,15 +442,7 @@ async def generate_answer_node(
         })
         
         # 생성된 답변을 추출합니다.
-        answer = ""
-        if hasattr(response, "messages") and response.messages:
-            last_msg = response.messages[-1]
-            if hasattr(last_msg, "content"):
-                answer = last_msg.content if isinstance(last_msg.content, str) else str(last_msg.content)
-        
-        if not answer:
-            answer = "죄송합니다. 답변을 생성할 수 없습니다."
-        
+        answer = _extract_text_response(response_raw)
         logger.info(f"Generated answer: {answer[:100]}...")
         
         return {
@@ -357,41 +493,29 @@ async def validate_answer_node(
         ])
         
         # 검증을 수행합니다.
-        response = await validator.ainvoke({
+        response_raw = await validator.ainvoke({
             "messages": [{
                 "role": "user",
                 "content": f"question: {question}\n\ncontext:\n{context_text}\n\nanswer:\n{answer}"
             }]
         })
+
+        response = _coerce_model_response(AnswerValidation, response_raw)
         
         # 검증 결과를 추출합니다.
-        if hasattr(response, "messages") and response.messages:
-            last_msg = response.messages[-1]
-            if hasattr(last_msg, "content"):
-                result = last_msg.content
-                return {
-                    "validation_result": {
-                        "has_hallucination": getattr(result, "has_hallucination", False),
-                        "is_grounded": getattr(result, "is_grounded", True),
-                        "is_complete": getattr(result, "is_complete", True),
-                        "quality_score": getattr(result, "quality_score", 0.8),
-                        "issues": getattr(result, "issues", []),
-                    },
-                    "has_hallucination": getattr(result, "has_hallucination", False),
-                    "is_grounded": getattr(result, "is_grounded", True),
-                    "is_complete": getattr(result, "is_complete", True),
-                    "quality_score": getattr(result, "quality_score", 0.8),
-                    "validation_issues": getattr(result, "issues", []),
-                }
-        
-        # 폴백: 정상으로 간주합니다.
         return {
-            "validation_result": {"has_hallucination": False, "is_grounded": True, "is_complete": True, "quality_score": 0.8},
-            "has_hallucination": False,
-            "is_grounded": True,
-            "is_complete": True,
-            "quality_score": 0.8,
-            "validation_issues": [],
+            "validation_result": {
+                "has_hallucination": response.has_hallucination,
+                "is_grounded": response.is_grounded,
+                "is_complete": response.is_complete,
+                "quality_score": response.quality_score,
+                "issues": response.issues,
+            },
+            "has_hallucination": response.has_hallucination,
+            "is_grounded": response.is_grounded,
+            "is_complete": response.is_complete,
+            "quality_score": response.quality_score,
+            "validation_issues": response.issues,
         }
         
     except Exception as e:
@@ -436,31 +560,19 @@ async def correct_node(
         ])
         
         # 교정 전략을 판단합니다.
-        response = await corrector.ainvoke({
+        response_raw = await corrector.ainvoke({
             "messages": [{
                 "role": "user",
                 "content": f"validation_result:\n{validation_text}\n\nanswer:\n{answer}"
             }]
         })
+
+        response = _coerce_model_response(CorrectionStrategy, response_raw)
         
         # 교정 결과를 추출합니다.
-        if hasattr(response, "messages") and response.messages:
-            last_msg = response.messages[-1]
-            if hasattr(last_msg, "content"):
-                result = last_msg.content
-                action = getattr(result, "action", "REGENERATE")
-                feedback = getattr(result, "feedback", "Please improve the answer")
-                
-                return {
-                    "correction_action": action,
-                    "correction_feedback": state.get("correction_feedback", []) + [feedback],
-                    "correction_count": correction_count + 1,
-                }
-        
-        # 폴백
         return {
-            "correction_action": "REGENERATE",
-            "correction_feedback": state.get("correction_feedback", []) + ["No specific feedback available"],
+            "correction_action": response.action,
+            "correction_feedback": state.get("correction_feedback", []) + [response.feedback],
             "correction_count": correction_count + 1,
         }
         

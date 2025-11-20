@@ -29,7 +29,20 @@ messages:
       - EXPLORATORY – Expand into complementary angles that map the topic landscape.
       - CLARIFICATION_NEEDED – Propose clarifying follow-up questions to resolve ambiguity.
       
-      Provide a brief diagnostic summary followed by the improved query set.
+      JSON response contract:
+      {
+        "clarity_score": 0.0-1.0 float,
+        "specificity_score": 0.0-1.0 float,
+        "searchability_score": 0.0-1.0 float,
+        "improved_queries": ["refined query 1", ...],
+        "issues": ["diagnostic issue 1", ...],
+        "recommendations": ["actionable recommendation 1", ...]
+      }
+
+      Output requirements:
+      - improved_queries must include at least one string.
+      - Return only a JSON object that conforms to the contract.
+      - Use double quotes for every key and string, and omit code fences.
   
   - role: human
     content: |

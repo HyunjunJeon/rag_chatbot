@@ -22,6 +22,17 @@ messages:
       - Recommend the primary correction playbook item and justify it in one sentence.
       - Assign a priority tag (HIGH/MEDIUM/LOW) to guide downstream action.
       - Deliver only actionable, implementation-ready guidance.
+
+      JSON response contract:
+      {
+        "action": "REGENERATE | REFINE_QUERY | ADD_CONTEXT | CLARIFY",
+        "feedback": "single-sentence justification referencing the issues",
+        "priority": "HIGH | MEDIUM | LOW"
+      }
+
+      Output requirements:
+      - Return a single JSON object that follows the contract precisely.
+      - Use double-quoted keys/strings and avoid code fences or commentary.
   
   - role: human
     content: |

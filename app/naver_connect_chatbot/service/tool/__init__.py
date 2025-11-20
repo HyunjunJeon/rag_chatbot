@@ -10,11 +10,19 @@ from naver_connect_chatbot.service.tool.retrieval_tool import (
     retrieve_documents_async,
     retrieve_multi_query_async,
 )
+from naver_connect_chatbot.service.tool.reflection import (
+    think_tool,
+    analyze_documents,
+    evaluate_answer_quality,
+)
 
 __all__ = [
     "create_retrieval_tool",
     "create_multi_query_retrieval_tool",
     "retrieve_documents_async",
     "retrieve_multi_query_async",
+    "think_tool",
+    "analyze_documents",
+    "evaluate_answer_quality",
 ]
 

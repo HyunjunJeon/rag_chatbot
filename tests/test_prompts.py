@@ -11,16 +11,14 @@ YAML 기반 프롬프트 시스템을 대상으로 다음을 검증합니다.
 
 import pytest
 from pathlib import Path
-from unittest.mock import patch, mock_open, MagicMock
+from unittest.mock import patch, mock_open
 import yaml
 
 from naver_connect_chatbot.prompts import (
+    get_prompt,
+    list_available_prompts,
     load_prompt,
     reload_prompts,
-    get_rag_generation_prompt,
-    get_document_grading_prompt,
-    get_query_transformation_prompt,
-    get_multi_query_generation_prompt,
     PromptLoadError,
 )
 from naver_connect_chatbot.prompts.loader import load_prompt_config, PromptConfig, _build_messages
@@ -31,7 +29,7 @@ class TestPromptLoading:
 
     def test_load_rag_generation_prompt(self):
         """RAG 생성 프롬프트를 정상적으로 불러오는지 확인합니다."""
-        prompt = get_rag_generation_prompt()
+        prompt = get_prompt("rag_generation")
         assert prompt is not None
 
         # 예상된 변수를 이용해 포맷이 가능한지 확인합니다.
@@ -42,7 +40,7 @@ class TestPromptLoading:
 
     def test_load_document_grading_prompt(self):
         """문서 평가 프롬프트를 로드할 수 있는지 확인합니다."""
-        prompt = get_document_grading_prompt()
+        prompt = get_prompt("document_grading")
         assert prompt is not None
 
         # 포맷 테스트
@@ -53,7 +51,7 @@ class TestPromptLoading:
 
     def test_load_query_transformation_prompt(self):
         """질의 변환 프롬프트를 로드할 수 있는지 확인합니다."""
-        prompt = get_query_transformation_prompt()
+        prompt = get_prompt("query_transformation")
         assert prompt is not None
 
         # 포맷 테스트
@@ -63,7 +61,7 @@ class TestPromptLoading:
 
     def test_load_multi_query_generation_prompt(self):
         """다중 질의 생성 프롬프트를 로드할 수 있는지 확인합니다."""
-        prompt = get_multi_query_generation_prompt()
+        prompt = get_prompt("multi_query_generation")
         assert prompt is not None
 
         # 두 변수를 모두 사용하여 포맷 테스트
@@ -75,15 +73,27 @@ class TestPromptLoading:
     def test_all_prompts_load_without_error(self):
         """네 가지 프롬프트가 모두 정상 로드되는지 확인합니다."""
         prompts = [
-            get_rag_generation_prompt(),
-            get_document_grading_prompt(),
-            get_query_transformation_prompt(),
-            get_multi_query_generation_prompt(),
+            get_prompt("rag_generation"),
+            get_prompt("document_grading"),
+            get_prompt("query_transformation"),
+            get_prompt("multi_query_generation"),
         ]
 
         for prompt in prompts:
             assert prompt is not None
             assert hasattr(prompt, "format")  # PromptTemplate 이어야 함
+
+    def test_get_prompt_can_return_text(self):
+        """return_type='text' 옵션이 문자열을 반환하는지 검증합니다."""
+        prompt_text = get_prompt("rag_generation", return_type="text")
+        assert isinstance(prompt_text, str)
+        assert "Question:" in prompt_text
+
+    def test_list_available_prompts_contains_expected_names(self):
+        """프롬프트 목록 API가 주요 프롬프트를 포함하는지 확인합니다."""
+        available = list_available_prompts()
+        expected = {"rag_generation", "document_grading", "multi_query_generation"}
+        assert expected.issubset(set(available))
 
 
 class TestPromptConfigValidation:
@@ -314,21 +324,21 @@ class TestPromptTemplateIntegration:
     def test_loaded_prompts_can_format(self):
         """로딩된 프롬프트가 변수와 함께 포맷되는지 검증합니다."""
         # RAG 생성
-        rag_prompt = get_rag_generation_prompt()
+        rag_prompt = get_prompt("rag_generation")
         rag_result = rag_prompt.format(question="Q", context="C")
         assert "Q" in rag_result and "C" in rag_result
 
         # 문서 평가
-        doc_prompt = get_document_grading_prompt()
+        doc_prompt = get_prompt("document_grading")
         doc_result = doc_prompt.format(question="Q", context="C")
         assert "Q" in doc_result
 
         # 질의 변환
-        query_prompt = get_query_transformation_prompt()
+        query_prompt = get_prompt("query_transformation")
         query_result = query_prompt.format(question="Q")
         assert "Q" in query_result
 
         # 다중 질의 생성
-        multi_prompt = get_multi_query_generation_prompt()
+        multi_prompt = get_prompt("multi_query_generation")
         multi_result = multi_prompt.format(query="Q", num=3)
         assert "Q" in multi_result

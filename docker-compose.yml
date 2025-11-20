@@ -1,0 +1,41 @@
+services:
+  app:
+    image: naver-connect-chatbot:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: naver-connect-chatbot
+    ports:
+      - "8000:8000"
+    depends_on:
+      - qdrant
+    env_file:
+      - .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      SERVER_PORT: 8000
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant-vectordb
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+
+networks:
+  chatbot-network:
+    driver: bridge
+
+volumes:
+  qdrant_data:
+    driver: local

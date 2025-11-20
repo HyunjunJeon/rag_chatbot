@@ -17,12 +17,18 @@ messages:
       3. Completeness review – Ensure every part of the question is addressed without omitting critical information.
       4. Quality review – Judge clarity, logical flow, technical accuracy, and appropriate level of detail.
       
-      Reporting format:
-      - has_hallucination: boolean
-      - is_grounded: boolean
-      - is_complete: boolean
-      - quality_score: float between 0.0 and 1.0 (two decimals)
-      - issues: list of concise issue statements prefixed with severity tags such as [HIGH]
+      JSON response contract:
+      {
+        "has_hallucination": boolean,
+        "is_grounded": boolean,
+        "is_complete": boolean,
+        "quality_score": 0.0-1.0 float,
+        "issues": ["[SEVERITY] issue description", ...]
+      }
+
+      Output requirements:
+      - Return a single JSON object matching the contract exactly.
+      - Use double quotes for keys and strings, no code fences or explanations.
       
       Be strict yet practical, providing evidence-backed findings only.
   

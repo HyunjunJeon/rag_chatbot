@@ -4,13 +4,14 @@ Adaptive RAG용 답변 검증 에이전트 구현.
 생성된 답변의 환각, 근거, 완전성, 품질을 점검합니다.
 """
 
-from typing import Any, List
+from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
 from langchain_core.documents import Document
+from langchain_core.tools import tool
 from langchain.agents import create_agent
 
-from naver_connect_chatbot.prompts import get_answer_validation_prompt
+from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
 
 
@@ -39,9 +40,42 @@ class AnswerValidation(BaseModel):
         ge=0.0,
         le=1.0
     )
-    issues: List[str] = Field(
+    issues: list[str] = Field(
         description="List of identified issues",
         default_factory=list
+    )
+
+
+@tool(args_schema=AnswerValidation)
+def emit_answer_validation(
+    has_hallucination: Annotated[bool, Field(description="Whether the answer contains hallucinations")],
+    is_grounded: Annotated[bool, Field(description="Whether the answer is grounded in context")],
+    is_complete: Annotated[bool, Field(description="Whether the answer is complete")],
+    quality_score: Annotated[float, Field(description="Overall quality score (0.0 ~ 1.0)", ge=0.0, le=1.0)],
+    issues: Annotated[list[str], Field(description="List of identified issues")],
+) -> AnswerValidation:
+    """
+    Emit structured answer validation results.
+    
+    Call this tool after validating the generated answer to return quality assessment
+    including hallucination detection, grounding, and completeness checks.
+    
+    Args:
+        has_hallucination: True if answer contains unsupported claims
+        is_grounded: True if answer is grounded in provided context
+        is_complete: True if answer fully addresses the question
+        quality_score: Overall quality score (0.0 ~ 1.0)
+        issues: List of specific issues identified
+    
+    Returns:
+        AnswerValidation instance with all validation results
+    """
+    return AnswerValidation(
+        has_hallucination=has_hallucination,
+        is_grounded=is_grounded,
+        is_complete=is_complete,
+        quality_score=quality_score,
+        issues=issues,
     )
 
 
@@ -72,21 +106,24 @@ def create_answer_validator(llm: Runnable) -> Any:
         ...     }]
         ... })
     """
-    try:
-        # 검증 프롬프트를 불러옵니다.
-        system_prompt = get_answer_validation_prompt()
+    try:        
+        prompt_template = get_prompt("answer_validation")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
-        # 구조화된 출력을 반환하도록 LLM을 구성합니다.
-        structured_llm = llm.with_structured_output(AnswerValidation)
-        
-        # 도구 없이 검증만 수행하는 에이전트를 생성합니다.
-        agent = create_agent(
-            model=structured_llm,
-            tools=[],
-            system_prompt=system_prompt,
+        enhanced_prompt = (
+            f"{system_prompt}\n\n"
+            "IMPORTANT: After validating the answer, you MUST call the emit_answer_validation tool "
+            "with all required parameters to return your validation results."
         )
         
-        logger.debug("Answer validator agent created successfully")
+        agent = create_agent(
+            model=llm,
+            tools=[emit_answer_validation],
+            system_prompt=enhanced_prompt,
+            name="answer_validator",
+        )
+        
+        logger.debug("Answer validator agent created successfully with emit_answer_validation tool")
         return agent
         
     except Exception as e:
@@ -96,7 +133,7 @@ def create_answer_validator(llm: Runnable) -> Any:
 
 def validate_answer(
     question: str,
-    context: List[Document],
+    context: list[Document],
     answer: str,
     llm: Runnable
 ) -> AnswerValidation:
@@ -130,26 +167,12 @@ def validate_answer(
         for i, doc in enumerate(context)
     ])
     
-    response = validator.invoke({
+    response: AnswerValidation = validator.invoke({
         "messages": [{
             "role": "user",
             "content": f"question: {question}\n\ncontext:\n{context_text}\n\nanswer:\n{answer}"
         }]
     })
     
-    # 응답에서 구조화된 출력을 추출합니다.
-    if hasattr(response, "content") and isinstance(response.content, AnswerValidation):
-        return response.content
-    elif isinstance(response, dict) and "output" in response:
-        return response["output"]
-    else:
-        # 폴백: 문제를 가정한 기본 검증 결과를 반환합니다.
-        logger.warning(f"Unexpected response format from answer validator: {type(response)}")
-        return AnswerValidation(
-            has_hallucination=True,  # 보수적으로 문제를 있다고 가정
-            is_grounded=False,
-            is_complete=False,
-            quality_score=0.5,
-            issues=["Unable to validate answer properly"]
-        )
+    return response
 
