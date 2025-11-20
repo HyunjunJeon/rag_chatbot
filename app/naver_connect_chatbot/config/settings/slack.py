@@ -16,7 +16,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class SlackSettings(BaseSettings):
     """
-    Slack App  ㅇ   설정
+    Slack App 설정
     
     Slack Bolt를 사용한 대화형 챗봇 구현에 필요한 설정을 제공합니다.
     
@@ -25,15 +25,6 @@ class SlackSettings(BaseSettings):
         signing_secret: Slack App Signing Secret (요청 검증용)
         app_token: Slack App-Level Token (Socket Mode용, xapp-로 시작) - 선택사항
         port: Slack App 서버 포트
-    
-    예시:
-        .env 파일 설정:
-        ```
-        SLACK_BOT_TOKEN=xoxb-EXAMPLE-TOKEN-REPLACE-WITH-YOUR-ACTUAL-TOKEN
-        SLACK_SIGNING_SECRET=your-signing-secret-here
-        SLACK_APP_TOKEN=xapp-EXAMPLE-TOKEN-REPLACE-WITH-YOUR-ACTUAL-TOKEN
-        SLACK_PORT=3000
-        ```
     """
     
     model_config = SettingsConfigDict(
