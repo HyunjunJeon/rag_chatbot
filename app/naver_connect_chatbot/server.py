@@ -1,0 +1,140 @@
+"""
+FastAPI 웹 서버 모듈
+
+Slack Bot을 위한 FastAPI 웹 서버를 제공합니다.
+Slack Events API 엔드포인트와 헬스체크 엔드포인트를 포함합니다.
+
+참고 문서:
+    - https://github.com/slackapi/bolt-python/tree/main/examples/fastapi
+    - https://api.slack.com/apis/connections/events-api
+"""
+
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, Request
+from slack_bolt.adapter.fastapi.async_handler import AsyncSlackRequestHandler
+
+from naver_connect_chatbot.config.log import get_logger
+from naver_connect_chatbot.config.settings.main import settings
+from naver_connect_chatbot.slack import app as slack_app
+
+# Logging setup
+logger = get_logger()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    FastAPI 애플리케이션 라이프사이클 관리
+
+    서버 시작 시 초기화 작업을 수행하고,
+    서버 종료 시 정리 작업을 수행합니다.
+    """
+    # ========================================================================
+    # Startup
+    # ========================================================================
+    logger.info("=" * 80)
+    logger.info("Naver Connect Chatbot 서버 시작")
+    logger.info(f"포트: {settings.slack.port}")
+    logger.info(f"로그 레벨: {settings.logging.level}")
+    logger.info("=" * 80)
+
+    yield
+
+    # ========================================================================
+    # Shutdown
+    # ========================================================================
+    logger.info("=" * 80)
+    logger.info("서버 종료 중...")
+    logger.info("=" * 80)
+
+    # Slack handler의 global agent app cleanup
+    try:
+        from naver_connect_chatbot.slack.handler import _agent_app
+
+        if _agent_app is not None:
+            logger.info("Agent app 리소스 정리 중...")
+            # LangGraph app은 특별한 cleanup이 필요 없지만,
+            # 향후 확장을 위해 로깅만 수행
+            logger.info("✓ Agent app 정리 완료")
+    except Exception as e:
+        logger.warning(f"Agent app 정리 중 오류 발생: {e}")
+
+    # 기타 전역 리소스 cleanup (필요 시 추가)
+    # 예: HTTP clients, database connections, cache 등
+
+    logger.info("=" * 80)
+    logger.info("서버 종료 완료")
+    logger.info("=" * 80)
+
+
+# FastAPI 앱 생성
+api = FastAPI(
+    title="Naver Connect Chatbot",
+    description="Slack Bot for Naver Connect documentation Q&A",
+    version="0.0.1",
+    lifespan=lifespan,
+)
+
+# Slack Request Handler
+slack_handler = AsyncSlackRequestHandler(slack_app)
+
+
+@api.get("/")
+async def root():
+    """
+    루트 엔드포인트 - 서버 상태 확인
+    
+    반환값:
+        dict: 서버 상태 정보
+    """
+    return {
+        "service": "Naver Connect Chatbot",
+        "status": "running",
+        "version": "0.0.1",
+    }
+
+
+@api.get("/health")
+async def health():
+    """
+    헬스체크 엔드포인트
+    
+    반환값:
+        dict: 헬스체크 결과
+    """
+    return {"status": "healthy"}
+
+
+@api.post("/slack/events")
+async def slack_events(req: Request):
+    """
+    Slack Events API 엔드포인트
+    
+    Slack으로부터 이벤트를 수신하고 처리합니다.
+    URL Verification과 Event Callback을 처리합니다.
+    
+    매개변수:
+        req: FastAPI Request 객체
+        
+    반환값:
+        Slack API 응답
+        
+    예외:
+        HTTPException: Slack 요청 검증 실패 시
+    """
+    logger.debug("Slack 이벤트 수신")
+    return await slack_handler.handle(req)
+
+
+# 서버 실행
+if __name__ == "__main__":
+    import uvicorn
+    
+    uvicorn.run(
+        "naver_connect_chatbot.server:api",
+        host="0.0.0.0",
+        port=settings.slack.port,
+        log_level=settings.logging.level.lower(),
+        reload=False,  # Production에서는 False
+    )

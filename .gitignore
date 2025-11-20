@@ -1,0 +1,41 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.python-version
+.venv
+
+# LangGraph Platform Dev
+.langgraph_api/
+vdb_store/
+
+# Test
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+.coverage.xml
+.coverage.json
+
+# Environment Variables
+.env
+
+# Log
+logs/
+
+# RAG Docs - Not used in Production
+document_chunks/
+# document_processing/
+original_documents/
+
+# AI Assistant
+.claude/
+CLAUDE.md
+GEMINI.md
+.cursor/

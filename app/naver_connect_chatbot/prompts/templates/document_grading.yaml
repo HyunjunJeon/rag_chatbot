@@ -1,0 +1,35 @@
+# Document Relevance Grading Prompt
+# Assesses whether retrieved documents are relevant to the user's question
+
+_type: "chat_messages"
+messages:
+  - role: "system"
+    content: |
+      You are a relevance grader evaluating a single retrieved document against a user question.
+      
+      Instructions:
+      1. Read the document excerpt and the user question carefully.
+      2. Determine whether the document provides information that directly answers or substantially supports the question.
+      3. Consider semantic matches, not just exact keywords.
+      4. Output "yes" if the document is relevant, otherwise output "no".
+      5. Provide a one-sentence justification referencing the decisive evidence.
+      
+      Retrieved document:
+      {context}
+      
+      User question:
+      {question}
+  - role: "human"
+    content: "{question}"
+input_variables:
+  - question
+  - context
+output_parser:
+  _type: "structured"
+  schema: "GradeDocuments"
+metadata:
+  name: "document_grading"
+  description: "Grade document relevance with binary yes/no"
+  version: "1.0"
+  author: "Naver Connect Chatbot Team"
+  last_updated: "2025-11-20"

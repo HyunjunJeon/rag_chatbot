@@ -1,0 +1,52 @@
+[project]
+name = "naver-connect-chatbot"
+version = "0.0.1"
+description = "Naver Connect Chatbot"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.121.3",
+    "kiwipiepy>=0.22.0",
+    "langchain>=1.0.8",
+    "langchain-openai>=1.0.3",
+    "langgraph>=1.0.3",
+    "langgraph-checkpoint-redis>=0.2.0",
+    "langgraph-checkpoint-sqlite>=3.0.0",
+    "langgraph-cli[inmem]>=0.4.7",
+    "loguru>=0.7.3",
+    "pandas>=2.3.3",
+    "pydantic-settings>=2.12.0",
+    "python-dotenv>=1.2.1",
+    "qdrant-client>=1.16.0",
+    "rank-bm25>=0.2.2",
+    "slack-bolt>=1.27.0",
+    "tenacity>=9.0.0",
+    "uvicorn>=0.38.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "app"}
+packages = ["naver_connect_chatbot"]
+
+[dependency-groups]
+dev = [
+    "chonkie>=1.4.2",
+    "pre-commit>=4.4.0",
+    "pymupdf4llm>=0.2.2",
+    "pytest>=9.0.1",
+    "pytest-asyncio>=0.24.0",
+    "respx>=0.21.0",
+    "ruff>=0.14.5",
+    "ty>=0.0.1a27",
+]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: 실제 API를 호출하는 통합 테스트 (비용 발생 가능)",
+]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
