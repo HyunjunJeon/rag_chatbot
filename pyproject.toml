@@ -9,6 +9,7 @@ dependencies = [
     "kiwipiepy>=0.22.0",
     "langchain>=1.0.8",
     "langchain-openai>=1.0.3",
+    "langfuse>=3.0.0",
     "langgraph>=1.0.3",
     "langgraph-checkpoint-redis>=0.2.0",
     "langgraph-checkpoint-sqlite>=3.0.0",
