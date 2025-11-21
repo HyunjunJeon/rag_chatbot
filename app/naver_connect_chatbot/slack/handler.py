@@ -12,6 +12,7 @@ from slack_bolt.async_app import AsyncApp
 from naver_connect_chatbot.config.settings.main import settings
 from naver_connect_chatbot.config.log import get_logger
 from naver_connect_chatbot.config.llm import get_chat_model
+from naver_connect_chatbot.config.monitoring import get_langfuse_callback
 from naver_connect_chatbot.rag.embeddings import NaverCloudEmbeddings
 from naver_connect_chatbot.rag.retriever_factory import get_hybrid_retriever
 from naver_connect_chatbot.agent.graph.workflow import build_graph
@@ -118,7 +119,7 @@ async def get_or_create_agent():
 @app.event("app_mention")
 async def handle_app_mention(event, say):
     """
-    Handle app_mention events.
+    Handle app_mention events with LangFuse tracing.
     사용자가 봇을 멘션하면 질문에 대한 답변을 생성합니다.
 
     매개변수:
@@ -133,6 +134,9 @@ async def handle_app_mention(event, say):
         await say(error_msg)
         return
 
+    # Extract Slack context
+    user_id = event.get("user")
+    channel_id = event.get("channel")
     user_input = event.get("text")
     thread_ts = event.get("ts")  # Use message ts as thread_ts for the reply
 
@@ -142,24 +146,43 @@ async def handle_app_mention(event, say):
 
     logger.info(f"멘션 수신: {user_input} (thread: {thread_ts})")
 
-    # TODO: Async Invoke LangGraph based Agent
-    # We maintain state per thread if we want conversation history,
-    # but for now LangGraph state is ephemeral per run unless we use a checkpointer.
-    # The user requirement says "thread content must always be delivered".
-    # We'll pass the current input. If we want history, we'd fetch thread history here.
+    # Create LangFuse callback with Slack metadata
+    langfuse_handler = get_langfuse_callback(
+        user_id=user_id,
+        channel_id=channel_id,
+        thread_ts=thread_ts,
+        event_type="slack_mention"
+    )
+
+    # Prepare callbacks list (empty if LangFuse disabled)
+    callbacks = [langfuse_handler] if langfuse_handler else []
+
+    # Create runnable config with callbacks and metadata
+    config = {
+        "callbacks": callbacks,
+        "metadata": {
+            "source": "slack",
+            "user_id": user_id,
+            "channel_id": channel_id,
+            "thread_ts": thread_ts,
+        }
+    }
 
     inputs = {"question": user_input}
 
     try:
-        # Run the graph
-        # 참고: invoke is synchronous in LangChain usually, but LangGraph might be async.
-        # If compiled graph supports ainvoke, use it.
+        # Run the graph with callback (auto-propagates to all nodes)
         logger.info("Agent 실행 시작...")
-        result = await agent_app.ainvoke(inputs)
+        result = await agent_app.ainvoke(inputs, config=config)
         answer = result.get("answer", "죄송합니다. 답변을 생성할 수 없습니다.")
-        
+
         logger.info(f"답변 생성 완료: {answer[:100]}...")
         await say(text=answer, thread_ts=thread_ts)
+
+        # Ensure trace is flushed before function returns
+        # (Critical for LangChain 0.3+ async callbacks)
+        if langfuse_handler:
+            await langfuse_handler.aflush()
 
     except Exception as e:
         logger.error("요청 처리 중 오류 발생", error=str(e), exc_info=True)
