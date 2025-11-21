@@ -80,6 +80,69 @@ NAVER_CLOUD_RERANKER_DEFAULT_TOP_K=10
 NAVER_CLOUD_RERANKER_ENABLED=true
 ```
 
+## LangFuse Monitoring
+
+This project includes self-hosted LangFuse v3 for observability and tracing.
+
+### Setup
+
+1. **Generate Secrets**
+   ```bash
+   openssl rand -hex 32  # Run multiple times for each secret
+   ```
+
+2. **Configure Environment**
+   ```bash
+   cp .env.langfuse.example .env.langfuse
+   # Edit .env.langfuse and replace all CHANGEME values
+   ```
+
+3. **Start Services**
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **Access LangFuse UI**
+   - Navigate to http://localhost:3000
+   - Create account and project
+   - Generate API keys: Settings → API Keys → Create new key
+   - Add keys to `.env.langfuse`:
+     ```bash
+     LANGFUSE_PUBLIC_KEY=pk-lf-...
+     LANGFUSE_SECRET_KEY=sk-lf-...
+     ```
+
+5. **Restart Application**
+   ```bash
+   docker-compose restart app
+   ```
+
+### Features
+
+- **Node-Level Tracing**: Every agent (intent classifier, query analyzer, answer generator, etc.) appears as separate span
+- **Slack Metadata**: Traces tagged with user_id, channel_id, thread_ts for filtering
+- **Cost Tracking**: LLM usage and costs per conversation
+- **Graceful Degradation**: Application works normally if LangFuse is unavailable
+
+### Disabling Monitoring
+
+Set in `.env` or `.env.langfuse`:
+```bash
+LANGFUSE_ENABLED=false
+```
+
+### Architecture
+
+```
+Slack @mention
+  → SlackHandler creates callback with user metadata
+  → graph.ainvoke(config={"callbacks": [handler]})
+  → Callback auto-propagates to all node LLM calls
+  → Traces visible at http://localhost:3000
+```
+
+See `docs/plans/2025-11-21-langfuse-monitoring.md` for detailed architecture.
+
 ## 주요 기능
 
 ### LLM 통합
