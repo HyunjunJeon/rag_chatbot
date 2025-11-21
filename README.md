@@ -336,8 +336,14 @@ pytest tests/test_rerank.py::TestClovaStudioRerankerAPI::test_rerank_success
 실제 LLM API를 호출하는 통합 테스트는 별도로 실행할 수 있습니다:
 
 ```bash
+# 모든 통합 테스트 실행
+pytest -m integration -v
+
 # LLM 통합 테스트 실행 (비용 발생 가능)
 pytest tests/test_llm.py -m integration -v
+
+# LangFuse 통합 테스트 실행 (LangFuse 서버 필요)
+pytest tests/test_langfuse_integration.py -m integration -v
 
 # 수동 테스트 스크립트 (모든 제공자 테스트)
 python tests/manual_llm_test.py
@@ -347,6 +353,8 @@ python tests/manual_llm_test.py
 - 통합 테스트는 실제 API를 호출하므로 비용이 발생할 수 있습니다
 - `.env` 파일에 API 키와 `ENABLED=true` 설정이 필요합니다
 - 네트워크 연결이 필요합니다
+- LangFuse 통합 테스트는 `docker-compose up -d`로 LangFuse 서버를 먼저 실행해야 합니다
+- 자세한 내용은 `tests/INTEGRATION.md` 참조
 
 ## API 문서
 
