@@ -25,6 +25,7 @@ vdb_store/
 
 # Environment Variables
 .env
+.env.langfuse
 
 # Log
 logs/
