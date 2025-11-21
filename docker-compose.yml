@@ -9,11 +9,13 @@ services:
       - "8000:8000"
     depends_on:
       - qdrant
+      - langfuse-web
     env_file:
       - .env
     environment:
       QDRANT_URL: http://qdrant:6333
       SERVER_PORT: 8000
+      LANGFUSE_HOST: http://langfuse-web:3000
     volumes:
       - ./logs:/app/logs
     restart: unless-stopped
@@ -32,10 +34,127 @@ services:
     networks:
       - chatbot-network
 
+  # =============================================================================
+  # LangFuse v3 Self-Hosted Observability Stack
+  # =============================================================================
+
+  langfuse-web:
+    image: docker.io/langfuse/langfuse:3
+    container_name: langfuse-web
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    env_file:
+      - .env.langfuse
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/public/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  langfuse-worker:
+    image: docker.io/langfuse/langfuse-worker:3
+    container_name: langfuse-worker
+    depends_on:
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    env_file:
+      - .env.langfuse
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: langfuse-postgres
+    environment:
+      POSTGRES_DB: langfuse
+      POSTGRES_USER: langfuse
+      POSTGRES_PASSWORD: ${LANGFUSE_DB_PASSWORD}
+    volumes:
+      - langfuse_postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langfuse"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24-alpine
+    container_name: langfuse-clickhouse
+    environment:
+      CLICKHOUSE_DB: langfuse
+      CLICKHOUSE_USER: langfuse
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CLICKHOUSE_PASSWORD}
+    volumes:
+      - langfuse_clickhouse:/var/lib/clickhouse
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: langfuse-redis
+    command: redis-server --requirepass ${LANGFUSE_REDIS_PASSWORD}
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: langfuse-minio
+    command: server /data --console-address ":9090"
+    environment:
+      MINIO_ROOT_USER: ${LANGFUSE_MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${LANGFUSE_MINIO_PASSWORD}
+    volumes:
+      - langfuse_minio:/data
+    restart: unless-stopped
+    networks:
+      - chatbot-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
 networks:
   chatbot-network:
     driver: bridge
 
 volumes:
   qdrant_data:
+    driver: local
+  langfuse_postgres:
+    driver: local
+  langfuse_clickhouse:
+    driver: local
+  langfuse_minio:
     driver: local
