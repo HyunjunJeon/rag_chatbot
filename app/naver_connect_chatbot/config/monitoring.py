@@ -135,10 +135,16 @@ def get_langfuse_callback(
         return None
 
     try:
+        # Set environment variables for CallbackHandler
+        # (LangFuse SDK v3 reads from environment variables)
+        import os
+        os.environ["LANGFUSE_PUBLIC_KEY"] = langfuse_settings.public_key
+        os.environ["LANGFUSE_SECRET_KEY"] = langfuse_settings.secret_key
+        os.environ["LANGFUSE_HOST"] = langfuse_settings.host
+
+        # Create handler (reads from env vars)
         handler = CallbackHandler(
-            public_key=langfuse_settings.public_key,
-            secret_key=langfuse_settings.secret_key,
-            host=langfuse_settings.host,
+            public_key=langfuse_settings.public_key,  # Can also be passed explicitly
         )
 
         # Set Slack user ID for trace filtering
