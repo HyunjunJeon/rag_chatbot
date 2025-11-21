@@ -4,7 +4,6 @@ Adaptive RAG 워크플로 구성 모듈.
 LangGraph StateGraph API를 사용해 전체 워크플로를 구축하고 설정합니다.
 """
 
-from typing import Any
 from functools import partial
 from langchain_core.runnables import Runnable
 from langchain_core.retrievers import BaseRetriever
