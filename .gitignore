@@ -43,3 +43,6 @@ sparse_index/kiwi_bm25_*/
 CLAUDE.md
 GEMINI.md
 .cursor/
+
+# Git Worktrees
+.worktrees/
