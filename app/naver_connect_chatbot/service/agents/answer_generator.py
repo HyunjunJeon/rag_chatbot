@@ -4,62 +4,64 @@ Adaptive RAG용 답변 생성 에이전트 구현.
 검색된 문맥과 질문 의도에 따라 서로 다른 생성 전략을 적용합니다.
 """
 
-from typing import Any
 from langchain_core.runnables import Runnable
 from langchain_core.documents import Document
-from langchain.agents import create_agent
+from pydantic import BaseModel, Field
 
-from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
+
+
+class AnswerOutput(BaseModel):
+    """Generated answer based on retrieved context and question intent.
+
+    This model wraps the answer text to enable validation and maintain
+    consistency with other agents in the Adaptive RAG workflow.
+    """
+    answer: str = Field(
+        description="The generated answer to the user's question based on retrieved context"
+    )
 
 
 def create_answer_generator(
     llm: Runnable,
     strategy: str = "simple"
-) -> Any:
+) -> Runnable:
     """
-    답변 생성 에이전트를 초기화합니다.
-    
+    답변 생성 에이전트를 초기화합니다 (구조화된 출력 패턴 사용).
+
     검색된 문맥과 질문 의도에 따라 다음 전략을 사용합니다.
     - simple: SIMPLE_QA용 간결하고 직접적인 답변
     - complex: COMPLEX_REASONING용 단계별 분석
     - exploratory: EXPLORATORY용 구조화된 개요
-    
+
     매개변수:
         llm: 답변 생성을 수행할 언어 모델
         strategy: 생성 전략 (simple, complex, exploratory)
-    
+
     반환값:
-        문맥 기반 답변을 생성하는 에이전트
-        
+        AnswerOutput을 도구 호출을 통해 반환하는 Agent (Runnable)
+
     예시:
         >>> from langchain_openai import ChatOpenAI
         >>> llm = ChatOpenAI(model="gpt-4o")
         >>> generator = create_answer_generator(llm, strategy="simple")
-        >>> result = generator.invoke({
+        >>> result = await generator.ainvoke({
         ...     "messages": [{
         ...         "role": "user",
-        ...         "content": "question: What is PyTorch?\ncontext: PyTorch is a framework..."
+        ...         "content": "question: What is PyTorch?\\ncontext: PyTorch is a framework..."
         ...     }]
         ... })
     """
-    try:        
-        prompt_template = get_prompt(f"answer_generation_{strategy}")
-        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        
-        agent = create_agent(
-            model=llm,
-            tools=[],
-            system_prompt=system_prompt,
-            name=f"answer_generator_{strategy}",
-        )
-        
-        logger.debug(f"Answer generator agent created successfully with strategy: {strategy}")
-        return agent
-        
-    except Exception as e:
-        logger.error(f"Failed to create answer generator: {e}")
-        raise
+    from naver_connect_chatbot.service.agents.factory import create_structured_agent
+
+    return create_structured_agent(
+        llm=llm,
+        agent_name=f"answer_generator_{strategy}",
+        prompt_key=f"answer_generation_{strategy}",
+        output_model=AnswerOutput,
+        tool_name=f"emit_answer_{strategy}",
+        tool_description="Emit your generated answer after analyzing the context and question"
+    )
 
 
 def generate_answer(
@@ -105,24 +107,26 @@ def generate_answer(
         f"[문서 {i+1}]\n{doc.page_content}"
         for i, doc in enumerate(context)
     ])
-    
-    response = generator.invoke({
+
+    response_raw = generator.invoke({
         "messages": [{
             "role": "user",
             "content": f"question: {question}\n\ncontext:\n{context_text}"
         }]
     })
-    
-    # 응답 객체에서 실제 답변을 추출합니다.
-    if hasattr(response, "content"):
-        return response.content
-    elif isinstance(response, dict) and "output" in response:
-        return response["output"]
-    elif isinstance(response, str):
-        return response
-    else:
-        # 폴백 처리
-        logger.warning(f"Unexpected response format from answer generator: {type(response)}")
+
+    # Use response parser for structured extraction
+    from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
+
+    try:
+        response = parse_agent_response(
+            response_raw,
+            model_type=AnswerOutput,
+            fallback=AnswerOutput(answer="죄송합니다. 답변을 생성하는 데 문제가 발생했습니다.")
+        )
+        return response.answer
+    except Exception as e:
+        logger.error(f"Failed to parse answer response: {e}")
         return "죄송합니다. 답변을 생성하는 데 문제가 발생했습니다."
 
 

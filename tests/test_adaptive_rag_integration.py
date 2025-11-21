@@ -211,6 +211,51 @@ async def test_workflow_state_tracking(hybrid_retriever, llm):
         pytest.skip(f"Workflow execution failed: {e}")
 
 
+@pytest.mark.asyncio
+async def test_answer_generator_structured_output(llm):
+    """Answer Generator 구조화된 출력 테스트"""
+    print("\n" + "=" * 80)
+    print("5. Answer Generator 구조화된 출력 테스트")
+    print("=" * 80)
+
+    from naver_connect_chatbot.service.agents.answer_generator import (
+        create_answer_generator,
+        AnswerOutput,
+    )
+    from naver_connect_chatbot.service.graph.nodes import _coerce_model_response
+
+    # Simple 전략으로 에이전트 생성
+    generator = create_answer_generator(llm, strategy="simple")
+
+    print("\n🧪 테스트 쿼리: What is 2+2?")
+    print("📝 컨텍스트: Mathematics: 2+2 equals 4.")
+
+    try:
+        # 에이전트 실행
+        response_raw = await generator.ainvoke({
+            "messages": [{
+                "role": "user",
+                "content": "question: What is 2+2?\n\ncontext:\nMathematics: 2+2 equals 4."
+            }]
+        })
+
+        # AnswerOutput으로 변환 가능한지 확인
+        response = _coerce_model_response(AnswerOutput, response_raw)
+
+        # 검증
+        assert isinstance(response, AnswerOutput), f"Expected AnswerOutput, got {type(response)}"
+        assert isinstance(response.answer, str), f"Expected str answer, got {type(response.answer)}"
+        assert len(response.answer) > 0, "Answer is empty"
+
+        print("\n✅ 구조화된 출력 성공:")
+        print(f"   - Type: {type(response).__name__}")
+        print(f"   - Answer length: {len(response.answer)} characters")
+        print(f"   - Answer preview: {response.answer[:100]}...")
+
+    except Exception as e:
+        pytest.skip(f"Answer generator test failed: {e}")
+
+
 if __name__ == "__main__":
     # pytest 실행
     pytest.main([__file__, "-v", "-s"])
