@@ -118,6 +118,10 @@ services:
     image: redis:7-alpine
     container_name: langfuse-redis
     command: redis-server --requirepass ${LANGFUSE_REDIS_PASSWORD}
+    environment:
+      LANGFUSE_REDIS_PASSWORD: ${LANGFUSE_REDIS_PASSWORD}
+    env_file:
+      - .env.langfuse
     restart: unless-stopped
     networks:
       - chatbot-network
