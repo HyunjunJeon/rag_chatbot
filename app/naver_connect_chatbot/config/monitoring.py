@@ -136,7 +136,10 @@ def get_langfuse_callback(
 
     try:
         # Set environment variables for CallbackHandler
-        # (LangFuse SDK v3 reads from environment variables)
+        # LangFuse SDK v3 requires environment variables to be set for proper
+        # initialization of the CallbackHandler. While public_key can be passed
+        # explicitly, the SDK internally reads SECRET_KEY and HOST from env vars
+        # for authentication and connection configuration.
         import os
         os.environ["LANGFUSE_PUBLIC_KEY"] = langfuse_settings.public_key
         os.environ["LANGFUSE_SECRET_KEY"] = langfuse_settings.secret_key

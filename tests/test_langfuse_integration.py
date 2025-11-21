@@ -1,4 +1,5 @@
 """Integration tests for LangFuse tracing (requires running LangFuse)"""
+import os
 import pytest
 import asyncio
 from langfuse import Langfuse
@@ -10,10 +11,10 @@ from naver_connect_chatbot.config import settings
 
 
 @pytest.mark.integration
-@pytest.mark.asyncio
 class TestLangFuseIntegration:
     """Integration tests requiring real LangFuse instance"""
 
+    @pytest.mark.asyncio
     async def test_langfuse_health_check_real(self):
         """Test health check against real LangFuse instance"""
         is_healthy = await check_langfuse_health(settings.langfuse)
@@ -28,6 +29,7 @@ class TestLangFuseIntegration:
         else:
             assert is_healthy is False
 
+    @pytest.mark.asyncio
     @pytest.mark.skipif(
         not settings.langfuse.enabled,
         reason="LangFuse disabled (set LANGFUSE_ENABLED=true)"
@@ -65,17 +67,16 @@ class TestLangFuseIntegration:
         not settings.langfuse.enabled,
         reason="LangFuse disabled"
     )
-    async def test_langfuse_client_connection(self):
+    def test_langfuse_client_connection(self, monkeypatch):
         """Test direct connection to LangFuse API"""
         # Skip if keys are not configured
         if not settings.langfuse.public_key or not settings.langfuse.secret_key:
             pytest.skip("LangFuse API keys not configured")
 
-        # Set environment variables for Langfuse client
-        import os
-        os.environ["LANGFUSE_PUBLIC_KEY"] = settings.langfuse.public_key
-        os.environ["LANGFUSE_SECRET_KEY"] = settings.langfuse.secret_key
-        os.environ["LANGFUSE_HOST"] = settings.langfuse.host
+        # Set environment variables for Langfuse client using monkeypatch
+        monkeypatch.setenv("LANGFUSE_PUBLIC_KEY", settings.langfuse.public_key)
+        monkeypatch.setenv("LANGFUSE_SECRET_KEY", settings.langfuse.secret_key)
+        monkeypatch.setenv("LANGFUSE_HOST", settings.langfuse.host)
 
         langfuse_client = Langfuse(
             public_key=settings.langfuse.public_key,
