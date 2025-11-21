@@ -4,6 +4,7 @@
 
 - [설치](#설치)
 - [환경 설정](#환경-설정)
+- [LangFuse Monitoring](#langfuse-monitoring)
 - [주요 기능](#주요-기능)
   - [LLM 통합](#llm-통합)
   - [Reranker](#reranker)
@@ -141,7 +142,7 @@ Slack @mention
   → Traces visible at http://localhost:3000
 ```
 
-See `docs/plans/2025-11-21-langfuse-monitoring.md` for detailed architecture.
+See `docs/plans/2025-11-21-langfuse-monitoring-design.md` for detailed architecture.
 
 ## 주요 기능
 
