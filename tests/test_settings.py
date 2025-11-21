@@ -862,3 +862,27 @@ class TestSlackSettings:
         with pytest.raises(ValidationError):
             SlackSettings()
 
+
+class TestLangfuseSettingsIntegration:
+    """LangfuseSettings가 main Settings에 통합되었는지 테스트"""
+
+    def test_langfuse_settings_integration(self) -> None:
+        """Test LangfuseSettings is integrated into main Settings"""
+        from naver_connect_chatbot.config import settings
+        from naver_connect_chatbot.config.monitoring import LangfuseSettings
+
+        assert hasattr(settings, "langfuse")
+        assert isinstance(settings.langfuse, LangfuseSettings)
+
+    def test_langfuse_settings_env_prefix(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        """Test LANGFUSE_ env vars are loaded correctly"""
+        monkeypatch.setenv("LANGFUSE_HOST", "http://custom:9000")
+        monkeypatch.setenv("LANGFUSE_ENABLED", "false")
+
+        # Reload settings
+        from naver_connect_chatbot.config.monitoring import LangfuseSettings
+        test_langfuse_settings = LangfuseSettings()
+
+        assert test_langfuse_settings.host == "http://custom:9000"
+        assert test_langfuse_settings.enabled is False
+

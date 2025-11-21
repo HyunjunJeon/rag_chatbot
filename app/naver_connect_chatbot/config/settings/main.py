@@ -36,6 +36,7 @@ from .retriever import (
 )
 from .slack import SlackSettings
 from .vector_store import QdrantVectorStoreSettings
+from ..monitoring import LangfuseSettings
 
 
 class Settings(BaseSettings):
@@ -207,6 +208,12 @@ class Settings(BaseSettings):
     slack: SlackSettings = Field(
         default_factory=SlackSettings,
         description="Slack App 설정"
+    )
+
+    # LangFuse Monitoring
+    langfuse: LangfuseSettings = Field(
+        default_factory=LangfuseSettings,
+        description="LangFuse monitoring configuration"
     )
 
 
