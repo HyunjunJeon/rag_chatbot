@@ -56,6 +56,9 @@ from naver_connect_chatbot.config.settings.rag_settings import (
 # Logger
 from naver_connect_chatbot.config.log import logger
 
+# Monitoring
+from naver_connect_chatbot.config.monitoring import LangfuseSettings
+
 __all__ = [
     # Base
     "PROJECT_ROOT",
@@ -93,6 +96,8 @@ __all__ = [
     # Enum 타입
     "RetrieverStrategy",
     "HybridMethodType",
+    # Monitoring
+    "LangfuseSettings",
     # Logger
     "logger",
 ]
