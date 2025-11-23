@@ -1,0 +1,119 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "`FPN의 neck에서 Feature map 매핑하는 공식에 관한 질문입니다.`\n아래 수식에 neck에서 나온 output feature feature map의 width, hegiht를 넣어보면\nP5=-1, P4=0, P3=1, P2=2가 나옵니다.\n음수가 나오는 것이 조금 이상해서요.\n4 + log2(7/224) = -1\n혹시 제가 잘못 이해한 부분이 있을까요?",
+        "user": "U0427G7HN6L",
+        "user_name": null,
+        "timestamp": "1669045138.213079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "맞게 이해하신 것 같습니다! 다만 예시로 생각하신 input size가 작아서 양수가 나올 수가 없는 구조 같네요. 그리고 w,h 는 feature map의 width, height가 아니고, ROI의 weight, height라고 하네요. 따라서 input size가 더 크고, ROI의 w,h도 크다면 양수가 더해질 수도 있을 거 같네요:smiley:\n저 식을 통해 하고자 하는 것이, ROI의 크기에 따라 같은 출신(같은 P레벨)의 feature map을 찾고 roi를 projection 하려는 것이니, 이를 염두 하여 생각하면 어느 정도 말이 되지 않나 싶습니다..",
+          "user": "U0427G6LY3A",
+          "user_name": "신원준",
+          "timestamp": "1669078324.868539",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G6LY3A",
+              "ts": "1669078544.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03R4JQQGHF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<https://github.com/cocodataset/cocoapi|COCO API>와 <https://github.com/ZFTurbo/Mean-Average-Precision-for-Boxes|map-boxes> 에서 mAP를 계산하는 방식이 달라보이는데,\n저희 리더보드에서는 map-boxes 라이브러리 기반으로 mAP가 계산된다고 가정해도 문제가 없을지 궁금합니다 !",
+        "user": "U041HN3C7B5",
+        "user_name": "이강희",
+        "timestamp": "1669099727.638719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041HN2CWMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "코드적으로 조금 다르지만 알고리즘은 결국 동일하다고 생각하시면 됩니다! 그리고 map-boxes 기반으로 계산된다고 가정하여도 무관합니다 :smile:",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669099811.981789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HN3C7B5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하.. 괜한 걱정을 하고 있었군요, 답변 감사합니다 !!",
+          "user": "U041HN3C7B5",
+          "user_name": "이강희",
+          "timestamp": "1669099987.158519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "evaluation 에 대해서 깊이 생각해보는 것은 좋은 고민이라고 생각합니다. :+1:",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669100058.453319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "green_heart",
+                "users": [
+                  "U041HN3C7B5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

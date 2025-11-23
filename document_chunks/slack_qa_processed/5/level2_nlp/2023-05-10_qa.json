@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 질문해주신 평가 메트릭 관련하여 답변드립니다.\n\n베이스라인 코드에 있는 `klue_re_micro_f1()` 함수에서는 F1 score를 계산하기 위해 sklearn 라이브러리의 F1 함수를 사용하며, 이때 함수의 argument로 제공하는 labels에서 no_relation 클래스를 제외하는데요. 따라서 정답과 예측 중 하나에서라도 no_relation이 있을 경우 아래 코드의 예시처럼 F1 계산에 포함되게 됩니다. (class 0이 no_relation에 해당합니다.)\n\n그래서 예시로 보여주신 그림에서 가장 위에 있는 &lt;no_relation, no_relation&gt;을 제외한 예시들은 모두 채점에 활용되게 됩니다.\n\nsklearn library의 F1 score에 대한 보다 자세한 내용은 아래의 문서를 참고해주세요!\n<https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html>\n\n혹시 추가적인 질문이 있거나 제가 답변드린 부분에서 보완할 부분이 있으면 말씀 부탁드립니다. 감사합니다:grinning:",
+        "user": "U03R9AWH2NL",
+        "user_name": null,
+        "timestamp": "1683775818.106969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "친절한 답변 감사드립니다!!",
+          "user": "U04RK3FTGLT",
+          "user_name": "최규빈_T5215",
+          "timestamp": "1683778716.753869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

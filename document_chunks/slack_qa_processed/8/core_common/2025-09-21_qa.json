@@ -1,0 +1,288 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[CV 이론 / Overview / CV 이론 진단하기]\n퀴즈의 4번, 5번 문제가 중복되어서 나오는데 저만 그런걸까요?",
+        "user": "U09CH7F0PPV",
+        "user_name": null,
+        "timestamp": "1758503440.977299",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 그렇게 뜹니다...!",
+          "user": "U09CH85SUP5",
+          "user_name": "최진우_T8209",
+          "timestamp": "1758503486.297619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 그랬습니다~",
+          "user": "U09CH7WMSH1",
+          "user_name": "신현주",
+          "timestamp": "1758503489.674549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03MDFNTYCE> <@U03MQK0FF4Y> 확인부탁드립니다~~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1758505037.917099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 그렇습니다",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1758508743.206709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "문제가 없어요.",
+        "user": "U09CH86JZSP",
+        "user_name": null,
+        "timestamp": "1758509088.179969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "dotted_line_face",
+              "users": [
+                "U09CH879951",
+                "U09CH86HP4K"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "Visual perception에 해당하지 않는 task를 선택하시면 됩니다!!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1758509141.454729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grin",
+                "users": [
+                  "U09CH86JZSP",
+                  "U09CH7WMSH1"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH842TRR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다.",
+          "user": "U09CH86JZSP",
+          "user_name": "박동수",
+          "timestamp": "1758509150.027239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U09CH7U429H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[CV 이론 / 기본 과제1] attention matrix라고 하면 softmax를 가한 행렬이 맞나요? 정의상 그게 맞는거 같은데 시각화하면 이상하네요.",
+        "user": "U09CH81GZSP",
+        "user_name": "Aaron Noah",
+        "timestamp": "1758520288.097499",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7T8Z8T",
+                "U09CH7TN9A7"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 모델의 patch_embed를 사용하였을 때는 제대로 attention matrix가 나왔는데,\n제가 짠 my_patch_embed를 사용했을 때 이미지가 이상하게 나왔습니다.\nsoftmax의 문제가 아니라 학습되지 않은 레이어의 문제 같습니다.\nmodel은 pretrained model을 가져오기 때문에 임베딩 레이어도 학습되어 있지만,\n저희가 과제에서 짠 patch_embed는 convolution layer가 학습되지 않은 상태이기 때문에 값이 이상하게 나오는 것 같습니다.\n+제가 잘못 본 것 같네요.. embeding과 무관하게 softmax를 취하면 그림이 달라지는 것 같습니다.\n값들이 커서 softmax를 했을 때 Attention이 잘 보이지 않기 때문에 softmax를 취하지 않은 이미지를 사용한 것 아닐까요?",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1758520768.003659",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8393DH",
+              "ts": "1758522688.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH81GZSP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 softmax를 없애니까 미리 나와있는 결과랑 같아졌습니다.",
+          "user": "U09CH81GZSP",
+          "user_name": "Aaron Noah",
+          "timestamp": "1758520996.232009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 softmax 없애니까 같은 결과가 나오네요",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1758521101.734519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[CV 이론 / 기본 과제1] \"TODO: 각 패치와 다른 모든 패치 간의 코사인 유사도를 계산하세요\" 에서 `F.cosine_similarity` 를 이용하여 유사도를 계산하면 `cos` 객체는 언제 사용하는 것인가요?",
+        "user": "U09CH84CA6P",
+        "user_name": "오천영",
+        "timestamp": "1758521980.486049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH894W3D",
+                "U09CH8A1B6X"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "위에서 정의한 cos 객체를 함수처럼 사용할수도 있습니다!",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1758522249.294979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8A1B6X",
+                  "U09CH84CA6P"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

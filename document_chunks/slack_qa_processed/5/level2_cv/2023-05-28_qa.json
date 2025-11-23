@@ -1,0 +1,69 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "(8강) Annotation 도구 소개\n강의의 17:59(slide # 43)에서 강사님께서 Upstage Annotation Tool이 \"아직\" open source가 아니라고 하셨는데, 혹시 open source로 배포 계획이 있는지 궁금합니다.",
+        "user": "U04RK761KC2",
+        "user_name": "김대희",
+        "timestamp": "1685274838.401609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "아직은 구체적으로 말씀드리기는 어렵지만, open source로의 계획을 준비하고 있습니다.",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1685276599.342169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK761KC2",
+                  "U03L1UMDLUS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 금일 공지된 서버 이슈 관련해서 문의드리려고 합니다. 공지에서 \"플랫폼 이슈 게시판\"라고 되있는 게시판이 \"게시판 - 플랫폼 이슈 문의\" 페이지가 맞을까요?",
+        "user": "U04RG9121NZ",
+        "user_name": "김보경",
+        "timestamp": "1685333186.698139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "네 맞습니다! :+1:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1685334395.318719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

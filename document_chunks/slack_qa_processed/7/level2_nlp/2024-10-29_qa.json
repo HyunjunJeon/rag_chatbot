@@ -1,0 +1,55 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. Data-Centric 대회 관련해서 질문있습니다!\n\n1. 2800개 데이터 중에 label 변동 데이터가 1000개, noise 추가 데이터가 1600개여서 정상데이터가 200개라고 오피스아워 때 들었습니다. 그러면 label 변동과 noise 추가가 같이 된 데이터는 없는걸까요? 이렇게 되면 noise가 추가된 데이터는 모두 라벨이 정확하고, noise가 추가되지 않은 데이터들은 거의다 라벨이 바뀌었다고 생각하면 되는 걸까요?\n2. 숫자-라벨 매핑정보에 대해서 궁금합니다.\n아래의 aistage board 링크에서는 정치(0) , 경제(1) , 사회(2) , 생활문화(3) , 세계(4) , IT과학(5) , 스포츠(6)으로 되어있는데 1번에서의 가정대로 noise가 추가된 데이터가 라벨이 정확하다면 0 생활문화, 1 스포츠, 2 정치, 3 사회, 4 IT과학,5 경제, 6 세계 가 되어야될거같은데 정확한 숫자-라벨 매핑 정보가 궁금합니다.\n<https://stages.ai/en/competitions/329/board/community/post/2828>",
+        "user": "U07EFLKEVA6",
+        "user_name": "정준한",
+        "timestamp": "1730198923.189409",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "black_heart",
+              "users": [
+                "U07F4EDU6BA",
+                "U07ECPU2N05",
+                "U07E14C7L7R",
+                "U07E144HA79",
+                "U07EUASMPJM",
+                "U07E922JC4W",
+                "U07EFH9CXS7",
+                "U07EFHJSQCT"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! <@U07EFLKEVA6>님, 답변 드리겠습니다.\n\n1. label 변동과 noise 추가가 같이 된 데이터는 없는걸까요?\n=&gt; 네, label 변동과 noise 추가는 중복되지 않도록 진행하였습니다. 즉, label이 변동된 데이터는 noise 추가가 잃어나지 않으며 반대도 동일합니다.\n\n2. 숫자-라벨 매핑정보에 대해서 궁금합니다.\n=&gt; 대회 제작 측에서 저희가 의도적으로 라벨 매핑을 숨겨두었습니다. 외부 ynat 학습 데이터 사용 혹은 ynat으로 학습된 모델을 사용하면 높은 점수가 발생할 수 있어, 라벨 매핑 정보를 의도적으로 감추었습니다. 라벨 매핑은 데이터 측면에서 증강을 진행한다고 했을 때, 기존 데이터를 활용하는 방안에 더 높은 점수를 주기 위하여 공개하지 않으려고 합니다.\n\n감사합니다!",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1730264214.432519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U07EFLKEVA6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

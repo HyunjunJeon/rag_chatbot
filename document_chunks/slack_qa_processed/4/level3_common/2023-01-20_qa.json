@@ -1,0 +1,121 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 ! Recsys 10 조 허유진입니다.\n다름이 아니라, 현재 streamlit 으로 페이지 구성을 하고 있는데요 !\n팀원들끼리 페이지 테스트를 진행하다가 아래와 같은 문제 상황이 있어 질문 드립니다.\n\n• 문제 상황 : A 유저와 B 유저가 서로 상태를 공유함\n    ◦ A 가 강남구 선택 후 B 가 유입하여 도봉구 선택시 도봉구로 선택이 변경됨 \n검색을 하다 보니 session_state 를 서로 공유하는 문제로 보이는데, 또 마지막 답글( Mar '22 ) 에서는 streamlit 의 Session State 를 사용하라고 되어 있습니다.. <https://discuss.streamlit.io/t/two-people-on-same-session-state/3211|( 관련 글 )>\n\n*streamlit 의 session state 를 사용하는 방법이 잘못되었는지,* \n*아니면 streamlit 에서는 session 을 다루는 다른 방법이 있는지 궁금합니다 ㅠ_ㅠ_ㅠ_ㅠ ( 살려주세요 흑흑 )* \n\n• 사용 환경 ( ai stage server , ubuntu 18.04 ) \n    ◦ streamlit 1.16.0\n    ◦ streamlit-folium==0.8.1\n    ◦ python 3.9\n• 제가 session state 를 사용한 방법 \n    ◦ app.py 상단에서 아래 코드 실행\n```for k, v in STATE_KEY_VAL:\n        if k not in st.session_state:\n            st.session_state[k] = v```",
+        "user": "U0427G5T6BS",
+        "user_name": "허유진_T4229",
+        "timestamp": "1674212398.766549",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0427G5T6BS",
+            "ts": "1674213126.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0427G446D6",
+                "U041HN42FV1",
+                "U041L8X6A3W",
+                "U041HN1MERH"
+              ],
+              "count": 4
+            },
+            {
+              "name": "booduck_cry",
+              "users": [
+                "U0427G446D6",
+                "U041HMZAA9Z",
+                "U041L8X6A3W",
+                "U0427G5T6BS",
+                "U041HN42FV1"
+              ],
+              "count": 5
+            },
+            {
+              "name": "booduck-coding",
+              "users": [
+                "U0427G446D6",
+                "U041HN42FV1"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "유진님 안녕하세요! 이 케이스는 코드를 봐야 알 수 있을 것 같은데..\n올려주신 글은 0.61 버전이 나왔을 쯤 20년 6월에 st.session_state가 없던 시절에 SessionState라는 코드가 공유되면서 올라온 글 같아요. 마지막 티아고는 이제는 st.session_state로 구현했으니 위 SessionState를 사용할 필요가 없다는 의미로 말한거 같고 SessionState는 실험적으로 만들어진 것 뿐이다라고 했어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1674220353.184369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G446D6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```if \"test\" not in st.session_state:\n    st.session_state.test = 1```\n```st.write(st.session_state.test)\n\ndef reset():\n     st.session_state.test += 1```\n별거 없이 이렇게만 해도 세션마다 서로 다른값으로 잘 처리하는데..\n\n한번 빈 프로젝트를 새로 만들어서 테스트 해보시면 어떨까요?",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1674221626.575549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G446D6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PL9GCPFZ> 님, <@U041L92FWCC> 캠퍼님 !\n답변 감사합니다 ㅠ_ㅠ :face_holding_back_tears:\n빈 프로젝트에서 테스트 해보면서 문제가 되는 부분을 찾아보겠습니다 !\n우선은 user interaction 을 수집하는 목적으로 streamlit 버전을 다운하여 진행했습니다...\n감사합니다 ! 설날 잘 보내세요 ^_^ :tulip:",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1674223651.470449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G446D6",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

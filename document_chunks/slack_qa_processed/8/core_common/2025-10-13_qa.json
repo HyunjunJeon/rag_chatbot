@@ -1,0 +1,53 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[6주차 ML for RecSys /과제: 기본 2,3,4 / 데이터셋 문의 ]\n부스트캠프  기본 과제 2,3,4 명세 페이지에서 준비되어 있는 데이터셋이 모두 빈 압축풀더입니다. 새로고침이나 재접속해도 잘못된 파일이 다운 받아지네요. GroupLens에서 제공하는 원시데이터로 과제 진행하면 될까요?",
+        "user": "U09CH89NYSF",
+        "user_name": "정회성",
+        "timestamp": "1760346038.312899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안에 들어있는 파일 이름이 깨져서 그런 것 같습니다.\n리눅스 환경에서 unzip하니 파일이 제대로 나옵니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1760346272.937019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH89NYSF",
+                  "U09CH7T8Z8T"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8393DH> 감사합니다:+1:",
+          "user": "U09CH89NYSF",
+          "user_name": "정회성",
+          "timestamp": "1760346334.295759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

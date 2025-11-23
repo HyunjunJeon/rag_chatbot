@@ -1,0 +1,64 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 PyCharm 쓰시는 분들중에 Latency 가 확 올라가는 이런 현상 겪으시는 분 없으신가요?\n한 번 이러면 서버 재부팅 하기 전까지 계속 이러는것 같고.. PyCharm 재실행 해도 마찬가지네요.. ㅠㅠ\n타이핑에도 랙이 걸리는 정도인데..\nM1 Max 입니다. 혹시 이거 PyCharm + M1 에서 고질병인가요? 아니면 뭔가 원인이 있을까요?",
+        "user": "U041L92FWCC",
+        "user_name": null,
+        "timestamp": "1674297254.327699",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 파이참 m1 버전아니고 다른걸로 설치하셨나요? 그냥 인텔맥버전 다운받으면 그런현상가끔 생긴다고 들었습니다",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1674297455.287309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "M1 버전 맞춰서 받기는 했습니다 ㅠㅠ 이게 매번 그런건 아니고 음.. 간헐적으로 발생해서요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674297486.382019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시나 해서 다시 봤는데 M1 버전 맞네요... ㅠㅠ",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1674297583.259459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

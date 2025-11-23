@@ -1,0 +1,123 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! NLP 2조 강혜윤입니다.\n이번 MRC 대회를 준비하면서 저번 대회인 RE 대회보다 복잡하고 어렵게 느껴지더라구요\nODQA 과정을 전체적으로 이해하고, 어떤 부분을 먼저 실험할지 고민해보려고 pdf 한 페이지로 정리해보았습니다!\n조대현 조교님이 베이스라인 코드 설명을 잘해주셔서 다들 이해하셨겠지만 어디서부터 시작해야 할지 어려움을 겪으시는 분들에게 혹시 도움이 될까 싶어 공유해봅니다!ㅎㅎ\n참고로 주황색 별표시는 실험해봐야 하는 부분들을 표시해놓은거예요!\n(원래는 팀원들끼리만 공유하려고 대충 만든 자료인데 이종혁 멘토님께서 공유해보는 게 어떻겠냐고 제안해주셔서 슬쩍 남겨봅니다,,:face_with_hand_over_mouth:)\n좋은 주말 보내세요 :)",
+        "user": "U02U5LPNMFF",
+        "user_name": null,
+        "timestamp": "1651225089.020339",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02RBNNL7LG",
+                "U02U1KYBQ02",
+                "U02U4SD5Y4D",
+                "U02TZAV2830",
+                "U02QJSQ1H1T",
+                "U02QQ376VB6",
+                "U02TFFR63FU",
+                "U02U1TBB8GN",
+                "U02U0KX9P7D",
+                "U02U7CWH8RH",
+                "U02TTC9RBFZ",
+                "U02THRRHU3W",
+                "U02RZURAQT0",
+                "U02TKEWKS4X",
+                "U02UTH1484E",
+                "U02TRE3NBV5",
+                "U02UJGCP265",
+                "U02RUR38GCF",
+                "U02TCL8CQGM",
+                "U02U1APCEBC",
+                "U02U4T01UKX",
+                "U02TU6HBDG9",
+                "U02U7SPJU5S",
+                "U02TUHB5D7V",
+                "U02T25M7BE3",
+                "U02U7N1DGHG"
+              ],
+              "count": 26
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02QJSQ1H1T",
+                "U02TTC9RBFZ",
+                "U02RZURAQT0",
+                "U02TE6BT7AR",
+                "U02TKEWKS4X",
+                "U02U5H18SP7",
+                "U02UJGCP265",
+                "U02RUR38GCF",
+                "U02TUHB5D7V"
+              ],
+              "count": 9
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U02RUR38GCF",
+                "U02TUHB5D7V"
+              ],
+              "count": 2
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U02RUR38GCF",
+                "U02TUHB5D7V"
+              ],
+              "count": 2
+            },
+            {
+              "name": "393b2c5cf48b52c4",
+              "users": [
+                "U02RUR38GCF",
+                "U02TUHB5D7V"
+              ],
+              "count": 2
+            },
+            {
+              "name": "눈-사람-",
+              "users": [
+                "U02U1RYL99C",
+                "U02TUHB5D7V"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "혜윤님!! 공유해주셔서 감사합니다!! 한눈에 보기 좋네요",
+          "user": "U02RUR38GCF",
+          "user_name": "이종혁",
+          "timestamp": "1651239322.341379",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02RUR38GCF",
+              "ts": "1651241510.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02U5LPNMFF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[Movie Rec 미션-1]\n안녕하세요! 미션-1 장르 시각화 부분에서 궁금한점이 있어 질문드립니다.\n사진 마지막 줄에 Romance 장르에 해당하는 영화의 갯수에 비해 실제 사용자들이 시청할 확률이 더 높았다고 나오는데 그래프 대로라면 그 반대가 맞다고 생각합니다.\n제가 잘못 이해하고 있는건지 단순 오타인지 궁금합니다!",
+        "user": "U04RG8X8AJH",
+        "user_name": null,
+        "timestamp": "1685672036.278509",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RG941RM3",
+                "U04S8TDHU2C",
+                "U04RMLWR0MA",
+                "U04RK3F6UUB",
+                "U04RK3EHTAP",
+                "U04R4LTEM55",
+                "U04RG90U6H3",
+                "U04RMLU2K52",
+                "U04RCJPT414",
+                "U04R4LT3ZTR"
+              ],
+              "count": 10
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03M7B4JYMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "오 저도 궁금합니다!",
+          "user": "U04RK3EHTAP",
+          "user_name": "서우현_T5106",
+          "timestamp": "1685672768.656059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "face_in_clouds",
+                "users": [
+                  "U04RG90U6H3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Training data. &lt; All Data\n니까 우리의 모델은 훈련시킬 때 로망스가 7위이지만 않실제로는 전체 데이터셋에서는 로망스가 4위니까  '실제 사용자들은 로망스를 시청할 확률이 훈련할때보다 높다' 라는 뜻....이 아니었을까요? 저도 잘 모릅니다 :disappointed:",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1685681450.307289",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3KSAN7",
+              "ts": "1685681455.000000"
+            },
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RG8X8AJH",
+                  "U04RG90U6H3",
+                  "U04RK3EHTAP"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

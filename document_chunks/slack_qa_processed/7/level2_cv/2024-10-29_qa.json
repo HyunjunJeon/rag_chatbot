@@ -1,0 +1,668 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 기본1 과제하다가 Intersection Area에 대해 질문이 생겼습니다\nEAST의 Intersection Area를 구하는 과정이 잘 이해되지 않습니다\nd에서 말하는 거리가 어디와 어디 사이의 거리인지 모르겠습니다\n그리고 왜 min + min인지 이해가 되지 않습니다!",
+        "user": "U07ECPQCXNZ",
+        "user_name": null,
+        "timestamp": "1730254476.057159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07F4EG49UG",
+                "U07F4ESLHS4",
+                "U07E925QTU6",
+                "U07EJ5KHG0L"
+              ],
+              "count": 4
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR",
+                "U07ECPQCXNZ"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 20
+        }
+      },
+      "answers": [
+        {
+          "text": "거리 d는 어떤 한 픽셀과 box와의 거리입니다.  상하좌우로 네 방향이기 때문에 d1, d2, d3, d4가 있습니다.",
+          "user": "U075VV2KDTR",
+          "user_name": null,
+          "timestamp": "1730259253.620929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ground truth와 predicted box의 교집합을 구한다는 것은, 겹치는 박스를 구하겠다는 것입니다. d는 픽셀과 변 사이의 거리기 때문에, 이 거리가 작은 부분만이 겹치게 됩니다. 그래서 min 입니다.\n\n예를 들어, 위 그림에서 꽉찬 박스와 선만 있는 박스의 교집합을 구하고 싶다면, 꽉찬 박스가 겹치는 교집합이 될것입니다. 픽셀과의 거리라고 생각해보면 짧은 쪽이 교집합이 됩니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730259366.989139",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U075VV2KDTR",
+              "ts": "1730259473.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상하좌우변과의 거리기 때문에, width를 구하기 위해서는 좌변과의 거리 + 우변과의 거리, height를 구하기 위해서는 상변과의 거리 + 하변과의 거리를 계산해야합니다.\n\n그래서 min+min입니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730259535.047269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조교님 답변 감사합니다!\n어떤 한 픽셀은 두 박스의 교집합 내부에 위치한 임의의 점인가요?\n과제 1에선 d를 구하는 부분이 나타나있지않고 .pth 파일을 불러오는 형태라 잘 이해가 가지 않았습니다.\nbbox가 겹치지 않는 경우는 애초에 고려하지 않는 게 맞나요??",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730261860.816369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모든 픽셀마디 하나의 박스가 있고, 모든 픽셀에 대해서 해당 iou를 계산합니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730262798.192279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U075VV2KDTR",
+              "ts": "1730262823.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모든 픽셀마다 하나의 박스가 있다는 게 이해가 되지 않습니다...! 이미지 내부에 있는 모든 픽셀을 말씀하시는 건가요? 아니면 예측 또는 GT BBox 내부의 모든 픽셀은 어떠한 박스 안에 꼭 들어가있다는 걸 말씀하시는 건가요?\n그렇다면 교집합이 아닌 부분에 대해 IoU는 어떻게 계산이 시도되는 건지도 잘 모르겠습니다.\n그리고 교집합 내부 픽셀에 대해서 IoU를 계산하면 전부 동일한 값이 나온다고 생각되는데, 뭐하러 모든 픽셀에 대해 계산하는 건가요...?????",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730265407.425189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 모든 픽셀마다 하나의 박스가 있다는 게 이해가 되지 않습니다...! 이미지 내부에 있는 모든 픽셀을 말씀하시는 건가요? 아니면 예측 또는 GT BBox 내부의 모든 픽셀은 어떠한 박스 안에 꼭 들어가있다는 걸 말씀하시는 건가요?\n이미지의 모든 픽셀마다 네 개의 거리 값을 예측합니다. 이 네 개의 값은 해당 픽셀에서 예측된 bounding box의 네 면(위, 아래, 왼쪽, 오른쪽)까지의 거리를 나타냅니다. 이 거리 값을 통해 각 픽셀마다 개별적인 사각형을 생성할 수 있습니다. 그렇기 때문에 한 픽셀마다 하나의 박스를 만들 수 있습니다.",
+          "user": "U075VV2KDTR",
+          "user_name": null,
+          "timestamp": "1730265681.851399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "예측 또는 GT BBox 내부의 모든 픽셀은 어떠한 박스 안에 꼭 들어가있다는 설명 보다는\n• GTBbox 내부의 모든 픽셀 --> 이미 박스를 알고 있음. 그러므로 이 픽셀은 고정된 GTBbox안에 있음.\n• 각 픽셀마다 박스 하나 (네 개의 거리값, 사실 각도까지 다섯개)씩을 예측함 --> 픽셀마다 각각 다른 박스를 예측함. 각 픽셀은 각기 다른 예측된 박스 안에 있음.\n이 맞겠습니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730265991.860229",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U075VV2KDTR",
+              "ts": "1730266037.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 그렇다면 교집합이 아닌 부분에 대해 IoU는 어떻게 계산이 시도되는 건지도 잘 모르겠습니다.\n해당 loss에서는 교집합인 부분에 대해서만 IoU를 계산합니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730266126.164159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "> 그리고 교집합 내부 픽셀에 대해서 IoU를 계산하면 전부 동일한 값이 나온다고 생각되는데, 뭐하러 모든 픽셀에 대해 계산하는 건가요...?????\n각 픽셀마다 박스 하나 (네 개의 거리값, 사실 각도까지 다섯개)씩을 예측함 --> 픽셀마다 각각 다른 박스를 예측함. 각 픽셀은 각기 다른 예측된 박스 안에 있음.\n이 설명에서 보실 수 있듯이 예측된 박스가 픽셀마다 다 다 다릅니다. IoU 계산은 예측된 geometry map이 얼마나 정확하게 GT BBox와 일치하는지를 평가하기 위한 목적입니다. 픽셀별로 IoU가 조금씩 다를 수 있고 그래서 모든 픽셀에 대해서 계산합니다.\n모든 픽셀에 대해 예측하는 것을 일종의 앙상블처럼 생각할 수 있습니다. 나중에 추론할 때, 여러 픽셀의 정보를 모아서 텍스트 영역의 예측 정확도를 높이게 되는거죠.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730266255.513489",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U075VV2KDTR",
+              "ts": "1730266270.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 평가단계라고 생각하고 고정된 gt한개 예측 한 개라고 착각했습니다..!!! 모든 픽셀에 대해 예측박스가 생성되고 그것에 대해 IoU가 계산되고 가장 나은 예측박스를 남기는...?것인가요!",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730266476.728119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "훈련이 아닌 평가 단계에서 말씀하시는걸까요?",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730266633.903099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "엇 훈련에서만 쓰이는 과정이라고 이해했습니다!",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730266697.474819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "훈련 과정에서, IoU계산은 모든 픽셀마다 다 계산되고, 픽셀마다 loss가 하나씩 나오고 다 합해서 최적화합니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730266762.422879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 각 픽셀에 대해 예측박스 하나 나온다 : 앵커박스 개념이라고 이해했습니다. 질문이 넓어졌는데... 한 픽셀이 만들어 내는 예측박스의 경우의 수가 많을텐데 그 모든 경우를 살펴보고 가는지 궁금합니다\n2. 한 이미지에서 모든 픽셀에 대해 loss가 하나씩 나온다는 사실은 이해했습니다! 이걸 다 합한다 = 한 이미지에 있는 모든 loss를 다 더해서 최종 loss 하나를 만든다  가 맞을까요? 그렇다면 최종 loss 하나만 보고 GT k개에 딱 맞도록 예측박스를 선별하는 작업을 어떻게 하나요...? (0,1) 위치의 예측박스가 잘못되었는지 (3,3)위치의 예측박스가 잘못됐는지 어떻게 아는지 궁금합니당 모든 경우의 수를 따지나요?",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730267791.255399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1은 훈련단계를 말씀하실까요, 아니면 추론단계일까요.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730269057.840109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "훈련단계에 대한 질문이었는데, 추론 단계에서도 동일할 거라고 생각했습니다...",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730269123.849399",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07ECPQCXNZ",
+              "ts": "1730269135.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 훈련단계에서는 모든 픽셀이 박스와의 거리를 정확하게 예측하도록 훈련됩니다. loss를 합치게 되면 모델이 모든 경우의수에 대해서 다 정확한 답을 내놓도록 학습이 됩니다. 추론단계에서는 약간 복잡합니다. 모든 픽셀마다 예측된 박스를 잘 합쳐서 제일 그럴듯한 하나의 박스를 만들어내야 하는거죠. 오늘 저녁 오피스아워에서 설명드릴 계획입니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730269347.464459",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U075VV2KDTR",
+              "ts": "1730269358.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2. 훈련과정 중에 (0, 1) 위치의 예측박스가 많이 틀리고 (3, 3) 위치의 예측박스는 잘 나왔다고 생각해볼게요. 그러면 전자의 loss는 크고, 후자의 loss는 작죠. 이를 합쳐서 최적화를 하게 되면, 자동적으로 큰 loss에 해당하는 부분을 더 많이 수정하게 됩니다. 그러면 우리가 경우의수를 따질 필요없이 모델이 많이 틀린 박스를 더 잘 수정하도록 학습하게 됩니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730269454.997279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U075VV2KDTR",
+              "ts": "1730269464.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 이해 됐습니다 답변 너무 감사드립니다!!! 추가적인 질문이 생기면 오피스아워에서 드리겠습니다:grinning::grinning:",
+          "user": "U07ECPQCXNZ",
+          "user_name": "조소윤",
+          "timestamp": "1730270217.900139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "현재 한 1 epoch에 몇 분 정도 걸리나요? 다른 캠퍼분들도 공유해주시면 감사하겠습니다. 모든 서버에서 느린건지 궁금해서요",
+        "user": "U076G8QN5GS",
+        "user_name": "Jaekyun Park",
+        "timestamp": "1730254946.510569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 12분정도 나왔습니다",
+          "user": "U07EJ5KHG0L",
+          "user_name": "양호철",
+          "timestamp": "1730255008.014079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1에폭에 약 15분 이상 걸리고 gpu 점유율은 거의 안오르고 cpu만 8코어 전부 100퍼센트 나옵니다",
+          "user": "U07E923RRPG",
+          "user_name": "김형준",
+          "timestamp": "1730255033.376819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "baseline 기준으로 1에폭당 13분 소요됩니다.\n\n이후 전처리과정 중 East_dataset 중에서 generate_score_geo_maps 함수부분이 시간이 오래 걸림을 확인하고, 이부분 코드 수정을 통하여 미리 계산하는 방식으로 바꾸어주니 1분 미만으로 소요됨을 확인하였습니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1730255755.834039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07E14AA363",
+                  "U07EUB16PMX",
+                  "U07EFHCC1QB",
+                  "U07EUAQ8189",
+                  "U07EJ5MQ204",
+                  "U07F4EGLCHW",
+                  "U07EFLVB398"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "east dataset init 부분에서 모든 image에 대해서 미리 계산해서 캐싱한단 말씀이시죠? 혹시 개인 dm 으로 해당 코드 보내주시면 검토해보겠습니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730256695.225359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "East_datase _init_에서 미리 계산하면 모든 Epoch에서 랜덤성 없이 동일한 이미지 증강이 적용되는 것 아닌지 궁금합니다!",
+          "user": "U07EUAQ8189",
+          "user_name": "김상유",
+          "timestamp": "1730258384.226949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그 부분 인지하고 있으며 실험진행중에 있는데 아직까진 크게 영향을 끼침을 확인하지는 못했습니다. 원 베이스라인의 학습 속도가 매우 오래걸려  다양한 Aumenatation을 진행하고 성능 비교를 진행해보지는 못하였습니다.\n\nColor jitter나 normalize같은 픽셀변화 Aumenatation은 잘 적용이 되나 Affine과 같은 이미지를 변화시키는 증강은 테스트해보아야할것 같습니다.\n차선책으로 Offline_augementation을 사용할 예정 이며, 추후 score_map, geo_map을 재 계산할 수 있는 방법이 있는지 알아보려합니다.\n\n추가로 기본 baseline과 성능 비교를 진행해보았는데 이 부분에선 동일합니다!",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1730258755.678579",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E921DX9C",
+              "ts": "1730258935.000000"
+            },
+            "reactions": [
+              {
+                "name": "blob_aww",
+                "users": [
+                  "U07EUAQ8189"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "곧 수정된 코드로 업데이트를 부탁드리는 공지가 나갈 예정입니다. <@U07E921DX9C> 님도 캐싱 대신 새로운 버젼의 코드로 돌려주시면 감사하겠습니다!",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730259133.925819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1730259150.773379",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E921DX9C",
+              "ts": "1730259160.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "해당 네 파일은 제외하고 (.gitignore 에 넣는 등) github 업로드 부탁드리겠습니다",
+        "user": "U076G8QN5GS",
+        "user_name": null,
+        "timestamp": "1730255039.246759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "zzang",
+              "users": [
+                "U07EFHKFKPV",
+                "U07EUAU2W1F",
+                "U07EUAQ5W2V",
+                "U075VV2KDTR"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 감사합니다!",
+          "user": "U07EFHKFKPV",
+          "user_name": "차성연",
+          "timestamp": "1730255157.808089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. Cv-24조 이진우 입니다.\n저희는 프로젝트 진행중 cpu 병목 현상이 있었고, 문제를 해결하기 위해 이미지를 캐싱하여 프로젝트를 진행 중이었습니다.\n새로 올려주신 베이스라인 코드는 캐싱하여 학습하는 것보다 학습 시간이 오래 걸리는 것을 확인 했습니다.\n무조건 새로운 베이스 라인으로 학습을 해야하는지? 캐싱하는 방식으로 학습을 진행하면 안되는지? 궁금합니다.",
+        "user": "U07E92D2YDC",
+        "user_name": "이진우_T7231",
+        "timestamp": "1730267088.315119",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07GAH06VJL",
+                "U07EFHKFKPV",
+                "U07F4EF3HS4"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 14
+        }
+      },
+      "answers": [
+        {
+          "text": "네 캐싱된 코드도 검토해보았는데요, 우선 캠퍼분들이 만드신 외부 artifact (pickle 한 결과들) 에 의존하기도 하고, 그것의 정합성을 대회 운영진들이 일일이 검토하기 힘들기 때문에 올려주신 코드를 사용해주시면 감사하겠습니다. 새롭게 올린 코드에서 1 epoch 당 시간이 어느정도로 나오던가요?",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730267531.361219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2:30 ~ 3분정도로 소요됨을 확인하였습니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1730267680.456649",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E921DX9C",
+              "ts": "1730267698.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "소요시간 위 팀과 동일합니다",
+          "user": "U07E92D2YDC",
+          "user_name": "이진우_T7231",
+          "timestamp": "1730267737.963979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 물론 pickling 하는게 더 빠르겠지만 대회 정책 상 새로운 코드로 하시는 것을 부탁드리겠습니다. 만약 east dataset이 아닌 새로운 dataset (e.g. synthetic STR dataset) 을 추가하실 때는 캠퍼분들께서 로드하는 로직은 마음대로 하셔도 무방합니다.",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730267829.681689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U07ECPQJDRT",
+                  "U07E921DX9C",
+                  "U07E92D2YDC",
+                  "U07F4EF3HS4",
+                  "U07EFLV99SN",
+                  "U07EFHA4LSX"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인했습니다. 감사합니다.",
+          "user": "U07E92D2YDC",
+          "user_name": "이진우_T7231",
+          "timestamp": "1730268035.401749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 말씀해주신 대로 새로운 코드로 다시 로드해서 사용하고 있습니다. 확실히 @njit을 사용해주신 이후로는 학습 시간이 많이 줄어들은 거 같습니다. 그러나 저희가 pickling을 한 부분은 기본 dataset을 처리할 수 있고, 그 방법이 학습속도가 빨라 더 다양한 augmentation 실험이나 추가 데이터 수집에 대한 학습을 진행하기에 적합하다고 사용하고 있었는데 model이나 다른 부분은 건드리지 않고 시간이 많이 소요되는 EASTData를 미리 만들어 사용하려고 했던 부분이였습니다. 데이터를 추가하거나 증강할수록 학습시간이 더 증대해져서 사용하려고 했던 연유도 있습니다. 내부의 코드는 따로 수정하지 않고 dataset과 train.py에 있는 코드만 수정하여 올려주신 정책에 위배되지 않는 작업이라고 생각했는데, 혹시 어느 부분이 정책과 맞지 않는건지 알 수 있을까요?\n참고로 사용하더라도 조교님들께서 작성해주신 @njit에 대한 부분을 수정하지 않고 그대로 사용할 예정입니다..! 답변 주신다면 정말 감사하겠습니다. 항상 수고가 많으십니다..!!",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1730269540.910349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07E921DX9C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요,\n\n캐싱 관련해서 하나 궁금한 부분이 있는데, 혹시 online_augmentation을 적용하고 캐싱을 수행할 경우 매 epoch 마다 같은 augmentation이 적용된 이미지를 사용하게 될거 같은데, 이럴 경우 그냥 online augmentation을 빼고 offline으로 하셨을까요?",
+          "user": "U07EUAY2ZND",
+          "user_name": "곽기훈",
+          "timestamp": "1730269874.837659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "캐싱해놓고 학습했기 때문에 offline augmentation 으로 보시면 될 것 같습니다.",
+          "user": "U07E92D2YDC",
+          "user_name": "이진우_T7231",
+          "timestamp": "1730270447.829949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다.",
+          "user": "U07EUAY2ZND",
+          "user_name": "곽기훈",
+          "timestamp": "1730270464.927719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EJ5DES5S> dataset.py 와 train.py 를 바꾸는 것은 문제가 되지 않습니다, 다만  `east_dataset.py` 에서 이제 score_map, geo_map 을 input 으로 받기 때문에 코드가 달라지지 않나요?",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730270840.383129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "east_dataset.py에서 input을 바꾸지 않고 기존에 train.py에 있던 SceneTextDataset를 수행한 후  EASTDataset으로 변환 하는 작업을 pickle로 아예 따로 빼서 작업을 해서 east_dataset의 input이나 내부 구조에는 변화 없이 사용하고 있었습니다!",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1730271015.575179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

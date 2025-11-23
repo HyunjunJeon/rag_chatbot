@@ -1,0 +1,101 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "오늘 github CI/CD 강의를 들으며 클라우드에서 streamlit을 실행하는 실습에서\n```Traceback (most recent call last):\n  File \"/home/dlsefira/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd/venv/bin/streamlit\", line 5, in &lt;module&gt;\n    from streamlit.cli import main\n  File \"/home/dlsefira/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd/venv/lib/python3.8/site-packages/streamlit/__init__.py\", line 48, in &lt;module&gt;\n    from streamlit.proto.RootContainer_pb2 import RootContainer\n  File \"/home/dlsefira/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd/venv/lib/python3.8/site-packages/streamlit/proto/RootContainer_pb2.py\", line 33, in &lt;module&gt;\n    _descriptor.EnumValueDescriptor(\n  File \"/home/dlsefira/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd/venv/lib/python3.8/site-packages/google/protobuf/descriptor.py\", line 755, in __new__\n    _message.Message._CheckCalledFromGeneratedFile()\nTypeError: Descriptors cannot not be created directly.\nIf this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc &gt;= 3.19.0.\nIf you cannot immediately regenerate your protos, some other possible workarounds are:\n 1. Downgrade the protobuf package to 3.20.x or lower.\n 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).```\n이러한 오류가 발생하여 검색해보니\n\n```pip install protobuf==3.20.1 ```\nprotobuf의 버전을 맞춰줘야 제대로 실행 됩니다. 실습에 있어 참고하시면 좋을 것 같습니다!\n\n참고 : <https://discuss.streamlit.io/t/issue-with-protocol-buffers/25786>",
+        "user": "U02THPJ7JVA",
+        "user_name": "dongseok lee",
+        "timestamp": "1653880186.054299",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02THPJ7JVA",
+            "ts": "1653880337.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TFFXDWQ2",
+                "U02TM48175M",
+                "U02U7SPJU5S",
+                "U02TFP6V1DY",
+                "U02U0E794M8",
+                "U02TNKDBF7D",
+                "U02TUBQC85P",
+                "U02U61LT43U"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "꼭 필요한 트러블슈팅을 해보셨네요! 대단하십니다!:meow_party:",
+          "user": "U02S8SPLTTN",
+          "user_name": "최현웅_멘토",
+          "timestamp": "1653883101.761019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TM48175M",
+                  "U02TFFXDWQ2",
+                  "U02THPJ7JVA"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 같은 현상으로 고생했습니다…\ntransformer 패키지도 같이 사용했는데 3.5.1버전에서 오류가 나서 4.9.0 버전으로 변경해서 사용했네요..",
+          "user": "U02TFFR63FU",
+          "user_name": "민원식",
+          "timestamp": "1653883829.272419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02THPJ7JVA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넘 잘하셨습니다..!\n\n여기서 더 나아가서, “protobuf”가 무엇인지 검색해서 습득해보시면 더더 좋을 것 같아요 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653886440.137549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U02THPJ7JVA",
+                  "U02TFFXDWQ2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

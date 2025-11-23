@@ -1,0 +1,176 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*[미션-1 mAP metric Basic Mission 관련 팁?]*\n안녕하세요. 미션-1 Basic Mission 과제를 수행할 때 직접 작성한 코드로 계산한 mAP 값이 너무 낮게 나오길래, 이상하다 싶어서 팀원들에게 물어보고\n찾아본 내용을 정리해보았습니다.  이 내용을 남길 만한 곳이 마땅치 않은 것 같아서,, 질문은 아니지만 여기다가 남깁니다.\n저는 object detection을 처음 해보는 거라 데이터 형식을 잘 몰랐었는데요, 그래서 더 헷갈렸던 것 같아요.\n만약 *mAP 값이 너무 낮게 나온다면*, *bbox 좌표 순서 혹은 잘못된 좌표 값이 입력되었는지 확인*해보시면 좋을 것 같습니다.\n\n1. mAP를 계산할 때 예측 값으로 쓰이는 *train_sample.csv는 pascal voc 형식을 따르고 있습니다.* pascal voc는 bounding box를 *[x_min, y_min, x_max, y_max]의 순서대로 표현*합니다. Mission에서 요구하는 형식대로 변경할 때, pascal voc의 bbox 순서를 참고하시면 도움이 될 것 같습니다.\n2. mAP를 계산할 때 gt 값으로 쓰이는 *train.json은 coco 형식을 따르고 있습니다.* coco dataset은 bounding box를 *[top left x, top left y, width, height]*와 같이 표현합니다. Mission에서 요구하는 형식대로 변경할 때, coco dataset의 bbox 형식을 참고하시면 도움이 될 것 같습니다.\n혹시 틀린 내용이 있거나 덧붙여주실 내용이 있다면, 댓글로 남겨주시면 감사하겠습니다!\nRef1) <https://towardsai.net/p/machine-learning/understanding-pascal-voc-and-coco-annotations-for-object-detection>\nRef2) <https://cocodataset.org/#format-data>, <https://cocodataset.org/#format-results>",
+        "user": "U04RMLS59HA",
+        "user_name": "박수영_T5084",
+        "timestamp": "1683025994.743729",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RMLS59HA",
+            "ts": "1683026419.000000"
+          },
+          "reactions": [
+            {
+              "name": "zzang",
+              "users": [
+                "U04RXRW22RX",
+                "U04RMLS4BGC",
+                "U04RK3GCBQT",
+                "U04RK74QUD8",
+                "U04RG92GDV3",
+                "U04RG8WDHTP",
+                "U04RMLV5S20",
+                "U04RG8YL44D",
+                "U04RK3LHX7D",
+                "U04RG92R093",
+                "U04RK76MH26",
+                "U04RMLTG284",
+                "U04RXRTHJKT",
+                "U04RCJQPT0E",
+                "U04RK3KEUMR",
+                "U04LEMHC78S",
+                "U04LLBX64LA",
+                "U04S8TAESG0"
+              ],
+              "count": 18
+            },
+            {
+              "name": "face_with_hand_over_mouth",
+              "users": [
+                "U04RXRW22RX",
+                "U04LEMHC78S",
+                "U04LLBX64LA"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U04RK761KC2",
+                "U04LEMHC78S",
+                "U04LLBX64LA"
+              ],
+              "count": 3
+            },
+            {
+              "name": "dizzy",
+              "users": [
+                "U04LLBX64LA",
+                "U04LEMHC78S"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, object detection 담당조교입니다:blush:\n\n혼동하실 수 있는 부분이라 오피스아워 내용 일부로도 준비했는데요, 정확하게 공유해주셔서 감사합니다.\nBasic mission과 동일하게 *이번 대회에서도 train gt와 submission bbox format이 상이*해서, 베이스라인 코드를 직접 짜게 된다면 이 부분 유의해서 작성해주시면 좋을 것 같습니다!!\n• *Train annotation format*: COCO [xmin, ymin, w, h]\n• *Submission format*: Pascal VOC [xmin, wmin, xmax, ymax]",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1683042638.241409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "ditto_dance",
+                "users": [
+                  "U04RMLS59HA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요~ 수영님!\n\n헷갈릴 수 있는 부분 다른 캠퍼분들 위해 공유해주셔서 감사합니다! 아래 참고하셔도 좋을 것 같습니다 :slightly_smiling_face:\nannotation format : <https://stages.ai/competitions/238/data/training>\nsubmission format : <https://stages.ai/competitions/238/overview/evaluation>",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683070886.814759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04RMLS59HA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[재활용 품목 분류를 위한 Object Detection 데이터셋]*\n안녕하세요. annotation file에 iscrowd라는 항목이 포함되어 있는데 대회 학습 데이터 개요에는 설명되어 있지 않습니다.\n찾아본 바로는 bbox가 겹쳐 있는지를 나타내는 항목이라는데 맞을까요?",
+        "user": "U04S8T86WHW",
+        "user_name": "오서영_T5125",
+        "timestamp": "1683091590.422329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04R4LXE0KH",
+                "U04RK761KC2"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! COCO format에서는, 'iscrowd'가 각 bbox annotation이 여러 객체를 동시에 포함하고 있는지 여부를 나타내기 위해 사용됩니다!.\n• *is_crowd=0* : single bbox 내에 single object만 포함\n• *is_crowd=1* : single bbox 내에 group of objects가 동시에 포함\n학습데이터에 is_crowd=1인 annotation이 다수 있을 경우 전처리 및 모델링 하는데에 필요하게 되는데, 현재 주어진 데이터의 경우 모든 annotation이 is_crowd=0이기 때문에 특별히 고려하지 않으셔도 될 것 같습니다.",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1683094427.432119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04S8T86WHW",
+                  "U04LEMHC78S"
+                ],
+                "count": 2
+              },
+              {
+                "name": "감사",
+                "users": [
+                  "U04S8T86WHW",
+                  "U04RMLS4BGC",
+                  "U04LEMHC78S"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

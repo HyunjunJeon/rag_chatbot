@@ -1,0 +1,123 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요.\n강의 중 class visualization 부분을 공부하고 있습니다.\nclass visualization 최적화가 어려워 같이 고민해주셨으면해서 글 올립니다.\n\n*진행 과정*\n처음에는 알아볼 수 있는 결과가 나오지 않아 구글링을 해보니\n학습 중간에 가우시안 블러를 적용하면 결과가 좋다는 것을 찾았습니다.\n적용해보니 개선된 결과를 확인할 수 있었습니다.\n\n*현재 상태*\n첨부한 이미지는 현재 결과로 무늬가 비슷한 동물들을 담았습니다.\n무늬를 재현할 수 있는지, 색상을 재현할 수 있는지 알아보기위해 선택했습니다.\n(1행: 얼룩말, 호랑이 / 2행: 달마시안, 치타)\n동물의 형태는 없고 패턴만 대충 나오며 이미지 외곽에 몰려있는 상태입니다.\n\n*문제*\n강의 ppt같이 디테일한 결과를 얻지 못하고 있습니다.\n시도해보신 분이 있으시다면 조언 부탁드립니다.\n\n*코드*\n첨부한 노트북 참고 부탁드립니다.\n\n좋은 주말 되시길 바랍니다.",
+        "user": "U02TYM38093",
+        "user_name": null,
+        "timestamp": "1647026273.384799",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "meow_party",
+              "users": [
+                "U02U1RYL99C",
+                "U02TCHR3LNS",
+                "U02U61LT43U",
+                "U02SJMA8PJS"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "관련해서 따로 해본 자료가 있는데 참고하시면 좋을 것 같아서 공유드립니다!\n<https://github.com/hwk0702/keras2torch/tree/main/Computer_Vision/Visualizing_what_convnets_learn>",
+          "user": "U02SFPC4VMZ",
+          "user_name": "허재혁",
+          "timestamp": "1647048821.935229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파일용량이 커서 github에서는 미리보기가 안보일 수 있으니 <https://nbviewer.org/> 에 url을 복사하시면 코드랑 결과를 같이 보실수 있어요",
+          "user": "U02SFPC4VMZ",
+          "user_name": "허재혁",
+          "timestamp": "1647048897.308869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "결과는 이런식으로 잘 나옵니다!",
+          "user": "U02SFPC4VMZ",
+          "user_name": null,
+          "timestamp": "1647049077.188269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02SFPC4VMZ> 역시 실험으로 보여주는 남자.. :+1::+1: \n 제가 첨부한 코드는 단순히 모델에 입력을 넣고 스코어를 최대화하면서 일정 스텝마다 가우시안 블러를 넣는 흐름입니다.\n 멘토님이 생각하시기에 더 고민을 한다면 답을 얻을 수 있는 문제인가요, 아니면 그냥 멘토님이 올려주신 정답을 열어보는게 좋을까요? (논문은 아직 읽어보지 않았습니다.)",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1647049852.548809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "논문은 <https://arxiv.org/pdf/1312.6034.pdf|Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps > 에서 내용을 보실 수 있긴하지만 아마 강의내용 이상의 설명은 따로 없었던거 같아요. 제 경험상에서도 가우시안 블러를 해주는게 패턴이 잘 나오던 편이였어요! 큰 고민 안하셔도 되지 않을까 싶습니다",
+          "user": "U02SFPC4VMZ",
+          "user_name": "허재혁",
+          "timestamp": "1647050729.834429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02SFPC4VMZ> 그러면 오늘 하루만 더 해보고 안되면 정답을 열어보겠습니다. 주말 오전부터 감사합니다. :booduck_cry:",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1647051375.924999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SFPC4VMZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정답보다는 참고자료로 해주시면 좋겠습니다.. ㅎㅎ 화이팅!",
+          "user": "U02SFPC4VMZ",
+          "user_name": "허재혁",
+          "timestamp": "1647051492.889909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

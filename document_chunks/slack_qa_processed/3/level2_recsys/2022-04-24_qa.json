@@ -1,0 +1,125 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. Recsys 16조 김지원입니다.\n추천시스템 DKT 9강 및 10강 강의가 업로드되어있지 않은 것 같아서 문의드립니다. 확인해주시면 감사하겠습니다!",
+        "user": "U02UATN3TGC",
+        "user_name": "김지원_T3057",
+        "timestamp": "1650849632.685449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 지원님 :slightly_smiling_face:\n오픈 되었으니 다시 한 번 확인 부탁드립니다!",
+          "user": "U02TFH06BV0",
+          "user_name": "김의겸",
+          "timestamp": "1650849685.016319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02UATN3TGC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인했습니다! 답변 감사합니다!",
+          "user": "U02UATN3TGC",
+          "user_name": "김지원_T3057",
+          "timestamp": "1650849714.762719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! RecSys 07조 입니다.\n\n이번 대회에서 제공된 `train_data.csv` 와 `test_data.csv` 가 존재하는데, `test_data.csv`  에 존재하는 정보를 학습에 사용되어도 괜찮은지가 궁금합니다.\n\n원래대로라면, `test_data.csv` 에서 존재하는 데이터를 학습에 사용하는 것은 cheating 으로 간주되는 것으로 아는데 *LGCN* baseline 코드에서는 그래프 생성을 위해서 `test_data.csv` 에 존재하는 데이터도 사용한 것을 확인했습니다. 이를 다른 모델에서도 테스트 데이터에 존재하는 데이터를 사용해도 되는지가 궁금합니다.",
+        "user": "U02T9QP7TFY",
+        "user_name": "유종문",
+        "timestamp": "1650860364.903579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02U7JCM0HH",
+                "U02TJ4E3FGU",
+                "U02TMB2QBCP",
+                "U02ULA3NLHW",
+                "U02U5LVTF53",
+                "U02U5871X96",
+                "U02TUDVH1BK"
+              ],
+              "count": 7
+            },
+            {
+              "name": "brain",
+              "users": [
+                "U02ULA3NLHW"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "```def load_data(basepath):\n    path1 = os.path.join(basepath, \"train_data.csv\")\n    path2 = os.path.join(basepath, \"test_data.csv\")\n    data1 = pd.read_csv(path1)\n    data2 = pd.read_csv(path2)\n\n    data = pd.concat([data1, data2])\n    data.drop_duplicates(\n        subset=[\"userID\", \"assessmentItemID\"], keep=\"last\", inplace=True\n    )\n\n    return data```",
+          "user": "U02T9QP7TFY",
+          "user_name": "유종문",
+          "timestamp": "1650860391.041159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인 후 안내 드리겠습니다! 잠시만 기다려주세요",
+          "user": "U02QSE3JA1Y",
+          "user_name": "공정필_운영진",
+          "timestamp": "1650865929.589339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 캠퍼님, 보다 명확한 이해를 돕기 위해 룰을 수정하였습니다(<https://stages.ai/competitions/190/discussion/notice/post/1281|링크>)\n• As-Is : *[테스트셋 활용 여부]* 대회 참가시 테스트셋에서 정답을 메뉴얼하게 파악 후 코드로 심는 것을 제외한 모든 행위는 허용됩니다. (EDA, pseudo-labeling 포함)\n• To-Be : *[테스트셋 활용 여부]* 대회 참가시 테스트셋에서 정답을 메뉴얼하게 파악 후 코드로 심는 것을 제외한 모든 행위는 허용됩니다. (EDA, pseudo-labeling `등 허용`)",
+          "user": "U02QQ376VB6",
+          "user_name": null,
+          "timestamp": "1650869504.288839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "sts 대회 때 저도 같은 오류가 나서 정리해둔 포스트가 있습니다. 참고하세요!\n<https://zzz0x0lxx.tistory.com/entry/py-hanspell-%EC%97%90%EB%9F%AC-%EA%B4%80%EB%A0%A8-%EC%A0%95%EB%A6%AC>",
+        "user": "U063QL1ECNP",
+        "user_name": "양서현_T6099",
+        "timestamp": "1704358919.579959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U063QKXN2E7",
+                "U063J416AMU",
+                "U064DNQV19N"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "오 성공적으로 실행되었습니다!! 답변 감사해요 :blob-dance:",
+          "user": "U064DNQV19N",
+          "user_name": "황예원",
+          "timestamp": "1704422310.826049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "베이스라인 코드를 실행하면 1번 사진과 같은 에러가 뜰 때도 있고 정상적으로 진행될 때도 있습니다.(에러가 뜨면 python3 train.py를 계속 다시 시도하다 보면 언젠가 되긴 했습니다..!) 이게 정상적인 상황이 아닌 것 같은데 제가 설정을 잘못한 것인지 서버가 어떤 문제가 있는 것인지 알고 싶습니다..!\n(베이스라인 코드에서 건드린 것은 없고, data/emphemeral 위치에서 실행하고 있습니다!)\n(에러 코드 : RuntimeError: CUDA error: an illegal instruction was encountered)",
+        "user": "U063A71R31D",
+        "user_name": null,
+        "timestamp": "1704366022.652839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "동일한 코드로 실행될 때도 있고 안될 때도 있으면 서버 환경이 문제일 가능성이 높을것 같네요. Stages 문의 게시판에 글 남겨주세요 :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1704366264.493379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 알겠습니다 감사합니다~",
+          "user": "U063A71R31D",
+          "user_name": "이상수",
+          "timestamp": "1704366295.192229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

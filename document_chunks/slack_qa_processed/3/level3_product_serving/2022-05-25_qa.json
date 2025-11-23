@@ -1,0 +1,339 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!\n현재 streamlit으로 실시간 영상을 받아와 처리를 하려고 하고있습니다!\n실시간 영상을 받을려고 하니 아래(2번 사진) 같은 inotify error가 떠서 error 검색해보니 sysctl에서 max_user_watches를 바꿔줘야 한다고 하더라구요\n그래서 값을 변경하고 sysctl -p 로 설정된 값을 적용했는데 아래 사진(1번 사진)과 같이 read-only라면서 적용이 안됩니다.(sudo로 했을때도 안됐습니다 ㅠ_ㅠ)\n혹시 비슷한 문제를 해결하신 분이 있을까해서 질문 올립니다!",
+        "user": "U02U79DHFUY",
+        "user_name": null,
+        "timestamp": "1653468835.379869",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TMB2QBCP",
+                "U02TFP6V1DY"
+              ],
+              "count": 2
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U02TFP6V1DY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 20
+        }
+      },
+      "answers": [
+        {
+          "text": "`OSError: [Errno 28] inotify watch limit reached`\n저도 같은 에러가 나서 찾아봤는데 fileWatcherType를 none로 바꿔주니까 해결이 됬어요\n\n`streamlit run app.py --server.fileWatcherType=none`\n\n<https://discuss.streamlit.io/t/oserror-errno-24-inotify-instance-limit-reached/5506/4>",
+          "user": "U02TMB2QBCP",
+          "user_name": "백승주",
+          "timestamp": "1653472679.193789",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TMB2QBCP",
+              "ts": "1653472761.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TMB2QBCP> 좋은정보 감사합니다! 혹시 웹캠(실시간 영상)도 잘 작동하시나요?",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1653473698.030439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "웹캠을 사용하는 환경에서 테스트는 안해봤어요 ㅠㅠ",
+          "user": "U02TMB2QBCP",
+          "user_name": "백승주",
+          "timestamp": "1653473891.522439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 부분은 완전 specific한 문제라 조금 어렵긴 하네요 ㅠ_ㅠ",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653481793.211909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/robmarkcole/mqtt-camera-streamer>\n\n혹시 요런 것도 검토해보셧을까요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653481831.743759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/tconkling/streamlit-webcam>\n\n요것도 있기도 하네요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653481895.432899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 실시간 영상은 어떻게 받아오나요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653481911.979759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0E794M8> streamlit 에서의 webrtc 랑 cv2에서 videocapture(0)로 받아와서 영상을 저장해보려고 했는데 둘 다 위와같은 오류가 났습니다 ㅠㅠ...",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1653483572.195859",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U79DHFUY",
+              "ts": "1653483957.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 AI Stage 서버인가요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653484195.006159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0E794M8> 넵 맞습니다!",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1653484543.584729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI Stage는 웹캠이 없을텐데 로컬의 웹캠을 AI Stage랑 연결하시는걸까요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653484608.407949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI Stage랑 연결하는게 생각보다 난이도가 높을 것 같기도 해요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653484982.121539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/tconkling/streamlit-webcam> &lt;- 전 맥북에서 방금 이 친구 설치하고, 사용해봤는데 정상적으로 실행되네요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653485001.148439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```pip install streamlit-webcam-example\ngit clone <https://github.com/tconkling/streamlit-webcam.git>\ncd streamlit-webcam\n\nrm -rf webcam(streamlit-webcam 폴더의 example.py만 실행하기 위함\nstreamlit run example.py```\n이렇게 실행했어요~~",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653485269.876749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0E794M8> 오! 이걸로 했더니 됐습니다.. 감사합니다..!",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1653488174.892379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 하시는 것이 안되면 빠르게 다른 대안을 찾아 시도해보시는 것도 좋은 자세에요 :pray:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653488288.942029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02U79DHFUY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02U79DHFUY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02U79DHFUY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 저희 조도 필요한 정보였는데, 질문과 답변 모두 도움이 됐습니다!!!",
+          "user": "U02TFP6V1DY",
+          "user_name": "이승현",
+          "timestamp": "1653527480.864819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02THU7BG1Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Github Repo의 Wiki에 요런 정보들 추가해야겠네요..!! 감사합니다 :pray:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653528065.679339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02THU7BG1Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요,\nCPU 를 사용하여 FastAPI 로 모델을 온라인 서빙하려고 모델 경량화를 시도했습니다.\n모델의 구조가 Encoder + Decoder 인 상황에서 torch.quantization.quantize_dynamic() 를 사용하였습니다.\nDynamic Quantization 이 nn.Conv 는 지원하지 않아, Decoder 속 nn.Linear 와 nn.LSTMCell 만을 대상으로 시도했습니다.\n경량화의 핵심은 모델 사이즈를 줄이면서 추론 속도를 높이는 것으로 알고 있는데요,\n그런데 이상하게도 용량이 693M &gt; 757M 로 9.2% 증가했습니다.\n추론 속도도 느려졌나 싶어 데이터 50개를 대상으로 평균을 냈더니 0.7365s &gt; 0.6271s 로 약 15% 정도 빨라졌습니다.\n(성능은 거의 같았습니다)\n\n추론 속도가 빨라진 것은 좋지만, 모델의 용량이 더 커지는 것이 궁금해서 질문 올립니다.\nProduct Serving 에 특화된 질문이 아니어서 죄송합니다.",
+        "user": "U02TU336JN5",
+        "user_name": "이두호",
+        "timestamp": "1653476377.964879",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오 두호님 안녕하세요! 제가 퀀타이제이션쪽은 많이 하진 않았지만, Quantization이 모델 용량이 작아지지 않는 경도 있던 것으로 기억해요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653484165.308549",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1653485335.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "항상 작아지는 것은 아니었군요!\n항상 줄어드는 줄 알고, Quantization 을 잘못 적용했나 생각했습니다... 감사합니다!!",
+          "user": "U02TU336JN5",
+          "user_name": "이두호",
+          "timestamp": "1653526738.147689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

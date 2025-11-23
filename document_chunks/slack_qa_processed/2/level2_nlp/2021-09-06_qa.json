@@ -1,0 +1,355 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "Google Colab에서는 기본 팩키지로 제공되지만,\n저처럼 로컬에서 작업하시는 분들을 위해서 짤막한 설치 명령어입니다.\n• 저는 과제 수행에 있어서 `en` 모델은 사용하지 않았습니다 ㅎㅎ;;;\n•  `en` 모델은 spacy version 3.0 이후로 depreciated 됐습니다. 다음과 같이 모델이 세분화된 것 같아요.\n•  `en_core_web_sm` 은 순서대로 “영어(en)” “사용목적(core)” “훈련 데이터셋 출처(web)” “모델 크기(small)“를 의미합니다.",
+        "user": "U029L0WMGUE",
+        "user_name": null,
+        "timestamp": "1630913473.038500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U028323UHE2",
+                "U02A3MC2UFJ",
+                "U029LKLNE6Q",
+                "U029EUP6GP6",
+                "U029RJGJRPX",
+                "U029MTWGTJS",
+                "U028ZAA1X1V"
+              ],
+              "count": 7
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U028323UHE2",
+                "U029H263PD1",
+                "U028ZAA1X1V"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "피어세션 시간 때 저희 조원분과 했을 때는, `!python spacy download en_core_web_sm` 명령어가 작동했습니다.\n\n제 조원 분의 환경은 다음과 같았습니다.\n• OS: `Windows 10`\n• 가상환경: Anaconda\n• Spacy version: 3.0.5\n제 환경은 다음과 같습니다.\n• OS: `Mac OS Cattalina 10.15.7`  \n• 가상환경: pyenv\n• Spacy version: 3.1.2\n맥에는 Python 2.7도 내장되어 있어서 저는 python3를 직접 지정해줬는데 Windows에서는 python이라고만 써도 alias로 지정이 되나봅니다!",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1630914159.039400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1630914170.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 local로 돌리는데 문제가 있어서 참고 했는데, 잘 안되더라구요 ㅠㅠ 혹시 저 같으신분 계실까봐 제가 해결한 방법 공유합니다.\n```pip install -U pip setuptools wheel\npip install -U spacy\npython -m spacy download en_core_web_sm```\n`import spacy`\n`nlp = spacy.load('en_core_web_sm')`\n\n아래 링크에서 참조했습니다!\n<https://github.com/github/hub/issues/2711>",
+          "user": "U029RJGJRPX",
+          "user_name": "한진",
+          "timestamp": "1630931222.044300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029RJGJRPX",
+              "ts": "1630931453.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 이 이슈 참고하면서 디버깅했는데 ㅋㅋㅋㅋㅋㅋ 도움을 드리지 못해서 아쉽네요 ㅠㅠㅠㅠ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1630934707.045300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "*혹시라도 과제 1 아직 안 하신 분들은, 꼭 Colab에서 하시기를 바랍니다!* \n• `print(set(filtered_tokens) - set(answer))`을 사용하시면 본인의 `is_token_allowed()` 함수의 결과물과 답변을 비교할 수 있습니다.\n• 제가 확인한 바로는`en_core_web_sm` pretrained model version에 따라서 `Avengers` 라는 단어에 대해서 처리하는 게 달라지는 것 같아요. \n• 아마 lemmatization 과정에서 영화로써 고유명사 “Avengers”로 처리하냐, 일반명사 “avenger”로 처리하냐 부분에서 모델 버젼 별로 변화가 있지 않았을까 추측합니다.\n• 저는 로컬에 Commit log와 함께 노트 적는 거 좋아해서 보통 로컬에서 과제를 했는데, 이렇게 시간을 써서 아쉽네요 ㅠ 코랩에서 하시기를 바랍니다.",
+          "user": "U029L0WMGUE",
+          "user_name": null,
+          "timestamp": "1630935237.045500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sunglasses",
+                "users": [
+                  "U029WV30DMF",
+                  "U02939WM57H",
+                  "U029B6PDLFQ",
+                  "U029BL7P8KF",
+                  "U029LKLNE6Q",
+                  "U029H263PD1",
+                  "U029MTWGTJS",
+                  "U029PUN4UBV"
+                ],
+                "count": 8
+              },
+              {
+                "name": "astonished",
+                "users": [
+                  "U029B1BH5JR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029B1BH5JR",
+                  "U029Z7YSHEV",
+                  "U029FBST3A7"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Colab환경을 보니 spacy 버전이 2.2.4더라구요\n로컬에서도 `pip install spacy==2.2.4` 해서 깔고 영진님이 말씀해주신 `!python spacy download en_core_web_sm` 로 다시 모델 설치하면 로컬에서도 잘 되는 것 같습니다 !",
+          "user": "U029F2PUHBM",
+          "user_name": "김재현",
+          "timestamp": "1630935652.046000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029F2PUHBM",
+              "ts": "1630935680.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 저도 왜 이럴까 30분동안 고민했는데ㅎㅎ..감사합니다",
+          "user": "U029BL7P8KF",
+          "user_name": "윤종원_T2143",
+          "timestamp": "1630936534.046500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029W76KWJY> 아까 명철님께서 말씀하신 부분인것 같습니다!",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1630936899.046700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이거 일부러 그러신 줄 알고... 저는 따로 조건문으로 뺐습니다.",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1630945283.047900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029B6PDLFQ> 감사합니다. 저도 로컬에서 돌리다보니 그런것 같습니다..",
+          "user": "U029W76KWJY",
+          "user_name": "안명철_T2126",
+          "timestamp": "1630966816.048500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "정말 별거 아니지만 필수과제 2번 하실 때, 마지막 셀에서 아래 블록처리한 경로를   `./`  으로 수정해주시거나\n여기에 맞게 `wikitext-2` 폴더를 만들어 주시면 정상적으로 실행됩니다.",
+        "user": "U029H263PD1",
+        "user_name": null,
+        "timestamp": "1630988832.051000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029EUP6GP6",
+                "U028ZTBCLFR",
+                "U02A3MC2UFJ",
+                "U029LKLNE6Q",
+                "U029C3CSPHB",
+                "U029T92U2F3",
+                "U02937YCK6K",
+                "U029B6PDLFQ",
+                "U029WFW8H25",
+                "U029EM0RQR1",
+                "U02AK81JACT",
+                "U029J4FN18T",
+                "U029FBST3A7",
+                "U029B1BH5JR",
+                "U029U4NB3UZ"
+              ],
+              "count": 15
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "dancing_penguin",
+              "users": [
+                "U029B1BH5JR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "대웅님 공유 감사합니다! data의 경로가 현재 파일 실행 위치에 의해 바뀔 수 있는데요 실행하시는 파일의 위치에 data file이 있다면 './'으로 실행하시고 실행 파일을 기준으로 데이터 파일이 있는 경로에 data path를 설정해주시면 됩니다 !",
+          "user": "U029EUP6GP6",
+          "user_name": "김태희",
+          "timestamp": "1630989237.051600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "필수과제1번 관련해서\n제공된 AI stage 서버에서 mecab 설치해서 사용중이신분 계신가요?\n코랩에서는 바로 되는데,, 서버에서 설치는 쉽지 않네요ㅜㅜ",
+        "user": "U029KG3T7L3",
+        "user_name": "홍요한",
+        "timestamp": "1630996243.058800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://aitech2.slack.com/archives/C029ZF2FU67/p1630942350229800>",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1630996502.058900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029KG3T7L3",
+                  "U029C3CSPHB",
+                  "U029WM1L8BB"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이거 참고하시면 될 것 같습니다",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1630996507.059200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029KG3T7L3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 자료 감사합니다!!",
+          "user": "U029KG3T7L3",
+          "user_name": "홍요한",
+          "timestamp": "1630996718.059500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

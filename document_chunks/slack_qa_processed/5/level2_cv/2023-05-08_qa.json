@@ -1,0 +1,81 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*[7강 Advanced Object Detection 1]*\n다음 그래프에서 x축이 정확히 무슨 의미일까요?\n강의에서는 u가 IOU Threshold라고 말씀해 주셨는데, 그래프에 x축이 IOU Threshold라고 나와있어서 그래프를 어떻게 해석해야 할지 모르겠습니다.",
+        "user": "U04S8T86WHW",
+        "user_name": null,
+        "timestamp": "1683533854.218189",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "정확한지는 모르겠지만 제가 이해한 바로는,\n각 그래프 색깔별 u값은 학습할 때의 TP를 가르는 IoU threshold값이고, 그래프의 x축은 test했을 때의 IoU threshold 값으로 이해하였습니다 !",
+          "user": "U04RXRU7AFK",
+          "user_name": "한현민",
+          "timestamp": "1683535527.984639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "train과 test에 다르게 적용되는 IOU Threshold일 수도 있겠군요. 감사합니다!  :cry-cat-thumbs-up:",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1683537703.665379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현민님께서 말씀해주신 바가 맞습니다! x축의 0.5는 AP50 0.9는 AP90로 보시면 되겠습니다. :slightly_smiling_face:",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683556231.426119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04S8T86WHW",
+                  "U04RXRU7AFK"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

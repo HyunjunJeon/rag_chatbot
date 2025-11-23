@@ -1,0 +1,157 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "RecSys-01조 서재은입니다.\n이번 대회에 피처 생성을 위해(모델링이 아닌) GPT API를 사용하게 되면 *외부 데이터 사용 금지* 조항을 위배하는 것인지 궁금합니다. 감사합니다.",
+        "user": "U07E14APJ6T",
+        "user_name": "서재은_T7528",
+        "timestamp": "1730709077.132579",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07E14APJ6T",
+            "ts": "1730709139.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03UZRA4K1A"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "GPT API와 같은 외부 유료 api 사용은 불가하다고 보심이 좋을 것 같습니다~ 다만 이는 외부 데이터셋의 사용이라고 보기는 다소 어려울 것으로 보인다는 점도 참고해두시면 좋을 것 같습니다.",
+          "user": "U03UZRA4K1A",
+          "user_name": "Yoomin",
+          "timestamp": "1730713062.040559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, RecSys 10조 박준하입니다!\n베이스라인 코드 중 데이터를 로드하는 함수에 제가 보기에 이상한 점이 있어서 질문 드리려 합니다.\n\nbasic_data.py의 파일의 37-38번째 줄에서\n```train_df[col] = train_df[col].astype(\"category\").cat.codes\ntest_df[col] = test_df[col].astype(\"category\").cat.codes```\n로 train 데이터와 test 데이터 각각을 따로 인코딩하고 있는데 이러면 동일한 카테고리가 train, test에서 다른 값으로 인코딩될 수 있는 것 아닌가요?\n\n실제로\n```train_df[col] = pd.Categorical(train_df[col], categories=unique_labels).codes\ntest_df[col] = pd.Categorical(test_df[col], categories=unique_labels).codes```\n와 같이 카테고리를 공유하도록 한 결과 test 성능이 validation 때와 가깝도록 크게 개선되었습니다.\n\nbasic_data.py 외 다른 모든 data 파일에도 해당 부분이 존재한다는 점도 참고하시면 좋을 것 같습니다.\n좋은 대회 준비해주셔서 감사합니다!",
+        "user": "U07EFLHFYJW",
+        "user_name": "박준하",
+        "timestamp": "1730768471.862909",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U07E9267GP8",
+                "U07EFHF03JP",
+                "U07F4EHQC8G",
+                "U07EUAWDWL9",
+                "U07EEFZ0A7R",
+                "U07E9200JTY",
+                "U07F4EE0QD6",
+                "U07EFLLV0MQ",
+                "U07EFLLRU10",
+                "U07EFHE6WUT",
+                "U07F4EFNY0Y",
+                "U07E9265K38",
+                "U07EFLNSYFL",
+                "U03UZRA4K1A",
+                "U07F4EH0BMW",
+                "U07E145UUNT",
+                "U07EFLK9BDG"
+              ],
+              "count": 17
+            },
+            {
+              "name": "zzang",
+              "users": [
+                "U07EFLMTDLJ",
+                "U07E9265K38",
+                "U07E9200JTY",
+                "U03UZRA4K1A",
+                "U03UTB61ZNZ",
+                "U07F4EEAXS4"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03UZRA4K1A"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "헉... 제가 왜 unique_label, label2idx, idx2label을 만들어놓고 변환에 사용안했는지 모르겠네요...\n\n말씀하신대로 위에서 all_df를 통해 만들어진 라벨리스트를 사용해 매핑하여 수정하시면 되겠습니다! 올려주신 코드처럼 매핑하셔도 되고, 아래처럼 label2idx를 사용하셔서 매핑하셔도 됩니다~\n(pd.Series.cat.categories가 ordinal하기 때문에 unique_labels로 매핑하셔도 향후 사후분석에 idx2label을 활용하실 수 있을 겁니다.)\n```train_df[col] = train_df[col].map(label2idx[col])\ntest_df[col] = test_df[col].map(label2idx[col])```",
+          "user": "U03UZRA4K1A",
+          "user_name": "Yoomin",
+          "timestamp": "1730780161.825999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03UTB61ZNZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07EFLHFYJW",
+          "user_name": "박준하",
+          "timestamp": "1730780280.384109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U03UZRA4K1A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아, 참고로 제 기억이 맞다면\nfillna를 하지 않은 상태에서 `cat.codes`를 하시면 null 값이 인덱스 -1로 변환돼서\n나중에 모델을 학습/추론할 때 `nn.Embedding` 같은 부분에서 배제되는 걸로 기억하고 있습니다. <https://pandas.pydata.org/docs/reference/api/pandas.Series.cat.codes.html|(api참고)>\n\n따라서 만일 베이스라인코드의 fillna 부분을 수정하셔서 null 값이 남아있는 상태의 데이터셋을 사용하시고 계신다면,\n`.codes`를 사용하냐, `label2idx`로 매핑하냐에 따라 모델 학습 결과가 달라질 수 있습니다.",
+          "user": "U03UZRA4K1A",
+          "user_name": "Yoomin",
+          "timestamp": "1730780861.534439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03UZRA4K1A",
+              "ts": "1730780910.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 CV8조 김준입니다 다름이 아니라 저희 이번 segmentation 대회 최종제출한 것 프라이빗 점수뿐만 아니라 대부분 0점이 되었는데 어떻게 된일 일까요…",
+        "user": "U02T9B9BZGE",
+        "user_name": null,
+        "timestamp": "1652353040.921369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "question",
+              "users": [
+                "U02TFK3K0CA",
+                "U02RS1EC6S3",
+                "U02U587JMDE",
+                "U02U8G6NKEW"
+              ],
+              "count": 4
+            },
+            {
+              "name": "scream",
+              "users": [
+                "U02TDB0EJJ1",
+                "U02THPL8F0C",
+                "U02UK5NNNSV",
+                "U02U587JMDE",
+                "U02U8G6NKEW"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "저희도 엄청나게 떨어졌는데 원인을 모르겠네요....",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1652353209.426839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희도 몇개 엄청 떨어져서 봤더니 csv파일에서 image id가 잘못들어간 것들이었어요..",
+          "user": "U02U5U236KA",
+          "user_name": "박정현",
+          "timestamp": "1652355017.795799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 캠퍼님, 상황 파악해보고 다시 말씀드리겠습니다. 좀 더 면밀히 살펴봐야겠으나 <https://aitech3.slack.com/archives/C02QL4LDS5U/p1650872983989889|이전 공지> 에 따라 테스트셋 포맷이 바뀌었는데 반영을 하지 않으신 상태로 제출하신게 아닌지 조심스럽게 생각해 봅니다.",
+          "user": "U02QQ376VB6",
+          "user_name": "크리스",
+          "timestamp": "1652363621.540019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02QQ376VB6> 저희 팀원 분들 중 처음에 깜빡하고 test.json을 바꾸지 않고 제출했었던 분이 계셨었는데 그런 경우 public에서 0.0000이 나왔었습니다. 하지만 저희 조의 경우 제출한 파일의 절반은 제대로 나오고, 절반은 평가된 mIoU가 train에 비해 반토막이 나서..",
+          "user": "U02U587JMDE",
+          "user_name": "전경민",
+          "timestamp": "1652397174.279039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02RS1EC6S3"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_cry",
+                "users": [
+                  "U02TU6LEYKT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02QQ376VB6> 넵 감사합니다! 저희도 전경민 캠퍼님이 말씀하신 것과 같이 처음에는 test.json을 바꾸지않고 제출해서 0점이 나왔고 그래서 변경된 test.json을 사용했을때 퍼블릭은 제대로 나왔는데 프라이빗이 0점이 나왔네요…",
+          "user": "U02T9B9BZGE",
+          "user_name": "김준_T3054",
+          "timestamp": "1652415532.197099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02RS1EC6S3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요.\n<@U02U587JMDE> 캠퍼님, 확인해보니 public의 경우 prediction(PredictionString) 결과와 filename(image_id)가 제대로 매칭되었지만, 유감스럽게도 private의 경우 prediction(PredictionString) 결과와 filename(image_id)의 매칭하는데 있어서 실수가 있던것으로 판단됩니다.",
+          "user": "U02RS1EC6S3",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1652421577.734939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "애초에 저희가 뭐가 public private인지도 모르는데 이런 일이 생길 수 있나요?",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1652422078.090909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02RS1EC6S3> 조교님, 답변 감사합니다. 과거에 올라온 내용 중 test 할 때 “정렬“해야 한다고 다른 분께서 언급해주셨는데 저희가 test를 할 때 파일명을 순서대로 정렬하지 않았었던 점이 해당 문제가 발생한 것과 연관있을까요? train과 validation이 정상적으로 나왔고 public test도 정상적으로 되었는데 private test만 이상하게 나온 것이 이해가 안갑니다 ㅠㅠ",
+          "user": "U02U587JMDE",
+          "user_name": "전경민",
+          "timestamp": "1652422311.826219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

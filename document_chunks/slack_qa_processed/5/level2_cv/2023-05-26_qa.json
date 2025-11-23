@@ -1,0 +1,103 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 모델 관련된 부분은 건드리면 안된다고 알고 있는데, test 데이터를 augmentation 하는 것도 안될까요?",
+        "user": "U04RG90B1AR",
+        "user_name": "임지윤_T5177",
+        "timestamp": "1685096475.494329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RXRU7AFK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 이번 대회는 다양하게 학습 데이터 전처리 해보는게 목적이라 테스트 데이터 수정 없이 대회 진행 해주시면 됩니다! :)",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1685097461.701309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U04RG90B1AR",
+          "user_name": "임지윤_T5177",
+          "timestamp": "1685097506.153589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04AY6Y68MR> 답변 감사합니다! 혹시 grayscale처럼 전처리 목적으로 사용하는 augmentation도 적용이 안될까요? 학습시 사용한 augmentation을 추론에도 그대로 사용해야 모델 성능이 제대로 반영될 것 같아서요!",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1685106006.894709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04S8T86WHW>\n안녕하세요 서영님!\n모델 학습할때 augmentation은  test set 과 유사한 샘플을 최대한 많이 보게 하도록 하는게 주 목적이기 때문에 test set을 train set에 사용했던 augmentation method 에 맞춰 inference하는건 맞지 않아보입니다\n\n말씀주신 방식으로 챌린지 진행할때 test time augmentation을 사용하기도 하는데요, 이번 챌린지에서는 학습 데이터를 다양한 방법으로 가공하는데 집중해주시면 감사하겠습니다!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1685108942.109259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04AY6Y68MR> 안녕하세요, 조교님! 답변 감사드립니다.\n그런데 조금 이해되지 않는 부분이 있어서요. 저는 컴퓨터 비전에서 augmentation을 활용하는 이유가 두 가지가 있다고 생각하는데요.\n\n1. 데이터 증강 목적: train data의 분포를 풍성하게 하여 test data에서도 일반화가 잘 되도록 만드는 목적. random flip, random crop 등…\n2. 데이터 전처리 목적: raw data를 가공하여 모델이 학습하기 쉽도록 만드는 목적. grayscale, resize, 명도, 채도 조절 등…\n이때 1번의 목적으로 training에 augmentation을 적용했으면, test에서는 활용하지 않는 게 맞다고 생각하는데요. 2번의 목적으로 활용한 augmentation의 경우 test에서도 동일하게 적용해야 모델이 제대로 추론할 수 있을 것이라는 생각이 듭니다. 모델 입장에서 학습시와 동일한 전처리를 거친 이미지로 추론을 해야 정확한 결과가 나올 것 같아서요!\n예를 들어, 전체 학습 데이터에 대해 grayscale을 전처리 목적으로 적용하여 학습을 시켰는데, 추론시에는 color 이미지가 입력으로 주어지면 gray 이미지에 대해 학습한 모델이 제대로 된 결과를 추론하지 못할 것 같습니다. 혹시 이런 경우에도 test data에 대해 augmentation을 적용하면 안된다는 말씀이 맞으실까요…?!",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1685111632.619039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04S8T86WHW>\n아하 더 쉬워보이는 grayscale 도메인으로 학습/테스트 데이터셋을 mapping 하는 목적으로 문의 주신거군요 ^^\n이전 챌린지 시나리오에서는 inference 코드만 제출하는 방식이여서 test dataset에 접근 권한 없었는데요\n현재 챌린지 시나리오에서는 test set을 직접 보고 수정할수도 있는 경우라 혼동이 있는것같네요\n\n`이번 대회는 1번 목적을 달성하기위한 챌린지`로 봐주시면 될것같습니다.\n테스트 이미지들을 현재 보고 수정 할 수는 있지만 시나리오 자체를 *테스트 이미지는 따로 수정 할 수 없다* 라고 생각해주시면 될것같아요!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1685117453.322539",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04AY6Y68MR",
+              "ts": "1685118219.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 데이터 불균형을 해결하기 위한 방법 중, 언더 샘플링 기법의 Near Miss와 Tomek-Link에 대해 각각 설명해줘.",
+        "user": "U09CH7XTTNX",
+        "user_name": "강지수_T8006",
+        "timestamp": "1761115785.959139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH7XTTNX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7XTTNX> **Near Miss**\nNear Miss는 다수 클래스 샘플 중 소수 클래스 샘플에 '가장 가까운' 샘플들을 선택하여 다수 클래스 수를 줄이는 언더 샘플링 기법입니다. 주로 소수 클래스와 경계면에 있는 다수 클래스 샘플들을 유지하여 분류 경계를 명확히 하는 데 중점을 둡니다. 예를 들어 NearMiss-1은 각 다수 클래스 샘플에 대해 k개의 가장 가까운 소수 클래스 샘플까지의 평균 거리가 가장 짧은 샘플을 선택합니다.\n\n**Tomek-Link**\nTomek-Link는 서로 다른 클래스에 속하면서 서로에게 가장 가까운 이웃인 두 샘플 쌍(Tomek-Link)을 식별합니다. 이 쌍이 형성되면, 보통 다수 클래스에 속하는 샘플을 제거하여 클래스 간의 경계를 명확히 하고 노이즈를 줄이는 언더 샘플링 기법입니다. 이는 중복되거나 경계에 있는 다수 클래스 포인트를 제거하는 데 효과적입니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1761115803.388539",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

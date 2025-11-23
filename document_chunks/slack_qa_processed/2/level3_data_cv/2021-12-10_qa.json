@@ -1,0 +1,68 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "링크가 잘못되있어요",
+        "user": "U02A3GWB4RX",
+        "user_name": "sight Over",
+        "timestamp": "1639125156.118500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02A3GWB4RX> 경재님, 요건 11/19(금)의 마스터클래스가 맞습니다..!",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1639125205.118700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗...",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639125299.118900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잘못봤네요 ㅋㅋ 오늘거인줄알았어요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639125308.119100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 :smile:",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1639125366.119800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

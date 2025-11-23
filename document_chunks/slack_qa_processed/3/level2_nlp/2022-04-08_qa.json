@@ -1,0 +1,113 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "오늘 data augmentation 말씀드리면서 paraphrasing 이야기를 하고 지나갔는데요 :slightly_smiling_face:\n마지막 실습은 이거 테스트해보시는 걸로 한주를 정리하시면 좋을 것 같습니다~~\n\n<https://colab.research.google.com/drive/1o7VGc1o13e2hBSb9_i_i9iKmtnKg9Tt-?authuser=1#scrollTo=6t4ilmiIbren>\n\n지금까지 실습하신 것은 encoder모델, decoder 모델의 학습이었는데요,\nHuggingface에서 BART, T5와 같은 encoder-decoder 모델인 seq2seq를 학습할 수 있는 예제 코드입니다.\n\n기존에 저희가 해왔던 방식과 동일하게 짜서, 아마 어려움 없이 이해하실 수 있을거에요!\n이 예제 코드는 문서 요약을 위한 코드지만,\n아시다시피 데이터셋의 문장1, 문장2만 바꿔치기하면 챗봇도 만들 수 있고, paraphrasing도 만드실 수 있을 겁니다 :slightly_smiling_face:\n\n이외에도 궁금하신 내용 있으시다면, 언제든지 편하게 dm 주세요~~~",
+        "user": "U02UMKZGNN8",
+        "user_name": "김성현_마스터",
+        "timestamp": "1649409673.390439",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02UMKZGNN8",
+            "ts": "1649409705.000000"
+          },
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U02QMRDDZCK",
+                "U02U7CWH8RH",
+                "U02U7SPJU5S",
+                "U02TE6BT7AR",
+                "U02U5PS0474",
+                "U02U0MRSVPX",
+                "U02TUHB5D7V",
+                "U02TJD5REP6",
+                "U02UJGCP265",
+                "U02UTH1484E",
+                "U02TKEWKS4X",
+                "U02U1TBB8GN",
+                "U02U1APCEBC",
+                "U02U0KX9P7D",
+                "U02TZAV2830",
+                "U02TXP33S93"
+              ],
+              "count": 16
+            },
+            {
+              "name": "393b2c5cf48b52c4",
+              "users": [
+                "U02U1U97QA2",
+                "U02U5H18SP7",
+                "U02U7SPJU5S",
+                "U02TMMJDC14",
+                "U02TFFQAJR1",
+                "U02TUHB5D7V",
+                "U02TZAV2830"
+              ],
+              "count": 7
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U02TFFR63FU",
+                "U02TUHB5D7V",
+                "U02U7CPMXM0",
+                "U02UJGCP265"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "마스터님 자료 감사합니다~^^ 그런데 링크가 연결이 안되는 건 저만 그런 건지 모르겠네요..;;",
+          "user": "U02TFFR63FU",
+          "user_name": "민원식",
+          "timestamp": "1649422371.018099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 갑자기 링크가 깨졌네요..?.. :sweat_smile::sweat_smile::sweat_smile: 제가 이따가 다운로드 받아서 파일로 업로드하겠습니다~",
+          "user": "U02UMKZGNN8",
+          "user_name": "김성현_마스터",
+          "timestamp": "1649464759.904459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵~ 감사합니다~ 즐거운 주말 되세요~~:grinning:",
+          "user": "U02TFFR63FU",
+          "user_name": "민원식",
+          "timestamp": "1649471605.246639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02UMKZGNN8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, RecSys 3조 박영균입니다. directors.tsv 데이터셋과 관련해 질문이 있습니다.\ntrain_ratings.csv에 존재하는 item 중에서 directors.tsv의 item 컬럼에 없는 영화에 대한 감독 정보를 결측치를 보고 다음과 같은 방법을 떠올렸습니다.\n1. IMDB 사이트에 감독 이름을 검색하면 해당 감독의 감독의 고유 번호를 확인할 수 있다.\n2. 따라서 titles.tsv의 title 중 결측 데이터 영화 제목을 IMDB 사이트에 검색하여 감독 정보를 1번의 방식으로 확인하여 결측치 정보를 채운다.\n이와 같은 방법이 기본적으로 외부 데이터 금지 조항에 어긋난다는 것이 저희 팀의 주 의견입니다만, 주최 측에서 어떻게 생각하시는지 궁금합니다!",
+        "user": "U07F4EJR4QG",
+        "user_name": "박영균",
+        "timestamp": "1731924982.513629",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EUAWDWL9",
+                "U07EFLLLMK4",
+                "U07EFLLV0MQ",
+                "U07ECPJ7XE1",
+                "U07EUAPHBPB"
+              ],
+              "count": 5
+            },
+            {
+              "name": "grey_question",
+              "users": [
+                "U07EFLLLMK4"
+              ],
+              "count": 1
+            },
+            {
+              "name": "question",
+              "users": [
+                "U07EFLLLMK4",
+                "U07F4EGTJSC"
+              ],
+              "count": 2
+            },
+            {
+              "name": "interrobang",
+              "users": [
+                "U07EFLLLMK4"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 말씀해주신 접근법은 외부 정보인 IMDB를 참조하는 것이므로 허용되지 않습니다.",
+          "user": "U07UQK2MFEE",
+          "user_name": "이원성",
+          "timestamp": "1731932532.540929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U03MDFNTYCE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 알겠습니다! 답변 감사합니다!!",
+          "user": "U07F4EJR4QG",
+          "user_name": "박영균",
+          "timestamp": "1731932629.447689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

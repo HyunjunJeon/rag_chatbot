@@ -1,0 +1,240 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "필수과제 3번 주어지는 코드\n`###############################################################################`\n`# Build the model`\n`###############################################################################`\n`ntokens = len(corpus.dictionary)`\n`model = RNNModel(args.model, ntokens, args.emsize, args.nhid, args.nlayers, args.dropout).to(device)`\n`criterion = nn.NLLLoss()`\n이 부분에서 과제 내용이 Subword 기반의 언어 모델의 성능을 확인 하는 것이니까\n`ntokens = len(subword_corpus.dictionary)`\n으로 수정 되어야 할 것 같습니다.",
+        "user": "U029LJ0JY05",
+        "user_name": "문하겸_T2076",
+        "timestamp": "1631028643.066800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02AK81JACT",
+                "U029E9LS8NP",
+                "U02A8HS8LP2",
+                "U02939WM57H",
+                "U028ZA8TXRD",
+                "U02AHF49V6C",
+                "U029EM0RQR1",
+                "U029F23R56F",
+                "U029ELPRG8J",
+                "U029TQ9JFR8"
+              ],
+              "count": 10
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U02AK81JACT"
+              ],
+              "count": 1
+            },
+            {
+              "name": "dancing_penguin",
+              "users": [
+                "U029WFW8H25"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "이 부분에서도 corpus -&gt; subword_corpus 로 바꿔야 하지 않을까 싶네요",
+          "user": "U02A8HS8LP2",
+          "user_name": null,
+          "timestamp": "1631029842.067500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029LJ0JY05",
+                  "U029F23R56F",
+                  "U0298RWEPE3"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "data 쪽은 바꿔놓고 깜빡하고 있었네요. 저도 저 부분 수정하고 에러가 없어졌던 걸로 기억합니다.\neval 함수 부분은 전혀 모르고 있었는데 수정하니 출력 값이 코랩에서 주어진 거랑 비슷하게 되네요! :+1:",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1631030165.068400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029LJ0JY05",
+              "ts": "1631030201.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "과제에서 이미 corpus클래스에서 subword dictionary를 구현해놓게 했으니까 안바꿔도 되지 않나염...?",
+          "user": "U029EAQ7QQ2",
+          "user_name": "서동건",
+          "timestamp": "1631039196.071600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "윗 셀부터 순서대로 실행할경우 corpus가 기존 Corpus 클래스여서 그런 것 같네요. \ncorpus = Corpus('./') 코드를 한번더 실행하면 되긴하는데.. 약간 꼬여있는 것 같습니다",
+          "user": "U02A4FVKM96",
+          "user_name": "박동주",
+          "timestamp": "1631064466.072400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "문하겸님, 손희락님 지적해주셔서 감사합니다 ㅠㅠ 현재 15번째 cell에서 subword_corpus를 선언하고 이후에 해당 corpus를 사용해야하는데 이전에 선언한 corpus를 사용하도록 코드가 작성되어 있는데요\n\n15번째 cell의 subword_corpus를 corpus 객체로 다시 선언하거나 두분이 말씀하신 것처럼 이후 cell의 corpus를 모두 subword_corpus로 바꿔주시면 됩니다",
+          "user": "U029EUP6GP6",
+          "user_name": "김태희",
+          "timestamp": "1631070616.072900",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029EUP6GP6",
+              "ts": "1631070640.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 캠퍼님, 말씀 주신 필수 과제 3번은 멘토분께서 모두 수정해 주신 뒤 재업로드 진행해 주셨습니다 :pray:",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1631078765.073400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "저도 비전공자이지만 여기에 좀 보태면 dictionary는 key값 넣으면 바로 value를 return하고 list는 index=0일때부터 순차적으로 탐색해서 그렇습니다",
+        "user": "U029PN9SX1R",
+        "user_name": "신원지_T2120",
+        "timestamp": "1631037918.069100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029PN9SX1R",
+            "ts": "1631038859.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://towardsdatascience.com/faster-lookups-in-python-1d7503e9cd38>",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1631038068.069300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://wiki.python.org/moin/TimeComplexity>",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1631038086.069500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 average, worst 표기에관해 오해가 생길수 있는데요 O(N)의 표기는 asymtotic notation으로 나타냈을떄 상한점근의 표현으로 O(N)으로 나타내고 평균의 경우에는 theta로 나타내고 최소의 경우에는 omega로 나타냅니다. 저기서 worst인 경우는 amortized analysis를 했을때 나타나는 경우인데 amortized worst case는 asymtotic하게 나타냈을때는 거의 대부분 O(1)로 나오는데 진짜 아주 가끔 O(n)으로 나타나기 때문에 O(n)으로 표현하기에는 부적절하다고 표현돼서 O(1)로 나타냅니다.",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1631038772.069700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "따라서 혼동을 피하기 위해 Average와 worst를 빼고 시간복잡도만 O(1)로 나타내는것이 적절하다고 봅니다.",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1631038817.069900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 set도 O(1)인 이유는 set이 파이썬에서는 hashtable로 구현되어있기 때문입니다.",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1631039438.071800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029Z7YSHEV"
+                ],
+                "count": 1
+              },
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U029Z7YSHEV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

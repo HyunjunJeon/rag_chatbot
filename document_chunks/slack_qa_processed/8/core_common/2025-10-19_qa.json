@@ -1,0 +1,63 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "도메인 공통 프로젝트 2강 실습에서 '# BPE 기반 서브워드 토큰화 (BERT 예시)' 라고 주석이 달려있는데, BERT는 WordPiece 기반으로 토큰화했다고 알고 있습니다. 코드에서 사용한 pre-trained 모델인 'bert-base-uncased' 모델에 대한 HuggingFace의 문서를 봐도 Wordpiece를 사용했다고 나와 있습니다. 주석이 잘못 작성된 것일까요?\n<https://huggingface.co/google-bert/bert-base-uncased>",
+        "user": "U09CH7YCBFV",
+        "user_name": null,
+        "timestamp": "1760942000.659999",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH7YCBFV",
+            "ts": "1760942030.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7XTTNX",
+                "U09CH85PLV9",
+                "U09CH7XL69Z",
+                "U09CH8A1B6X",
+                "U09CH7SNT8B"
+              ],
+              "count": 5
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U073SBHL2PJ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "기존의 BPE는 단어에서 가장 많이 등장하는 서브워드를 vocabulary에 추가하였고, wordpiece는 likelihood를 최대화 할 수 있는 서브워드를 vocabulary에 추가하는 방식입니다.\n두 방식 모두 서브워드에 기반을 두고 있으며 인코딩시 vocabulary에 추가하는 기준이 다를 뿐 유사한 방식입니다.",
+          "user": "U09CH7ZHVJP",
+          "user_name": "송현우",
+          "timestamp": "1760942725.731699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV",
+                  "U09CH85PLV9"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "어느 상황의 구글 로그인인지 정보가 없어서.. 어려운데 어떤 경우 로그인인가요?",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1675324948.058719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<http://musicrec2.s3-website.ap-northeast-2.amazonaws.com/>\n\n현재 S3에서 저희 페이지 배포중인데 첫화면에서 상단의 구글로그인 버튼을 눌러 시도중인 상황입니다.\n\n 구글클라우드에 Oauth 도메인이 잘 등록되어있는데도 허가되지 않았다고 합니다 ㅠㅠ",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1675325143.671269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[github action]\n혹시 organization admin 액세스 토큰은 어디서 얻을 수 있을까요?",
+        "user": "U041ERY7YTF",
+        "user_name": null,
+        "timestamp": "1675337701.845999",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041ERY7YTF",
+            "ts": "1675337871.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U041ERY7YTF> 캠퍼님.  말씀하신 organization admin 액세스 토큰은 제공하지 않는 것으로 내부에서 이야기 되었습니다..ㅠ.ㅠ",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1675338476.602889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U043YMH0BC0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇군요! 답변 감사합니다:slightly_smiling_face:",
+          "user": "U041ERY7YTF",
+          "user_name": "이나현",
+          "timestamp": "1675339091.773529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

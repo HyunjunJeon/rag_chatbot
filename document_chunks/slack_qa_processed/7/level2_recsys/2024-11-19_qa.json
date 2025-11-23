@@ -1,0 +1,72 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 대회 관련해 여쭤보고 싶은게 있어서 질문 남깁니다.\n텍스트 임베딩 과정에서 BERT 같은 pre-trained 모델을 사용해도 되는지 여쭤보고 싶습니다.",
+        "user": "U07ECPKMPFX",
+        "user_name": "허진경",
+        "timestamp": "1732003858.207219",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFLLV0MQ",
+                "U07EFLMTDLJ",
+                "U07E9200JTY",
+                "U07F4EH0BMW",
+                "U07EFLLLMK4",
+                "U07ECPN2QCV"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U040CS12400"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "pretrained model 사용 불가능합니다 ㅜㅜ",
+          "user": "U040CS12400",
+          "user_name": "이유진_조교",
+          "timestamp": "1732015096.707569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "알겠습니다. 답변해주셔서 감사합니다!",
+          "user": "U07ECPKMPFX",
+          "user_name": "허진경",
+          "timestamp": "1732015138.846389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U040CS12400"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

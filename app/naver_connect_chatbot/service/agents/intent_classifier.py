@@ -4,6 +4,7 @@ Adaptive RAG용 의도 분류 에이전트 구현.
 사용자 질문을 다양한 의도 카테고리로 분류해 적응형 검색 전략을 돕습니다.
 """
 
+import json
 from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
@@ -90,10 +91,18 @@ def create_intent_classifier(llm: Runnable) -> Any:
         system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
         # 도구 사용 가이드 추가
+        schema_text = json.dumps(
+            IntentClassification.model_json_schema(),
+            ensure_ascii=False,
+            indent=2,
+        )
+
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             "IMPORTANT: After classifying the intent, you MUST call the emit_intent_classification tool "
             "with all required parameters (intent, confidence, reasoning) to return your classification."
+            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
+            f"{schema_text}"
         )
         
         agent = create_agent(
@@ -194,4 +203,3 @@ def classify_intent(question: str, llm: Runnable) -> IntentClassification:
         confidence=0.5,
         reasoning="Unable to classify intent properly"
     )
-

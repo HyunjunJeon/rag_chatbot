@@ -1,0 +1,315 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "살까말까 고민하다가 마스터님의 리뷰가 있어, 믿고 구매합니다!:meow_party:  다들 프로젝트 마무리 잘 하시기 바랍니다.",
+        "user": "U02S8SPLTTN",
+        "user_name": null,
+        "timestamp": "1654660889.842609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02T1B7HRGF",
+                "U02TFFXDWQ2",
+                "U02TM48175M",
+                "U02U0E794M8",
+                "U02RUR38GCF",
+                "U03A55V79FA",
+                "U02U0KX9P7D",
+                "U02UM6FUR33",
+                "U02TRDETMM0"
+              ],
+              "count": 9
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02TYM38093",
+                "U02TDB0EJJ1",
+                "U02U0E794M8",
+                "U02TCHR3LNS",
+                "U02RUR38GCF",
+                "U03A55V79FA",
+                "U02TRCAQU9J"
+              ],
+              "count": 7
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "요 책도 좋고, 좋은 코드 나쁜 코드란 책도 또 나왔는데 이 책도 넘 좋더라구요!!!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654663216.288169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02RUR38GCF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "사람의 뇌에 대해 고민할 수 있어 넘 좋은 책이에요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654663224.609749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02S8SPLTTN",
+                  "U02RUR38GCF",
+                  "U03A55V79FA"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 한달쯤 전에 샀는데 재밌더라구요 ㅎㅎ",
+          "user": "U02U5LVTF53",
+          "user_name": null,
+          "timestamp": "1654668003.251839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요\n\n아주 천천히 강의를 따라가다보니 겨우 docker를 듣고있습니다ㅠ 강의랑 살짝 다른부분이 있어 조심스럽게 올려봅니다 ㅎㅎ\n\nGCR Push 후 수동 실행부분에서 컨테이너를 deploy 설정하면 부팅디스크가 자동으로 변경되네요!\n\nGCP 자체에서 이미지 생성 및 push했던 Local 의 OS를 감지하는건가요...?\n\n결국은 잘됩니다 ㅎㅎ",
+        "user": "U02TDB0EJJ1",
+        "user_name": null,
+        "timestamp": "1654663122.582709",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "기태님 안녕하세요~!\nContainer Optimized OS는 컨테이너 실행에 최적화된 Compute Engine VM 전용 OS에요\n\nChromium OS 기반으로 하고 있어요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654663282.560219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://cloud.google.com/container-optimized-os/docs?hl=ko>",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654663296.890769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "컨테이너 실행하기 위해 OS를 사용하고 저희의 도커 컨테이너를 거기서 실행한다고 보시면 되어요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654663322.072669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의랑 다른 부분은 아마 순서에 따라 다를 것 같아요. 도커 컨테이너로 배포를 누르면 바로 바뀔수도 있을거에요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654663347.482689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우분투로 바꾸고 했는데도 자동으로 저게 변경되어서 한번 올려봤습니다 고맙습니다!",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1654663392.061879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 우분투로 바꿔도 Docker Container 배포를 하면 저거로 바뀌게 되어요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654664186.327189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Compute Engine의 옵션에서 GCR에서 바로 받아가서 한다 =&gt; 하면 Container Optimized OS에서 실행..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654664215.552639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 고맙습니다ㅎㅎ 알면 알수록 아득하네요 docker와 cloud 세계는 ㅋㅋㅋ",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1654664322.193769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Fork한 Github repo에서 git clone 까지 했고, image / Action key 모두 생성했습니다. PR 후 Merge를 하면 다음 에러가 뜨는데 어디서부터 체크를 해야할지 감이 안오네요. Github Action Demo는 정상적으로 되었습니다. (PR은 Fork한 제 repo안에서 feature =&gt; main 으로의 PR 입니다.)",
+        "user": "U02TDB0EJJ1",
+        "user_name": null,
+        "timestamp": "1654666345.335559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "아 SSH 키랑 유저네임 키를 변경안한거 같은데 해보고 다시 질문드리겠습니다",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1654666498.984689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "기태님 강의의 질문은 부스트캠프 플랫폼을 사용해주시겠어요~? : )",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654666819.176029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 죄송합니다ㅠ",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1654668012.636269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 마스터님 혹시 fastapi를 run forever 빌드를 하려면 어떤방식을 사용하는게 좋을지 질문해봅니다. 가령 node.js 진영과 같은경우 pm2를 사용해서 run forever를 구현하고 서버가 down되었을시 자동으로 restart하는 기능을 가지는등 서버를 매니징하고 한눈에 볼 수 있는 도구들을 많이 가지고 있습니다. 비슷하게 fastapi를 배포하기 위해서 어떤 특별한 구현체나 오픈소스의 도움을 받는지 궁금합니다. 단순히 `python main.py &amp;` 이나 `uvicorn main:app --host=0.0.0.0 --port=8000 &amp;`의 백그라운드 실행보다 좋은 방법이 있는지 궁금합니다",
+        "user": "U02U0J704TV",
+        "user_name": "김상렬_T3032",
+        "timestamp": "1654669114.915329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "자답 예시 입니다 <https://www.vultr.com/docs/how-to-deploy-fastapi-applications-with-gunicorn-and-nginx-on-ubuntu-20-04/>",
+          "user": "U02U0J704TV",
+          "user_name": "김상렬_T3032",
+          "timestamp": "1654669681.854859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://docs.gunicorn.org/en/stable/deploy.html>",
+          "user": "U02U0J704TV",
+          "user_name": "김상렬_T3032",
+          "timestamp": "1654670513.891009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

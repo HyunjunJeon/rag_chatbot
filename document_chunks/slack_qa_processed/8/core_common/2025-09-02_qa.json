@@ -1,0 +1,715 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 김준수 캠퍼님.\n\n다른 캠퍼님들께서 답변해주신 내용들도 모두 맞습니다.\n\n덧붙이자면, torch.add와 torch.sub 함수가 상수배를 곱해서 더하거나 빼는 연산을 지원하는 이유는,\n하드웨어 수준에서 FMA (Fused Multiply-Add) 연산이 가능한 경우, 해당 연산이 보다 효율적으로 수행되도록 최적화되어 있기 때문입니다.",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756799777.282339",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사합니다!",
+          "user": "U09CH8B49R9",
+          "user_name": "김준수",
+          "timestamp": "1756799991.597599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 박준성 캠퍼님.\n\n임우현 캠퍼님 말씀대로 view()를 사용할 수 있는 상황에서는 reshape()을 써도 성능 차이는 거의 없습니다.\nPyTorch의 reshape()는 내부적으로 가능한 경우 view()를 호출하기 때문입니다.\n따라서 명시적으로 PyTorch에서 view()를 써야 하는 경우는 별로 없는데, 다른 언어에서도 비슷한 개념이 많고 이런 개념을 고려하면서 개발을 하는 것이 장기적으로 좋다는 말씀을 드릴 수 있을 것 같습니다.",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756799806.723689",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7S61DZ",
+                "U09CH7YMY59",
+                "U09CH8633C3"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "임우현님, 김정원 조교님, 답변 감사합니다! :slightly_smiling_face:",
+          "user": "U09CH7S61DZ",
+          "user_name": "Park Corey",
+          "timestamp": "1756823918.921189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 성승우 캠퍼님. 조교 김정원입니다.\n설성범 캠퍼님께서 정말 명확하게 설명해주셨네요 ㅎㅎ\n\n특정 차원의 stride를 0으로 주면서 shape 정보로 크기를 판단하기 때문에 expand 함수가 추가적인 메모리 할당 없이도 이러한 정보를 얻을 수 있습니다.",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756800931.286399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "그러면 expand로 보여지는 tensor의 경우는 in_place 연산을 할 수 없는 건가요?",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1756803517.434669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`add_`나 `sub_` 함수처럼 이항 연산을 inplace로 하는 경우에는 불가능하나, `fill_`함수처럼 값을 채워넣는 (직관적으로 동작 가능할만한) 연산은 에러 없이 수행하는 것을 확인하실 수 있습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756804811.365099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1756805060.401999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "(기본-1) 과제 Task 7 탐구 관련 질문입니다.\n• noise_added_img type을 uint8이 아닌 다른 정수형으로 적용해도 코드가 작동합니다. 모든 정수 타입을 다 받을 수 있는지, 아니면 uint8이 커버하는 범위가 가장 적기 때문에 uint8로 downcast되는 것인지 알고 싶습니다. \n• noise_added_img는 정수형이 아니면 작동하지 않는데 scale은 float이어도 (예: 12.5) 코드가 작동하는 이유가 궁금합니다.\n• scale을 과도하게 올려보면 (예: 30000) 이미지가 보이지 않는데 전부 하얀색 픽셀로 처리되는 건지 (255, 255, 255) stack overflow를 일으키는 건지 모르겠습니다.",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756801167.198939",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1756801272.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 이서현 캠퍼님. 조교 김정원입니다.\n\n1. 타입 변환을 하기 이전에 범위를 0~255로 제한하기 때문에 0~255를 표현할 수 있는 모든 정수 타입으로의 변환이 가능합니다.\n2. scale이 더해지는 시점은 uint8로 변환하기 이전이기 때문에 정답 코드를 올바르게 작성하셨다면, 여전히 작동합니다. 형변환을 실수형으로 했을 때 이미지가 기대했던 것과 다르게 나온다면, 그 이유는 `plt.imshow()` 함수의 입력값이 실수형일 때, 0~1의 범위를 기대하기 때문에 밝은 색이 많이 드러나게 되기 때문입니다. (<https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html|참고자료>)\n3. scale을 과도하게 올리는 경우에는 극단적으로 큰 양수 혹은 극단적으로 큰 음수가 noise로 추출되어 더해질 확률이 높아집니다. 이후에 0~255로 자르기 때문에 그 값은 0 또는 255에 가까워질 것이기에 흰색 보다는 RGB가 섞여 나오는 이미지가 도출되는 것이 자연스러워 보입니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756804025.354459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiley",
+                "users": [
+                  "U09CH86HP4K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 이서현 캠퍼님. 조교 김정원입니다.\n\n조성해, 도담록 캠퍼님 말씀대로 기본적으로 노름(norm)은 수학적으로 정의된 부분입니다. 즉, 이유가 있다기 보다는 이렇게 정의하도록 약속된 것에 가깝습니다.\n\n물론, 많은 노름 중에서도 L1, L2, L∞ 노름이 자주 등장하는 이유는 직관적으로 잘 와 닿으면서도 각자에게 구분되는 기준과 사용 목적이 있기 때문입니다.\n\nL2는 우리가 가장 잘 알고 있는 길이이고, L1은 희소성을 유도하기 위해, L∞은 worst case에 대한 control을 목적으로 할 때에 주로 사용됩니다.",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756801551.435359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CH883B6X"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다 조교님!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756801695.891209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 이서현 캠퍼님. 조교 김정원입니다.\n\n문항에 이유를 함께 서술하도록 하는 지시 사항이 없다면, 답만 작성하셔도 무방합니다. :grinning:",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756801740.005659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 김정원 조교님. 확인해주셔서 감사합니다!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756803277.801909",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH86HP4K",
+              "ts": "1756803294.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(기본-1) 과제 Task 7-1, 7-2]\n\n7-1에서 img_t(자료형 : uint8)와 같은 크기의 난수 Tensor를 생성하기 위해 torch.randn_like(img_t)를 실행하고 변수에 넣으면 _*ERROR; NotImplementedError: \"normal_kernel_cpu\" not implemented for 'Byte'*_ 에러가 떠서, img_t를 .float()으로 먼저 바꿔주니 오류가 해결되었습니다.\n• 7-2 문제를 보면 img_t의 자료형 변환은 위의 난수 생성 후 진행되는데 이 순서대로 하여도 에러가 발생하지 않는지, 그렇다면 어떤 부분을 고려해야 하는지 알고 싶습니다.\n• 또 randn_like 같은 함수는 input의 shape를 참고하는 것으로 아는데 왜 내용의 자료형도 함께 고려되는지 이유가 궁금합니다.",
+        "user": "U09CH7T8Z8T",
+        "user_name": "조수빈",
+        "timestamp": "1756803651.549969",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH7T8Z8T",
+            "ts": "1756803982.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U03MDFNTYCE",
+                "U09CH81SQAX",
+                "U09CH7Z7ZC3",
+                "U09CH7TN9A7"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "저랑 같은걸 궁금해하셔서 제가 찾은 답 공유해드릴게요.\n\n1. randn_like에서 dtype=torch.float을 지정해주시면 해결이 가능합니다. \n2. 공식문서에 randn_like 검색하셔서 읽어보시면, shape만 참조하지 않고 `torch.randn_like(input)` is equivalent to `torch.randn(input.size(), dtype=input.dtype, layout=input.layout, device=input.device)`.\n이렇게 다른 것들도 모두 참조합니다. 그래서 uint8로 정규분포를 따르는 난수들을 생성하지 못해서 에러가 생깁니다.\n\n공식 문서 링크입니다!\n<https://docs.pytorch.org/docs/stable/generated/torch.randn_like.html#torch-randn-like>",
+          "user": "U09CMF1TQ1Y",
+          "user_name": "김광영",
+          "timestamp": "1756803865.135279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CMF1TQ1Y",
+              "ts": "1756804043.000000"
+            },
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH8A1B6X"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8A1B6X",
+                  "U05QLE6RKSS",
+                  "U09CH7Z7ZC3",
+                  "U09CH8C0PUK",
+                  "U09CH8ABJRZ",
+                  "U09CH7WV1PV"
+                ],
+                "count": 6
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CH81SQAX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "데이터 타입을 맞춰주는 것이 중요하네요. 답 공유 감사합니다!!",
+          "user": "U09CH7T8Z8T",
+          "user_name": "조수빈",
+          "timestamp": "1756804100.903609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CMF1TQ1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 조수빈 캠퍼님. 조교 김정원입니다.\n\n김광영 캠퍼님께서 정확히 설명해주셔서 이 부분은 덧붙일 설명이 없을 것 같습니다. 감사합니다 김광영 캠퍼님 :grinning:",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756804573.426739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U09CMF1TQ1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 막혔던 부분인데 덕분에 잘 해결했습니다 감사합니다!",
+          "user": "U09CH8A1B6X",
+          "user_name": "황은배",
+          "timestamp": "1756806871.134429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CMF1TQ1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "colab에서 gpu 연결을 시도했을 때 gpu limit을 넘어갔다는 오류가 뜹니다. 네이버 클라우드 서버를 사용하는 것도 가능할까요?",
+        "user": "U09CH86HP4K",
+        "user_name": null,
+        "timestamp": "1756807375.083559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86HP4K>\n이서현 캠퍼님, 안녕하세요!\n클라우드 GPU는 프로젝트 기간에 제공될 예정입니다.",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1756862197.926049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "저는 줌 화면을 켜고 강의를 들으려고 하면 오디오가 제대로 들리지 않는 문제가 있는데 다른 분들은 어떻게 해결하시고 계실까요?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756861522.898029",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CMF1TQ1Y",
+                "U09CH7VTX2P"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 줌 오디오출력을 노트북 스피커로 설정하고 강의는 블루투스 이어폰으로 연결해서 듣고 있습니다!",
+          "user": "U09CH85JCFM",
+          "user_name": "이다현",
+          "timestamp": "1756861912.622649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CMF1TQ1Y"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U09CH86HP4K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "블루투스 이어폰일경우 컴퓨터에 연결하면 통화하면서 다른 오디오가 제대로 들리지 않는 문제가 있어요 보통의 블루투스 이어폰이 통화한다고 인식하면 오디오채널을 통화채널로 바꿔버려서 다른 소리가 통화하는 것처럼 들리거나 할거에요..",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1756862874.246659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U09CH86HP4K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH86HP4K> 혹시 윈도우신가요?? 줌 오디오 설정 &gt; 고급 &gt; windows 시스템 오디오 개선 &gt; 끄기 해보시겠어요?",
+          "user": "U09CH7VTX2P",
+          "user_name": "배주연_T8096",
+          "timestamp": "1756862936.037449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7VTX2P> 맥입니다..",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756863560.349889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ":smiling_face_with_tear:.. 줌 오디오 설정 고급에서 이것저것 만져보시는 걸 추천 드립니다..",
+          "user": "U09CH7VTX2P",
+          "user_name": "배주연_T8096",
+          "timestamp": "1756863649.657329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH86HP4K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U05QLGVQBUN>\n안녕하세요. 김정원 조교님.\n제가 이해를 못해서 다시 질문드립니다..!\ntorch.fill_()함수와 torch.full()함수를 비교해서 무엇이 다른지로 이해하면 되는 것일까요?",
+        "user": "U09CH873RDZ",
+        "user_name": "최평화",
+        "timestamp": "1756862575.111859",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 그렇게 비교해주셔도 무방합니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756863576.827589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U09CH873RDZ",
+          "user_name": "최평화",
+          "timestamp": "1756863592.233889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[7강 further reading - 선형회귀에서의 가정]\n선형회귀는 상수분산 - 서로 다른 목표 변수들의 오차가 특징 변수와 무관하게 항상 같은 분산을 가짐 - 을 가정해야한다는데, 그 이유가 무엇인가요?",
+        "user": "U09CH7TQGP5",
+        "user_name": "김지호_T8051",
+        "timestamp": "1756867165.049909",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH86HP4K"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "말씀하신 상수 분산은 등분산성과 같은 말로 등분산성은 선형 회귀의 신뢰성을 높이는 가정입니다.\n즉, 해당 가정을 만족해야 선형 회귀 모델이 통계적으로 유의미하다는 의미입니다!\n<https://m.blog.naver.com/aromi913/223262612746|해당 블로그>에 등분산성에 대해 설명이 잘 되어있어서 읽어보시면 도움이 되실 것 같습니다!!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756871618.741689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH7XTTNX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! :slightly_smiling_face:",
+          "user": "U09CH7TQGP5",
+          "user_name": "김지호_T8051",
+          "timestamp": "1756874189.818589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[*(9강) Binary Classification1] view(-1,1) 코드 질문* \n슬라이드 6페이지(테스트 데이터의 코드 표현)에서 `test_scaled = scaler_x.transform(test_data.reshape(-1,1))` 에서 reshape은 scaler가 2차원을 기대하기 때문이라고 이해했습니다.\n그런데 테스트 데이터를 텐서로 변환하는 과정인 `test_tensor = torch.tensor(test_scaled, dtype=torch.float32).view(-1, 1).to(device)` 에서 `view(-1,1)`은 왜 쓰이는 것인지 궁금합니다.",
+        "user": "U09CH7UAPPV",
+        "user_name": "김수효",
+        "timestamp": "1756867186.581769",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH7UAPPV",
+            "ts": "1756867453.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "9강에서 tensor로 변환할 때 `view(-1, 1)`을 사용한 이유는 혹시 모를 오류를 방지하기 위해 넣어주신 것 같습니다..! 또한 `view(-1, 1)`를 통해 명확히 test_tensor 가 2차원 텐서여야 한다는 것을 파악할 수 있습니다.\n코드를 구현할 때 이런 식으로 명시적으로 형태를 명시하고 보장해주기 위해서 사용할 때도 많아서 저는 이렇게 이해했습니다!!\n\n해당 예시 코드는 말씀하신대로 `view(-1, 1)`을 사용하지 않아도 [3,1]의 shape를 유지한다는 걸 보여주는 코드 예시입니다.\n```import numpy as np\ntest_years_experience = np.array([1.0, 2.0, 7.0])\n\ntest_scaled = scaler_x.transform(test_years_experience.reshape(-1, 1))\nprint(f'test_scaled = {test_scaled}')\nprint(f'test_scaled.shape = {test_scaled.shape}')\nprint(f'test_scaled.ndim = {test_scaled.ndim}')\n\ntest_tensor = torch.tensor(test_scaled, dtype=torch.float32).view(-1, 1).to(device)\nprint(f'test_tensor = {test_tensor}')\nprint(f'test_tensor.shape = {test_tensor.shape}')\nprint(f'test_tensor.ndim = {test_tensor.ndim}')\n\ntest_tensor = torch.tensor(test_scaled, dtype=torch.float32).to(device)\nprint(f'test_tensor = {test_tensor}')\nprint(f'test_tensor.shape = {test_tensor.shape}')\nprint(f'test_tensor.ndim = {test_tensor.ndim}')```",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756869111.001609",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7U429H",
+              "ts": "1756871326.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(7강) 선형 회귀 모델 코드 질문]\n```class LinearRegressionModel(nn.Module):\n    def __init__(self):\n        super(LinearRegressionModel, self).__init__()\n        self.linear = nn.Linear(1, 1) # 입력의 차원과 출력의 차원이 모두 1인 선형 회귀 모델\n\n    def forward(self, x_tensor):    # 순전파 메서드\n        y = self.linear(x_tensor)   # 입력 데이터를 선형 계층을 통해 예측값 계산\n        return y```\n위 코드가 선형회귀 모델 코드인데 self.linear는 nn.Linear(1, 1)로 형성된 객체인걸로 알고있는데\n아래의 forward 함수에서 self.linear가 함수처럼 쓰여서 self.linear가 함수인건가요..?",
+        "user": "U09CH89HZM1",
+        "user_name": "여지호",
+        "timestamp": "1756870824.152429",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH89HZM1",
+            "ts": "1756870984.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "파이썬 클래스 메서드로,\n `__call__`  함수를 추가하면 클래스를 함수처럼 쓸 수 있습니다.\nnn.Linear의 경우에는 그렇지 않아서 찾아 보니 nn.Module을 상속했는데,\nnn.Module에서 forward를 Callable하게 함수처럼 쓰도록 정의해 놓았기 때문에 `forward: Callable[..., Any] = _forward_unimplemented` nn.Linear에서도 그렇게 사용되는 것으로 보입니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1756878636.271989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH89RBT5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(7강) 선형 회귀 모델 코드 질문]\n```import torch.nn as nn\n\nclass LinearRegressionModel(nn.Module):\n    def __init__(self):\n        super(LinearRegressionModel, self).__init__()\n        self.linear = nn.Linear(1, 1)  # 입력과 출력이 모두 1개인 선형 회귀 모델\n\n    def forward(self, x_tensor):\n        y = self.linear(x_tensor) # 입력 데이터를 선형 계층을 통해 예측값 계산\n        return y```\n영상에서는 입력층과 출력층이 각각 1이라서 nn.Linear(1, 1)이라고 설명해주셨는데 구체적으로 어떤 것을 지칭하는지 모르겠어서 질문드립니다.",
+        "user": "U09CH85FVV1",
+        "user_name": "윤준상",
+        "timestamp": "1756875516.065369",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH85FVV1",
+            "ts": "1756875587.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "*torch.nn.Linear(_in_features_, _out_features_, _bias=True_, _device=None_, _dtype=None_)*\n\n<https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html|nn.Linear의 공식 문서>를 보시면 도움이 될 듯 싶은데, 어렵게 생각할 것은 없고 단순히 in_features와 out_features가 각각 1인 것입니다.\n\n선형회귀가 단순한 1차함수라고 생각하면\ny=ax+b 같은 형태가 될 것인데, 여기서 x가 in_features, y가 out_features가 되겠네요.\n\n1개의 값을 넣으면 1개의 값이 나온다 이 말입니다.\n\n응용하면 과제 2에서 같이 다중선형회귀에서는 이 값이 달라져야 하겠죠?",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1756877479.183529",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH820HNF",
+              "ts": "1756877703.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

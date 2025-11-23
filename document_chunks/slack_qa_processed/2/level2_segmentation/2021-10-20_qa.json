@@ -1,0 +1,324 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "MMSegmentation 사용하고 계신 분 있나요!?\n\n강의 들으면서 학습 돌리기에는 역시 API가 편한 것 같아서,\nMMDetection 생각하고 사용하려다...:smiling_face_with_tear:\n\n데이터 셋을 맞추는 것부터 시작해서, train하고 inference하기 까지..\n생각보다 바꿀 부분들이 많더라구요!\n저는 방법을 몰라서 정말 많이 헤맸는데요! :meow_code:\n\n이미 사용하고 계신 분들도 있겠지만.\n혹시 저처럼 헤매는 분들이 있을까...\n뜬눈으로 밤 지새우지 말라고! 공유해 드립니다!\n\n저는 코드는 아직 까막눈이라 아직 부족한 부분이 많습니다.\n코드가 깔끔하지도 않고, 이상한 부분도 있을 수 있습니다!\n추가할 부분, 개선할 부분 알려주시면 감사합니다!\n그리고 다른 꿀팁! 좋은 정보! 있다면 공유 부탁 드려요!\n\n<https://stages.ai/competitions/78/discussion/talk/post/774>",
+        "user": "U029L86M9JQ",
+        "user_name": "박성진",
+        "timestamp": "1634724574.041500",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029L86M9JQ",
+            "ts": "1634727656.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029MCHQE5P",
+                "U029BP86UBX",
+                "U02AJ8K3ZR6",
+                "U02AHLHF740",
+                "U029TQ9JFR8",
+                "U0290GAJGG7",
+                "U029BN43CDB",
+                "U028ZRPRJ5V",
+                "U027SHXU18R",
+                "U029E1P5Z5G",
+                "U029B96RRJA",
+                "U029DCPSW3Z",
+                "U029M37U7S8",
+                "U02920Y3AH4",
+                "U029KSKF90V",
+                "U029L86M9JQ",
+                "U029X8XP189",
+                "U029HMBUFT8",
+                "U029KP9P1CN",
+                "U029Z48KYCC",
+                "U029V25N58U"
+              ],
+              "count": 21
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U02AJ8K3ZR6",
+                "U029BQYGRFX",
+                "U029E1P5Z5G",
+                "U029BN43CDB",
+                "U029L86M9JQ",
+                "U029HMBUFT8"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "셋팅하느라 시간 많이 쓰셨을텐데 공유하시는 모습 너무 멋집니다!",
+          "user": "U02AJ8K3ZR6",
+          "user_name": "한건우",
+          "timestamp": "1634724832.041900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029L86M9JQ",
+                  "U029BQYGRFX",
+                  "U029N6Q82CU"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "주어진 baseline 코드에서 GT mask를 생성하는 코드에서 질문이 있습니다.\n  Segmentation annotation은 물체의 boundary 좌표들로만 이루어져있어 Pycocotools에서 annToMask로 이를 변환해서 사용하는 것으로 알고 있습니다. 또한 데이터에 1번 사진과 같이 mask끼리 포함되는 관계가 있는 데이터가 많은 것도 확인하였습니다. 이를 해결하고자 2번 사진의 코드처럼 sort를 하여 큰 물체부터 mask를 그렸다고 코드를 이해했습니다.\n  하지만 sorted=false이면 작은 물체부터 그리게 되어 작은 물체들이 반영이 안되는 것 아닌가라는 생각이 들었는데 혹시 제가 놓치고 있는 부분이 있을까요? 실제로 원래 4번 이미지처럼 그려져야 하는데, baseline 코드를 사용하면 3번 이미지처럼 그려지게 됩니다.\n  추가적으로 sorted=True로 한다고 해도 “Segmentation annotation이 물체의 boundary 좌표들로만 이루어져있는 것” 때문에 저 기준으로 sort를 하면 예외가 있는 것도 발견하였습니다.\n  이러한 데이터 처리 문제를 해결하는 것도 하나의 competition 과정이라고 생각하지만 혹여나 testdataset도 baseline에서 제공된 방식으로 처리된 것 일까 싶어 질문 남깁니다.",
+        "user": "U029EFY0XD1",
+        "user_name": null,
+        "timestamp": "1634726879.043500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U0297UZK86S",
+                "U029T519KUH",
+                "U029MCHA5ED",
+                "U029BGDTLJH",
+                "U029BN43CDB",
+                "U02AJ8K3ZR6",
+                "U029TQ9JFR8",
+                "U029UND0U1Y",
+                "U0290GAJGG7",
+                "U029E28RUPL"
+              ],
+              "count": 10
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U029B96RRJA",
+                "U029L86M9JQ",
+                "U029BQYGRFX",
+                "U029BN43CDB",
+                "U029MCHA5ED",
+                "U029UND0U1Y",
+                "U029E1P5Z5G",
+                "U029KP9P1CN",
+                "U02AHLHF740"
+              ],
+              "count": 9
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U029MCSLLU9",
+                "U029BQYGRFX",
+                "U029BN43CDB",
+                "U029MCHA5ED",
+                "U029UND0U1Y"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 코드 단에서 조금 걸리던 부분이었는데 직접 시각화까지 해주셔서 감사합니다:blob_thumbs_up:",
+          "user": "U029BQYGRFX",
+          "user_name": "서광채",
+          "timestamp": "1634727424.045600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_penguin",
+                "users": [
+                  "U029EFY0XD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 아까 오피스아워 시간에 듣고 여러 검증해봤는데 영 아니네요... 어떻게 그려봐도 다 예외가 있어보입니다.\n참고로 조건에 따라 대략 400장 +-a 정도 변동이 있어서 무시할 수준도 아니네요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1634742150.054300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA",
+                  "U0297UZK86S",
+                  "U0297P884ES"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "캠퍼님 확인 후 답변 드리도록 하겠습니다 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1634776871.055500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U0297UZK86S",
+                  "U02A7A42WHF",
+                  "U029B96RRJA",
+                  "U02913JMXKR"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "원본입니다.",
+        "user": "U02A3GWB4RX",
+        "user_name": null,
+        "timestamp": "1634793771.002800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029TQ9JFR8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "이 그림과 같은 의미라면 element-wise multiplication인데 같은 의미일지 확신은 못하겠네요..ㅎㅎ",
+          "user": "U029TQ9JFR8",
+          "user_name": null,
+          "timestamp": "1634794409.003800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029TQ9JFR8",
+              "ts": "1634794452.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요.\n문의 주신 표기는 재환 캠퍼님 답변과 같이 element-wise multiplication을 의미합니다.\n<https://arxiv.org/pdf/1909.11065.pdf|Segmentation Transformer: Object-Contextual Representations for Semantic Segmentation> 의 <https://github.com/HRNet/HRNet-Semantic-Segmentation/blob/HRNet-OCR/lib/models/seg_hrnet_ocr.py|저자 코드> 를 참고하시면 좋을것 같습니다.\n감사합니다.",
+          "user": "U029MCHA5ED",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1634795822.004700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "TMI로 덧붙이면 hadamard product 라고 부를 때도 있습니다",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1634795958.005000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029MCHA5ED",
+                  "U02A3GWB4RX",
+                  "U029T4XRUCR"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음.....\n논문에 관한부분이 아니라 기호에 관한부분이 궁금한거였는데...\n\n기호 관련해서 정리된것이 있을까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1634795993.005200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029MCHA5ED"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그림에 저런 기호들 나올때마다 구현코드나 논문 전체를 읽기엔 불편할 것 같아서요...\n몇번 읽다보면 대충 감은 오겠지만요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1634796030.005400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02A3GWB4RX",
+              "ts": "1634796081.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

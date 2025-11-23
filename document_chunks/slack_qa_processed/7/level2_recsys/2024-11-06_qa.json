@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "네, 생각하실 때 합리적인 방향으로 진행하시면 됩니다!",
+        "user": "U03UPSRM4UW",
+        "user_name": "윤동현_조교",
+        "timestamp": "1730882258.720839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07EUAPHBPB>\n\n찾아보니 context 정보를 덧붙여서 ncf를 구현한 논문도 있는 것 같습니다. <https://dl.acm.org/doi/pdf/10.1145/3386243|(논문 링크) >\n\n모델을 어떻게 구현하고 사용할지는 스스로가 이해한 데이터셋과 모델의 특징을 바탕으로 진행하시면 되는 부분이니, 모쪼록 베이스라인 코드에 너무 매몰되지 않으셨으면 좋겠습니다.",
+          "user": "U03UZRA4K1A",
+          "user_name": "Yoomin",
+          "timestamp": "1730890184.009669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 추천 시스템의 강의에서 소개된  BPR 논문을 읽다가 4페이지에 있는 수식이 이해가 되지 않아, 논문을 읽어보신 분들의 의견을 구하고 싶어 질문을 올립니다.\n\n&gt;_u는 antisymmetry이기 때문에 i &gt;_u j 또는 j &gt;_u i인 베르누이 분포이므로, 첨부된 그림의 위쪽 수식이 유도된 것으로 이해했습니다.\n그러면 (1 - p( i &gt;_u j | theta))의 경우는 delta((u,i,j) notin D_s)일 때인데, 논문에서는 delta((u,j,i) notin D_s)로 i와 j의 위치가 생각한 것과 다르게 표기되어 있어 의문이 들었습니다.\n\n위쪽 수식을 바탕으로 제일 아래쪽 수식이 유도되는 과정을 다른 분들과 토의했을 때 의견은 다음과 같습니다.\n• 논문의 오타이다.\n    ◦ delta((u,j,i) notin D_s)가 delta((u,i,j) notin D_s)로 바뀌어야 한다.\n    ◦ 또는 (1 - p( i &gt;_u j | theta))가 (1-p( j &gt;_u i | theta)로 바뀌어야 한다.\n• 이렇게 수식이 바뀌더라도 p(i &gt;_u j | theta)^2이 되므로, 아래쪽 수식이 = 이 아니라 ∝로 표기 된어야 한다.\n혹시 그림에서 위쪽 수식이 어떻게 나온 것인지 그리고 아래쪽 수식으로 어떻게 유도되는지 아시는 분이 계실까요?",
+        "user": "U02T8Q055AS",
+        "user_name": null,
+        "timestamp": "1648562314.592869",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TRCAQU9J",
+                "U02U5871X96",
+                "U02U56K2848"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "과거에 이 논문 읽을때 참고했던 유용한 블로그가 있는데 해당 블로그도 (u,i,j)로 노테이션 통일을 했었네요. 블로그 첨부합니다.\n\n그리고 아마 저 식은 likelihood식이라 비례기호가 아닌 등식으로 써도 무방할 거 같네요\n\n<https://leehyejin91.github.io/post-bpr/|https://leehyejin91.github.io/post-bpr/>",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1648563962.332989",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TRCAQU9J",
+              "ts": "1648564075.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02T8Q055AS",
+                  "U02S6TR6HCJ",
+                  "U02TN2HQ3A7"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!\n저도 다른 블로그들 참고했을 때 (u,i,j)로 하신 분이 있고 (u,j,i)로 하신 분이 있어서 더욱 헷갈렸던 것 같습니다.\nLikelihood는 비례기호 대신 등식으로 사용하기도 하나보네요. 나중에 log를 취해서 2가 곱해지는 거라 등식으로 써도 무방할 것 같네요\n감사합니다! 이상한 것에 꽂혀서 시간을 많이 잡아먹었네요 ㅋㅋㅋ",
+          "user": "U02T8Q055AS",
+          "user_name": "한광석",
+          "timestamp": "1648567367.078929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

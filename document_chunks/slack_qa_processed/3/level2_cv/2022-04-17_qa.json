@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02QJSQ1H1T> 늦어서 죄송합니다ㅠㅠ 저희 조(CV-16조)도 부탁드립니다. 데이터 제작 repository와 최종 프로젝트 repository 둘 다 연동 가능할까요?",
+        "user": "U02TU6LEYKT",
+        "user_name": "권순호",
+        "timestamp": "1650255049.372049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02TU6LEYKT> 완료했습니다!",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650258925.976489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

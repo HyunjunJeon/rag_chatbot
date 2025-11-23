@@ -1,0 +1,91 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[과제2-NLP트랙]\n안녕하세요, NLP트랙의 과제2 관련해서 질문이 있습니다. 과제 파일을 보면 `api.py`의 `classify_text` 함수를 완성하는 부분에만 TODO가 있는데요. `api.py` 내용을 봤을 때 문장 분류 태스크를 수행하는 모델로 추론하는 과정을 구현하는 것으로 이해했습니다. 그러면 `model.py`에 정의된 문장 유사도 측정 모델이나 `database.py`에 정의된 PredictionResult 클래스와 별개로 단지 `api.py`에 작성되어 있던 pipeline을 이용해서 POST 요청이 정상적으로 동작하도록 하기만 하면 되는 게 과제 의도가 맞을까요?\n아니면 `model.py`에 맞춰서 `database.py`나 `dependencies.py`, `api.py` 등을 적절히 수정하는 걸 의도하신 걸까요?",
+        "user": "U07EJ5F40TW",
+        "user_name": "이재협",
+        "timestamp": "1734323822.353149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFH9F0TV",
+                "U07E14C7L7R",
+                "U07EFHD3VD1",
+                "U07EFLKEVA6",
+                "U03PVSC77HR",
+                "U07ECPTTS5B"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U03SAGX725R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "재협님 안녕하세요. 과제2의 경우 FastAPI를 익혀보는 과제를 드린거고, 말씀해주신 api.py를 만드는 것이 제일 중요합니다. 그래서 말씀해주신 의도가 1순위는 맞아요\n\n그리고 과제2면은 5강-실습의 파일과 거의 유사합니다. 그래서 나머지 부분은 5강 실습 영상을 보시고 따라하셨으면 익혔을 것이라 판단했어요. 5강 실습을 한번 보시고 바닥부터 작성을 해보세요. 이게 되는지도 중요하거든요.  과제2는 난이도를 좀 낮춘 문제라고 보시면 됩니다\n\n그리고 심화 과제는 목표와 요구 사항만 존재합니다. 이게 회사에서 팀원분에게 Task를 줄 때 가이드를 주는 것과 유사합니다. 다만 너무 크게 드리면 어려울 수 있어서 인증에 한정해서 과제를 드렸어요. 인증은 어떤 회사에서든 꼭 필요하거든요.\n\n기본 과제를 해보면서 -&gt; 심화 과제까지 해보시는 것을 추천드려요. ML 엔지니어나 데이터 엔지니어까지 고민하고 계신다면 특히 더 하시는 것을 추천드리고, 이 직무가 아니여도 어떤 요구 조건이 있을 때 답을 하나씩 푸는 과정을 경험하는 것이 중요하니 이 부분을 경험하시면 좋겠네요.\n\n나아가선 FastAPI에서 배운 내용을 Docker 이미지로 저장하는 것도 해보셔요(도커 학습하고)\n\n그 후엔 mlflow 배운 부분을 fastapi랑 어떻게 연결해서 배포를 유기적으로 할 수 있을까?까지 해보시면 좋습니다. 실무에서 다 하는 것들이거든요. 이 부분을 하신다면 면접에서 더 할 말이 많아질겁니다.",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734326055.256499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "또 더 나아간다면.. FastAPI 구조 파악하기(질의응답 채널에 남긴 것처럼) + 클라우드 서버에 올려서 진행해보기 등이 떠오르네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734326100.295569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이해했습니다. 답변 감사합니다! :감사:",
+          "user": "U07EJ5F40TW",
+          "user_name": "이재협",
+          "timestamp": "1734326305.792449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

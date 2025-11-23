@@ -1,0 +1,157 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\n왜 np.inner함수는 기존의 수학에서 의미하는 내적과 다르게 계산되게끔 만들었을까? 물른 @ 연산이 있지만, inner를 만든 이유가 궁금하다 혹은 이 함수가 활용되는 곳은 어디인가?",
+        "user": "U09CH8BDAPM",
+        "user_name": "이승재_T8155",
+        "timestamp": "1757505855.208539",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH8BDAPM"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH8BDAPM> `np.inner` 함수는 다차원 배열에 대한 \"내적(inner product)\"을 정의하는 방식이 전통적인 선형대수학의 행렬 곱셈(matrix multiplication) 또는 텐서 곱셈과는 다르게 설계되었습니다.\n\n**만들어진 이유 및 활용처:**\n\n1.  **일반화된 내적 (Generalized Inner Product):**\n    *   `np.inner`는 두 배열의 **마지막 차원(last axis)**에 대해 내적을 수행하도록 설계되었습니다.\n    *   두 1차원 배열에 대해서는 일반적인 벡터 내적과 동일합니다. (예: `[a, b] * [c, d] = ac + bd`)\n    *   하지만 2차원 이상의 배열에 대해서는 `A @ B` (행렬 곱셈)와 다릅니다. `A`의 각 \"벡터\"와 `B`의 각 \"벡터\" (둘 다 마지막 차원을 따라 정의됨) 간의 내적을 계산합니다.\n\n2.  **특정 텐서 축약(Tensor Contraction) 시나리오:**\n    *   `np.inner(a, b)`는 `a`의 마지막 축과 `b`의 마지막 축을 축약하여 곱합합니다.\n    *   예를 들어, `a`가 shape `(M, K)`이고 `b`가 shape `(N, K)`일 때, `np.inner(a, b)`의 결과는 shape `(M, N)`이 됩니다. 여기서 `result[i, j]`는 `a[i, :]`와 `b[j, :]`의 내적입니다. 이는 **여러 벡터 집합 간의 모든 가능한 내적 조합을 효율적으로 계산**할 때 유용합니다.\n\n3.  **활용되는 곳:**\n    *   **통계 및 머신러닝:** 여러 샘플(벡터) 간의 유사도(dot product)를 일괄적으로 계산할 때 사용될 수 있습니다. (예: 코사인 유사도 계산의 일부)\n    *   **패턴 매칭 및 신호 처리:** 여러 필터(벡터)와 여러 신호(벡터) 간의 상관 관계를 동시에 계산하는 경우.\n    *   **다항식 계산:** 다항식의 계수 배열 간에 특정 방식으로 내적을 수행할 때 유용합니다.\n\n결론적으로, `np.inner`는 `@` 연산자나 `np.dot`이 담당하는 표준적인 선형대수학적 행렬 곱셈이 아닌, **각 배열의 마지막 차원에 초점을 맞춘 특정한 형태의 \"내적\"을 수행하기 위해 존재**하며, 이는 여러 벡터들의 집합에 대한 내적을 효율적으로 병렬 처리할 때 그 진가를 발휘합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757505872.336039",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U>\n그렇다면 np.inner의 계산에서는 x_ijkm과 y_ijkm이 있다면, xy_ijkm -&gt; xy_ijk와 같이 마지막 차원에 대해서 묶여진다는 생각을 하면 되는건가?",
+          "user": "U09CH8BDAPM",
+          "user_name": "이승재_T8155",
+          "timestamp": "1757506089.116109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8BDAPM> 네, 그렇습니다. `np.inner`의 계산에서는 두 배열의 **마지막 차원(last axis)**에 대해 요소를 곱하고 합산하여 해당 차원을 **축약(contract)**합니다.\n\n제시하신 `x_ijkm`과 `y_ijkm`의 경우, `m`이 마지막 차원이라고 가정할 때, `np.inner(x, y)`의 결과는 `m` 차원이 사라지고 `x`의 나머지 차원과 `y`의 나머지 차원이 결합된 형태가 됩니다.\n\n**구체적인 설명:**\n\n*   **`x`의 shape:** `(i, j, k, m)`\n*   **`y`의 shape:** `(i', j', k', m)` (마지막 차원 `m`의 크기는 `x`와 `y`에서 동일해야 합니다.)\n\n`np.inner(x, y)`의 결과는 shape `(i, j, k, i', j', k')`를 가지게 됩니다.\n\n이때, 결과 배열의 한 요소 `Result[idx_i, idx_j, idx_k, idx_i', idx_j', idx_k']`는 다음과 같이 계산됩니다:\n\n$$\n\\text{Result}[\\text{idx}_i, \\text{idx}_j, \\text{idx}_k, \\text{idx}_i', \\text{idx}_j', \\text{idx}_k'] = \\sum_{l=0}^{m-1} \\left( x[\\text{idx}_i, \\text{idx}_j, \\text{idx}_k, l] \\times y[\\text{idx}_i', \\text{idx}_j', \\text{idx}_k', l] \\right)\n$$\n\n즉, `x`의 `(idx_i, idx_j, idx_k, :)` 벡터와 `y`의 `(idx_i', idx_j', idx_k', :)` 벡터 간의 내적을 계산하여 하나의 스칼라 값을 만듭니다. 여기서 `l`은 마지막 차원 `m`의 인덱스입니다.\n\n따라서 \"마지막 차원(`m`)\"에 대해서 묶여서(축약되어) 계산된다는 이해는 정확합니다. 다만, `xy_ijkm -&gt; xy_ijk`라고 표현하면 `y` 배열의 `i', j', k'` 차원 정보가 사라지는 것처럼 오해될 수 있으므로, 결과는 `x`의 모든 이전 차원과 `y`의 모든 이전 차원이 결합된 새로운 다차원 배열이 된다는 점을 명확히 하는 것이 좋습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757506103.781369",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\n강의에서 \"데이터가 특정 확률분포를 따른다고 선험적으로(a priori) 가정한 후 그 분포를 추정하는 방법을 모수적(parametric) 방법론이라 합니다\"라고 배웠어. 그런데, 우리가 y=wx + b와 같은 선형 회귀 문제를 푼다고 하면은 우리는 그냥 J를 MSE로 정의하고 그게 최소화되는 지점을 찾는 거지, 여기서 뭐 특정 확률 분포를 가정하지는 않잖아. 그러면 선형 회귀 문제는 비모수적 방법론이야?",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1757562617.586229",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH85PLV9> 선형 회귀는 **모수적(parametric) 방법론**입니다.\n\n강의에서 배운 정의는 정확하며, 선형 회귀가 모수적인 이유는 다음과 같습니다:\n\n1.  **모델 형태 가정**: 선형 회귀는 종속 변수(y)와 독립 변수(x) 사이에 $y = wx + b$와 같은 **선형 관계**가 존재한다고 미리 가정합니다. 이처럼 관계의 형태를 고정된 수의 파라미터(w, b)로 정의합니다.\n2.  **오차항의 분포 가정**: 평균 제곱 오차(MSE)를 최소화하는 것은 통계적으로 오차항($\\epsilon$)이 **정규 분포**($\\epsilon \\sim N(0, \\sigma^2)$)를 따른다고 가정하고 최대 우도 추정(Maximum Likelihood Estimation, MLE)을 수행하는 것과 동일한 결과를 가져옵니다. 이 정규 분포 가정은 회귀 계수(w, b)에 대한 신뢰 구간이나 가설 검정 같은 통계적 추론의 근거가 됩니다.\n\n따라서 선형 회귀는 사전에 정의된 모델 형태(선형)와 오차항의 확률 분포를 가정하고, 그 분포의 파라미터(w, b, $\\sigma^2$)를 데이터로부터 추정하기 때문에 모수적 방법론에 해당합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757562630.318889",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U>\n음, 잘 이해가 안 되는데, 그러면 만약 내가 J를 MSE가 아닌,  MAE를 사용했다면, 모수적 방법론이 아닌 거야?",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1757562692.795989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH85PLV9> 아닙니다, J를 MAE로 사용하더라도 선형 회귀는 여전히 **모수적(parametric) 방법론**입니다.\n\n이유는 다음과 같습니다:\n\n1.  **모델 형태 가정 유지**: $y = wx + b$와 같은 **선형 모델 형태**를 사전에 가정하고 그 모델의 파라미터(w, b)를 추정하는 본질은 변하지 않습니다. 모수적 방법론의 핵심은 이처럼 모델의 구조나 관계의 형태를 정해진 수의 파라미터로 정의한다는 점입니다.\n2.  **오차항의 분포 가정 변경**: 평균 절대 오차(MAE)를 최소화하는 것은 통계적으로 오차항($\\epsilon$)이 **라플라스 분포(Laplace distribution)**를 따른다고 가정하고 최대 우도 추정(MLE)을 수행하는 것과 동일한 결과를 가져옵니다.\n\n즉, MSE를 사용했을 때는 오차항이 정규 분포를 따른다고 가정하는 것이고, MAE를 사용했을 때는 오차항이 라플라스 분포를 따른다고 가정하는 것입니다. 둘 다 특정 확률 분포를 사전에 가정하고 그 파라미터(w, b 및 오차 분포의 파라미터)를 데이터로부터 추정하기 때문에 모수적 방법론에 해당합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757562701.992999",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\nSGD는 데이터 한개씩 기울기를 계산하고 업데이트 하는걸로 알고있는데 미니배치 단위로 기울기를 계산한다는 설명때문에 헷갈려\nSGD자체는 한개씩 계산하는게 맞는데 딥러는 분야에서만 통상적으로 미니배치 단위로 한다는걸까?",
+        "user": "U09CH7XL69Z",
+        "user_name": "장태겸_T8176",
+        "timestamp": "1757569243.076019",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH7XL69Z"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7XL69Z> 혼란스러워하시는 부분을 명확히 설명해 드리겠습니다.\n\n**원래의 SGD (Stochastic Gradient Descent) 정의:**\nSGD의 **정의**는 맞습니다. \"확률적\"이라는 이름처럼, 각 업데이트 단계에서 **데이터 샘플 하나(단일 샘플)**를 무작위로 추출하여 기울기를 계산하고 모델 파라미터를 업데이트하는 방식입니다. 이는 배치 경사 하강법(Batch Gradient Descent)이 전체 데이터셋을 사용하여 기울기를 계산하는 것과 대비됩니다.\n\n**딥러닝 분야에서의 \"SGD\" 통칭:**\n하지만 현대 딥러닝에서 \"SGD\"라고 언급될 때는 대부분 **미니배치 경사 하강법(Mini-Batch Gradient Descent)**을 의미합니다. 이는 실용적인 이유 때문입니다.\n\n*   **단일 샘플 SGD의 문제점:** 샘플 하나당 업데이트하면 기울기 계산에 너무 많은 노이즈가 발생하여 학습이 불안정해지고 수렴까지 오래 걸릴 수 있습니다.\n*   **배치 SGD의 문제점:** 전체 데이터셋으로 업데이트하면 계산 비용이 매우 높고, 데이터셋이 클 경우 메모리에 올리기 어렵습니다.\n*   **미니배치 SGD의 이점:** 몇 개에서 수백 개 정도의 샘플로 구성된 \"미니배치\"를 사용하여 기울기를 계산하고 업데이트하면, 단일 샘플 SGD의 노이즈를 줄이면서 배치 SGD보다 계산 효율성을 높일 수 있습니다. 또한 GPU 같은 병렬 처리 장치를 효율적으로 활용할 수 있습니다.\n\n**결론:**\nSGD 자체는 데이터 한 개씩 기울기를 계산하는 것이 맞습니다. 그러나 딥러닝 분야에서는 효율성과 안정성 문제로 인해 **미니배치 단위로 기울기를 계산하고 업데이트하는 방식을 \"SGD\"라고 통상적으로 부르는 경우가 매우 많습니다.** 따라서 딥러닝 라이브러리나 프레임워크에서 \"SGD 옵티마이저\"를 사용한다면, 거의 항상 미니배치 단위로 동작한다고 이해하시면 됩니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757569250.386109",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "표시된 부분 new_labels로 수정되어야 할까요...? 상관없나요??",
+        "user": "U02TDB0EJJ1",
+        "user_name": null,
+        "timestamp": "1650017985.699699",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "dataset.py 입니다",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1650020044.781689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 오타네요. new_labels로 변경하시는 게 맞습니다.\n\n공유 감사드려요!",
+          "user": "U03AZGSFNSY",
+          "user_name": "Jongho(박종호)",
+          "timestamp": "1650035739.909419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 고맙습니다!",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1650041300.111469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "slightly_smiling_face",
+                "users": [
+                  "U03AZGSFNSY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "픽셀정보를 channel-wise하게 convolution하기 위해 AvgPooling=(1)로 하는걸로 알고 있는데 EAST에서는 AvgPooling을 할 때 (7,7)을 해주는 이유를 모르겠네요.",
+        "user": "U02TXU3HPC5",
+        "user_name": null,
+        "timestamp": "1650018247.100829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 용원님, 답변이 늦었네요!\n\n인지하고 계실 것 같지만, 우선 말씀하신 AdaptiveAvgPooling 레이어는 EAST 모델 구성에 이용되는 부분이 아님을 확인해주시면 좋을 것 같습니다! (아래 첫 번째 이미지: VGG는 EAST의 Extractor에서 이용되는데 이때 VGG의 features 이외의 부분은 이용되지 않습니다.)",
+          "user": "U03AZGSFNSY",
+          "user_name": null,
+          "timestamp": "1650046271.267529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "즉, “EAST에서” (7, 7) Pooling을 수행하는 것은 아니고, 원래의 VGG 네트워크의 구조가 이렇게 되어있는 것이라고 보시면 될 것 같습니다!\n\n참고로 본 코드의 VGG는 torchvision.models에서 제공하는 원본 VGG 네트워크와 동일한 구조로 작성되어 있으며, AdaptiveAvgPool2D 레이어의 뒤에 적용되는 Linear(512 * 7 * 7, 4096) 레이어를 통해 임의 크기의 입력에 대해 4096으로 고정된 크기의 feature vector를 얻어내도록 되어있습니다.",
+          "user": "U03AZGSFNSY",
+          "user_name": null,
+          "timestamp": "1650047545.734589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

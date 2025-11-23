@@ -1,0 +1,92 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 이렇게 모델이 validation한 데이터 시각화를 말씀하시는 건가요?\n<https://docs.wandb.ai/guides/integrations/mmdetection#visualize-dataset-and-model-prediction>",
+        "user": "U0427G57TJL",
+        "user_name": "김동영",
+        "timestamp": "1669539359.248829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041HMZ15RR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U041B7BQ6F8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "*MMDetWandbHook을 사용하면 기본으로 validation 관련 이미지를 artifact에서 확인할 수 있는 것 같습니다*. (근데 자꾸 mask 관련 에러가 떠서(대회 데이터셋은 `mask` 가 없기 때문인 것 같아요), 그걸 처리해줬습니다)\n\nArtifact가 아니라 메인 페이지에도 이미지를 업로드하는게 목적이시라면, 그 부분은 커스텀하여 처리했습니다!",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1669540148.651149",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZR68K",
+              "ts": "1669540240.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZ15RR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-6",
+                "users": [
+                  "U041B7BQ6F8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위에 동영님 링크에 다 나와있지만, MMDetWandbHook에 num_eval_images=100 을 넣으시면 100장이 wandb에 업로드됩니다. Output Artifacts &gt; Evaluation &gt; Files &gt; root 에 있는 eval_data.table.json 파일 열면 ground truth와 prediction을 비교해서 볼 수 있습니다.",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669541023.441789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZ15RR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-6",
+                "users": [
+                  "U041B7BQ6F8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요\n<https://cloud.google.com/resources/mlops-whitepaper>\n이 링크에 있는 논문을 참조중인데 ,  pg31 의  avoid training-serving skew by using the feature repository as the data source for experimentation, continuous training, and online serving\n이부분이 잘이해가 되질 않습니다.\n\n같은 repository를 사용하는것으로 training-serving skew를 피할수 있다는 부분을 잘 모르겠습니다.",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1638759429.047900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029MCT2RTK",
+                "U029F23R56F",
+                "U029F62SBPD"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 지금 시외버스 안이라 이따 실내 들어가서 답변드릴게요:blush: 좋은 질문 감사합니다!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1638760629.048700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1638760814.000000"
+            },
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U02AF2JSQP2",
+                  "U028ZAA1X1V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 질문해주신 내용을 더 잘 이해하려면 회사에서 데이터가 어떻게 저장되는지 알면 더 수월해요.\n\n• 앱이나 웹 서비스는 보통 개발 조직에서 개발한 후, Database나 Object Storage에 데이터를 저장합니다. 그리고 해당 데이터를 데이터 엔지니어링팀이 ETL 파이프라인을 통해 데이터 웨어하우스 등에 저장해요\n• 이 때 데이터 엔지니어링팀이 작업을 어떻게 할지가 나뉘는데, 1) 배치로 데이터를 적재할 것인가(1시간 단위로 데이터 적재 or 1일 단위 =&gt; 4.2 Airflow와 관련있습니다) 2) 실시간으로 데이터를 적재할 것인가 대표적으로 이 2개로 나뉘어요\n    ◦ 당연히 실시간이 좋은거 아냐?라고 생각하면서 실시간을 시도하겠지만 실시간이 배치 파이프라인보다 몇배 더 어렵긴 합니다(실시간 파이프라인을 하려면 메세지 시스템인 Kafka 등을 운영하면서 서버 조직에서는 Kafka에 특정 형태로 데이터를 넣어주세요! 라고 해야하는 등 데이터 인프라도 운영하고 다른 개발 조직과도 협업이 필요합니다) \n    ◦ 또한 실시간으로 데이터를 저장하더라도 데이터엔지니어링팀이 막 셋팅된 경우라면 머신러닝 모델이 서비스에 배포되는 케이스가 없어서 실시간 파이프라인을 만들어도 무엇을 할 지가 구체적이진 않을 수 있습니다\n    ◦ 따라서 제일 빠르게, 간단하게 시도할 수 있는게 배치 ETL 입니다\n• 이 배치 ETL을 하다보면 데이터 분석도 하고 데이터도 점점 들어와서 전사엔 좋은 영향을 미칩니다. 이 데이터를 가지고(아마 데이터 웨어하우스에 데이터가 있을테고) 데이터 분석가, 비즈니스 분석가, 데이터 모델러 등이 각자의 목적에 맞게 데이터를 활용합니다\n시간이 흐르고 이제 머신러닝 모델을 배포해야 하는 상황이 오면 이슈가 생깁니다\n\n• 배치 ETL이기 때문에 데이터가 실시간으로 존재하지 않습니다. 1시간 단위 배치라고 하면 1시간~2시간(작업이 진행되는 시간도 있으므로) 뒤에 데이터가 있어서 Online Serving을 하기 어려울 수 있습니다. 이런 경우엔 문제 상황이 괜찮다면 Batch Serving을 할 수 있지요\n• 하지만 Batch Serving이 아닌 Online Serving을 해야한다! 싶으면 지금 당장 ETL 파이프라인을 모두 다 바꾸긴 어렵기 때문에 별도의 *실시간* 데이터 적재 파이프라인을 만듭니다\n    ◦ 실시간 데이터에선 그 모델링에서 필요한 데이터 위주로 남깁니다\n• 이 상황에서 데이터는 2가지 타입이 존재합니다 1) 배치로 저장되는 데이터 2) 실시간으로 저장되는 데이터\n    ◦ 데이터의 농도는 배치로 저장하는 데이터가 높을거에요. 대부분의 데이터를 옮기고 있을거고 실시간으로 저장되는 데이터는 그 때 요청하는 부분만 데이터를 저장하고 있을거에요\n• *따라서 데이터 모델링할 때는 배치 데이터로 하고, 실제 서비스에선 실시간 데이터를 활용하는 구조가 되곤 합니다*\n• 이런 경우 Research에선 Batch 데이터를 사용하고, Production에선 실시간 데이터를 사용해 학습할 수 있는데 =&gt; 이 때 데이터가 살짝 다를 수 있습니다. 이건 배치성이냐 온라인 서빙이냐 할 때 데이터의 특성에 따라 달라집니다\n    ◦ 실시간 데이터는 보통 transaction의 state를 바꿔주진 않아요(이미 데이터가 저장되었으면 Update를 치는 일은 거의 없음) =&gt; Append를 치는 경우가 더 많아요.\n    ◦ 배치 데이터는 DB에서 transaction state가 update되는 경우도 존재합니다\n• 여기서 데이터의 소스에 따라 미묘하게 데이터가 달라지기 때문에, 해당 논문에선 하나의 Repository에서 동일하게 쓸 수 있으면 학습과 서빙의 Skew가 문제를 줄일 수 있습니다\n사용자 입장에서도 내가 실시간 데이터인지 Batch 데이터인지 몰라도 사용할 수 있도록 하는게 많이 나오고 있는 추세입니다(오픈소스는 거의 없지만 ㅠ_ㅠ)\n\n우버의 미켈란젤로 글도 보시면 오프라인과 온라인 데이터가 나뉘고(온라인이 실시간이고 오프라인이 배치 데이터에요) 이걸 하나로 뭉치는 작업이 아키텍쳐적으로 그려져 있으니 참고하셔도 좋을 것 같아요!\n\n좋은 질문 감사합니다 :slightly_smiling_face: 다른 분들도 아시면 좋을 것 같아 전체가 보이도록 보내둘게요~\n\n<https://eng.uber.com/michelangelo-machine-learning-platform/>",
+          "user": "U029MCT2RTK",
+          "user_name": null,
+          "timestamp": "1638765535.052500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029SLN0S1X",
+                  "U029E9LS8NP",
+                  "U0290GAJGG7",
+                  "U0298AUH17H",
+                  "U027SHXU18R",
+                  "U029XA5SWTE",
+                  "U029F6SN31T",
+                  "U029W8R96KW",
+                  "U028323UHE2",
+                  "U029EUN529J",
+                  "U029F23R56F",
+                  "U029D3XFV4P",
+                  "U029ENX4TDZ",
+                  "U029M37U7S8",
+                  "U02AF2JSQP2",
+                  "U029Z7DE676",
+                  "U029RM03F6G",
+                  "U029C3CSPHB",
+                  "U029ST041PU",
+                  "U028ZE3KH6K"
+                ],
+                "count": 20
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029XA5SWTE",
+                  "U02AH59AT3N",
+                  "U0290GAJGG7",
+                  "U029F6SN31T",
+                  "U029W8R96KW",
+                  "U028323UHE2",
+                  "U029F23R56F",
+                  "U029LEAR4VA",
+                  "U029E1P5Z5G",
+                  "U02AF2JSQP2",
+                  "U029RM03F6G",
+                  "U029B6PDLFQ",
+                  "U029ST041PU"
+                ],
+                "count": 14
+              },
+              {
+                "name": "clapping",
+                "users": [
+                  "U029XA5SWTE",
+                  "U029W8R96KW",
+                  "U028323UHE2",
+                  "U029F23R56F",
+                  "U02A20H4QRF",
+                  "U02AF2JSQP2",
+                  "U029RM03F6G"
+                ],
+                "count": 7
+              },
+              {
+                "name": "+1::skin-tone-3",
+                "users": [
+                  "U02A7FZP5FA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK> 좋은 답변감사합니다. ㅎㅎ\n좀 길어서 읽는데 시간이 걸리겟네요 .  ㅠ 다읽고 궁금한점 생기면 여기 스레드에 다시 질문 올리겠습니다. ㅎㅎ:dancing_penguin:",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1638769460.067500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

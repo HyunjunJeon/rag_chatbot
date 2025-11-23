@@ -1,0 +1,41 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\n[Rule]\n• Think in English but answer in Korean.\n• Score your answer separately for Reliability and Accuracy on a 0–10 scale.\n• Base your answer on the official Numpy documentation or relevant machine learning research papers, and include proper references.\n[Question]\nIn Numpy, when performing a transpose operation, does it actually swap/copy the values, or does it reinterpret the indices during getitem access?",
+        "user": "U09CH7Z54N7",
+        "user_name": "현윤성",
+        "timestamp": "1757311965.118079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH7Z54N7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7Z54N7> NumPy의 `transpose` 연산은 일반적으로 값을 복사하거나 교환하는 것이 아니라, 배열의 인덱싱 방식을 재해석하여 **뷰(view)**를 반환합니다.\n\n이는 실제 메모리상의 데이터를 이동시키지 않고, 배열의 메타데이터(형태 `shape`, 보폭 `strides`)를 변경하여 동일한 데이터에 접근하는 방식만 바꾸는 것을 의미합니다. 따라서 `transpose()`나 `.T` 속성을 통해 반환된 배열은 원본 배열과 메모리를 공유합니다.\n\n대부분의 경우 전치 연산은 메모리 효율적인 뷰를 생성하며, 데이터 복사는 발생하지 않습니다. 다만, 전치된 형태를 뷰로 표현할 수 없는 특정 비연속적인(non-contiguous) 메모리 레이아웃을 가진 배열의 경우나, 사용자가 `.copy()` 메서드를 명시적으로 호출하여 복사를 요청한 경우에만 실제 데이터 복사가 이루어질 수 있습니다.\n\n---\n**신뢰성 (Reliability):** 10/10\n**정확성 (Accuracy):** 10/10\n\n**출처:**\n*   NumPy 공식 문서: `numpy.transpose` ([<https://numpy.org/doc/stable/reference/generated/numpy.transpose.html>](<https://numpy.org/doc/stable/reference/generated/numpy.transpose.html>))\n*   NumPy 공식 문서: `ndarray.T` ([<https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html>](<https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html>))",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757311976.136559",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

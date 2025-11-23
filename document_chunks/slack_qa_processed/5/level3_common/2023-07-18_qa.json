@@ -1,0 +1,135 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "코드 받았으니 여기서 이야기 해보시죠.",
+        "user": "U03PVSC77HR",
+        "user_name": "전시흠",
+        "timestamp": "1689669139.290039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "`main.py` 코드를 보니…  `/opt` 에 있는 경로를 syspath로 추가하신걸로 보아, 저의 환경에서 재현할 수 있는 프로젝트가 아니네요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689669369.577569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 직접 재현 및 디버깅은 못해드리고, 위 오류로 보아 몇가지 추정 및 제안만 드려봅니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689669392.359889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 로컬에서 진행하신건가요? 아니면 서버 환경에서 진행하신건가요?\n2. `vscode에서 8501 포트를 열고 localhost:8501로 접속을 시도하였는데요` 이 말씀을 이해 못했습니다. vscode에서 8501 포트를 연다는게 어떤건가요? 서버 환경인 경우 포트를 열어주었다는건가요?  접속 시도는 어디서 어떻게 하신건가요?\n3. Streamlit 앱에서 이미지 업로드 전에는 잘 뜨다가 이미지 업로드 한 순간 위와 같은 에러가 났다는 말씀이신가요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689669536.534969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버환경에서 진행했습니다! 포트의 경우 사진과 같이 vscode의 port 탭에서 8501을 추가하여 열었습니다. 이후 localhost:8501로 접속 시도했습니다.\n말씀주신대로 streamlit앱에서 업로드 전까지는 잘 뜨다가 이미지 업로드 순간 위와 같은 에러가 발생했습니다.",
+          "user": "U04R4LSLQVD",
+          "user_name": null,
+          "timestamp": "1689670114.677599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 보니, 8001번 포트에 백엔드 서버가 뜨게 하신거 같군요. 8001번 포트도 그럼 열어줘야 합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689673439.082439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "생각해보시면... 프론트엔드 입장에서는 당연히 로컬 브라우저를 통해 localhost:8001 번으로 통신할텐데요. 현재 8501번만 서버로 포트포워딩 되어있기 떄문에 8001번으로 쏘면, 그냥 막혀있는 포트로 쏘는것입니다 ㅎㅎ 아마도 저 서버 내부에서 프론트엔드와 백엔드가 같이 떠있으니까 서로 통신가능하지 않을까라 생각하신거 같아요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689673526.608509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "실제 통신은 서버 내부에서가 아니라 프론트엔드 앱을 브라우저에서 사용하는 로컬 단에서 호출합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689673544.692679",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1689673553.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇군요! 답변 감사합니다!\n\n제가 올린 사진에는 port 8501만 열려 있긴한데(혼란 드려 죄송합니다) 실제로 8001 포트도 함께 열었습니다. 그때 위와 같은 에러가 발생했는데요.\n\n현재까지는 저희 소스 코드 내부(~/backend/app/main.py) 의 import 관련 코드(from simple_extractor import main_schp) 를 제거 후 localhost:8001로 접속하면 접속이 되었고, 제거하지 않으면 접속되지 않은 것을 확인했습니다.\n\n답글 달아주신 내용 토대로 원인을 파악해보겠습니다!",
+          "user": "U04R4LSLQVD",
+          "user_name": "조성운_T5201",
+          "timestamp": "1689675822.635089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

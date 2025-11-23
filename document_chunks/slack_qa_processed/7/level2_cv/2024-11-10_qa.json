@@ -1,0 +1,290 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 이번 Hand Bone Image Segmentation 에서, data.tar.gz 파일을 찾을 수 없어 문의드립니다!",
+        "user": "U07EUAU2W1F",
+        "user_name": "강대민",
+        "timestamp": "1731290378.208239",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U07F4EGLCHW",
+                "U07F4EG49UG"
+              ],
+              "count": 2
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFHKFKPV",
+                "U07F4EGLCHW",
+                "U07E91ZLDTQ",
+                "U07F4EG49UG",
+                "U07EFLRFF26",
+                "U07EFHAFF7V",
+                "U07EUAR2Z4H",
+                "U07EFHMRHDZ",
+                "U07ECPQCXNZ",
+                "U07F4EME9BJ",
+                "U07EFLNN8M8",
+                "U07E92C2QVC",
+                "U07E14D9FST",
+                "U07E929N2T0",
+                "U07EJ5HCE04",
+                "U07ECPQLH4M",
+                "U07EJ5N6136",
+                "U07F4EQLTG8",
+                "U07EFHKJMLK"
+              ],
+              "count": 19
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. Hand Bone Image Segmentation에서 사용되는 데이터는 의료 데이터라 서약서 작성 후 공유 되게 되어 있습니다. 조금 기다려주시면 감사하겠습니다",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1731291815.226689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QFUYQT7W",
+                  "U07EFLRFF26",
+                  "U07EFHAFF7V",
+                  "U07F4EGLCHW",
+                  "U07EUAT144R",
+                  "U07EFLVD35Y"
+                ],
+                "count": 6
+              },
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U07E14AL3E3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인했습니다!",
+          "user": "U07EUAU2W1F",
+          "user_name": "강대민",
+          "timestamp": "1731291982.279539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 cv-8조 서진형입니다.\n*(퀴즈) Semantic Segmentation 진단하기*\n아래 문제에서 3번과 4번이 같은 말이 아닌가 해서 여쭙니다.",
+        "user": "U07EJ5MQ204",
+        "user_name": null,
+        "timestamp": "1731293120.233749",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EJ5MQ204",
+            "ts": "1731293549.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QFUYQT7W"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "댓글 달아주신거 보고 다시 보니 3번이랑 4번은 같은 말 같긴 해 보이네요",
+          "user": "U07E92018AJ",
+          "user_name": "성기훈",
+          "timestamp": "1731293407.659819",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E92018AJ",
+              "ts": "1731293597.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 잘못 적었네요 3번 4번이 같은말이고 정답아닌가 해서 여쭙니다",
+          "user": "U07EJ5MQ204",
+          "user_name": "서진형",
+          "timestamp": "1731293532.565639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파라미터 구하는 공식의 stride로 나누는 계산에서 나누어떨어지지 않으면 버리기 때문에 예외가 생겨서 그런거 아닐까용",
+          "user": "U07EJ5KHG0L",
+          "user_name": "양호철",
+          "timestamp": "1731293968.156919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 공식에서 padding 이  없을때 반올림하는거 말씀하시는건가요?? 그렇다면 stride가 커질 때도 마찬가지 아닌가요..?",
+          "user": "U07EJ5MQ204",
+          "user_name": null,
+          "timestamp": "1731298388.575229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 패딩 없다 치고 버림으로만 생각했어영",
+          "user": "U07EJ5KHG0L",
+          "user_name": "양호철",
+          "timestamp": "1731298530.889329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 stride 값이 작아진다 != 출력 특징 맵의 크기가 커진다 이기 때문입니다.\n\nstride 값이 작아지면 커널이 더 작은 간격으로 이동하는 것은 맞지만 1의 경우 커지는 것이 아닌 [커지지 않은 상태로 유지된다] 가 맞는 것 같네요",
+          "user": "U07EUAT6U01",
+          "user_name": "유지환",
+          "timestamp": "1731298665.940879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1인 경우는 stride가 1인 경우를 말씀 하시는건가요? 2에서 1로 줄면 피쳐맵 크기는 커지는거 아닌가요??ㅠㅜ",
+          "user": "U07EJ5MQ204",
+          "user_name": "서진형",
+          "timestamp": "1731302455.637869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "stride 1인 경우를 말씀드린것이 맞습니다. stride가 2에서 1로 줄어드는 특정 예시가 아닌 '작을수록'이 뜻하는 의미를 생각하면 해당 명제가 성립하려면 해당 조건을 만족하는 모든 경우에 대해서 명제가 참이어야 하는데, stride가 이미 1인 경우 stride를 1보다 줄일 수 없으며 feature map의 크기를 더 줄일 수 없고, 입력 값과 같은 크기를 유지하기 때문에 명제가 성립하지 않는다고 생각했습니다.\n\n추가로 stride는 주어진 입력과 커널 크기에서 출력 크기가 최소 1 픽셀 유지될 수 있는 한도까지 늘릴 수 있는데, 이 경우에도 엄밀히 따지면 모든 경우에 성립하는 것은 아니라서 문제 오류인거같긴 하네요. 결과적으로는 둘 다 틀린 보기라고 봐야할 것 같습니다.",
+          "user": "U07EUAT6U01",
+          "user_name": "유지환",
+          "timestamp": "1731303064.242249",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EUAT6U01",
+              "ts": "1731303724.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 이해했습니다 설명하신건 stride 가 1인 경우 입력과 출력을 비교해서 보자면 크기가 같은 경우도 있으니 \"출력피쳐맵의 크기가 커진다\" 라는 말이 언제나 참은 아니다 라고 해주신거고, 그와 별개로 문제가 여러 의미로 해석될 여지가 있어 수정된 것이라는 것이죠?\n답변주신 모든 분들께 감사드립니다:grinning:",
+          "user": "U07EJ5MQ204",
+          "user_name": "서진형",
+          "timestamp": "1731303422.519759",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EJ5MQ204",
+              "ts": "1731303880.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 cv-05조 김건우입니다.\n이번 Semantic Segmentation 데이터셋 다운로드 링크 메일이 오지 않아서 문의드립니다!",
+        "user": "U07EJC2SM45",
+        "user_name": "김건우_T7271",
+        "timestamp": "1731311445.171779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07EJC2SM45>\n김건우 캠퍼님, 안녕하세요! 다시 전달드렸습니다",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1731311879.725629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인했습니다! 감사합니다!!",
+          "user": "U07EJC2SM45",
+          "user_name": "김건우_T7271",
+          "timestamp": "1731311949.403829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07E92C2QVC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

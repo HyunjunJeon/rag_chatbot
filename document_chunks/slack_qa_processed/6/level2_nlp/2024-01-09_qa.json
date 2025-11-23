@@ -1,0 +1,151 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "오늘 오피스아워가 일정표에 다섯시라고 되어있는데 공지는 여섯시라고 되어있어서요! 혹시 어떤게 맞을지요?? 갈곳잃은 미아들이 nlp 라운지에 모여있습니당",
+        "user": "U063T6PFJNQ",
+        "user_name": "정지영",
+        "timestamp": "1704787331.890469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "face_holding_back_tears",
+              "users": [
+                "U064Z2427FG",
+                "U063A73CD6K",
+                "U064DNQD7NU",
+                "U063T6MQMFE",
+                "U0648LHTXGD",
+                "U063QNY17U2",
+                "U064DNH7HUG",
+                "U0643C83XND"
+              ],
+              "count": 8
+            },
+            {
+              "name": "rolling_on_the_floor_laughing",
+              "users": [
+                "U063QL1ECNP",
+                "U064DNQD7NU",
+                "U063QNY17U2",
+                "U0643C83XND",
+                "U063T6MQMFE",
+                "U063A73CD6K"
+              ],
+              "count": 6
+            },
+            {
+              "name": "hyperfastparrot",
+              "users": [
+                "U064DNL0W9W",
+                "U064DNQD7NU",
+                "U063QNT049Y",
+                "U063QNY17U2",
+                "U063T6MQMFE",
+                "U063A73CD6K",
+                "U063MR6BU21"
+              ],
+              "count": 7
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "헉! 오늘 6시에 오피스아워 진행됩니다!!!",
+          "user": "U046RDS8WUS",
+          "user_name": "Yeojin(오여진)",
+          "timestamp": "1704787805.955359",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U046RDS8WUS",
+              "ts": "1704787879.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U063T6PFJNQ",
+                  "U063A73CD6K"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U063T6PFJNQ"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U063A73CD6K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 오피스아워와 마스터클래스 관련해 강의를 진행해주시는 분들의 피치 못한 사정으로 시간이 변동될 수 있습니다. 그럴 경우 공지에 따라주시길 부탁드립니다!\n오늘 오피스아워는 6시에 시작됩니다!",
+          "user": "U03TYAQRL3Y",
+          "user_name": null,
+          "timestamp": "1704787871.895479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_ddabong",
+                "users": [
+                  "U063QNY17U2",
+                  "U063T6PFJNQ",
+                  "U063A73CD6K",
+                  "U064DNGE8PJ"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "깜짝 스페셜피어세션 같구 반가웠습니다 :cry-cat-thumbs-up:",
+          "user": "U063A73CD6K",
+          "user_name": "손유림",
+          "timestamp": "1704788273.882479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U03TYAQRL3Y",
+                  "U063T6PFJNQ",
+                  "U046RDS8WUS"
+                ],
+                "count": 3
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U046RDS8WUS",
+                  "U03TYAQRL3Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

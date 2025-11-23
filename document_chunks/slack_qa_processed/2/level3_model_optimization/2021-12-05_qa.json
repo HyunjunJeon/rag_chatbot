@@ -1,0 +1,72 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요, 캠퍼 여러분! 12/3(금)에 진행되었던 <https://www.boostcourse.org/boostcampaitech2/lecture/1293944|마스터클래스>를 부스트코스에 업로드해두었어요~ 확인 부탁드려요 :)",
+        "user": "U027SHXU18R",
+        "user_name": "hj1.hwang",
+        "timestamp": "1638766801.171000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "황현정 운영진님 안녕하세요 12/1 진행되었던 마스터클래스(김정훈 마스터님의 client-side ML)가 12/12 자정까지 공개 예정으로 적혀있었는데, 금일 비공개 처리되었습니다. 혹시 확인 부탁드려도 될까요?",
+          "user": "U029E28RUPL",
+          "user_name": "Seungwoo Lee",
+          "timestamp": "1638772592.171200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E28RUPL> 앗, 승우님! 말씀주신 내용 확인했습니다. 제가 날짜를 착각해서 실수로 닫아버렸네요 ㅎㅎ;; 현재 ‘공개’ 처리 되었습니다~",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1638775527.171600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠르게 처리해주셔서 감사합니다! 원활한 학습을 위해 늘 애써주시는 운영진님들께 감사드려요:blob_thumbs_up:",
+          "user": "U029E28RUPL",
+          "user_name": "Seungwoo Lee",
+          "timestamp": "1638776170.171800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U027SHXU18R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

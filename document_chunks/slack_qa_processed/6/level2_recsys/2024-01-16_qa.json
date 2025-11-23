@@ -1,0 +1,66 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 하나의 원격서버에 컴퓨터 2대로 연결 가능할까요?",
+        "user": "U065EMEFX9N",
+        "user_name": "배건우_T6198",
+        "timestamp": "1705456174.983229",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U065EMEFX9N> 건우 캠퍼님 안녕하세요!\n\n가능하긴 합니다. 서버 할당시에 key 파일을 로컬에 받게 되는데요, 해당 파일을 다른 컴퓨터에도 복사해서 옮긴 다음에 접속 연결 시도해 보시면 될거예요. key 파일은 서버마다 고유해서 반납하고 다시 할당 받으면 파일이 바뀌기 때문에 주의 부탁드립니다. :slightly_smiling_face:\n\n참고로 서버 환경 등에 대한 질문은 stages 게시판을 통해 질문해 주시면, 개발자 분들이 바로 확인이 가능하기 때문에 더욱 정확한 정보를 얻으실 수 있습니다. :raised_hands:",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1705459694.489169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버 할당시에 받는 key가 pem키를 말씀하시는 거죠?",
+          "user": "U065EMEFX9N",
+          "user_name": "배건우_T6198",
+          "timestamp": "1705471668.776839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "nep",
+                "users": [
+                  "U04S26ESDPW"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04S26ESDPW"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04S26ESDPW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U029H263PD1> 안녕하세요 대웅님\n혹시 jupyter labe 포트번호라는게 aistages홈페이지를 통해서 들어가는 jupyter lab 의 port번호를 의미하는 건가요?",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1639101292.184900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02AF2JSQP2> 네 맞습니다 주소창에 ip 다음에 나오는 번호 88xx입니다",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639101958.186300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1>  답변 감사합니다. !\n제가 잘 몰라서 그러는데 , jupyter-lab 을 원격접속 터미널(ssh )에서 접속할려면 따로 install 해야하는게 있나요.?ㅠㅠ",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639102134.186500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 아니요 ssh 접속된 터미널에서 jupyter lab 실행하시면서 저렇게 포트번호만 지정해주시면 됩니다!",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639103540.189300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다  저는  아예 접속이 안되네요 무언가 다른문제 인거같습니다",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639104267.189500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "[W 2021-12-10 11:58:55.923 ServerApp] No web browser found: could not locate runnable browser.\n\nNo web browser found 오류를 어떻게 해결해야할지모르겟네요. 도움을 주실분들을 구합니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": null,
+          "timestamp": "1639105192.189700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 실행한 커맨드랑 출력 찍힌게 보이게 캡쳐해주실 수 있나요?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639107718.193200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1>\n일단 이렇게 실행했습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": null,
+          "timestamp": "1639107907.193400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "열심히 구글링을 해보는데 원인이 무엇인지를 찾지못했습니다. ㅠㅠ",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639107981.193800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 저기서 아래에 보이는 <http://127.9.9.1:8892/lab>… 을 주소창에 붙여넣어도 저렇게 뜨나요?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639107993.194000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1> 네 그렇습니다.\njupyter_notebook_config.py   에서 주석처리 되있는 부분을 풀어야하나요?",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639108088.194200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "voila를 실행시켜도 접속이 안되는거 같습ㄴㅣ다.",
+          "user": "U02AF2JSQP2",
+          "user_name": null,
+          "timestamp": "1639108199.194400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> No webbrowser 문제는 상관이 없습니다. 그런데 접속이 안되는 건 포트 번호가 잘못 지정이 되었다거나, 커맨드가 다르게 입력된 것 같아요",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639108365.194800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029H263PD1",
+              "ts": "1639108382.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> aistages 에 있는 서버로 접속할 때 웹페이지에 뜬 포트 주소가 맞는지 확인해보시고 지금 커맨드에서 `jupyter lab` 이라고 쓰신 부분을 `jupyter-lab`으로 수정해서 다시 실행해보시겠어요?\n그래도 안되면 `conda list jupyter`, `conda list node` 출력된 결과 캡쳐해서 보여주세요",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639108508.195100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "conda list node  출력결과입니다",
+          "user": "U02AF2JSQP2",
+          "user_name": null,
+          "timestamp": "1639108669.195300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1>\nconda list jupyter 출력결과입니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": null,
+          "timestamp": "1639108699.195700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> `jupyter-lab` 실행은 안되셨나요?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639108917.196100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639108926.196300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아래 링크로 접속해도 같은 화면이 뜨시는거죠?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639108990.196900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 그렇습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639109007.197500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "port 번호도 확인했는데",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639109018.197700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잘안되네요 ㅠㅠㅠ",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639109020.197900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Jupyterlab 웹페이지에서 Settings에 뜨는 버전이 Conda list로 확인한 버전과 같나요?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1639109421.198100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 같은 문제였는데 서버 일시중지 시켰다가 다시 하니깐 오류 해결됐습니다.",
+          "user": "U02A79LL5AM",
+          "user_name": "한태호",
+          "timestamp": "1639112401.198500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A79LL5AM> 오 답변감사합니다. 일단 지금은 2시 세션들으러가야해서 좀잇다 확인해보도록 하겠습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639112469.198700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1>  <@U02A79LL5AM>  해결됬습니다. 해결하는데 도움주셔서 감사합니다. !!",
+          "user": "U02AF2JSQP2",
+          "user_name": null,
+          "timestamp": "1639112675.199100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02A79LL5AM",
+                  "U029MCT2RTK"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

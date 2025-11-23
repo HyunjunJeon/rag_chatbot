@@ -1,0 +1,101 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[ Battery 학습에 관하여... 왜 계속 0일까? ]\n\n학습을 진행하다 보면, 제가 학습했던 모델들은 대부분 Battery와 Clothing은 몇 Epoch 동안은 IoU, Acc가 0에 있다가 한참 학습이 진행되고 나중에 올라가기 시작합니다. 일부 모델은 아예 못 잡는 경우도 있습니다.\n이런 현상은 학습에 오랜 시간이 걸리는 모델의 경우 더 심하게 나타납니다. Battery와 Clothing와 같이 심하게 불균형한 Class뿐 아니라 4개의 Class를 제외하고는 다른 Class들이 모두 IoU, Acc가 0에 있다가 한참 뒤에 올라가던 모델도 있었습니다.\n\n그 이유가 무엇일까요? 역시 Class 불균형 때문에 발생한 문제일까요?\nStratified Set으로 나누고 실험해도 동일한 현상은 발생했습니다. (일단, 저의 경우는요)\n이에 대해서, 저는 결국 데이터 수의 문제라고 생각하는데요. 특히, Battery의 경우 너무 데이터가 적어서 늦게 학습하면서 생기는 현상이라고 생각합니다.\n그래도 아무리 못해도 0.XX 라도 찍혀야 할 것 같다고 생각하는데, 한참 뒤에 학습되는 이유를 명확히 잘 모르겠더라고요.\n\n여러분들은 어떻게 생각하시나요??",
+        "user": "U029L86M9JQ",
+        "user_name": null,
+        "timestamp": "1634908628.035200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "man-gesturing-ok",
+              "users": [
+                "U029BP86UBX",
+                "U029T4XRUCR",
+                "U02A3RBTDPB",
+                "U028ZQU4N07",
+                "U028323UHE2"
+              ],
+              "count": 5
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029UND0U1Y",
+                "U028323UHE2",
+                "U029MCHA5ED",
+                "U0298BT8SNA"
+              ],
+              "count": 4
+            },
+            {
+              "name": "thinking_face",
+              "users": [
+                "U029B96RRJA",
+                "U028323UHE2",
+                "U029BN43CDB"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "참고로 저희 데이터에는 귀한 건전지가 이렇게 한 사진에 몰려 있기도 합니다. (무려 12개의 annotation)",
+          "user": "U029L86M9JQ",
+          "user_name": null,
+          "timestamp": "1634908835.035500",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L86M9JQ",
+              "ts": "1634908854.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U0290GAJGG7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 비슷한 현상이 나요 (몇가지 모델 실험한 것 모두)\n하지만 저는 확인해보면 0.2 0.7 이런식으로 급격하게 뛰긴 하지만 거치는 경향성이 있는 경우도 있었습니다.\n\n제가 개인적으로 생각하기엔\n1. 학습을 할 배터리가 너무 없어서 초반엔 학습을 아예 못한다.\n2. 배터리가 특성이 다소 명확한 성질이 있어서 금방 학습이 될 수 있다. (배터리 1~2개 맞추면 나머지는 껌이다)\n3. 워낙 라벨 수가 적어서 1개씩 맞출 때마다 mIoU가 많이 뛴다.\n이게 이유가 되지 않을까 싶습니다",
+          "user": "U0298BT8SNA",
+          "user_name": "김성민",
+          "timestamp": "1634910829.036000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1634976975.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029BN43CDB",
+                  "U02A3RBTDPB",
+                  "U0290GAJGG7",
+                  "U029DCPSW3Z",
+                  "U029L86M9JQ"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

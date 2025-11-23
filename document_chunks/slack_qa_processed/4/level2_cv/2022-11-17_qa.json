@@ -1,0 +1,225 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "강의에서 9강 39-40 페이지를 보면\nmAP metric이 가지는 한계점이 나오고\n높은 점수와 우리가 원하는 detection이 일치하려면 또 다른 metric을 설정해야 한다라고 하면서 예시로 실제연구에서는 0.05의 threshold를 사용한다고 나와있는데.\n\n저희는 이런 부분은 고려 안 하고 mAP 스코어만 높히면 되는게 맞나요?",
+        "user": "U04138ETVLP",
+        "user_name": "Soonyoung Hwang",
+        "timestamp": "1668746204.165559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "네~ 그대로 사용합니다. 몇가지 예시로 <https://www.kaggle.com/competitions/vinbigdata-chest-xray-abnormalities-detection/overview|kaggle 대회>에서도 그대로 활용을 하며 실제 연구에서도 mAP metric을 그대로 활용합니다. 하지만 mAP에 대해서 깊은 이해를 하고 실제 서비스화 할때는 어떠한 점을 고려하면 되는지 생각하기 위해서 강의에 첨부하였습니다.\nmAP에 대해 더 깊이 탐구하고 다른 metric은 어떤걸 고려하면 좋을지? 에 대해 <https://stages.ai/competitions/218/discussion/talk?sort=0&amp;page=1&amp;type=talk|토론글>을 작성해보아도 좋을 것 같네요.",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1668747033.939639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하~ 무슨 의미인지 알겠습니다! 답변 감사드립니다!!",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1668747105.365379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 저희에게 주어진 코드 중 첨부한 이미지처럼 bbox를 그려주는 코드가 있나요?",
+        "user": "U0427G5BJQG",
+        "user_name": null,
+        "timestamp": "1668746977.516059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "주어진 코드 중에는 없는 것 같아서 직접 만들어야 할 것 같습니다\n아래는 직접 만든 streamlit 페이지인데 이전 강의를 보면서 쉽게 만드실 수 있습니다.",
+          "user": "U0427G48WAC",
+          "user_name": null,
+          "timestamp": "1668748502.564189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HN1DUFM",
+                  "U041HN1JMTM",
+                  "U04138ETVLP",
+                  "U0427G5BJQG",
+                  "U03PE2V21L7",
+                  "U03R4JQQGHF"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "시형님 안녕하세요!\n이런 케이스의 경우 답변하는 사람이 재현할 수 있도록 홈페이지나 캡쳐를 주시면 좋아요. 코드만 봐서는 코드를 실행해야 알 수 있거든요\n\n두번 입력이 된다고 하면.. 아마 한번 입력될 때마다 streamlit을 실행한 백엔드에서 로그를 찍어보시면 좋을 것 같아요. session_state가 동작할 때 이슈인지, 혹은 코드 상의 순서 이슈일수도 있습니다",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1668747934.049719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U0427G48WAC",
+                "U03R4JQQGHF"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "2번은 이럴 경우를 대비해 user_id 또는 session_id를 생성해서 구분자가 있으면 좋습니다. 구분자가 없다면 저장되는게 당연하고, 혹은 log_json에 append하는 방법도 있을 것 같네요. 만약 log에 해당 레이블이 있었다면 이후거를 반영해라! 이런 로직을 streamlit 백엔드에서 구현하는 것도 방법일 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1668747997.736829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC",
+                  "U03R4JQQGHF"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다! 버그재현은 한번 다시 만들어보도록 하겠습니다...",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1668748100.644049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/streamlit/streamlit/blob/93c48f07016d2b424c6d05765b49f723393b0bab/lib/streamlit/runtime/state/session_state.py#L322>\n\nSession State 로직은 공식 문서 또는 위 Repo에서 볼 수 있어요-!\n\n현재 session_state가 여러개 있는데 한번 클릭할 때 어떤 부분이 실행되고, 두번 클릭할 때 어떤 부분이 실행되는지 확인해보시면 디버깅하시기 수월할 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1668748212.199529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "어제 오피스아워에서 조교님께서 알려주신대로 코드 돌려보신 분 있으신가요?\n저는 mmcv라는 라이브러리가 안 깔리면서 아래와 같은 에러가 납니다..\n혹시 해결방법 아시는 분 있으실까요 :smiling_face_with_tear:\n```File \"/opt/conda/lib/python3.8/site-packages/torch/utils/cpp_extension.py\", line 1555, in _run_ninja_build\n        raise RuntimeError(message) from e\n    RuntimeError: Error compiling objects for extension\n    ----------------------------------------\nERROR: Command errored out with exit status 1: /opt/conda/bin/python -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '\"'\"'/tmp/pip-install-acz83n2q/mmcv-full/setup.py'\"'\"'; __file__='\"'\"'/tmp/pip-install-acz83n2q/mmcv-full/setup.py'\"'\"';f=getattr(tokenize, '\"'\"'open'\"'\"', open)(__file__);code=f.read().replace('\"'\"'\\r\\n'\"'\"', '\"'\"'\\n'\"'\"');f.close();exec(compile(code, __file__, '\"'\"'exec'\"'\"'))' install --record /tmp/pip-record-kz3j3nhe/install-record.txt --single-version-externally-managed --compile --install-headers /opt/conda/include/python3.8/mmcv-full Check the logs for full command output.```\n원래 에러는 훨씬 더 긴데 맨 아래 부분만 첨부합니다",
+        "user": "U0427G9RVK2",
+        "user_name": "오한별",
+        "timestamp": "1668753605.866719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "aistage서버는 detection이란 이름의 환경을 conda에서 activate 해야 하는것 같았습니다. 이게 python3.7 이었습니다.",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1668754249.223609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G9RVK2",
+                  "U03R4JQQGHF"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 한번 해보겠습니다",
+          "user": "U0427G9RVK2",
+          "user_name": "오한별",
+          "timestamp": "1668754568.210229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://mmcv.readthedocs.io/en/latest/get_started/installation.html>\n공식 document인데 저는 여기서 openmim으로 mmcv-full로 설치하였습니다",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1668754717.408839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03R4JQQGHF",
+                  "U0427G9RVK2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

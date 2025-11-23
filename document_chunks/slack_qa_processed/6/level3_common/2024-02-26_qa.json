@@ -1,0 +1,417 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[1강] Synchronous, Asynchronous 패턴 질문\nSynchronous의 경우 User의 Request가 Rest_API로 들어오면, Load Balancer를 통해 클러스터 내부의 로드 밸런서의 정책에 적합한 노드로 요청되며, 이에 따른 response를 전송하게 된다고 이해 했습니다.\nAsynchronous 패턴의 경우, Queue에 유저의 요청이 들어오는 순서대로 저장되고, 따라서 요청 순서에 맞게 클러스터 내부의 Load Balancer의 정책에 적합한 노드로 요청될 것이라고 이해 했습니다.\n1. 위 두가지 경우에서, 결국 요청되는 순서에 따라 Load Balancer의 정책에 따라 노드로 분배 될 텐데, 결국 Synchronous 방식과 Asynchronous 방식의  응답 순서는 같지 않나요? - FIFO (노드들의 하드웨어적 사양, 로드율, input data의 Size는 동일하여 먼저 요청 한 서버에서 더 빠르게 응답을 줄 거라는 가정을 했습니다.)\n2. 즉, Synchronous와 Asynchronous의 차이는  Client측의 Service가 Model의 예측값이 돌아온 후 동작 가능하다면 Synchronous 이고, Model의 예측값 응답 여부에 상관 없이 서비스가 진행 되다가, 예측값이 돌아오면, 그때 추가적인 서비스를 진행하면 Asynchronous 라고 이해하면 될까요 ? \n 감사합니다.",
+        "user": "U063QNXGZFU",
+        "user_name": "전민서_T6151",
+        "timestamp": "1708957438.717999",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063QNXGZFU",
+            "ts": "1708974805.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR",
+                "U0646PBD8CA"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "1. 맞습니다. 같은 조건이면 동일 순서라고 봐도 무방할 걸로 보입니다.\n2. 음 서비스 = 다른 요청이라는 걸 가정한다면, 맞습니다!",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1708989367.248779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "덤으로 요것도 참고하심 더 이해가 잘 되실거에용\n<https://mercari.github.io/ml-system-design-pattern/Serving-patterns/Synchronous-pattern/design_ko.html|https://mercari.github.io/ml-system-design-pattern/Serving-patterns/Synchronous-pattern/design_ko.html>\n<https://mercari.github.io/ml-system-design-pattern/Serving-patterns/Asynchronous-pattern/design_ko.html|https://mercari.github.io/ml-system-design-pattern/Serving-patterns/Asynchronous-pattern/design_ko.html>",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1708989440.441179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709009424.924779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "민서님 안녕하세요! 두 패턴에 대해 고민하고 계시는군요!\n상태님 말씀처럼 민서님이 잘 이해하셨고, Async 패턴에선 메세지에 데이터가 저장되고, 저장된 데이터를 바라보는 Consumer가 가져가서 처리를 하곤 합니다. (예 Kafka) 이 때 순서 보장이 되는 경우도 있지만, 카프카에서는 파티션이 여러개 있을 때 여러 파티션에 아이템이 흩어지면 순서를 보장할 수는 없습니다(한 파티션 내에선 보장) 세부적인 상황에 따라 조금씩 달라질 수는 있다고 이해하시면 될 것 같네요\n\n현재 클러스터란 단어가 나오던데, sync, async 패턴에선 쿠버네티스나 도커 같은 환경이라고 생각하시면 이해가 어려울 수도 있고, 그냥 단일 서버가 하나 있다는 상황이라고 가정하시면 이해가 빠를거에요. 큰 컨셉을 이해하기 위해 나온 것이고 세부적인 구현이 다 다를 수 있거든요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709009808.464089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 ! 단일 서버로 확인하겠습니다 !\n강의 재밌게 듣고 있습니다 !",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709013176.235249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[2강] Local excutor와 celery executor질문\n• Local 에서 celery excutor로의 차이가 1대 단일 서버 운영 -&gt; N대 다중 서버 운영이며, 이때 redis를 이용해서  task를 전달 하는 것으로 이해 했습니다.\n• N대의 서버 운영에서 Master Node가 고장난 경우 1대의 서버를 사용하는 것 과 같이 서비스 장애가 일어나기 때문에, kubernetes로 넘어가는 것으로 이해 했습니다. (클러스터 환경에서 마스터노드 고장시, 서브 마스터가 마스터 위치를 이어받음)\n• Kubernetes 환경에서, airflow를 사용할 경우 webserver, kebeos, 워커 등 인스턴스들이 종료되지 못하고 지속적으로 실행되어 있는 부분 때문에 자원 사용량 측면에서 용이하도록 airflow on kubenetes 에서 kubernetes executor 방식으로 전환하였다고 이해 하였습니다.\n• 자유로운 docker 이미지를 사용하기 위해 Operator Kubernetes Executor -&gt; KubernetesPodOperator 방식으로 변경 하였다고 이해 하였습니다.\n1. 이때, 마스터 서버의 장애 대응 측면이 아닌, N대의 서버를 더 잘게 나누어 N+@대의 서버를 사용하는 것처럼 리소스를 관리하기 위해 kubenetes를 이용하는 걸까요?\n2. 서버용 GPU같은 고가의 GPU(<https://www.nvidia.com/ko-kr/technologies/multi-instance-gpu/|MIG 기능>)를 제외하고는 한번에 한개의 POD에만 할당할 수 있다고 알고 있습니다. 혹시 MIG기능을 지원하지 않는 RTX 40XX 같은 그래픽카드도 여러 POD에서 동시 분할하여 사용할 수 있을까요 ?\n3. API 서비스를 담당하는 인스턴스의 경우, 항상 띄워져 있어야 즉각적인 응답이 가능할 것 같은데 실제 환경에서는 요청이 없더라도 Kukernetes 위에 항상 자원을 점유한 상태로 두는 편일까요 아니면 요청이 들어올 때 그때그때 pod을 생성하여 사용하나요?\n감사합니다!",
+        "user": "U063QNXGZFU",
+        "user_name": "전민서_T6151",
+        "timestamp": "1708990020.329049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U063MR3HFTP",
+                "U03PL9GCPFZ"
+              ],
+              "count": 2
+            },
+            {
+              "name": "thinking_face",
+              "users": [
+                "U063MR3HFTP",
+                "U063MR541NZ"
+              ],
+              "count": 2
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 20
+        }
+      },
+      "answers": [
+        {
+          "text": "재밌는 질문 좋습니다! 제 의견을 남겨볼게요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007061.972549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; Local 에서 celery excutor로의 차이가 1대 단일 서버 운영 -&gt; N대 다중 서버 운영이며, 이때 redis를 이용해서  task를 전달 하는 것으로 이해 했습니다.\nCelery Executor는 말씀하신대로 Redis를 별도로 띄워야 하고, Celery로 프로세스를 생성합니다. 그러나 꼭 N대 다중 서버 운영하는 것은 아닙니다. 하나의 서버에서도 이렇게 운영 가능합니다. (예. VM 내에 컨테이너를 띄우는 형태) 또, 말씀하신대로 여러 대의 서버로도 가능합니다.\n\n여기서 서버는 하나의 VM 혹은 물리적인 컴퓨터로 생각하겠습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007340.230269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; N대의 서버 운영에서 Master Node가 고장난 경우 1대의 서버를 사용하는 것 과 같이 서비스 장애가 일어나기 때문에, kubernetes로 넘어가는 것으로 이해 했습니다. (클러스터 환경에서 마스터노드 고장시, 서브 마스터가 마스터 위치를 이어받음)\n잘 이해하셨습니다. 이는 쿠버네티스를 쓰는 일반적인 이유이기도 합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007433.284029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; Kubernetes 환경에서, airflow를 사용할 경우 webserver, kebeos, 워커 등 인스턴스들이 종료되지 못하고 지속적으로 실행되어 있는 부분 때문에 자원 사용량 측면에서 용이하도록 airflow on kubenetes 에서 kubernetes executor 방식으로 전환하였다고 이해 하였습니다.\n잘 이해하셨습니다. Airflow를 Kubernetes에서 쓰는 가장 큰 이유 중 하나가, 말씀하신대로 자원 사용량 효율화 입니다.\n정확히 말하면, Airflow webserver, scheduler는 항시 떠있고, Worker 파드만 동적으로 뜨게 됩니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007524.669059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 자유로운 docker 이미지를 사용하기 위해 Operator Kubernetes Executor -&gt; KubernetesPodOperator 방식으로 변경 하였다고 이해 하였습니다.\n맞습니다 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007541.911949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 이때, 마스터 서버의 장애 대응 측면이 아닌, N대의 서버를 더 잘게 나누어 N+@대의 서버를 사용하는 것처럼 리소스를 관리하기 위해 kubenetes를 이용하는 걸까요?\n네 맞습니다. 쿠버로 가면 마스터 노드도 N개 둘 수 있고, 워커 노드도 N개 둘 수 있습니다.\n일반적인 서비스들은 모두 워커 노드에 배포합니다. 마스터 노드에는 쿠버네티스 시스템 컴포넌트들만 배포합니다.\n\n워커 노드 장애 시, 혹은 서비스 자체가 문제가 생기면, 쿠버네티스에서 이를 감지하여 서비스를 킬하고, 다시 배포합니다.\n이게 쿠버네티스를 써서 얻는 가장 큰 이점 중 하나입니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007634.654789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 서버용 GPU같은 고가의 GPU(<https://www.nvidia.com/ko-kr/technologies/multi-instance-gpu/|MIG 기능>)를 제외하고는 한번에 한개의 POD에만 할당할 수 있다고 알고 있습니다. 혹시 MIG기능을 지원하지 않는 RTX 40XX 같은 그래픽카드도 여러 POD에서 동시 분할하여 사용할 수 있을까요 ?\nGPU 노드에 GPU 코어가 N개 있으면, GPU 코어 1개를 쓰는 파드 N개를 이 노드에 스케줄링할 수 있습니다.\n노드 1개당 1개의 파드만 가능한 건 아닙니다.\n\nMIG는 코어가 GPU 코어가 4개이지만, 이를 더 분할하여 8개처럼 쓸 수 있도록 하는 기술입니다. (CPU 하이퍼쓰레딩 같은 느낌입니다)\nMIG를 지원하는 GPU 모델은 따로 있으며 (모든 GPU 모델이 가능한게 아닙니다), 쿠버네티스에서 이를 사용하려면 몇 가지 Nvidia 컴포넌트들을 설치해줘야 합니다.\n\n말씀하신 RTX 40XX 그래픽 카드에서 코어 개수가 만약 4개면, 1코어 쓰는 파드 4개를 띄울 수 있습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007796.712669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; API 서비스를 담당하는 인스턴스의 경우, 항상 띄워져 있어야 즉각적인 응답이 가능할 것 같은데 실제 환경에서는 요청이 없더라도 Kukernetes 위에 항상 자원을 점유한 상태로 두는 편일까요 아니면 요청이 들어올 때 그때그때 pod을 생성하여 사용하나요?\n전자, 후자 모두 사용하곤 합니다만, 왠만한 서비스들은 대부분 전자를 사용합니다.\n후자의 경우, 응답 속도가 느려도 괜찮고 비용 효율화에 신경 쓰는 경우 사용합니다.\n\n참고로, 전자를 핫 스타트, 후자는 콜드 스타트라고 부릅니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007918.280749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "> GPU 노드에 GPU 코어가 N개 있으면, GPU 코어 1개를 쓰는 파드 N개를 이 노드에 스케줄링할 수 있습니다.\n> 노드 1개당 1개의 파드만 가능한 건 아닙니다.\n> \n> MIG는 코어가 GPU 코어가 4개이지만, 이를 더 분할하여 8개처럼 쓸 수 있도록 하는 기술입니다. (CPU 하이퍼쓰레딩 같은 느낌입니다)\n> MIG를 지원하는 GPU 모델은 따로 있으며 (모든 GPU 모델이 가능한게 아닙니다), 쿠버네티스에서 이를 사용하려면 몇 가지 Nvidia 컴포넌트들을 설치해줘야 합니다.\n> \n> 말씀하신 RTX 40XX 그래픽 카드에서 코어 개수가 만약 4개면, 1코어 쓰는 파드 4개를 띄울 수 있습니다.\n1. 보통, CPU의 코어라고 하면, 16C/32T 같은 식으로 1개의 CPU 안에 16개의 코어가 들어 있는 구조라 이해하고 있습니다.\n2. GPU 같은 경우, CUDA코어가 4080기준 9728개인 것으로 알고있습니다. \n    a. 이때, 말씀하신 GPU코어가 N개가 있다고 함은 그래픽카드에 존재하는 CUDA코어 개수를 의미하는 걸까요 아니면 물리적으로 그래픽카드 PCB 기판에 존재하는 GPU 다이의 개수를 의미 하는걸까요 ? (즉 4080기준 9728개의 cuda 코어 == 1GPU코어)\n    b. 만약 위의 경우 MIG기능을 사용하지 않으면 9728개의 코어에 9728개의 작업을 수행시킬 수 있게 되는 것 일까요? 또한, MIG기능을 사용한다면 9728 * MIG 기능을 설정한 숫자 만큼 작업을 수행할 수 있게 되는 걸까요 ? \n    c. CPU의 하이퍼쓰레딩은 병목으로 인해 X2의 성능이 아닌 1.6 ~ 1.8 정도의 성능 향상이 있다고 알고 있습니다. 만약 MIG 기능을 사용해도 위와 비슷한 현상이 일어날까요 ? 물리적으로 vram과 레지스터등은 물리적으로 격리하는 기능으로 이해했습니다! \n3. 레딧 게시물중 <https://www.reddit.com/r/linux/comments/mo0ay0/hacker_figures_how_to_unlock_vgpu_functionality/> 아래와 같이 소비자용 그래픽카드에서는 그래픽카드의 가상화가 제한되어 있는것 처럼 보이는데, 3년 전 글이라서요! 혹시 지금은 소비자용 그래픽카드에서도 vgpu를 지원할까요 ? 이때 가상화는 MIG 방식이 아닌 time slice 방식인것 같습니다.\n감사합니다 :slightly_smiling_face:",
+          "user": "U063QNXGZFU",
+          "user_name": null,
+          "timestamp": "1709014719.741149",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNXGZFU",
+              "ts": "1709014755.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 혼동되게 말한거 같습니다. 코어 수가 아니라 GPU 입니다. 그래픽 카드 설치하고 `nvidia-smi` 로 보면 나오는 개수요 ㅎㅎ\n말씀하신대로 MIG 없이 하나의 GPU에 하나의 파드만 할당 가능합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709016358.659359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "회사에서 그래픽카드 하나에 보통 GPU가 8개 이상은 되어서.. 코어랑 헷갈렸네요.\n이러면 노드 하나에 파드 최대 8개 배포할 수 있습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709016405.820879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "쿠버에서 MIG를 쓰면, 1개의 GPU를 더 잘게 쓰게되는데, 쿠버 입장에서는 `resources.gpu.nvidia` 가 더 늘어날겁니다.\n요 블로그 글 봐보시면 좋을거 같아요.\n\n<https://velog.io/@moey920/Kubernetes-MIGMulti-Instance-GPUs-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709016522.666519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "3번은 저도 잘 모르겠습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709016537.648159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 !\n강의 재밌게 듣고 있습니다 ..! :slightly_smiling_face:",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709018856.754799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[기본과제2] 과제 링크 질문\n• 과제 링크에 클릭후 사이트 접근 권한이 없다고 뜹니다.",
+        "user": "U063A76R5M5",
+        "user_name": "이동형_T6117",
+        "timestamp": "1709006350.117519",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR",
+                "U063J3XMV70",
+                "U0646PBD8CA"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "제보 감사합니다.\n방금 조치 완료했는데, 다시 한번 접속해보시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709007220.706409",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1709007227.000000"
+            },
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U0646PBD8CA",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인했습니다. 감사합니다.",
+          "user": "U063A76R5M5",
+          "user_name": "이동형_T6117",
+          "timestamp": "1709007293.068309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

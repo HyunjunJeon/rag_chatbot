@@ -1,0 +1,133 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저는 연구 포트폴리오에 일반적인 방법은 없다고 생각하고, 웅준님이 보실 때 내용이 충분히 잘 전달되었다고 생각하는 형태로 디벨롭 해보시면 좋을 것 같아요!\n\n이런 포트폴리오에 절대 답은 전혀 없고, 포트폴리오를 보는 분이 자신을 어떻게 생각하면 좋겠다! 이런 생각을 하시면서 만들어보시면 좋습니다\n\n예를 들어 연구(Research) 관련 포트폴리오면 =&gt; 이 주제를 왜 하게 되었고(문제 정의) 이 부분이 해결될 경우 어떻게 활용할 수 있을지 작성 =&gt; 내용 작성 =&gt; 기타 레퍼런스(참고 논문 등)을 정리할 것 같아요\n\n연구냐 일반 프로젝트냐 모두 관점은 동일할 것 같아요! Task의 종류가 다를 뿐이지요..!\n\n제가 예전부터 인상 깊게 본 논문 정리한 Repo가 있어요. 제가 캐글 처음 공부할 때 참고했던 분의 Github인데 Issue에 Paper를 꾸준히 정리하고 계십니다\n\n<https://github.com/kweonwooj/papers>\n\n\n태그도 걸어두셔서 태그를 누르면 그 관련 논문도 볼 수 있더라구요! 논문을 이렇게 정리했다는 점이 너무 인상깊었고, 노션에서도 할 수 있지만 신선했습니다!\n\n포트폴리오 형식은 아니지만 관련해서 작성한 내용도 공유드립니다!!\n\n<https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4>",
+        "user": "U029MCT2RTK",
+        "user_name": null,
+        "timestamp": "1640250002.446900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1",
+                "U02AF2JSQP2"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U027SHXU18R",
+                "U029E1P5Z5G",
+                "U029DCPSW3Z",
+                "U02D9H0SFRD",
+                "U029UHZ6AHY",
+                "U0297FGE17Y"
+              ],
+              "count": 6
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U029UHZ6AHY",
+                "U029H263PD1"
+              ],
+              "count": 2
+            },
+            {
+              "name": "metamong",
+              "users": [
+                "U029UHZ6AHY",
+                "U029H263PD1"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 마스터님.!\n포트폴리오를 사람들이 볼 때 정해진 양식으로 작성한다면 사람들이 포트폴리오의 내용을 이해할 때 잘 이해할 수 있지 않을까라는 의문에서 질문을 올리게 됬던거 같습니다.\n어떻게 남들에게 자신이 비춰질지가 제 포트폴리오의 내용을 전달하는 것 만큼 중요하다고 생각이 들었습니다.\n마지막까지도 답변 잘해주셔셔 감사합니다. :smile:",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1640254675.448600",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1640254693.000000"
+            },
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U029BP86UBX> 정확히는 모르지만 조금이라도 도움이 될까 남겨봅니다.\n```# in vscode\n[16:55:52.141] Starting forwarding server. localPort 45901 -&gt; socksPort 43349 -&gt; remotePort 36715\n# lsof of local computer\ntcp        0      0 127.0.0.1:43349         0.0.0.0:*               LISTEN      28113/ssh                         \ntcp6       0      0 :::45901                :::*                    LISTEN      28091/code```\nvscode remote 접속은 ssh를 통해 하는 것 같습니다. 그래서 ssh를 통해 터널링(?) 되는 것 같습니다.",
+        "user": "U029UND0U1Y",
+        "user_name": "Yongbeom Kwon",
+        "timestamp": "1640257158.449100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029UND0U1Y",
+            "ts": "1640257233.000000"
+          },
+          "reactions": [
+            {
+              "name": "blob_thumbs_up",
+              "users": [
+                "U029BP86UBX"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029BP86UBX"
+              ],
+              "count": 1
+            },
+            {
+              "name": "cat_pink",
+              "users": [
+                "U029BP86UBX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029UND0U1Y> 세상엔 신기한 기능이 정말 많네요 감사합니다!!!",
+          "user": "U029BP86UBX",
+          "user_name": "임성민",
+          "timestamp": "1640265415.449600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

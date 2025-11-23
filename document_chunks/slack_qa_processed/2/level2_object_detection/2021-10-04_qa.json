@@ -1,0 +1,61 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 모델을 찾던중 universenet을 활용해보고자 하는데요! 다만 pre-trained된 dataset이 다음과 같아 혹시 대회에서 사용이 가능한지 궁금합니다!\n<https://arxiv.org/abs/2103.14027>",
+        "user": "U029TU25PG9",
+        "user_name": "김민준",
+        "timestamp": "1633394894.068900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "experiment 부분을 보니 coco, wod, m109s dataset에 대해 실험을 하였는데, coco에 대해 학습한 universal object detection은 사용이 가능합니다 :slightly_smiling_face:",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633395905.069100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1633396280.069300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028U1DJ0SK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U028U1DJ0SK",
+                  "U0298NLUNBC",
+                  "U029E28RUPL"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

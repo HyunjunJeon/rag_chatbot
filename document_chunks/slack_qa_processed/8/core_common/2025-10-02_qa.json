@@ -1,0 +1,101 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "NLP 5강 퀴즈 3번 문제 수식이 깨져있습니다. 깨지지 않은 버전으로 볼 방법이 있을까요?",
+        "user": "U09CH86HP4K",
+        "user_name": null,
+        "timestamp": "1759389835.368769",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1759389890.000000"
+          },
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "순서는 다른 것 같습니다. 4)번의 경우에는 두 번 써진 것 같아요.",
+          "user": "U09CH8393DH",
+          "user_name": null,
+          "timestamp": "1759390005.517799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U09CH7TUMUK",
+                  "U09CH84CA6P",
+                  "U09CH7Y6HEX"
+                ],
+                "count": 3
+              },
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH86HP4K",
+                  "U09CH7Y6HEX"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "C_t = f_t \\cdot C_{t-1}+(1-f_t) \\cdot \\tilde{C}_t를 C_t = f_t \\cdot C_{t-1} + i_t \\cdot \\tilde{C}_t로 봐주시면 좋을 것 같습니다!",
+          "user": "U097N652BQW",
+          "user_name": "Kyungmin Lee",
+          "timestamp": "1759401518.683259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "LaTeX인가요?",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1759413467.011199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그런 것 같습니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1759414461.183219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 latex 수식입니다!",
+          "user": "U097N652BQW",
+          "user_name": "Kyungmin Lee",
+          "timestamp": "1759416227.948769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

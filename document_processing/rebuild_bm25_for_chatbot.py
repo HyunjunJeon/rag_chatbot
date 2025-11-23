@@ -5,9 +5,22 @@ BM25 인덱스 재구축 스크립트
 KiwiBM25Retriever를 사용하여 BM25 인덱스를 재구축합니다.
 
 사용법:
+    # 기본 경로 사용 (slack_qa_merged)
     python document_processing/rebuild_bm25_for_chatbot.py
+
+    # 정리된 데이터로 새 인덱스 생성
+    python document_processing/rebuild_bm25_for_chatbot.py \
+        --input-dir document_chunks/slack_qa_cleaned \
+        --output-dir sparse_index/kiwi_bm25_slack_qa_v2_cleaned
+
+    # Top-K 설정
+    python document_processing/rebuild_bm25_for_chatbot.py \
+        --input-dir document_chunks/slack_qa_cleaned \
+        --output-dir sparse_index/kiwi_bm25_slack_qa_v2_cleaned \
+        -k 20
 """
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -220,18 +233,57 @@ def rebuild_bm25_index(
     return retriever
 
 
+def parse_args() -> argparse.Namespace:
+    """명령줄 인자 파싱"""
+    parser = argparse.ArgumentParser(
+        description="BM25 인덱스 재구축 스크립트 (Kiwi 한국어 형태소 분석 기반)"
+    )
+
+    parser.add_argument(
+        "--input-dir",
+        type=str,
+        default="document_chunks/slack_qa_merged",
+        help="입력 디렉토리 경로 (merged JSON 파일들) (기본값: document_chunks/slack_qa_merged)",
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        type=str,
+        default="sparse_index/kiwi_bm25_slack_qa",
+        help="출력 디렉토리 경로 (BM25 인덱스 저장) (기본값: sparse_index/kiwi_bm25_slack_qa)",
+    )
+
+    parser.add_argument(
+        "-k",
+        "--top-k",
+        type=int,
+        default=10,
+        help="기본 검색 결과 수 (기본값: 10)",
+    )
+
+    return parser.parse_args()
+
+
 def main() -> None:
     """메인 함수"""
-    # 경로 설정
-    merged_dir = PROJECT_ROOT / "document_chunks" / "slack_qa_merged"
-    output_dir = PROJECT_ROOT / "sparse_index" / "kiwi_bm25_slack_qa"
+    # 명령줄 인자 파싱
+    args = parse_args()
+
+    # 경로 설정 (상대 경로를 절대 경로로 변환)
+    merged_dir = PROJECT_ROOT / args.input_dir
+    output_dir = PROJECT_ROOT / args.output_dir
+
+    print(f"\n📋 설정:")
+    print(f"   입력 디렉토리: {merged_dir}")
+    print(f"   출력 디렉토리: {output_dir}")
+    print(f"   Top-K: {args.top_k}")
 
     # 인덱스 재구축
     try:
         retriever = rebuild_bm25_index(
             merged_dir=merged_dir,
             output_dir=output_dir,
-            k=10,
+            k=args.top_k,
         )
 
         print("\n💡 다음 단계:")

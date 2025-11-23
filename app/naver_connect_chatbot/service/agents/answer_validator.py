@@ -4,6 +4,7 @@ Adaptive RAG용 답변 검증 에이전트 구현.
 생성된 답변의 환각, 근거, 완전성, 품질을 점검합니다.
 """
 
+import json
 from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
@@ -109,11 +110,19 @@ def create_answer_validator(llm: Runnable) -> Any:
     try:        
         prompt_template = get_prompt("answer_validation")
         system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        
+
+        schema_text = json.dumps(
+            AnswerValidation.model_json_schema(),
+            ensure_ascii=False,
+            indent=2,
+        )
+
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             "IMPORTANT: After validating the answer, you MUST call the emit_answer_validation tool "
             "with all required parameters to return your validation results."
+            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
+            f"{schema_text}"
         )
         
         agent = create_agent(
@@ -175,4 +184,3 @@ def validate_answer(
     })
     
     return response
-

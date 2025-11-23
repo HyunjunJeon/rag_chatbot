@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분!\n홀가분한 마음으로 대회가 끝나고 이를 랩업하는 마스터클래스가 *금일 18:00~19:00*에 준비되어 있습니다 :slightly_smiling_face:\n*김정훈 마스터님*께서 진행해 주시며, 캠퍼 분들의 발표도 예정되어 있으니 늦지 않게 참여해주세요!:eyes:\n잠시 뒤 링크에서 봬요!\n&gt;  <https://zoom.us/j/94462317951?pwd=K3NrbUFTanVxZTh0cWc1ZzF0WUVsZz09|모델최적화 마스터클래스 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1638520200.167900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 발표해주실 캠퍼분들의 발표 자료입니다 :slightly_smiling_face: 10분 후에 만나요!",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1638521474.168000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

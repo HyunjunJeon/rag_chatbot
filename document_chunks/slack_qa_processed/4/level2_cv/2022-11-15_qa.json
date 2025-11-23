@@ -1,0 +1,339 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "2강 Faster R-CNN 파트62p에서 질문이 있습니다.\n수업자료 그림에서는 문제가 없는것 같아 보입니다만 한 픽셀을 기준으로 k개의 anchor boxes가 나온다면, 만약 중심이 되는 픽셀이 그림처럼 2*2가 아닌 0*0 위치에 있는 픽셀이라면 anchor boxes가 정해진 conv feature map영역 밖으로 벗어나게 되는데 이러한 경우에 anchor boxes의 값들은 어떻게 되고 어떻게 작동되는 건가요??",
+        "user": "U041HN1JMTM",
+        "user_name": null,
+        "timestamp": "1668517651.043569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "미션코드의 내용이라 일반화될 수 있을지 모르겠지만,\n미션2의 코드에서\n\n```# anchor의 좌표값과 predicted bounding bounding box offset(y,x,h,w)를 통해\n# bounding box 좌표값(y_min, x_min, y_max, x_max) 생성\nroi = loc2bbox(anchor, loc)\n\n# Clip predicted boxes to image.\nroi[:, slice(0, 4, 2)] = np.clip(roi[:, slice(0, 4, 2)], 0, img_size[0])\nroi[:, slice(1, 4, 2)] = np.clip(roi[:, slice(1, 4, 2)], 0, img_size[1])```\n라는 내용이 있는데요,\n`ROI Head로 보내는 roi를 선정할 때, 이미지의 범위를 벗어나는 roi들은 clip해서 보내주는 것 같습니다!`",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1668518631.872359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fb-wow",
+                "users": [
+                  "U0427G7HN6L"
+                ],
+                "count": 1
+              },
+              {
+                "name": "amaze",
+                "users": [
+                  "U041HN1JMTM"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03PE2V21L7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오호.. 감사합니다. 코드 한번 보고 다시 이해해보겠습니다.",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1668518941.605459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 아래 자료가 설명이 잘 되어있는 부분이 많아서 첨부합니다.\n<https://herbwood.tistory.com/10>",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1668519432.209649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "wa",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "smile",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 지금 올려주신 자료 보면서 계속 공부하고 있었어요!!!\n실습코드가 이전 대회에 비해 확실히 빡세네요 :fire:\n화이팅입니다!",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1668519487.990069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fire",
+                "users": [
+                  "U041HN1JMTM",
+                  "U04138C8PE3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "괜히 3주의 시간을 준게 아닌가봐요.. 상모님도 화이팅하세요!! :cool-doge:",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1668519565.888579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZR68K",
+                  "U03R4JQQGHF"
+                ],
+                "count": 2
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U041HMZR68K",
+                  "U03R4JQQGHF"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 얘기인데 YOLO를 계승하는 object detection 모델 중 YOLOX가 anchor free 방식이라고 들은듯 합니다. (YOLOv1을 제외하고는)\n그 외에도 Anchor box 의 단점 (size, ratio, anchor 갯수에 영향을 받거나, 질문글처럼 코너에 취약해질 수 있다거나..)을 개선하려는 것들도 있는것 같네요..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1668523682.731349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "pyenv+pipenv 를 쓰다가 오랜만에 conda 환경설정을 하는데 conda 환경 activate하고나서 pip install을 하면 conda 가상환경에만 라이브러리가 설치 되는건가요? pipenv의 경우 pipenv install 커맨드를 사용해야 내부 환경에 설치가 되고 pip install을 하면 외부에 설치가 되던데 conda는 pypi 라이브러리도 자동으로 사용하는 것 같은데 pip install을 써도 되는지 conda install과의 어떤 차이가 있는지 궁금합니다",
+        "user": "U0427G48WAC",
+        "user_name": "시형",
+        "timestamp": "1668525280.409969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PE2V21L7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "conda 의 경우 Python Path 를 새로 잡아준다고 해야할까요?.. 라이브러리 경로 자체가 바뀌기에 pip 로 인스톨되는 패키지도 전부 분리가 됩니다. 환경변수의 기본 경로 자체가 다 바뀌기때문에 pip로 설치하더라도 기존 환경에 전혀 영향이 없습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1668529155.648209",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1668529362.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "기본 환경 (deactivate)\n```&gt;&gt;&gt; import sys\n&gt;&gt;&gt; sys.path\n['', '/usr/lib/python38.zip', '/usr/lib/python3.8', '/usr/lib/python3.8/lib-dynload', '/usr/local/lib/python3.8/dist-packages', '/usr/lib/python3/dist-packages']```",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1668529175.719019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "conda 가상 환경\n```&gt;&gt;&gt; import sys\n&gt;&gt;&gt; sys.path\n['', '/root/miniconda3/lib/python39.zip', '/root/miniconda3/lib/python3.9', '/root/miniconda3/lib/python3.9/lib-dynload', '/root/miniconda3/lib/python3.9/site-packages']```",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1668529191.249229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 분리가 됩니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1668529201.039879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "참고로 conda install 의 경우는 파이썬 라이브러리 이외에도.. 필요에 따라 so library 도 포함해서 설치한다고 알고 있습니다. pypi도 그렇기도 하지만 좀 더 패키지스럽게요\npypi는 install 하는 대상 하나만을 위해서 라면, conda 는 뭘 좋아할지 몰라서 다 준비해봤어 같은 느낌?.. ^^;;",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1668529297.914299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC",
+                  "U041HN3C7B5",
+                  "U03R4JQQGHF"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1668556451.350969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`conda env export` 해보시면 현재 가상환경에 설치된 패키지들을 볼 수 있습니다.\n\n`conda env export &gt; environment.yml`\n이렇게 yml으로 저장해두었다가\n`conda env create -f environment.yml`\n이렇게 다시 생성할 수 있습니다.\n\n환경 때문에 에러가 발생하는 팀원에게 공유할 수 있고, repo에 올려서 어떤 환경에서 실행했었는지 명시할 수도 있죠.",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1668560620.136019",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1668561073.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1668581499.512719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "dataset 자체는 [x_min, y_min, w, h]이 형태로 구성 되어있던데 궁금하신점이 왜 bbox를 만들때 [x_min, y_min, x_max, y_max]로 고치는지 물어보신게 맞나요??",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1668581675.447609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 제가 데이터 셋 포맷을 잘 못 확인한 듯 합니다. 직접 픽셀 비교하다보니 답변 감사합니다!",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1668581831.207279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 분들께 혼란을 드릴까 글 지웠습니다ㅠㅠㅋㅋ",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1668581893.070209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

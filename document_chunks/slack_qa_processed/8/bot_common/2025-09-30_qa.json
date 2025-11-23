@@ -1,0 +1,83 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> KoNLPy은 word level tokenization야 아니면 sub level tokenization이야? 아니면 이런 분석이 아닌 다른 범주인가?",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1759283320.413699",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH85PLV9> KoNLPy는 **형태소 분석(Morphological Analysis)**을 수행합니다.\n\n이는 단순히 word-level tokenization이나 subword-level tokenization으로 명확하게 분류하기보다는, 한국어의 특성상 문장을 **형태소(morpheme)**라는 의미 있는 최소 단위로 분리하고 품사를 태깅하는 과정입니다.\n\n형태소 분석 결과를 바탕으로 어절(eojel)이나 단어(word) 단위의 토큰화를 구성할 수 있습니다. 일반적인 BPE/WordPiece 같은 subword tokenization과는 목적과 방식이 다릅니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1759283332.695839",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> Token을 단어 (Word) 단위로 구분 • 일반적으로 단어는 띄어쓰기를 기준으로 구분 • 입력 – “The devil is in the details” • 출력 – [‘The’, ‘devil’, ‘is’, ‘in’, ‘the’, ‘details’] • 한국어에서는 형태소를 기준으로도 단어를 구분하기도 함 • 입력 – “나는 밥을 먹었다” • 출력 – [‘나’, ‘는’, ‘ ‘, ‘밥’, ‘을’, ‘ ‘, ‘먹’, ‘었다’]\n라던데, 이 기준으로 보면 word-level tokenization이 아닐까나?",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1759283399.210359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH85PLV9> 네, 제시하신 한국어 기준, 즉 \"**한국어에서는 형태소를 기준으로도 단어를 구분하기도 함**\"이라는 정의와 예시를 따른다면, KoNLPy의 형태소 분석 결과는 해당 범주에 해당한다고 볼 수 있습니다.\n\nKoNLPy는 **형태소 분석(Morphological Analysis)**을 통해 말씀하신 ['나', '는', ' ', '밥', '을', ' ', '먹', '었다']와 같이 문장을 의미 있는 최소 단위인 형태소로 분리합니다. 따라서 한국어에서 '단어'의 개념을 형태소 단위로 확장하여 본다면, KoNLPy의 출력은 그러한 형태의 word-level tokenization으로 기능할 수 있습니다.\n\n다만, 이는 영어의 띄어쓰기 기반 word-level tokenization과는 근본적인 처리 방식에서 차이가 있습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1759283412.839169",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> 그래서 한국어에서는 형태소 단위로 토큰화를 Word-level로 보는 경우도 있음 이게 일반적인 시각이야?",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1759283484.273539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH85PLV9> 네, 한국어 자연어 처리(NLP) 분야에서는 형태소 단위를 '단어(Word)' 수준의 토큰화로 간주하는 경우가 **매우 일반적이며 필수적인 접근 방식**입니다.\n\n이는 한국어가 교착어(agglutinative language)의 특성을 가지고 있어, 띄어쓰기만으로는 문장의 의미 있는 최소 단위를 정확히 분리하기 어렵기 때문입니다. 따라서 형태소 분석을 통해 어간, 접사, 조사, 어미 등 의미를 가진 최소 단위인 형태소를 분리하고, 이를 바탕으로 '단어'를 정의하거나 구성하는 것이 일반적인 워크플로우입니다.\n\n엄밀히 '단어'의 정의가 언어학적 관점이나 특정 목적에 따라 달라질 수 있지만, 한국어 텍스트 분석 시에는 형태소 분석이 사실상 '단어' 수준의 토큰화 기초 작업으로 기능합니다. 다만, 영어의 띄어쓰기 기반 '단어' 개념과는 본질적인 처리 방식에서 차이가 있습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1759283496.056589",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

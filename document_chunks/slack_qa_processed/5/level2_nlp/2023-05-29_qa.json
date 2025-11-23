@@ -1,0 +1,526 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "새로 받은 데이터 train.csv에서 일부 target(0번, 5번, 6번)이 번호가 잘못 되어있는 것 같아서 질문을 남깁니다!\naistages에 따르면,\n0 = 정치,  1= 경제, 2 = 사회, 3 = 생활문화, 4=세계, 5 = IT과학, 6=스포츠\n\n실제 데이터를 보니\n0 = IT과학,  1= 경제, 2 = 사회, 3 = 생활문화, 4=세계, 5 = 스포츠  , 6=정치\n입니다.\n\n혹시 제가 놓친 부분이 있다면, 알려주시면 감사하겠습니다!",
+        "user": "U04RK708CQJ",
+        "user_name": null,
+        "timestamp": "1685343601.646669",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RK708CQJ",
+            "ts": "1685345248.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK72HTU2",
+                "U04RK71CXHQ",
+                "U04RXRUJ3DX",
+                "U04RCJQM35L",
+                "U04L808UDFG",
+                "U04S8TBA9MW",
+                "U04S8T6DCNL",
+                "U04R4LUJ5B9",
+                "U04S8TBCAJC",
+                "U04MJBR4H8C"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04L808UDFG> <@U04LU50651P> 휴일인데 죄송합니다. 빠른 확인 부탁드립니다!",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1685343937.515979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK71CXHQ"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04L808UDFG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RXRUJ3DX> <@U04RK708CQJ> <@U04RCJQM35L> 현재 확인중입니다!\n확인 완료되는 대로, 질의응답 채널에 공유드리겠습니다 :saluting_face:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1685344513.472119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "nep",
+                "users": [
+                  "U04RK708CQJ",
+                  "U04RXRUJ3DX",
+                  "U04RXRZ9UQH"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 추측으로는, 데이터, 코드에는 이상이 없고 AI Stages 설명이 변경되어야 할 거 같은데요.\n\n0 = 정치, 1= 경제, 2 = 사회, 3 = 생활문화, 4=세계, 5 = IT과학, 6=스포츠\n\n-&gt;\n\n0 = IT과학, 1= 경제, 2 = 사회, 3 = 생활문화, 4=세계, 5 =스포츠, 6=정치\n\n조교님들이 확인해주시는대로, 답변 남겨주실 예정입니다 !!",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685344786.511899",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04MJBR4H8C",
+              "ts": "1685346136.000000"
+            },
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RCJQM35L",
+                  "U04RXRUJ3DX",
+                  "U04RK708CQJ",
+                  "U04RXRZ9UQH"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04MJBR4H8C> 0, 6번 중 뭐가 IT과학일까요?",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1685345158.133709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "죄송합니다 제가 글에서 잘못 썼네요.. 고쳤습니다!",
+          "user": "U04RK708CQJ",
+          "user_name": "이준범",
+          "timestamp": "1685345251.172939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RXRUJ3DX> 조교님께서 공지해주셨습니다 ㅎㅎ",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685345289.451289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U04RXRUJ3DX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[프로젝트 label2num 관련 질문]*\n수고가 많으십니다! 다름이 아니라, augmentation 성능이 너무 안 올라가서 train을 다시 보는데, 0,5,6번 label이 꼬여있는 것 같습니다! 혹시 확인 한 번만 부탁드려도 될까요?",
+        "user": "U04RCJQM35L",
+        "user_name": "천재원_T5213",
+        "timestamp": "1685343652.145249",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RK708CQJ",
+                "U04S8T6DCNL",
+                "U04RCJQK2BY"
+              ],
+              "count": 4
+            },
+            {
+              "name": "fire",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RK708CQJ"
+              ],
+              "count": 2
+            },
+            {
+              "name": "thinking_face",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RK708CQJ"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RK708CQJ"
+              ],
+              "count": 2
+            },
+            {
+              "name": "woman-gesturing-ok",
+              "users": [
+                "U04L808UDFG"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "앗 위에 준범님이 더 잘 정리해주셨네요! 위 질문을 참고해주시면 좋을 것 같습니다 :slightly_smiling_face:",
+          "user": "U04RCJQM35L",
+          "user_name": "천재원_T5213",
+          "timestamp": "1685343705.542559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK708CQJ",
+                  "U04RK71CXHQ",
+                  "U04MJBR4H8C"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Augmentation의 경우 성능 향상이 없다면, 역으로 Filtering 하는 전략도 생각해보시면 좋을 거 같네요 :slightly_smiling_face:",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685344993.804149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[프로젝트 베이스라인 코드 관련 질문]*\n지금 baseline 코드에서 tokenizer의 max_len가 너무 길어서 학습 시간이 많이 소요 돼 하루 제출 20회가 의미 없는 것 같은데 max_len는 변경이 불가능할까요?",
+        "user": "U04RXRUJ3DX",
+        "user_name": "김기범_T5021",
+        "timestamp": "1685344972.833899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RK72HTU2",
+                "U04S8T6DCNL"
+              ],
+              "count": 3
+            },
+            {
+              "name": "fire",
+              "users": [
+                "U04RK71CXHQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "star-struck",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RCJQM35L"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RK3E8L3D"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "조교님들이 결정해주셔야 하는 사항이긴 하나, 제가 답변 남겨보겠습니다.\n\n일단 딥러닝 학습이라는게, 바로바로 나오면 너무 좋지만 그렇지 않은 경우가 대부분 입니다. 이를 위해 Deep Speed, batch 조절, max_len 설정 등을 통하여 시간을 줄여나가게 되죠! :slightly_smiling_face:\n\nmax_len 설정하면 학습 시간이 많이 줄 거 같다고 판단되고, max_len 설정은 모델의 구조를 변경하는 것이 아니기에, 저는 max_len 설정은 허용해도 된다고 생각합니다. <@U04LU50651P> <@U04L808UDFG> 두분 이야기 나누시고, 해당 사항 결정하여 공지 부탁드립니다.",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685345240.814489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RCJQM35L",
+                  "U04RK72HTU2"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "캠퍼님들 안녕하세요! 데이터셋 확인해본 결과, 안내해드린 target 정보와 실제 `train.csv` 상에서의 target 정보가 다른 것 같습니다! ai stages에 데이터 설명에 해당 사항 수정 및 완료했으며, 캠퍼님들도 이를 참고하여 진행해주시면 감사하겠습니다 :hugging_face:\n\n기존) 0 = 정치,  1= 경제, 2 = 사회, 3 = 생활문화, 4=세계, 5 = IT과학, 6=스포츠\n변경 후) 0 = IT과학,  1= 경제, 2 = 사회, 3 = 생활문화, 4=세계, 5 =스포츠, 6=정치",
+        "user": "U04L808UDFG",
+        "user_name": "심미단_조교",
+        "timestamp": "1685345248.309059",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04L808UDFG",
+            "ts": "1685345315.000000"
+          },
+          "reactions": [
+            {
+              "name": "너무나_감사",
+              "users": [
+                "U04RCJQM35L",
+                "U04RXRUJ3DX",
+                "U04RK71CXHQ",
+                "U04RK708CQJ",
+                "U04MJBR4H8C",
+                "U04RXRTG4GZ",
+                "U04RCJVHM9C"
+              ],
+              "count": 7
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RK3E8L3D",
+                "U04S8T6DCNL"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "빠른 피드백 정말 감사합니다:+1:",
+          "user": "U04RK708CQJ",
+          "user_name": "이준범",
+          "timestamp": "1685345322.628049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04L808UDFG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "캠퍼분들 현재 시각 1시 41분, 1. 제출 제대로 되시나요? 2. 팀 관리-&gt;팀 제출 누른 뒤에 표 제대로 뜨시나요?\n저는 1번 안 되고 저+팀원은 2번 안 된다고 합니다.",
+        "user": "U04RG8ZFADT",
+        "user_name": "이인균_T5150",
+        "timestamp": "1685421798.470879",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RG8ZFADT",
+            "ts": "1685422104.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RMLVMD28",
+                "U04RK3JEXAP",
+                "U04RXRT4YNM",
+                "U04R4LUFL9M",
+                "U04MJBR4H8C",
+                "U04RXRZ9UQH",
+                "U04S8T6086L",
+                "U04RK3E8L3D",
+                "U04RK3G0Y83",
+                "U04RCJQK2BY",
+                "U04R4LX4FMM"
+              ],
+              "count": 12
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 팀 제출 탭에 들어가면 팀 관리 탭으로 자동으로 리다이렉트가 되는 것 같습니다. 팀 제출 탭이 들어가지지 않네요",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1685421849.652429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 지금 1, 2번 모두 안 되고 있습니다.",
+          "user": "U04R4LUFL9M",
+          "user_name": "김주성_T5054",
+          "timestamp": "1685422033.368989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네네. 전민수님 저도 2번 동일한 증상입니다. 서버 오류 같네요.",
+          "user": "U04RG8ZFADT",
+          "user_name": "이인균_T5150",
+          "timestamp": "1685422044.424559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03MDFNTYCE> 확인 부탁드립니다",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685422432.903949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://stages.ai/competitions/245/discussion/issue/post/2138> 본문과 똑같은 내용이긴 한데 게시판에도 적었습니다",
+          "user": "U04RG8ZFADT",
+          "user_name": "이인균_T5150",
+          "timestamp": "1685422578.635249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04MJBR4H8C",
+                  "U03L1UMDLUS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03L1UMDLUS>\n크리스님, 확인 부탁드립니다",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1685422687.660609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인 후 답변드리겠습니다. 잠시만 양해 부탁드릴게요! :slightly_smiling_face:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1685422731.654409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U04RK3E8L3D",
+                  "U04RCJQK2BY",
+                  "U04RK3G0Y83",
+                  "U04S8T6086L",
+                  "U04RK3G01EF",
+                  "U04RXRZ9UQH"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

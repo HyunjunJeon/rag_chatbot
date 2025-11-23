@@ -1,0 +1,235 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[DKT 4강] Further reading의 SAINT+ 논문을 보고 start token embedding의 구현에 대해 궁금증이 들어 질문 드립니다.\n\n아래는 논문의 일부를 가져온 것인데요, response embedding sequence에 처음 엘리먼트는 start token embedding이라고 합니다.\n(첨부된 논문의 Figure.2를 보시면 빨간 네모로 표현된 부분에서도 볼 수 있습니다.)\n&gt; The decoder additionally takes a shifted response embedding sequence 𝑅 =[𝑆,𝑅1,𝑅2,…] as input, whose first element is a start token embedding, to produce the final output sequence 𝑐^ = [𝑐^1, 𝑐^2, . . . , 𝑐^𝑇]. (c^ = c hat)\n실제로 위 start token값은 어떻게 구현해야 하는지 궁금합니다!",
+        "user": "U04S8T91UKS",
+        "user_name": null,
+        "timestamp": "1684083734.643379",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04S8T91UKS",
+            "ts": "1684086070.000000"
+          },
+          "reactions": [
+            {
+              "name": "cool-doge",
+              "users": [
+                "U04S8T91UKS",
+                "U04R4LVMWP9",
+                "U04RXRT6QGZ",
+                "U03QKNSJVCY"
+              ],
+              "count": 4
+            },
+            {
+              "name": "squirtle_cool",
+              "users": [
+                "U04S8T91UKS",
+                "U04R4LVMWP9",
+                "U04RXRV3T9P"
+              ],
+              "count": 3
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U04R4LVMWP9",
+                "U04S0LEEX3M",
+                "U04RXRV3T9P",
+                "U041FE8FKBN"
+              ],
+              "count": 4
+            },
+            {
+              "name": "zzang",
+              "users": [
+                "U04R4LVMWP9",
+                "U041FE8FKBN",
+                "U04RXRV3T9P"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "SAINT+를 구현한 깃허브 레파지토리도 꼼꼼히 보았는데 (제 실력이 부족한 탓인지) start token embedding이 어떤 건지 알 수 없었습니다.\n<https://github.com/Shivanandmn/SAINT_plus-Knowledge-Tracing->",
+          "user": "U04S8T91UKS",
+          "user_name": "이준영",
+          "timestamp": "1684084225.689349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 <@U04S8T91UKS> 님! 저도 코드를 살펴보았는데 start token이 보이지 않는 것과 더불어 구현된 코드에서는 label을 논문에서 제시한대로 한 칸씩 미는 코드 조차 보이지 않네요. 저도 이상해서 Issue와 PR을 뒤져보던 중 아래와 같은 PR을 발견했습니다.\n• <https://github.com/Shivanandmn/SAINT_plus-Knowledge-Tracing-/pull/3>\n해당 PR은 상술한대로 label(=answer를 맞췄는지)를 한칸씩 밀지 않음으로 인해 label leakage가 일어나서 AUROC가 0.9999를 찍는다는 제보인데요, 아무래도 준영님이 확인하신대로 해당 구현코드는 정확하게 구현되지 않은 것 같네요. <https://github.com/Shivanandmn/SAINT_plus-Knowledge-Tracing-/issues/4|유사한 이슈> 또한 제시되어 있습니다.\n\n`train.py`를 살펴보면, `DecoderEmbedding`에 들어가는 `n_response`또한 3을 입력으로 받는데, 해석하자면 무효한자리 0, 틀린경우 1, 맞는경우 2를 제외하면 start_token이 받아줄 자리가 없는 것으로 보입니다. 논문에서 제시한대로 구현되려면 n_responses를 4로 늘려 start_token에 대한 categorical embedding을 따로 추가해주는 것이 올바른 것으로 보입니다.\n\n첨언하자면, start token의 경우 SAINT+에서 제시하기 이전에 <https://arxiv.org/pdf/2002.07033.pdf|SAINT>에서 먼저 제시된 방법임을 알려드립니다!",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1684124735.492409",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03QKNSJVCY",
+              "ts": "1684124801.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U04R4LVMWP9",
+                  "U04S8T91UKS",
+                  "U04RG93LWP7"
+                ],
+                "count": 4
+              },
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04R4LVMWP9",
+                  "U04S8T91UKS",
+                  "U04RG93LWP7"
+                ],
+                "count": 3
+              },
+              {
+                "name": "thank",
+                "users": [
+                  "U04R4LVMWP9",
+                  "U04S8T91UKS",
+                  "U04RG93LWP7"
+                ],
+                "count": 3
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04R4LVMWP9",
+                  "U04S8T91UKS",
+                  "U04RG93LWP7"
+                ],
+                "count": 3
+              },
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04R4LVMWP9",
+                  "U04S8T91UKS",
+                  "U04RG93LWP7"
+                ],
+                "count": 3
+              },
+              {
+                "name": "6857-dogecry",
+                "users": [
+                  "U04S8T91UKS",
+                  "U04RG93LWP7",
+                  "U04R4LVMWP9"
+                ],
+                "count": 3
+              },
+              {
+                "name": "감사",
+                "users": [
+                  "U04S8T91UKS",
+                  "U04RG93LWP7",
+                  "U04R4LVMWP9"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 조교님 ㅠㅠ 정말 감사합니다! pr과 이슈에도 유용한 정보가 있었군요!\n또 하나 질문이 있습니다!\n\npr에서는 start token을 2로 두었다고 하는데, start token은 기존 값들과 겹치지만 않으면 되는 건가요?\n아니면 잘 쓰이는 특별한 값이 있는걸까요?",
+          "user": "U04S8T91UKS",
+          "user_name": "이준영",
+          "timestamp": "1684129742.635419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "nn.Embedding은 단순히 숫자를 벡터로 바꿔주는 dictionary이기 때문에 숫자는 크게 관계가없습니다",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1684130237.934929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사",
+                "users": [
+                  "U04S8T91UKS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변감사합니다!",
+          "user": "U04S8T91UKS",
+          "user_name": "이준영",
+          "timestamp": "1684131850.894689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

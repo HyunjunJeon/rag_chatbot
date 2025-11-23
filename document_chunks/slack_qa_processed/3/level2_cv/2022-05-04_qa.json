@@ -1,0 +1,80 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 validation mIoU는 괜찮은데 inference 결과가 굉장히 그럴듯하게 틀리는 오답으로 나오는 현상을 겪으신 분이 계실까요? ㅠㅠㅠㅠㅠㅠ",
+        "user": "U02T1HLM9NK",
+        "user_name": null,
+        "timestamp": "1651658391.722779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "테스트셋을 로드할때 정렬을 해주셔야 합니다. 데이터를 읽어들일때 순서대로 읽어주지 않아서 발생하는 문제입니다",
+          "user": "U02TZ9HPZAS",
+          "user_name": "신형환",
+          "timestamp": "1651661385.892819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "100",
+                "users": [
+                  "U02TXQW022H",
+                  "U02TJ0CKVLJ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해보겠습니다! 그런데 validation의 경우에는 정렬을 해 주지 않아도 되는 이유가 궁금해지네요..!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651669475.919039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "validation은 id가 image 이름 기준으로 이미 정렬 되어있는데 test는 그렇지 않아 그런 거 같습니다.",
+          "user": "U02T0SYSCG7",
+          "user_name": "이준현_T3167",
+          "timestamp": "1651670059.545299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "~무슨 말씀인지 알 것 같습니다. test.json 안의 이미지의 순서가 파일 이름으로 정렬되어 있지 않은 것이 문제라기보다 정확히는 아마 어떤 양수 idx에 대해서 test.json[\"images\"][idx][\"id\"] != idx인 경우가 종종 있을지도 모르겠다는 생각이 드는데~ 이게 아니네요. 다시 확인해 보겠습니다.\n\n(최종 결론)\n말씀해주신 대로 `single_gpu_test()` 메소드가 데이터를 로드할 때 파일 이름 순으로 로드하지 않는 문제가 있었습니다. 그러나 로드 과정에서 정렬할 방법을 찾기 어려워서 results list를 파일 이름 순으로 정렬하는 코드를 넣었습니다.\n<https://github.com/boostcampaitech3/level2-semantic-segmentation-level2-cv-02/commit/3c5142e38bec3ce3faddf7d97bce4321cb864086>\n\n정말 감사합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651674282.526129",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1651855857.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

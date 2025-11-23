@@ -1,0 +1,160 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 NLP 02조 김수진입니다.\nZero Shot CoT를 통해 생성된 데이터를 활용해서 답변을 찾으려고 합니다,\nZero Shot CoT를 통해 데이터를 생성할때 ChatGPT API를 사용해도 되는지 알고싶습니다!",
+        "user": "U07EUAP1XCH",
+        "user_name": "김수진_T7321",
+        "timestamp": "1731895925.137609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "네! 유료API를 인퍼런스 타임에 사용하는것이기때문에 사용 가능합니다. 다만 유료인만큼 적절한만큼 곁들여서 사용해주시면 좋을 것 같습니다.",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1731903942.631439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07B5FRE94J",
+              "ts": "1731904748.000000"
+            },
+            "reactions": [
+              {
+                "name": "감사합니다-thank-you-1",
+                "users": [
+                  "U07EUAP1XCH"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변감사합니다!\n그렇다면, test.csv 파일에 대해서 Zero Shot CoT를 통해 데이터를 생성 후, 파일에 추가하는 건 규칙에 위배될까요?",
+          "user": "U07EUAP1XCH",
+          "user_name": "김수진_T7321",
+          "timestamp": "1731906270.097509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 예시를 들어주시면 조금 더 답변드리기 수월할 것 같습니다. Zero shot CoT를 통해 어떤 형태의 데이터를 생성하고자 하시나요?",
+          "user": "U079B1LUAR3",
+          "user_name": "김규민",
+          "timestamp": "1731908429.758099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 NLP 06조 강감찬입니다.\n현재 LLM을 활용해서 문제 유형 분석 과정을 추가하려고 합니다.\ntest.csv 파일에 문제 유형 분석 과정을 추가해도 규칙에 위배될까요?\n데이터 전처리 모듈로서 분석 과정을 파이프라이닝하려고 합니다.\n\n감사합니다.",
+        "user": "U07EFLNGH6W",
+        "user_name": "강감찬",
+        "timestamp": "1731899197.360709",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFHD3VD1",
+                "U07E9228L9L"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "관련 내용해서 다시 공지 드리겠습니다!",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1731905633.186609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "간단하게 말씀드리자면 가능합니다!",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1731905672.285539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07EFHD3VD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! NLP 14조 오승범입니다.\n지난주에 진행됬던 오피스아워 내용을 다시 보고 싶은데 해당 강의 다시보기가 올라오지 않아 질문드립니다!",
+        "user": "U07EUAY4Y1X",
+        "user_name": "오승범",
+        "timestamp": "1731910030.007899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EUAW0JJD"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 ! 편집이 필요한 부분이 있어 금일 중 업로드될 예정입니다 !",
+          "user": "U07CGNAFNMS",
+          "user_name": "유주리",
+          "timestamp": "1731910065.613289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

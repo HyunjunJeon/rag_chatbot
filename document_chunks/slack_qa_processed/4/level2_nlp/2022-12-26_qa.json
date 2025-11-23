@@ -1,0 +1,92 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U03KW2M0J07> 안녕하세요, 운영진님. nlp 8조 이성구입니다. 혹시 github의 discussion을 활성화해주실 수 있으실까요? 감사합니다!\n<https://github.com/boostcampaitech4lv23nlp2/level2_mrc_nlp-level3-nlp-08>",
+        "user": "U041ES1FSJH",
+        "user_name": "이성구",
+        "timestamp": "1672044946.197049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U041ES1FSJH> 성구님, 깃헙 관련 문의는 저나 <@U044SL01LDD> 운영진님께 말씀주시면 됩니다. discussion 활성화해두었습니다 :white_check_mark:",
+          "user": "U043YMH0BC0",
+          "user_name": "조용주",
+          "timestamp": "1672045038.419419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U041ES1FSJH",
+          "user_name": "이성구",
+          "timestamp": "1672045123.505049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U043YMH0BC0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U043YMH0BC0> 안녕하세요! nlp6조도 discussion 활성화 가능할까요?\n<https://github.com/boostcampaitech4lv23nlp1/level2_mrc_nlp-level2-nlp-06/tree/develop>",
+        "user": "U041WE089SM",
+        "user_name": "김준휘_T4050",
+        "timestamp": "1672045331.752019",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 준휘님, 활성화해두었습니다! <@U041WE089SM>",
+          "user": "U043YMH0BC0",
+          "user_name": "조용주",
+          "timestamp": "1672045378.540089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U041WE089SM",
+          "user_name": "김준휘_T4050",
+          "timestamp": "1672045406.839939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

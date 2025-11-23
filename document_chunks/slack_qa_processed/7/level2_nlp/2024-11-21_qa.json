@@ -1,0 +1,35 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "Robust한 기준 설명에서는 Train 데이터에 유료 API가 모두 사용 가능하다고 말씀하신 반면, 본 댓글에서 유료 API를 활용하여 생성된 데이터는 일절 사용 금지라고 하신게 상충된다고 생각했습니다. Train 데이터와 유료 API를 활용해서 데이터를 정제 및 재가공하는 행위 또한 금지인가요?",
+        "user": "U07EFLNGH6W",
+        "user_name": "강감찬",
+        "timestamp": "1732177180.841059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "테스트셋에 대하여 유료API를 활용하여 생성된 데이터가 일절 사용 금지라는 의미였습니다!",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1732177691.606649",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07B5FRE94J",
+              "ts": "1732177697.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

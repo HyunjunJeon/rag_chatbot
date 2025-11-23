@@ -1,0 +1,261 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요.\nValidation 에서의 Batch Size를 Train 때보다 보통 낮추는 것으로 알고 있는데\n혹시 왜 그런지 설명해주실 분 계실까요?\n\n*GPT에 따르면*\n1. Batch Size를 줄이면 검증 중 모델의 성능을 정확히 측정할 수 있고, Batch Size를 늘리면 더 많은 데이터를 처리하여 모델의 일반화에 도움을 준다고 합니다.\n2. 작은 배치가 성능을 과장하지 않게 도와주기 때문에 오버피팅을 조기에 감지해준다고 합니다.\n3. 검증 단계에서 메모리를 줄이면 훈련에서 더 많은 메모리를 사용할 수 있다고 합니다.\n*Question*\n1. Batch Size를 늘리는 것과 모델의 일반화 성능이 어떠한 관련이 있는지 잘 이해가 가지 않습니다. 더 많은 데이터를 가지고 Loss를 측정하다보니 데이터 하나하나가 가지고 있는거에 집중을 덜 해서, 아무래도 개별 데이터로 부터의 Bias를 최대한 피할 수 있다..? 정도의 의미일까요??\n2. 작은 배치가 성능을 과장하지 않는다는게..  어떠한 의미일까요...\n3. 훈련 - 검증 - 훈련 - 검증, 메모리 사용이 어차피 서로 다른 시점에 이루어지는 것일텐데 메모리 최적화가 여기서 왜 나오는지 잘 모르겠습니다",
+        "user": "U063T6Q7S2G",
+        "user_name": null,
+        "timestamp": "1706199259.115699",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063T6Q7S2G",
+            "ts": "1706199269.000000"
+          },
+          "reactions": [
+            {
+              "name": "question",
+              "users": [
+                "U063MR2JRCM",
+                "U063T6Q7S2G",
+                "U063MR541NZ",
+                "U063QL6DYNP"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "GPT는 전혀 믿을만하지 못한 정보를 많이 가지고 있습니다. 키워드 이상의 참고 요소로 활용할 수 없는 도구입니다. 전문적인 지식일수록 활용도는 0에 가까워집니다. 주의하세요~\n\nValidation 에서의 Batch Size를 Train 때보다 보통 낮추는 것으로 알고 있는데 혹시 왜 그런지 설명해주실 분 계실까요?\n: 이런 사례가 어떤 것이 있을까요? 훈련시의 데이터와 검증시의 데이터가 같은 분포로부터 샘플링 된 것이라면, 검증 시의 데이터는 1개씩 보나, 100개씩 보나, 단지 행렬 계산만 할 뿐인데요. 훈련시의 이미지 사이즈를 32 * 32로 하고, 검증의 데이터를 64 * 64로 한다거나 하는 상황이라면 메모리 이슈 때문에 그럴 수도 있겠지만요.\n\n1. 배치 사이즈가 클 수록 일반화 성능이 감소 하는 것으로 알고 있는데요. (<https://arxiv.org/pdf/1804.07612.pdf|참고>) 다만, 그것의 영향이 절대적으로 크지 않는 것 대비, 훈련 소요 시간에 큰 영향을 미치므로 적당히 큰 배치 크기 + 배치 정규화를 통해 일반화 성능을 향상시키는 편입니다.\n2. 배치 사이즈가 작을수록 더 최신의 기울기를 반영할 수 있습니다. 배치 사이즈가 2000이라면, 2000번 이전의 데이터로부터 구해진 기울기를 활용할 것이고, 배치 사이즈가 100이라면, 100번 이전의 데이터로부터 구해진 기울기를 활용합니다. 이것이 성능 향상의 요인 중 하나로 알려져 있습니다.\n3. 훈련 시의 메모리가 아무래도 좀 더 차지하지 않을까요? 기울기 등에 대한 정보를 VRAM에 가지고 있어야 하니까요. 그것들이 모두 해제된다면 검증 시에 더 큰 배치 크기를 활용할 수 있을 겁니다.\n<https://medium.com/lunit/batch-size-in-deep-learning-696e1b57764f> 글이 참고가 될 것으로 보입니다.",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1706201771.525839",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03S1A1PV9T",
+              "ts": "1706212685.000000"
+            },
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U0643C3MX4H",
+                  "U063T6Q7S2G",
+                  "U0643C5PLQH",
+                  "U063MR2JRCM",
+                  "U063QL6DYNP"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! 주의하겠습니다 :borat_thumbs:",
+          "user": "U063T6Q7S2G",
+          "user_name": "김정택_T6038",
+          "timestamp": "1706235876.386539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "이번 프로젝트에서 train을 하면서 torch.seed()를 찍어봤는데 굉장히 많이 변하더라고요.\n학습을 진행하는데 있어 seed를 고정해 두는것이 좋을까요?",
+        "user": "U063MR541NZ",
+        "user_name": "강승환",
+        "timestamp": "1706229331.763829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "실험을 진행하면서, 여러 디자인을 적용할 때는 시드를 고정하는 것이 좋습니다. 그래야 이전 실험에서 추가된 부분이 실제로 효과가 있는지 명확하게 확인이 가능합니다.\n\n하지만 이후 모델 디자인이 어느정도 결정이 되었다면, 그때는 시드를 바꿔가면서 실험 진행해볼 수 있을 것 같습니다.\n그리고 더 좋은 성능을 위해, 또는 일반화된 성능을 보이기 위해 시드 앙상블을 하는 형태도 꽤 보았습니다.",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1706241889.436759",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03MQK0FF4Y",
+              "ts": "1706241993.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 seed를 고정하고, seed를 출력해 봤는데 seed가 계속 변하고 있었습니다. 혹시 고정에 실패한 것일까요? torch.seed()로 확인했습니다",
+          "user": "U063MR541NZ",
+          "user_name": "강승환",
+          "timestamp": "1706242981.050739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 그런 경우는 seed 고정이 안된 것 같습니다.",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1706243677.062699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[Q1] 사람과 관련한 2D -> 3D 연구에는 무엇이 있는지 소개*\n또한 human과 다르게, 옷입히기라는 주제는 garment라는 키워드로 검색해보시면 좋을 것 같습니다.\n사람의 의복 관련된 것은 해당 주제만으로도 따로 연구되는 태스크로 알고있습니다.\n\nSingle image to human과 관련되었다고 생각되는 연구는 아래와 같습니다.\n• High-fidelity 3D Human Digitization from Single 2K Resolution Images, CVPR 2023\n• Towards Garment Sewing Pattern Reconstruction from a Single Image, SIGGRAPH Asia 2023 (garment가 옷에 관련된 것입니다)\nSingle image to 3D보다 text to 3D가 좀 더 빠르게, 많이 발전되어있다고 생각해서 해당 방법들을 먼저 찾아보시고 이를 어떻게 이미지로 바꿀지 고민해보셔도 좋을 것 같습니다.\n• HumanGaussian: Text-Driven 3D Human Generation with Gaussian Splatting, arxiv 2023\n제가 공유드린 연구는 극히 제한된 것이고, 아래 키워드로 좀 더 검색해보시면 더 많은 정보를 얻을 수 있을 것으로 생각됩니다.\n• single image to human, single image to avatar, text to avatar, 3D gaussian splatting avatar, human gament, + diffusion\n*[Q2] 베이스라인 코드에서의 offset이 어떤 뜻인지*\n• 오피스아워에서도 말씀드렸던 것처럼, offset이라는 의미는 기준점에서부터 떨어진 점이 있을때, 떨어진 점까지의 차이를 보통 offset이라고 이야기합니다. 기준점과 적용되는 경우가 달라질 수 있지만 의미는 이와 비슷하게 보통 쓰입니다.\n• 아래 코드에서 offset은 input으로 받은 vertices들 중 특정 위치를 나타내는 것으로 쓰였습니다. 제가 생각하기로는 기준점인 [0, 0]이 아닌 특정 vertices의 위치이기 때문에 offset이라고 작성된 것 같습니다.\n• 따라서 처음 말씀드린 뜻으로 보통 쓰이지만, 상황에 맞게 적절하게 해석해서 이해할 필요가 있을 것 같습니다.\n```def move_points(vertices, index1, index2, r, coef):\n    '''move the two points to shrink edge\n    Input:\n        vertices: vertices of text region <numpy.ndarray, (8,)>\n        index1  : offset of point1\n        index2  : offset of point2\n        r       : [r1, r2, r3, r4] in paper\n        coef    : shrink ratio in paper\n    Output:\n        vertices: vertices where one edge has been shinked\n    '''\n    index1 = index1 % 4\n    index2 = index2 % 4\n    x1_index = index1 * 2 + 0\n    y1_index = index1 * 2 + 1\n    x2_index = index2 * 2 + 0\n    y2_index = index2 * 2 + 1\n\n    r1 = r[index1]\n    r2 = r[index2]\n    length_x = vertices[x1_index] - vertices[x2_index]\n    length_y = vertices[y1_index] - vertices[y2_index]\n    length = cal_distance(vertices[x1_index], vertices[y1_index], vertices[x2_index], vertices[y2_index])\n    if length > 1:\n        ratio = (r1 * coef) / length\n        vertices[x1_index] += ratio * (-length_x)\n        vertices[y1_index] += ratio * (-length_y)\n        ratio = (r2 * coef) / length\n        vertices[x2_index] += ratio * length_x\n        vertices[y2_index] += ratio * length_y\n    return vertices```\n*[Q3] 서버 numpy, opencv, tqdm, matplotlib 패키지 이슈*\n해당 패키지 문제는 버전 업그레이드 과정에서 연산 차이 등의 변화라고 생각됩니다. 다만 현재 코드 학습이 어려운 상황이 아니라서, 빠르다고 발견한 이전 버전으로 실험 진행해보시면 좋을 것 같습니다.",
+        "user": "U03MQK0FF4Y",
+        "user_name": "김유지_조교",
+        "timestamp": "1706246608.197769",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U03MQK0FF4Y",
+            "ts": "1706248723.000000"
+          },
+          "reactions": [
+            {
+              "name": "zzang",
+              "users": [
+                "U063A6YRR63"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U063MR7GU21> <@U0643C3MX4H>\n특히 질문 주셨던 캠퍼분들께 참고차 태그드립니다. :slightly_smiling_face:",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1706246652.820089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! 도움이 많이 될 것 같습니다 ㅎㅎ",
+          "user": "U063MR7GU21",
+          "user_name": "고준석",
+          "timestamp": "1706246689.435579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04S26ESDPW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!!",
+          "user": "U0643C3MX4H",
+          "user_name": "백광현",
+          "timestamp": "1706248371.046419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04S26ESDPW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "모델 학습 관련해서 질문입니다.\n\"[기학습 가중치 사용] 이미지넷 기학습 가중치 외에는 사용이 불가합니다.\" 대회 룰이 이렇게 적혀있었는데,\n제공된 pth파일로 학습한 후 저장된 pth파일로 새로 학습하는 것도 제한되는 것일까요??",
+        "user": "U063QNTKN0J",
+        "user_name": "김세진_T6019",
+        "timestamp": "1706248314.216269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "대회에서 언급된 기학습 가중치는 이미지넷, COCO 같이 외부 데이터로 미리 학습된 것을 말합니다.\n저장된 pth로 새로 학습하는 것은 사실 저장된 iter에서 지속해서 학습을 하는 것과 동일하기에 제한이 되는 사항이 아닙니다.",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1706254087.333039",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03MQK0FF4Y",
+              "ts": "1706254101.000000"
+            },
+            "reactions": [
+              {
+                "name": "답변해주셔서_아주감사합니다",
+                "users": [
+                  "U064DNM07KJ",
+                  "U063A72QX1V",
+                  "U063QL6395Z",
+                  "U063QNTKN0J"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03MQK0FF4Y> 답변 감사합니다!",
+          "user": "U063QNTKN0J",
+          "user_name": "김세진_T6019",
+          "timestamp": "1706254201.067289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

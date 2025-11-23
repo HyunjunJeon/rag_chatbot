@@ -1,0 +1,298 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "poetry 쓰시는 분 계신가요...? vscode 인터프리터가 poetry 가상환경을 못잡는데 프로젝트 폴더에 생성한 .venv내부에 넣어버리는 방법 말고는 그냥 원래 경로 가져오는 방법을 못찾겠습니다 ㅠㅠ\n\nmacOS\npoetry: 1.3.1\npyenv(brew): 2.3.8\npython: 3.10.9",
+        "user": "U0427G48WAC",
+        "user_name": "시형",
+        "timestamp": "1671094140.841669",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 평소에 poetry를 쓰는데, in-project=true로 프로젝트 내에 생성하곤 합니다.",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1671102651.335039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이걸 말씀하신건지 잘 모르겠지만 저는 인터프리터 선택에서 경로 입력 - 찾기 - 원하는 환경 . venv - scripts - python.exe 선택으로  하거나 명령어로 경로 입력해서 사용합니다.",
+          "user": "U041ERXTEUV",
+          "user_name": "정혁기",
+          "timestamp": "1671110019.387629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "VSCode가 잘 못 찾는다고 하면, <https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager|Python Environment Manager>를 한 번 사용해보세요",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1671144228.500659",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1671144466.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "내부로하는 .vevn이미 시도 했고 잘 작동합니다...근데 poetry기본 설정이 ~/Library/Cache/...인데 인터프리터 설정시 poetry 가상환경 경로가 안나와서 문제입니다. <@U041L94723E> 님이 올려주신 extension은 이미 써봤습니다만 인터프리터 설정이 아닌 것 같습니다...",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1671155129.699449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "급하게 질문 드립니다. 오늘 컴피티션 마감은 제출 시각 기준인가요? 인퍼런스 완료 시각 기준인가요?",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1671096029.418649",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041ERXE485",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            },
+            {
+              "name": "업업업",
+              "users": [
+                "U041ERXE485",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U041B7BQ6F8",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            },
+            {
+              "name": "fire",
+              "users": [
+                "U041HMZ7PHR",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03L1UMDLUS",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 11
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 최대한 빠르게 확인해보고 답변 드리겠습니다 :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1671097167.264239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은 시간까지 대응 감사합니다!!! 우선 보수적으로 생각해서 인퍼런스 완료 시간 기준이라고 생각하고 있습니다 ^^",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671097239.631609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 우선 말씀주신 것처럼 보수적으로 제출해 주시면 좋습니다 :pray:\n리더보드 순위보다는 ‘제작 프로젝트’에 초점이 맞춰져 있으니 부담 덜고 참가해 주시면 감사하겠습니다. :slightly_smiling_face:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1671097325.536089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인해보니 7시 이전 제출 건에 대해서는 모두 채점이 진행됩니다. 다만 채점이 모두 완료된 이후 순위 변동이 있을 수 있으니 참고 부탁드려요! :slightly_smiling_face:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1671097593.636299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "근데, 최종점수 2개 선택은 7시 이후에 가능한가요? 채점은 되나 최종 제출로 선택은 안되는 건가요?",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1671097627.841099",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZ7PHR",
+              "ts": "1671097676.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZ7PHR> 7시 이후 선택은 어렵습니다 :smiling_face_with_tear:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1671097723.487379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC> 우와! 축하드립니다!!!:first_place_medal:",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1671098515.789739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "축하드립니다:tada:",
+          "user": "U041HN3RFNF",
+          "user_name": "최동혁",
+          "timestamp": "1671098950.447479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.... ^^; 감사합니다... 전혀 예상하지 못하고 있었던터라.. 너무 당혹스럽긴 합니다만... 아무튼 감사합니다 ^^;;;",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671098951.010769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U041HMZR68K",
+                  "U041B76DHAS",
+                  "U04138AJC7R",
+                  "U041HMZ7PHR",
+                  "U0427G7HN6L"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; _*이 글은 성지가 됩니다*_",
+          "user": "U041B76DHAS",
+          "user_name": "Jewon Joel Park",
+          "timestamp": "1671099200.147389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "축하드립니당 :smile:",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1671099426.579799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

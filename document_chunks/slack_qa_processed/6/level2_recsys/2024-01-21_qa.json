@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "일정표에 금일 14시 기업연계 프로젝트 티타임이 배정되어 있는데 공지가 없어서요. 일정이 수정됐나요?",
+        "user": "U064DNN4B6U",
+        "user_name": "배홍섭_T6073",
+        "timestamp": "1705899741.284669",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U064DNN4B6U>\n배홍섭 캠퍼님, 안녕하세요!\n오늘 티타임은 예정되어 있지 않고, 추후 안내드릴 예정입니다 :slightly_smiling_face:",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1705900357.390839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

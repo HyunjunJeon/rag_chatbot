@@ -1,0 +1,47 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 <@U02SL2E1KCZ> 확인차 한번 더 여쭤보고자 합니다! Train셋의 대부분의 Glass 클래스 등은 병(본체)와 뚜껑이 Glass 클래스 1개로 분류되어있던데 Test 셋에는 최대한 본체(Glass)와 뚜껑(Metal)로 나눠져있다는 말씀이신건가요?",
+        "user": "U02TFG8AQ02",
+        "user_name": null,
+        "timestamp": "1651221057.038929",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TFG8AQ02",
+            "ts": "1651221324.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02TFG8AQ02> 캠퍼님 안녕하세요. 데이터 제작과정에서 발생한 노이즈가 불가피하게 조금씩은 남아있습니다. 개별 케이스에 대해 모두 안내드리기는 어려움이 있기 때문에 train set에서 2, 3장 정도 다른 케이스가 있는 경우에는 일관성이 있다고 판단하시면 될 것 같습니다.",
+          "user": "U02SL2E1KCZ",
+          "user_name": "Hwigeon Oh",
+          "timestamp": "1651233448.942109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02SL2E1KCZ> 위의 박정재 캠퍼님의 질문에서 아래의 예 보다는 위의 예가 더 많이 보였는데 조교님께서 테스트셋에서는 아래의 예시와 같이 정리했다고 말씀해주셔서 혼동이 되어 질문 드렸습니다! train set 참고로 잘 유추해보겠습니다 감사합니다",
+          "user": "U02TFG8AQ02",
+          "user_name": "이승우",
+          "timestamp": "1651233616.952589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

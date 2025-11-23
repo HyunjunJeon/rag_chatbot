@@ -1,0 +1,532 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U03PVSC77HR> 생각보다 재현하는게 오래걸려서 애먹었습니다.. 맥 기준으로는 README 대로 나오는 것 같습니다..ㅠ <https://github.com/OZOOOOOH/airflow_reproduct|링크>입니다!",
+        "user": "U0427G93ETS",
+        "user_name": "오주헌_T4127",
+        "timestamp": "1674030047.960939",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0427G93ETS",
+            "ts": "1674030097.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "같이 확인해볼게요. 잠시만요",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674030150.034719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그대로 클론받아서 실행했는데, 전 로그가 잘 나오는데.. 지금 이게 파이썬 오퍼레이터라서 잘 뜨는거고, 배시 오퍼레이터로 하면 안뜬다는 말씀이시죠?",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1674030659.459489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "도커로 실행할 때는 로그가 잘 나오는데, <https://github.com/OZOOOOOH/airflow_reproduct#airflow-%EB%A1%9C%EC%BB%AC%EB%A1%9C-%EC%8B%A4%ED%96%89|로컬로 실행>하면 해당 문제가 발생했습니다.",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1674031000.851809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "docker-compose up 으로 실행하지 않아야 재현되는군요. 잠시만요",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674031032.920649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "리드미보고 따라서 실행했는데, 전 로그가 잘 나옵니다..",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674031756.841929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런 로그가 나오네요.",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1674031792.237589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 잘 나오네요..:sob:\ngit pull 받으시면 DAG crawling3 은 log가 안 나옵니다",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1674033394.249639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "로그는 잘 나오는거 같습니다..",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1674034216.376989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`print` 로 찍은 부분이 안나온다는 말씀이시죠?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674034249.687439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "밥 먹고 좀 더 살펴볼게용",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674034280.716989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시 정리해보면\n1. Crawling3,4의 Task는 같은데 Operator는 다름\n2. crawling3 log를 들어가보면 무한로딩\n3. airflow scheduler에선 이와 같은 에러 발생\n제 환경에선 이러한데..일단 BashOperator를 사용하면 에러 발생하지 않음",
+          "user": "U0427G93ETS",
+          "user_name": null,
+          "timestamp": "1674034657.222859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "crawling3 에 대한 로그가 `logs/` 폴더 안에 잘 생성되어있나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674040777.511909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런식으로 로그 파일이 남습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674040793.968219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안남았네요..ㅠ",
+          "user": "U0427G93ETS",
+          "user_name": null,
+          "timestamp": "1674040854.848039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제 환경 문제일 수 도 있겠네요,,",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1674040895.017999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 에러가 나는거 자체는\n```[2023-01-18, 09:32:50 UTC] {local_task_job.py:159} INFO - Task exited with return code Negsignal.SIGSEGV```\n때문인데, 아래 에러에 대해서 구글링 한번 해보시겠어요?\n```Task exited with return code Negsignal.SIGSEGV```",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1674040919.578739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 에러를 전에 본적이 있는데, 저는 스케줄러 셸에서 다음 환경변수를 추가해주고 스케줄러 재기동하니 해결은 되었습니다.\n```export no_proxy=*```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674040940.989969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "crawling3 에 해당하는 코드를 그대로 복사해서, crwaling5 로 새로 만들고, 다시 돌려봐보셔요 ㅎㅎ 그래도 안남는지 봅시다",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674040978.957899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그대로네요,,ㅎ",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1674050160.634879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제 환경 문제인 것 같고 작업에 지장을 주지 않아서 이 이슈는 나중에 알아봐도 될 것 같습니다..ㅠ",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1674050253.704159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Docker (aistages 서버)의 포트접근 방법 관련해서 질문 드립니다.\n\n현재 프로젝트 진행 중 프론트에서 유저의 input을 받아 실시간으로 모델을 돌리기 위해 프론트 서버와 aistage의 GPU를 연결을 시도하고 있습니다.\n\n이전의 질의응답들을 통해 aistages의 서버가 docker의 컨테이너임을 확인 했습니다.\n\n제가 지금까지 파악한 바로는 서버 생성시 정했던 포트 개수에 따라 주어진 포트들 (사진 속 30001 ~ 30008 ) 을 통해 도커의 컨테이너에 외부에서 내부로 접속할 수 있음을 기대했습니다.\n\n그런데 제 기대와는 다르게  이 포트들 모두 접근이 안되는거 같습니다.\n\n여기서 질문은 제가 curl을 통해 *30001을 접근한 방식이 잘못되어 접속이 안되는것인지* 아니면 *30001 포트가 닫혀 있는건지 궁금합니다.*\n\n(사진 속 텐서보드 항목에 주어진 포트번호가 6020 이지만 6020 포트로 접근 또한 불가능합니다. 이 점을 보고 포트가 아예 닫혀 있는건가 라는 생각이 들었습니다.  2236은 ssh 8902은 주피터랩 두개의 응답은 잘 나오고 있습니다.)",
+        "user": "U041WE0BG81",
+        "user_name": null,
+        "timestamp": "1674108077.880359",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041WE0BG81",
+            "ts": "1674108175.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 16
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 시도를 해봤는데 포트는 열려있지만 방화벽은 막혀있어서 내부에서만 접근 가능한 것 같습니다",
+          "user": "U041ERXBPHT",
+          "user_name": "이재덕_T4163",
+          "timestamp": "1674108244.612599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE0BG81"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 내부에서만 가능한 포트였군요… ㅠㅠ",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1674108298.293699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음.. 방화벽 설정 없습니다 ^^;\n막혀있다기보다.. 아마 로컬호스트로 리스닝 하고 있는 문제가 아닐까 합니다.\n127.0.0.1로 하고있다면 0.0.0.0으로 변경 해보시는게 어떨까요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674108672.165429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "굳",
+                "users": [
+                  "U041L93GPNY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041HRANQ82"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C04HHQWEFTK/p1673483164114819?thread_ts=1673424162.762689&amp;cid=C04HHQWEFTK>",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674108696.469359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C042FS6FT8E/p1667901956374659?thread_ts=1667894317.657089&amp;cid=C042FS6FT8E>",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674108731.482199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 가능성을 먼저 확인해보시는게 좋을것 같아 댓글 남겼습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674108742.697049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "텐서보드의 경우, AI Stage 환경에서 기본으로 실행된 상태는 아니여서 따로 수동으로 실행할 경우 정상적으로 페이지가 뜰꺼예요..\n또는 텐서보드를 켜지 않고, 해당 포트를 다른 서비스 리스닝 포트로 써도 정상 동작했던걸 확인했습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674108806.812289",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1674108858.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE0BG81"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그렇군요 이런 부분들이 뭐라고 검색해야 할지도 모르겠어서 입문하기가 정말 어려운거 같네요… 정말 감사합니다 상준님 천천히 읽어보겠습니다!",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1674109105.810339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 마스터님께서 링크 해주신 블로그 보시면 도움이 될 것 같습니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674109138.733869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 상준님 덕분에 해결했습니다 감사합니다",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1674110201.310039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "스스로 하신거죠 ㅎㅎㅎ 화이팅입니다!",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1674110219.014169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE0BG81",
+                  "U041ERXBPHT"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 상준님 감사합니다 저도 시도해보겠습니다!",
+          "user": "U041ERXBPHT",
+          "user_name": "이재덕_T4163",
+          "timestamp": "1674110541.316889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

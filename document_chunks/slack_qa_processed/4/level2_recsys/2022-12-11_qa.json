@@ -1,0 +1,68 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이 오류는 뭐가 잘못된걸까요?",
+        "user": "U041HR79V5G",
+        "user_name": null,
+        "timestamp": "1670824275.599989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "잘 모르지만 .gz가 압축이고 압축을 풀고 !tar를 붙어야할 거 같습니다",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1670824990.956299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wget 명령어를 쓰면 알집파일이 생겨야되는거 아닌가요?",
+          "user": "U041HR79V5G",
+          "user_name": "고현욱",
+          "timestamp": "1670825248.626479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wget이 해당 주소에서 다운받는거고 tar가 압축파일 푸는게 맞다고 하네요ㅋㅋ 그럼 의심스러운게 다른 경로에 파일이 있는게 아닐까요",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1670825450.781869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "도대체 그는 어디에...",
+          "user": "U041HR79V5G",
+          "user_name": "고현욱",
+          "timestamp": "1670825637.375489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

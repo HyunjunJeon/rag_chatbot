@@ -1,0 +1,1417 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "mrc를 정말 간단하게 streamlit으로 구현해봤습니다.\n한 번 테스트 해보셔도 좋을것 같아요.\n<http://101.101.218.147:30002/#mrc>",
+        "user": "U02TCP4G63F",
+        "user_name": null,
+        "timestamp": "1652875643.562099",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TCP4G63F",
+            "ts": "1652875943.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TUHB5D7V",
+                "U02RUR38GCF",
+                "U02TFFXDWQ2",
+                "U02TKEWKS4X",
+                "U02THPJ7JVA",
+                "U02TG8X0H7C",
+                "U02U0E794M8",
+                "U02U5H18SP7",
+                "U02U0MRSVPX",
+                "U02TJ0CKVLJ",
+                "U02TRDETMM0"
+              ],
+              "count": 11
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02TUHB5D7V",
+                "U02RUR38GCF",
+                "U02TFFXDWQ2",
+                "U02TKEWKS4X",
+                "U02TFP6V1DY",
+                "U02U0E794M8",
+                "U02T8Q055AS",
+                "U02U7SPJU5S",
+                "U02TJSFMHNZ",
+                "U02TVNVSKML",
+                "U02TU6HBDG9",
+                "U02TJ0CKVLJ",
+                "U02TCHR3LNS",
+                "U02TTC9RBFZ",
+                "U02U7N1DGHG"
+              ],
+              "count": 15
+            },
+            {
+              "name": "booduck_confuse",
+              "users": [
+                "U02TUHB5D7V",
+                "U02RUR38GCF",
+                "U02TFFXDWQ2",
+                "U02TKEWKS4X",
+                "U02U0E794M8"
+              ],
+              "count": 5
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 20
+        }
+      },
+      "answers": [
+        {
+          "text": "크으 .. 역시 우진님:+1:",
+          "user": "U02RUR38GCF",
+          "user_name": "이종혁",
+          "timestamp": "1652876102.409749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TCP4G63F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 하는건가요?? 재밌네요! ㅎㅎ :+1::skin-tone-2::+1::skin-tone-2:",
+          "user": "U02TFFXDWQ2",
+          "user_name": null,
+          "timestamp": "1652876447.069629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U02TCP4G63F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 모델이 아주 뛰어나네요 ㅎㅎ",
+          "user": "U02RUR38GCF",
+          "user_name": null,
+          "timestamp": "1652877160.148799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U02TCP4G63F",
+                  "U02TCHR3LNS",
+                  "U02U5H18SP7"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "개인서버로 계속 돌렸었는데 aistage로 외부에서 접속가능하게 해보는것도 재밌어보이네요! 저도 segmentation 이식해봐야겠네요",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1652879051.770279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 넘 멋지시네요!\n\n여기서 유저(사용자)를 고려해서 -&gt; Question, context를 연하게 색칠하는 기능을 추가하시면 더 좋을 것 같아요! 처음에 어떤 질문해야할지 몰랐었던 기억이 있네요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652879958.065149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 지금 캠퍼분들이 테스트하시고 있을텐데, 어떤 것들을 테스트하고 있는지 question, context를 수집하시면 더욱 좋을 것 같아요~!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652879993.043279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(데이터 로깅 수업처럼..!)",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652879999.049199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AWS S3, Cloud Storage 등에 로그를 저장시킬 수도 있고, 데이터베이스에 바로 넣을 수도 있구요..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652880011.611699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여러가지로 하나씩 해보시면 더욱 더 완성된 제품이 될 것 같아요 :slightly_smiling_face: 공유해주셔서 감사합니다",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652880028.808719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 다른 사람 뭐라고 적는 지 궁금해서 log 저장해봤습니다.",
+          "user": "U02TCP4G63F",
+          "user_name": null,
+          "timestamp": "1652924693.113579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넘 잘하셨습니다! 여기서 더 나아가면.. 이제 사람들이 작성한 예측 결과를 토대로 =&gt; 진짜로 잘 맞추고 있는지 오토 레이블링 시스템을 구축하면 엄청 인상적일 것 같아용 :wink:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652924922.561459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "log를 Database에 추가하는 것도 해보셔도 좋구요..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652924934.262009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "궁금증에 시도해보았는데, 이건 어떤 오류일까요..?",
+          "user": "U02TJ3J369J",
+          "user_name": null,
+          "timestamp": "1652925545.402769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ3J369J> 수정했습니다! 다시 한 번 해보시겠어요?",
+          "user": "U02TCP4G63F",
+          "user_name": "고우진",
+          "timestamp": "1652925729.155889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 지금은 잘 작동합니다!",
+          "user": "U02TJ3J369J",
+          "user_name": null,
+          "timestamp": "1652925774.002419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 우진님! 저도 mrc 모델을 띄워보았는데요, 혹시 text에 타이핑으로 입력하지 않고 복붙으로 입력하는 기능은 어떻게 구현하셨나요?\n\ncontext를 매번 일일히 타이핑하는게 귀찮아서 저는 복붙한 텍스트 -&gt; st.text_input()에 넣고 싶었는데, 검색하다가 반대로 예측한 결과 텍스트를 사용자가 복붙해갈 수 있는 기능을 넣었습니다....\n작동은 잘 하는데 제가 원했던거랑 반대라서요 ㅠㅠ",
+          "user": "U02UTH1484E",
+          "user_name": null,
+          "timestamp": "1652936659.064799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02UTH1484E> 제가 text에 타이핑으로 입력하지 않고 복붙으로 입력하는 기능을 넣었나요?? 제가 나연님 말을 잘 이해 못하는 것 같아요. 다시 한 번 설명해주실 수 있나요?",
+          "user": "U02TCP4G63F",
+          "user_name": "고우진",
+          "timestamp": "1652938619.696369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우진님이 올려주신 데모에서는 context랑 question 부분에 직접 타이핑하지 않고 웹에서 텍스트 일부를 복사해와서 붙여넣어도 잘 들어가더라구요!",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1652939362.096459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시 확인해보니 따로 기능을 넣지 않아도 들어있는 기능이었네요!! 헷갈리게 해서 죄송합니다....",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1652939402.166279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 아마 나연님이 다른 기능을 추가하면서 복붙이 정상적으로 작동이 안 됐나 봐요.",
+          "user": "U02TCP4G63F",
+          "user_name": "고우진",
+          "timestamp": "1652939532.472339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02UTH1484E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "저도 이번 level2 마지막 프로젝트였던 Semantic Segmenatation을 Streamlit과 Fastapi로 구현해보았습니다.\n한번 쓰레기 이미지 넣어보세요!\nFastapi에 Model을 메모리위에 올려놓고 사용해서 inference가 나름 빠릅니다\n<http://101.101.211.193:30002/>",
+        "user": "U02TCHR3LNS",
+        "user_name": null,
+        "timestamp": "1652888674.060889",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TCHR3LNS",
+            "ts": "1652888714.000000"
+          },
+          "reactions": [
+            {
+              "name": "393b2c5cf48b52c4",
+              "users": [
+                "U02TRCAQU9J",
+                "U02TJ0CKVLJ",
+                "U02TTC9RBFZ",
+                "U02U8G6NKEW",
+                "U02TZTQ6T1C",
+                "U02TDB0EJJ1",
+                "U02U5871X96",
+                "U02TJSFMHNZ",
+                "U02U0KX9P7D",
+                "U02TUJQ9XUZ",
+                "U02U65KPEJW",
+                "U02TBLB4RHC",
+                "U02THPJ7JVA",
+                "U02U7059RDX",
+                "U02TMMJDC14",
+                "U02S8RJKRRA",
+                "U02TU336JN5",
+                "U02U587JMDE",
+                "U02U0E794M8"
+              ],
+              "count": 19
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오오 streamlit + FastAPI라니 제가 의도했던 프로토타입의 모양과 동일하네요!!!\n\n넘 잘하셨네요 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652921230.501559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://aitech3.slack.com/archives/C02QWMPJPDM/p1652879993043279?thread_ts=1652875643.562099&amp;cid=C02QWMPJPDM>\n\n우진님 댓글에 남긴 이 내용도 확인해주세용 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652921247.637619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "~object detection task를 수행하려고 결과물을 이미지로 표현하려고 시도했었습니다.  그런데 이미지가 아래와 같은 오류로 안뜨네요 ㅠㅠ 같이 고민해주실 분 찾습니다.~\n~-&gt; 단순히 yolov5 모델을 가져와서 실험해봤습니다.~\n~결과 이미지 type을 찍어보니 NoneType이라고 뜹니다.~\n팀원의 도움 덕분에 이미지를 저장해서 출력을 했더니 문제를 해결했습니다.\nThanks for <@U02U79DHFUY> <@U02UEH8U39P>",
+        "user": "U02TXU3HPC5",
+        "user_name": null,
+        "timestamp": "1652924090.271389",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TXU3HPC5",
+            "ts": "1652929084.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "용원님 안녕하세요~!\n\n• 코드를 에러가 발생하는 줄만 보여주시는 것보단, 그 위에 있는 흐름도 공유해주시면 좋을 것 같아요\n• 현재 data에 어떤 값이 들어가있나요? 어떤 객체인가요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652925032.764429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02TXU3HPC5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "0x~~~~에서 이미지 파일 &lt;_io.BytesIO 개체를 식별할 수 없습니다.\n\n=&gt; 현재 data에 들어가있는 것이 무엇인지 보면 해결할 포인트가 더 보일 것 같아요-!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652925093.271929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02TXU3HPC5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 강의에서 공유드린 utils의 transform_image 함수를 보면 bytes를 받아서 데이터를 처리하고 있어요. 현재 data의 값이 bytes인지 확인해보시는 것이 어떨까 싶어요 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652925166.679159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02TXU3HPC5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요!! Streamlit으로 이전 대회 Task인 ODQA를 구현하려 하고 있습니다.\n마스터님께서 수업 때 알려주셨던 @st.cache를 활용해서 reader모델과 retreiver모델을 load하고 있는데, Unhashable 에러가 발생했습니다.\n일단, 에러 메세지와 Steramlit 공식 Docu를 보고, 다음 코드처럼 @st.cache(hash_func={Tokenizer:id})설정해서 구동은 시켰습니다.\n하지만 hash_func의 필요성과 사용법에 대해 개념이 잡히지 않은 상태입니다.\n\n저는 함수에서 return해주는 클래스를 캐싱하기 위해서는 별도로 키값을 세팅해줘야 한다(?)라고 이해했었는데,\n현재 제 코드에서는 hash_funs로 Tokenizer만 세팅해둬서 뭔가 더 설정해줘야할 것 같다는 생각이 있습니다.\n\n*그래서 st.cache를 사용하고자 할 때, hash_func를 설정해야 하는 이유와 정확한 사용 방법에 대해 설명해주실 수 있는 분이 계실까요??*\n아래는 현재 @st.cache를 사용하고 있는 함수입니다.\n감사합니다!\n```@st.cache(hash_funcs={Tokenizer: id})\ndef retriever_load(data_path, context_path, tokenizer):\n    retriever = BM25(tokenize_fn=tokenizer.tokenize, data_path=data_path, context_path=context_path)\n    retriever.get_sparse_embedding()\n    return retriever\n\n\n@st.cache(hash_funcs={Tokenizer: id})\ndef model_load():\n    model_name = 'sangrimlee/bert-base-multilingual-cased-korquad'\n    model = AutoModelForQuestionAnswering.from_pretrained(model_name)\n    tokenizer = AutoTokenizer.from_pretrained(\n        model_name,\n        use_fast=True\n    )\n    return tokenizer, model```",
+        "user": "U02TVNVSKML",
+        "user_name": null,
+        "timestamp": "1652927450.752949",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TVNVSKML",
+            "ts": "1652927617.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TUHB5D7V"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 같은 tokenizer가 해싱이 안되는 에러가 나서 아래와 같이 해결했습니다.\n<https://stackoverflow.com/questions/70274841/streamlit-unhashable-typeerror-when-i-use-st-cache>\n추가로 모델하고 tokenizer를 따로 부르는 것보다 transformers.pipeline api를 사용하시면 훨씬 편하십니다~\n<https://huggingface.co/docs/transformers/main_classes/pipelines>",
+          "user": "U02TZTQ6T1C",
+          "user_name": "오필훈",
+          "timestamp": "1652928020.561139",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TZTQ6T1C",
+              "ts": "1652928129.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TVNVSKML",
+                  "U02UTH1484E"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "찬국님 안녕하세요!\n\n엄청 좋은 고민을 가지고 계시네요..!! 이렇게 과정을 하나씩 궁금해하는 것이 좋은 자세에요 :muscle:\n\n캐싱은 보통\n• 이 값이 기존 캐싱 DB에 저장되어 있는가?를 확인하게 됩니다\n• Streamlit은 모델을 객체로 저장하고, 그걸 활용하는 방식으로 캐싱을 하고 있습니다\n캐싱 데코레이터를 설정하면\n• 캐시 키를 계산\n• 키가 캐시 DB(편의상 DB라고 했고 메모리일 확률이 높습니다)에서 발견이 된다면\n    ◦ 이전에 캐시된 튜플 출력\n• 키가 캐시에 없다면\n    ◦ 해싱 후 결과를 저장\n이와 같은 방식으로 진행됩니다\n\n이 과정에서 해싱을 사용해야 하는데, 일반적으로 지원하는 객체는 바로 해싱할 수 있지만 Streamlit에서 익숙하지 않은 경우엔 hash_func에 지정해주는 것이 필요합니다\n\n현재는 토크나이저란 것을 어떻게 해싱할지 모르겠다라는 맥락이 있어서 =&gt; 해시 함수를 지정해줘야 하는 상황이지요\n\n저는 streamlit에서 해싱할 때는 lambda _: None를 자주 사용했습니다. 해싱을 하지 않고 쓰겠다인데, 객체가 변하지 않는다면 이렇게 사용하셔도 무방합니다..!\n\n혹시 아래 문서 보셨나요~?\n<https://docs.streamlit.io/library/advanced-features/caching>\n\n이 문서인데 여기에 캐싱과 해싱이 어떤 과정으로 실행되는지 자세히 나와있어요. 이 글을 읽으시면 조금 더 이해가 되실거에요-!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652928108.234499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TVNVSKML"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 해싱을 하다보면, 해싱 과정이 오래 소요되어서 오히려 병목이 되기도 합니다. 저는 이런 경우엔 lambda _: None으로 처리해주곤 해요\n\n이 내용은 위 링크의 “Example 2: Turn off hashing for a specific type”에서 나온답니다!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652928193.031929",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652928207.000000"
+            },
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U02TVNVSKML"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다들 감사합니다!!! 그럼 코드 상에서 제 경우에는 retriever, tokenizer, model의 객체에 대해 hash_funs를 설정해줘야 하는 걸까요??",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1652928355.135729",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TVNVSKML",
+              "ts": "1652928379.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "model_load 에서 에러가 발생하는 것 같네요.\nmodel_load를 아래 코드로 바꿔서 한번 실행해보세요~\n```import tokenizers\n@st.cache(hash_funcs={tokenizers.Tokenizer: lambda _: None, tokenizers.AddedToken: lambda _: None})\ndef model_load():\n    model_name = 'sangrimlee/bert-base-multilingual-cased-korquad'\n    model = AutoModelForQuestionAnswering.from_pretrained(model_name)\n    tokenizer = AutoTokenizer.from_pretrained(\n        model_name,\n        use_fast=True\n    )\n    return tokenizer, model```",
+          "user": "U02TZTQ6T1C",
+          "user_name": "오필훈",
+          "timestamp": "1652928656.509069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TVNVSKML",
+                  "U02UTH1484E",
+                  "U02U1TBB8GN"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02U0E794M8",
+                  "U02UTH1484E"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런 경우는 코드를 보시면 이해하시는게 더 빠릅니다(구체적으로 이렇게 사용해라란 가이드가 부족한 문서도 있을 수 있지요)\n\n<https://github.com/streamlit/streamlit/blob/e9e199587c65940b338de7233b661646793350a1/lib/streamlit/legacy_caching/hashing.py#L413>\n\nto_bytes란 함수가 제공된 객체를 해싱합니다. 이 과정에서 “torch.nn.modules.module.Module” 인지 아닌지 체크하는 isinstance 등이 존재합니다. 여기에 나오지 않는 모듈이라면 파이썬 내장 함수에서 해싱이 어려운 것이고, 이런 경우라면 해시 함수를 명시해주어야죠. 만약에 해싱하지 않고 싶다하면 lambe _: None 쓰시는거구요..!\n\n---\n다른 분들도 이런 방식으로 오픈소스 코드 뜯어보시는 습관 가지시면 좋을 것 같아 말씀드립니당 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": null,
+          "timestamp": "1652928791.979039",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652928819.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TZTQ6T1C",
+                  "U02TVNVSKML"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "참고 이미지!",
+          "user": "U02U0E794M8",
+          "user_name": null,
+          "timestamp": "1652928823.397389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02TVNVSKML"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TZTQ6T1C> <@U02U0E794M8> 다들 감사합니다!! 제가 해싱과 관련해서 지식이 부족해 이해가 좀 어려웠던 것 같습니다. 궁금증이 많이 해소된 것 같습니다!!:+1:",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1652928934.505499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "마스터님 안녕하세요!\n이전 대회를 Streamlit으로 구현하려고 하는데,\n위에 캠퍼님들의 도움대로 \"streamlit run inference.py --server.port 2229\"를 이용해 streamlit을 활성화하였을 때 사진과 같이 ERR_INVALID_HTTP_RESPONSE 오류가 뜨는데 아무리 찾아봐도 해결 방법을 못 찾겠어서 혹시 도움을 받을 수 있을까요? ㅠㅠ",
+        "user": "U02THRRHU3W",
+        "user_name": null,
+        "timestamp": "1652928811.872239",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02TMMJDC14"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 aistages의 서버이실까요???\n저의 경우 할당된 포트가 30001, 30002인데, 혹시 정호님께 할당된 포트가 2229번이 맞을까요?",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1652928993.774889",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TVNVSKML",
+              "ts": "1652929176.000000"
+            },
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U02THRRHU3W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 포트 4개를 받아서, 할당된 포트 번호가 30001~30004입니다!",
+          "user": "U02TKEWKS4X",
+          "user_name": "윤주엽_T3136",
+          "timestamp": "1652929110.162689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02THRRHU3W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 포트번호를 30001로 했을 때 성공적이었어요",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1652929143.605179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02THRRHU3W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2229는 ssh에 적혀져있는 포트일까요? 제가 그렇게 해봤을 때 동일한 오류였어요",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1652929204.258259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02THRRHU3W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ssh 포트(파란 박스)는 해당 서버에 접속하기 위한 포트 번호이고,\n\"포트 번호\" 옆의 포트 번호(빨간 박스)를 사용하셔야 접속 가능하실거에요!",
+          "user": "U02TMMJDC14",
+          "user_name": null,
+          "timestamp": "1652929383.986169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02THRRHU3W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다..! 변경하니 잘 되네요!!",
+          "user": "U02THRRHU3W",
+          "user_name": "주정호",
+          "timestamp": "1652929838.770959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TKEWKS4X"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오.. <@U02TVNVSKML> <@U02TKEWKS4X> <@U02TXU3HPC5> <@U02TMMJDC14> 모두 이렇게 도와주셔서 넘 감사합니다!! 멋지십니다\n\n덕분에 정호님이 겪은 오류를 잘 해결할 수 있었을거에요 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652934018.487859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TKEWKS4X"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(함께자라기의 현장을 보고 있는 것 같아 감동)",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652934032.813529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TKEWKS4X"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<http://115.85.180.74:30001>",
+        "user": "U02TFK3K0CA",
+        "user_name": "이상윤_T3148",
+        "timestamp": "1652935129.020179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "저같은 경우에는 backend를 따로 두고 fastapi에서 model을 로드한 채로 메모리에 두고 있어서 이미지가 들어오면 바로 inference로 넘어가는 형태로 구현했습니다! 아마도 모델 로드하는 차이 일거에요!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1652935257.628629",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1652935314.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TCHR3LNS> 아무래도 매번 로딩하니 느리겠군요 감사합니다",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1652935304.130239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 강의를 따라가보시면.. streamlit으로 다 처리하면 캐싱이 조금 이슈가 있어서, 이런 경우엔 백엔드를 fastapi로 구성하시면 되어요!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936045.803599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "결국엔 회사에선 프론트 / 백엔드를 따로 구성하는 과정이라고 보시면 될 것 같아요!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936059.459009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희는 학습하는 과정이니까 프론트 백엔드 한번에 쉽게 할 수 있는 것들을 알려드리고, 점진적으로 개선했다고 보시면..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936074.838939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1652936090.709959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(실제로 회사에서 일하실 땐 streamlit으로 프론트만 그리시고 백엔드는 fastapi로 하시는 것을 추천해요 ㅋㅋㅋ 혹은 프론트는 아예 자바스크립트쪽으로 하셔도 되긴하는데.. 저는 프론트를 간단하게 구성하는걸 선호해서 streamlit을 만힝 쓰고 있어용)",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936109.106169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 streamlit 띄워보시다니 넘 잘하셨습니다 :muscle:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936122.035609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "정말 간단하게 만든 Cat &amp; Dog Detection 입니다.\n<http://118.67.143.11:30004/>\n\n강아지 혹은 고양이 사진을 한번 넣고 확인해보세요!\n다행히 저희 집에 함께하는 고양이가... 고양이가 맞네요 ㅎㅎ",
+        "user": "U02TBLB4RHC",
+        "user_name": null,
+        "timestamp": "1652936007.368319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TUHB5D7V",
+                "U02TMMJDC14",
+                "U02U0E794M8",
+                "U02U6FW5A03",
+                "U02TFP6V1DY",
+                "U02TRCAQU9J",
+                "U02U7CWH8RH",
+                "U02U65KPEJW",
+                "U02U4FZ7PQV",
+                "U02TL6ZKC7R"
+              ],
+              "count": 10
+            },
+            {
+              "name": "grin",
+              "users": [
+                "U02U0FR5GE7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "넘 잘하셨네요!!! 멋집니다 :muscle:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936145.732939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TBLB4RHC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우와!",
+          "user": "U02U6FW5A03",
+          "user_name": null,
+          "timestamp": "1652936147.520409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_3_hearts",
+                "users": [
+                  "U02TBLB4RHC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우왕!! 너무 귀여워요 :heart_eyes_cat:",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1652936755.176669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02TBLB4RHC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님 덕분이에요 감사합니다 :slightly_smiling_face:",
+          "user": "U02TBLB4RHC",
+          "user_name": "Inseo Lee",
+          "timestamp": "1652936864.067739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "완혁님 고양이 너무 귀엽네요!!!",
+          "user": "U02TBLB4RHC",
+          "user_name": "Inseo Lee",
+          "timestamp": "1652936870.133249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "밸런스를 위해 강아지도..ㅎㅎ",
+          "user": "U02TFP6V1DY",
+          "user_name": null,
+          "timestamp": "1652939681.786069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dog",
+                "users": [
+                  "U02TBLB4RHC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Streamlit이 굉장히 강력한 도구인데.. 알려주는 곳이 거의 없어요(?) 제가 그래서 Streamlit을 알려드린 것인데, App이 많이 만들어지고 있으니 넘 뿌듯하네요..!\n\n프론트엔드를 직접 개발하면 정말 좋겠지만..!! 저희의 목적이 프론트엔드 개발자가 아니라고 하면 streamlit 같은 도구를 사용해서 빠르게 프로토타입을 만드는 것이 더 효율적일 수 있습니다(만약 복잡한 것들을 구현하신다면 당연히 프론트를 직접 하시는 것이 좋겠구요)\n\n추후에 <@U02SK9NH0RF> 님께서 Streamlit으로 만드신 코드도 공유드릴 예정이니 기대해주시고, 오늘 오피스아워도 열심히 참여해주세용 :muscle:",
+        "user": "U02U0E794M8",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1652936237.437009",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02U0E794M8",
+            "ts": "1652936562.000000"
+          },
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U02RUR38GCF",
+                "U02TBLB4RHC",
+                "U02TRCAQU9J",
+                "U02TJSFMHNZ",
+                "U02THPJ7JVA",
+                "U02UTH1484E",
+                "U02U6FW5A03",
+                "U02U587JMDE",
+                "U02TG0F5TD1",
+                "U02T92JB94N",
+                "U02TKEWKS4X",
+                "U02TMMJDC14",
+                "U02TUDVH1BK"
+              ],
+              "count": 13
+            },
+            {
+              "name": "boom",
+              "users": [
+                "U02TJ0CKVLJ",
+                "U02UTH1484E"
+              ],
+              "count": 2
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U02TUHB5D7V",
+                "U02UTH1484E"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02TUHB5D7V",
+                "U02TU6HBDG9",
+                "U02UTH1484E",
+                "U02TZTQ6T1C"
+              ],
+              "count": 4
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02U5H18SP7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "스페셜미션 호다다닥..했는데 앙상하고 플레인의 끝팥왕 페이지지만..뭔가 결과물로 뜨니까 재밋는 것 같아요 마스터님..:booduck_confuse:",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1652936373.554279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TUHB5D7V",
+              "ts": "1652936380.000000"
+            },
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TUHB5D7V>\n호다다닥 하셨다니 넘 잘하셨습니다!!\n호다다닥으로 만드신 것만으로 넘 신기한거죠..! 보통 Streamlit 모르시면 프론트엔드 공부하시느라 구현이 더 느려지는데, 일단 하나씩 보이니 넘 재미있게 할 수 있다고 생각해요 :slightly_smiling_face:\n\n계속 강의 들으시면서 백엔드를 더 개선해보셔요..!!!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936464.641279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시간안에 못해서 여기에 공유를 해야겠네요 ㅠ",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1652936557.792849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TDB0EJJ1> 꾸준히 하시면 되시지요 :muscle: 저희 교육 과정에 늦은 것은 없으니깐요..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652936735.045889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TDB0EJJ1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "웹만드는거를 처음 해보는데 streamlit 까지만해도 뭔가 바로바로 보여서 즐거웠는데 백엔드 코드들은 뭔가 혼란스럽네요….!",
+          "user": "U02TG0F5TD1",
+          "user_name": "민태원",
+          "timestamp": "1652941539.101449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "EASE 모델이 그때그때 학습해줘야 해서 추천 내역 계산까지 조금 시간이 걸리지만 그래도 신기하네요.\n친구들한테도 보내봤는데 결과가 다 달라서 더 신기합니다 :booduck_happy:\n\n제 왓챠 평점 4.0이상 영화들 일부 입력해서 추천결과를 받았는데 평균적으로 왓챠 평점 3.5-4.0 사이의 평점을 줬거나 예상되는 영화가 나오네요.\n\n<http://118.67.130.15:30001>",
+        "user": "U02TRCAQU9J",
+        "user_name": null,
+        "timestamp": "1652941201.944899",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TRCAQU9J",
+            "ts": "1652943833.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0GDFTUH",
+                "U02TMMJDC14",
+                "U02TBLB4RHC",
+                "U02U5871X96",
+                "U02TUHB5D7V",
+                "U02U7059RDX",
+                "U02TCHR3LNS",
+                "U02TNKDBF7D",
+                "U02U56K2848",
+                "U02TKEWKS4X",
+                "U02T8Q055AS",
+                "U02TUDVH1BK",
+                "U02U6HXKKDJ",
+                "U02TJ253BRA",
+                "U02QJSQ1H1T",
+                "U02U6FW5A03",
+                "U02U0E794M8",
+                "U02TZAV2830"
+              ],
+              "count": 18
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "EASE는 Recall@10이 0.15 정도가 나온다는 게 함정입니다",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652941258.838449",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TRCAQU9J",
+              "ts": "1652941826.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

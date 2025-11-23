@@ -1,0 +1,153 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 여러분, 평안한 불금을 보내시고 계신가요? 저는 아니긴 한데 다들 그러길 바랍니다.. 저는 지금 BART 모델을 적용 하기에 앞서 BART 논문을 읽고 있는데요, 2.1 Architecture 부분에 인코더로써 BERT와 유사하지만 다른점 (1), (2)가 나옵니다 여기서 제가 궁금한 점은\n\n1. (1)에서 설명된 cross attention이 무엇인지? (encoder를 통해 구해지는 K, V 벡터를 사용하여 Decoding을 수행하는 것이라고 저는 생각 하고 있습니다만 정확하지 않습니다) \n2. (2)에서 말하는 feed-forward network를 사용하지 않아 BERT보다 10%정도 많은 파라미터가 있다고 하는데 어떻게 feed-forward 부분이 사라지는데 더 많은 파라미터가 있는건지 궁금합니다. (정확히는 (2)가 말하고자하는 바를 모르겠습니다..)\n이 질문 이외에도 가르침을 주시면 감사하겠습니다 헤헤 다들 :fire:금 보내시길 바랍니다!",
+        "user": "U029U4VQZ5Z",
+        "user_name": "김동현",
+        "timestamp": "1636723450.006800",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029U4VQZ5Z",
+            "ts": "1636723469.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029Z7YSHEV",
+                "U029SLN0S1X",
+                "U029B6PDLFQ",
+                "U029E9LS8NP",
+                "U029T92U2F3",
+                "U028ZAA1X1V"
+              ],
+              "count": 6
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029DG66W9L",
+                "U029Z7DE676",
+                "U027SHXU18R",
+                "U029F9U3MMH"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "right-facing_fist",
+              "users": [
+                "U029Z7DE676"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-4",
+              "users": [
+                "U029FBST3A7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "빛명훈 캠퍼님 소환 욕구가....",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1636728066.008100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U029U4VQZ5Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "encoder의 마지막 레이어의 값을 모든 decoder가 받는 구조를 cross attention이라고 표현한 것 같네요 :-)",
+          "user": "U029YDTQP7S",
+          "user_name": null,
+          "timestamp": "1636730690.008500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029U4VQZ5Z",
+                  "U028ZAA1X1V",
+                  "U029B6PDLFQ",
+                  "U02A7FZP5FA"
+                ],
+                "count": 4
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(2)의 경우는 BERT는 이렇게 ffn이 하나 부착되어 있구요,\n\nbert-base의 파라미터 세팅은 12-layer, 768-hidden, 12-heads, 110M parameters.\n\nbart-base의 파라미터 세팅은 12-layer, 768-hidden, 16-heads, 139M parameters\n\n그래서 10% 정도 더 많다고 표현한 것 같습니다 :slightly_smiling_face:",
+          "user": "U029YDTQP7S",
+          "user_name": null,
+          "timestamp": "1636731063.008900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029U4VQZ5Z",
+                  "U029B6PDLFQ",
+                  "U029AHPA1GX",
+                  "U02A7FZP5FA",
+                  "U0298UN562F"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "자고 일어났더니 너무 좋은 설명이 있네요 감사합니다 마스터님!! &gt;_&lt;",
+          "user": "U029U4VQZ5Z",
+          "user_name": "김동현",
+          "timestamp": "1636757816.009300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

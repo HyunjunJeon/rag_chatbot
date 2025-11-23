@@ -1,0 +1,70 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "제가 이것저것하다가 mmdetection을 사용하려고 import를 했더니 다음과 같은 에러가 발생합니다.....어떻게 해결해야할까요..\nmmcv, mmdet 삭제하고 다시 설치해보았습니다... pycocotools도 삭제하고 다시 설치해보았습니다...",
+        "user": "U029T519KUH",
+        "user_name": null,
+        "timestamp": "1633689071.090300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029T519KUH",
+            "ts": "1633689172.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 mmcv mmdet pycocotools 다 지우고 mmcv  mmdet만 설치 후 실행 하면 고쳐졌습니다",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633689745.090700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028U1DJ0SK> 다 지우고 mmcv, mmdet만 설치했는데도 똑같은 에러가 뜹니다.... 경로도 제대로 확인했고 껐다가 다시 켜서 재실행도 해보았습니다...",
+          "user": "U029T519KUH",
+          "user_name": null,
+          "timestamp": "1633691121.090900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "numpy를 upgrade 설치를 해주었더니 해결되었습니다\n```pip install --upgrade numpy```",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1633693239.091300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02A3RBTDPB",
+                  "U028U1DJ0SK",
+                  "U029MKLUYFN",
+                  "U029ULW2X8A"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

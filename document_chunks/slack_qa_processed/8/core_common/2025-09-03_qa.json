@@ -1,0 +1,746 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "지금 예로 드신 y=a_0+a_1*x+a_2*x^2는 선형회귀가 아닌 것 같습니다. y= w1x + w2x + ... wnx + b1 + b2 ... +bn 같은 식이면 선형회귀겠지만 x^2항이 들어가는 순간 선형 관계가 아니게 되니까요",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756885035.064719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 지은님이 말씀하신것처럼 목표변수 y를 계수에 대해 선형적인 형태로 특징변수의 함수를 모델링하는 것으로 이해하고 있어요. `y =ax + b` 형태에서 `x`의 지수가 2차던 3차던 상관없이 계수에 대해 선형적인것으로 이해하고있어요. 그래서, y = a**2x +b 는 안되겠지만요..!",
+          "user": "U09CH81SQAX",
+          "user_name": "김예찬",
+          "timestamp": "1756886572.259899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7Z1R8T"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다항 회귀도 Vandermonde matrix를 거쳐서 다변수 선형회귀로 이해할 수 있지요. 그런데 이 때 Vandermonde matrix의 각 열을 이루는 1, x, x^2, ..., x^{d-1}를 (실제로는 독립이 아닌 것들임에도 불구하고) 독립된 특징변수로 간주하여서 선형회귀로 바라보는 것입니다.\n(\"This is done by treating _x_, _x_2, ... as being distinct independent variables in a multiple regression model\", from 'Definition and example' section of <https://en.wikipedia.org/wiki/Polynomial_regression>)\n이에 따르자면, 다항 회귀에 대해서 \"특징변수 x, x^2, ... x^{d-1}들과 목표변수 y 사이의 선형관계를 분석한다\"고 표현할 수 있을 것 같습니다. 이 선형관계를 표현해주는 것이 계수벡터가 되겠고요.\n\n(추가 레퍼런스:\n\"일반적으로 k차다항회귀모형\ny = β0 + β1 x + β2 x^2 + ... βk x^k + ε\n에서 계수 βj를 추정하려면 독립변수가 k개 있는 중회귀모형으로 다음과 같이 바꾸어 생각하면 간편하다.\" from 박성현, 이성임, 임요한, <데이터분석 전문가를 위한 고급회귀분석>, p.283.)",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756889321.031289",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1756890061.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U09CH81SQAX"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CH81SQAX"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH89CYCT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 김지은 캠퍼님.\n\n말씀주신대로, 선형회귀의 선형성(linearity)는 본래 목표변수와 계수간의 선형성을 의미하는 것입니다. 뿐만 아니라, 특징 변수와 목표 변수 사이의 선형성을 의미하는 것도 맞습니다. 선형 회귀 모형에서 특징 변수라 함은, 기본적으로 계수와 선형적으로 조합되어 있는 값을 의미하기 때문입니다.\n\n즉, 다항 회귀 모형에서의 특징 변수는 조성해 캠퍼님께서 설명해주셨듯이 x, x^2, x^3, ...이 됩니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756900924.200849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U05QLE6RKSS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조교님 답변 감사합니다. 이와 더불어 답변 주신 모든 캠퍼분들도 감사합니다!\n\n제가 언급한 것과 조교님 말씀대로 k차다항회귀모형의 특징변수가 x, x^2, x^3로 확장되는 경우, x^2이나 x^3일때는 y와의 피어슨 상관계수가 0에 가깝게 나올 때도 있습니다. 그런데 강의 자료에는 '피어슨 상관계수가 두 변수 간의 선형 관계를 파악한다'라고 되어 있어서, 이런 경우 상관계수만으로는 관계를 올바르게 파악하기 어려운 것 같습니다. 이 부분은 어떻게 이해하는 것이 좋을지 궁금합니다. 선형회귀의 정의나 상관계수 부분에 부연설명이 더 필요하다고 생각됩니다.",
+          "user": "U09CH89CYCT",
+          "user_name": null,
+          "timestamp": "1756903387.827399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "깊이 있게 이해하고자 하시는 부분 너무나도 좋습니다.\n\n저희가 일반적으로 변수라고 여기는 것은 키와 몸무게 같이 뚜렷히 구분되는 물리량입니다. 다만, 통계적인 분석 기법의 입장에서의 변수라고 여기는 것은 그 기원이 무엇이든, 어떻게 계산되든, 값입니다. 즉, '피어슨 상관계수가 두 변수간의 선형 관계를 파악한다'에서의 변수 역시 x, x^2, x^3 각각이 될 수 있는 것입니다.\n\n따라서 김지은 캠퍼님의 말씀을 하나씩 살펴 보면,\n\n1. k차다항회귀모형의 특징변수가 x, x^2, x^3로 확장되는 경우, x^2이나 x^3일때는 y와의 피어슨 상관계수가 0에 가깝게 나올 때도 있습니다. -&gt; 맞습니다. (x,y), (x^2,y), (x^3,y)  각 쌍의 피어슨 상관계수는 다양한 경우로 도출될 수 있습니다.\n2. '피어슨 상관계수가 두 변수 간의 선형 관계를 파악한다'라고 되어 있어서, 이런 경우 상관계수만으로는 관계를 올바르게 파악하기 어려운 것 같습니다. -&gt; (x,y), (x^2,y), (x^3,y) 각 쌍의 선형 관계는 상관계수로 짐작해볼 수 있습니다.\n물론, 상관계수는 두 변수간의 상관관계를 보는 방법 중 하나일 뿐이고 최종적인 분석보다는 EDA(탐색적 자료 분석)의 과정에서 전체적으로 데이터를 살펴볼 때 사용하는 방법입니다. 이보다 더 구체적인 관계를 살피기 위해 선형 회귀분석, GLM과 같은 방법론들이 존재합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756909274.279829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U05QLE6RKSS",
+                  "U09CH89CYCT"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "기본과제 3에서 CarsPurchaseDataset 클래스를 만들 때 iris dataset에서처럼 features와 labels를 정의하고 시작해야 할까요?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756885089.719849",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 이서현 캠퍼님.\n\n기본 과제 3에서 안내된 조건을 따르기만 한다면, 그 이외의 부분은 자유롭게 코드 작성하셔도 무방합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756901092.655239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(5강) 퀴즈 2번 정답풀이 질문]\nL∞노름의 값이 x = [1, 2, -3]이기에 절대값의 최대값으로 알고 있어서 3으로 알고 있는데, 정답 풀이에 6으로 나와있는데 제가 잘못 알고 있는 건지 확인부탁드립니다.",
+        "user": "U09CMETRNFL",
+        "user_name": "윤종욱_T8131",
+        "timestamp": "1756886197.981479",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7ZHVJP",
+                "U09CH86HP4K"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 같은 질문이 있었는데 찾아보니까 무한대 노름은 텐서의 각 행의 절댓값의 합 중 최댓값이라고 합니다",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756887721.154709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH86HP4K> x가 1-D Tensor인 경우에는 절대값 중 최대값으로 정의할 수 있다고 강의 자료에 나와 있고 예제 코드에서도 max함수를 쓰는 것을 봤었는데 어떤 조건에서 각 행의 절대값의 합 중 최대값이 되는 건가요..?",
+          "user": "U09CMETRNFL",
+          "user_name": "윤종욱_T8131",
+          "timestamp": "1756888201.067249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CMETRNFL> 생각해보니까 그렇네요. 더 생각해봐야 할 것 같아요",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756888316.238709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 이상해서 코드로 확인해봤는데\n풀이가 잘못도 된거 같습니다\n```x = torch.Tensor([1,2,-3])\nprint(torch.norm(x,p=1))\nprint(torch.norm(x,p=2))\nprint(torch.norm(x,p=float('inf')))```\ntensor(6.)\ntensor(3.7417)\ntensor(3.)",
+          "user": "U09CH7TFUKV",
+          "user_name": "이호준",
+          "timestamp": "1756897751.795869",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7TFUKV",
+              "ts": "1756897772.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CMETRNFL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 윤종욱 캠퍼님.\n\n풀이가 잘못된 것이 맞고, x = [1, 2, -3] 벡터의 L∞노름은 절댓값의 최댓값이 3이 맞습니다. 혼란을 드려 죄송합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756900644.427909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U09CMETRNFL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "nn.Linear(입력되는 변수 개수, 출력되는 변수 개수 개수)라고 보시면 됩니다. 여기서는 변수 1개를 넣어서 결괏값 1개가 나오기 때문에 (1, 1)입니다.",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756887805.346599",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1756887838.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 윤준상 캠퍼님.\n\n김지민, 이서현 캠퍼님 말씀대로, nn.Linear 객체의 생성자가 받는 필수 인자 두개는 순서대로, 입력 텐서의 차원과 출력 텐서의 차원입니다.\n\n별도로 지정하지 않는 경우에 bias인자는 기본적으로 참이기 때문에 입력 텐서를 x, 출력 텐서를 y라고 했을 때, y=ax+b의 선형회귀모형을 세우게 되는 것입니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756899582.387099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[기본과제1 6-19~6-21]\ngreen 채널 생성시에만 unsqueeze(-1) 항목이 없는데 unsqueeze(-1)를 안하면 이미지 생성이 안됩니다. 혹시 unsqueeze(-1) 없이 이미지 생성이 가능한 방법이 있는지 궁금합니다.",
+        "user": "U09CMF1K4BC",
+        "user_name": "Gangmin Gil",
+        "timestamp": "1756888134.411609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "Cat대신 stack 함수를 활용해보시면 좋을거 같아요!",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1756888178.122329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CH81SQAX"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8B49R9",
+                  "U09CH868GM9",
+                  "U09CH8605TM",
+                  "U09CH7Z1R8T",
+                  "U09CH7XTTNX",
+                  "U09CMF1K4BC",
+                  "U05QLGVQBUN"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CMF1K4BC",
+          "user_name": "Gangmin Gil",
+          "timestamp": "1756891260.810449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(9강) 이진분류 코드 관련 질문]\n코드를 보면 특징 변수(features)와 목표 변수(target)을 추출할 때\n```t = filtered_df['Species'].values.astype(int) ```\n와 같이 정수형으로 추출하였는데 데이터/테스트 스플릿 이후 Tensor로 변환하는 과정에서\n```t_train = torch.tensor(t_train, dtype=torch.float32).unsqueeze(1)\nt_test = torch.tensor(t_test, dtype=torch.float32).unsqueeze(1)```\n와 같이 float형으로 변환시키는지 궁금합니다.",
+        "user": "U09CH8BUP51",
+        "user_name": "양지훈",
+        "timestamp": "1756892175.577569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 양지훈 캠퍼님.\n\n정수형으로 변수 t에 처음 저장한 이유는 해당 값이 0 또는 1의 정수값을 가짐을 명시적으로 드러내기 위함이었고, 이후에 float32로 변환한 이유는 추후에 예측값(float)과의 차이 등을 계산할 때에 어짜피 형변환이 이뤄질 부분이기에 미리 명시적으로 진행한 것입니다.\n\n예상하셨듯이, 다시 float형으로 변환하는 것은 해당 코드에서 필수적이지는 않은 것으로 이해해주시면 되겠습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756907707.257619",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U05QLGVQBUN",
+              "ts": "1756907761.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH8BUP51"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[기본과제 3 문제 1.3]\n예측변수와 종속변수 값을 tuple 형태로 반환하라고 나와있는데, tuple 형태로 반환하면 아래 정답을 확인하는 코드에서 오류가 발생합니다.\n\n```X, y = next(iter(train_data))\nassert X.shape == (3,)\nassert y.shape == (1,)\n\nprint(\"Data is loaded correctly!\")\n\n# AttributeError: 'tuple' object has no attribute 'shape'```\n1차원 텐서로 반환하면 오류가 발생하지 않는데 텐서로 반환해도 되는지 궁금합니다.",
+        "user": "U09CH8ABJRZ",
+        "user_name": "설성범",
+        "timestamp": "1756892360.074149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 문제를 잘못 이해했습니다.\n\n예측변수와 종속변수 값을 튜플로 변환하는게 아니라 데이터셋 자체가 반환하는 값이 (x, y)의 튜플 형태라는 것 같습니다.",
+          "user": "U09CH8ABJRZ",
+          "user_name": "설성범",
+          "timestamp": "1756892735.220599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 설성범 캠퍼님.\n\n이해해주신 대로, 데이터셋 객체가 순서대로 반환하는 데이터가 튜플 형태인 것입니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756907910.693539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 김수효 캠퍼님.\n\n김차미 캠퍼님 말씀대로, `view(-1,1)` 과 같은 함수는 실제로 변환을 하기 위함인 경우도 있지만, 데이터의 유효성을 판단하기 위함인 경우도 존재합니다. 명시적으로 코드 상에서 드러나는 것이 디버깅 과정이나 테스트 과정을 보다 수월하게 해주기 때문입니다.\n\n비슷하게, assert 구문을 사용해서 실제로 모양이 2차원인지 명시적으로 코드 상에 나타내주는 방법도 있겠습니다.",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756896331.428959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7U429H> <@U05QLGVQBUN> 답변 감사합니다!",
+          "user": "U09CH7UAPPV",
+          "user_name": "김수효",
+          "timestamp": "1756900915.927619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U09CH7U429H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 주상우캠퍼님.\n\n이 부분은 정말 개인적인 취향(각자의 기준) 차이일 것 같습니다. 개인적으로 저는 torch.add(a,b) 형식을 선호합니다. 대체로 코드가 더 길다는 단점이 있으나, 하나의 코드 내에 특정 함수가 어떠한 인자들을 필요로 한다는 것이 명확히 드러나 있기 때문입니다. 또한, 개인이 직접 정의해서 사용하는 함수들과 혼용해서 사용하는 경우에 통일감있게 코드를 작성할 수도 있기 때문입니다.\n\n이 부분은 다른 캠퍼분이나 멘토분들께도 조언을 구하고 다양한 의견을 나눠보시면 더 좋을 것 같습니다.",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756899095.140029",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "in-place 방식으로 연산을 하는 경우에는 메모리주소가 안 바뀌더라구요.\ntorch.add(a,b)는 메모리주소가 바뀌니\n학습을 하는 메모리 용량과 전송횟수에 따라서 다르게 사용도 가능할 것 같습니다!",
+          "user": "U09CH7ZHVJP",
+          "user_name": "송현우",
+          "timestamp": "1756948199.541209",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7ZHVJP",
+              "ts": "1756948625.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7ZHVJP> 댓글감사합니다!!\n```a.add(b)\ntorch.add(a, b)\na.add_(b)```\n위 세 가지 중 첫 번째, 두 번째는 out-of-place, 세 번째는 말씀해주신 대로 in-place 연산인데, 세 번째와 같은 in-place 연산은 대부분 메서드 방식에만 존재하더라고요.\n\n그래서 메모리 효율성 등을 목적으로 in-place 연산이 필요할 때는 고민없이 세 번째 메서드 방식을 사용하면 되는데,\n\n만약 out-of-place 연산이 필요한 경우에는 저렇게 두 가지 모두 가능한(=pytorch 공식 문서에 수록되어 있는) 경우가 많았어서 올린 질문이었습니다.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1756948464.286369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7ZHVJP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(8강) SGD의 수식 관련 질문]\n8강의 40p를 보면, SGD의 가중치 w update 수식을 보면, 아래와 같이 나와 있습니다*(아래 첫 번째 이미지 참고).*\n`w∗=w−α*(1/n)[−2(ti​−yi​)⋅xi​]`\n그런데, BGD에서는 모든 데이터 포인트의 gradient를 평균을 내야 했기에 sigma 연산과 함께 (1/n)을 곱해주는 연산이 필요했지만,\nSGD에서는 단순히 그 데이터 포인트에 대해서만 gradient를 계산해 주면 되니까,\n결국 sigma 연산뿐만 아니라 (1/n)을 곱해주는 연산 또한 없어져야 하는 게 아닌지 궁금합니다.\n이 경우 SGD의 가중치 w update 수식은 아래와 같이 될 것 같습니다.\n`w∗=w−α[−2(ti​−yi​)⋅xi​]`",
+        "user": "U09CH85PLV9",
+        "user_name": null,
+        "timestamp": "1756901224.101609",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH85PLV9",
+            "ts": "1756901261.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CMEPMZLJ"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 주상우 캠퍼님.\n\n좋은 지적 감사드립니다. 말씀주신대로, 확률적 경사하강법에서는 데이터 포인트마다의 gradient를 계산하고, 이를 learning rate와 함께 곱하여 업데이트를 수행합니다.\n\n따라서 본 슬라이드에서는 α'=α/n으로 정의하고, α'를 learning rate로 해석해야 올바른 설명이고, 이렇게 이해해주시면 감사하겠습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756908259.453149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7WRGAX",
+                  "U05QLE6RKSS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상우 캠퍼님, 안녕하세요. 오영석 마스터입니다. 먼저 제가 확률적 경사하강법을 설명하는 과정에서 오류가 있었음을 말씀드립니다.\n캠퍼님께서 말씀주신 내용 그리고 조교님께서 답변해주신 내용이 옳으며, 해당 부분은 제가 추후에 수정하도록 하겠습니다.\nPyTorch 강의를 열심히 수강해주셔서 감사합니다.\n\n오영석 드림",
+          "user": "U05QLE6RKSS",
+          "user_name": "오영석_마스터",
+          "timestamp": "1756959073.226269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[기본과제 2 문제5 관련 질문]\n다중선형회귀 모형을 학습하는 코드에서 model.train()의 설명이 '학습을 위해 모델이 gradient를 저장하도록 설정' 이라고 되어 있습니다.\n그런데 좀 더 찾아보니, model.train()의 역할이 '학습 모드를 설정하여 정규화 기법들이 동작되게 하고 gradient 계산을 가능하게 하는 역할'이라고 설명되어 있었습니다. 그럼 model.train()이 모델이 gradient를 저장하도록 설정한다는 말을 'gradient를 계산하기 위해 gradient를 저장한다'라고 이해해도 될까요?",
+        "user": "U09CH7YCBFV",
+        "user_name": "최영진_T8204",
+        "timestamp": "1756947332.948699",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH81SQAX",
+                "U09CH7Z1R8T"
+              ],
+              "count": 3
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U09CH842TRR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 그거 궁금해서 찾아봤는데\n1. model.train()은 model의 train을 True로 바꿔줘요\n2. model의 여러 함수들 (dropout, batch norm 등...)에서 train이 True인지 확인을 하고 그에 따라 다르게 작동해요\n이러한 단계로 train 모드가 온/오프됨에 따라 함수가 다르게 작동된다고 하더라고요",
+          "user": "U09CH7L65DH",
+          "user_name": "이성재_T8151",
+          "timestamp": "1756947598.870019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV",
+                  "U09CH86SBJ7",
+                  "U09CMEPMZLJ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!\n말씀해주신 model.train()의 작동방식에 대해서는 이해했습니다. 하지만 gradient의 저장에 관한 내용은 찾을 수가 없어서, 혹시 gradient 계산 과정에 저장이 포함되어 있는지가 궁금합니다",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1756948641.582309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 그 설명 있는 캡쳐 보여주실 수 있나요?",
+          "user": "U09CH7L65DH",
+          "user_name": "이성재_T8151",
+          "timestamp": "1756949540.676929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 코드입니다",
+          "user": "U09CH7YCBFV",
+          "user_name": null,
+          "timestamp": "1756950389.729489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 '학습을 위해 모델이 gradient를 저장하도록 설정'이라는 설명은 잘못된 것 같습니다.\n찾아봤을 때 gradient 계산과는 무관한 메소드 같습니다.",
+          "user": "U09CH7TFUKV",
+          "user_name": "이호준",
+          "timestamp": "1756950511.452419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오, 진짜 model.eval() 설정 켜고나서도\n\n옵티마이저 정의하고 텐서 한개 Feed forward 시키고 loss 함수 계산시킨 다음\nloss.backward()\noptim.step()\n까지 실행 다 되고,\n\n가중치 값 바뀌는것까지 확인되네요",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756959523.889469",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1756959604.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그동안 model.eval() 실행해두면 당연히 연산그래프는 생성안되는거겠지라고 생각했는데 잘못알았던 거네요\n\n찾아보니 모델을 추론모드로 사용할 때 model.eval() 을 실행해두는 것과, 계산 수행 코드를 with torch.no_grad(): 블록 안에 넣어주는 것은 역할이 서로 달라서 둘 다 필요한 조치라고 합니다.\n\n이 질문을 보게 되어 유익했어요! 감사합니다 :smile:",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756960636.643699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV",
+                  "U09CH7Z1R8T",
+                  "U09CH7ZHVJP",
+                  "U09CH89NYSF"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "공식문서에서 관련언급도 주워왔어요\n\n\"Below, in addition to discussing the mechanisms above, we also describe evaluation mode (*`nn.Module.eval()`*), a method that is not used to disable gradient computation but, because of its name, is often mixed up with the three.\"\n\nfrom <https://docs.pytorch.org/docs/stable/notes/autograd.html#locally-disable-grad-doc>",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756961050.261319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 제가 찾아본 내용에서는 정규화 블록이 없는 간단한 모델에서는 굳이 model.train()과 model.eval()를 사용하지 않아도 된다고 합니다. 그래도 명시적으로 표기하는 것이 코드 해석에 용이하다고 합니다.",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1756963931.342029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

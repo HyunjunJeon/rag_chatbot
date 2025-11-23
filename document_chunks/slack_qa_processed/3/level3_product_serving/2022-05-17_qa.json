@@ -1,0 +1,1111 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 레벨 3에서도 팀별로 같이 코드를 작성할 일이 있을까요? 아래의 레포지토리가 만들어지긴 했는데, 어떻게 쓰면 되는 지 감이 잘 안 와서 질문 드립니다!\n<https://github.com/boostcampaitech3/level3-product-serving-level3-cv-02>",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1652773350.429279",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "Product Serving은 대부분 개인별로 진행해요~",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652781285.319149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. voila, streamlit 관련 해결하지 못한 부분들 질문드립니다. :booduck_confuse:\n저는 macOS(12.3.1)를 사용하고 있고, ai stage 상에서 할당해주신 서버와 vscode를 연결해서 작업하고 있습니다.\n• 파이썬 버전 3.8.5\n• voila 버전 0.2.16\n• streamlit 버전 1.9.0\n• conda 사용\n• (vscode extension) 주피터 버전 `v2022.4.1021342353`\n1. `ipywidgets.FileUpload()` 실행 후 노트북파일 강제종료 현상 \nai stage페이지에서 직접 노트북과 연결해서 사용하는 경우 `ipywidgets`의 메서드 중 하나인 `FileUpload()` 가 제대로 실행되고 이미지도 정상적으로 업로드 할 수 있었습니다. 반면 같은 서버를 연결해둔 vscode 상에서는 해당 메서드를 실행한 후 파일을 업로드 하면 주피터 노트북 파일이 아무런 에러 메시지 없이 꺼집니다. 그 외의 `slider`나 `checkbox`같은 메서드는 정상적으로 실행이 되는 것을 확인했습니다. 아래는 제가 실행했던 코드입니다.\n\n```import ipywidgets as widgets\n\nuploader = widgets.FileUpload(\n    accept = '.png, .jpg, .jpeg',\n    multiple = False\n)\n\ndisplay(uploader)```\n(실행 후에 나타나는 현상은 영상으로 올렸습니다.)\n• 질문: 무언가가 충돌이 일어나서 나타나는 현상같은데 문제 해결을 위해 어디서부터 시작해야 할지 잘 모르겠습니다. 이런 경우 문제를 해결할 실마리를 어디에서 찾아야할까요? 혹은, 같은 현상을 겪은 분들이 계신지도 궁금합니다.\n2. `streamlit run` 으로 얻은 url 접속 안됨 (해결했습니다! :white_check_mark:)\n위 voila와 같이 vscode terminal에서 `streamlit run app_test.py`를 실행하면 url을 두 개가 출력됩니다. (app_test.py는 제가 따로 만든 파일입니다. 아래 네 줄밖에 없습니다.)\n```import streamlit as st \n## SETTING PAGE CONFIG TO WIDE MODE \nst.set_page_config(layout=\"wide\") \n\nst.write(\"Hello, world!\")```\n```&gt;&gt;&gt;  Welcome to Streamlit. Check out our demo in your browser.\n&gt;&gt;&gt;  Network URL: <http://172.17.0.2:8501>\n&gt;&gt;&gt;  External URL: <http://27.96.135.204:8501>```\n위의 Network URL로 접속을 시도하면 `ERR_CONNECTION_TIMED_OUT` 에러가 떠서 접속 자체를 할 수가 없습니다. (url과 에러 모두 캡처해서 이미지로 첨부했습니다.)\nURL에 접속하기위해 제가 취할 수 있는 방법이 있을까요? 이 부분 해결하는데에 시간이 너무 오래 걸려서 여기에 도움을 요청드립니다.\n위에 올려 둔 버전 외에도 필요한 정보가 있다면 알려주세요. 추가적으로 업데이트 하겠습니다. 미리 감사드립니다..! :pray:",
+        "user": "U02U5H18SP7",
+        "user_name": null,
+        "timestamp": "1652796472.926159",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02U5H18SP7",
+            "ts": "1652797739.000000"
+          },
+          "reactions": [
+            {
+              "name": "booduck_confuse",
+              "users": [
+                "U02TUJQ9XUZ",
+                "U02TUDVH1BK",
+                "U02UATFS328",
+                "U02QQ376VB6",
+                "U02TFH06BV0",
+                "U02TKEWKS4X",
+                "U02U4SD5Y4D",
+                "U02U7059RDX"
+              ],
+              "count": 8
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 두번째 streamlit url 같은 경우는 저도 동일한 오류가 떴었는데요,\nstreamlit run app.py --server.port {ai stage에서 할당받은 port}\n로 실행하니깐 접속이 가능했어요!\n\n접속할땐 External URL로 들어갔구요.",
+          "user": "U02TJ0CKVLJ",
+          "user_name": "손정균_T3111",
+          "timestamp": "1652797007.731369",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TJ0CKVLJ",
+              "ts": "1652797072.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TVNVSKML",
+                  "U02TFH06BV0",
+                  "U02U0E794M8",
+                  "U02U5H18SP7",
+                  "U02QQ376VB6",
+                  "U02TNKDBF7D",
+                  "U02TSQBNTC7",
+                  "U02TKEWKS4X",
+                  "U02U7059RDX"
+                ],
+                "count": 9
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02U5H18SP7",
+                  "U02ULA3NLHW",
+                  "U02U7N1DGHG"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "덕분에 두 번째 문제 해결했습니다! 두 url이 로컬과 원격 용도로 구분된 것 같은 느낌이군요.",
+          "user": "U02U5H18SP7",
+          "user_name": "정유리_T3242",
+          "timestamp": "1652797682.900539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "유리님 안녕하세요! 정균님이 잘 답변해주셔서 2번은 해결되었네요..!\n\n추가적으로 Network URL이 어떤 의미인지 아래 글을 참고하셔도 좋을 것 같아요-!\n\n<https://empty-cloud.tistory.com/84>\n\nExternal URL이 외부에서 접속할 때 접근하는 URL이라고 보시면 되어요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652798527.882729",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652798597.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02U5H18SP7",
+                  "U02TJ0CKVLJ",
+                  "U02TKEWKS4X"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2번 같은 케이스가 생기는 경우엔 =&gt; AI Stage 서버가 아닌 로컬에서 잘 실행되는지 보시는 방법도 있답니다!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652798552.069799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 1번.. ipywidgets.FileUpload() 관련해서\n이런 경우라면\n• 현재 ipywidget의 버전이 어떻게 되시나요? 최신 버전 설치를 했을 때 발생할 수도 있을 것 같기도 하고\n• 저라면 Mac에서는 잘 되는지 확인해볼 것 같아요(버전을 일치시키고 실행)\n• 현재 유리님 환경에 vscode에서 작업하는 것 같은데, 보통 ipywidget은 jupyterlab에서 실행하는 환경을 가정하고 실행하고 있습니다. 아마 vscode에서 실행하셨으면 jupyterlab에서 실행해보면 어떨까요?\n• 보통 생태계에서 vscode를 먼저 지원하지 않아서, jupyterlab에서 해야하는 경우도 존재합니다..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652798722.920999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정리하면\n1번\n=&gt; vscode가 아닌 jupyterlab에서도 실행해보기! / Mac에서 실행해보기!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652798770.632099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 마스터님! 늦은시간까지 답변 달아주셔서 감사드립니다.\n• ipywidget 서버 버전은 7.7.0입니다. \n• 일단 jupyterlab에서는 로컬과 서버 모두 실행이 되는 것을 확인했어요! 로컬환경에서의 ipywidget 버전은 7.6.5여서 서버의 버전도 동일하게 맞추고 시도해봤는데 역시나 파일이 강제종료됐습니다. 아무래도 voila는 jupyterlab에서 실습을 해봐야할 것 같다는 느낌이 강하게 듭니다.. :slightly_smiling_face:\n• mac에서 실행해보라는 말씀이 이해가 잘 안 가서 그러는데, xcode같은 툴을 이용하라는 말씀일까요?",
+          "user": "U02U5H18SP7",
+          "user_name": "정유리_T3242",
+          "timestamp": "1652800527.439379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Mac에서 JupyterLab을 실행한 후 Voila가 되는지 확인해달라는 의미였어요! 이것이 Local이랑 같은 의미일 것 같네요\n\nVoila는 애초에 VSCode에서 사용하도록 만든 것이 아닌 Jupyter에서 만들어졌기 때문에 JupyterLab에서 실습을 진행해주세요-! (나중엔 지원할 수도 있으나 지금은 아닐거에요)\n\n강의에서 말씀드린 것처럼\n• 노트북 베이스에서 개발하고 =&gt; 그걸 바로 프로토타이핑할 때 Voila를 사용합니다\n• VSCode로 하신다면 Voila가 아니라 바로 Streamlit으로 진행할 것 같아요-!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652801079.005569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02U5H18SP7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "왜 Voila가 VSCode에서 실행이 안되는지 궁금하시면 VSCode에서 ipynb를 어떻게 실행하는지 알아보시면 조금 더 이해가 되실 것 같아요..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652801106.570969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사드립니다!! :slightly_smiling_face:",
+          "user": "U02U5H18SP7",
+          "user_name": "정유리_T3242",
+          "timestamp": "1652801175.523069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "AttributeError: module 'streamlit' has no attribute 'script_runner' 에러 나시는분 있나요\n==============================================================\npip install streamlit==1.7 하면 해결됩니다",
+        "user": "U02TZ9HPZAS",
+        "user_name": null,
+        "timestamp": "1652798430.607959",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TZ9HPZAS",
+            "ts": "1652798630.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8",
+                "U02TZSTNP5X"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02TZSTNP5X"
+              ],
+              "count": 1
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U02U5H18SP7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "형환님 안녕하세요!\n\n<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/part2/02-streamlit/requirements.txt#L5>\n\n여기 보시면 streamlit 버전은 1.1.0을 사용하고 있답니다..! 버전을 맞추시면 에러가 나지 않을 것 같아요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652798799.669059",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652798983.000000"
+            },
+            "reactions": [
+              {
+                "name": "100",
+                "users": [
+                  "U02TZ9HPZAS",
+                  "U02TZSTNP5X"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 :slightly_smiling_face: voila를 실습하던 중 용원님과 같은 에러를 만났는데 해결을 못 하고 있습니다 ㅠㅠ\n저는 aistages 서버를 새로 생성한 후에, product serving 레포를 복제해와서 part2/01-voila/requirements.txt를 설치했습니다.\n\n서버상의 주피터랩에서 실습을 진행하고자 `jupyter labextension install @jupyter-voila/jupyterlab-preview` 명령어로 설치를 진행했으나 에러가 발생해 <https://www.notion.so/Part2-144a779d8b1945cca0a17ba7bf3f2be5|노션>에 정리한 것처럼 이것저것 설치했습니다. nodejs ≥ 12를 설치한 후에 `jupyter nbextension list` 명령어로 확인했을 때는 extension이 설치도 되어있고 활성화도 되어있는 것 같은데, 다시 extension을 설치하려고 하면 제 jupyterlab 버전과 맞지 않는다는 에러가 뜨고 렌더링한 결과도 보이지 않습니다..\n\n에러를 하나씩 해결하다보니 강의에서 알려주신 설치 방법이랑 멀어지고 있는것 같은데요, 혹시 제가 놓치고 있는 부분이 있을까요?",
+        "user": "U02UTH1484E",
+        "user_name": null,
+        "timestamp": "1652805613.699269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "오모낫... 서버를 재부팅했다는 말이 서버를 중지했다가 다시 시작했다는 뜻이었군요! 저는 주피터노트북을 열심히 Restart하고있었습니다 :smiling_face_with_tear: 서버 재부팅하니까 잘 되네요..!!!",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1652805866.401279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "나연님 안녕하세요!\n지금 이렇게 Try &amp; Error 하시면서 디버깅하는 과정이 잘 학습하고 있다는 증거에요:muscle::muscle::muscle: 잘하셨고 꾸준히 더 해나가시지요:clap::clap:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652831413.989399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02UTH1484E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요:)\ncv03조 final-project-level3-cv-03 repository의 default branch 이름을 'main'으로 변경해주실 수 있을까요?\n권한이 없어 branch rename을 할 수 없습니다 ㅠ",
+        "user": "U02UYE39KUY",
+        "user_name": "김대근_T3022",
+        "timestamp": "1652837691.715479",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02UYE39KUY",
+            "ts": "1652837722.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02U587JMDE"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "대근님 안녕하세요~!\n\nGithub 관리는 제가 하는 부분이 아니라서\n이 부분은 아마 <#C02QQ662EKW|03_질의응답> 이 더 빠를수도 있을 것 같아요!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652838347.213179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 그렇군요 감사합니다 변성윤 마스터님! 이번 강의도 즐겁게 듣고 있습니다 :)",
+          "user": "U02UYE39KUY",
+          "user_name": "김대근_T3022",
+          "timestamp": "1652838381.602049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "즐겁게 듣고 있다니 다행이네요!! 감사합니다 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652838401.927159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02UYE39KUY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 서버 JupyterLab에서 voila를 설치하던 중 다음과 같은 에러가 발생했습니다.\n```# jupyter labextension install @jupyter-voila/jupyterlab-preview \nAn error occurred.\nValueError: The extension \"@jupyter-voila/jupyterlab-preview\" does not yet support the current version of JupyterLab.\n\n\nConflicting Dependencies:\nJupyterLab              Extension        Package\n&gt;=3.4.2 &lt;3.5.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/application\n&gt;=3.4.2 &lt;3.5.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/apputils\n&gt;=3.4.2 &lt;3.5.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/fileeditor\n&gt;=3.4.2 &lt;3.5.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/mainmenu\n&gt;=3.4.2 &lt;3.5.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/notebook\n&gt;=17.0.1 &lt;18.0.0        &gt;=16.9.0 &lt;16.10.0react\n&gt;=17.0.1 &lt;18.0.0        &gt;=16.9.0 &lt;16.10.0react-dom\nSee the log file for details:  /tmp/jupyterlab-debug-4bw1qn4x.log```\n현재 jupyter==1.0.0, jupyterlab==3.4.2, jupyter-client==7.3.1, volia==0.3.5 으로 설치된 상태입니다.\n혹시 해결책을 아실까요?\n\n위 에러와는 별개로 ipynb 파일을 작성한 후 voila 아이콘을 클릭하면 옆에 preview는 잘 뜨는데요, `voila` 커맨드를 입력하면\n```# voila\nTraceback (most recent call last):\n  File \"/home/linuxbrew/.linuxbrew/bin/voila\", line 8, in &lt;module&gt;\n    sys.exit(main())\n  File \"/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/traitlets/config/application.py\", line 971, in launch_instance\n    app.initialize(argv)\n  File \"/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/voila/app.py\", line 374, in initialize\n    self.setup_template_dirs()\n  File \"/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/voila/app.py\", line 380, in setup_template_dirs\n    self.template_paths = collect_template_paths(['voila', 'nbconvert'], template_name, prune=True)\n  File \"/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/voila/paths.py\", line 24, in collect_template_paths\n    return collect_paths(app_names, template_name, include_root_paths=True, prune=prune, root_dirs=root_dirs)\n  File \"/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/voila/paths.py\", line 90, in collect_paths\n    raise ValueError(\nValueError: No template sub-directory with name 'base' found in the following paths:```\n위와 같은 에러가 발생합니다.",
+        "user": "U02U5P1PZME",
+        "user_name": "한기백",
+        "timestamp": "1652845637.932739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 어제 첫 번째 에러 발생했었는데요, aistages 서버를 중지했다가 다시 시작하니까 해결됐습니다!",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1652846240.360779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 기백님과 같은 에러 발생했는데, 첫번째 에러 해결하셨을까요?",
+          "user": "U02U1APCEBC",
+          "user_name": "이재학",
+          "timestamp": "1652847168.452409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "방금 서버 일시정지 후 재시작 해봤는데 동일 에러가 발생하네요 :disappointed:",
+          "user": "U02U5P1PZME",
+          "user_name": "한기백",
+          "timestamp": "1652848122.897399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 `jupyter nbextension list` 입력하면 enabled로 잘 뜨나요?\n저는 어제 enabled로 잘 떴는데 Preview가 안뜨는 상태였습니다.",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1652848308.779199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "기백님 안녕하세요!\n\n1번 에러)\n```ValueError: The extension \"@jupyter-voila/jupyterlab-preview\" does not yet support the current version of JupyterLab.```\n해석해보면 JupyterLab의 현재 버전에서 voila를 지원하지 않는다는 의미입니다.\n이런 경우가 실무에서 많이 발생될 수 있어요.\n\n주피터라는 생태계가 업데이트되면서, 관련된 라이브러리들도 빠르게 업데이트를 해줘야 합니다. 허나 그게 어려운 경우도 존재하지요(파이썬 3.9가 나오면 다른 오픈소스에서 3.9에서 사용이 안되면 버전 업을 하는 것처럼)\n\n아마 3.4 버전에서 안되는 것 같아서, jupyterlab을 3.3.4로 설치하고 다시 재부팅하시겠어요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652848383.184699",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652848435.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "요것 해보시고 2번 에러가 다시 되는지 확인 부탁드려요 :pray:\n아마 nconvert 버전 이슈가 아닐까 생각이 들긴 하네요 :thinking_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652848467.296419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우선 나연님이 알려주신 커맨드로 실행한 결과는 다음과 같습니다\n```# jupyter nbextension list\nKnown nbextensions:```\n제대로 뜨지 않는 것 같네요ㅠㅠ",
+          "user": "U02U5P1PZME",
+          "user_name": "한기백",
+          "timestamp": "1652849042.890149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```jupyter nbextension list```\n여기에서 Known이면.. 기백님이 설치하실 때 했던 명령어 리스트 공유해주시겠어요?\n\nhistory 명령어로 커맨드라인 명령어를 추출할 수 있어요~!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652849106.741789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님이 알려주신 방법대로 버전을 낮추고 서버를 재시작해봤는데 동일한 오류가 반복되네요\n```# jupyter labextension install @jupyter-voila/jupyterlab-preview\nAn error occurred.\nValueError: The extension \"@jupyter-voila/jupyterlab-preview\" does not yet support the current version of JupyterLab.\n\n\nConflicting Dependencies:\nJupyterLab              Extension        Package\n&gt;=3.3.4 &lt;3.4.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/application\n&gt;=3.3.4 &lt;3.4.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/apputils\n&gt;=3.3.4 &lt;3.4.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/fileeditor\n&gt;=3.3.4 &lt;3.4.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/mainmenu\n&gt;=3.3.4 &lt;3.4.0          &gt;=2.0.0 &lt;3.0.0   @jupyterlab/notebook\n&gt;=17.0.1 &lt;18.0.0        &gt;=16.9.0 &lt;16.10.0react\n&gt;=17.0.1 &lt;18.0.0        &gt;=16.9.0 &lt;16.10.0react-dom\nSee the log file for details:  /tmp/jupyterlab-debug-ezelblmm.log```\n두번째 오류의 경우에\n`python -m voila` 커맨드를 입력하면\n```# python -m voila\n[Voila] Using /tmp to store connection files\n[Voila] Storing connection files in /tmp/voila_6my8ahgm.\n[Voila] Serving static files from /opt/conda/lib/python3.8/site-packages/voila/static.\n[Voila] Voilà is running at:\n<http://localhost:8866/>```\n이런 식으로 동작하기는 하는 것 같습니다..!",
+          "user": "U02U5P1PZME",
+          "user_name": "한기백",
+          "timestamp": "1652849147.976739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "history 커맨드를 입력했는데 이전 명령어가 뜨지 않는 것 같습니다..!\n기억나는대로 말씀드리면 처음에 node.js 오류가 떠서 brew -&gt; node 순서로 설치하여 해결했고 그 이후에는 ‘2-1 notebook 베이스-voila’ 강의자료 17p의 설치 커맨드를 이용하여 설치했습니다.\n중간에 jupyterlab 등 몇몇 패키지의 버전을 바꾼 적이 있는데 혹시 에러를 해결하기 위해 확인해봐야 할 패키지가 있을까요?",
+          "user": "U02U5P1PZME",
+          "user_name": "한기백",
+          "timestamp": "1652849362.591369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U5P1PZME> 일단 voila 실행하면 되니까 기존에 이슈 중에 절반은 해결하신거네요! 잘하고 계십니다 :muscle:\n\n아마 지금 jupyter labextension 부분에서 이슈가 있는 것 같아요. extension 설치 과정의 이슈일 수도 있을 것 같기도 하네요.\n\n관련해서 이런 경우라면\n• 가상환경을 만들어서 해본다\n• 아예 환경을 다시 리셋하고 하나씩 재설치한다\n기존에 설치했던 환경으로 디펜던시가 충돌되기에 위 방법을 해보고 있곤 합니다\n아래쪽에 기태님이 작성해주신 내용을 참고하시면 어떨까요? <https://aitech3.slack.com/archives/C02QWMPJPDM/p1652849468308789>",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652849875.765959",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652849886.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가상환경으로 실행하면 대부분의 문제들은 해결되어서 이것으로 실습 진행해보려 합니다. 여러 캠퍼분들 그리고 마스터님 모두 감사드려요!\n자잘한 에러들이 조금 남은 것 같은데 이 부분은 스스로 해결해보도록 하겠습니다..!",
+          "user": "U02U5P1PZME",
+          "user_name": "한기백",
+          "timestamp": "1652850521.126519",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U5P1PZME",
+              "ts": "1652851039.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U1APCEBC",
+                  "U02U0E794M8"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "```source ~/.bashrc\nconda create --name voila python=3.8.5\nexport CUDA_VISIBLE_DEVICES=''\nsource ~/.bashrc\n\nconda activate voila\nconda install pytorch=1.7.1 torchvision=0.8.2 torchaudio=0.7.2 cudatoolkit=11.0.221 -c pytorch\n\npip install -r requirements.txt\n\npip install voila\n\njupyter serverextension enable voila --sys-prefix```\n전 가상환경에 해봤습니다. ㅎㅎ\n\n버전문제로 jupyter lab에서 바로 보는건 잘 안되지만, terminal에\n\n```voila --enable_nbextensions=True```\n치고 웹으로 열어서 쥬피터 파일 선택하면 되긴합니다 ㅎㅎ",
+        "user": "U02TDB0EJJ1",
+        "user_name": "김기태",
+        "timestamp": "1652848595.624929",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TDB0EJJ1",
+            "ts": "1652848641.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0E794M8",
+                "U02U5P1PZME",
+                "U02U4SD5Y4D"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8",
+                "U02T92JB94N"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오 기태님 가상환경을 따로 만드셔서 해결하셨군요! 잘하셨네요..!\n\n요거 관련해서 아마 jupyterlab의 이슈일수도 있는데, 한번 lab의 버전도 수정해보는 방법은 어떨까요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652848771.342329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TDB0EJJ1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가상환경 상에 있는 jupyter lab으로 실행하니 잘됩니다!",
+          "user": "U02TDB0EJJ1",
+          "user_name": "김기태",
+          "timestamp": "1652849524.127189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "실행하니 수업영상에 나온거랑은 다른 아이콘이긴한데 잘 됩니다",
+        "user": "U02TDB0EJJ1",
+        "user_name": null,
+        "timestamp": "1652849716.739899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "맙소사 아이콘을 이 친구들이 바꿨군요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652852001.386679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U02U5H18SP7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "streamlit 실행시 localhost가 뜨지 않아서 고민이있습니다.\n아시는분?\nCLI 환경: vscode\n서버환경: aistage",
+        "user": "U02TXU3HPC5",
+        "user_name": null,
+        "timestamp": "1652851307.776919",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TXU3HPC5",
+            "ts": "1652851532.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://aitech3.slack.com/archives/C02QWMPJPDM/p1652796472926159>\n\n요 댓글도 봐주셔도 좋을 것 같아용 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652851972.008039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFEJT1A7",
+                  "U02TXU3HPC5"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 글 링크를 잘못 올렸었네요 ㅋㅋㅋ큐ㅠㅠ 변성윤 마스터님이 올려주신 링크를 참고해주시면 될 것 같습니다!!",
+          "user": "U02TFEJT1A7",
+          "user_name": "이호진_T3176",
+          "timestamp": "1652852218.522319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8",
+                  "U02TXU3HPC5"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "voila에서 _import_ albumentations를 하는 과정에서 .cv2 경로가 없다고 뜨는 오류가 뜨신다면\n아래 링크처럼 sudo만 제외하고 apt-get install libgl1-mesa-glx 를 터미널에 입력해주시면 됩니당\n<https://www.inflearn.com/questions/57362>",
+        "user": "U02TDNW0YBZ",
+        "user_name": "김은기",
+        "timestamp": "1652852219.721359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TFEJT1A7",
+                "U02TCHR3LNS",
+                "U02U0E794M8",
+                "U02THE97XT4",
+                "U02TDB0EJJ1",
+                "U02ULA3NLHW",
+                "U02TGEUL83U"
+              ],
+              "count": 7
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "은기님 좋은 팁 너무 감사합니다!!!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652853264.502349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "gcp를 예에에에엣날에 잠깐 가입만 했어서 *무료 크레딧을 받지 못했습니다.* \n1. <https://cloud.google.com/free/docs/gcp-free-tier#free-tier|무료 등급 정책>을 찾아보니 첫 번째 사진처럼 나와있어서 인스턴스 만들기에서 us-central1을 선택하고 머신 유형을 e2-micro로 선택하니 두 번째 사진처럼 월별 예상 가격이 나오는데, 이는 한 달간은 무시해도 되는 건가요? \n2.  2-5강의 64p 의 Mask Classification Streamlit 배포하기를 따라하고 있는데, 강의에서 마스터님은 e2-standard로 진행하시고 vCPU4개 16GB메모리도 추천하신다고 하셨는데, 저처럼 무료 크레딧을 받지 못한 경우에도 강의를 따라서 동일하게 진행해도 큰 부담은 없을까요?",
+        "user": "U02TFEJT1A7",
+        "user_name": null,
+        "timestamp": "1652853060.791329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 알기로는 특정 머신이 GCP에서 무료가 있는걸로 알고 있습니다. 아마 선택하신 머신 맞는 걸로 보입니다.\n근데 제일 안전한건 3개월마다 구글 계정 새로파시면 무한 크레딧이 가능합니다",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652853131.665919",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TRCAQU9J",
+              "ts": "1652853196.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFEJT1A7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "계정마다 달라서 기범님 말처럼 새로 하나 파시는게 제일 좋은방법이라고 생각되네요!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1652853153.906929",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1652853165.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFEJT1A7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이메일 하나 발급하셔서 해주셔용..!! :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652853248.840419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFEJT1A7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "딥러닝 모델을 배포할 때는 기본 인스턴스를 사용하면… 엄청 느릴거에요..! 아니면 메모리가 터질수도 있답니다..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652853287.260289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFEJT1A7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "무료 조건에 따르면 머신 구성뿐 아니라, 아래에 \"부팅 디스크\" 항목에서도 부팅디스크 유형을 \"표준 영구 디스크\" 로 변경해줘야 할거 같아요. 기본값으로 \"균형있는 영구 디스크\"로 선택되어 있더라구요.",
+          "user": "U02TJ0CKVLJ",
+          "user_name": null,
+          "timestamp": "1652853561.004519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFEJT1A7",
+                  "U02U0E794M8"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "voila 가상환경에서 사용하는 걸 정리했습니다 참고하시면 좋을 것 같습니다!\n\n<https://dreamkkt.notion.site/Volin-in-Jupyter-lab-86138b4e1f5a42c6ae03216146e9de48>",
+        "user": "U02TDB0EJJ1",
+        "user_name": "김기태",
+        "timestamp": "1652853210.425029",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TDB0EJJ1",
+            "ts": "1652853363.000000"
+          },
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U02U0E794M8",
+                "U02TUJV3GBT",
+                "U02TVNVSKML",
+                "U02TRF4HES3",
+                "U02TFG8AQ02",
+                "U02TRDETMM0"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02U5H18SP7",
+                "U02QJSQ1H1T"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02QJSQ1H1T",
+                "U02U6A7G6FM"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "잘 정리해주셨네요!! 기태님 감사합니다",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652853316.951509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grin",
+                "users": [
+                  "U02TDB0EJJ1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

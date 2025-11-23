@@ -1,0 +1,108 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "class LSTM(modelbase):의 forward 부분에서 질문이 있습니다. froward에서 파라미터로 test, question, tag, correct, mask, interaction을 받으면 실행을 할 때 test, question, tag, correct, mask, interaction을 인자로 받는 부분이 있어야 하는데 어디를 찾아도 보이질 않네요... 혹시 어디 있는지 알 수 있을까요?",
+        "user": "U065EMEFX9N",
+        "user_name": null,
+        "timestamp": "1705238689.297709",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041FE8FKBN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "preds = model(**batch)로 받습니다.",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1705239321.675939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U065EMEFX9N",
+                  "U041FE8FKBN"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U065EMEFX9N",
+                  "U041FE8FKBN"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://brunch.co.kr/@princox/180>",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1705239387.556459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 정말 감사합니다. class DKTDataset(torch.utils.data.Dataset)에서 column순서를 정한 것으로 batch가 들어갑니다. 그리고 forward인자 순서와 batch의 feature순서를 같게해야 한다고 이해하였는데 제대로 이해한게 맞을까요?",
+          "user": "U065EMEFX9N",
+          "user_name": "배건우_T6198",
+          "timestamp": "1705247062.544209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U065EMEFX9N>\n민서님이 답변을 잘해주셨네요:+1:\n\n추가로 첨언드리면 파이썬의 클래스를 호출하면 *`__call__`*이라는 메소드가 실행이 되는데 이와 동일한 방식으로 PyTorch의 *`nn.Module`*을 상속받은 객체를 호출하게 되면 forward가 실행이 됩니다. 관련 내용은 아래 링크에 자세하기 있으니 참고하시면 좋을 거 같아요:relaxed:\n\n<https://stephencowchau.medium.com/pytorch-module-call-vs-forward-c4df3ff304b1>\n\n추가로 batch의 type은 딕셔너리로 들어가기 때문에(아래 이미지 참고) 순서를 같게 할 필요는 없어요~\n하지만 딕셔너리가 아니라 하나씩 지정을 해준다면 순서는 맞춰야돼요\nex) *`model(test, question, tag, correct, mask, interaction)`*",
+          "user": "U041FE8FKBN",
+          "user_name": null,
+          "timestamp": "1705279165.077379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U065EMEFX9N"
+                ],
+                "count": 1
+              },
+              {
+                "name": "clap",
+                "users": [
+                  "U065EMEFX9N"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

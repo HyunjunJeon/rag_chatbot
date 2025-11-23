@@ -1,0 +1,85 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요\nMRC 강의 미션 2번의 링크에서 실습코드 zip 파일을 다운로드 받으면 파일이 비어있어서 질문 남깁니다.",
+        "user": "U04RXRT5NTT",
+        "user_name": "김의진",
+        "timestamp": "1685945943.246009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "의진 캠퍼님 :slightly_smiling_face: 미션 zip 파일에 정상적으로 파일이 업로드 되어 있는 상황인데요, 혹시 다시 한 번 다운 받아보시고, 그럼에도 파일 접근이 어려우시면 다시 말씀 부탁드립니다~!",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1685946136.201099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 구글드라이브에선 정상적으로 파일이 업로드 되어 있는 것으로 보이는데 막상 다운로드를 받으면 사진과 같이 파일이 비어있습니다!",
+          "user": "U04RXRT5NTT",
+          "user_name": null,
+          "timestamp": "1685946282.479419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "loading",
+                "users": [
+                  "U04S26ESDPW",
+                  "U03KW2M0J07"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "zip 파일을 로컬로 다운로드 받지 않고 ZIP Extractor라는 타사 앱으로 바로 내 구글 드라이브로 압축해제했더니 해결됐습니다!",
+          "user": "U04RXRT5NTT",
+          "user_name": null,
+          "timestamp": "1685947176.590789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U03KW2M0J07",
+                  "U04S26ESDPW",
+                  "U04RK72QNLA",
+                  "U03QKNSJVCY",
+                  "U04L09BNA7R"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

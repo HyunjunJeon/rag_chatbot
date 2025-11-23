@@ -1,0 +1,251 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "질문은 아니구요! 방금 진행한 마스터 클래스에서 몇몇 분들이Sequential Recommendation 모델의 성능, 성능 향상요인에 대해서 궁금해 하시는 것 같아서 제가 접근한 방법을 공유하고자 글을 남기게 되었습니다. (수고해주신 이원성 마스터님 감사합니다(꾸벅))\n\n저는 SASRec을 활용하였고, 첨부한 첫번째 사진을 보시면 4번과 5번 사이에서 성능 향상 폭이 큰 것을 보실 수 있으실텐데, 여기서 Negative Sampling Logic을 변경하여 성능을 크게 향상 시킬 수 있었습니다. 코드는 두번째 사진으로 첨부하였는데, 간단히 언급하자면 기존의 베이스라인 코드에서 제공하는 Negative Sampling 코드는 데이터에서 언급되는 6807개의 아이템 이외의 대해서도 샘플링이 이루어지기 때문에 문제가 되어 수정하게 되었습니다.\n\n5번과 6번사이에서 시도한 방법은 베이스라인 코드에서 weight decay = 0으로 설정되어 있어 global minima 근처에서 왔다갔다 하는(?) Overshooting 현상에 대응하고자 lr = 0.001로 학습된 모델(5번, 0.1230의 상황)을 pretrain model 삼아 lr = 0.0001로 재학습시켜 성능을 향상 시킬 수 있었습니다. 정확히는 최적의 weight_decay 값을 찾지 못해 다음과 같은 방법으로 재학습시켰습니다.\n\n마지막으로 SASRec 모델의 경우 weight initialization에 따라 성능이 많이 바뀌었습니다.(예를들어, seed 값을 바꾼다거나) 그래서 저 또한 Seed Ensemble을 시도했으나 시간 부족으로 마무리는 짓지 못했습니다. 하지만 성능을 향상시킬 수 있는 방법이었을 것으로 강력하게(?) 추측합니다.\n\n진짜 마지막으로, Hyper Parameter의 경우 max_seq_len, hidden_size에 영향을 많이 받았습니다.\n\n긴글 읽어주셔서 감사드립니다. 새로고침 데이동안 많은 힐링 하셨으면 좋겠습니다.",
+        "user": "U04RMLUABA8",
+        "user_name": null,
+        "timestamp": "1687512801.472629",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RMLUABA8",
+            "ts": "1687512940.000000"
+          },
+          "reactions": [
+            {
+              "name": "zzang",
+              "users": [
+                "U04RG937C3F",
+                "U04RMLZD9FW",
+                "U04S8TD7KB2",
+                "U04RK3E9M99",
+                "U04R4LWE3RV",
+                "U04RK714XMG",
+                "U04RCJPRKM4",
+                "U04RK3GR0BD",
+                "U04RCJS7M8E",
+                "U04RCJPK0MC",
+                "U04RMLU2K52",
+                "U04RK73L7NE",
+                "U04S0LEEX3M",
+                "U04R4LSH3SB",
+                "U04R4LVMWP9",
+                "U04R4LT3ZTR",
+                "U04RG93LWP7",
+                "U04RMLRPMHS",
+                "U03PUH174BD",
+                "U03UZRA4K1A",
+                "U04RXRT6QGZ"
+              ],
+              "count": 21
+            },
+            {
+              "name": "감사",
+              "users": [
+                "U04RK3E9M99",
+                "U04RMLZD9FW",
+                "U04R4LWE3RV",
+                "U04S8TD7KB2",
+                "U04RK714XMG",
+                "U04RCJPRKM4",
+                "U04RK3GR0BD",
+                "U04RCJS7M8E",
+                "U04RCJPK0MC",
+                "U04RMLU2K52",
+                "U04RK73L7NE",
+                "U04R4LVMWP9",
+                "U04RG93LWP7",
+                "U04RMLRPMHS",
+                "U04RXRT6QGZ"
+              ],
+              "count": 15
+            },
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U04R4LWE3RV",
+                "U04S8TD7KB2",
+                "U04RK714XMG",
+                "U04RK3E9M99",
+                "U04RCJPRKM4",
+                "U04RK3GR0BD",
+                "U04RCJS7M8E",
+                "U04RCJPK0MC",
+                "U04RMLU2K52",
+                "U04RK73L7NE",
+                "U04R4LVMWP9",
+                "U04RG93LWP7",
+                "U04RMLRPMHS",
+                "U04RXRT6QGZ"
+              ],
+              "count": 14
+            },
+            {
+              "name": "u-got-it",
+              "users": [
+                "U04R4LWE3RV",
+                "U04S8TD7KB2",
+                "U04RK714XMG",
+                "U04RK3E9M99",
+                "U04RCJPRKM4",
+                "U04RK3GR0BD",
+                "U04RCJS7M8E",
+                "U04RCJPK0MC",
+                "U04RMLU2K52",
+                "U04RK73L7NE",
+                "U04R4LVMWP9",
+                "U04RG93LWP7",
+                "U04RXRT6QGZ"
+              ],
+              "count": 13
+            },
+            {
+              "name": "squirtle_wonderfull",
+              "users": [
+                "U04R4LWE3RV",
+                "U04S8TD7KB2",
+                "U04RK3E9M99",
+                "U04RCJPRKM4",
+                "U04RK3GR0BD",
+                "U04RCJPK0MC",
+                "U04RMLU2K52",
+                "U04RK73L7NE",
+                "U04R4LVMWP9",
+                "U04RG93LWP7",
+                "U04RXRT6QGZ"
+              ],
+              "count": 11
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "이해가 쏙쏙 되네요 수현님 감사합니다 ~!",
+          "user": "U04RK3E9M99",
+          "user_name": "임도현_T5170",
+          "timestamp": "1687513054.200459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U04RMLUABA8"
+                ],
+                "count": 1
+              },
+              {
+                "name": "blush",
+                "users": [
+                  "U04RMLUABA8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 수현님 저도 2주간 SASRec으로 너무 고생했어서 줌에서 질문을 드렸었는데 너무 자세한 답변과 과정을 알려주셔서 너무 감사합니다!!! 많은 것을 배우게 되네요! 감사합니다! ㅎㅎ",
+          "user": "U04RCJPRKM4",
+          "user_name": "임우열",
+          "timestamp": "1687513061.277719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U04RMLUABA8"
+                ],
+                "count": 1
+              },
+              {
+                "name": "blush",
+                "users": [
+                  "U04RMLUABA8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "참고로, 성능 향상이 컸던 항목으로 기재했으며, 내부에 다른 방법들이 포함되어 있음을 말씀드립니다!",
+          "user": "U04RMLUABA8",
+          "user_name": "박수현",
+          "timestamp": "1687513243.083719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RCJPRKM4",
+                  "U04RK3E9M99"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀은 이번 태스크의 경우에는 sequentiality 가 중요하지 않다고 생각했고 SASRec 논문에서 postional embedding 을 제거했더니 성능이 높어진 경우도 존재하여 positional embedding 을 제거하여 실험을 진행해보았습니다. 하지만 수현님이 말씀해주신 점들을 톺아보지 못해서 PE 제거 시 성능을 정확히 확인 못한 것 같은데 혹시 해당 방식으로 진행하여 높은 성능을 보신 팀도 계실까요?",
+          "user": "U04RK3E9M99",
+          "user_name": "임도현_T5170",
+          "timestamp": "1687513844.513249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U04RMLUABA8",
+                  "U04RMLZD9FW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "공유해주셔서 감사합니다! :man-bowing:",
+          "user": "U04RK73L7NE",
+          "user_name": "서민석",
+          "timestamp": "1687514335.271899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U04RMLUABA8"
+                ],
+                "count": 1
+              },
+              {
+                "name": "blush",
+                "users": [
+                  "U04RMLUABA8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이거 혹시 start 랑 end token인가요 ??",
+        "user": "U07EUAPHBPB",
+        "user_name": "신승훈",
+        "timestamp": "1731580135.110479",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "(+2 관련)\n1. 우선 MIP 등에서 masking이 사용되는데, mask id가 max item size의 범위 외에 한개의 index이기 때문에 +1가 됩니다. (item id 범위 외의 인덱스로 설정해줌으로써 item id와의 충돌을 막아주어야 하니까요)\n2. 남은 1개는 padding을 위한 token으로 이해됩니다. 그래서 총 +2를 해주었다고 이해해주시면 될것 같습니다.",
+          "user": "U03M7B4JYMR",
+          "user_name": null,
+          "timestamp": "1731629315.532389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(attribute 관련)\nfine-tuning에서 attribute는 쓰이지 않기 때문에 부르지 않아도 문제가 없어 보이는데요, 이 코드가 research level 코드이다보니 조금 지저분하게 짜인 부분도 존재합니다 (해당 베이스라인 코드는 <https://github.com/RUCAIBox/CIKM2020-S3Rec|S3-Rec 오리지널 코드>에서 가공하였습니다.). run_train.py를 run_pretrain.py에서 복사해서 수정하다가 굳이 지우지 않아도 학습에 영향이 없는 부분을 지우지 않은게 아닌가 생각이 되는데요,\n특히 research level 코드를 가져와서 사용하실때 이런 일들을 거의 필연적으로 만나게 되기 때문에 직접 주석처리 해서 검증해보시면 도움이 될것 같습니다.\n오피스아워에서 베이스라인 코드를 “완벽하게” 이해하는데 너무 많은 시간을 할애하지 않으셨으면 좋겠다고 말씀드린 이유 중 하나가 이러한 이유도 있었는데, 시간이 촉박해서 제가 부연 설명을 잘 드리지 못한 것 같습니다..!",
+          "user": "U03M7B4JYMR",
+          "user_name": "Jaein Kim",
+          "timestamp": "1731629688.354119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U07EUAPHBPB"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 아닙니다.. 제가 다른 side information도 어떻게 집어넣을까 고민하다가 베이스라인 코드를 까보기시작하면서  이런질문이 나온거같습니다. 그래도 답변 감사합니다 조교님, 강의에도 sas모델 관련 과제가있어서 먼저 조금더 공부해보고 이해 안되는 부분있으면 질문남겨볼게요..!",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1731640281.928749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03M7B4JYMR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "강의 동영상 8강, 8분 30초.\n\n\"(A)squad 같은 데이터셋만 쓰면 train은 항상 positive만 보게 된다\", \"(B)새로운 문서를 준다면 정답을 못 낼 거다. 소설만 train 하다가 공학이 inference 오면 정답을 못 낼 거다\"\n라는 강의 내용이 있는데 A만 따로 보면 음 그렇지, B만 따로 보면 음 그렇지 라는 생각은 드는데 A와 B가 서로 어떤 연관이 있는지 모르겠습니다. A에서 B로 가는 논리가 무엇인가요? positive만 보는 거랑 문서의 domain이 다른 거랑 어떤 연관이 있는지 모르겠습니다.",
+        "user": "U04RG8ZFADT",
+        "user_name": null,
+        "timestamp": "1686190244.419969",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RG8ZFADT",
+            "ts": "1686190476.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U04RG8ZFADT> 님! 우선 positive를 강의 맥락에서 정리하자면 “query에 해당하는 answer를 포함하는 context”를 뜻합니다. 반대로 negative는 answer가 없는 context겠죠. 가령 “서울의 GDP는 몇 위야?“라는 질문을 받았을 때 해당 질문을 대답할 수 있는 경제관련 passage를 가지면 해당 passage는 positive라고 볼 수 있겠지만 뜬금 없이 다른 도메인 (e.g. 의료서적)의 passage가 주어지면 답을 할 수 없는 negative passage라고 볼 수 있겠습니다. 즉 이렇게 query와 다른 domain의 context가 주어지면 답을 하기가 어렵기 때문에 context의 positive/negative는 domain shift와 연관이 있다고 볼 수 있습니다!",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1686195859.755739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RG8ZFADT"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U03PZ16TC9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

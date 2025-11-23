@@ -1,0 +1,61 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이미지넷 22k로 사전 학습된 모델도 대회에 사용 가능한지 궁금합니다!",
+        "user": "U07ECPVGP0V",
+        "user_name": "김영석",
+        "timestamp": "1729246395.623909",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "개요 - 룰 들어가보시면 가능하신걸 확인하실수 있습니다.",
+          "user": "U07E91ZLDTQ",
+          "user_name": null,
+          "timestamp": "1729253214.754489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA",
+                  "U07ECPVGP0V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다ㅎㅎ imagenet pretrained는 사용 가능합니다!:slightly_smiling_face:",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1729267434.642139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07ECPVGP0V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

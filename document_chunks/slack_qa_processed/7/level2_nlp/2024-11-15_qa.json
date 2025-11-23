@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저작권 문제가 제일 위에 있기 때문에, 저작권 문제가 해결 된 데이터라면 다른 시험 문제 데이터를 사용하셔도 문제 없읍니다.",
+        "user": "U07B5FRE94J",
+        "user_name": "Kyochul Jang",
+        "timestamp": "1731657937.816759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 답변 감사합니다!",
+          "user": "U07E14BU1L7",
+          "user_name": "김민서(Ricky)",
+          "timestamp": "1731658353.287449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

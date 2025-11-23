@@ -1,0 +1,109 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "recsys 진단 퀴즈 2번에 문제 지시사항이 없는데 어떤 내용일까요?",
+        "user": "U09CH86HP4K",
+        "user_name": null,
+        "timestamp": "1760316453.025199",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "틀린 내용을 찾는 문제 같습니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1760317715.206229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 그런 것 같습니다.",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1760319925.376379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U09CH842TRR> 안녕하세요! 저 궁금한게 생겼는데요.\nbilinear form은 선형성을 가져야만 해서 비선형적인 관계는 학습을 못할 거 같습니다. 그럼 단어 사이에 비선형적 관계는 QK^T를 감싸는 소프트맥스 함수를 통해서 학습하는 건가요??",
+        "user": "U09CH894W3D",
+        "user_name": "정대현_T8179",
+        "timestamp": "1760323262.203959",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH894W3D",
+            "ts": "1760324048.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "우와...\n\n저도 저 답변을 달아놓고서 '그러면 W^Q랑 W^K 중에 사실 하나는 없어도 되는 거 아니야?'라는 생각이 들었었어요. 그리고 누군가가 이미 W^Q를 없애는 <https://arxiv.org/pdf/2305.19129|https://arxiv.org/pdf/2305.19129> 같은 시도도 했지만 이것이 트랜스포머의 표준을 대체하지는 못했네요.\n\nSoftmax가 비선형작용이기는 하지만, 도입의 의도가 비선형성 삽입 자체에 있는 것은 아닌 것 같아요. Softmax는 value벡터표현들을 전체의 합이 1이고 각각은 음수가 아닌 계수들로 weighted sum을 해주기 위해서 있습니다. 그래서 softmax를 취하기 직전의 seq_length×seq_length 크기의 행렬을 attention score matrix로, 취하고 난 뒤의 행렬을 attention weight matrix로 부르곤 합니다.\n하나의 transformer layer 안에서 비선형성을 주기 위해 도입된 부분은 attention의 다음에 있는 Feed-Forward Network에서 up-proj와 down-proj 사이에 있는 활성화함수입니다. up-proj는 토큰표현차원을 4배(모델에 따라서 다르기도 하지만 대체로는.)로 늘려놓는 nn.Linear이고, down-proj는 표현차원을 다시 원래대로 돌려놓는 nn.Linear에요. 차원을 올린 다음 활성화함수를 적용하기 때문에 비선형성을 풍부하게 도입할 수 있습니다. ReLU를 예를 들어 생각해보면, ReLU 자체는 직선 두조각으로 된 함수지만, 1->4 nn.Linear랑 4->1 nn.Linear를 ReLU 전후에 각각 두면 선분 여러 조각으로 된 함수를 만들 수가 있죠.\n\n그래도 확실히 그런 인상은 여전히 남는데요, 비선형작용을 사이에 두지 않고 W^Q와 W^K가 합성으로 연결되도록 두는 것이 정보량 측면에서 모종의 비효율을 초래하지 않는건가? 하는 인상요. (물론 저 사이에다 비선형성을 두는 시도들도 여럿 있었고, 그것들도 별로 성공적이지는 못했던 모양입니다.)\n이건 논문들을 뒤져도 근거를 찾진 못해서 혼자만의 추측이긴 한데요, 그렇기 때문에  W^K 행렬의 크기를 줄여서 사용하는 Group Query Attention(<https://taewan2002.medium.com/grouped-query-attention%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-e2a8dab1b9ce|https://taewan2002.medium.com/grouped-query-attention%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-e2a8dab1b9ce> , KV-cache 메모리 부담을 줄이기 위해 도입한 기법)이 성능상의 큰 손상 없이 돌아갈 수 있는 게 아닌가 생각합니다.\n비선형 작용을 사이에 두지 않고 합성되는 두 선형사상 W^Q랑 W^K 사이에 정보중복이 있기는 할 것 같은데, 그렇다고 한쪽을 아예 날려버리는 건 성공적이지가 않고, 한쪽의 크기를 줄여서 사용하는 정도는 OK! 이런 느낌?",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1760324842.953729",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1760327675.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH894W3D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH842TRR> 오오 감사합니다!\n비선형성은 attention 바로 뒤 layer에서 학습하는군요.\n\nW^Q,W^K의 곱이 사실 하나의 행렬로 표현될 수 있다고는 생각했어도 비효율적일지까지는 생각 안해봤는데, 성해님 말씀 들어보니까 이거 잘만 바꾸면 성능 더 좋아지는 거 아닌가 싶기도 하네요. 알려주신 것들 보니까 성능 개선이라는 게 엄청 어려운 영역이라는 게 느껴지네요. 근데, 또 어떻게 Group Query Attention이란 걸 누가 만들었다니, 대단한 사람들...\n\n자세한 설명에 또 깊이 생각해볼 만한 것들까지 알려주셔서 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1760328037.197659",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH894W3D",
+              "ts": "1760328077.000000"
+            },
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U09CH842TRR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

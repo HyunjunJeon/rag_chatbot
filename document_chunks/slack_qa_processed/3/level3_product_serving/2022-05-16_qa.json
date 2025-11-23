@@ -1,0 +1,598 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요? 최종 프로젝트를 위해 로컬에서 작업한 Node.js 서버를 실제 production 환경에 배포하는 과정에서 생긴 문제에 관해 질문드리고자 합니다.\n저희 팀은 현재 최종 프로젝트를 위해 TypeScript로 작성한 서버를 제작 중이고, RDS와 연결하기 위해 TypeORM을 사용 중입니다.\n\n변성윤 마스터님께서 강의하신 배포 자동화에 따라서 Github action으로 S3 버킷에 빌드한 서버 파일을 올리고, CodeDeploy를 통해 AWS EC2에 올리는 작업을 완료했습니다. 그리고 저희가 `src` 폴더의 코드가 실행되는 개발(`dev`) 환경과 `dist` 폴더의 코드가 실행되는 배포(`prod`) 환경으로 구분했고, 실제로 서버에서 스크립트에 의해 실행될 때는 `dist` 폴더 기준으로 실행되도록 했습니다. 또한 배포 환경에서 실행하고자 `build` 할 때 `tsc`를 이용하여 `src` 폴더의 TypeScript 코드를 트랜스파일하여 `dist` 폴더로 빌드했습니다.\n\n```.\n├── src (Dev, 개발)\n│  ├── client\n│  │  └── index.ts\n│  └── server\n│     └── index.ts\n├── dist (Prod, 배포)\n│  ├── client\n│  │  └── index.js\n│  └── server\n│     └── app.js\n├── package.json\n└── tsconfig.json```\n그런데 로컬에서 `dev` 환경을 실행할 때는 API 사용이 정상적으로 가능한데 반해, 실제로 EC2에 배포한 상태에서 `Users` Repository에서 `GET` 해오는 API로 요청을 보내면 아래와 같은 오류 메시지를 반환합니다.\n\n`\"message\": \"No repository for 'Users' was found. Looks like this entity is not registered in current 'default' connection?\"`\n\nTypeORM에서 entities를 제대로 가져오지 못하는 현상으로 보이는데, 이 문제에 관해 일주일 동안 구글링을 해 보고 이전 멘토님께도 질문을 드렸으나 여러 방법을 적용해봤는데도 진전이 생기지 않았습니다. 특히 이 <https://github.com/typeorm/typeorm/issues/3017|링크>에서 나온 방법을 모두 사용해봤는데 잘 해결이 되지 않습니다.\n\n아래 방법들을 모두 시도했지만, *로컬에서 `dev` 환경 뿐만이 아니라 심지어 `prod` 환경으로 실행해도 정상적으로 작동*하는 데 반해 EC2에 배포하기만 하면 동일한 문제가 발생합니다.\n\n1. `ormconfig.ts`의 `entities` 필드 고치기\n1) `entities`: `[\"{src,dist}/database/entity/**/*{.ts,.js}\"]` ⇒ 실패\n2) `entities`: `[__dirname + \"/{src,dist}/database/entity/**/*{.ts,.js}\"]` ⇒ 실패\n3) `entities`: `[`${process.env.NODE_ENV === 'development' ? 'src/' : 'dist/'}database/entity/**/*{.js,.ts}`]` ⇒ 실패\n\n2. `tsconfig.json`의 `include` 필드 고치기\n`\"include\": [\"src/**/*\"]` →  `\"include\": [\"src/**/*\", \"dist/**/*\"]` ⇒ 실패\n\n3. `dist` 폴더를 root로 빼기\n1) `src/` &amp; `dist/` → `src` &amp; `dist/src` (`dist` 폴더의 하위 폴더로 `src` 폴더 내 코드 빌드) ⇒ 실패\n2) 아예 `dev` 폴더와 `prod` 폴더로 환경 분리 ⇒ 실패\n```.\n├── dev (개발)\n│   ├── src                    \n│   |   ├── client             \n│   |   │    └── index.ts      \n│   |   └── server             \n│   |        └── index.ts              \n│   ├── package.json\n│   └── tsconfig.json\n└── prod (배포)\n    ├── src                    \n    │   ├── client             \n    │   │    └── index.js           \n    │   └── server             \n    │        └── index.js              \n    ├── package.json\n    └── tsconfig.json```\n질문 내용이 너무 길어서 죄송합니다. 혹시 아시는 분이 계시다면 저희가 어떠한 부분을 놓치고 있는지 알려주실 수 있을까요? 부탁드립니다.\n\n다들 강의도 들으면서 최종 프로젝트도 하느라 바쁘실 텐데 파이팅 하시길 바랍니다! :booduck_coding_no_bg:\n감사합니다. :slightly_smiling_face:",
+        "user": "U02TNKDBF7D",
+        "user_name": null,
+        "timestamp": "1652692200.063289",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TNKDBF7D",
+            "ts": "1652756401.000000"
+          },
+          "reactions": [
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02TUDVH1BK",
+                "U02U0FPAQF5",
+                "U02TULQSABT",
+                "U02U0E794M8",
+                "U02U6FW5A03",
+                "U02U6A7G6FM",
+                "U02TRCAQU9J",
+                "U02VB8HRD28",
+                "U02TSV17R6K"
+              ],
+              "count": 9
+            },
+            {
+              "name": "muscle",
+              "users": [
+                "U02U0FPAQF5",
+                "U02SK7TG473",
+                "U02TULQSABT",
+                "U02U0E794M8",
+                "U02U6FW5A03",
+                "U02U6A7G6FM",
+                "U02TRCAQU9J",
+                "U02VB8HRD28",
+                "U02TD68SUCD"
+              ],
+              "count": 9
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02SK7TG473",
+                "U02TULQSABT",
+                "U02U0E794M8",
+                "U02U6FW5A03",
+                "U02U6A7G6FM",
+                "U02TRCAQU9J",
+                "U02VB8HRD28",
+                "U02TJ0CKVLJ"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 16
+        }
+      },
+      "answers": [
+        {
+          "text": "선호님 안녕하세요!\n벌써 프로젝트 레벨로 많이 시도하고 계시는군요..! 멋지시네요\n\n\n이런 질문의 경우 아래와 같은 내용을 주셔야 저희가 답변이 가능할 것 같아요\n\n• 코드를 어떻게 작성하셨는지\n• EC2의 설정이 어떻게 되어있는지\n요 정보를 추가적으로 공유해주실 수 있으신가요?\n\n*그리고 추가적으로 궁금한 점은 src와 dist를 나눈 이유가 있으신가요? 폴더로 나누지 않고 브랜치로 하면 되는데 폴더로 하신 의도가 있는지 궁금하네요*\n\n강의를 보시면 브랜치별로 나누고 배포하는 과정이 나와있는데, 그대로 하신건지도 궁금하네요..! Dev 브랜치와 Prod 브랜치가 나누고 각각이 바라보는 서버가 다른거고 코드는 그대로 사용합니다",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652692628.091949",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652693415.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cc <@U02TPADFY9Y>",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652693119.337179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "*로컬에서 `dev` 환경 뿐만이 아니라 심지어 `prod` 환경으로 실행해도 정상적으로 작동*\n\n=&gt; 요거로 보면 현재 로컬에서 개발하신 코드의 이슈는 없을 것 같고, src가 dist로 바뀌는 과정에서 이슈가 있는 것 같아요. 저라면 prod 환경을 src가 바라보게 하고, 브랜치별로 바라보는 서버를 나누면 되지 않을까 추측해봅니다",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652693241.035699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "먼저 질문에서 정성이 느껴져서 기분이 좋아지네요 자세한 설명과 정보 감사합니다.\n원래 프로덕셔나이징하는 과정이 제일 어렵습니다. 해당 빌드 부분은 정말 경험이 필요한 파트여서 많이 공감이됩니다.\n\n1. src -&gt; dist로 아마 tsc로 빌드를 할텐데 dist안에 결과물이 왜 ts인지 궁금합니다. 아마 js로 빌드가 되어야 할거 같은데... \n2. 서버를 실행하는 entrypoint가 궁금합니다. `node server/index.ts` 라던가 (yarn dev 말고 그 안에 뭐가 실행되는 지 궁금해요) , 어떤식으로 서버를 부팅하시려고 하는 지 정보가 필요할 거 같아요. 환경에 따라서 스크립트가 다를거 같은데 관련해서도 명시해주시면 좋을 거 같아요. \n3. 아마 dev, prod를 나누시려는 이유도 dev server로 생산성을 올리고, 운영에서는 빌드해서 nodejs로 실행하려고 하시는 거 같은데, 아마 build하기 위한 설정이 제대로 안되어 있는 게 아닌가 싶어서 tsconfig.json 전문 공유도 부탁드립니다.",
+          "user": "U02TPADFY9Y",
+          "user_name": "안상태",
+          "timestamp": "1652693496.420589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아, 넵! 저희가 현재 사용 중인 github 레포지토리가 private으로 설정되어서 이를 잠시 public으로 전환드려서 공개해드리는 게 좋을까요?\n\n`src`와 `dist` 폴더를 분리한 이유는 deploy하여 서버를 재실행하기 전에 미리 `tsc`로 `src`  폴더 내의 파일을 컴파일하여 `dist` 폴더에 남은 간소화된 파일만 업로드하자는 의도였는데, 생각해보니 마스터님께서 조언해주신 바처럼 굳이 폴더로 분리하지 않아도 `src` 폴더 자체를 컴파일한 후 업로드하는 것이 더 나을 것 같습니다! 말씀하신 내용과 같이 브랜치를 적극 활용해서 `prod` 환경을 `src`가 바라볼 수 있도록 해 보곘습니다.\n\n너무 난잡한 질문이었는데 마스터님과 멘토님께서 모두 명쾌한 답변 주셔서 감사드립니다! 해결되면 다른 분들께서도 같은 일을 겪지 않으시도록 스레드에 후기 남기겠습니다! :slightly_smiling_face:",
+          "user": "U02TNKDBF7D",
+          "user_name": "이선호",
+          "timestamp": "1652693575.951969",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TNKDBF7D",
+              "ts": "1652694274.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02VB8HRD28"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TPADFY9Y> 앗, 제가 슬랙에 디렉토리 구조를 작성하면서 `js` 파일을 `ts` 파일로 잘못 적은 것 같습니다. 죄송합니다. :confounded:",
+          "user": "U02TNKDBF7D",
+          "user_name": "이선호",
+          "timestamp": "1652693838.972919",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TNKDBF7D",
+              "ts": "1652693852.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네 성윤님 말씀대로 그냥 개발 환경 그대로 가는 것도 정말 운영 환경이 크리티컬하지 않은 상황이라면 좋은 거 같구요. 간단한 html 서빙 및 js/ts 로직 서빙이 주 목적이라면 <https://vitejs.dev/guide/#overview|vite>도 추천드립니다(프론트엔드의 미래).\n\n그리고 public으로 주시면 같이 봐서 더 문제 해결이 빨라질 수도 있을 거 같습니다.",
+          "user": "U02TPADFY9Y",
+          "user_name": "안상태",
+          "timestamp": "1652693865.195079",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TPADFY9Y",
+              "ts": "1652693880.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님과 멘토님께서 말씀하신 것처럼 개발 환경 그대로 실행하는 대신 prod 브랜치를 따로 만들어서 실행하는 방법으로 해결했습니다! 기회가 된다면 추후 docker를 사용하는 방법으로도 시도해보고자 합니다. 이것 때문에 많은 시간을 허비했는데, 마스터님과 멘토님께서 현명한 해결책을 제시해주셔서 감사합니다. :grin:\n\n다만 이제까지 왜 계속 제대로 안 되었는지가 개인적으로 궁금해서 찾아보고 있는데, 아무리 찾아봐도 무엇이 문제인지 잘 모르겠습니다... :cry: 혹시나 마스터님이나 멘토님 등 다른 분께서 답을 찾으실 수 있을 것 같아서 코드를 공유드리고자 합니다! 아직 실력이 많이 부족해서 이번 일을 통해 반성하는 계기로 삼겠습니다. :confounded:\n\n<https://github.com/RecSys-RECognizer/RECJOON-Server-Temp>\n\n아직 프론트엔드를 작업하고 계신 팀원 분이 계셔서 위의 임시 공개 레포지토리에는 client를 제외하고 server 폴더 내 파일만 업로드했습니다. AWS EC2는 t2.micro의 ubuntu 20.04.4 버전인데, EC2 설정이라면 구체적으로 어떠한 정보를 말씀드려야 하는지 잘 모르겠어서 필요한 정보를 말씀해주시면 스레드로 추가하겠습니다! 감사합니다. :slightly_smiling_face:",
+          "user": "U02TNKDBF7D",
+          "user_name": "이선호",
+          "timestamp": "1652709597.595439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TNKDBF7D",
+              "ts": "1652709740.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 저는 AWS 써본 경험이 별로 없어서, 혹시나 해서 남기는 의견입니다. 아래의 로그를 보면 GitHub 쪽에서 S3 쪽으로 업로드가 되지 않았고, 그 이유가 유효한 AWS credential을 찾을 수 없었기 때문임이 나오고 있습니다. 혹시 도움이 되는 정보일까요..?\n<https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/runs/6453342195?check_suite_focus=true|https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/runs/6453342195?check_suite_focus=true>",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1652710156.634089",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1652710303.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗, 이게 임시 레포지토리여서 단지 질문용으로 코드만 공개하고자 하는 의도에서 AWS Credentials 키를 넣지 않았습니다. 저희가 작업 중인 다른 레포지토리에서 이미 CI/CD가 진행되고 있어서요. 혼란을 드려서 죄송합니다. :sweat:",
+          "user": "U02TNKDBF7D",
+          "user_name": "이선호",
+          "timestamp": "1652710310.893199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 확인 감사합니다 ㅠㅜ 저는 오류의 원인을 잘 모르겠네요..",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1652710371.321459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_confuse",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 자바스크립트로 웹서버 작업했던 것은 일부뿐이라 조금 시간이 걸릴 수도 있을 것 같아요 (타입스크립트를 하신 계기도 궁금하긴 하네요 ㅋㅋㅋ 강의에선 FastAPI로 해서 아예 좀 다른 방향일 것 같긴 한데..)\n\n이런 경우 저는 어떻게 디버깅 하는지를 공유드리면\n• 일단 Local에서 dist에 있는 소스가 실행되는지 확인\n    ◦ 현재 src만 확인하신 것 같은데 맞을까요?\n    ◦ *Local의 dist에서 제대로 실행된다 =&gt; 그럼 Github Action의 배포 과정에서 의도와 다르게 파일이 이동되었나 확인*\n        ▪︎ EC2에 직접 붙어서 서버 확인 =&gt; Local의 dist와 동일하게 되는지 확인\n        ▪︎ 동일한데 안된다고 하면 직접 실행해서 바로 디버깅\n        ▪︎ 현재 User Repository가 안나온다고 하는데 그 외에 다른 Repository는 나오는지 확인\n            • User Repository만 안나온다 =&gt; 이 부분의 이슈\n            • 다른 Repository만 안나온다 =&gt; 배포쪽이나 빌드쪽의 이슈\n    ◦ *Local의 dist에서 제대로 실행되지 않는다면*\n        ▪︎ 일단 빌드하는 과정에서 잘못한 부분이 있을 확률이 큼\n        ▪︎ 빌드 과정과 결과가 어떻게 되었는지 확인\n        ▪︎ 마찬가지로 User Repository만 안되었나 확인\n• 현재 Error 메세지를 유심히 보면, “No repository for ‘Users’ was found. Looks like this entity is not registered in current ‘default’ connection?” =&gt; *현재 Default Connection에서 Users가 등록되지 않고 못 찾는 것 같네요. 등록하는 과정, 엔티티 확인하는 과정에서 못찾는 것 같다는 느낌이네요*\n    ◦ 그럼 지금 ORM에서 어떤 방식으로 등록되어있는지 궁금해서 봤는데\n    ◦ <https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/blob/04ffa3709dc16ccd775c48ac60221a31ca098912/ormconfig.ts#L16>\n```  entities: [\"{src,dist}/database/entity/**/*{.ts,.js}\"],```\n이렇게 되어 있네요\n\n<https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/tree/04ffa3709dc16ccd775c48ac60221a31ca098912|RECJOON-Server-Temp>/<https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/tree/04ffa3709dc16ccd775c48ac60221a31ca098912/src|src>/<https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/tree/04ffa3709dc16ccd775c48ac60221a31ca098912/src/database|database>/<https://github.com/RecSys-RECognizer/RECJOON-Server-Temp/tree/04ffa3709dc16ccd775c48ac60221a31ca098912/src/database/entity|entity> =&gt; 이것을 찾으려면 ** 요게 하나 더 있는게 맞는지 모르겠네요..! 통상적으로 **/ 요렇게 되어있으면 폴더가 하나 더 있어야 할 것 같은데, 별도의 문법일까요? **의 의미를 설명해주실 수 있으실까요?\n\n만약 저라면\n```  entities: [\"**/{src,dist}/database/entity/*{.ts,.js}\"],```\n이렇게 바꾸거나, (앞에 ** 추가하고 뒤에 **를 삭제했습니다. 맨 앞에 있는 부분에서 못찾나? 싶어서 추가했네요)\n```  entities: [\"{src,dist}/database/entity/users.ts\"],```\n위와 같이 직접 엔티티를 명시할 땐 잘 동작하는지 확인해볼 것 같네요!\n\nTypeORM 동작 구조를 모르는 관점에서 디버깅한다면 이런 방향으로 할 것 같기도 하네요..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652713324.210949",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652713374.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "{.ts,.js} &lt;- 요게 문제인지도 점검할 것 같네요 *.ts 이런 방식으로 찾아보게 할 것 같아요-\n\n올려주신 Github Repo 보니까 제가 추측한 것처럼 entities의 경로를 수정하면 될 것 같긴하네요 :thinking_face:\n`RepositoryNotFoundError` is throw in case your entity isnt properly registered in connections. This could be caused wrong path (glob pattern) in `entities` connection option. Please check your `entities` property and try to change it. Maybe it will help.",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652713492.467109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TNKDBF7D> 안녕하세요 선호님, CodeDeploy없이 혹시 EC2에 직접 클론을 해서 테스트를 진행을 해보셨나요!?\n\n제 생각에는 데이터베이스 연결이 제대로 되지 않아서 그런것 같습니다!\n\n`ormconfig.ts` 파일에 보면 아래와 같은 세팅이 있는데,\n```export default {\n  type: \"mysql\",\n  host: process.env.RECJOON_RDS_HOST,\n  port: process.env.RECJOON_RDS_PORT,\n  username: process.env.RECJOON_RDS_USERNAME,\n  password: process.env.RECJOON_RDS_PASSWORD,\n  database: process.env.RECJOON_RDS_DATABASE,```\n이 환경변수 정보들이 EC2에 존재를 하고 있나요!?\n\n로컬환경에서는 `dev` ,`prod` 환경 모두 된다고 하셨으니,아마 환경변수가 제대로 세팅이 되어있는 것 같습니다 그리고 일단 코드 자체는 큰 문제는 아닌 것 같습니다.\n\n원본 코드가 일단은 private repo로 되어 있는 것 같으니, 한번 DB 정보를 하드코딩해서 테스트를 한번 해보시면 어떨까요!?",
+          "user": "U02SK9NH0RF",
+          "user_name": "Jungwon Seo",
+          "timestamp": "1652715793.298229",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02SK9NH0RF",
+              "ts": "1652715952.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03",
+                  "U02RS1ZJHE3"
+                ],
+                "count": 3
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03",
+                  "U02RS1ZJHE3"
+                ],
+                "count": 3
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03",
+                  "U02RS1ZJHE3"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02RS1ZJHE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우선 정말 상세한 답변 남겨주셔서 마스터님과 조교님께 진심으로 감사드립니다. :bow:\n말씀해주신 방법들을 모두 찾아본 결과를 토대로 정확한 원인을 찾은 것 같습니다.\n\nEC2 bash 스크립트에서는 정상적으로 실행되는 것으로 보아 배포 과정에서의 문제임을 찾았습니다.\nAWS CodeDeploy에서는 기본적으로 EC2의 `bashrc`에 지정한 환경변수를 읽어오지 못하는데, 이를 개인적으로 인지하지 못했습니다.\n즉, bash 스크립트에서는 환경변수를 읽어올 수 있어서 DB와의 연결이 제대로 이루어진 반면에 CodeDeploy를 통해 실행하면 환경변수를 읽어오지 못했던 것이었습니다.\n\n구글링을 하면서 저와 비슷한 경험을 하신 분들이 작성하신 글들이 있는데, 이를 링크로 공유하겠습니다.\n글에 의하면 이를 해결하기 위해 <https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/systems-manager-parameter-store.html|AWS Systems Manager Parameter Store>를 사용해야 하는데, 이를 공부해서 적용해 봐야 할 것 같습니다.\n\n<https://zooneon.dev/aws-codedeploy-environment-variables/|https://zooneon.dev/aws-codedeploy-environment-variables/>\n<https://fgh0296.tistory.com/51|https://fgh0296.tistory.com/51>\n\n해결이 완료되면 경험담을 정리해서 다른 분들께서도 같은 일을 겪지 않도록 하겠습니다.\n마스터님의 체계적인 문제 해결 과정과 조교님의 예리한 조언이 큰 도움이 되었습니다. 늦은 시간에 답변 남겨주셔서 다시 한 번 감사하다는 말씀드립니다. :slightly_smiling_face:",
+          "user": "U02TNKDBF7D",
+          "user_name": "이선호",
+          "timestamp": "1652718645.159659",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TNKDBF7D",
+              "ts": "1652797701.000000"
+            },
+            "reactions": [
+              {
+                "name": "tada",
+                "users": [
+                  "U02SK9NH0RF",
+                  "U02U0E794M8",
+                  "U02T1HLM9NK"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TNKDBF7D>\n오 다행이네요!!\n배포하는 과정에서 확인해보는 부분에서 환경 변수도 포함되어 있었어요. 대부분 환경 변수가 Local = 서버라고 생각하지만, 다른 경우가 많이 있어요. 이를 조금 더 쉽게 하려면 아예 Docker로 말아버리는 것도 있고, AWS KMS 등을 사용해서 Secret을 주입하곤 합니다. KMS도 알아보셔요! 파라미터 스토어는 처음 보는데, 아마 KMS랑 조금 역할이 나뉠 것 같네요\n\n• 파라미터 = 노출이 되어도 문제가 되지 않는 변수(dev, prod 구분 등)\n• Secret = 서비스 계정 등 노출이 되면 안되는 시크릿 키 등\n나눠서 관리한다는 개념도 알고 가시면 좋겠네요!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652747138.549669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              },
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02U6FW5A03"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "voila",
+        "user": "U02TXU3HPC5",
+        "user_name": null,
+        "timestamp": "1652754025.683769",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TXU3HPC5",
+            "ts": "1652754955.000000"
+          },
+          "reactions": [
+            {
+              "name": "pray",
+              "users": [
+                "U02U0E794M8",
+                "U02THPJ7JVA"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "용원님 안녕하세요!\n질문해주실 땐 다음과 같은 부분을 추가해주시면 더욱 좋습니다.\n\n• 어떤 환경에서 실행했는지(OS. Jupyter Version)\n• 어떤 방식으로 실행하셨는지\n    ◦ jupyter lab에서 voila 설치 후 했는데 오류가 납니다 등\n• 콘솔에서 어떤 오류 메세지가 나오고 있는지\n이 부분을 한번 공유해주시겠어요~?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652754415.124699",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1652754595.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "실행환경 - aistage server\npip install voila -&gt; 주피터랩 좌측 아이콘을 클릭해 enable 상태로 만듦 -&gt; ipynb 파일을 만들고 hello를 실행하고 -&gt; 우측의 voila 아이콘을 클릭했더니 위와 같은 오류가 떴었습니다.",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1652754885.791739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그런데 재부팅하니까 다시 잘작동합니다.",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1652754916.353769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8",
+                  "U02TVNVSKML"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 잘 해결해주셨네요! 잘하셨네요 :muscle:\n\n\n커널 안에서 재실행을 해줘야 반영되는 경우가 종종 있어요-! 바로 되는 경우도 존재하는데, 아닐 경우도 존재합니다. 이런 경우 종료한 후, 다시 실행해보는 것도 방법입니다\n\n\n비슷한 맥락에서 리눅스에서도 많이 발생한답니다!\n\nsource 명령어에 대해서 알고 가셔도 좋을 것 같아요\n\n<https://klero.tistory.com/entry/source-%EB%AA%85%EB%A0%B9%EC%96%B4%EB%9E%80>\n\n<https://pinelover.tistory.com/231>",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652755164.485669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TN2HQ3A7"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02TVNVSKML"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TXU3HPC5>\n다른 분들도 비슷한 상황을 겪을 수 있는데, 먼저 경험해주시고 나눠주셔서  감사합니다 :pray:  :muscle:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652755247.678439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02TXU3HPC5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

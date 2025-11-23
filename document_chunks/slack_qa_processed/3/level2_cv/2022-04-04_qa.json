@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 같은 이슈를 겪고 있습니다..ㅠㅠ혹시 어떻게 해결하셨는지 알 수 있을까요?",
+        "user": "U02U5LVTF53",
+        "user_name": "조예진_T3207",
+        "timestamp": "1649130928.501129",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "python only build 하시면 됩니다\n```pip install -v --disable-pip-version-check --no-cache-dir ./```",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1649131827.811349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02U5LVTF53"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<https://huggingface.co/kakaobrain/kogpt>\n<https://if.kakao.com/session/48?fbclid=IwAR1UcsZXuDFTMyFfgmsgoMASMDYVKqa9csu3iOzYVsLoAMC98vFn_Sz0xjM>\n\nkakao brain의 kogpt가 나왔답니다.",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637050941.099000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029SLN0S1X",
+                "U029F62SBPD",
+                "U028ZAA1X1V",
+                "U02AF2JSQP2",
+                "U029T4XRUCR",
+                "U029Z7DE676",
+                "U029AHPA1GX",
+                "U029E9LS8NP",
+                "U029F23R56F",
+                "U029DG66W9L",
+                "U029G3HPQ2X"
+              ],
+              "count": 11
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오오오 바로 써바야겠네요",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637054576.099500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiley",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "skt ,ktei goodbye",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637058190.100200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

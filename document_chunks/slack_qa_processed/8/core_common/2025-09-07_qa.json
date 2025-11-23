@@ -1,0 +1,66 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[1주차 과제3~_, 심화과제_~] epoch loss 계산\n\n[과제3] 정답 코드를 보면, epoch loss를 다음과 같이 구합니다.\n```def train(model, criterion, optimizer, dataloader, device, num_epoch=100):\n    ...\n    for epoch in range(num_epoch):\n        epoch_loss = 0.0\n        for inputs, targets in dataloader:\n            ...\n            epoch_loss += loss.item()\n        print(f\"Epoch {epoch+1}, Loss: {epoch_loss}\")```\n그런데, MSELoss()의 output은 mini-batch에 대한 평균이므로, loss를 그냥 더하기만 하면 epoch loss는 전체 데이터 수에 대한 평균이 아니라 mini-batch 크기에 대한 평균이 되어, 실제보다 크게 계산되지 않을까요?\n즉, 누적할 때 `epoch_loss += loss.item() * len(inputs)`와 같이 loss 합만 누적했다가 나중에 `epoch_loss / len(~_dataloader_~train_data)`와 같이 전체 데이터에 대한 평균값을 구하는 게 더 정확하지 않을까요?\n\ngradient 계산, weight update와는 별개 사안이라 학습에는 영향이 없을 테니, 크게 중요하지 않은 문제로 보이긴 합니다만, 혹시 제가 놓친 부분이 있는지 궁금합니다.\n\n~_반면, [심화과제] 정답 코드에서는,_~\n```def train(model, criterion, optimizer, train_loader) -> float:\n    ...\n    running_loss = 0\n    for X, y in train_loader:\n        ...\n        running_loss += loss.item()\n    return running_loss / len(train_loader)```\n~_이렇게, 누적합을 전체 데이터 크기로 나누는데, 그렇다면, [과제2]과 유사하게, 누적할 때 `running_loss += loss.item() * len(X)`와 같이, loss 평균이 아니라 합을 누적하는 게 더 정확하지 않을까요?_~\n(`len(train_loader)`는 전체 데이터 크기가 아니라 mini-batch 수라고 합니다. 아래 <@U09CH7TFUKV>님 댓글 참조)\n\n만약 정답 코드가 의도된 것이라면, 어떤 의도인지 궁금합니다.",
+        "user": "U09CH7S61DZ",
+        "user_name": "Park Corey",
+        "timestamp": "1757301321.269049",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH7S61DZ",
+            "ts": "1757309407.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7UDBCK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 첫번째 질문에 대해서 준성님에 의견대로 평균값을 출력하는게 더 정확해 보입니다.\n다만 len(train_loader)의 값이 전체 데이터의 크기가 아니라는 점을 말씀드리고 싶습니다. 해당 출력 결과는 (전체 데이터의 크기/ 배치 크기)의 값이 출력 됩니다!!",
+          "user": "U09CH7TFUKV",
+          "user_name": "이호준",
+          "timestamp": "1757305577.072459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7S61DZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7TFUKV> 호준님, 댓글 감사합니다.\n그렇다면 [심화과제] 코드는 거의 정확하겠네요!\n만약 전체 데이터 크기가 batch_size로 나누어 떨어진다면 정확했을텐데, 전체 데이터 크기가 120인데 batch size가 16이라 마지막 mini-batch의 크기가 8이어서 여기서 살짝 오차가 생기곘네요.\nDataLoader.__len__()이 iterator 크기였군요... 알려주셔서 감사합니다.",
+          "user": "U09CH7S61DZ",
+          "user_name": "Park Corey",
+          "timestamp": "1757308672.683079",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7S61DZ",
+              "ts": "1757309961.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

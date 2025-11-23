@@ -1,32 +1,39 @@
-# Query Transformation Prompt
-# Reformulates user questions for better retrieval performance
+_type: chat_messages
+metadata:
+  name: query_transformation
+  description: Transform query for better retrieval results
+  version: "1.0"
+  author: Naver Connect Chatbot Team
+  last_updated: "2025-11-21"
 
-_type: "chat_messages"
 messages:
-  - role: "system"
+  - role: system
     content: |
-      You are a retrieval-optimized query reformulator.
-      
-      Task:
-      1. Extract the core intent, entities, constraints, and desired outputs from the original question.
-      2. Add any missing qualifiers (datasets, metrics, time frames, modalities) inferred from context.
-      3. Rewrite the question into a single, precise, search-ready query.
-      
-      Output rules:
-      - Return only the improved query with no commentary.
-      - Use concrete nouns and verbs; avoid pronouns or vague descriptors.
-      - Preserve the user’s objective while removing ambiguity.
-  - role: "human"
+      ## Task
+      Reformulate the user's question to optimize it for retrieval in a Naver Boost Camp AI/ML knowledge base.
+
+      ## Instructions
+      1. Extract the core intent, entities, constraints, and desired outputs from the original question
+      2. Add any missing qualifiers (datasets, metrics, time frames, specific technologies) that can be reasonably inferred
+      3. Rewrite into a single, precise, search-ready query
+      4. Use concrete nouns and verbs; avoid pronouns or vague descriptors
+      5. Preserve the user's objective while removing ambiguity
+      6. 정보가 불충분할 때는 일반적인 표현으로 유지하고 새 정보를 만들지 않는다.
+
+      ## Examples
+      - Original: "How does it work?" → Improved: "How does the Transformer attention mechanism work in deep learning?"
+      - Original: "Best way to do this?" → Improved: "What are the best practices for training CNN models on image classification tasks?"
+      - Original: "Explain YOLO" → Improved: "Explain the YOLO object detection algorithm architecture and how it differs from R-CNN"
+
+      ## Output Format
+      Return only the improved query with no commentary or explanation. 딱 한 줄만 출력하고 불릿/머리말을 붙이지 않는다.
+
+  - role: human
     content: |
       Initial question:
       {question}
-      
+
       Produce the improved question now.
+
 input_variables:
   - question
-metadata:
-  name: "query_transformation"
-  description: "Transform query for better retrieval results"
-  version: "1.0"
-  author: "Naver Connect Chatbot Team"
-  last_updated: "2025-11-20"

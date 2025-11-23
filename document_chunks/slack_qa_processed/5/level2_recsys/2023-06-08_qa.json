@@ -1,0 +1,38 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U04S8T6ENHW>\nGELU(~)로 되어 있는 부분을 X로 보시면\nX * E + b 라는 수식으로 변환할 수 있고\n\nsoftmax와 negative log-likelihood는 torch에서 nn.CrossEntropyLoss로 한번에 연산이 가능합니다!",
+        "user": "U041VLUG4HF",
+        "user_name": "김강민",
+        "timestamp": "1686225300.995549",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041VLUG4HF",
+            "ts": "1686225320.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041VLUG4HF> 안녕하세요 조교님.\n저도 같은 코드에서 질문이 있습니다.\noutput layer에서 논문의 설명을 그대로 따라가자면 `transformer layer output -&gt; linear -&gt; GELU -&gt; 아이템 임베딩 E를 weight로 사용해서 linear` 이렇게 되어야합니다.\n그런데 미션의 코드에서는 `self.out = nn.Linear(hidden_units, num_item + 1)` 그냥 이렇게 output layer를 정의하고 있어서요.\n혹시 논문과는 다르게 작성하신 이유가 있을까요?",
+          "user": "U04RK70A9KL",
+          "user_name": "이민호_T5140",
+          "timestamp": "1686287464.386389",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK70A9KL",
+              "ts": "1686308353.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

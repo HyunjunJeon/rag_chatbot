@@ -1,0 +1,627 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "성승우 캠퍼님 안녕하세요 !\n\n경사하강법 코드에서 전체 데이터 수로 나누는 부분이 누락된 것 같습니다. `lr*grad/data_size` 가 되는 것이 맞습니다 !",
+        "user": "U0947M912SD",
+        "user_name": "SUMIN LEE",
+        "timestamp": "1757402597.936449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!",
+          "user": "U09CH7WV1PV",
+          "user_name": "성승우",
+          "timestamp": "1757411151.560209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[행렬이랑 더 친해져보자 퀴즈]\n2번에 나온 코드를 작동시키면 오류가 뜹니다. 혹시 다른 코드를 입력해야 하는지 확인 부탁드립니다",
+        "user": "U09CH86HP4K",
+        "user_name": null,
+        "timestamp": "1757408644.749639",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1757408670.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "python에서 lambda는 다른 기능을 하는 친구라, 다른 걸로 바꿔주시면 될 듯 합니다",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1757408799.534509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH86HP4K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH825FGT> 님, <@U09CH8393DH> 님도 도와주려고 하신 거 다 봤어요. :face_with_hand_over_mouth: 모두 감사합니다. :man-bowing:",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1757408850.786189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sweat_smile",
+                "users": [
+                  "U09CH8393DH",
+                  "U09CH825FGT"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH86HP4K> 서현님 안녕하세요 ! 문제상에서 조금 더 코드가 잘 이해되도록 하기 위해 lambda 라고 써두었는데 이 부분으로 인해 오류가 난것 같군요 :smiling_face_with_tear: 김민준 멘토님 감사합니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757408997.672669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U09CD83AUTF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[AI Math 기본-1 과제 - 문제 1]\n문제에서는 numpy library를 사용하라고 되어있어서 np.~~를 쓰고 있습니다. 근데 코멘트에 보면\n>>> import basic_math as bm\n>>> bm.get_transpose(number_matrix)\n이렇게 basic_math를 예시로 들고있는데 basic_math는 numpy library의 일종인건가요 아니면 이런식의 예시가 있다는거를 보여주는건가요? 바로 코드로 쓰려고하니까 적용이 안돼서 pip를 해야할것 같은데 np.을 쓰는게 맞나요 아니면 bm.을 쓰는게 맞나요?",
+        "user": "U09CMER5PQA",
+        "user_name": "정승원T8182",
+        "timestamp": "1757410716.921579",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CMER5PQA",
+            "ts": "1757410754.000000"
+          },
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저희가 작성한 파일을 basic_math라고 하고, 작성한 함수가 get_transpose입니다.\n거기서 저희가 작성한 코드로 전치행렬을 구할 때의 코드를 적어 놓은 것 같습니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757410952.356879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "코드를 불러오는 게 아니라 저희의 코드를 사용하는 예시인 것 같네요.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757410970.772749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 저희가 쓰는 코드 부분이 bm으로 불려온다면 bm.get_transpose으로 쓰인다는거지 basic_math이라는 lib가 따로 있다는게 아니군요. 감사합니다.",
+          "user": "U09CMER5PQA",
+          "user_name": "정승원T8182",
+          "timestamp": "1757411034.819739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정승원 캠퍼님 안녕하세요 !\n도담록 캠퍼님이 말씀해주신대로 만약 저희의 get_inverse 함수를 사용하게 됐을때의 입출력 예시를 적어둔 것 입니다 :slightly_smiling_face: 구현은 numpy 패키지를 이용하여 구현해주시면 됩니다 ~ 도담록 캠퍼님 감사합니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757411048.034719",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757411074.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CMER5PQA",
+          "user_name": "정승원T8182",
+          "timestamp": "1757411064.328969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(퀴즈) AI Math 완성하기 - 문제 3]\n경사하강법 대신 확률적 경사하강법을 사용하는 경우는 확률적 경사하강법이 데이터의 일부를 활용해, 업데이트 하기 때문에 대규모의 데이터셋도 가능하고, 빠른 연산을 하기 때문이라고 생각했는데, 아닐까요?\n\n답을 \"데이터가 매우 크고 파라미터의 업데이트 속도가 빠른 학습이 필요한 경우\"로 골랐지만, 오답이여서, 정답풀이를 읽어봤는데도 이해가 되지 않아 질문드립니다.",
+        "user": "U09CH7S7W91",
+        "user_name": "이가현B_T8134",
+        "timestamp": "1757468517.190259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7S7W91> 가현 캠퍼님 안녕하세요 !\n\n문제의 정답이 잘못 찍혀있었던 것 같습니다. 정답 풀이와 정답이 일치하지 않아 혼란스러우셨을 것 같아요 :smiling_face_with_tear: 코스 상에서 고쳐두도록 하겠습니다 ! 지적 감사합니다 :woman-bowing:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757469302.923569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다 :smile:",
+          "user": "U09CH7S7W91",
+          "user_name": "이가현B_T8134",
+          "timestamp": "1757469459.635189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[AI Math 8강 강의노트 17p]\n안녕하세요, 내용이 길어 질문을 먼저 작성하고 부가 설명을 아래에 작성하겠습니다.\n\n질문) SGD로 모델을 학습시킬 때, epoch 당 에러 계산은\n1. 모든 배치에 대한 에러를 전부 고려해야 하나요?\n2. 아니면 편의성을 위해 마지막 배치에 대한 에러만 계산해도 되나요? \n다음 코드는 강의노트 17p 우측에 있는 SGD 기반 선형회귀 모델 학습 코드입니다.\n```sgd_error_list = []\nbeta_hat = np.random.normal(size=(4, ))\nfor t in range(T):\n    sampler = shuffler(X, y, data_size, batch_size)\n    for (X_batch, y_batch) in sampler:\n        error = y_batch - X_batch @ beta_hat\n        grad = - X_batch.transpose() @ error\n        beta_hat = beta_hat - lr * grad / batch_size\n    sgd_error_list.append(np.mean(error**2))\nprint(beta_hat)```\n그런데, 저렇게 에러를 계산하면 해당 에포크의 마지막 배치를 기준으로 측정한 에러가 도출되니, 어떤 배치가 마지막에 오느냐에 따라 에러 값이 들쑥날쑥할 수 있을 것 같습니다.\n따라서 엄격하게는 전체 데이터에 대해서 평가(=에러 계산)를 돌려야 정확한 에러가 계산될 것 같다는 생각이 듭니다.\n하지만 SGD의 취지도 그렇고, 마지막 배치를 기준으로 에러를 계산한다고 해도 \"학습이 잘 되고 있는지 추세 파악\"을 하는 정도에는 큰 문제가 없을 것 같다는 생각도 듭니다.\n\n그래서 week1에 수행한 코드들은 어떻게 epoch 당 에러를 계산하고 있는지 확인해봤습니다.\n아래는 저희가 수행한 과제 3의 학습 부분 코드입니다.\n```def train(model, criterion, optimizer, dataloader, device, num_epoch=100):\n    model.train()\n    model.to(device)\n\n    for epoch in range(num_epoch):\n        epoch_loss = 0.0\n        for inputs, targets in dataloader:\n            # [START CODE]\n\n            # 데이터들 gpu로 보내는 걸, 이전 실습/과제들과 달리 학습 과정 중에 하고 있는데,\n            # 찾아보니 GPU 메모리 크기 제한 때문에, 배치 돌릴 때 같이 gpu로 보내는 이런 방식이 정석이라함.\n            if device == 'cuda':\n                inputs = inputs.to(device)\n                targets = targets.to(device)\n\n            optimizer.zero_grad()\n            outputs = model(inputs)\n            loss = criterion(outputs, targets)\n            loss.backward()\n            optimizer.step()\n            epoch_loss += loss\n            # [END CODE]\n        print(f\"Epoch {epoch+1}, Loss: {epoch_loss}\")```\n`epoch_loss += loss` 부분을 보면 epoch 당 에러 계산 시 모든 배치들의 에러를 고려하고 있는 게 확인됩니다.\n\n위 방식을 강의노트에 적용한다면, `epoch_error`을 정의해두고 `+=` 연산자를 활용해 누적하여 더하는 방식을 사용할 수 있어 보입니다.",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1757469755.026159",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH85PLV9",
+            "ts": "1757469946.000000"
+          },
+          "reactions": null,
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!\n\n제가 지금까지 봐왔던 코드들(사실 자세히 안 보기 마련인 부분이라 아주 확실한 건 아니지만) 모두가 1번 방식으로 loss값 출력을 제공한다고 지금껏 이해해왔습니다. 좀 더 구체적으로는 한 에폭을 다 돌기 전에 일정량이 차면 한번씩 출력을 찍어주는 방식이었어요.\n만약 2번 방식으로 loss를 확인한다고 했을 때, 개별 미니배치의 loss값끼리 얼마나 큰 편차를 가지는지를 고려하면 \"학습이 잘 되고 있는지 추세 파악\"을 위한 지표로 쓰기에도 심각한 하자가 있는 값일 것 같다는 생각입니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1757470819.462249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주상우 캠퍼님 안녕하세요 !\n\n결론부터 말씀드리면, epoch 당 성능을 정확하게 측정하고 싶다면 모든 배치에 대한 에러를 고려하는 것이 맞습니다.\n\n우선 강의 노트에 써 있는 코드와 같이 마지막 배치의 에러만 저장하게 되면 대표성이 조금 떨어진다고 볼 수 있습니다. 매 epoch마다 데이터를 섞기(shuffle) 때문에 어떤 배치가 마지막에 오느냐에 따라 에러 값이 크게 튈 수 있습니다. 따라서 학습시에는 각 배치별로 계산한 에러를 사용하지만 마지막 배치의 에러만 저장하게되면 이 값만으로는 모델이 해당 epoch에서 중간중간 튀는 값들로 인해 정확하게 판단하기에는 조금 어려움이 있을 수 있습니다. (완전히 추세파악이 불가능한것은 아닙니다.)\n\n강의 자료에서는 데이터를 배치로 나누어 학습시키는 SGD의 큰 개념을 설명하기 위해서 전체적인 흐름 이외의 부분은 간단하게 구현하고 있는 것 같습니다. 따라서 마지막 배치만을 저장하여 평가지표로 사용하는 것은 실제로는 많이 사용하지 않는 방식입니다.\n\n이와 대조하여 과제에서 사용하고 있는 epoch_loss += loss 방식은 epoch 내 모든 미니배치에서 발생한 손실(loss)을 전부 더하는 방식입니다. epoch이 끝난 후 이 값을 배치의 총 개수로 나누면 '평균 훈련 손실(average training loss)'이 됩니다. 마지막 배치만 보는 것보다는 대표성이 높은 지표가 되는 것이죠. 훈련 과정에서 모델이 꾸준히 학습되고 있는지(training loss가 감소하는지)를 모니터링하는 가장 일반적인 방법 중 하나입니다.\n\n캠퍼님께서 질문주신 방법은 위의 두가지가 있지만 추가적으로 중간중간 vaildation set으로 성능을 측정하게하여 overfitting이 되지는 않았는지 측정할 수 있는 방법들도 있습니다 ~ 에러값을 저장하는 형태는 모델을 훈련시키는 사람이 자유도를 가지고 어떤 에러값을 뽑아보는 것이 좋을 지 결정할 수 있는 부분입니다:) 이렇게 깊이 있게 생각해보시는 것 정말 좋아요 !\n\n그럼 오늘도 화이팅하세요.. :relaxed:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757470917.242549",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757471899.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH842TRR> 조성해 캠퍼님, 안녕하세요\n\n2번의 미니 배치들끼리의 loss가 가지는 편차가 큰것이 문제가 될수도 있다고 생각하실 수 있습니다. 강의자료의 슬라이드를 봐주시면 전체적인 데이터셋을 사용하지 않기때문에 training loop 중간중간 뽑아보는 loss값이 GD보다는 stochastic하게 나오는 것을 확인해보실 수 있습니다. 그러나 학습 loop를 거쳐가며 이 값들도 점차 수렴해간다고 이해하시면 좋을 것 같아요 !",
+          "user": "U0947M912SD",
+          "user_name": null,
+          "timestamp": "1757471179.406449",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757471201.000000"
+            },
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U09CH842TRR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH842TRR> <@U0947M912SD>\n두 분 다 답변 감사드립니다! 둘 중 어떤 방식이 일반적인/자주 쓰이는 방법인지가 많이 궁금했는데, 지금 보니 질문에 그 점을 확실하게 못 적은 것 같았는데 그 부분을 명쾌하게 설명해주셔서 이해가 잘 됐습니다 감사합니다.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1757471225.331849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD",
+                  "U09CH842TRR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 조교님! 항상 친절한 답변 감사드립니다.\n\n그런데 통계량으로서의 [크기 B짜리 미니배치의 loss값]의 분산을 0으로 수렴시키는 학습을 실제로 설계하는 것은 불가능하지 않습니까? 저는 저 슬라이드의 그래프가 (특히 오른쪽으로 갈수록) 보여주는 모습이 '모델의 학습이 충분히 진행되어 포화된 상태에서도 미니배치별 정확도가 편차를 저만큼은 어쩔수없이 지닌다'는 내용으로 느껴졌습니다!",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1757472094.036869",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1757472141.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다 ~ 수렴한다는 말이 조금 헷갈리셨을 수 있겠네요 :smiling_face_with_tear: 말씀해주신대로 '[크기 B짜리 미니배치의 loss값]의 분산을 0으로 수렴시키는 학습을 실제로 설계하는 것은 불가능'할 수 있는 일이고, 학습이 진행될수록 그 편차가 줄어든다 라고 생각해주시면 될것 같아요 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757472248.909669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U09CH842TRR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1757472266.656789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(퀴즈) 텐서가 뭔가요?] 3번 코드 실행 결과와 정답이 일치하지 않아서 질문드립니다. einsum 코드를 보면 행렬 곱셈이어서 3x4 행렬이 답으로 나와야 하는데 정답은 2x4행렬이라고 나와있네요",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757477695.243969",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1757479065.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86HP4K> 서현님 안녕하세요 ~\n혹시 정답이 `[[56, 56, 40, 32], [67, 72, 37, 22]]` 로 표기되어 있는 것일까요 ? 제가 퍼블리싱 페이지를 확인해보니 정답이 3*4형태로 표기 되어 있는 것 같아서요 .. !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757478292.598959",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757479226.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD>네 맞습니다!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757478325.077499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH86HP4K> 저는 캠퍼분들이 사용하시는 페이지에는 접근할 수가 없고, 따로 자료들을 올리기 위한 페이지를 사용해서 직접 확인할 수가 없는데요 :smiling_face_with_tear: 만약 정답이 `[[56, 56, 40, 32], [67, 72, 37, 22]]` 로 표기되어 있다면 이건 잘못 옮겨진것 같습니다 ㅜㅜ 서현님이 직접 돌려보신 결과가 맞습니다 !\n\n추가로, 벡터 표기된 행렬을 읽을때는 겉에서부터 읽는 것이 일반적이라 X는 (3,3) Y는 (3,4) 형태를 가진다고 읽는게 더 좋을 것 같아요 ! 따라서 3x3행렬과 3x4행렬를 x의 열과, y의 행을 기준으로 벡터곱하여 3x4 가 된다고 이해하시면 더 좋을 것 같습니다 :)",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757478953.451259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 네 4*3은 제가 헷갈린 것 같아요. 3x4, 2x4로 수정했습니다.",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757479118.341409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "과제2 2번에서 사용해야 하는 3차원 텐서곱이 matmul로 계산하는 방식과 같은지 dot으로 계산하는 방식과 같은지 확인 부탁드립니다",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757479380.864579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "서현님, 강의자료에 기반하여 einsum 방식을 사용해주시면 좋습니다 ~",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757480183.690049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아, 혹시 einsum을 어떤 방식을 사용하냐고 물으셨던거라면 matmul과 비슷한 방식으로 작동할수 있도록 구현해주시면 좋을 것 같습니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757480727.034289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 네 einsum에서 계산하는 방식 관련 질문이었습니다.",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757484332.499379",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH86HP4K",
+              "ts": "1757484348.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "경사하강법 관련해서 질문이 있습니다! iteration 부분에서 \"for t in range(T)\" 형태로 학습횟수 T를 정해주고 시작하는데 error가 일정 eps보다 작은경우 iteration을 멈추는 방식으로 코드를 작성하지 않는 이유가 궁금합니다.",
+        "user": "U09CMF1K4BC",
+        "user_name": "Gangmin Gil",
+        "timestamp": "1757481488.706659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH873RDZ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U09CH8A1B6X"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!\n\n아마 실제 프로젝트에서는 학습과정 중에 주기적으로 모델을 저장하고, 그것들 중 가장 괜찮은 성능을 내는 것을 가져다 사용하도록 코드를 작성하게 될 거라서, 결과를 중간에 보고 멈추도록 만들 필요가 없지 않을까 하는 생각이 듭니다. 이건 생각할 수 있는 여러 이유 중에 하나일 뿐이고, 또 어떤 좋은 이유가 있을지는 잘 모르겠습니다.\n\n그리고\n<https://en.wikipedia.org/wiki/Early_stopping>\n이런 기법이 있어서, 중간에 멈추게 하기도 합니다.\n\n이건 질문에 담으신 상황과도 좀 다르고 링크한 위키 문서에서 설명 중인 맥락이랑도 좀 다른 상황이기는 한데요. 어떤 개인이 (몹시 한정된 자원으로) 하시는 프로젝트에서, 모델의 학습을 수행할 때 세부적인 하이퍼파라미터를 어떻게 설정해야 최선일 지 모르겠어서 가능한 조합의 모델들을 다 만들어놓고 학습을 동시에 시작한 다음에, 성취도가 안 좋은 것들을 빠르게 탈락시키는 early stopping based optimization을 사용하는 걸 본 적이 있습니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1757482356.374009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD",
+                  "U09CMF1K4BC"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모델이 엄청나게 커서 error가 0으로 수렴함을 가정할 수 있는 것이 아니면 error<eps로 종료조건을 설정하기는 힘들어 보입니다.\n\neps를 쓰는 경우는 충분히 error가 작아짐을 보장할 수 있어, error가 0으로 수렴함을 보장할 수 있기에 종료조건으로 eps를 사용합니다. 일반적으로 eps는 1e-5 등 매우 작은 값입니다.\n\n하지만, 일반적으로 기계학습에서는 데이터가 우리의 모델의 weight보다 많습니다. 이러한 경우, 모든 데이터에 알맞은 모델을 만들 수 없기 때문에 아무리 학습을 반복해도 error가 0이 되지는 않을 가능성이 높습니다.\n 아래의 AI Math 7강 13페이지 그림을 예시로 들면, 아무리 우리가 선을 잘 그어도 점과 선 사이의 거리는 반드시 존재할 것을 볼 수 있습니다.\n이러한 경우에 아주 작은 eps를 설정하면, 무한루프에 빠지게 됩니다.\n물론 우리가 오차가 어느 정도 나올지 loss는 어느 정도 나올지에 대한 기본 정보가 있다면 그러한 정보를 통해 멈추는 지점을 설정할 수 있습니다. 혹은 loss의 변화율이나 gradient의 크기를 통해 더 이상 학습이 되지 않는다는 것을 확인하고,  종료조건을 정할 수 있습니다. 이 경우에는 loss의 변화율이나 gradient의 크기가 eps보다 작을 때 멈출 수 있겠네요.",
+          "user": "U09CH8393DH",
+          "user_name": null,
+          "timestamp": "1757483576.415579",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8393DH",
+              "ts": "1757484182.000000"
+            },
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD",
+                  "U09CMF1K4BC",
+                  "U09CH86B2F5"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "길강민 캠퍼님 안녕하세요 !\n\n조성해, 도담록 캠퍼님께서도 좋은 설명을 해주셨는데요, 결과적으로 학습횟수를 정해주고 시작하는 이유는 교육적인 목적이 큰것 같습니다. 개념을 설명하고 있는 강의이기 때문에 캠퍼분들께서 학습횟수따라 어떻게 결과가 변화하는지 확인해볼 수 있도록 이런 방법을 선택한 것으로 보입니다.\n\n캠퍼님께서 말씀해주신대로 실제로 연구나 모델 개발을 하는 상황에서는 보통 error < epsilon 조건을 사용하는 경우가 일반적입니다. 이 방식은 학습이 완료되면 알아서 멈추므로 효율적인 방법이라고 할 수 있습니다. 그러나 도담록 캠퍼님께서 말씀해주셨듯이 수렴하지 않으면 무한 루프에 빠질 위험이 있기때문에 이 방식을 사용하는 경우에는 epsilon을 잘 설정해주는 것이 중요해집니다 !\n\n조성해, 도담록 캠퍼님 감사합니다 :relaxed:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757484179.816909",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757564831.000000"
+            },
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U09CH842TRR",
+                  "U09CH8393DH",
+                  "U09CMF1K4BC"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조성해, 도담록 캠퍼님, 이수민 조교님 친절한 설명 감사합니다! 덕분에 \"Early stopping\"에 관한 정보도 알 수 있었고 eps 설정 방법의 무한루프에 빠질 위험성에 대해서도 이해했습니다. :grinning:",
+          "user": "U09CMF1K4BC",
+          "user_name": "Gangmin Gil",
+          "timestamp": "1757484733.946819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD",
+                  "U09CH842TRR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

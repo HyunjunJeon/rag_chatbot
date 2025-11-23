@@ -1,0 +1,134 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel>\n안녕하세요 캠퍼 여러분. 오늘부터 새로운 프로젝트가 시작됩니다! :tada:\n본격적인 대회 시작을 앞두고 궁금한 점이 많으실텐데요, 몇 가지 안내드립니다.\n대회 관련 내용, 꼭 지켜야 할 그라운드룰 등은 아래 공지사항들을 꼭 참고해주세요!\n\n*Segmentation 대회 그라운드 룰*\n• 부스트코스 공지문 : *<https://www.boostcourse.org/boostcampaitech2/notice/27406|link>*\n• AI Stages 공지문 : *<https://stages.ai/competitions/78/discussion/notice/post/748|link>*\n \n\n*대회 참고사항*\n• V100 서버는 *오전 10시부터 할당* 받을 수 있습니다. 반드시 금일 내로 서버 할당 받아주시고, 과정에서 문제 있을 경우 AI Stages 통해서 빠른 문의 부탁드립니다.\n• *오후 2시까지 팀원들과 함께 AI Stages에서 팀 결성을 해주세요!*\n• 리더보드 팀명 컨벤션은 반드시 Segmentation_X조 로 통일 해주세요!\n    ◦ ex) Segmentation_1조, Segmentation_13조\n• *리더보드 제출은 오후 2시부터* 가능합니다.\n• 팀 결성이 마무리되기 전, 개별로 리더보드 제출을 하는 일이 없도록 유의해주세요.",
+        "user": "U028323UHE2",
+        "user_name": "Saewon Yang",
+        "timestamp": "1634518694.017200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "데이터셋 용량으로 인해서 서버 할당에 10~15분 소요될 수 있습니다. 그 이상 시간이 소요되는 경우 AI Stages 통해서 문의 해주세요 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1634519063.020900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI Stages 팀 결성 오후 2시까지인 부분 리마인드 드립니다 :pray:\n팀 결성 과정에서 이슈가 있으실 경우 게시판 통해서 문의 부탁드려요~",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1634534685.033800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U028323UHE2> <@U02E375H869>\n부스트코스 홈페이지 \"[필독!] 공지사항에\"는 Segmentation repo 주소가 pytorch 버젼으로 걸려있는데 \"Semantic Segmentation 대회 안내\"에서는 Tensorflow 기반 repo로 링크가 걸려있습니다",
+        "user": "U02AJ8K3ZR6",
+        "user_name": null,
+        "timestamp": "1634519071.021200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029MCHA5ED"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "확인 후 답변드리겠습니다 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1634519098.021700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02AJ8K3ZR6"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02AJ8K3ZR6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! <@U02AJ8K3ZR6> 캠퍼님,\n\n문의 주신 내용 확인 결과 링크가 Tensorflow 기반으로 잘못 설정되어 Pytorch 기반으로 수정하였습니다.\n\n*반영 내용 :*  \n부스트코스 [P] Semantic Seg 에서의 `Semantic Segmentation 대회 안내`페이지의 `링크 부분` -&gt; 2. 제출 방법 2 - Segmentation Models (<https://github.com/qubvel/segmentation_models.pytorch>)\n\n확인해 주셔서 감사합니다.",
+          "user": "U029MCHA5ED",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1634521506.028600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02AJ8K3ZR6",
+                  "U028323UHE2",
+                  "U029MCHQE5P",
+                  "U029TQ9JFR8",
+                  "U0290GAJGG7"
+                ],
+                "count": 5
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02AJ8K3ZR6",
+                  "U028323UHE2"
+                ],
+                "count": 2
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02AJ8K3ZR6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

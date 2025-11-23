@@ -1,0 +1,135 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 오답 해설을 next token prediction에서 next sentence prediction으로 바꿔 주실 수 있으신가요?",
+        "user": "U063A72MQJK",
+        "user_name": "허재하_T6187",
+        "timestamp": "1704453996.125219",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "확인 감사합니다! Next Sentence Prediction으로 변경해둘게요!",
+          "user": "U0419FLPZPX",
+          "user_name": "이녕우_조교",
+          "timestamp": "1704511350.821499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U063A72MQJK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "원래 적었던 Next Token Prediction은 GPT 계열의 생성 모델에서 문장을 학습하는 방법입니다.",
+          "user": "U0419FLPZPX",
+          "user_name": "이녕우_조교",
+          "timestamp": "1704511470.394939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 감사합니다.",
+          "user": "U063A72MQJK",
+          "user_name": "허재하_T6187",
+          "timestamp": "1704518206.155629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U063J416AMU> 안녕하세요 동해님! 답변이 늦어 죄송합니다.\n제공된 gpu 서버 내에서 학습이 가능한 LLM 모델을 활용하는 것은 가능합니다 :slightly_smiling_face:",
+        "user": "U03MDFNTYCE",
+        "user_name": "Wanda(김수완)",
+        "timestamp": "1704509718.960099",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "borat_thumbs",
+              "users": [
+                "U063J416AMU"
+              ],
+              "count": 1
+            },
+            {
+              "name": "zzang",
+              "users": [
+                "U063J416AMU"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다:smile:",
+          "user": "U063J416AMU",
+          "user_name": "서동해_T6077",
+          "timestamp": "1704510200.102589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U03R9AWH2NL> <@U0419FLPZPX> 답변 부탁드립니다1",
+        "user": "U03MDFNTYCE",
+        "user_name": "Wanda(김수완)",
+        "timestamp": "1704509741.835789",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "확인했습니다!",
+          "user": "U0419FLPZPX",
+          "user_name": "이녕우_조교",
+          "timestamp": "1704511359.718879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

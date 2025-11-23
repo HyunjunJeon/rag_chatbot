@@ -1,0 +1,69 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요, 캠퍼 여러분!\n금일 마스터클래스는 *18:00~19:00에* *&lt;Reverse Data&gt;*를 주제로 *변성윤* *마스터님*께서 진행해 주십니다.\n30분 뒤 늦지 않게 링크로 접속해주시길 바랍니다!:blush:\n&gt; <https://zoom.us/j/94462317951?pwd=K3NrbUFTanVxZTh0cWc1ZzF0WUVsZz09|Product Serving 마스터클래스 Zoom Link>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1639125000.200400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "among-us-party",
+              "users": [
+                "U02E375H869",
+                "U028ZQU4N07"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 발표 자료 미리 공유드립니다! 10분 후 시작입니다!:relaxed:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1639126213.201100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U027SHXU18R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터클래스에 아직 들어오지 않은 40분의 캠퍼 여러분~ 아직 코어타임이니 접속 부탁드려요 :smile:",
+          "user": "U027SHXU18R",
+          "user_name": null,
+          "timestamp": "1639128099.203100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

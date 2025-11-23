@@ -1,0 +1,69 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "~안녕하세요, nlp 6조 김선재입니다.~\n~제가 다른 팀원 분에게 할당된 서버에 연결하려고 제 로컬 vscode에서 config를 설정했는데 비밀번호를 입력하라고 나옵니다. 혹시 비밀번호가 있는 건가요 아니면 제가 연결을 잘못 하고 있는 건가요?~\n~저에게 할당된 서버는 잘 연결됩니다!~\n\nconfig 파일과 비밀번호 입력 화면입니다.\n\n해결했습니다!!",
+        "user": "U02VB6KC3BN",
+        "user_name": null,
+        "timestamp": "1653571379.102479",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02VB6KC3BN",
+            "ts": "1653572936.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U1APCEBC",
+                "U02U0E794M8"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "대안책이지만 vscode로 연결을 시도하신다면 key보다는 password로 접근하시는 게 편하실거에요. 서버에서 key를 활용해 password를 등록하는 과정을 공유드립니다. (<@U02U0J704TV> 캠퍼님의 문서에요!)\n\n<https://kerafyrm.notion.site/Server-d230f1c913ee46429fddb75555dcc1eb>",
+          "user": "U02TJSFMHNZ",
+          "user_name": "박세연_T3091",
+          "timestamp": "1653572136.488819",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TJSFMHNZ",
+              "ts": "1653572165.000000"
+            },
+            "reactions": [
+              {
+                "name": "woman-bowing",
+                "users": [
+                  "U02VB6KC3BN",
+                  "U02TTC9RBFZ",
+                  "U02U0J704TV"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 config 설정을 잘못 했습니다..!\n두 번 생각하지 않은 죄,, 다음번엔 세 번 생각하고 올리겠습니다.\n세연님 비밀번호 설정 팁 주셔서 감사합니다:kissing_heart: 조금 번거롭다고 생각하기만 했는데 이번 기회에 배워갑니다!!",
+          "user": "U02VB6KC3BN",
+          "user_name": "김선재_T3252",
+          "timestamp": "1653572860.435209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

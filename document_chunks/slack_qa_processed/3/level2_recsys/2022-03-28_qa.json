@@ -1,0 +1,43 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 이성범 님. 말씀하신 부분이 추천 모델 학습시에 일정 부분 bottleneck으로 작용하는 것이 사실입니다. 관련연구:\n\n[1] <https://arxiv.org/pdf/1706.07881.pdf>\n[2] <https://chenchongthu.github.io/files/TOIS_ENMF.pdf>\n\n또 다른 solution으로는 데이터가 많을 시에 보통 interaction data를 샘플링해서 사용하거나, 가벼운 모델로 사용자 별로 추천 candidates 결과를 미리 한 번 거르고 다시 한 번 re-ranking해주는 방법을 취하기도 합니다.\n\n학습 외의 또다른 bottleneck은 각 epoch 마다 validation metric을 평가하는 부분에서 발생하는데요. 이 부분에서 전체 아이템 (수만개 이상)을 full ranking하는데 오랜 시간이 걸리기 때문에 evaluation시에 사용자 별로 randomly/popularity sampled negative 99개 또는 100개를 뽑고 평가를 하는 것이 많이 사용되어 왔습니다. 그러나 최근에는 full ranking과 sampled ranking 사이의 불일치가 있다는 주장도 제기된 바 있습니다: <https://arxiv.org/pdf/2107.13045.pdf>\n\n도움이 되셨기를 바랍니다.",
+        "user": "U02S6TR6HCJ",
+        "user_name": "이원성_마스터",
+        "timestamp": "1648474043.914119",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TFEJT1A7",
+                "U02TUBQC85P",
+                "U02U56K2848",
+                "U02TRCAQU9J"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다! 마스터님",
+          "user": "U02U56K2848",
+          "user_name": "이성범",
+          "timestamp": "1648530176.374569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

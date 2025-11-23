@@ -1,0 +1,145 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 conv module에서 fuseforward로 동작하게 하고 싶을 땐 어떻게 해야하나요..?",
+        "user": "U029B96RRJA",
+        "user_name": "이경민",
+        "timestamp": "1637830711.073700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029B96RRJA",
+            "ts": "1637830838.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0297UZK86S",
+                "U029T4XRUCR"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 경민님.\n\n8강의 58페이지와 함께 사용하셔야하는 함수인데요.\n\n학습이 다 된 모델에 대해서,\n\n1. conv 모듈을 돌면서, batchnorm을 58페이지의 fuse_convbn을 활용하여 conv weight에 반영하신 뒤,\n2. fuseforward로 inference하도록 코드를 수정\n해서 fuse를 수행하는데 사용하는 코드의 일부입니다.",
+          "user": "U0295NACBJR",
+          "user_name": "김정훈_마스터",
+          "timestamp": "1637857993.075900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 그런데 아직 8강 강의가 공개안되어서 공개되면 참고해서 해보겠습니다",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1637860585.076200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네, 차주 월요일 공개입니다!\n\n만약 사용하신다면,\n\n```for m in model.modules():\n    if isinstance(m, Conv) and hasattr(m, 'bn'):\n        m.conv = ${58p 함수}(m.conv, m.bn) \n        delattr(m, 'bn') \n        m.forward = m.fuseforward```\n위 snippet 처럼 적용하면 됩니다.",
+          "user": "U0295NACBJR",
+          "user_name": "김정훈_마스터",
+          "timestamp": "1637861234.076400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0295NACBJR",
+              "ts": "1637861511.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA",
+                  "U0297UZK86S"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1637861482.076700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "평가 기준에서 기준모델 submit time이 60이고 기준모델 F1이 0.7이 맞나요? 리더보드상에 있는 팀들 점수를 평가 기준대로 계산해봤을 때 값이 안맞는 것 같습니다.",
+        "user": "U029B96RRJA",
+        "user_name": null,
+        "timestamp": "1637852606.075600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "coolcry",
+              "users": [
+                "U0297UZK86S"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029SN2HG0H",
+                "U029U4NB3UZ",
+                "U029T4XRUCR"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "캠퍼님 감사합니다. 관련해서 공지 드리도록 하겠습니다 :pray:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1637900394.081100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

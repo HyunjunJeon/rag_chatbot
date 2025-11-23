@@ -1,0 +1,51 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이런 대회가 있네요, 관심 있으신 분은 참여해보세요.\n<http://aihub-competition.or.kr/hangeul>",
+        "user": "U029H263PD1",
+        "user_name": "Daeung Kim",
+        "timestamp": "1631876338.131200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "open_mouth",
+              "users": [
+                "U029C3CSPHB",
+                "U029U43KM8B",
+                "U029TD91F09",
+                "U029SLN0S1X",
+                "U028ZA8TXRD",
+                "U029PN9SX1R",
+                "U0297LELCQ6",
+                "U029E9LS8NP",
+                "U029H263PD1",
+                "U029Z7DE676",
+                "U029B6PDLFQ",
+                "U029RJGJRPX"
+              ],
+              "count": 12
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "네이버가 후원하지만 우리에게 알려주지는 않는....",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1631878936.132200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

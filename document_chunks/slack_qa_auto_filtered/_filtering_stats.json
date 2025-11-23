@@ -1,0 +1,154 @@
+{
+  "summary": {
+    "total_answers": 4581,
+    "answers_kept": 4131,
+    "answers_removed": 450,
+    "total_qa_pairs": 1273,
+    "qa_pairs_kept": 1218,
+    "qa_pairs_removed": 55
+  },
+  "removal_reasons": {
+    "removed_too_short": 443,
+    "removed_only_filler": 1,
+    "removed_meaningless_reaction": 1,
+    "removed_meta_question": 4,
+    "removed_high_filler_ratio": 1
+  },
+  "per_file_stats": [
+    {
+      "file": "_summary.json",
+      "skipped": true
+    },
+    {
+      "total_kept": 248,
+      "qa_pairs_kept": 74,
+      "qa_pairs_total": 74,
+      "file": "bot_common_merged.json"
+    },
+    {
+      "total_kept": 499,
+      "removed_too_short": 66,
+      "total_removed": 66,
+      "qa_pairs_kept": 183,
+      "qa_pairs_removed_no_answers": 11,
+      "qa_pairs_total": 194,
+      "file": "core_common_merged.json"
+    },
+    {
+      "total_kept": 1191,
+      "qa_pairs_kept": 363,
+      "removed_too_short": 127,
+      "total_removed": 128,
+      "qa_pairs_removed_no_answers": 12,
+      "removed_only_filler": 1,
+      "qa_pairs_total": 375,
+      "file": "level2_cv_merged.json"
+    },
+    {
+      "total_kept": 18,
+      "qa_pairs_kept": 7,
+      "removed_too_short": 2,
+      "total_removed": 2,
+      "qa_pairs_total": 7,
+      "file": "level2_klue_merged.json"
+    },
+    {
+      "removed_too_short": 11,
+      "total_removed": 11,
+      "total_kept": 71,
+      "qa_pairs_kept": 27,
+      "qa_pairs_removed_no_answers": 1,
+      "qa_pairs_total": 28,
+      "file": "level2_mrc_merged.json"
+    },
+    {
+      "total_kept": 449,
+      "removed_meaningless_reaction": 1,
+      "total_removed": 85,
+      "qa_pairs_kept": 182,
+      "removed_too_short": 84,
+      "qa_pairs_removed_no_answers": 15,
+      "qa_pairs_total": 197,
+      "file": "level2_nlp_merged.json"
+    },
+    {
+      "total_kept": 33,
+      "removed_too_short": 6,
+      "total_removed": 6,
+      "qa_pairs_kept": 12,
+      "qa_pairs_total": 12,
+      "file": "level2_object_detection_merged.json"
+    },
+    {
+      "total_kept": 264,
+      "qa_pairs_kept": 103,
+      "removed_too_short": 34,
+      "total_removed": 37,
+      "qa_pairs_removed_no_answers": 10,
+      "removed_meta_question": 3,
+      "qa_pairs_total": 113,
+      "file": "level2_recsys_merged.json"
+    },
+    {
+      "total_kept": 30,
+      "qa_pairs_kept": 10,
+      "removed_too_short": 1,
+      "total_removed": 1,
+      "qa_pairs_total": 10,
+      "file": "level2_segmentation_merged.json"
+    },
+    {
+      "total_kept": 781,
+      "removed_too_short": 75,
+      "total_removed": 77,
+      "qa_pairs_kept": 122,
+      "qa_pairs_removed_no_answers": 2,
+      "removed_high_filler_ratio": 1,
+      "removed_meta_question": 1,
+      "qa_pairs_total": 124,
+      "file": "level3_common_merged.json"
+    },
+    {
+      "total_kept": 34,
+      "qa_pairs_kept": 14,
+      "removed_too_short": 5,
+      "total_removed": 5,
+      "qa_pairs_total": 14,
+      "file": "level3_data_cv_merged.json"
+    },
+    {
+      "total_kept": 32,
+      "qa_pairs_kept": 10,
+      "removed_too_short": 3,
+      "total_removed": 3,
+      "qa_pairs_removed_no_answers": 1,
+      "qa_pairs_total": 11,
+      "file": "level3_data_nlp_merged.json"
+    },
+    {
+      "total_kept": 40,
+      "qa_pairs_kept": 18,
+      "removed_too_short": 4,
+      "total_removed": 4,
+      "qa_pairs_total": 18,
+      "file": "level3_model_optimization_merged.json"
+    },
+    {
+      "total_kept": 439,
+      "qa_pairs_kept": 92,
+      "removed_too_short": 24,
+      "total_removed": 24,
+      "qa_pairs_removed_no_answers": 3,
+      "qa_pairs_total": 95,
+      "file": "level3_product_serving_merged.json"
+    },
+    {
+      "total_kept": 2,
+      "removed_too_short": 1,
+      "total_removed": 1,
+      "qa_pairs_kept": 1,
+      "qa_pairs_total": 1,
+      "file": "level3_recsys_merged.json"
+    }
+  ]
+}

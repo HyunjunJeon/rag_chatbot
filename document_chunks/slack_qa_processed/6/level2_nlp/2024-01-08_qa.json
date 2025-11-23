@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "오늘(1/8) 문제를 풀었는데 아직 해설이 바뀌지 않은 것 같습니다!",
+        "user": "U063J41KJSJ",
+        "user_name": null,
+        "timestamp": "1704705663.948939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "시스템상 배포중인 퀴즈 수정이 불가한 것 같아요. 운영진들께 물어보고 빠르게 수정해두겠습니다!",
+          "user": "U0419FLPZPX",
+          "user_name": "이녕우_조교",
+          "timestamp": "1704724741.829749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

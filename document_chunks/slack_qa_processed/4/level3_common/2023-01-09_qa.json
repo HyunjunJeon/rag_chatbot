@@ -1,0 +1,205 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "제 계정에 연결된 GCP 무료크레딧이 이미 만료되었습니다.\n이미 사용 중인 aws계정에는 크레딧이 좀 있는데, aws로 실습해도 문제 없을까요?",
+        "user": "U041HMZ7PHR",
+        "user_name": "1",
+        "timestamp": "1673309834.447349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "강의가 GCP 베이스로 이루어져 있어서 AWS로 실습하면 아예 바닥부터 직접 찾으시면서 하셔야 할 것 같아요-! AWS는 보통 많이 접할 수 있으니 이참에 GCP도 해보시면 좋을 것 같아요\n\n구글 이메일을 새로 만들어서 가입하시면 크레딧을 줄거에요!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673310633.007069",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1673310649.000000"
+            },
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 혹시 GCP를 만드는 계정과 github 계정이 동일해야하는 걸까요? git clone 과정에서 permission denied 창이 계속 떠서 여쭤봅니다..!",
+        "user": "U041B7A12MU",
+        "user_name": "백인진",
+        "timestamp": "1673318269.071209",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 2-5강의 86페이지(동영상 32분) 설정확인해 보세요.",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1673318570.631369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "jerry_very_thx",
+                "users": [
+                  "U041B7A12MU"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 혹시 GCP를 만드는 계정과 github 계정이 동일해야하는 걸까요?\n아니요 ㅎㅎ 달라도 상관없습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673318713.504469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; git clone 과정에서 permission denied 에서 permission denied 창이 계속 떠서 여쭤봅니다..!\nPrivate Repo 인가요?\n\nPrivate Repo 클론 받는 방법은 다음 두가지가 있는데요.\n• https 클론 받는 경우 -&gt; github access token 사용 \n• ssh 클론 받는 경우 -&gt; pub, private 키 사용\n보통 후자로 많이 합니다.\n구글에서 github ssh clone 으로 검색해보시면 어떻게 하는지 나올겁니다 ㅎ_ㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673318816.996659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "jerry_very_thx",
+                "users": [
+                  "U041B7A12MU"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 https 클론이 아닌 ssh 클론 방식으로 접근해서 영상과 다른 내용이 떴던 것 같습니다..! 답변 감사합니다!!",
+          "user": "U041B7A12MU",
+          "user_name": "백인진",
+          "timestamp": "1673318879.755569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Github action 실습과정에서 product serving part2에 있는 requirements를 설치하는 과정에서 터미널이 자꾸 죽는 현상이 발생합니다. 엔진의 성능이 부족해서 그런것일까요…?",
+        "user": "U0427G35E4Q",
+        "user_name": "민복기",
+        "timestamp": "1673330351.746059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 그랬는데 저장소 용량 늘리고 cpu 성능 올리니까 해결됐어요!",
+          "user": "U041HN3U7DH",
+          "user_name": "정준환_T4203",
+          "timestamp": "1673330576.437529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G35E4Q",
+                  "U041ERYLS6R",
+                  "U041WE246SD",
+                  "U03PVSC77HR"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 그렇군요! 도움주셔서 감사합니다 :grin:",
+          "user": "U0427G35E4Q",
+          "user_name": "민복기",
+          "timestamp": "1673330631.875819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

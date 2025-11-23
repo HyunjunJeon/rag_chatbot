@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 Recsys 트랙 캠퍼 여러분~\n어제 김재인 조교님 오피스아워에서 `'Loss 계산과정'에 tensor를 시각화 하신게 너무 좋은거 같습니다. 활용하신 툴 같은게 있을까요?'` 라는 질문이 나왔는데요!\n제가 해당 툴을 알아왔습니다:saluting_face: 사실 지난 기수 조교님이 만드신거라 100% 정확한 확인은 아닌데요,\n\n*파워포인트*로 2d로 3d같이 생긴 박스를 만들고 무한 복붙했을 가능성이 가장 크다고 합니다!\n비슷한 시각화 자료를 만드신 분은 *일러스트레이터*를 사용했다고 하세요! 한 땀 한 땀 손수 만드신 것 같아용..:booduck-shake:\n실제로 어제 발표자료 원본을 눌러보니 첨부 드리는 그림 처럼 박스가 하나씩 선택이 됩니다!\n도움이 되셨기를 바라며, 알찬 한 주 마무리와! 즐거운 주말 보내시기 바랍니당:booduck_happy:",
+        "user": "U046RDS8WUS",
+        "user_name": null,
+        "timestamp": "1671180661.142899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "wa",
+              "users": [
+                "U041HR79V5G",
+                "U041HR6P5D0",
+                "U041L8X6A3W",
+                "U041ERYLS6R",
+                "U041WE04857",
+                "U041B78MSNA",
+                "U041HN1MERH",
+                "U0427G5T6BS",
+                "U0427G7HNHW",
+                "U041WE3NN3B",
+                "U041VLUG4HF",
+                "U041ES35PHT",
+                "U041ERXKAH3"
+              ],
+              "count": 13
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사합니다! 수작업이었다니 의지가 대단 하시네요…",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1671181519.415739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

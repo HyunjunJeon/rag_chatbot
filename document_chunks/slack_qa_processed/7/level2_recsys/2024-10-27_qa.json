@@ -1,0 +1,35 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "RecSys-04조 박승우 입니다.\n제 불찰로 팀 랩업 리포트 시간을 지켜 제출하지 못했습니다.\n따로 제출할 수 있을 지 혹은 잠시 열어주실 수 있을 지 여쭙습니다..!\n\n(2시 정각에 제출하려다보니 이미 닫혀진 상태였습니다. 이전에도 제출 시간에 대해서 항상 주의 주셨지만 앞으론 꼭 시간 엄수하여 제출하도록 하겠습니다. 죄송합니다.)",
+        "user": "U07ECPN2QCV",
+        "user_name": "박승우",
+        "timestamp": "1730092345.155909",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07ECPN2QCV",
+            "ts": "1730092599.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07ECPN2QCV>\n박승우 캠퍼님, 안녕하세요!\n연장 해두었습니다. 다음에는 기한내 제출 부탁드립니다",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1730093269.622689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 여러분 논문을 사랑하는 컨셉으로 tips 게시판 좋아요 개수 1등에 빛나는(?) 게시물을 작성했던 캠퍼 서동건입니다\n오늘은 이번주동안 제가 읽었던 논문중 중요하고 중요한 세가지 논문인 Transformer, GPT 1, BERT 를 읽고 추가로 더 공부해야 할 reference paper list를 정리한 방식을 공유하고자 합니다\n어떤 reference를 읽어야 하나 구별하기 어려우신 분이나 시간이 없어 누가 해줫으면 하는 사람들에게 큰 도움이 되었으면 합니다. 물론 제 기준에서 최대한 다양한 내용을 담으려고 노력하였으나 이미 아는 논문이 있거나 혹은 학습을 위해 더 넓게 읽어야 할 수도 있으니 참고용! 으로만 봐주시면 감사하겠습니다. 위에 나열한 순서에 따라 작성하였으며 뒤로 갈수록 앞과 겹치는 참고논문들은 일부 제외되어 있을 수 있음을 밝힙니다.\n\n여러분도 중요한 논문을 읽을 때 이런식으로 간단한 topic이나 comment와 함께 참고 논문들을 텍스트로 간단히 정리해 놓으시면 나중에 필요한 논문을 찾을 때 매우 좋을 것 같으니 습관화 해보시는걸 적극! 추천합니다. 감사합니다!!",
+        "user": "U029EAQ7QQ2",
+        "user_name": null,
+        "timestamp": "1631789619.121400",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029EAQ7QQ2",
+            "ts": "1631790383.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U0290B2QXTR",
+                "U029MCHN1BK",
+                "U029LKLNE6Q",
+                "U02A3MC2UFJ",
+                "U029SLN0S1X",
+                "U029TDJ305P",
+                "U02A5D0RFMF",
+                "U029WFW8H25",
+                "U029F9U3MMH",
+                "U029F23R56F",
+                "U029PN9SX1R",
+                "U029TQ9JFR8",
+                "U029B6PDLFQ",
+                "U029C3CSPHB",
+                "U029T92U2F3",
+                "U0297LELCQ6",
+                "U0296J0LP0D",
+                "U029Z566G2G",
+                "U029Z7YSHEV",
+                "U028ZAA1X1V",
+                "U028ZA8TXRD",
+                "U029LEAR4VA",
+                "U029M58PV44",
+                "U029DG66W9L",
+                "U02A20H4QRF",
+                "U02A7A42WHF"
+              ],
+              "count": 26
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1",
+                "U029MNM7SE8",
+                "U029TD91F09"
+              ],
+              "count": 3
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029EUTJS8K"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "팁게시판 좋아요 개수 1등이라니…… 역시 갓…. 잘보겠습니다 감사합니다 :sob:",
+          "user": "U029TDJ305P",
+          "user_name": "이요한",
+          "timestamp": "1631789846.122700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029TDJ305P",
+              "ts": "1631789878.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029EAQ7QQ2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029TDJ305P> 선생님 이러지마세요.....",
+          "user": "U029EAQ7QQ2",
+          "user_name": "서동건",
+          "timestamp": "1631789986.123200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 자료 감사합니다",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1631795759.125400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029EAQ7QQ2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다... 고수 분들 덕분에 잘 쫓아가기만 해도 될 것 같아요 ㅎㅎ",
+          "user": "U029TD91F09",
+          "user_name": "이호영_T2177",
+          "timestamp": "1631841966.126500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029EAQ7QQ2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "'적극 추천합니다' 음성지원 돼요 동건님ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ  감사합니다 잘볼게요~!:star-struck::+1:",
+          "user": "U029KGD6TJ7",
+          "user_name": "김채은_T2064",
+          "timestamp": "1631845236.128200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party-blob",
+                "users": [
+                  "U029EAQ7QQ2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "운영진님! pdf 파일을 영상과 함께 제공해준다고 하셨던걸로 기억하는데 어디서 받아볼 수 있을까요??",
+        "user": "U028ZA8TXRD",
+        "user_name": "Minji Jung",
+        "timestamp": "1631811033.125900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U028FM07UQ3> 유정님, 확인 부탁드려요!",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1631839016.126200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U028ZA8TXRD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

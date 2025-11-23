@@ -1,0 +1,404 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 mmsegmentation에서 datasets의 pipeline init.py에 없는 augmentation기법을 쓰고 싶은 경우에 어떻게 하시나요?? 기본 mmseg clone한 경우 아래의 것들만 사용 가능한듯해서요..\n```__all__ = [\n    'Compose', 'to_tensor', 'ToTensor', 'ImageToTensor', 'ToDataContainer',\n    'Transpose', 'Collect', 'LoadAnnotations', 'LoadImageFromFile', 'CustomLoadAnnotations',\n    'MultiScaleFlipAug', 'Resize', 'RandomFlip', 'Pad', 'RandomCrop',\n    'Normalize', 'SegRescale', 'PhotoMetricDistortion', 'RandomRotate',\n    'AdjustGamma', 'CLAHE', 'Rerange', 'RGB2Gray', 'RandomCutOut',\n    'RandomMosaic'\n]```\nalbumentaion의 다양한 함수들을 사용하고 싶은 경우에 어떻게 dataset.py에 추가해서 사용하고 계신가요?",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1672738243.035009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 15
+        }
+      },
+      "answers": [
+        {
+          "text": "augmentation 같은 경우에는 transform.py 에 추가로 구현할 수 있어요",
+          "user": "U0427G9UU56",
+          "user_name": "송영섭",
+          "timestamp": "1672738301.897029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```# from mmseg.datasets.builder import PIPELINES\n# from mmcls.datasets.pipelines.transforms import Albu\n# PIPELINES.register_module(module=Albu)```\n이와 같은 방식으로 추가해서 사용해보려고 하는데 index error 가 떠버리네요",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672738333.179269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "albumentation 라이브러리의 경우도 직접 구현해서 넣어줘야 사용할 수 있는건가요?",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672738363.286399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음 일단 저같은 경우에는 gridmask 추가로 구현했거든요\ntransfrom.py 에 class gridmask() 적어 넣고 바로 윗 줄에 @PIPELINES.register_module() 적어넣어야 되요",
+          "user": "U0427G9UU56",
+          "user_name": "송영섭",
+          "timestamp": "1672738543.756349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```@PIPELINES.register_module()\nclass Gridmask(object):```\n이렇게 한 뒤 init.py 에 구현한 클래스 이름 다음처럼 추가하면 되요\n```from .transfroms import (... , Gridmask)\n\n__all__ = [... , Gridmask]```",
+          "user": "U0427G9UU56",
+          "user_name": "송영섭",
+          "timestamp": "1672738688.593199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "albumentation 라이브러리 같은 경우에는 mmdetection 참고해보시면 될 거 같습니다",
+          "user": "U0427G9UU56",
+          "user_name": "송영섭",
+          "timestamp": "1672738777.703049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G9UU56> 답변 감사합니다!! mmdetection에는 되어있는 것 같아서 참고해보고있었는데..  혹시 다른 캠퍼분들은 어떻게 적용하고 계시나 궁금해서 여쭤봤습니다ㅎㅎㅎ",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672738972.269109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "완벽한 방법은 아니긴 하지만, 제가 하고 있는 방법으로는\n\nmmsegmentation/mmseg/datasets/pipelines/transforms.py 에\n```import albumentations as A\n\n@PIPELINES.register_module()\nclass Albumentations:\n\n    def __init__(self, transform, **kwargs):\n        self.aug = getattr(A, transform)(**kwargs)\n        \n\n    def __call__(self, results):\n        augmented = self.aug(image=results[\"img\"], mask=results[\"gt_semantic_seg\"])\n        results[\"img\"] = augmented[\"image\"]\n        results[\"gt_semantic_seg\"] = augmented[\"mask\"]\n\n        return results```\n이렇게 추가하시고, __init__.py 에 Albumentations 추가하신 후에\n\n컨픽의 train_pipeline에\n```    dict(\n        type = 'Albumentations',\n        transform = 'GaussNoise',\n        p = 0.5),\n    dict(\n        type = 'Albumentations',\n        transform = 'RandomBrightnessContrast',\n        p = 0.5\n    ),\n    dict(\n        type = 'Albumentations',\n        transform = 'HueSaturationValue',\n        p = 0.5\n    )```\n이런식으로 넣어서 사용하고 있습니다.",
+          "user": "U0427G57TJL",
+          "user_name": "김동영",
+          "timestamp": "1672739051.182309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3",
+                  "U041ES179JR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G57TJL> 오 말씀해주신 방법으로 해보겠습니다. 감사합니다!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672739109.594429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "jerry_very_thx",
+                "users": [
+                  "U0427G57TJL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. 다른 캠퍼분들께서 멋진 방법을 이미 많이 공유주셨지만 `Albu`를 사용하는 방법도 있어서\n\n<https://stages.ai/competitions/227/discussion/talk/post/1954>\n\n에 관련 내용 공유드렸습니다.\n\n`trash.py`나 `TrashDataset`은 오피스아워 내용에 포함되어 있습니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1672740680.415359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀이 확인했을 때 현재 mmcls master에 Albu Class에 오류가 있어서 init에서 제외가 됐습니다. 지금은 에러 fix가 되었다고 나와있는데 init 에는 여전히 빠진 상태고\n```from mmcls.datasets.pipelines.transforms import Albu\nPIPELINES.register_module(module=Albu)```\n이 코드를 추가하면 에러가 발생합니다..ㅠㅠ\n\n그래서 mmseg에도 mmcls에서 사용하던 Albu Class를 가져와서 직접추가하는 방식으로\n```@PIPELINES.register_module()\nclass Albu(object):\n    \"\"\"Albumentation augmentation.\n    Adds custom transformations from Albumentations library.\n    Please, visit `<https://albumentations.readthedocs.io>`\n    to get more information.\n    An example of ``transforms`` is as followed:\n    .. code-block::\n        [\n            dict(\n                type='ShiftScaleRotate',\n                shift_limit=0.0625,\n                scale_limit=0.0,\n                rotate_limit=0,\n                interpolation=1,\n                p=0.5),\n            dict(\n                type='RandomBrightnessContrast',\n                brightness_limit=[0.1, 0.3],\n                contrast_limit=[0.1, 0.3],\n                p=0.2),\n            dict(type='ChannelShuffle', p=0.1),\n            dict(\n                type='OneOf',\n                transforms=[\n                    dict(type='Blur', blur_limit=3, p=1.0),\n                    dict(type='MedianBlur', blur_limit=3, p=1.0)\n                ],\n                p=0.1),\n        ]\n    Args:\n        transforms (list[dict]): A list of albu transformations\n        keymap (dict): Contains {'input key':'albumentation-style key'}\n    \"\"\"\n\n    def __init__(self, transforms, keymap=None, update_pad_shape=False):\n        if albumentations is None:\n            raise RuntimeError('albumentations is not installed')\n        else:\n            from albumentations import Compose\n\n        self.transforms = transforms\n        self.filter_lost_elements = False\n        self.update_pad_shape = update_pad_shape\n\n        self.aug = Compose([self.albu_builder(t) for t in self.transforms])\n\n        if not keymap:\n            self.keymap_to_albu = {\n                'img': 'image',\n            }\n        else:\n            self.keymap_to_albu = keymap\n        self.keymap_back = {v: k for k, v in self.keymap_to_albu.items()}\n\n    def albu_builder(self, cfg):\n        \"\"\"Import a module from albumentations.\n        It inherits some of :func:`build_from_cfg` logic.\n        Args:\n            cfg (dict): Config dict. It should at least contain the key \"type\".\n        Returns:\n            obj: The constructed object.\n        \"\"\"\n\n        assert isinstance(cfg, dict) and 'type' in cfg\n        args = cfg.copy()\n\n        obj_type = args.pop('type')\n        if mmcv.is_str(obj_type):\n            if albumentations is None:\n                raise RuntimeError('albumentations is not installed')\n            obj_cls = getattr(albumentations, obj_type)\n        elif inspect.isclass(obj_type):\n            obj_cls = obj_type\n        else:\n            raise TypeError(\n                f'type must be a str or valid type, but got {type(obj_type)}')\n\n        if 'transforms' in args:\n            args['transforms'] = [\n                self.albu_builder(transform)\n                for transform in args['transforms']\n            ]\n\n        return obj_cls(**args)\n\n    @staticmethod\n    def mapper(d, keymap):\n        \"\"\"Dictionary mapper.\n        Renames keys according to keymap provided.\n        Args:\n            d (dict): old dict\n            keymap (dict): {'old_key':'new_key'}\n        Returns:\n            dict: new dict.\n        \"\"\"\n\n        updated_dict = {}\n        for k, v in zip(d.keys(), d.values()):\n            new_k = keymap.get(k, k)\n            updated_dict[new_k] = d[k]\n        return updated_dict\n\n    def __call__(self, results):\n\n        # backup gt_label in case Albu modify it.\n        _gt_label = copy.deepcopy(results.get('gt_label', None))\n\n        # dict to albumentations format\n        results = self.mapper(results, self.keymap_to_albu)\n\n        # process aug\n        results = self.aug(**results)\n\n        # back to the original format\n        results = self.mapper(results, self.keymap_back)\n\n        if _gt_label is not None:\n            # recover backup gt_label\n            results.update({'gt_label': _gt_label})\n\n        # update final shape\n        if self.update_pad_shape:\n            results['pad_shape'] = results['img'].shape\n\n        return results\n\n    def __repr__(self):\n        repr_str = self.__class__.__name__ + f'(transforms={self.transforms})'\n        return repr_str```\n이 코드 모듈에 추가하고\n```    dict(\n        type='Albu',\n        transforms=albu_transforms,\n        keymap={\n            'img': 'image',\n            'gt_semantic_seg': 'mask',\n        },),```\n로 사용하고있습니다.",
+          "user": "U041B7AA63G",
+          "user_name": "전지용_T4190",
+          "timestamp": "1672741030.825469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그렇군요. import가 불가능한 상황인지 모르고 있었네요 죄송합니다. 공유주셔서 감사합니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1672741136.121699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041B7AA63G> 혹시 위 방법을 사용하시면 geometric transform할 때\n```TypeError: CustomDataset: Albu: __init__() missing 2 required positional arguments: 'height' and 'width'```\n같은 에러가 뜨시지는 않으셨나요?",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672759252.162869",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G5BJQG",
+              "ts": "1672759263.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G5BJQG> ShiftScaleRotate, Affine 사용해도 에러는 안났습니다!",
+          "user": "U041B7AA63G",
+          "user_name": "전지용_T4190",
+          "timestamp": "1672793842.758739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041B7AA63G> 제가 바보같이 height와 width가 필요한 알부를 사용하고선 입력을 안넣어주었네요.. 답변 감사드립니다",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672804240.798169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck-zoom",
+                "users": [
+                  "U041B7AA63G"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "기본적인 epoch, iteration, batch의 개념은 알고 있는데 mmsegmentation을 사용하는 중에 warmup, iteration, epoch이 계속 헷갈려서 질문 드립니다.\n\n```1. runner의 max_iters가 40k에 batch가 16이라면 max_iters/batch=epoch 인 걸까요?\n1.1 그러면 epoch 진행중에 max_iters에 도달하면 중간에 멈추는 걸까요?\n\n2. runner를 epochbasedrunner로 설정한 경우에는 len(dataset)/batch가 iteration인데 lr_config의 warmup_iters하고 interval의 값들은 언제 적용 되는 걸까요..?\n\n정리하자면... mmsegmentation에서 epoch과 iteration, interval의 관계가 궁금합니다.```\n제가 잘못 이해하고 있어서 모자란 질문일 수도 있습니다만.. 답변해주시면 감사하겠습니다.\n아니면 참고할만한 자료가 있다면 알려주세요~ :wobbuffet:",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1672750546.633739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041HN2CWMR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U041HMZ7PHR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/epoch_based_runner.py>\n\n<https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/lr_updater.py>\n\n저도 정확하지는 않지만 warmup_iters의 경우에는 EpochBasedRunner의 train에서 call_hook을 사용하여 순서대로 lr_updater에 정의된 방식으로 적용하는 것이 아닐까 싶습니다.",
+          "user": "U041HRARKDY",
+          "user_name": "백하닮_T4103",
+          "timestamp": "1672754910.453299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1번은 동훈님이 말씀하신게 맞는 것 같습니다. 실제로 evaluation의 interval을 극단적으로 1로 주게되면 첫 50개의 batch가 돌아가서 train의 log 첫 줄이 뜨기도 전에 validation data로 evaluation 을 진행합니다. 저도 첨엔 어색했었는데 꼭 모든 train set의 데이터들을 같은 횟수로 학습한 뒤에 evaluation을 하거나 학습을 종료하는 것이 오히려 고정관념일 수도 있을 것 같습니다.(혹은 유연하지 않을 수도 있을 것 같네요) mmseg에 특별히 iter기반이 있는 건 다음 링크에서 확인 가능합니다.\n<https://github.com/open-mmlab/mmsegmentation/issues/76>",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672759105.063749",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G5BJQG",
+              "ts": "1672759153.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 주신분들 감사합니다!!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672807341.528079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "앙상블 기법 중 하나인 model soup 관련 글을 ai stage 게시판에 올렸습니다.\nmodel soup가 앙상블 성능 향상에 도움이 되었으면 좋겠습니다~\nAi stages: <https://stages.ai/competitions/227/discussion/talk/post/1956>\nNotion: <https://excessive-help-ce8.notion.site/Model-Soup-a21e0f66ac6a438a8929f61000298df5>\ncode:  <https://drive.google.com/file/d/12w0EvkrBlxvFWSHXNxD4urwhGOIgUonZ/view?usp=sharing>",
+        "user": "U041L8WPYKW",
+        "user_name": "류건",
+        "timestamp": "1672801661.272169",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041L8WPYKW",
+            "ts": "1672805139.000000"
+          },
+          "reactions": [
+            {
+              "name": "wa",
+              "users": [
+                "U041HMZ15RR",
+                "U04138AJC7R",
+                "U041HMZ7PHR",
+                "U0427G7HN6L",
+                "U0427G7EG72",
+                "U0427G5BJQG",
+                "U041HN3C7B5",
+                "U041ERZ3BKP",
+                "U041HMZR68K",
+                "U041B7AA63G",
+                "U041HN1DUFM",
+                "U041WE3EMFB"
+              ],
+              "count": 12
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0427G7HN6L",
+                "U041WE7JBCH",
+                "U041B77LJ22",
+                "U041HMZR68K"
+              ],
+              "count": 4
+            },
+            {
+              "name": "meow_partychristmas",
+              "users": [
+                "U041ERZ3BKP"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "꼭 사용해보고 싶었던 방법인데 올려주셔서 감사합니다. 혹시 노션에 올리신 ipynb가 제대로 다운이 안되서 그런데 다시 올려주실 수 있으신가요??",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672804112.230739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시한번 확인하겠습니다",
+          "user": "U041L8WPYKW",
+          "user_name": "류건",
+          "timestamp": "1672804849.249549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G5BJQG> 수정하였습니다:grinning:",
+          "user": "U041L8WPYKW",
+          "user_name": "류건",
+          "timestamp": "1672805174.160739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              },
+              {
+                "name": "grinning",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

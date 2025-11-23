@@ -1,0 +1,730 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 마스터님. 과제 2번 진행하다 궁금한 점 있어 질문드립니다.\n• README에서 .env파일에 `MODEL_PATH=./model/model.pkl` 를 지정하라고 적혀있는데 model폴더안에는 model.pkl이 아닌 best.pth만 남아있습니다. 이건 model.pkl대신 best.pth로 경로 지정해서 진행하면 될까요 ?\n• Predict중 `curl -X POST -F \"file=@./example_images/0a101263343a4a60a8dcd94d1fc8e8e253dadf14.jpg\" <http://0.0.0.0:8000/predict>` 이렇게 진행할 경우 `curl: (7) Failed to connect to 0.0.0.0 port 8000 after 0 ms: Couldn't connect to server` 라는 에러가 뜨고 뒤 url 주소를 127.0.0.1로 변경해야 정상적으로 진행이 됩니다. 혹시 이는 어떤 차이인지, 제가 잘못하고 있는건지 궁금합니다.\n• Get all prediction중 `curl \"<http://0.0.0.0:8000/predict>\"` 을 통해  Database의 정보들을 모두 불러오는 것 같은데 해당 과제 api.py 파일에서는 전체 Database 정보를 모두 반환하는 함수는 구현되어있지 않고 TODO로도 지정되어 있지 않습니다. 이는 어떻게 하면 될까요 ?\n• 궁극적으로 해당 과제를 잘 완수했다는 것은 README에 있는 명령어들을 실행했을 때 명령어와 같이 적어주신 예시와 같이 반환이 되어야 하는건가요 ? 예를 들어, `docker build -t web_single_example .` 와 같은 부분도 성공적으로 이루어져야 하는지 궁금합니다.",
+        "user": "U07ECPR5ZUM",
+        "user_name": "방민혁_T7158",
+        "timestamp": "1733819026.837309",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07E921DX9C",
+                "U07EFLVD35Y",
+                "U03PVSC77HR",
+                "U07E14EJP1V",
+                "U07EJ5Q544C"
+              ],
+              "count": 5
+            },
+            {
+              "name": "loading",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 11
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 프로덕트 서빙 조교입니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820183.876619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; model.pkl대신 best.pth로 경로 지정해서 진행하면 될까요 ?\n네 맞습니다. 리드미에 오타가 있었던거 같네요. 수정해두겠습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820188.977369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 혹시 이는 어떤 차이인지, 제가 잘못하고 있는건지 궁금합니다.\n0.0.0.0과 127.0.0.1의 차이는 찾아보시면 금방 나오긴 합니다.\n\n<https://stackoverflow.com/questions/20778771/what-is-the-difference-between-0-0-0-0-127-0-0-1-and-localhost>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820279.509229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마도, 서버를 실행하지 않은 상태에서 `curl` 요청을 날리신거 같아요. `poetry run python main.py` 으로 서버를 먼저 기동한 후, 다른 터미널에서 `curl` 요청을 날려보시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820318.444849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; TODO로도 지정되어 있지 않습니다. 이는 어떻게 하면 될까요 ?\n확인해보니 말씀하신대로 `POST /predict` 엔드포인트만 `TODO` 가 있군요.\n나머지 엔드포인트 (*Get all predictions, Get a prediction)* 도 구현하시면 됩니다.\n\nTODO가 없어서 충분히 헷갈리셨을거 같네요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820492.386489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 궁극적으로 해당 과제를 잘 완수했다는 것은 README에 있는 명령어들을 실행했을 때 명령어와 같이 적어주신 예시와 같이 반환이 되어야 하는건가요 ?\n네 맞습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820575.914249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; `docker build -t web_single_example .` 와 같은 부분도 성공적으로 이루어져야 하는지\n해당 부분은 무시해주시면 됩니다.\n\nAPI 엔드포인트를 구현하고, 실행해서 리드미처럼 잘 나온다면, 과제를 잘 완수하신 것입니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733820602.628919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모두 이해했습니다 조교님. 감사합니다 !:cry-cat-thumbs-up:",
+          "user": "U07ECPR5ZUM",
+          "user_name": "방민혁_T7158",
+          "timestamp": "1733820676.347939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U03PVSC77HR",
+                  "U07EJ5Q544C",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "*0.0.0.0, 127.0.0.1의 설명은 3강 36분에 나와있어요.* \n\n추가적으로 설명을 더 드리면.. 서버 관점과 클라이언트 측면에서 0.0.0.0과 127.0.0.1의 의미가 다릅니다\n\n*서버 측면*\n• 0.0.0.0으로 바인딩하는 것은 \"모든 네트워크 인터페이스에서 연결을 수신하겠다\"는 의미입니다\n• 이는 서버를 실행할 때 사용하는 설정이에요\n*클라이언트 측면(curl을 날리는 상황이 클라이언트 측면)*\n• 0.0.0.0은 유효한 대상 주소가 아님\n• curl을 날릴 때는 실제 IP 주소나 localhost(127.0.0.1)로 시도를 해야 합니다\n```# 서버 실행 시\npython app.py --host 0.0.0.0 --port 8000  \n\n# 클라이언트에서 요청 시\ncurl -X POST -F \"file=@./example_images/example.jpg\" <http://127.0.0.1:8000/predict> ```",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1733830165.852639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07ECPR5ZUM",
+                  "U07EJ5DES5S",
+                  "U07EUAU5B33",
+                  "U07EJ5KHG0L",
+                  "U07EUAP7V09",
+                  "U07EFHAFF7V",
+                  "U07ECPQCXNZ"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "나머지 부분은 시흠님이 잘 말씀해주셨네요! <@U07ECPR5ZUM> 님도 질문해주셔서 너무 감사합니다 :muscle:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830207.048769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07ECPR5ZUM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "성윤님 코멘트와 같이 웹서버의 관점에서 해당 문제를 바라볼 수도 있고, 조금 더 넓은 시각에서 CS의 Network 기초에도 맞닿아 있는 문제라고 생각합니다. 좀 더 코멘트를 얹자면,\n\nIP(v4)는 Layer 3(OSI)에서 인터넷에서 (WAN) 특정 리소스/컴퓨터를 찾기 위해서 사용됩니다. 위 말씀 주신 0.0.0.0, 127.0.0.1도 IP의 종류 중 하나이고, 두 개는 모두 private하게 사용됩니다. 하지만 목적이 다릅니다. 0.0.0.0은 \"모든 네트워크 인터페이스\"에 연결하는 목적, 127.0.0.1은 loopback address, 로컬 (현재 머신)에서만 사용하기 위한 목적으로 이미 예약이 되어있습니다. (link-local, unique local address 라는 것도 있습니다!) 때문에 0.0.0.0으로 세팅을 하는 것이 도커와 같이 겹겹이 쌓여있는 환경에서 문제를 해결해주기는 하겠지만, \"로컬\" 환경이 아닌 모든 인터페이스를 연결하므로서 suboptimal한 방법일 수도 있습니다.\n\n조금 더 이어나가 보자면, ipv6에서도 비슷한 개념이 있습니다. ipv6에서는 `::1` 가 localhost/127.0.0.1 입니다. 더 간결하죠? 또한 ipv4와 ipv6는 어떤 차이가 있는 지, 현재 만들어가시는 웹서버 주소를 브라우저 주소창에 쳤을 때 어떤 것들이 일어날 지 같이 고민해보시면 좀 더 견고하게 지식들을 쌓아가시기 좋을 거 같아서 같이 읽어보시면 도움이 될 material들을 남기고 갑니다!\n\n<https://www.geeksforgeeks.org/introduction-and-ipv4-datagram-header/>\n<https://seosh817.tistory.com/33>\n<https://www.geeksforgeeks.org/what-is-a-loopback-address/>",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1733871649.122759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07ECPR5ZUM",
+                  "U03PL9GCPFZ",
+                  "U07E14APJ6T",
+                  "U07EUAT144R"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Product Serving 2강 실습 관련 질문]\n안녕하세요, 마스터님. 2강 실습을 보며 바로 바로 따라하고 있었는데 04-python-operator-with-jinja.py까지는 실행이 잘 되는 것을 확인했고 05-python-operator-with-slack-noti.py 관련 코드들을 모두 작성 후 저장하고 실행되는지 확인하려고 하니 웹서버가 첨부한 이미지와 같은 에러창을 띄우고 있습니다. 아무리 kill을 하고 재접속을 해봐도 계속 같은 상태이고, 로그 파일을 뒤져봐도 크게 특이사항을 찾지 못한 상태입니다. 어떻게 하면 원인을 찾고 해결할 수 있을까요?\n환경은 맥OS / python==3.11.7 / airflow==2.10.3 입니다.",
+        "user": "U07EUAQRN2D",
+        "user_name": null,
+        "timestamp": "1733829279.825049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 35
+        }
+      },
+      "answers": [
+        {
+          "text": "```127.0.0.1 - - [10/Dec/2024:20:05:53 +0900] \"GET / HTTP/1.1\" 302 197 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15\"\n127.0.0.1 - - [10/Dec/2024:20:05:53 +0900] \"GET /home HTTP/1.1\" 302 285 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15\"\n/opt/anaconda3/lib/python3.11/configparser.py:409 FutureWarning: section/key [webserver/update_fab_perms] has been deprecated, you should use[fab/update_fab_perms] instead. Please update your `conf.get*` call to use the new name\n/opt/anaconda3/lib/python3.11/configparser.py:409 FutureWarning: section/key [webserver/auth_rate_limited] has been deprecated, you should use[fab/auth_rate_limited] instead. Please update your `conf.get*` call to use the new name\n/opt/anaconda3/lib/python3.11/configparser.py:409 FutureWarning: section/key [webserver/auth_rate_limit] has been deprecated, you should use[fab/auth_rate_limit] instead. Please update your `conf.get*` call to use the new name\n/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/airflow/www/security_manager.py:257 AirflowProviderDeprecationWarning: is_authorized_dataset will be renamed as is_authorized_asset in Airflow 3 and will be removed when the minimum Airflow version is set to 3.0 for the fab provider\n127.0.0.1 - - [10/Dec/2024:20:05:53 +0900] \"GET /login/?next=http%3A%2F%2Flocalhost%3A8080%2Fhome HTTP/1.1\" 200 18637 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15\"\n[2024-12-10T20:06:00.744+0900] {override.py:1678} INFO - Updated user jeeun hwang\n127.0.0.1 - - [10/Dec/2024:20:06:00 +0900] \"POST /login/?next=http%3A%2F%2Flocalhost%3A8080%2Fhome HTTP/1.1\" 302 239 \"<http://localhost:8080/login/?next=http%3A%2F%2Flocalhost%3A8080%2Fhome>\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15\"\n[2024-12-10T20:06:01.069+0900] {app.py:1744} ERROR - Exception on /home [GET]\nTraceback (most recent call last):\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 1910, in _execute_context\n    self.dialect.do_execute(\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py\", line 736, in do_execute\n    cursor.execute(statement, parameters)\nsqlite3.OperationalError: no such column: dag.dag_display_name\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/flask/app.py\", line 2529, in wsgi_app\n    response = self.full_dispatch_request()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/flask/app.py\", line 1825, in full_dispatch_request\n    rv = self.handle_user_exception(e)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/flask/app.py\", line 1823, in full_dispatch_request\n    rv = self.dispatch_request()\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/flask/app.py\", line 1799, in dispatch_request\n    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/airflow/www/auth.py\", line 139, in decorated\n    return _has_access(\n           ^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/airflow/www/auth.py\", line 163, in _has_access\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/airflow/www/views.py\", line 834, in index\n    filtered_dag_count = get_query_count(dags_query, session=session)\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/airflow/utils/db.py\", line 1940, in get_query_count\n    return session.scalar(count_stmt)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py\", line 1747, in scalar\n    return self.execute(\n           ^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py\", line 1717, in execute\n    result = conn._execute_20(statement, params or {}, execution_options)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 1710, in _execute_20\n    return meth(self, args_10style, kwargs_10style, execution_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py\", line 334, in _execute_on_connection\n    return connection._execute_clauseelement(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 1577, in _execute_clauseelement\n    ret = self._execute_context(\n          ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 1953, in _execute_context\n    self._handle_dbapi_exception(\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 2134, in _handle_dbapi_exception\n    util.raise_(\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/util/compat.py\", line 211, in raise_\n    raise exception\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 1910, in _execute_context\n    self.dialect.do_execute(\n  File \"/Users/jeeun/Desktop/airflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py\", line 736, in do_execute\n    cursor.execute(statement, parameters)\nsqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: dag.dag_display_name\n[SQL: SELECT count(*) AS count_1 \nFROM (SELECT dag.dag_display_name AS dag_display_name, dag.dag_id AS dag_id, dag.root_dag_id AS root_dag_id, dag.is_paused AS is_paused, dag.is_subdag AS is_subdag, dag.is_active AS is_active, dag.last_parsed_time AS last_parsed_time, dag.last_pickled AS last_pickled, dag.last_expired AS last_expired, dag.scheduler_lock AS scheduler_lock, dag.pickle_id AS pickle_id, dag.fileloc AS fileloc, dag.processor_subdir AS processor_subdir, dag.owners AS owners, dag.description AS description, dag.default_view AS default_view, dag.schedule_interval AS schedule_interval, dag.timetable_description AS timetable_description, dag.dataset_expression AS dataset_expression, dag.max_active_tasks AS max_active_tasks, dag.max_active_runs AS max_active_runs, dag.max_consecutive_failed_dag_runs AS max_consecutive_failed_dag_runs, dag.has_task_concurrency_limits AS has_task_concurrency_limits, dag.has_import_errors AS has_import_errors, dag.next_dagrun AS next_dagrun, dag.next_dagrun_data_interval_start AS next_dagrun_data_interval_start, dag.next_dagrun_data_interval_end AS next_dagrun_data_interval_end, dag.next_dagrun_create_after AS next_dagrun_create_after \nFROM dag \nWHERE dag.is_subdag = 0 AND dag.is_active = 1 AND dag.dag_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)) AS anon_1]\n[parameters: ('example_task_group_decorator', 'example_weekday_branch_operator', 'tutorial_taskflow_api_virtualenv', 'Hello_world', 'dataset_consumes_1_and_2', 'example_branch_datetime_operator', 'example_branch_datetime_operator_3', 'example_branch_labels', 'bash_dag', 'example_dynamic_task_mapping', 'example_branch_dop_operator_v3', 'example_external_task_marker_child', 'example_external_task_marker_parent', 'example_python_operator', 'example_sensors', 'python_dag1', 'dataset_produces_2', 'example_sla_dag', 'example_xcom_args_with_operators', 'example_xcom', 'example_trigger_target_dag', 'example_sensor_decorator', 'example_task_group', 'dataset_consumes_1_never_scheduled', 'example_params_trigger_ui', 'python_dag_with_context', 'example_branch_datetime_operator_2', 'dataset_produces_1', 'example_params_ui_tutorial', 'example_passing_params_via_test_command', 'example_time_delta_sensor_async', 'example_branch_operator', 'example_subdag_operator.section-2', 'example_dag_decorator', 'example_subdag_operator', 'latest_only_with_trigger', 'tutorial_dag', 'example_short_circuit_operator', 'example_complex', 'example_skip_dag', 'example_short_circuit_decorator', 'tutorial_taskflow_api', 'latest_only', 'python_dag_with_jinja', 'example_xcom_args', 'dataset_consumes_unknown_never_scheduled', 'example_trigger_controller_dag', 'example_bash_operator', 'example_subdag_operator.section-1', 'dataset_consumes_1', 'example_dynamic_task_mapping_with_no_taskflow_operators', 'example_branch_python_operator_decorator', 'tutorial', 'example_nested_branch_dag')]\n(Background on this error at: <https://sqlalche.me/e/14/e3q8>)\n/opt/anaconda3/lib/python3.11/configparser.py:409 FutureWarning: section/key [webserver/update_fab_perms] has been deprecated, you should use[fab/update_fab_perms] instead. Please update your `conf.get*` call to use the new name\n/opt/anaconda3/lib/python3.11/configparser.py:409 FutureWarning: section/key [webserver/auth_rate_limited] has been deprecated, you should use[fab/auth_rate_limited] instead. Please update your `conf.get*` call to use the new name\n/opt/anaconda3/lib/python3.11/configparser.py:409 FutureWarning: section/key [webserver/auth_rate_limit] has been deprecated, you should use[fab/auth_rate_limit] instead. Please update your `conf.get*` call to use the new name\n127.0.0.1 - - [10/Dec/2024:20:06:01 +0900] \"GET /home HTTP/1.1\" 500 1588 \"<http://localhost:8080/login/?next=http%3A%2F%2Flocalhost%3A8080%2Fhome>\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15\"\n[2024-12-10 20:12:34 +0900] [84308] [INFO] Handling signal: winch\n[2024-12-10 20:12:34 +0900] [84308] [INFO] Handling signal: winch```",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733829316.593099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위는 문제가 생긴 이후부터 터미널의 메시지를 긁어온 것입니다..대략 db 문제인 것으로 추정하는데 혼자 해결해보겠다고 airflow db init도 다시 해보고 계정도 새로 만들고 했는데도 문제가 반복되어서 조언을 듣고 다시 실행에 옮겨보고자 합니다....",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733829351.203269",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EUAQRN2D",
+              "ts": "1733829532.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. 현재 Airflow의 버전이 최신 버전이네요. 최신 버전을 사용할 땐 안전성이 떨어지는 경우가 많아요. 강의에선 Airflow 2.6.3을 사용하는 것으로 requirements.txt를 제공해서 이 버전을 사용하시면 되실거예요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829563.195599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/01-batch-serving(airflow)/requirements.txt>\n\n여기에 있는 버전을 사용해주시면 동작했어요.\n\n```apache-airflow==2.6.3\napache-airflow-providers-google==10.14.0\napache-airflow-providers-slack==8.6.0```",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829587.258319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗...분명 강의에서 알려주신 것을 복붙해서 설치했는데도 최신 버전이 설치되었네요....? 다시 시도해보겠습니다!!",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733829671.893419",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EUAQRN2D",
+              "ts": "1733829680.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "뜨허 복붙을 했는데 최신 버전이 설치되었나요? 파이썬 버전의 이슈인가 싶은데 그럴 확률이 있긴 하지만 적을 것 같고.. 버전을 맞춰주셔야 해요. 오픈소스에서 버전 때문에 안되는 경우도 많고 최신 버전에선 해결책이 아직 나오지 않는 경우도 있어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829744.285519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오류 메시지를 봤을 땐 느낌은 airflow의 sqlite(db init 할 때 생기는) 쪽을 아예 삭제하고 다시 하면 되는 경우도 있긴 해요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829794.806869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "에러메시지를 읽어보면..\n\n```sqlite3.OperationalError: no such column: dag.dag_display_name```\n\nAirflow DB 스키마가 변경되었나 싶네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829815.067339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "예전 이슈긴한데, airflow db upgrade를 하라는 내용도 있긴 하네요\n<https://github.com/apache/airflow/discussions/18368>",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829893.717729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇지만 저는 제가 명시한 버전 맞추는게 아마 제일 혼란스러움을 줄일 수 있을 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733829912.152669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 마스터님께서 버전 문제를 강조하셨어서 아래 코드를 복붙해서 설치했는데도 최신 버전이 설치되었네요....\n```AIRFLOW_VERSION=2.6.3\nPYTHON_VERSION=\"$(python --version | cut -d \" \" -f 2 | cut -d \".\" -f 1-2)\"\nCONSTRAINT_URL=\"<https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFL> OW_VERSION}/constraints-${PYTHON_VERSION}.txt\"\npip3 install \"apache-airflow==${AIRFLOW_VERSION}\" --constraint \"${CONSTRAINT_URL}\"```",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733829950.983319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "airflow db upgrade는 시도해봤는데도 실패해서, 버전을 변경해보도록 하겠습니다!!",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733829980.225209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흐으으음 뭔가 복붙하는 과정에서",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830220.199209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "\"이나 ` 이게 잘못 될 수 있더라구요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830227.123829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U07EUAQRN2D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```AIRFLOW_VERSION=2.6.3\nPYTHON_VERSION=\"$(python --version | cut -d \" \" -f 2 | cut -d \".\" -f 1-2)\"\nCONSTRAINT_URL=\"<https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt>\"\n\npip3 install \"apache-airflow==${AIRFLOW_VERSION}\" --constraint \"${CONSTRAINT_URL}\"```",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830314.114909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이게 제가 설정한 내용인데..",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830355.639029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "diff tool을 봐보니 이렇게 나오네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1733830367.069499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흐음 똑같은거 같은데 다르다고 나오네요. 뭔가 diff tool이 잘못한 것 같고..",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830402.244519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "으악 어쩐지 뭐가 잘못됬는지 한참 봤는데도 안보이더라구요:joy:",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733830436.441449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830442.364079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```{AIRFL OW_VERSION}```",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830444.481579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "요기 부분...?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830448.010609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "FL이랑 OW 사이에 띄어쓰기가 하나 있어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830471.795299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그 띄어쓰기 부분 붙여서 설치를 했었는데도 이렇게 되었습니다. 여우에 홀린 것 같네요....",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733830486.994419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "face_holding_back_tears",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흐음... venv 새로 하셨는데도 그러신거지요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830509.545169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흐음...",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830511.206659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 버전 재설치는 지금 진행중입니당",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733830536.074669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이럴 땐\n• 파이썬 버전을 낮춰보고 까는 경우도 있고\n• 05번을 실습할 땐 이후에 docker-compose에 있는 환경을 쓰는 것도 방법이에요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830545.495749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이래서 docker compose 씁니다 :face_holding_back_tears:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830555.239179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07EUAQRN2D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇군요...airflow 버전 낮춰보고도 문제 생기면 파이썬 버전도 낮춰보고 docker도 시도해봐야겠습니다!",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733830588.129599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어차피 docker 파트랑 클라우드 파트에서 Airflow 다양하게 띄우는 과정 보여드려서 05번은 다른 환경이 제일 좋을것 같아요(그리고 저도 로컬에 airflow는 깔진 않아요....!)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830600.964499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 그렇게 해보다가 안되시면 또 말씀해주셔요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830606.106719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U07EUAQRN2D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 배우시면서 \"아 도커 진짜 제일 필요하구나\"를 깨닫게 되는 과정이라 생각해보셔요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733830617.929769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U07EUAQRN2D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&lt;3줄 요약&gt;\n1  airflow가 아래 버전으로 설치가 되어있는지 꼭 확인하기!!\n```apache-airflow==2.6.3\napache-airflow-providers-google==10.14.0\napache-airflow-providers-slack==8.6.0```\n2  Docker 활용해보기\n3  마스터님 항상 감사합니다. 덕분에 2강 실습 무사히 끝마쳤습니다:woman-bowing:",
+          "user": "U07EUAQRN2D",
+          "user_name": "Jeeun Hwang",
+          "timestamp": "1733841694.071439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "참 잘했어요 도장 드립니다\n(부캠 과거 기수분이 만들어 주셨어요)",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1733843126.449969",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1733843144.000000"
+            },
+            "reactions": [
+              {
+                "name": "relaxed",
+                "users": [
+                  "U07EUAQRN2D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "감사",
+                "users": [
+                  "U07EUAQRN2D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 제공받은 ensemble 코드에 nms를 wbf로 바꾸면 map 0으로 나오시는 분 계신가요?",
+        "user": "U02TFK3K0CA",
+        "user_name": "이상윤_T3148",
+        "timestamp": "1649241201.573569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "저희팀도 그랬었습니다. csv파일의 1열에 행 인덱스가 저장되더군요. 행 인덱스 제거하고 클래스 인덱스를 정수로 변환하고 제출하니 다시 제대로 측정되었습니다.\n`prediction_string += str(*int*(label)) + ...`\n`<http://submission.to|submission.to>_csv(csv_file_path, *index=False*)`",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1649241443.184409",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TYM38093",
+              "ts": "1649241668.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02T95G3EQN",
+                  "U02TFK3K0CA",
+                  "U02SERAL49Y",
+                  "U02TJ3J369J"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1649241888.388029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

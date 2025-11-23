@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "5강 6강 실습코드를 보면 다음과 같이 shape을 변환해주는 부분이 존재하는데, 제가 이해한 부분하고 달라 질문드립니다.\n하나의 question 임베딩에 num_neg+1개수의  passage임베딩간의 내적값들을 행렬곱으로 구하려면, passage의 임베딩 벡터들이 행렬의 열벡터로 존재해야하지만 실습코드에는  단순하게 차원만 맞춰준 것 같아 이 부분이 의도한 것인지 궁금합니다.",
+        "user": "U063J416AMU",
+        "user_name": null,
+        "timestamp": "1708342830.718529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U0643C9AQQH",
+                "U063A7406B1",
+                "U063A75R17H",
+                "U064DNQV19N"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 `p_outputs = p_outputs.view(args.per_device_train_batch_size, num_neg+1, -1).swapaxes(-2, -1)` 이렇게 수정했습니다.\n제 개인적인 생각으로는 단순히 차원만 맞추신 거 같습니다.",
+          "user": "U0643C9AQQH",
+          "user_name": "이종원",
+          "timestamp": "1708343523.010799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U063J416AMU",
+                  "U063QKXN2E7"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1174 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 해당부분을 들어보았는데요. 텐서의 .device 속성이 바뀌지 않고 전달된다는 의미로 이해했습니다.",
+        "user": "U09CH842TRR",
+        "user_name": "조성해_T8192",
+        "timestamp": "1756714849.998369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CH7SNT8B",
+                "U09CH894W3D",
+                "U09CH7Y6HEX"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "가령 x와 같은 차원이나 dtype 등의 텐서를  초기화한다고 할 때,\n`torch.zeros(x.shape, dtype=x.dtype, device=x.device)` 대신\n\n`torch.zeros_like(x)` 를 사용한다는 느낌으로 보면 될 것 같습니다. 생성되는 텐서의 메모리 크기 자체를 줄여주지는 않는다고 하더라고요...",
+          "user": "U09CH83CMBM",
+          "user_name": "김성호",
+          "timestamp": "1756717114.639019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH842TRR> device 속성이 바뀌지 않는다는 의미군요. 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1756717298.279939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U09CH842TRR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH83CMBM> 더 짧게 코드를 작성할 수 있겠네요. 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1756717349.245299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8665UK> 의견 감사합니다. 조성해님과 김성호님 댓글도 확인해보시면 좋을 거 같아요!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1756717451.967669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 조교 김정원입니다. 답변이 늦어 죄송합니다.\n\n마스터님께서는 `torch.zeros_like` 함수로 만든 텐서를 바꾼다고 해도 원본 텐서에 영향을 주지 않는다는 의도이셨습니다.\n\n캠퍼분들 말씀대로 추가적인 메모리 할당 없이 곧바로 차원이 같은 텐서를 새로운 메모리에 생성해주는 함수이며, device 속성도 유지되기에 여러모로 유용하고 자주 사용되는 함수입니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756725183.583539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U05QLGVQBUN> 아하 그런 의도로 말씀하셨던 거였군요. 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1756726340.652439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "id확인해보니 shape이 같은 새로운 tensor를 반환하는 것같습니다.",
+        "user": "U09CH825FGT",
+        "user_name": "정무영",
+        "timestamp": "1756714953.997539",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "분포간 변환보다는 데이터의 형태에 맞춰 난수 Tensor를 생성하는 것이 목적인 것 같습니다.",
+          "user": "U09CH8BSGD9",
+          "user_name": "조현수",
+          "timestamp": "1756716420.877039",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8BSGD9",
+              "ts": "1756716456.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. 언급하신 두 함수는 분포 간의 변환을 제공하는 게 아니고, y = torch.randn_like(x) 라고 명령했을 때 x의 shape과 dtype을 y가 똑같이 따르도록 하면서, y의 성분으로는 표준정규분포를 따르는 난수들을 새로 생성해서 채우는 걸로 알고 있습니다. 그래서 x를 채우고 있는 수가 구체적으로 어떤 값들인지는 y하고 상관이 없습니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756717360.941009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1756717641.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7WRGAX",
+                  "U09CH7Z7ZC3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 이소진 캠퍼님, 조교 김정원입니다.\n답변이 늦어 죄송합니다.\n\n다른 캠퍼분들 말씀대로 두 함수의 동작 방식은 입력값으로 주어지는 텐서와 같은 모양을 가지되, `torch.rand_like` 함수는 균등분포에서, `torch.randn_like` 함수는 정규분포에서 임의로 추출한 값들이 채워지는 것입니다.\n\n실습 코드 상에서는 우연히 입력값이 서로 변환되는 것처럼 보일 수 있으나, 사실 `torch.rand_like`나 `torch.randn_like`는 단지 형태(shape), dtype, device를 복사할 뿐, 입력값 자체가 어떤 분포에서 생성되었는지에 대한 정보는 알 수가 없습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756726190.207439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U05QLE6RKSS",
+                  "U09CH879951"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[콘텐츠 이용 및 보호 수칙 질문] 회고록 작성시 강의 자료로 제공된 ipynb 파일의 코드 일부를 긁어와서 노션 등의 블로그에 공개처리 해두어도 안되나요?",
+        "user": "U09CH87JZ5H",
+        "user_name": "백승",
+        "timestamp": "1756715320.491809",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "부스트캠프에 대한 개인 블로그에서의 회고는 학습 활동의 일부로서 권장하나, 그 내용에 *교육 콘텐츠 내용을 그대로 캡처/복사*하는 등 일부 또는 전체가 포함될 경우 콘텐츠 유출에 해당됩니다~!\n승님께서 이해하신대로 정리하여 업로드해주세요~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756727809.410459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[3강 Creating Tensors] - type 질문입니다. ones 나 zeros를 썼을 때 type이 float32 인데, 이것은 항상 default type 인가요?",
+        "user": "U09CH7T7TBM",
+        "user_name": "황연하",
+        "timestamp": "1756716437.840449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U09CH81SQAX",
+                "U09CH80KQFM"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U09CH86HP4K",
+                "U09CH7Z7ZC3",
+                "U05QLE6RKSS"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "docs를 참고해보시면 (<https://docs.pytorch.org/docs/stable/generated/torch.ones.html|torch.ones>, <https://docs.pytorch.org/docs/stable/generated/torch.zeros.html|torch.zeros>)\ndtype이 None이면 global default가 사용된다고 나와있습니다!\nPyTorch가 초기화될 때 따로 설정하지 않는다면 기본 부동 소수점 dtype이 torch.float32라서 torch.float32가 None인 경우 default라고 보셔도 될 것 같습니다!\n(참고 docs: <https://docs.pytorch.org/docs/stable/generated/torch.set_default_dtype.html#torch.set_default_dtype>)",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756716784.536119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8605TM",
+                  "U09CH7T7TBM",
+                  "U09CH7WRGAX",
+                  "U09CH86HP4K",
+                  "U09CH8339B5",
+                  "U05QLGVQBUN",
+                  "U05QLE6RKSS",
+                  "U09CH89RBT5",
+                  "U09CH89AFDH"
+                ],
+                "count": 9
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "torch.set_default_dtype(torch.float64) 를 먼저 실행하시고 x = torch.zeros(5) 를 정의해보시면 변경된 global default가 적용되어서 x.dtype이 torch.float64인 것을 확인할 수 있습니다",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756716863.134029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7T7TBM",
+                  "U09CH86HP4K",
+                  "U09CH7WV1PV",
+                  "U05QLGVQBUN",
+                  "U09CH89RBT5",
+                  "U09CH89AFDH"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 부분은 김차미 캠퍼님, 조성해 캠퍼님께서 너무 잘 설명해주셔서 제가 첨언할 부분이 없네요 ㅎㅎ\n\n답변 감사드립니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756726790.204199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[4강 manipulation of tensors] 질문입니다.\ntensor가 슬라이스 되었을 때 메모리에 따라 contigous함을 담보할 수 없는 것으로 이해하였는데, 이에 대한 반례가 있나요?\n슬라이스 하였음에도 반드시 view를 사용할 수 있는 경우가 있는지 궁금합니다.",
+        "user": "U09CH7ZHVJP",
+        "user_name": "송현우",
+        "timestamp": "1756719425.074199",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7Z7ZC3",
+                "U05QLE6RKSS",
+                "U09CH7TN9A7",
+                "U09CH8C0PUK"
+              ],
+              "count": 4
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "연속된 행을 슬라이스하면 view를 사용할 수 있습니다.\n열 단위 슬라이스를 해보시고 결과를 비교해보세요.\n\n더 자세한 내용을 알고 싶다면 파이토치 텐서가 메모리에 어떻게 저장되는 지에 대해 알아보시면 좋습니다.",
+          "user": "U09CD7Y1FPX",
+          "user_name": "손지아",
+          "timestamp": "1756720522.706899",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CD7Y1FPX",
+              "ts": "1756720709.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "참고하실만한 사이트가 있어 공유 드립니다!! <https://stackoverflow.com/questions/48915810/what-does-contiguous-do-in-pytorch|해당 사이트>를 참고하시면 도움이 되실 것 같습니다!\nPytorch에서 텐서가 메모리에 저장될 때 텐서는 보통 행 단위로 연속 메모리에 저장됩니다! 이때 transpose()와 같이 텐서의 shape을 바꾸는 연산을 실행한 경우, 하나의 행이 contigous하지 않게 됩니다.\n해당 개념을 생각해보았을 때 말씀하신 반례의 경우는 생성한 텐서의 하나의 행 자체를 슬라이싱하거나 메모리 상 연속적인 요소만 슬라이싱 하거나.. 등등의 경우가 반례가 될 수 있을 것 같습니다!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756720732.616539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CD7Y1FPX",
+                  "U09CH7ZHVJP",
+                  "U09CH7YCBFV",
+                  "U09CH7TFUKV",
+                  "U09CH7XTTNX"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모두 감사합니다!",
+          "user": "U09CH7ZHVJP",
+          "user_name": "송현우",
+          "timestamp": "1756720751.645999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 송현우 캠퍼님.\n\n`x = torch.arange(10)`\n`y = x[:5]`\n`print(y)` \n`print(y.is_contiguous())`\n`z = y.view(5, 1)`\n\n손지아 멘토님과 김차미 캠퍼님 말씀대로 contiguous한 텐서의 일부를 차례대로 가져오는 경우에는 여전히 물리적으로도 연속적이게 되어 view 함수 호출도 위와 같이 가능합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756727154.476279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U05QLE6RKSS",
+                  "U09CH7Z7ZC3",
+                  "U09CH7ZHVJP",
+                  "U09CH7XTTNX"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 조동현 캠퍼님. 답변이 늦어 죄송합니다.\n\n이 부분은 강좌마다 다른 것으로 알고 있습니다!\n\n확인 부탁드립니다. <@U03U4UPMM3L> 님!",
+        "user": "U05QLGVQBUN",
+        "user_name": "김정원",
+        "timestamp": "1756726265.370799",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH84LS3V> (cc. <@U05QLGVQBUN>)\n넵 :slightly_smiling_face: 강좌마다 다릅니다~!! ㅎㅎ",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756727675.307769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "bow",
+                "users": [
+                  "U05QLGVQBUN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네넵",
+          "user": "U09CH84LS3V",
+          "user_name": "조동현",
+          "timestamp": "1756775464.850689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH84LS3V",
+          "user_name": "조동현",
+          "timestamp": "1756775468.762079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[3강 creating tensors] - GPU tensor 에서 cuba는 gpu가 nvidia일때만 가능한건가요?\n제 노트북은 intel이라 is_available이 false여서 여쭤봅니다!!",
+        "user": "U09CH86TGE7",
+        "user_name": "김새한_T8034",
+        "timestamp": "1756738740.244429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH86HP4K",
+                "U09CH7T8Z8T"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CH7TN9A7"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 김세한 캠퍼님.\n\n캠퍼님 말씀대로 CUDA는 NVIDIA에서 개발한 GPU 연산 플랫폼이기에 NVIDIA GPU에서만 사용할 수 있습니다. \n\n따라서 캠퍼님께서 로컬 환경에서 코드를 실행하고 계시다면 intel gpu로는 CUDA사용이 불가능하시고, colab 환경에서 실행해주시면 되겠습니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756765920.749919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH86TGE7",
+                  "U05QLE6RKSS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "구글 Colab 상단 메뉴의 런타임 &gt; 런타임 유형 변경 &gt; T4 GPU 선택 후 저장 한 다음 코드 전체 다시 실행해보시면 True 뜰 거에요",
+          "user": "U09CH7WV1PV",
+          "user_name": "성승우",
+          "timestamp": "1756769078.418309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH86TGE7",
+                  "U09CH7T7TBM"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!!",
+          "user": "U09CH86TGE7",
+          "user_name": "김새한_T8034",
+          "timestamp": "1756773468.911999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[4강 manipulation of tensors] 퀴즈 2번 문제에 대해 질문드립니다. shape이 [3,2]인 tensor t를 s = t[:2,:1]로 슬라이싱하면 contiguous가 깨져서 view를 사용할 수 없는 걸로 이해하고 있었는데 답이 아니라 의아하여 찾아보니 view가 작동할 때 기존 tensor의 stride값을 따르면 가능한 것으로 보이는데 정확한 해설을 듣고 싶습니다.",
+        "user": "U09CH86SBJ7",
+        "user_name": "LEE BEOM SEOK",
+        "timestamp": "1756777038.427859",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH8C0PUK",
+                "U09CH7XTTNX",
+                "U09CH7SLK5H",
+                "U09CH8B18RZ",
+                "U09CH8B49R9",
+                "U09CH8ARTA7",
+                "U09CH8AJLTV",
+                "U09CH7QQ1QT",
+                "U09CH7F0PPV",
+                "U09CH83VDDZ",
+                "U09CH8ABJRZ",
+                "U09CH887KBM",
+                "U09CH7VTX2P",
+                "U09CH82T5V1",
+                "U09CH7YCBFV",
+                "U09CH7WRGAX",
+                "U09CH7TQGP5",
+                "U09CH7YMY59",
+                "U09CH7S7W91",
+                "U09CH7XF0R1",
+                "U09CH7VASP5",
+                "U09CH8ALW3V",
+                "U09CMENFY8J",
+                "U09CH86HP4K",
+                "U09CMF1G7HQ",
+                "U09CH8141SP",
+                "U09CH7Z7ZC3"
+              ],
+              "count": 27
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "제 생각엔 연속성이 view 연산 가능에 영향을 미치지만, 말씀하신대로 연속적이지 않아도 기존 tensor의 stride 값 패턴으로 메모리를 건너뛸 수 있다면 view 연산이 가능한 것 같습니다.\n해당 예시를 참고하시면 이해가 되실 것 같습니다..!\n\n`## 말씀하신 non-contiguous하지만 stride가 같은 view가 가능한 예시`\n```t = torch.tensor([[1,2], [3,4], [5,6]])\nprint(f't.shape = {t.shape}')\nprint(t.stride())  ## 결과: (2,1) \n## -&gt; t[0][0] 에서 t[1][0]으로 증가할 때 메모리에서 2칸 이동\n## -&gt; t[0][0] 에서 t[0][1]으로 증가할 때 메모리에서 1칸 이동\nprint('-----------------\\n')\n\ns = t[:,:1]\nprint(f's = {s}')\nprint(f's.is_contiguous() = {s.is_contiguous()}')\nprint(s.stride())  ## 결과: (2,1) \n## -&gt; t[0][0] 에서 t[1][0]으로 증가할 때 메모리에서 2칸 이동\n## -&gt; t[0][0] 에서 t[0][1]으로 증가할 때 메모리에서 1칸 이동\nprint('-----------------\\n')\n\nl = s.view(1, -1)\n## 1 -&gt; (2칸) -&gt; 3 -&gt; (2칸) -&gt; 5\nprint(f'l = {l}')\nprint(f'l.is_contiguous() = {l.is_contiguous()}')```\n`## non-contiguous하지만 stride가 같은데 view가 가능하지 않은 예시`\n```t = torch.tensor([[1,2,3], [4,5,6], [7,8,9]])\nprint(f't.shape = {t.shape}')\nprint(t.stride())  ## 결과: (3,1)\n## -&gt; t[0][0] 에서 t[1][0]으로 증가할 때 메모리에서 3칸 이동\n## -&gt; t[0][0] 에서 t[0][1]으로 증가할 때 메모리에서 1칸 이동\nprint('-----------------\\n')\n\n\ns = t[:,:2]\nprint(f's = {s}')\nprint(f's.is_contiguous() = {s.is_contiguous()}')\nprint(s.stride())  ## 결과: (3,1) \n## -&gt; t[0][0] 에서 t[1][0]으로 증가할 때 메모리에서 3칸 이동\n## -&gt; t[0][0] 에서 t[0][1]으로 증가할 때 메모리에서 1칸 이동\nprint('-----------------\\n')\n\n\nl = s.view(1, -1)\n## 1 -&gt; (1칸) -&gt; 2 -&gt; (1 + 3칸) -&gt; 4 ... \nprint(f'l = {l}')\nprint(f'l.is_contiguous() = {l.is_contiguous()}')```\n참고 docs: <https://docs.pytorch.org/docs/stable/generated/torch.Tensor.view.html|torch.Tensor.view>",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756780807.201869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YMY59",
+                  "U09CH7TFUKV",
+                  "U09CH86SBJ7",
+                  "U09CH7YCBFV",
+                  "U09CH8C0PUK",
+                  "U09CH7XTTNX",
+                  "U09CH7W1NCT",
+                  "U09CH8ALW3V",
+                  "U09CH7VASP5",
+                  "U09CH7UDBCK",
+                  "U09CH7S61DZ",
+                  "U09CH89HZM1",
+                  "U09CH85LRSP"
+                ],
+                "count": 13
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CH81SQAX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "덕분에 좀 더 명확하게 정리된 것 같습니다. 감사합니다!",
+          "user": "U09CH86SBJ7",
+          "user_name": "LEE BEOM SEOK",
+          "timestamp": "1756781321.957269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U09CH7U429H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 부분에 대해 질문하려 했는데 좋은 해설이 있었네용 감사합니다!!",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1756791009.536269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U09CH7U429H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "찾아보니 contiguous 판단 로직에서 size가 1일 경우 해당 차원은 무시한다고 합니다.",
+          "user": "U09CH800JQK",
+          "user_name": "TaeHyeong Kim",
+          "timestamp": "1756792113.363789",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH800JQK",
+              "ts": "1756793950.000000"
+            },
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH8C0PUK",
+                  "U09CH7Z7ZC3"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH86SBJ7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/pytorch/pytorch/blob/1aeb421c342c9e9607842f4c87cb46e8e816ee53/c10/core/Contiguity.h#L14>",
+          "user": "U09CH800JQK",
+          "user_name": "TaeHyeong Kim",
+          "timestamp": "1756792116.646269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러면 이부분에 대해서 만약 non-contiguous한 tensor를 view로 shape를 변경할 수 있는 경우는 해당 non-contiguous한 tensor를 squeeze를 통해 1-D tensor 즉, 벡터로 표현이 가능해진다면 view가 가능하다라고 해석을 하면 될까요?",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1756793453.455819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "먼저 제가 size를 stride라고 잘못 표현한 점 정정하겠습니다. 위 댓글도 수정해둘게요.",
+          "user": "U09CH800JQK",
+          "user_name": "TaeHyeong Kim",
+          "timestamp": "1756793894.375969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH855L91"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 그런 해석은 안 해봤는데, 맞는것 같습니다.",
+          "user": "U09CH800JQK",
+          "user_name": "TaeHyeong Kim",
+          "timestamp": "1756794770.139919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "size가 1이면 해당 차원이 무시되는 이유에 대해서 정리해봤습니다!\n\nshape이 (2, 3)인 텐서 t가 있다고 해보자. t의 stride는 (3, 1)이다.\n t[1, 2]를 읽으려면 메모리 주소는 `t의 시작주소 + 1 * stride[0] + 2 * stride[1]` 이 된다.\n\n근데 어떤 차원의 크기가 1인, 예를 들어 shape이 (3, 1)인 텐서 k가 있다고 해보자. k의 stride는 (1, 1)이다.\n k[1, 0]을 읽으려면 `k의 시작주소 + 1 * stride[0] + 0 * stride[1]`이 된다.\n\n여기서 중요한 건, 열 크기가 1이기 때문에 인덱스가 항상 0뿐이다. 그래서 `0 * stride[1]`은 stride[1]이 무슨 값이든 그냥 0이 된다.",
+          "user": "U09CH7TQGP5",
+          "user_name": "김지호_T8051",
+          "timestamp": "1756795670.043349",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7TQGP5",
+              "ts": "1756797071.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*(5강) Basic Operations on Tensors 질문입니다.*\ntensor의 덧셈, 뺄셈 등 연산을 할 때, a + b, a - b 등도 가능한데 torch.add, torch.sub 등을 사용하는 이유가 있을까요?",
+        "user": "U09CH8B49R9",
+        "user_name": "김준수",
+        "timestamp": "1756777045.450009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "add나 sub같은 함수도 변수로 사용이 가능하기 때문이 아닐까요?\n결국 +도 내부적으로는 _add _ 함수를 호출하는 느낌이긴 하지만요....",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1756778294.313689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여러가지 loss나 norm은 인자로 전달되는 일이 아주 많으니까 그것들이 함수로 만들어져야 하는 이유가 분명한데, +를 꼭 add로 수행해야만 하는 상황은 쉽게 상상이 안 되네요. 저도 궁금합니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756779717.159039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "함수니까 파라미터를 지정할 수 있어서 아닐까요? add 함수에는 우항과 곱해지는 값인 alpha와 결과를 담을 텐서를 지정하는 out 파라미터가 있네요 <https://docs.pytorch.org/docs/stable/generated/torch.add.html#torch.add>",
+          "user": "U09CH7TQGP5",
+          "user_name": "김지호_T8051",
+          "timestamp": "1756780732.741339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH8B49R9",
+          "user_name": "김준수",
+          "timestamp": "1756781177.987149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "(기본-1) 과제 TODO 2-8질문입니다.\ntorch.fill과 torch.fill_의 다른점이 무엇인지 답하는 건데, 여기서 torch.fill은 torch.full을 잘못친 오타일까요?",
+        "user": "U09CH89AFDH",
+        "user_name": "김한준",
+        "timestamp": "1756781213.264859",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH87N3PV",
+                "U09CH887KBM",
+                "U09CH8B49R9",
+                "U09CH7UQGR1",
+                "U09CH7TN9A7"
+              ],
+              "count": 5
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "[(기본-1) 과제 TODO 2-8]\n\n안녕하세요, 김한준 캠퍼님. 조교 김정원입니다.\n\ntorch.fill 함수는 PyTorch 공식 문서에는 나오지 않지만, 내부적으로 사용되는 함수입니다. 다만, tensor.fill_()과 동일한 입력값을 받는 내부 함수이기 때문에 이를 바탕으로 비교 문항을 출제하였습니다.\n\n따라서 캠퍼 여러분께서는 torch.fill을 기준으로 비교해도 좋고, torch.full과의 차이점을 중심으로 답변하셔도 무방합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": null,
+          "timestamp": "1756786379.901759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH89AFDH",
+                  "U09CH7TFUKV",
+                  "U09CH81NW2X",
+                  "U09CH820HNF",
+                  "U09CH7XL69Z",
+                  "U09CH89HZM1",
+                  "U09CH7ZR8JX",
+                  "U09CMF390JW",
+                  "U09CH7U429H",
+                  "U09CH85JCFM",
+                  "U09CH87HJ1H",
+                  "U09CH87N3PV",
+                  "U09CH825FGT",
+                  "U09CH81LTHR",
+                  "U09CH7TN9A7",
+                  "U09CH8C0PUK",
+                  "U09CH7UDBCK",
+                  "U09CH85LRSP",
+                  "U09CH81SQAX",
+                  "U09CMF1G7HQ",
+                  "U09CH7T7TBM"
+                ],
+                "count": 21
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<https://docs.pytorch.org/docs/2.3/generated/torch.reshape.html|torch.reshape() documentation>에 따르면, reshape()도 가능한 경우에는 view를 return한다고 돼 있는데요, 그렇다면, view()를 사용할 수 있는 경우 reshape()를 사용했을 때 view()와 비교해 성능 차이는 거의 없다고 볼 수 있을까요?\n\n명시적으로 data copy가 일어나지 않음을 보이거나, data copy를 방지하려는 의도가 아니라면, \"무지성\"으로 view() 대신 reshape()을 사용해도 괜찮을까요?\n\n그렇다면, 실무에서 reshape() 대신 view()를 반드시 써야 하는 경우는 어떤 게 있는지, 혹시 아시는 분 계신가요?",
+        "user": "U09CH7S61DZ",
+        "user_name": "Park Corey",
+        "timestamp": "1756789540.335409",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH8ALW3V",
+                "U09CH86HP4K",
+                "U09CMEPMZLJ",
+                "U09CH7Z7ZC3",
+                "U09CH82GK51"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "성능 차이 부분에서는 pytorch 공식 문서에서 `reshape()`는 tensor가 contiguous하지 않을 때, `tensor.contiguous()` 후 copy를 한다고 하니, 만약 tensor가 contiguous 하다면 위의 과정이 일어나지 않으므로 view()와 reshape() 성능 차이는 없을 것 같습니다.\n\n참고 docs: <https://docs.pytorch.org/docs/stable/generated/torch.Tensor.view.html#torch.Tensor.view>",
+          "user": "U09CH7YMY59",
+          "user_name": "임우현",
+          "timestamp": "1756790747.340439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7YMY59",
+              "ts": "1756790775.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7S61DZ",
+                  "U09CH7WV1PV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[(5강) Basic Operations on Tensors] expand()와 repeat() 메모리 효율성 질문*\n안녕하세요! 강의에서 expand()와 repeat()의 메모리 효율성에 대해 설명해주신 부분에 대한 질문이 있습니다.\nrepeat()은 텐서 요소들을 실제로 복사해서 새로운 텐서를 만드는 반면, expand()는 그렇지 않아서 메모리 효율성이 더 좋다고 하셨는데요. 얼핏 보기에 expand()도 복사해서 새로운 텐서를 만드는 것처럼 보이는데, 구체적으로 expand()가 메모리 사용 방법에서 어떤 차이가 있어서 이런 성능 차이가 나는 건지 궁금합니다.\nexpand()는 마치 generator처럼 동작하는 건가요?",
+        "user": "U09CH7WV1PV",
+        "user_name": "성승우",
+        "timestamp": "1756790125.073969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH86HP4K",
+                "U09CH83VDDZ",
+                "U09CH7TN9A7"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "expand()는 실제로 메모리를 늘리는 것이 아니라 stride(메모리를 읽어오는 방식)를 조정하는 것이기 때문에 추가 메모리를 할당하지 않습니다.\n\n컴퓨터 메모리는 사실 1차원 배열처럼 저장되고, 다차원 텐서는 stride를 통해 이 1차원 메모리를 어떻게 인덱싱할지를 정하게 됩니다.\n\nstride란 각 차원에서 한 칸 이동할 때 실제 메모리에서 이동하는 거리를 의미합니다.\n```\nimport torch\n\na = torch.tensor([[1, 2, 3],\n                  [4, 5, 6]])\nprint(a.shape)   \n# torch.Size([2, 3])\nprint(a.stride()) \n# (3, 1)```\na의 크기는 (2, 3)인 2차원 텐서입니다.\n\n a의 stride는 (3, 1)인데, 이는 첫 번째 차원(행)에서 한 칸 이동하려면 메모리에서 3칸 건너뛰고, 두 번째 차원(열)에서 한\n칸 이동하려면 메모리에서 1칸 건너뛴다는 뜻입니다.\n\n```b = torch.tensor([[1],\n                  [4]])        \n# shape (2,1)\nprint(b.stride())   \n# (1, 1)\n\nc = b.expand(2, 3)  \n# shape (2,3)\nprint(c.stride())   \n# (1, 0)```\nb는 두 번째 차원(열)의 크기가 1인 텐서입니다.\n\nb에 expand를 적용한 c는 두 번째 차원(열) 방향 stride가 0인 것을 확인할 수 있습니다.\n\n즉, 열 방향으로 움직여도 실제 메모리 상에서는 움직이지 않고 같은 메모리 주소를 반복해서 참조하기 때문에 값이 확장된 것처럼 보이는 것입니다.\n\n이렇게 expand는 메모리 자체에 새로운 값을 할당하는 repeat과 다르게 스트라이드를 조정해서 같은 메모리 값을 여러 번 참조하는 형식으로 동작하기 때문에 메모리 성능이 좋다고 말하는 것 같습니다.",
+          "user": "U09CH8ABJRZ",
+          "user_name": "설성범",
+          "timestamp": "1756790389.979039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7TFUKV",
+                  "U09CMENFY8J",
+                  "U09CH84CA6P",
+                  "U09CH7UDBCK",
+                  "U09CH892EF5",
+                  "U09CH8C0PUK",
+                  "U09CMF390JW",
+                  "U05QLGVQBUN",
+                  "U09CH8BDAPM"
+                ],
+                "count": 9
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH7TFUKV",
+                  "U09CMENFY8J",
+                  "U09CH7YMY59",
+                  "U05QLGVQBUN"
+                ],
+                "count": 4
+              },
+              {
+                "name": "star-struck",
+                "users": [
+                  "U09CH7TFUKV",
+                  "U09CH7TQGP5",
+                  "U09CH7WV1PV",
+                  "U09CMENFY8J",
+                  "U09CH820HNF",
+                  "U05QLGVQBUN"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오오~ 명쾌하게 이해됐어요.\n감사합니다!",
+          "user": "U09CH7WV1PV",
+          "user_name": "성승우",
+          "timestamp": "1756791142.616399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[4강 manipulation of tensors]에서 무한대 노름은 왜 각 행의 절댓값의 합의 최댓값인지 좀더 자세히 알고 싶습니다. L1, L2노름하고 구하는 방법이 다른 이유도 궁금합니다",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756790239.647569",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1756790275.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "L^1, L^2 말고도 L^3, L^4, L^5, ... , L^p-norm이 있어요. L^∞-norm은 p->∞ 인 경우로 이해하시면 왜 그렇게 정의하는지 이해가 되실겁니다.\n벡터 (1,2,3)을 예시로 갖고 생각해보면, 이 벡터의 L^1-norm에서는 세 번째 좌표값이 차지하는 비중이 1+2+3에서 3이니까 전체에서 반 인데, p를 10(L^10-norm)정도까지만 키워도 (1^10+2^10+3^10)^0.1 에서 괄호 안 세번째 성분의 비중이 압도적으로 큽니다.\np가 계속 커지면 결국 절댓값이 가장 큰 성분만 유의미해집니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756791305.454509",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1756792011.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH89HZM1",
+                  "U09CH883B6X"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "7페이지에 Ln노름을 정의한 식이 있습니다.\n이때 오른쪽 식에서 p가 무한대로 발산하게 되면 노름값이 최댓값으로 수렴하게 됩니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1756791394.350959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

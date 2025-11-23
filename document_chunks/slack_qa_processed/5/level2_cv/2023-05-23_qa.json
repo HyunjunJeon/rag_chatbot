@@ -1,0 +1,135 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*[Annotation 실습]*\n안녕하세요 제곱미터(m^2)는 어떻게 라벨링을 해야할까요?",
+        "user": "U04RXRU7AFK",
+        "user_name": "한현민",
+        "timestamp": "1684889875.360359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "m^2를 하나의 텍스트박스로 그려주시고, 구분없이 `m2`로 전사해주세요",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1684893465.842859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:",
+          "user": "U04RXRU7AFK",
+          "user_name": "한현민",
+          "timestamp": "1684893491.099499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[Annotation 실습]*\n*안녕하세요, 제가 오피스 아워 guide 듣기 전 페이지 둘러보다가 '&gt;'버튼으로 받아들인 이미지가 6장인데 삭제할 방법을 찾지 못했습니다. 제출만 3장하면 별다른 문제 없을까요?*",
+        "user": "U04RG8YTUP7",
+        "user_name": null,
+        "timestamp": "1684893052.011209",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "넵, 3장만 제출해주시면 별다른 문제가 없을 것 같습니다.",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1684893485.302549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인했습니다. 감사합니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_T5053",
+          "timestamp": "1684894163.230059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "기존에 annotation 되어있는 이미지를 수정하는 방식인건가요?",
+          "user": "U04S8T5TT0Q",
+          "user_name": "이윤표_T5148",
+          "timestamp": "1684900785.457119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네, 기존의 어노테이션되어 있는 이미지라기 보다는 모델이 추론해준 결과를 바탕으로 라벨링하는 것이라고 이해해주시면 될 것 같습니다.",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1684900847.789099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U04S8T5TT0Q",
+          "user_name": "이윤표_T5148",
+          "timestamp": "1684900877.366459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

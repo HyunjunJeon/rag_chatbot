@@ -1,0 +1,235 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 NLP 8조 임동진입니다. 애완동물에 관한 데이터 제작을 하고 있는데 대명사에 대한 질문이 있습니다\n\"침을 흘리며 마약에 취한 듯한 모습을 보이는 개체에서부터 전혀 관심이 없는 개체까지 개체별 차이가 있다.\"\n라는 문장이 있을 때, \"개체\"라는 단어는 \"동물\"이라는 Entity로 볼 수 있을까요?\n볼 수 있다는 의견은 어쨌든 개체에 대한 설명이 나오기 때문에 동물이라는 것도 유추할 수 있다라는 의견이고\n앞문장 없이는 저 개체라는 것이 동물인지는 명확히 알 수 없기 때문에 고양이 라는 말로 개체를 변환시켜야 쓸 수 있다는 의견이\n있습니다.\n그래서 \"개체\"를 어떻게 처리하는게 맞는지에 대한 조교님 의견이 궁금해서 글을 올립니다",
+        "user": "U02TT5NTTAT",
+        "user_name": "임동진",
+        "timestamp": "1650251828.048379",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 비슷한 이슈가 생겼던 '자연과학' 주제에서는 이러한 점을 고려하여 '개체'라는 entity를 정의하면 어떠한지에 대해 이야기를 드린 바 있습니다. 또 '반려동물'이라는 topic 하에서 나오는 개체는 대부분 동물이라는 점을 고려하여, 동물로 간주해도 저는 괜찮다고 생각합니다. 해당 가이드라인에서의 entity 체계가 일반 topic까지 모두 적용될 필요는 없습니다. 또한 말씀하신 대로, 고양이 라는 일반적인 생물종으로 문장을 수정하셔도 괜찮습니다 (article이 고양이에 관한 것이라면) relation이 도출되기 힘들어보인다면 원문을 고수하실 필요는 없습니다 :slightly_smiling_face:",
+          "user": "U02T6SH1BKR",
+          "user_name": null,
+          "timestamp": "1650258677.101329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02TT5NTTAT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U02TT5NTTAT",
+          "user_name": "임동진",
+          "timestamp": "1650258817.467229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. NLP3조 김소연입니다.\n관계map 구성을 위해 조교님을 비롯해 다른 팀분들은 어떻게 의사결정 하셨는지 의견 듣고 싶어서 질문 올립니다.\n1. 혹시 관계 중 *'정의' 관계가 형성될 경우* 있으신 팀 안계셨나요? 저희 팀 주제인 자연 과학 특성 상 subject와 Object가 정의 관계로 묶이는 경우가 많습니다. \n    ◦ 예를 들어, `즉, *핵막이 있으며 일반적으로 균사벽이 균류 키틴을 함유하는 균류*가 '*진균류*'이다.`\n        ▪︎ 이러한 경우 *'진균류'에 대한 정의를 '구(phrase)' 형태로 묶을 수 있는데요. '구'의 기준이 애매하고, 또 너무 토큰이 길어질 수 있을 것 같다 생각했습니다.* 따라서 궁여지책으로 *핵막, 균사벽 을 진균류가 갖는 특징으로 분류*할 수 있긴 합니다. \n    ◦ 반면.. 아래의 경우에는 *문장 내에 '대류권', '외기권' 을 묶기 위해 정의 관계 외에는 적합한게 없다* 생각합니다. 그렇다고 *대류권&lt;-&gt; 대기의 층* 으로 묶자니 너무 포괄적이라서요..! \n        ▪︎ `*대류권*은 *지표면에 가장 인접한 대기의 층*이다.`\n        ▪︎ `*외기권*은 *지구 대기가 우주 공간과 접하는 최외곽 영역*이다.`\n        ▪︎ `*간접적방사능*은 *대기에서 산란된 빛*이다.`\n    ◦ 이런 경우가 많지 않다면 문장 내에 임의의 subject, object를 묶어 no_relation으로 설정해도 되지만 데이터셋 특성 상 이 부분이 중요해서.. 팀원들이 함께 고민입니다 :smiling_face_with_tear::smiling_face_with_tear:",
+        "user": "U02TUHB5D7V",
+        "user_name": "Soyeon Kim",
+        "timestamp": "1650256582.820309",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 하위개념으로 보면 어떨까요\n대류권 &lt; 대기의 층\n외기권 &lt; 지구 대기\n간접적방사능 &lt; 빛\n\n균류 키틴 &lt; 균사벽\n진균류 &lt; 균류",
+          "user": "U02U1TBB8GN",
+          "user_name": "정기원_T3195",
+          "timestamp": "1650257786.890499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_confuse",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "말씀하신 예시들 중 대류권-대기 혹은 외기권-지구 대기 같은 관계는 물리적으로 부분을 차지하는 요소들이며, 간접적방사능-빛 의 경우는 빛 이라는 어떤 물리현상의 일종으로써 물리적 요소보다는 성질적으로 하위 요소인 것 같은데요, 이를 포괄하여 하위집합으로 보는 방법과 성질이 다른 하위집합들로 보는 방식 중 더 적합해 보이는 방향을 택하시면 좋지 않을까 생각됩니다!",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650258829.753509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U1TBB8GN> 오 기원님 좋은 아이디어 감사합니당 :slightly_smiling_face: <@U02T6SH1BKR> 조교님 감사합니다!! :slightly_smiling_face:",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1650260488.617979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 아직도 업로드가 안되고 있는데 다른 분들도 마찬가지이신가요??",
+        "user": "U02U1UWCVNE",
+        "user_name": null,
+        "timestamp": "1650262635.191349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02T15UJ1MM",
+                "U02T25M7BE3",
+                "U02TMMJDC14"
+              ],
+              "count": 3
+            },
+            {
+              "name": "booduck_cry",
+              "users": [
+                "U02TFFQAJR1",
+                "U02TMMJDC14"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 지금 안되는 것 같습니다!ㅠ",
+          "user": "U02T25M7BE3",
+          "user_name": "정민지",
+          "timestamp": "1650263562.574639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U1UWCVNE> 주말에는 업로드 가능했었는데 지금은 업로드 되지 않습니다ㅠㅠ:booduck_cry:",
+          "user": "U02U7N1DGHG",
+          "user_name": "강나경",
+          "timestamp": "1650263606.504049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "으앗,,, 큰일이네요 ㅜㅜ",
+          "user": "U02U1UWCVNE",
+          "user_name": "정시현",
+          "timestamp": "1650264084.734149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. NLP3조 김소연입니다.\n<@U02T6SH1BKR> 조교님께서 남겨주신 코멘트를 보면서 궁금한 부분이 있어서 질문드립니다. 코멘트 중  `object가 entity 형태를 띠지 않을 가능성이 높다는 것`이 어떤 말씀일까요? 저희는 긴 구(Phrase) 는 어려우나 짧은 phrase는  entity로 볼 수 있다고 생각했어서요! (e.g, *캄브리아기 초기 , 다양한 공룡의 출현, 제2 폭격기,생명의 탄생,현재의 기후계)* \n&gt; _*‘특징’, ‘이후_발생’, ‘정의’, ‘영향’*_ 등은 하나의 entity로 표현되기 어려운 개념이어서 실제 예문에서 *phrase (혹은 chunk) level*로 표기된 것으로 보입니다. 하지만 이러한 relation들은 object가 entity의 형태를 띠지 않을 가능성이 높아 RE 태스크의 분류 대상이 되기에 어렵습니다.\n감사합니다 :slightly_smiling_face:",
+        "user": "U02TUHB5D7V",
+        "user_name": "Soyeon Kim",
+        "timestamp": "1650263463.036829",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TUHB5D7V",
+            "ts": "1650263535.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "말씀하신 예시들은 가능해 보입니다!\nrelation map에 문장 형태로 coloring이 되어있어서 제가 적절치 않다고 생각했을 수도 있습니다\n잘 정의해서 활용 가능하다면 상관없을 것 같고, 다만 '정의/특징'의 경계, '이후발생/영향'의 경계처럼 blurry한 부분들만 잘 보완하시면 될 것 같습니다",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650263866.747539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[Data-Centric 10강] Bag of Tricks 강의 내용 질문\n\n10강에서 Geometric Transformations for Text Images 부분 설명해주실 때, 예시들을 팍팍 보여주셔서 좋았습니다!\n예시들 대부분이 random crop 을 먼저 적용하고 geometric transform 을 적용시킨 것처럼 보입니다.\n\n제 생각에 random crop 을 적용하지 않고 이미지 한 장 전체에 geometric transform을 써도 강의에서 설명해주신 rule1, rule2 를 적용시킬 수 있을 것 같은데,\n강의 자료와 강의에서 보여주신 예시들이 random crop 을 적용시킨 것에 geometric transform 을 적용시킨 이유가 글자 영역 검출에서 augmentation 을 활용할 때 random crop 을 많이 사용해서 그런 것인지, 아니면 직관적인 예시를 보여주기 위함인지가 궁금합니다!",
+        "user": "U0643C3MX4H",
+        "user_name": "백광현",
+        "timestamp": "1706038690.988889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "백광현 캠퍼님 안녕하세요.\n먼저 말씀해주신 방법으로도 rule1, rule2는 적용이 가능하다고 생각됩니다.\nRandom crop을 적용하고 geometric transform을 적용한 것은 data augmentation 기법에서 random하게 pacth를 생성하는 것이 일반적으로 데이터 다양성을 위해 많이 사용되는 방법입니다. rule1/rule2에 제한되는 것은 아닙니다.\n또한 augmentation 기법은 다양하기 때문에 다양성을 주기 위한 여러 방법들이 사용 가능합니다.",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1706068691.719439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 감사합니다!",
+          "user": "U0643C3MX4H",
+          "user_name": "백광현",
+          "timestamp": "1706071728.782959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "slightly_smiling_face",
+                "users": [
+                  "U03MQK0FF4Y"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03MQK0FF4Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Data-Centric 최종 퀴즈 질문]\n안녕하세요! Data-Centric 최종 퀴즈의 5번 문제에서 질문이 있습니다.\n아래 사진의 문제에서 박스 C와 박스 E가 겹치는 부분이 없는 이유가 무엇인가요?\n박스 C의 (45, 55)와 박스 E의 (40, 50) 때문에 겹치지 않나요?",
+        "user": "U063A71UMPH",
+        "user_name": null,
+        "timestamp": "1706063512.421749",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "bbox format 부분이 잘못 작성되어있어서 수정 완료하였습니다!",
+          "user": "U0619C0ATQS",
+          "user_name": "문예빈_조교",
+          "timestamp": "1706065657.782799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

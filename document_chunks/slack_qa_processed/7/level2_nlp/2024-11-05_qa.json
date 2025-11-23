@@ -1,0 +1,260 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 <@U07E14BU1L7> 님! 해당방식은 사용 가능합니다.",
+        "user": "U04L09BNA7R",
+        "user_name": "이승윤",
+        "timestamp": "1730807123.765329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 감사합니다!",
+          "user": "U07E14BU1L7",
+          "user_name": "김민서(Ricky)",
+          "timestamp": "1730852578.913939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 NLP 7조 강감찬입니다. data-centric 프로젝트 관련 질문이 있어 문의드립니다.\n현재 LLM을 활용해 7개의 카테고리를 예측하도록 하고, 예측한 카테고리 정보를 바탕으로 라벨 클러스터링을 적용해 문제를 해결하고 있습니다. 이 방법을 test.csv에 직접 적용하면 규칙에 위배되는지 궁금합니다.",
+        "user": "U07EFLNGH6W",
+        "user_name": "강감찬",
+        "timestamp": "1730861913.495339",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EFLNGH6W",
+            "ts": "1730861991.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U03SAGX725R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07EFLNGH6W> 님!\ntest.csv에는 절대로 아무것도 적용되어서는 안됩니다.",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1730876290.844679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 NLP 1조 홍성균입니다.\n지금 베이스라인 코드에 예측을 배치단위로 하지 않고 있는데 코드를 좀 바꿔서 배치단위로 예측하게 하는 정도로는 수정해도 될까요?\n예측이 좀 오래걸려서요..!",
+        "user": "U07EFHB86HZ",
+        "user_name": "홍성균",
+        "timestamp": "1730872612.708939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U03SAGX725R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07EFHB86HZ> 님!\n베이스라인 코드를 변경하되, 이전과 동일한 결과를 나타내야 합니다.\n즉, 제출 시 기존 baseline 코드를 제출하고, 사용 시에 동일한 결과를 나타내도록 코드를 변경하면 됩니다.",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1730876396.214539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U07EFHB86HZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Back Translation 할 때 과제1에 있는 googletrans 라이브러리 사용해도 되나요?\ngoogletrans가 Google Cloud Translation API(유료)를 사용한다길래 질문드립니다.",
+        "user": "U07E14DS9PZ",
+        "user_name": "박무재_T7336",
+        "timestamp": "1730876051.415829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U07E14DS9PZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. <@U07E14DS9PZ> 님. 사용 가능합니다.\n다만 제가 알기로 Google Cloud Translation API를 활용하는 googletrans의 무료 기준은 양이 제한적인 것으로 알고있습니다.\n만약 무료로 계속 사용이 가능하시다면, 사용이 가능하나 유료로 전환되는 경우는 사용이 불가함을 안내드립니다.",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730876514.450939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U07E14DS9PZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "명확한 답변 감삳합니다!",
+          "user": "U07E14DS9PZ",
+          "user_name": "박무재_T7336",
+          "timestamp": "1730876571.507389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U0619KW7QRY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. 역번역에 DeepL API 써보시는 것도 추천드립니다.\nDeepL API Free 는 한 달 동안 500,000자를 무료로 번역할 수 있고, 성능도 뛰어난 편입니다.\n\n<https://github.com/orgs/OmokNoonE/discussions/18>",
+          "user": "U07EUAVL5G9",
+          "user_name": "이한서",
+          "timestamp": "1730877666.579389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07E14DS9PZ"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U07E14DS9PZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 감사합니다~",
+          "user": "U07E14DS9PZ",
+          "user_name": "박무재_T7336",
+          "timestamp": "1730879299.359129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "AI Stages 개요 룰 부분에 아래와 같이 명시되어 있는 것을 확인하고 저희 조는 “비공개 생성 모델“을 사용하면 안된다는 부분에 초점을 맞춰 이해했습니다. 하지만 질의응답 채널에 답변 주신 내용을 살펴보니 유료가 아닌 경우에는 비공개 생성 모델도 사용이 가능하다고 답변주신 것을 확인했습니다.\n“비공개 생성 모델“이 아닌 “유료 버전“에 초점을 두고 규칙을 정하신 이유가 궁금해서 질문드립니다!\n`[불가능한 방법]`\n`유료 버전의 비공개 생성 모델을 활용하는 모든 방법 (GPT-4, ChatGPT (GPT-3.5), api key 결제 일체 포함)`",
+        "user": "U07EJ5F2DJ8",
+        "user_name": "임상엽",
+        "timestamp": "1730879507.423129",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EJ5F2DJ8",
+            "ts": "1730880917.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFH9F0TV",
+                "U07EFHD3VD1",
+                "U07EUAU5B33",
+                "U07E9228L9L"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 궁금합니다",
+          "user": "U07EUAU5B33",
+          "user_name": "윤선웅",
+          "timestamp": "1730879726.693969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

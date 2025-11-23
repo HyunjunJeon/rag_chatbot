@@ -1,0 +1,1088 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[2강] 2강의 강의 내용을 따라서 진행하고 있는데 hello_world.py를 만든 이후 UI에 반영되지 않는 문제가 있습니다.\nctrl+c로 종료한 뒤 airflow scheduler를 다시 실행하였는데 다음과 같은 warning 메시지와 INFO만 계속 뜨고 마찬가지로 UI에 반영되지 않습니다.\n어떤 부분이 문제인지 알려주실 수 있을까요?",
+        "user": "U063QNY17U2",
+        "user_name": null,
+        "timestamp": "1709025332.150609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 20
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요.\n\n올려주신 로그는 각각 웹서버랑 스케줄러 로그인가요?\n일단 마지막 스크린샷만 보면, 스케줄러가 기동이 제대로 안된거 같습니다.\n\nDAG 파일 로딩은 스케줄러가 담당하기 때문에, 스케줄러가 기동이 안되면 Web UI에서도 안보일겁니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709026543.961329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "둘 다 스케줄러 로그입니다~ 메시지가 길어서 나누어 캡처했습니다. 스케줄러를 제대로 실행하려면 어떻게 해야할까요?",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709026682.204349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "스케줄러 종료하신 뒤에 `airflow scheduler` 로 다시 실행한 뒤, 로그 다시 한번 찍어서 올려주시곘어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709026783.424239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수경님 어떤 환경에서 실행하신걸까요? OS 등도 알려주시면 좋을 것 같네요. 지금 Warning에 permission이 뜨네요.\n\n혹시 AI Stage의 서버로 쓰고 계신가? 라는 생각이 들어 질문드려봐요(근데 또 Mac OS라고 나와서 아닌 것 같기도 하네요)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709027062.068999",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709027075.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 개인 mac입니다~",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709027255.654199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시 airflow scheduler해보았는데\nPlease confirm database initialize (or wait 4 seconds to skip it). Are you sure? [y/N]\n질문에 답변하는 것에 따라 로그가 달라서 여러 개 올립니다. 아까는 connect는 됐는데 이젠 connect도 안 되네요..",
+          "user": "U063QNY17U2",
+          "user_name": null,
+          "timestamp": "1709027411.999249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금은 port 연결(airflow webserver --port 8080)도 안 됩니다.",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709027460.858549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "웹서버, 스케줄러 끄시고, `airflow.db` `airflow.cfg`  `airflow-webserver.pid` 파일 삭제하고 다시 해보시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709027496.239489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네 알겠습니다",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709027507.298169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pwd를 저렇게 써주시면 AIRFLOW_HOME에 pwd 스트링으로 저장될 것 같은데요\n\n```export AIRFLOW_HOME=`pwd````\n요게 강의에서 나온 명령어였어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709027519.315489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "셸에서 `AIRFLOW_HOME=$(pwd)` 하셔도 됩니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709027552.073209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "connection in use 8793은 아래 명령어 실행해주시면 프로세스가 죽을거에요\n\n```kill $(lsof -t -i:8793)```",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709027570.340979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 그 부분이 잘못되어 있었군요 그렇게 먼저 해보겠습니다",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709027572.114629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`를 안쓰셨다면 시흠님이 말씀하신 것처럼 아예 처음부터 다시 해보는 것을 추천드려요(처음부터 쓰셨는지는 history 보면 알 수 있겠지요)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709027631.130359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네네 알겠습니다!",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709027656.965439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 해결된 것 같습니다. 감사합니다!:bow:",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709028054.036459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 원인은 무엇이였을까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709028183.936879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아무래도 export AIRFLOW_HOME=`pwd`에서 `을 중간에 빼먹었던 게 원인인 것 같습니다. 웹서버 만든 후 새 터미널 열고 스케줄러 실행하는 과정에서 깜빡하고 잘못 입력한 것 같습니다:booduck_crying:",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709029076.402969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그럴 수 있지요! 지금 이렇게 경험하셨으니 나중에 현업에 가셔선 이런 이슈를 경험하지 않을거에요. 쉘 커맨드에 대해서 잘 이해해보셔요 :muscle:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709029969.619779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 따뜻한 피드백 감사드립니다~!! :cry-cat-thumbs-up:",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1709030190.943239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "민서님이 어떤 생각을 하시다가(혹은 어떤 문제를 푸시다가?) 이런 질문을 하게 되셨을지도 궁금하네요!",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1709027202.727549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U03PL9GCPFZ> 네이버 부스트캠프에 지원하게 된 이유가, 사실 현업 MLOPS 부분에 대해서 알고싶어서 지원 한 거였거든요,\n네부캠 오기 전엔 단순히 혼자 구글링 하면서,\n쿠버네티스 위에서 쿠버플로우 돌려보면서 적당히 pipe line이랑 외부 저장소 붙여서 Kserve로 자동으로 api 서빙 하는 정도만 했었고,\n내부적으로 어떤 기능들이 돌아가는지는 모르는 상태였어요. (YAML로 파이프라인 짜주면..그냥 다 되어있으니까 신기해서 썻습니다.. 파이프라인 중간중간 pod이 켜졋다 꺼지면서 외부저장소에 저장하고, 다음 순서에서 꺼내다 쓰면서 진행되는 방식이 airflow 기반의 pod excutor였던것 같습니다, 도커 이미지를 받아서 실행할 수 있었어서 그렇게 추측중입니다)\n사실 그래픽카드 여러개를 한개처럼 쓰는 방법이 궁금했었습니다 (VRAM 제한 때문에).\n근데 현업에서는 하돕같은 분산처리를 이용하는 것 처럼 보이는데(이번 강의 futher reading)\n그 방식이 더 좋은것 같아서요, 23년 1월부터 고민하던 내용이라 대충 1년 넘은것 같은데, 그동안 모르는 부분 질문하고 있었습니다 ㅎ-ㅎ ..\n혼자 공부했다보니 지식들이 불완전한 부분이 많아서요 ..\n이쪽 MLOPS직무쪽으로 가보고 싶은데, 옛날에 컨퍼런스에서 만났던 구글코리아 머신러닝 팀장님께서\nMLOPS직무로 신입으로 바로 가긴 쉽지 않고 devops를 하다 오거나, 머신러닝 개발자로 입사를 한 뒤에 MLOPS로 전향하라고 말씀을 하셔서\n일단은 머신러닝 신입으로 가서 전향 고려중이라 머신러닝 채용 준비중이긴 합니다 ..!\n그래도 .. 아무래도 MLOPS가 더 재밌어서요 ..! 인프라 설계 좋아합니다 ..\n(요즘은 다기종 GPU로 구성된 클러스터에서의 로드밸런싱이 궁금합니다)",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709028094.078849",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNXGZFU",
+              "ts": "1709028594.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "민서님 멋있네요. 자극받고 갑니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709028228.676119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:..!",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709028275.481749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063QNXGZFU>\n\nMLOps에 대해 알고 싶다가, 쿠버네티스를 공부하긴 경험이 있어서 고민하신 케이스군요! 맥락을 들으니 왜 질문을 하셨을지 더 이해가 되네요\n\n저는 GPU를 엄청 세분화해서 사용한 경우는 적었어요. 일단 AI를 하는 사람이 많아야 이런 고민을 하게 될거에요. 네이버나 카카오 같은 전사 AI 플랫폼을 제공한다고 하면 GPU를 더 쪼개는 방법을 고민하게 됩니다(제한된 리소스) 규모가 *큰 회사라면* 이런 고민을 하는 데이터, AI 플랫폼 팀이 있을거에요. 쿠버네티스 관련해선 내일 시흠님 오피스아워 시간에 많이 물어보시면 영감을 얻을 수 있을 것 같네요\n\n만약 전사 AI 플랫폼이 있는 것이 아니라면 팀에서 정책을 만들곤 합니다. 팀에서 GPU 4개 쉐어해서 쓰기 혹은 개인당 GPU 1개 제공 등. 물론 학습을 헤비하게 할 경우엔 별도로 큰 GPU 서버를 활용하기도 하지요(클라우드 환경에선 새로운 서버를 띄우는 것은 쉬운 편)  이렇게 하는 이유는 GPU를 나눠서 갖는 인프라 작업을 할 시간에 모델 서빙을 진행해서 프러덕션에 나가자!라는 생각을 하게 되더라구요.\n\nMLOps는 MLE + DE + DS 등 여러 사람들이 하고 있는 추세라 관련 직무 중에 하나로 먼저 시작하고 회사에서 점점 영향을 넓혀가면 될거에요.",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709032452.300149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "kubeflow에 대해 어떻게 생각하는가? 이런 질문도 좋으니 많이 질문해주셔도 좋을 것 같아요 :muscle:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709033359.714499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[2강, 2강-실습] Airflow\nAirflow 실습을 따라가는 과정 중 login이 되지 않는 오류가 발생했습니다..!\n우분투 환경에서 하고 있고 airflow webserver --port 8080 까지 똑같은 순서로 진행했습니다. 하지만 웹UI로 들어가면 create한 username, password를 입력해도 계속 같은 창만 보일 뿐 로그인이 되지 않습니다.\n터미널에서 명시적으로 error라고 뜨는 부분은 없고 두 번째 사진처럼 Warning만 뜹니다.\n검색 후, db reset, db init, airflow users create 도 다시 해보았지만 계속 오류가 반복되어 질문드립니다..!",
+        "user": "U063J3XLCR4",
+        "user_name": null,
+        "timestamp": "1709029971.578189",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063J3XLCR4",
+            "ts": "1709030331.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 28
+        }
+      },
+      "answers": [
+        {
+          "text": "승아님 안녕하세요. 웹서버 터미널에는 어떻게 나오나요?(어떤 로그)\nlocalhost:8080에 접근할 때도 로그가 남아야 해요(로그인 시도) 웹페이지 새로고침해도 웹서버에 로그가 남을까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709031566.902569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 localhost:8080에 로그인 부분이 제가 아는 Airflow UI와 많이 달라서 다른 라이브러리가 연결되어 있나?라는 생각이 드네요.\n\n우분투여도 이런 창이 뜨곤 하거든요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1709031599.644409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "두번째 보여주신 내용은 airflow users create하고 나온 워닝인데 웹서버도 실행했다는 걸까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709031678.145719",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709031816.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "말씀해주신 웹서버 터미널이 다음 사진일까요?? 새로고침을 해도 다른 로그는 안 생깁니다!",
+          "user": "U063J3XLCR4",
+          "user_name": null,
+          "timestamp": "1709032252.453739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "두 번째 사진의 워닝은 airflow users create 할 때도 나오고 airflow webserver --port 8080에서도 나왔습니다. 그리고 그 밖의 error 문구는 보이지 않았습니다..ㅠ",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709032417.500539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063J3XLCR4> 오 그러면 잠시 허들에서 화면공유로 봐볼까요? 제가 잠깐 여유가 있긴해서 이건 보고 판단을 하는게 나을 것 같네욤",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709032600.302009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵..!",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709032613.192629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "들리시나욤",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709032698.762929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://velog.io/@cbkyeong/DEapache-airflow-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%8B%A4%ED%8C%A8feat.config%EC%9D%98-%EC%A4%91%EC%9A%94%EC%84%B1>",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709033085.185069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<정리>\n• 윈도우에서 우분투를 실행한 Case\n• localhost:8080으로 접근\n    ◦ 접근할 때 Webserver를 띄운 터미널에 아무 로그가 남지 않음\n• 제가 알던 Airflow UI 창과 다름\n• 그래서 추측\n    ◦ 현재 localhost:8080에 다른 프로그램이 연결된 느낌?\n• 시도\n    ◦ airflow를 8081 포트로 실행\n    ◦ 정상적으로 동작하고 Airflow Webserver가 뜸. 로그인도 정상적으로 동작\n• 추측\n    ◦ 이유는 알 수 없지만 localhost:8080이 다른 것과 connection 되어 있는 것 같고, 8080 포트를 사용하고 있는 것을 kill한 후에 webserver를 8080으로 띄워도 될 것\n    ◦ 그러나 실습하는 과정에선 그냥 8081 포트를 사용해도 충분함",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709033268.640959",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709033283.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오류 확인해주셔서 정말 감사합니다!ㅠㅠㅠㅠ",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709033273.075799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "승아님이 위에 올려주신 글에 \"혹시나... 혹시나 하는 마음에 재부팅하니까 됐다...?\" =&gt; 이거 재부팅하면서 8080 포트와 연결된 프로그램이 실행 안되어서 다시 localhost:8080으로 접근하니 된 케이스일 것 같네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709033433.155289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U063J3XLCR4"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 분들도 이런 오류가 생기면 꼭 8080 포트로 안해도 괜찮고 다른 포트로 시도해보는 것도 추천드립니당!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709033459.083979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U063T6Q7S2G",
+                  "U063J3X3UKY",
+                  "U063A71DNJ3",
+                  "U063J3XLCR4",
+                  "U063T6S4JVA"
+                ],
+                "count": 5
+              },
+              {
+                "name": "감사",
+                "users": [
+                  "U063T6Q7S2G",
+                  "U063J3X3UKY",
+                  "U063J3XLCR4",
+                  "U063T6S4JVA"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 마스터님!\n\n다름이 아니라 이번에는 airflow scheduler가 되지 않아 질문드립니다. 어제 말씀해주신대로 8080 port가 사용되고 있어 kill한 후 --port 8080을 하여 웹서버를 띄웠는데요.\n\n사진의 우측 터미널처럼 airflow scheduler를 쓰면 오류 없이 작동은 되나 웹서버 상단의 경고 문구가 없어지지 않습니다.\n가상환경을 다시 만들어 실행해보아도 같은 상황이 발생하는데 어떤 부분이 문제가 되는 것일까요?",
+          "user": "U063J3XLCR4",
+          "user_name": null,
+          "timestamp": "1709084003.449269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063J3XLCR4> 어제도 안되었던걸까요?\n\n혹시 airflow dag 같은거 실행하다가 안되었는지 아예 안되었는지 궁금하네요.\ndags 폴더도 만들었는지 궁금하구요\n\n스케줄러 포트인 8793 포트도 kill해보고 다시 키는 것도 방법일 것 같네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709085462.431619",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709085616.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어제도 안 됐었습니다! 2강 실습 영상 보면서 순차적으로 따라했어서 airflow dag, dags 폴더는 아직이었습니다!",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709085658.143489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "8793 포트 kill 하고 다시 해봤으나 같은 상황입니다.",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709085870.902999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "6강 도커로 시도해보아야 할까요?",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709086591.664829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 오늘은 일정이 있어서 조교님들에게 도움을 구했어요. 조교님들이 봐주실 것 같아요\n\n지금 상황이라면 3강 먼저 보시면서 학습하시다가, 조교님들이 도와주시면 그 때 해결해보는 방법\n또는 도커쪽에 있는 도커 컴포즈로 Airflow로 올리는 것을 해보셔도 좋을 것 같긴 해요. 혹은 도커를 먼저 학습해도 무방하긴 합니다(도커 실습 앞부분은 FastAPI 실습을 이미지로 바꾸는 것이라 앞부분은 스킵하셔도 되어요)\n클라우드 실습에서도 Managed Airflow를 알려드려서 거기에서 해도 되긴 하구요(클라우드 파트는 병렬적이라 언제 해도 상관이 없어요)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709086850.600119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thumbs-up",
+                "users": [
+                  "U063J3XLCR4"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 빠르게 확인해주시고 도움주셔서 감사드립니다!!",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709086908.363109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063J3XLCR4>  웹서버 상단에 경고 문구가 어떻게 나오나요? 스크린 샷 한번 찍어주시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709105056.719479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한번도 실행 안 되신 상황이죠?\n0.0.0.0:8080/health 요것도 한번 확인 부탁 드려요",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709105498.146649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요\n과제 1번 관련 질문입니다 .\nget_dataset 함수를 pythonOperator에서 1번, train에서 1번 총 2번 호출하는 것을 알 수 있습니다.\n\n이때, 불필요한 작업이 2번 일어나는것으로 보이는데(두번째 사진은 사실상 정상 동작엔 필요하지 않은 부분인듯 해서요)\n이렇게 코드를 작성해야 하는 이유가 있을까요 ?\n\n예상으로는\n1. Data load 함수 자체의 동작을 체크하기 위해서\n2. 추후 클러스터 환경에서, DAG 마다 각 Pod이 할당되고, DAG에서는 대용량 데이터를 XCom에서 사용할수없어서\n감사합니다.",
+        "user": "U063QNXGZFU",
+        "user_name": null,
+        "timestamp": "1709037458.033089",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063QNXGZFU",
+            "ts": "1709040473.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 민서님 :cry-cat-thumbs-up: 질문 주신 주석의 내용이 모호한 부분이 있네요!\n아래와 같이 정정하면 문제 의도가 더욱 명확할 것 같습니다\n```# TODO: get_data_task 에서 다운받은 dataset 를 가져온 뒤, 모델을 학습합니다.```\n단순히 train_model 에서 get_dataset 을 한번 더 호출하는 것은 언급하신 대로 중복 호출 되는 구조로써 과제가 의도한 구현 방향은 아닙니다. airflow task 간에 데이터를 주고 받는 방법을 활용해 구현해 주시면 됩니다. :psyduck-happy:",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709042657.669009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709043898.758129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U0646PBD8CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 과제 2번 질문입니다.\n\nCV 과제에서 아무리 찾아도 TODO가 안 보이는데 혹시 어느 부분에서 TODO를 찾을 수 있을까요?\n\n<@U03PL9GCPFZ>",
+        "user": "U063MR80TA9",
+        "user_name": "이선우라이언",
+        "timestamp": "1709099043.002319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "문제가 있는거 같네요.. 확인 중 입니다. 제보 감사해요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709099411.482719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U063MR80TA9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "부스트코스 홈페이지에 CV 링크 다시 올려두었습니다. 다시 다운받아 보시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709100076.809759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "액세스 권한이 필요하다는 페이지가 뜹니다!",
+          "user": "U063A71UMPH",
+          "user_name": "유한준_T6106",
+          "timestamp": "1709100792.353829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시 한번 CV 링크에 접속해보시겠어요~? ㅎㅎ 링크를 수정했습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709101068.376229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 다운로드 가능하고 api.py에 TODO가 있는 것 확인했습니다!",
+          "user": "U063A71UMPH",
+          "user_name": "유한준_T6106",
+          "timestamp": "1709101206.158759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 기본과제 관련 질문입니다.\n기간이 3/1 14:00 까지로 되어있는데 그때까지 맞나요? 오류도 많고 다루는 게 익숙하지 않아 기간이 빠듯합니다..",
+        "user": "U063A70CKV5",
+        "user_name": "이재혁",
+        "timestamp": "1709104076.616789",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "pray",
+              "users": [
+                "U063MR70EBX",
+                "U063A70M5FZ"
+              ],
+              "count": 2
+            },
+            {
+              "name": "pray::skin-tone-2",
+              "users": [
+                "U063A73CD6K"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "네 일단 의도한 시간은 그 기간이 맞습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709104121.882269",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1709104140.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마감일 일주일 늘려도 괜찮을까요? cc. <@U03MDFNTYCE>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709104148.024169",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1709104166.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U063A72QX1V",
+                  "U0646PBD8CA",
+                  "U063A73CD6K",
+                  "U064Z2427FG"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시간 내에 과제를 다 하기엔 빠듯한 것 같습니다 ㅠㅠ\n일주일 늘려 주시면 감사하겠습니다!!",
+          "user": "U063QNX1AAE",
+          "user_name": "문찬우_T6053",
+          "timestamp": "1709104374.546679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry",
+                "users": [
+                  "U063A70CKV5",
+                  "U063A73DQKZ",
+                  "U063A72QX1V",
+                  "U063A70M5FZ",
+                  "U063A73CD6K",
+                  "U063MR6SRTP",
+                  "U063MQZSXC5",
+                  "U063QL1ECNP",
+                  "U064DNJBCGY",
+                  "U063QKZLGEP"
+                ],
+                "count": 10
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 airflow 관련 질문입니다",
+        "user": "U0643C7M6JV",
+        "user_name": "김영일_T6030",
+        "timestamp": "1709107173.431339",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0646PBD8CA"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "현재 실행중인 환경은 WSL2입니다.\n\n실행하는 ROOT가 Documents라고 할 때, Documents 아래에 batch_serving폴더를 만들어 실습을 진행하였고, batch_serving_assign을 만들어 기본과제1을 진행하려고 하는 상황이었습니다.\n\n크게 발생하는 문제는 다음과 같습니다.\n1. batch_serving_assign/에서 docker compose up -d를 진행할 경우 실행이 되는데, AIRFLOW_HOME을 batch_serving_assign 경로로 변경해도 dags/가 batch_serving으로 잡힌다\n2. 폴더를 싹 다 지우고 실습 파일을 다운 받아 실행을 하려니, 8080 port가 사용중이라고 에러가 발생하여 lsof -i :8080을 통해 8080 포트를 제거해주고 실행을해도 동일하게 문제가 발생합니다.\n3. docker compose의 port를 8081로 변경 후에 실행을 해도 실행이 되지 않고 종료되는 현상을 겪고있습니다.\n제가 궁금한 부분은 다음과 같습니다.\n1. 왜 batch_serving_assign에서 실행해도 batch_serving에 잡힐까요 ?\n2. 문제를 해결하려면 어떻게 진행해야할까요?\n감사합니다",
+          "user": "U0643C7M6JV",
+          "user_name": "김영일_T6030",
+          "timestamp": "1709107198.938879",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0643C7M6JV",
+              "ts": "1709107491.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

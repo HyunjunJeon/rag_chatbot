@@ -1,0 +1,167 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:seedling:2차 데이터제작 CV 오피스아워:seedling:가 *오늘 (11/11 목요일) 18:00 ~ 19:00*에 진행됩니다.\n*박종호 멘토님*께서 *&lt;베이스라인 코드&gt;*에 대해 설명해주실 예정입니다.\n늦지 않게 들어와주시기 바랍니다~!\n&gt; <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|데이터 제작 CV 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636619400.066600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 오피스아워 자료 미리 공유드립니다! :slightly_smiling_face: *10분 후 시작*이랍니다:fire:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636620603.066700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "구글 드라이브에 올라온 dataset_revised는 먼가요",
+        "user": "U029T519KUH",
+        "user_name": "김주영_T2055",
+        "timestamp": "1636646192.070400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029UHZ6AHY",
+                "U029T4XRUCR",
+                "U029UND0U1Y"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "캠퍼님 안녕하세요 :slightly_smiling_face: 확인 결과 누락된 정보가 있어서 재업로드 진행했습니다. 확인 후 공지드릴게요! :pray:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1636677333.074700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1636679115.075500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Annotation 실습 결과물에 *illegibility 가 누락*된 관계로 새로 ‘dataset_revised’ 버전을 새로 업로드 했습니다. 학습 진행시 참고 부탁드립니다! :bow:\n• 실습 결과물 다운로드 : *<https://drive.google.com/drive/u/0/folders/17GXc93sx-kieZYTcwXdHYk5OhB9ofeEk|link>*",
+        "user": "U028323UHE2",
+        "user_name": null,
+        "timestamp": "1636678245.074900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "dataset_revised 다운 받았는데 다음 이미지와 같이 annotation이 없습니다",
+          "user": "U0298BT8SNA",
+          "user_name": null,
+          "timestamp": "1636679979.075700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029KP9P1CN",
+                  "U0297T6KRDL",
+                  "U029T519KUH"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298BT8SNA> 확인해보니 안에 annotation.json 파일이 있긴 합니다. :smiling_face_with_tear: 보다 쉽게 찾으실 수 있도록 압축 파일 재업로드 진행했으니 확인해주세요!",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1636684820.076400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네!! 좀 더 꼼꼼히 체크했어야 했네요!! 감사합니다!!",
+          "user": "U0298BT8SNA",
+          "user_name": "김성민",
+          "timestamp": "1636684856.076600",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1636684878.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아닙니다 제가 꼼꼼하게 챙기지 못했네요 언급해주셔서 감사합니다 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1636684898.076900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

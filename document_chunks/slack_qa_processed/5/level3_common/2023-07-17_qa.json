@@ -1,0 +1,208 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*[ConnectionError HTTPConnectionPool 에러]*\n\"make -j 2 run_app\" 을 통해 streamlit으로 실행하고 이미지 업로드 이후 ConnectionError: HTTPConnectionPool.... 이라는 다음과 같은 에러가 발생했는데 발생 원인을 모르겠습니다\n\n\"make -j 2 run_app\" 실행했을 때는 다음과 같은 url이 출력돼서, vscode에서 8501 포트를 열고 localhost:8501로 접속을 시도하였는데요 이미지를 업로드한 이후 *ConnectionError* 가 발생했습니다.\n Network URL: <http://172.17.0.2:8501>\n External URL: <http://118.67.133.111:8501>",
+        "user": "U04R4LSLQVD",
+        "user_name": null,
+        "timestamp": "1689582217.865079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RXRU7AFK",
+                "U03PVSC77HR"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 18
+        }
+      },
+      "answers": [
+        {
+          "text": "잘은 모르지만, \"localhost\"는 기본적으로 IP 주소가 '127.0.0.1'로 설정 돼있지 않나요? 설정 하신 URL 주소와 다른 것 아닌가 싶습니다.",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1689588680.072669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "로컬에서 진행하신거죠~?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689655489.512019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 재현한 뒤, 어디가 문제인지 좀 더 찾아보고 싶은데, 코드를 깃허브나 어딘가에 업로드 해주시 수 있으실까요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689655532.006049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "깃헙이 private어서 깃헙으로 공유드리기 어려울 것 같은데요 혹시 DB으로 공유 폴더 링크로 전달해드려도 괜찮을까요 조교님? :sweat_smile:",
+          "user": "U04R4LSLQVD",
+          "user_name": "조성운_T5201",
+          "timestamp": "1689656301.997449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; DB으로 공유 폴더 링크로 전달해드려도 괜찮을까요\nDB로 공유 폴더 링크를 전달주신다는 걸 제가 이해를 못했습니다. DB가 Database가 아닌가요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689657102.429089",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1689657115.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "하나 더 궁금한 점은, 위 에러는 localhost 8000번 포트로 커넥션 에러로 보이는데, 어떤 이유로 `localhost:8501` 로 접속하신것인지 궁금합니다 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689657168.457799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조교님 죄송합니다 DM을 DB로 잘 못 입력했습니다 ㅜㅜ 혹시 DM으로 링크 보내드려도 될까요?",
+          "user": "U04R4LSLQVD",
+          "user_name": "조성운_T5201",
+          "timestamp": "1689662119.898669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 주세요~",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689662146.003199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "8000번 포트로 접속했을 때 접속되지 않아 Network URL에 출력된 port 8501로 접속했습니다!",
+          "user": "U04R4LSLQVD",
+          "user_name": "조성운_T5201",
+          "timestamp": "1689662152.074319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[EC2 ssh 접속 관련 질문]\nMac 기준으로 terminal 에서는 잘 접속 되는데 VScode 의 Remote SSH 를 통해 접속하려하면 timeout 에러가 발생합니다.\n혹시 이와같은 문제 해결해 보신분 계신가요? kwon host 파일을 삭제하거나 config 파일을 수정해 보는등의 노력은 해봤습니다.",
+        "user": "U04RMLULSR2",
+        "user_name": null,
+        "timestamp": "1689656302.800779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "이 부분도 해보신건가요?",
+          "user": "U04RMLU78LU",
+          "user_name": null,
+          "timestamp": "1689656922.883099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "melting_face",
+                "users": [
+                  "U04RMLULSR2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네",
+          "user": "U04RMLULSR2",
+          "user_name": "곽동호_T5013",
+          "timestamp": "1689656936.523349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Timeout 시간 늘려보는거랑, Use Local Server False로 하는거 , VScode초기화도 해봤습니다...",
+          "user": "U04RMLULSR2",
+          "user_name": "곽동호_T5013",
+          "timestamp": "1689657072.777829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "6857-dogecry",
+                "users": [
+                  "U04RMLU78LU"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

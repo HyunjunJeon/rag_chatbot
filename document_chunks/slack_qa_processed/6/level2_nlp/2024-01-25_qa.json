@@ -1,0 +1,264 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 금일 오피스아워 `대회 소개 뿌수기` 진행한 심미단 조교입니다 !!\n오피스아워 시간에 미처 답변하지 못한 내용 아래와 같이 공유드립니다. (f.y.i <@U0619KW7QRY> <@U04L09BNA7R>)\n질문하지 않으신 캠퍼분들도 모두 참고해주시면 감사하겠습니다! :face_with_cowboy_hat:\n\n*[Q1]* CleanLab `health_summary()` 결과 해석 설명\n*[A1]* 정리된 내용을 <https://midannii.notion.site/CleanLab-c98a2be6c7be49f2a1e08b0dc99289a4?pvs=4|링크>로 공유드립니다 ! 참고하시고 추가 질문 있으면 댓글 남겨주셔요 :)\n\n*[Q2]* 공개된 데이터셋을 사용 가능하다고 확인했는데, 그렇다는 것은 huggingface에 올라와있는 klue-ynat 데이터셋을 사용해도 된다는 뜻인가요?\n사용 가능한 외부 데이터셋의 기준이 모호한 것 같습니다.\n*[A2]* 조교님들과 의논한 결과, *\"사용 가능한 외부 데이터셋\"*의 기준을 아래와 같이 정의하였습니다.\n•  대회 데이터 내에서 feature 로 제공되는 url 로 습득한 데이터가 아니면서,\n•  klue, huggingface 등에 개제된, official klue-tc(ynat) 데이터가 아니면서, \n•  public 하게 공개된 상태이며, 저작권 문제가 없고, 공평하게 추가 비용 없이 접근 가능한 데이터셋\n위 방법이 아닌 모든 데이터는 사용 가능합니다!\n\n[Q3] 웹에서 크롤링한 별도의 추가 데이터들의 pseudo-labeling 과정에서도, 해당 웹페이지에서 얻을 수 있는 정보들을 사용하는 것이 불가능한가요?\n[A3] 웹페이지 내에서 얻을 수 있는 정보를 바탕으로 라벨링 하는 것은 가능합니다!\n\n또한 대회 및 강의 관련해서 질문이 있으시다면 언제든지 질문 남겨주셔요~\n모두 좋은 저녁 되시고, 남은 대회도 응원하겠습니당 :smiling_face_with_3_hearts::heart:",
+        "user": "U04L808UDFG",
+        "user_name": "심미단_조교",
+        "timestamp": "1706178532.367069",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04L808UDFG",
+            "ts": "1706179490.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U063T6PFJNQ",
+                "U063T6J6U8L",
+                "U0643C9AQQH",
+                "U063MR2NY3X",
+                "U064DNH7HUG",
+                "U063A72MQJK",
+                "U063QL1ECNP",
+                "U063J41KJSJ",
+                "U063T6S4JVA",
+                "U063QNY17U2"
+              ],
+              "count": 10
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U063T6PFJNQ",
+                "U0643C9AQQH",
+                "U063QL1ECNP",
+                "U063QNY17U2"
+              ],
+              "count": 4
+            },
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U063T6PFJNQ",
+                "U0643C9AQQH",
+                "U064DNH7HUG",
+                "U063QL1ECNP",
+                "U063QNY17U2"
+              ],
+              "count": 5
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U063MR95Q69",
+                "U063QNY17U2"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사드립니다!\n\n답변 중 \"klue, huggingface 등에 개제된, official klue-tc(ynat) 데이터가 아니면서,\" 라는 문구가 잘 이해되지 않아서 다시 질문 드립니다.\nofficial klue-tc(ynat) 데이터만 아니라면 huggingface에 게재된 다른 데이터는 사용 가능할까요? (예, tc(ynat)이 아닌 klue 데이터)\n\n그리고 제시해 주신 cleanlab의 결과가 지금 저희가 대회에 사용하고 있는 훈련 데이터에 대한 결과가 맞을까요?",
+          "user": "U063QNY17U2",
+          "user_name": "석수경_T6079",
+          "timestamp": "1706231769.343039",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNY17U2",
+              "ts": "1706233536.000000"
+            },
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U063A78CWUF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063QNY17U2> 안녕하세요 수경캠퍼님!\n1. klue-tc가 아닌, huggingface에 게재된 다른 데이터는 가능합니다\n2. cleanlab의 결과는 지금 대회에서 사용되는 데이터와 다릅니다! label은 같지만, 다른 방법으로 noise 및 데이터셋을 구성한 결과입니다 :slightly_smiling_face:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706233609.454989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U063QNY17U2",
+                  "U063A78CWUF"
+                ],
+                "count": 2
+              },
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U063A78CWUF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 질문이 있어 하나 남깁니다.\n강의 7강에서 소개한 subword tokenization 기법 중 형태소 기반 subword tokenization을 적용하려면 주어진 헤드라인 데이터를 형태소 단위로 분리하는 작업을 거쳐야할 것 같은데요.\n이러한 전처리의 경우도 test 데이터에 대해서는 아예 적용할 수 없는건가요?\ntrain 데이터만 형태소를 분리해서 데이터를 넣고 test 데이터는 별도의 전처리를 진행하지 못한다면 이러한 시도를 할 필요가 있나 싶어 질문 남깁니다.",
+          "user": "U063A77BZDM",
+          "user_name": "김기호",
+          "timestamp": "1706233919.183179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063A77BZDM> 안녕하세요, 기호 캠퍼님!\n오피스아워에서 말씀 드린 것과 마찬가지로 test data는 수정 불가능합니다!",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706255415.671259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 데이터 label에 대해 궁금증이 생겨 질문 남깁니다.\n1. <https://next.stages.ai/competitions/272/discussion/361/post/2468>\n여기에는 [정치(0) , 경제(1) , 사회(2) , 생활문화(3) , 세계(4) , IT과학(5) , 스포츠(6)]라고 나와있습니다.\n\n2. [Data-Centric NLP] (10강) 총정리 및 미래의 Data-Centric AI 방향성.pdf\n해당 pdf 62쪽에 보면 [0: IT과학, 1: 경제, 2: 사회, 3: 생활문화, 4: 세계, 5: 스포츠, 6: 정치]라고 나와있습니다.\n\n둘 중 어떤게 맞는 label인가요?",
+        "user": "U063J41KJSJ",
+        "user_name": null,
+        "timestamp": "1706234575.534179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes2",
+              "users": [
+                "U063QNY17U2"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "aistage에 작성해주신 게시글에 순서는 klue 논문 소개 순서와 같더라구요. 저는 그냥 쉽고 간단하게 예시로 들었다고 생각하고 넘겼습니다!\n\n추가로 저희 조에서 데이터를 살펴봤는데 2번의 순서가 맞다고 생각했습니다...! 도움이 되시면 좋겠어요 :man-bowing:",
+          "user": "U063MR9HWBX",
+          "user_name": null,
+          "timestamp": "1706235026.355229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U064DNL3RLY",
+                  "U063QNUT6GJ",
+                  "U063QNY17U2",
+                  "U04L808UDFG",
+                  "U0643C2LS6M"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다~",
+          "user": "U063J41KJSJ",
+          "user_name": "한혜민",
+          "timestamp": "1706242463.159729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 혜민 캠퍼님!\n희범님께서 설명해주신대로, 게시글 내의 내용은 참고용이며\n대회는 제공된 데이터 기반으로만 생각해주시면 좋겠습니다!",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706255273.707949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "train_test_split을 사용하지 않고, Validation set을 따로 Train set에서 추출하여 두고 사용해도 되나요?",
+        "user": "U063QL3NUJF",
+        "user_name": "이승백_T6126",
+        "timestamp": "1706255106.434429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 승백 캠퍼님!\n말씀하신 부분 가능합니다!",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706255326.353569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U063QL3NUJF",
+          "user_name": "이승백_T6126",
+          "timestamp": "1706255400.410539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04L808UDFG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

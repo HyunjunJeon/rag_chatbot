@@ -1,0 +1,134 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U041ERUG8VB>\n강의 자료에 다음과 같은 내용이 있습니다.",
+        "user": "U041ERYLS6R",
+        "user_name": null,
+        "timestamp": "1671701749.800359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 답변 감사합니다. 해당 내용을 바탕으로 더 공부해 봐야겠네요.",
+          "user": "U041ERUG8VB",
+          "user_name": "강민수",
+          "timestamp": "1671706021.583679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 train일때와 valid일때 같은 유저라도 neg_smaple이 다를거 같네요. 그러면 아무래도 seed빨이 좀 있겠네요",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1671720430.187029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041WE0BG81> \nvaild 과정에서 neg_sample이 진행되긴 하지만 실제로 그 값을 쓰진 않는 것 같아요.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1671750886.103309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 데이터셋 일부만 샘플해서 돌려보시면 에폭마다 neg_sample이 다른 것을 확인하실 수 있습니다. 다만 seed 값이 들어가기 때문에 매번 전체 학습 결과는 동일합니다.\n2. neg_sample은 모델 훈련 때만 필요하기 때문에 train 에서만 사용됩니다.\n3. <@U041ERUG8VB> 우리 코드에서는 모든 user에 대해 neg_sample을 구해옵니다. 어디가 헷갈리셨을지 찾아보니 아래 그림 부분으로 추정이 되는데요. 해당 부분에서 확률은 neg_sample을 생성할지 결정하는 것이 아니라, 시퀀스에 mask를 추가할지 여부를 판단하는데 사용됩니다.",
+          "user": "U03M7B4JYMR",
+          "user_name": null,
+          "timestamp": "1671766696.842229",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03M7B4JYMR",
+              "ts": "1671767048.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R",
+                  "U041ERUG8VB",
+                  "U041WE0BG81",
+                  "U041VLUG4HF",
+                  "U041HRANQ82"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03M7B4JYMR>\n조교님 답변 감사합니다. 일부만 샘플링해서 진행하는 방법을 떠올리지 못해 직접 실험하지 못했는데 확인해주셔서 정말 감사합니다!",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1671766880.369629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03M7B4JYMR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "샘플 데이터는 언제나 만들어두시면 좋습니다. 그리고 경우에 따라 에폭을 1로 설정해서 전체/일부 데이터를 1회만 돌려보는 방법도 빠르게 실험 결과를 관찰하는데 많이 사용되는 방법입니다.",
+          "user": "U03M7B4JYMR",
+          "user_name": "Jaein Kim",
+          "timestamp": "1671767513.719699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R",
+                  "U041WE0BG81",
+                  "U041HRC9JRG",
+                  "U041VLUG4HF",
+                  "U041HRANQ82"
+                ],
+                "count": 5
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 이번 대회에 focal loss 적용해보신 분 계신가요?\nfocal loss의 alpha 값을 어떻게 적용하셨는지 궁금합니다.\n\n저의 경우, label image의 histogram을 구해서 class별 총 pixel 수를 계산하고, 이를 기반으로\n[0.0054, 0.1682, 0.0419, 0.5313, 0.4225, 0.4946, 0.1317, 0.2515, 0.0325, 8.2072, 0.7132]로 넣었습니다.\n\n그 결과 ,잘 안되던 class의 miou는 좋아지지만 반대로 잘되던 class의 miou는 떨어지는거같습니다.ㅠ",
+        "user": "U041L8ZANQL",
+        "user_name": "Kim HyeongSeok",
+        "timestamp": "1672299422.362839",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041L8ZANQL",
+            "ts": "1672299439.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "focal loss관련은 아니지만 이 논문 추천합니다. 클래스 분류의 난이도도 생각해서 loss weight를 잡는 방법입니다.\n<https://arxiv.org/abs/2207.14499>\n위의 논문이 아니라 아래 링크인것 같습니다...\n<https://arxiv.org/pdf/2010.01824v1.pdf>",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1672299558.128449",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G48WAC",
+              "ts": "1672313322.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U041L8ZANQL"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03S1A1PV9T",
+                  "U041HMZR68K"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 읽어보겠습니다!",
+          "user": "U041L8ZANQL",
+          "user_name": "Kim HyeongSeok",
+          "timestamp": "1672299706.380819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

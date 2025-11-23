@@ -1,0 +1,77 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "고민해 보았는데요, 이미지가 아닌 annotation을 기준으로 split을 진행하면 annotation이 여러 개인 이미지의 경우 train set에도 들어가고 validation set에도 들어가게 되면서 결과적으로 data leakage 문제가 발생하지 않을까 우려됩니다..! 별 상관 없으려나요?",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1648027333.210129",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T1HLM9NK",
+            "ts": "1648027351.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "게시판에 글 남기긴 했는데 코드를 보시면 이미지 기준으로 index를 생성하고 split을 하기 때문에 상관 없습니다. annotation은 카운트 용이에요",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1648029496.362089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "코드 다시 읽어봤습니다. 그렇네요. 제가 코드를 잘못 읽었습니다. 감사합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1648029923.728099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TCHR3LNS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

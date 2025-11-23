@@ -1,0 +1,44 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "모델을 학습시키는 도중 기울기가 음수 값을 찍는 이상한 현상이 발견되었는데 제 짧은 지식으로는 정말 모르겠네요.\n혹시 아시는분 있으면 답변 부탁드려요.\n먼저 fold를 나누어놓은 것을 가지고 tood를 모델로 실험을 하였고 fold 0,1,2,3은 이런 현상이 발견되지 않지만 4에서 문제가 발생하네요\n:(\n(초록색이 문제의 현상입니다.)",
+        "user": "U02TXU3HPC5",
+        "user_name": null,
+        "timestamp": "1649223007.314089",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 WandB 그래프 말고 터미널 로그에 찍히는 loss 값도 음수가 되었나요? 가끔 WandB에 잘못된 값이 전송되는 경우가 있는 것 같습니다. 그런데 꽤 오랫동안 음수로 유지된 것을 보아 그게 문제가 아닐 것 같긴 하네요..",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1649223284.287879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "특이점은 온다",
+          "user": "U02TZ9HPZAS",
+          "user_name": "신형환",
+          "timestamp": "1649226503.431759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "generated_at": "2025-11-20T15:33:16.136876",
+  "total_courses": 15,
+  "total_qa_pairs": 1273,
+  "by_course": {
+    "bot_common": 74,
+    "core_common": 194,
+    "level2_cv": 375,
+    "level2_klue": 7,
+    "level2_mrc": 28,
+    "level2_nlp": 197,
+    "level2_object_detection": 12,
+    "level2_recsys": 113,
+    "level2_segmentation": 10,
+    "level3_common": 124,
+    "level3_data_cv": 14,
+    "level3_data_nlp": 11,
+    "level3_model_optimization": 18,
+    "level3_product_serving": 95,
+    "level3_recsys": 1
+  }
+}

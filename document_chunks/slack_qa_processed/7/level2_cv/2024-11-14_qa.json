@@ -1,0 +1,81 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 cv-12조 이상혁입니다.\n\n저희가 베이스라인 코드를 계속 리팩토링하는 과정 도중 validation 시간이 너무 오래 걸리는 것을 확인했습니다.\n이후 이를 해결하기 위해 디버깅을 진행해본 결과, 배치당 데이터를 불러오는데 걸리는 시간 4초, dice를 계산하는 시간 2.5초가 걸리는 것을 체크했습니다.\n\n현재 dice를 계산하는 과정이 cpu에서 진행되고 있는데, 이를 만약 gpu에서 돌리면 어떨까 하는 생각이 들어 gpu에 할당하여 계산하였더니 0.02초로 단축이 되었습니다.\n\n1. 이렇게 진행하는게 안정성이나, 계산과정에서 문제가 있는지 궁금합니다. cpu에서 계산하는 이유가 있을까요? \n2. 문제가 없다면 수정해서 진행해도 무방할까요?\n감사합니다:typingcat:",
+        "user": "U07E921DX9C",
+        "user_name": "이상혁",
+        "timestamp": "1731637826.344219",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U07ECPR5ZUM",
+                "U07E923UKAA",
+                "U07EJ5DES5S",
+                "U07F4EGLCHW",
+                "U07ECPQCXNZ",
+                "U07E927E7HC",
+                "U07E14AQQMV",
+                "U07E14GUG1M",
+                "U07E92018AJ",
+                "U07E926KH7G",
+                "U07EUAU2W1F",
+                "U07EFHAFF7V",
+                "U07EUAY2ZND",
+                "U07F4EDGSJC",
+                "U07G0DA47U1",
+                "U07EFLVD35Y",
+                "U07ECPQJDRT",
+                "U07EJ5KHG0L",
+                "U07F4EG6Q6L"
+              ],
+              "count": 19
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. gpu로 계산하셔도 문제가 없습니다. 계산하실 때 메모리가 부족하지 않으시다면 gpu로 하시면 될 것 같습니다.\n\ndice score의 평균을 만들기 위해서 리스트에 dice score를 저장하고 있는데, 이 부분만 gpu에 있는 tensor가 아닌 numpy array 등으로 바꿔서 저장하시면 안전할 것 같습니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1731646313.220869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "andy-dwyer-amazed",
+                "users": [
+                  "U07EJ5Q544C",
+                  "U07F4EDGSJC",
+                  "U07ECPR5ZUM",
+                  "U07EJ5DES5S"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1731646351.215279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

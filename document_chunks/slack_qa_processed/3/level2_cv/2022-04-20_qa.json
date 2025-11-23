@@ -1,0 +1,234 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이미지 가로,세로 사이즈가 같은 경우,  아래 코드(detect.py)에서 map_margin=0이 되어 score_map과 geo_map에 아무것도 저장이 안되는 것 같습니다.\n이 부분으로 인해서 이미지 가로,세로가 같은 경우에는 탐지를 못하는 것 같은데 수정이 필요할까요?",
+        "user": "U02TJ3871FW",
+        "user_name": null,
+        "timestamp": "1650453156.447819",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TYM38093",
+                "U02UA75E97W",
+                "U02TSQBNTC7",
+                "U02TULKAU65",
+                "U02U8G6NKEW"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "그러게요.. 저건 문제가 될 것 같습니다. 그리고 서버에 원래 있던 이미지와 우리가 annotation한 이미지 전체 1822장 중에 99장이 정사각형 이미지임을 확인했습니다. 다른 분들 의견도 들어 보고 싶네요.",
+          "user": "U02T1HLM9NK",
+          "user_name": null,
+          "timestamp": "1650460082.942039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "male_fairy",
+                "users": [
+                  "U02TTV8MDJB",
+                  "U02U8G6NKEW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수정한다면 이렇게 되어야겠죠..? 그런데 저게 모델 소스라서 수정이 금지되어 있군요.. 음...\n```map_margin = ...\nif map_margin &gt; 0: # Fixed\n    if orig_size[0] &gt; orig_size[1]:\n        ....\n    else:\n        ....```",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1650460343.819609",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1650460388.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "dataset.py 안에 있는 SceneTextDataset에서 나온 값으로 오피스아워때 주신 코드로 시각화 했을때 밑에 그림 처럼 나오는데 왜그런걸까요 ㅠㅠ\nSceneTextDataset에 있는 augmentation은 건드리지 않았습니다.",
+        "user": "U02U79DHFUY",
+        "user_name": null,
+        "timestamp": "1650457597.631429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "우리가 annotation을 잘못 해준 경우일 수도 있을 것 같아요. 다른 이미지도 박스가 이상하게 나오시나요?",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1650457903.342239",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1650457911.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "rotate가 들어가서 그런게 아닐까요..? 확실하진 않습니다..",
+          "user": "U02TJ3871FW",
+          "user_name": "이재홍_T3162",
+          "timestamp": "1650457912.562619",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TJ3871FW",
+              "ts": "1650457940.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T1HLM9NK> json파일에서 직접 가져와서 시각화했을땐 정상적 이였습니다 ㅠㅠ",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1650457959.100179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ3871FW> 각각의 augmentation이 들어가서 그렇다고 생각은 하고 있는데 또 이걸 학습시키고 제출했을때는 나쁘지 않은 loss와 LB점수가 나와서요 ㅠㅠ",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1650458015.907669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U79DHFUY> 이미지도 SceneTextDataset에서 augmentation을 거치고 나온 것을 시각화하신 건가요?",
+          "user": "U02TJ3871FW",
+          "user_name": "이재홍_T3162",
+          "timestamp": "1650458096.817199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ3871FW> 네 맞습니다 getitem 에서 return 된 값으로 시각화 시켰습니다",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1650458145.127469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "유독 이 사진만 이렇게 잘못되어 나오는 건가요? 아니면 다른 사진들도 그런가요?",
+          "user": "U02TJ0CKVLJ",
+          "user_name": "손정균_T3111",
+          "timestamp": "1650459380.353089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ0CKVLJ> 다른사진이 전부다 그렇습니다..",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1650459398.328809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 그런현상이 있었는데요,\nimage, bboxs, _ = np.array(dataset[sample_num]) 이처럼 image와 bboxs를 동시에 불러오지 않으면 augmentation이 image와 bboxs에 따로 적용이 되더라고요.",
+          "user": "U02TJ0CKVLJ",
+          "user_name": "손정균_T3111",
+          "timestamp": "1650459474.997099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ0CKVLJ> 음.. 제꺼는 그렇다고 하기엔 bbox를 옮기면 맞는것들 뿐이라서 ㅠㅠ 서로 다른게 호출되진 않는거같아요",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1650459546.418449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U79DHFUY> 저도 이런식으로 동일하게 시각화가 되었는데, 같은 문제인것 같아서요. 혹시 시각화 코드 볼수 있을까요?",
+          "user": "U02TJ0CKVLJ",
+          "user_name": null,
+          "timestamp": "1650460107.359759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ0CKVLJ>시각화 코드는 저번주랑 이번주에 했던 오피스아워 코드꺼 그대로 사용했습니다!",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1650460478.078439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

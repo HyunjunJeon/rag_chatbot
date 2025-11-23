@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 이 부분만 수정해도 잘 돌아가시나요?",
+        "user": "U029FSCQAKX",
+        "user_name": "박상현",
+        "timestamp": "1637781250.071900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "Generator 부분을 위와 같이 수정 해야 할 것 같습니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1637781278.072500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

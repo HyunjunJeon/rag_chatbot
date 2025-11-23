@@ -1,0 +1,99 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이번에 이미지들이 3개의 배치 폴더에 나누어 저장되어 있는데요, 이미지들은 각 폴더별로 겹치지 않는 것이지요?",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1650853573.671759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02RS1EC6S3"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요.\nSegmentation 제작 조교 이해중입니다.\n이미지들은 각 폴더별로 중복없이 제공되고 있습니다.",
+          "user": "U02RS1EC6S3",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1650853729.664489",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02RS1EC6S3",
+              "ts": "1650853739.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "batch_03 폴더에만 data.json 파일이 존재하는데요. 해당 폴더만 json 파일이 존재하는 이유가 있을까요??",
+        "user": "U02THPL8F0C",
+        "user_name": "박성호",
+        "timestamp": "1650853902.692229",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "batch_03의 data.json 파일에 test.json의 GT가 들어 있는 듯 하네요.",
+          "user": "U02THPL8F0C",
+          "user_name": "박성호",
+          "timestamp": "1650854455.022689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 캠퍼님, 확인 후 공지드리겠습니다 :pray:",
+          "user": "U02QQ376VB6",
+          "user_name": "크리스",
+          "timestamp": "1650856088.142739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02THPL8F0C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

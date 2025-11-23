@@ -1,0 +1,162 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U047GUPLQ79> 안녕하세요, 오피스 아워때 질문 드렸던 T4011 권규보입니다.\nConvNeXt 공식 레포(<https://github.com/facebookresearch/ConvNeXt/tree/main/semantic_segmentation>) 를 예로 들면 mmsegmentation폴더 안에 mmcv_custom을 잘 들고와도 (@RUNNERS.register_module()등도 되어 있습니다.) register에 없다는 오류를 뱉는 상황에 대해서 질문드렸습니다.",
+        "user": "U0427G5BJQG",
+        "user_name": null,
+        "timestamp": "1672135099.151159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. train.py의 상단 import 부분에서 `IterBasedRunnerAmp` 를 임포트 하신 다음에 시도해보시고 어떻게 되는지 알려주실 수 있나요?",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1672141040.814719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 제가 해결했습니다 혹시 __ _init__.py 를 수정하셨나요?_",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1672141073.096169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04138AJC7R> 네 했습니다.",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672142040.430739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U047GUPLQ79> 아, 혹시 from mmcv_custom import * 을 하면 될까요?",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672142065.233309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G5BJQG> 사용하고자 하시는, 혹은 에러가 나는 class를 import 해보시면 될 것 같습니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1672142211.599529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "wa",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              },
+              {
+                "name": "ok_woman",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "apex 설치 하셨나요? 이거 안하면 IterBasedRunnerAmp가 등록 안되기는 합니다",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1672142543.709939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04138AJC7R> 아 혹시 pip install apex 갖고는 설치가 제대로 안되나요??",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1672146852.062219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런 경우 conda 폴더 내부 mmseg의 init 수정해서 돌아가기도 했어요",
+          "user": "U041HN3RFNF",
+          "user_name": null,
+          "timestamp": "1672147693.540669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G5BJQG>\n네 pip로는 서버에서 좀 에러가 생겨서 깃에 나온 방식대로 설치했더니 정상 작동 했습니다\n```git clone <https://github.com/NVIDIA/apex>\ncd apex\ngit checkout 22.05-dev\npip install -v --disable-pip-version-check --no-cache-dir ./```",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1672151782.668559",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04138AJC7R",
+              "ts": "1672154616.000000"
+            },
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

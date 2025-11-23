@@ -1,0 +1,41 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02VB6KC3BN> <@U02U1TBB8GN> 추가했습니다!",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1650875868.819739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U02U1TBB8GN",
+                "U02VB6KC3BN"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02QJSQ1H1T> 감사합니다~~~",
+          "user": "U02U1TBB8GN",
+          "user_name": "정기원_T3195",
+          "timestamp": "1650894769.023339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

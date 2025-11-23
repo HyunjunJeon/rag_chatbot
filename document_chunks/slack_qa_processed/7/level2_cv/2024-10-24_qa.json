@@ -1,0 +1,87 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "최종 퀴즈 8번 질문입니다. 288x288 이미지를 12x12개의 그리드로 나누면 각 그리드의 크기는 24x24 아닌가요?",
+        "user": "U07EJ5Q544C",
+        "user_name": null,
+        "timestamp": "1729814401.083989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "YOLO v1는 SxS로 나눠지는 것이 아니라, 최종 output shape이 SxS의 grid가 되도록 분할됩니다. 자세한 예시가 포함된 링크 공유드립니다!\n<https://www.kaggle.com/code/vikramsandu/yolo-1-through-5-a-complete-and-detailed-overview>",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1729825851.486759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 김한얼 캠퍼님 조교님 답변 내용은 아마 강의 중 이 부분 말씀하시는 것 같습니다(5강 12p 출처)\n\n448x448 이미지를 7x7로 나눠서 448/7의 결과가 아닌 마지막 output에 7x7x30이 나오는 이 부분인 것 같네요",
+          "user": "U07EUAT6U01",
+          "user_name": null,
+          "timestamp": "1729826251.421679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의자료 첨부해주셔서 감사합니다:blush:",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1729827874.755469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 선후관계를 잘못 생각했었네요 두 분 다 상세한 답변 감사합니다 ㅎㅎ",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1729829205.320689",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EJ5Q544C",
+              "ts": "1729829215.000000"
+            },
+            "reactions": [
+              {
+                "name": "relaxed",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

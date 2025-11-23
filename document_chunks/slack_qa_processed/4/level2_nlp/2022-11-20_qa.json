@@ -1,0 +1,79 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 운영진님!:smiley:\n깃헙 NLP 10조 팀 레포지토리의 discussion 기능의 활성화를 부탁드려도 될까요? 프로젝트에 관련하여 협업을 위한 기록 공간으로 쓰고자 합니다!",
+        "user": "U041L950W84",
+        "user_name": "엄주언",
+        "timestamp": "1668941112.060379",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cool-doge",
+              "users": [
+                "U041HN0RHQT"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041L950W84>  안녕하세요 엄주언 캠퍼님. maintain권한으로 <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository|해당 기능 활성화(링크 참고)> 가능한 것으로 알고 있습니다. 지난주 수요일 전체 repository 생성 확인후 maintain권한 부여하였고 직접 설정가능하니  설정하신후 사용하시면 됩니다 :slightly_smiling_face:",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1669004864.629599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 전욱표 운영진님! maintain 권한이 부여되었는지 다시 한번 확인 부탁드려도 될까요?\n제가 다시 확인했을 때는 discussion이 보이지 않는 것 같습니다.",
+          "user": "U041L950W84",
+          "user_name": null,
+          "timestamp": "1669010572.559149",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L950W84",
+              "ts": "1669010603.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흠..이상하군여.ㅠ.ㅠ 아래처럼 권한은 부여 되어 있는데 ,github 재로그인시에 권한이 반영되는지 의심가기도 하고 하구요. 하여간 원인 파악에 시간이 걸릴거 같아 제가 discussion기능 on설정 하였습니다.\n감사합니다.",
+          "user": "U044SL01LDD",
+          "user_name": null,
+          "timestamp": "1669010941.597669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헉 오오오… 감사합니닷 :meow_party::amaze:",
+          "user": "U041L950W84",
+          "user_name": "엄주언",
+          "timestamp": "1669011533.590309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 최종 프로젝트 진행중 `BentoML`에 관련해서 막히는 부분이 생겨 질문 드립니다!\n\n저희는 huggingface에 있는 processor와 model를 로드해서 finetuning을 하고,\nfinetuning 시에 생긴 bin 파일과 json 파일 등을 사용해서 bentoml에서 모델을 다시 로드하여\n각 프로세스와 모델을 runner 객체로 생성해서 사용하였는데요!\n\n다름 아니라 runner가 초기화되지 않았다는 오류가 발생했는데, 어떻게 문제를 해결해야할지 모르겠어서 질문 남깁니다\n오류명: `_*StateException Runner is not initialized.*_ Make sure to include '&lt;bentoml._internal.runner.runner_handle.DummyRunnerHandle object at 0x7fa0c180d090&gt;' to your service definition.`\n\n우선 일단 제가 시도한 방법은 아래 두가지와 같습니다. 하지만 아직 두 방법 모두 위 오류에서 벗어나지 못하였습니다 :cry: 혹시 해결방법이나 관련한 오류를 해결한 경험이 있으신 분이 계시다면 ..! 알려주시면 정말 감사하겠습니다 !!!\n• to_runner을 사용해서 runner 객체를 생성하여 사용 (첫 번째 사진)\n• 직접 runner 객체를 정의해서 사용 (두 번째 사진)",
+        "user": "U04RG93LWP7",
+        "user_name": null,
+        "timestamp": "1689259538.054649",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK73L7NE"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "bentoml 서비스 실행한 커멘드가 어떻게 될까요?",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1689293156.134679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03UXQJ8T3Q> 이미지 파일을 업로드하는 단계가 있어서 `python 파일이름.py` 으로만 테스트해봤습니다! 파이썬 명령어로 실행했을 때 오류가 나서, 서비스를 실행시켰을 때도 오류가 날거라고 생각해서 bentoml 명령어로는 테스트를 안해봤네요..! 지금 해보겠습니다!",
+          "user": "U04RG93LWP7",
+          "user_name": "박동연",
+          "timestamp": "1689298114.810259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네 결과알려주시면 같이 봐용",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1689315225.755979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. submission에 모든 파일에 대한 prediction이 포함되지 않은 경우, 구별할 수 있도록 -1이 나오게 되어있습니다. 감사합니다.",
+        "user": "U047GUPLQ79",
+        "user_name": "오휘건_조교",
+        "timestamp": "1671700950.887459",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "dancing_puppy",
+              "users": [
+                "U04138C8PE3"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "파일 문제였나보군요! 다시 Inference 해서 해보겠습니다. 감사합니다 :)",
+          "user": "U041B76DHAS",
+          "user_name": "Jewon Joel Park",
+          "timestamp": "1671701021.059679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03QFUYQT7W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 캠퍼님.\n\n저자 코드를 참고하여 작성하였으나 decoder에 dropout가 들어간 경우와 그렇치 않은 경우에 대해 실험적을 진행하여 좋은 결과가 나온 모델을 제시한게 아닐까하는 짐작을 합니다.\n\n참고로 다른 decoder를 활용한 모델(e.g. : NLP의 Transormer)의 decoder에는 dropout이 포함된 경우도 확인하실 수 있습니다. (아래 이미지)",
+        "user": "U03QFUYQT7W",
+        "user_name": null,
+        "timestamp": "1671708023.657739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "fb-wow",
+              "users": [
+                "U041ES179JR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "decoder에서도 쓰는 사례가 있었군요. 감사합니다!",
+          "user": "U041ES179JR",
+          "user_name": "정상헌_T4193",
+          "timestamp": "1671731533.569989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QFUYQT7W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

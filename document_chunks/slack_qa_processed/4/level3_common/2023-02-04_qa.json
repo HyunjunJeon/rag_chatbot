@@ -1,0 +1,364 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "선택한 부분에서 PATH_SUFFIXES 수정해서 맞춰주시면 해결될거예요",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1675497608.062759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "mmdeploy@v1.0.0rc1 기준인데, 아마 다른 버전도 같은 증상이 있을겁니당..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675497648.089519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잘 모르겠는부분이 하나 있어서 더 질문드려도 괜찮을까요? ㅠㅠ\n\n아래 사진과 같이 dockerfile로 실행을 시키면 정상적으로 작동을 하는데 dockercompose를 이용하여 동작시키면 에러가 나고 있습니다.\n\ndockerfile을 run 하는 것과\ndocker-compose up을 하여 실행시키는 것에 큰 차이가 혹시 존재하는지도 궁금합니다.",
+          "user": "U041ES2RQLD",
+          "user_name": null,
+          "timestamp": "1675497682.338319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오.. 음.. docker image는 동일한 image인가요?\n그러면 이미 해당 도커 이미지에서 모든 설정이나 설치가 동작하는데 문제가 없다고 보고,\n\n<https://boostcampaitech.slack.com/files/U041ES2RQLD/F04N24WFBBM/_______________________________2023-02-04______________1.22.51.png>\n여깃 137, 138행 그냥 없애고 해보실래요? 없어도 될것 같은데요",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1675497838.707769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아, 제가 파일을 착각한듯 하네요..;",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675497916.804409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아항!..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675497969.895419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이거에서요.. build 하지 마시고 이미 빌드된 image 가져가서 실행하시면 되는거 아닌가요? 다시 빌드할 필요가…",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1675498064.516039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "build 대신에\nimage: level3….어쩌구…:latest 이걸로 바꾸기만 해도 되지 않을까 하는데요..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675498120.394509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "왜냐면 이미 빌드된 이미지를 가지고 계시고, 그걸 docker run 으로 띄워서 하면 되시잖아요? 그럼 굳이 그걸 docker compose 에서 build 할게 아니라 image로 불러다가 쓰시면 될것 같습니당",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675498181.038289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵!! 한번 시도해 보겠습니다.\n\n해결되면 댓글 달도록 하겠습니다!",
+          "user": "U041ES2RQLD",
+          "user_name": "허건혁",
+          "timestamp": "1675498668.523339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결 안되도 말씀 해주세용 ㅎㅎㅎ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675498680.716109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵!! 내일 오전에 진행상황 공유드리겠습니다",
+          "user": "U041ES2RQLD",
+          "user_name": "허건혁",
+          "timestamp": "1675498981.102679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 업스 서버꺼에서 Docker 환경 구성중이신건가요?",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1675512461.597949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마 아닐겁니다. 안될거예요.. 도커 in 도커가..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675512504.765819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "green_heart",
+                "users": [
+                  "U041L903LH2"
+                ],
+                "count": 1
+              },
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U041L903LH2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 포기했다가 혹시나 되시면 어떻게 할 수 있는지 팁을 얻고 싶어서 ㅎ..",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1675512548.134919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sob",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L903LH2> gcp를 이용하고 있습니다.\n\n<@U041L92FWCC> 아직 해결하지 못하였습니다 ㅠㅠ",
+          "user": "U041ES2RQLD",
+          "user_name": "허건혁",
+          "timestamp": "1675573909.722479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC>\n원인을 분석하여 해결하지는 못하였지만 결국 command를 실행시킬때 sh파일을 실행하여 환경설정을 하는 방법으로 변경하여 작동시켰더니 해결되었습니다.\n\n앞으로 배워야 할 것이 많네요 ㅠㅠ",
+          "user": "U041ES2RQLD",
+          "user_name": null,
+          "timestamp": "1675578624.011189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C04HHQWEFTK/p1675496833189949?thread_ts=1675495961.406369&amp;cid=C04HHQWEFTK>\n이거처럼 도커 이미지에\n/etc/ld.so.conf.d/onnx.conf 파일에 내용으로\n```/root/workspace/onnxruntime-linux-x64-1.8.1/lib```\n이렇게 작성해두는것과 동일한데요\n\n결과적으로 같으므로 말씀하신 방법으로도 충분할 것 같네요 ^^ 고생 많으십니다..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675578814.192999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "굳",
+                "users": [
+                  "U041ES2RQLD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC>\n어제부터 어려움을 겪을 때 빠르게 답변 주셔서 감사드립니다.\n최종프로젝트 종료까지 남은 한주 마지막까지 화이팅 하면 좋을 것 같습니다!!",
+          "user": "U041ES2RQLD",
+          "user_name": "허건혁",
+          "timestamp": "1675579060.246189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. gcp를 이용해 uvicorn으로 서버를 띄우려고 하는데\n```uvicorn.run(\"main:app\", host=\"0.0.0.0\", port=80, reload=True)```\n으로 실행을 하면 사진과 같이 실행은 되는데 외부 ip를 통해 들어가면 서버가 뜨지 않습니다. 외부IP 고정해놓았고 port 80 방화벽도 0.0.0.0으로 허용해놓았습니다.\n이전 인스턴스가 과금되어서 새 계정으로 인스턴스를 만들었는데 이전 인스턴스에서는 잘 됐었는데 제가 어떤 부분을 놓친건지 잘 모르겠습니다. 도움 주시면 감사하겠습니다.",
+        "user": "U041B7AFSUE",
+        "user_name": null,
+        "timestamp": "1675515909.969139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 443번 포트로 해보셨나요?",
+          "user": "U0427GAP4UQ",
+          "user_name": "신재영",
+          "timestamp": "1675515979.713429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "HTTPS로 쓰시면 443이 맞겠지만, 지금 브로드캐스팅 프로토콜이 HTTP인 걸 보면 별 문제는 없는 것 같긴 하네요..\n개인적으로는 로컬 환경에서는 가상 포트번호(1024 이후)로 호스팅을 진행하고, 임의로 지정한 내부 가상 포트 번호를 라우터로 설정한 임의의 포트번호로 포워딩해서 (우리는 이 과정을 포트포워딩이라고 부릅니다) 서비스 하는 걸 추천드립니다.",
+          "user": "U041B76DHAS",
+          "user_name": "Jewon Joel Park",
+          "timestamp": "1675516810.181729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "방화벽을 0.0.0.0/0 으로 허용해두셨을까요 ?",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1675519615.446379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G5T6BS> 와 이거였네요... 감사합니다ㅠㅠㅠ 다른 도움주신 분들도 감사합니다!",
+          "user": "U041B7AFSUE",
+          "user_name": "이영진_T4155",
+          "timestamp": "1675522895.265069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0427G5T6BS",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

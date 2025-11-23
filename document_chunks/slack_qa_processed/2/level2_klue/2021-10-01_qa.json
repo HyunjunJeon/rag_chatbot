@@ -1,0 +1,111 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "주말에 죄송합니다!\n혹시 첨부한 사진에서 f1 score 를 계산해주는데요\nlabel_list 에서 왜 ‘no_relation’  index 인 0번을 label_indices 에서 빼주는 건가요?\n아시는분 계실까요??",
+        "user": "U02A8HS8LP2",
+        "user_name": null,
+        "timestamp": "1633141720.057800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "저희 대회 개요 - 평가 방법에 ‘데이터 분포상 많은 부분을 차지하고 있는 no_relation class는 제외하고 F1 score가 계산됩니다’는 문장이 있습니다. 모니터용으로 대회 자체의 평가 metric과 동일한 지표를 활용할 수 있게 해주었다고 생각합니다!",
+          "user": "U02A1GMPQ65",
+          "user_name": "김다인",
+          "timestamp": "1633142009.061800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02A1GMPQ65",
+              "ts": "1633142067.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 감사합니다.\n거기에 적혀있었군요",
+          "user": "U02A8HS8LP2",
+          "user_name": "손희락",
+          "timestamp": "1633142516.062100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A1GMPQ65> 다인님 그러면 pred의 0번째 확률도 제거해줘야 되지 않나용???",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1633143869.062300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029SN2HG0H> 안녕하세요 상민님! 저도 비슷한 고민을 했었는데 0(no_relation)을 0이라고 맞춘경우는 저희 metric에 플러스가 되진 않지만 *정답이 0인 라벨을 다른것으로 예측할 경우*는 FalseNegative 값 계산 시 반영돼 metric에 마이너스가 되어 0은 0으로 잘 맞춰야한다는 결론을 내렸습니다.  제 가설이 맞다면 pred의 0도 그대로 두는 것이 좋아보입니다! 답변이 도움이 되었으면 좋겠습니다:)",
+          "user": "U02A1GMPQ65",
+          "user_name": "김다인",
+          "timestamp": "1633144662.062500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029SN2HG0H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A1GMPQ65> 내부에서 그렇게 동작할거라고 예상하신다는 거죠??? 감사해요 그래서 버트 발표는 언제하세요?",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1633144739.062700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029SN2HG0H> 네 맞습니다! 버트는... 상민님이 같이 읽어주신다면 하겠습니다ㅋㅋㅋㅋ",
+          "user": "U02A1GMPQ65",
+          "user_name": "김다인",
+          "timestamp": "1633145059.063000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U029SN2HG0H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

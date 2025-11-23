@@ -1,0 +1,92 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "NLP 어제 오피스아워 01:09:18부터 멘토님께서 해주시는 잔소리(?) 앞으로 공부하는 데 정말 많은 도움이 될 거 같습니다! CV 캠퍼분들도 한번 들어보시면 좋을 거 같아요!:grin:\n문영기 멘토님 피가 되고 살이 되는 잔소리 해주셔서 감사합니다!",
+        "user": "U029BN43CDB",
+        "user_name": "오하은_T2249",
+        "timestamp": "1631861152.244500",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029BN43CDB",
+            "ts": "1631861175.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U027SHXU18R",
+                "U029T519KUH",
+                "U0284GKL1T4",
+                "U029GGQ456X",
+                "U029E1P5Z5G",
+                "U029KSKF90V",
+                "U029BP86UBX",
+                "U029BQYGRFX",
+                "U029T4XRUCR",
+                "U029N6Q82CU",
+                "U029KG3T7L3",
+                "U028ZQU4N07",
+                "U02AJA6R02C"
+              ],
+              "count": 13
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U027SHXU18R",
+                "U0284GKL1T4",
+                "U029H263PD1",
+                "U029PN9SX1R",
+                "U029BQYGRFX",
+                "U029N6Q82CU",
+                "U029MTWGTJS"
+              ],
+              "count": 7
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1"
+              ],
+              "count": 1
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029E28RUPL",
+                "U029PN9SX1R",
+                "U029BQYGRFX",
+                "U029N6Q82CU"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1::skin-tone-5",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "멘토님이 쓰신 책 - <http://www.yes24.com/Product/Goods/103521543?OzSrank=1>",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1631861270.245900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

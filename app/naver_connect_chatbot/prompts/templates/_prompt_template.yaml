@@ -1,0 +1,40 @@
+# Prompt Template Example
+# This file serves as a reference for creating new prompt templates
+
+_type: chat_messages
+metadata:
+  name: example_prompt
+  description: Brief description of what this prompt does
+  version: "1.0"
+  author: Naver Connect Chatbot Team
+  last_updated: "2025-11-21"
+
+messages:
+  - role: system
+    content: |
+      ## Task
+      [Clear, concise description of the task this prompt performs]
+
+      ## Instructions
+      1. [First instruction]
+      2. [Second instruction]
+      3. [Third instruction]
+
+      ## Output Format
+      [Describe expected output format - JSON, text, Korean, etc.]
+
+      ## Constraints
+      - [Important constraint 1]
+      - [Important constraint 2]
+
+  - role: human
+    content: |
+      [User input template with {variables}]
+
+      Example:
+      Question: {question}
+      Context: {context}
+
+input_variables:
+  - question
+  - context

@@ -1,0 +1,106 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U041B78LL22> 피어세션 시간에 다른 팀 보러 가면 성수님 팀원들은 어떡하나요ㅋㅋ",
+        "user": "U041L94723E",
+        "user_name": "집사",
+        "timestamp": "1673079878.179929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "laughing",
+              "users": [
+                "U041HMZR68K"
+              ],
+              "count": 1
+            },
+            {
+              "name": "apple",
+              "users": [
+                "U041B78LL22"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041L94723E> 가끔씩 서프라이즈 게스트로 계시길래, 저도 팀원들 양해 구한 후 성수님 조에 서프라이즈로 가야하나..생각했답니다",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1673079978.835839",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZR68K",
+              "ts": "1673080308.000000"
+            },
+            "reactions": [
+              {
+                "name": "astonished",
+                "users": [
+                  "U041ERX27TP",
+                  "U041B7AFSUE"
+                ],
+                "count": 2
+              },
+              {
+                "name": "interrobang",
+                "users": [
+                  "U041ERX27TP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L94723E>  아주 예리한 질문이시군요.ㅎㅎㅎ 음.. 네 .. 잠깐 뵙고 도망치는 형식으로..",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1673080150.348969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZR68K> 그럼 상모님 저도 언제 한 번 예고없이 방문해도 될까요?ㅋㅋ",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1673091256.717849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 관련 사항 추가 확인 후 답변드리겠습니다. 감사합니다.",
+        "user": "U04RG8YTUP7",
+        "user_name": "김정현_조교",
+        "timestamp": "1735121499.340969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 9강까지 아직 수강하진 않았지만 질문 주신 문제 상황만 보고 유추하면\n\n'master GPU가 loss(or logit)를 취합하고 다시 분배하는 이유'는\n\n각 노드에서 구해둔 loss 값으로 gradient를 구한 후 취합할때와 master GPU가 loss를 취합한 후 다시 분배할 떄의 결과가 다르기 때문일 것 같습니다\n\n각 GPU는 자신이 전달받은 데이터에 대해서 계산을 수행할 것이고 각 GPU가 계산을 통해 구한 loss의 결과는 조금씩 다를 수 밖에 없을 것입니다\n\n이렇게 다르게 계산된 loss를 그대로 gradient로 바꾸면 각 GPU가 서로 다른 방향으로 모델을 업데이트할 가능성이 높을 듯 합니다\n\nMaster GPU는 슬라이드에서 모든 GPU의 결과를 모아서 한 번에 전체 데이터를 기준으로 loss를 계산한다고 적혀있는데, 이렇게 했을 경우 모든 GPU가 같은 기준으로 계산이 완료된 loss 를 받게 되고, 이를 통해 모든 GPU가 같은 방향으로 gradient를 계산하여 모델이 일관된 방향으로 업데이트를 진행할 수 있을 것 같습니다\n\n쉽게 얘기해서\n\nloss 라는 것이 결국 gradient를 업데이트 하는 기준인데 이 loss가 서로 다른 상황에서 gradient를 업데이트한 후 그 결과를 취합하는 것과\n\nloss를 일관성 있게 맞춰준 즉, master GPU가 loss를 취합하고 분배한 후 gradient 업데이트를 실행하는 결과는 모델의 업데이트 결과가 크게 다를 수 밖에 없다\n\n이렇게 생각했습니다",
+          "user": "U07EUAT6U01",
+          "user_name": "유지환",
+          "timestamp": "1735197092.231949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,879 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "deteval의 calc_deteval_metrics를 사용하면 dic 형식으로 결과값 산출 되는데 {total:{hmean: \"f1_score\"}, {precision:\"precision_score\"},{recall:\"recall_score\"}}로 나옵니다.",
+        "user": "U04138AJC7R",
+        "user_name": "민기",
+        "timestamp": "1670922931.335609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "다른 방식으로 결과까지 출력이 가능한걸 확인해봤지만 data loader형식으로 해보고 싶어서요ㅋㅋ\n\n1. calc_deteval_metrics을 사용하려면 pred bbox와  gt_bbox를 입력으로 받아줘야 한다.\n2. pred_bbox를 얻기 위해서는 detect를 사용해야 한다. \n3. gt_bbox를 얻기 위해서 val_loader를 image와 bbox가 나오도록 구성해야 한다. \n4. 그래서 data_loader를 SceneTextDataset만 적용하고 EASTDataset는 적용 안한 채로 만들어서 image랑 bbox, (roi mask)를 return하게 만든다.\n5. data_loader에서 받은 image를  detect(model,image,input_size) 에 넣어 준다.\n의 흐름으로 하고 있습니다만\n마지막 5번에서 detect에 image를 넣어주는 부분에서 shape 이라던지, entry 0과 1의 크기가 다르다는 오류 등등 여러가지 문제들이 발생했고 일부 해결하기도 해봤는데 결국엔 잘 안 되서 질문 남겼었습니다!\n\n혹시 제 흐름이 잘못 되었다던가... validation 평가를 위해 어떻게 세팅을 하셨는지 공유 해주실 만한 부분이 있다면 공유 부탁 드립니다~",
+          "user": "U041HN1JMTM",
+          "user_name": null,
+          "timestamp": "1670923835.320269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "detect함수 사용하시면 pred_bboxes가 list형태로 나올텐데 calc_deteval_metrics는 dict 형태의 bbox 데이터를 받습니다. 아마 entry가 달라지는 이유가 list로 입력되어서 그런 것 같은데 detect 함수 비슷하게 image이름이 key인 dict 형태로 리턴하는 함수를 만들고 gt_bboxes도 image 이름을 key로 넣어야 calc_deteval_metrics 함수가 사용 가능할 것 같습니다",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1670926161.525379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "맞게 했는지는 모르겠지만..\n새로운 dataset을 짜서 이미지명, 이미지, 원본사이즈를 반환하게 하고,  detect 함수에서 앞 부분의 image를 tesnsor로 바꾸는 부분을 제외하고 나머지 부분을 그대로 이용해서 구현했습니다.",
+          "user": "U0413879JNB",
+          "user_name": "방인서",
+          "timestamp": "1670926358.962199",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0413879JNB",
+              "ts": "1670926389.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "두분 다 답변 감사합니다. 좀 더 해볼게요",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670926779.787999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0413879JNB> detect.py 에서 수정하신건가요? detect() 호출 전에 수정하신건가요?\ndetect.py 가 수정하지 말라는 파일이기는 해서 저희조는 그냥 좀.. 다르게 구현해보고 있었습니다 ㅠㅠ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670927095.570239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파일을 수정한게 아니라, detect함수의 뒷 부분을 그대로 활용해서 data loader의 loop안에서 썻습니다",
+          "user": "U0413879JNB",
+          "user_name": "방인서",
+          "timestamp": "1670927193.220989",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0413879JNB",
+              "ts": "1670927268.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 이해했습니다.. :+1::skin-tone-2:",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670928264.590779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "가상환경에 접속후 pip list와 conda list했을 때 패키지 버전이 다른데 왜 그런지 알 수 있을까요? 패키지는 가상환경에 접속해서 pip install 로 설치했습니다.",
+        "user": "U0427G48WAC",
+        "user_name": "시형",
+        "timestamp": "1670981987.511999",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "conda와 pip가 가르키는 환경 주소가 다르면 그럴 수도 있다고 알고 있습니다.",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670984201.397729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 기본 베이스라인 코드에 적힌 대로라면\n\ntrain 시에는 input 이미지 사이즈가\n`parser.add_argument('--input_size', type=int, default=512)` 를 받아서\n`image, vertices = crop_img(image, vertices, labels, self.crop_size)`  의 crop_size 로 들어가기 때문에 512x512 로 들어가는 것 같은데,\n\ninfer 시에는\n`parser.add_argument('--input_size', type=int, default=1024)` 를 받아서 1024x1024 로 infer 하는 이유가 무엇인지 궁금해서 질문 남겨봅니다 ㅎ_ㅎ\nfully-convolutional layer 라고 쳐도 input 사이즈가 달라지면 제대로 infer 가 안 될거라 생각했는데 말이지요!",
+        "user": "U04138C8PE3",
+        "user_name": "송영동_T4109",
+        "timestamp": "1670982407.532059",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04138C8PE3",
+            "ts": "1670982525.000000"
+          },
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "training 시에는 일부분만 잘라서 학습하는 방식이여서 512인것 같고 inference시에는 이미지 전체에 대한 검출을 해야하기 때문에 resolution을 올려서 넣는 것 같습니다.",
+          "user": "U0427GAP4UQ",
+          "user_name": "신재영",
+          "timestamp": "1670984901.261509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ocr 쪽에서는 보통 학습시 작은 (512 x 512) 사이즈를 사용하고 inference시 입력 이미지를 더 키워서 사용합니다 (1024 x 1024). 학습때 사용되었던 사이즈로 inference 해주면 이미지 안 작은 텍스트 영역 정보가 사라지게되는 문제가 발생해 실제 inference시 더 큰 이미지 입력 사이즈를 사용하게 되는데요. 학습시 crop augmentation으로 인해 다양한 크기의 텍스트를 보게 되기때문에 train-inference 입력 이미지 사이즈 차이가 나도 큰 문제는 없을겁니다 :slightly_smiling_face:",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1670985741.561459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04AY6Y68MR>혹시 조금 더 자세히 설명해 주실 수 있나요? 학습때 사용되었던 사이즈로 inference하면 이미지 안 작은 텍스트 영역 정보가 사라지는 문제가 발생한다는 부분이 이해가 안됩니다 ㅜㅜ",
+          "user": "U041B7AU8UE",
+          "user_name": "최휘준",
+          "timestamp": "1670989613.081059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041B7AU8UE> 예를 들어 원본 이미지 사이즈가 2048 x 2048 인 이미지가 있고 그 안에 작은 텍스트 인스턴스가 있을 경우, 이 이미지가 inference시 512 x 512 로 resize되어 입력으로 들어가면 작은 텍스트 영역이 resize 과정을 거치게되며 너무 작아질 수 있습니다..! (첨부 이미지와 같은 현상이라고 봐주시면 될것같아요!)",
+          "user": "U04AY6Y68MR",
+          "user_name": null,
+          "timestamp": "1670992563.304319",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04AY6Y68MR",
+              "ts": "1670992597.000000"
+            },
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "```ERROR: Unexpected segmentation fault encountered in worker.\nTraceback (most recent call last):\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/site-packages/torch/utils/data/dataloader.py\", line 1120, in _try_get_data\n    data = self._data_queue.get(timeout=timeout)\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/multiprocessing/queues.py\", line 107, in get\n    if not self._poll(timeout):\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/multiprocessing/connection.py\", line 257, in poll\n    return self._poll(timeout)\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/multiprocessing/connection.py\", line 424, in _poll\n    r = wait([self], timeout)\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/multiprocessing/connection.py\", line 931, in wait\n    ready = selector.select(timeout)\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/selectors.py\", line 415, in select\n    fd_event_list = self._selector.poll(timeout)\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/site-packages/torch/utils/data/_utils/signal_handling.py\", line 66, in handler\n    _error_if_any_worker_fails()\nRuntimeError: DataLoader worker (pid 15926) is killed by signal: Segmentation fault.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"train.py\", line 294, in &lt;module&gt;\n    main(args)\n  File \"train.py\", line 289, in main\n    do_training(**args.__dict__)\n  File \"train.py\", line 145, in do_training\n    for img, gt_score_map, gt_geo_map, roi_mask in train_loader:\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/site-packages/torch/utils/data/dataloader.py\", line 628, in __next__\n    data = self._next_data()\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/site-packages/torch/utils/data/dataloader.py\", line 1316, in _next_data\n    idx, data = self._get_data()\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/site-packages/torch/utils/data/dataloader.py\", line 1282, in _get_data\n    success, data = self._try_get_data()\n  File \"/home/admin/.pyenv/versions/3.8.5/lib/python3.8/site-packages/torch/utils/data/dataloader.py\", line 1133, in _try_get_data\n    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str)) from e\nRuntimeError: DataLoader worker (pid(s) 15926) exited unexpectedly```\n살려주세요... ㅠㅠㅠ\n간헐적으로 Segmentation fault 나는데 이거 해결이 안되네요.. 학습 잘 돌아가게 해놓고 잠 좀 자고 싶습니다 ㅠㅠㅠㅠ",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1670984404.515449",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041L92FWCC",
+            "ts": "1670984435.000000"
+          },
+          "reactions": null,
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 window + pyenv + pipenv 환경에서 저런 에러메시지 봤는데 정확한지는 모르겠지만 배치를 줄이거나 numworker를 줄였을 때 해결했던 기억이 있는데 상준님이 올려주신 에러에도 적용될지 모르겠네요...",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1670985427.425879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G48WAC> 시형님이 남기신 메시지들을 보면 Windows에서 종종 돌리시는 것 같은데, 로컬 환경이 서버보다 성능이 좋나요?ㅎㅎ",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670985659.104419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아...아뇨 V100보다 좋을순 없죠ㅋㅋㅋ 부캠하기 전에 겪었던 것들이라 그렇습니다",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1670985728.574649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "flushed",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "OOM으로 터지는건 아닌듯 하고.. 로컬은 V100 보다는 스펙이 높기는 하는데 ㅠㅠ worker 쪽에서 뭔가 문제인거 같은데.. python 코드에서 에러나는게 아니라 따라가기 어렵네요..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670986265.575499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://cchhoo407.tistory.com/26>\n이런 글이 있네요.. <@U0427G48WAC> 님 말씀처럼 num_workers 를 일단 조정해보려고 합니다만..\nCPU 메모리는 80% 이상 남아있고,\nGPU 메모리도 60% 이상 남아있는 상태라 여기서 더 줄이면..... ㅠㅠ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670988883.237119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC>\n<https://discuss.pytorch.org/t/if-name-main-for-window10/19377/2>\n이건 적용해보셨나요??",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1670989113.216749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. 일단 native linux에 올린 docker 환경입니다. AI Stage 서버랑 버전은 거의 맞춰서 세팅해뒀습니다..\n그리고... 이게 간헐적으로 터져서 언제 터질지 모르는.. 슬랙으로 노티오면 식겁하는... 뭐 그런 상태이네요 ^^;",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670989218.859229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 도커 환경이셨군요...\n언제 터질지 모르는게 저희 상황도 그래서 공감이 되네요...",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1670989326.491329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅎㅎㅎ 관심가져주셔서 감사합니다.. 화이팅 하시죠~ :booduck:",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670989363.969289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "지금 시점에 질문을 올리는게 조금 그렇긴 하지만 혹시 각자 조에서 Early Stopping은 적용 하고 계시나요? Valid에서 측정한 metric 이 안정되지 않는 상태에서 outlier 때문에 이후 Early Stopping이 빠르게 나타났을때 이때의 Best 는 신뢰할 수 있을까요? 또, 이를 계속 추가학습 했을때 최초의 Best를 갱신할 수 있다면 과연 Early Stopping은 필요했었을까 오히려 없었어야 했을까...\noutlier가 문제라면 이것을 stable하게 할 수 있는 테크닉은 있을까요?\n오늘이 아니더라도 대회 끝난 후 이 부분에 대해서도 다양한 의견을 들어보고 싶습니다!",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1670991077.923439",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "deep double descent 키워드가 도움이 될 수도 있을 것 같습니다~",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1670991184.498329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "star-struck",
+                "users": [
+                  "U041L94723E",
+                  "U041L8ZANQL"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아! 이해하는데 도움이 많이 될것 같습니다!! 감사합니다~~~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670991355.429879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Non-ASCII 문자열을 ASCII 형태의 문자로 고쳐주는 `unidecode` 라이브러리를 찾게 되어 소개 드립니다 !\nICDAR19 데이터셋에서 프랑스어, 독일어를 어떻게든 살려보려고 리서치 하다가 발견했습니다 :)\n<https://pypi.org/project/Unidecode/>",
+        "user": "U041B76DHAS",
+        "user_name": null,
+        "timestamp": "1670991803.809299",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041L94723E",
+                "U041HR4MDV0"
+              ],
+              "count": 2
+            },
+            {
+              "name": "dancing_puppy",
+              "users": [
+                "U04138C8PE3"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "오... :amaze: 여러모로 재미있어 보이는 라이브러리네요 ㅎㅎㅎㅎ\n혹시 ASCII 벗어나는 특수문자는 어떻게 되나요?",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670991975.900789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "유니코드 중에서도 특수한 것들은 변환 가능하네요 ㅎㅎ",
+          "user": "U041B76DHAS",
+          "user_name": null,
+          "timestamp": "1670992111.031639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅋㅋㅋ 이건 읽어주지 않고 바꿔주는구나.. 감사합니다! ㅎㅎ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670992153.266739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전 진짜 이거도 해줄줄은 몰랐는데.. 이게 되네요\n```print(unidecode(\"뷁\"))  # bwelg\nprint(unidecode(\"쀍\"))  # bbwelg```",
+          "user": "U041B76DHAS",
+          "user_name": "Jewon Joel Park",
+          "timestamp": "1670992293.535369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              },
+              {
+                "name": "amaze",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런거 얘기하면 나이가 들키겠지만\n쑛다리 똠방각하 펲시맨....\n<https://www.youtube.com/watch?v=ymKTvB3XPWk>\n쓩이 타이핑 되는게 최신기술이였는데... ㅋㅋㅋㅋ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670992447.652719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cool-doge",
+                "users": [
+                  "U041B76DHAS"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "세상에 하단 광고에 세진컴퓨터랜드 뜨는 거 보고 흠칫했네요 ㅋㅋㅋㅋㅋㅋ 첫 컴퓨터가 세진 세종대왕98 이었는데 ㅠㅠ 무려 펜티엄2!!",
+          "user": "U041B76DHAS",
+          "user_name": "Jewon Joel Park",
+          "timestamp": "1670992544.060899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sob",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 SynthText 한국어로 뽑을 때 저처럼 글자가 잘리는 문제 있으셨던 분 있으신가요?\n도저히 해결방법을 찾지 못해 질문드립니다",
+        "user": "U04138AJC7R",
+        "user_name": null,
+        "timestamp": "1670993686.232469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U0427G7HN6L",
+                "U041ES0MH9B",
+                "U041L94723E",
+                "U0427G9RVK2"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "우와... SynthText 해보셨군요!! 와.. 나중에 git 참고해볼 수 있을까요? 대회 끝나고서요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670993738.317099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와우 이거 하셨군요!\n혹시\n<https://github.com/youngkyung/SynthText_kr>\n이거 참고하셨나요?",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1670994165.353719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G7HN6L> 네 해당 깃 clone 해서 사용하려고 했는데 코드가 python2로 되어있어서 <https://github.com/techkang/SynthText_Python3> 와 적절히 섞어서 사용했었습니다. 그런데 위 그림처럼 글자가 잘려서 의미가 없어졌습니다 ㅠㅠ",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1670994253.225239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "대박이군요python2라 안된다는 이야기 듣고 바로 접었는데\n대단하십니다!",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1670994292.303799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pyenv 로 python 버전 관리를 하시면 다른 버전의 python 을 환경 깨짐없이 설치 및 관리 하실 수 있습니다.\npyenv + pipenv 조합이 저희조에서는 좋은 경험을 가지고 있어서.. ㅎㅎㅎ\n<https://luran.me/177>",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670994375.631379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/MichalBusta/E2E-MLT>\n여기서 다양한 언어를 생성할 수 있게 해결했나봅니다",
+          "user": "U041WE7JBCH",
+          "user_name": "장지훈",
+          "timestamp": "1670998195.077089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "F1 스코어 계산을 위한 calc_deteval_metrics() 이 있는데 쓰고 계신가요?\n이거 images 장수 몇개까지 시도해보셨나요?....\n아무래도 원흉이 얘인거 같은데 메모리에 여유가 있음에도 불구하고 간헐적으로 동작중 빠빠이 하고 가버립니다....... ㅠㅠ",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1670997120.628999",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 15
+        }
+      },
+      "answers": [
+        {
+          "text": "저희 팀은 500장 정도로만 사용하고 있습니다",
+          "user": "U0427GAP4UQ",
+          "user_name": "신재영",
+          "timestamp": "1670997886.957429",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427GAP4UQ",
+              "ts": "1670998229.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1700장 16 batch 돌아갑니다",
+          "user": "U041WE7JBCH",
+          "user_name": "장지훈",
+          "timestamp": "1670998360.205369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "batch는 20 ~ 28까지 inference 에는 문제가 안되는데\n\n<@U041WE7JBCH> 그 이후 bbox IoU 계산해서 F1, Recall, Prediction 계산하는 과정에서 이미지 장 수가 많아지면 \"기하급수\"적으로 시간이 증가할텐데 어떻게 해결하셨나요?\n\n저는 환경이 잘못 세팅된건지.. calc metric 하는 과정 또는 inference 할때 간헐적으로 seg fault 뜨면서 죽어버리는데 OOM 이나 shm-size 문제는 아닙니다..\n\n일단은 먼저 num_workers 줄이니 확실히 발생 빈도가 줄기는 했는데도... 아직도 간혹 뻗네요 ㅠㅠ 이러다가 제가 뻗겠습니다..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670998708.808709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 처음에 Dataset 만들 때 모델에 필요한 정보들 미리 리스트로 담아두고 했습니다\nDataset 만들면서 load_data 함수가 작동하면서 `image`, `score_map`, `geo_map`, `roi_mask`, `vertices`, `labels`, `transcriptions` 정보들 미리 뽑았습니다\n좀 무겁긴해도 16 batch는 무난하게 돌리는거 같습니다",
+          "user": "U041WE7JBCH",
+          "user_name": "장지훈",
+          "timestamp": "1670998768.916969",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041WE7JBCH",
+              "ts": "1670998929.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "batch size만큼 detect후\n그 다음에 calc_deteval_metrics 호출한게 맞으시죠?\nㅠㅠ 환경의 문제인가.. 코드 구조는 동일한것 같습니다..\n\n아.... 그러고보니 이미지 장수가 늘어남에 따라 원래는 리니어하게 시간이 증가되어야 할 것 같네요.. 근데 이게 음...\n\n역시 안될때는 코드 한 번 더 살펴보는게 맞을것 같습니다 ^^\n감사합니다~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670999051.080319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 detect 함수 일부분 사용하고 calc_deteval_metrics 함수 사용했습니다",
+          "user": "U041WE7JBCH",
+          "user_name": "장지훈",
+          "timestamp": "1670999242.005839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "batch size를 말씀 해주셔서 그러는데, calc_deteval_metrics도 batch size 로 스플릿해서 실행 하신건가요?",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670999337.427569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아니요 dataloader 다 끝나고 한번에 넣었습니다",
+          "user": "U041WE7JBCH",
+          "user_name": "장지훈",
+          "timestamp": "1670999374.378839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. 넵... 그렇게 해도 1700장 가능하고 안 터지는거군요.. 그럼 저희팀 구현 어딘가에 뭔가 문제가 있는게 맞는것 같네요\n공유 감사합니다!!",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670999419.316449",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1670999438.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE7JBCH"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀은 batch size 32로 3000장까지 넣어서 써봤습니다 :booduck-coding:",
+          "user": "U041ERX27TP",
+          "user_name": "배서현",
+          "timestamp": "1671001353.026599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERX27TP> 3000장은 f1score 계산하는데  얼마나 걸리나요??",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1671001661.723159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HN1JMTM> 4~5분 정도 걸렸습니다!",
+          "user": "U041ERX27TP",
+          "user_name": "배서현",
+          "timestamp": "1671001988.068489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

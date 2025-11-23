@@ -1,0 +1,345 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저도 박준성 캠퍼님처럼 likelihood function을 파라미터를 변수로 하고 데이터를 고정된 값으로 보는 함수라고 이해하고 있습니다. 그래서 해당 부분은 오타라고 생각합니다.\nlikelihood 해설의 앞부분인 '우도는 주어진 모델 파라미터 하에서 관측된 데이터가 발생할 확률을 나타내는 함수다.' 라는 내용을 보면, 파라미터 후보가 여러개 있고 각 후보 파라미터 하에서 사전에 관측된 데이터가 발생할 확률을 계산한 후 그 확률을 가장 크게 만드는 파라미터를 선택한다고 설명해주시는 것 같습니다. 그래서 저는 이 내용은 맞다고 생각했습니다.\n해설의 앞뒤 내용이 상반되어 있어서 저는 뒷부분은 작성하실 때 오타를 내신게 아닐까 하고 생각합니다.",
+        "user": "U09CH7YCBFV",
+        "user_name": "최영진_T8204",
+        "timestamp": "1760516280.215139",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH7YCBFV",
+            "ts": "1760516311.000000"
+          },
+          "reactions": [
+            {
+              "name": "gratitude-thank-you",
+              "users": [
+                "U09CH7S61DZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 준성님.\n진단하기에 해설이 모호했던 것 같습니다..명확한 설명을 드리지 못해 죄송합니다. 수정을 통해 다음 기수부터는 혼란이 생기지 않도록 하겠습니다. 질문 남겨주셔서 감사합니다!\n\n우선 준성 캠퍼님 그리고 영진 캠퍼님께서 처음 이해하신대로 우도 자체는 parameter에 관한 함수가 맞습니다.\n• 왜냐하면 관측 데이터는 고정이고 이 관측 데이터를 설명하기 위해 다양한 분포의 파라미터를 생각해볼 수 있을 텐데요.\n    ◦ 예를 들어 Gaussian 분포의 평균과 분산일 수 있겠죠?\n        ▪︎ 저희가 고려할 수 있는 평균과 분산 값은 무수히 많을 것입니다.\n• 그럼 우도는 어떤 평균과 분산을 선택하는지에 따라 달라질 것입니다.\n• *그렇기 때문에 우도는 parameter에 관한 함수가 정확한 정의입니다.*\n그런데, 관점을 바꿔서 데이터 포인터가 여러개가 있고 (즉, 관측 데이터가 여러 개있을 때), 파라미터가 고정이면, 데이터 포인터 마다 likelihood 값이 달라지기 때문에 데이터가 변수로 취급되는 함수로도 보일 수 있는데요.\n하지만 파라미터가 고정되면, 분포가 특정된다는 말이기 때문에, PDF로 보는 것이 좀 더 엄밀할 듯 합니다.\n\n정리하면\n• 관측 데이터가 주어졌을 때 parameter에 관한 함수는 likelihood\n• parameter가 주어졌을 때 데이터 포인트에 관한 함수는 확률 밀도 함수 (PDF)\n로 생각해주시면 좀 더 명확하지 않을까 싶습니다!",
+          "user": "U06BNEV5K71",
+          "user_name": "변호윤",
+          "timestamp": "1760591541.539669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH7W1NCT",
+                  "U09CH7S61DZ"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7S61DZ",
+                  "U09CH7YCBFV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[ML for RecSys 3강. 변분추론 1]\n3강 강의를 들으면 아래와 같이 z의 posterior을 표기할 때 q(z|x)가 아닌 q(z)를 사용하고 있는데, 2강 강의노트(3번째 사진)에는 q(z|x)로 x에서 z를 만들 때의 분포로 표현되어 있고, 부스트코스 강의 페이지에 링크된 further reading 블로그 글(2번째 사진)에도 q(z|lambda) 식으로 표현되어 있으며,\n제가 생각해봤을 때도 q(z|x)를 p(z|x)에 근사하고자 하는 목적에서부터 식을 전개해나가면서 KL(q(z|x), p(z))가 된 것이니까 q(z)가 아닌 q(z|x)가 들어가는 게 맞을 것 같은데(4번째 사진)\n강의 설명에서 posterior가 q(z)라고 표기된 이유가 궁금합니다.",
+        "user": "U09CH85PLV9",
+        "user_name": null,
+        "timestamp": "1760578467.182719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH871719",
+                "U09CH81NW2X",
+                "U06BNEV5K71",
+                "U09CH85PLV9",
+                "U09CH8A1B6X",
+                "U09CH7SNT8B"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 13
+        }
+      },
+      "answers": [
+        {
+          "text": "저의 얕은 지식으로 조금만 얹자면\n다른 블로그들을 참고했을때 3번째 사진은 KL( q(z) || p(z|x) )를 푼것이더라고요\n이 과정은 실제 사후분포 p(z|x)를 다루기 쉬운 근사 분포 q(z)로 최적화(근사)하는 과정이라고 합니다.\n\n그렇게 생각하고 수식을 봤을 때는 q(z)가 맞는 것 같습니다. 두번째 이미지의 블로그에서 `q(Z∣λ)에서 λ는 variational parameter이고, λ가 q의 parameter로 작동한다는 표현입니다.` 고 말한 것도 q(z)를 q(Z∣λ)로 표현한 것이 아닐까 생각됩니다.",
+          "user": "U09CH7W1NCT",
+          "user_name": null,
+          "timestamp": "1760580882.194549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다 3번째 사진이 KL( q(z) || p(z|x) ) 또는 KL( q(z|x) || p(z|x) ) 를 푼 식이라는 것은 여러 블로그 글들에서 전개 과정이 소개가 되어 있더라고요.\n그런데 표기에 있어서 KL( q(z|x) || p(z|x) )가 맞지 않나, 저 3번째 사진도 q(z)가 아닌 q(z|x)로 표기하고, KL( q(z|x) || p(z|x) ) 를 푼 식이 아닌가 하는 의문이 아직도 듭니다.\n단순히 표기의 단순화를 위해 |(given)을 생략한 걸까요?\n관련된 언급이 강의나 인터넷에 제가 찾아보기엔 없는 것 같아서 아직 헷갈립니다 ㅠ",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1760581668.079909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "3번째 사진은 KL(q(z|x) || p(z))가 맞습니다.",
+          "user": "U09CH85AY7M",
+          "user_name": "고남호",
+          "timestamp": "1760581800.448329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "q(z|x)인 이유는 q(z|x) = N(z; mu, sigma^2 I)이고\nmu, sigma는 x를 신경망에 넣어서 나온 값이라\nx를 신경망에 넣어 mu, sigma를 뽑아서 만든 분포라 q(z|x)가 됩니다.\n\np(z)인 이유는 4번 사진에서 p(x,z)를 p(x|z)p(z)로 만들고 p(z)가 KL에 사용되어 p(z)로 표기합니다.\n\n그래서 3번째 사진은 KL(q(z|x) || p(z))가 맞습니다.",
+          "user": "U09CH85AY7M",
+          "user_name": "고남호",
+          "timestamp": "1760582165.251879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다 그러면 왜 2강에서는 q(z)가 아닌 q(z|x)의 표기를 사용했는데, 왜 3강에서는 q(z)의 표기를 사용한 걸까요? 아직 NN을 도입하지 않은 순수한 정규분포와 같은 분포여서 그런 건가요?",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1760582305.150029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 우선 저도 공부하고 있는 입장으로서 틀릴 수도 있지만… 이 부분이 궁금해서 찾아봤었는데 제가 이해한 대로 설명드리도록 하겠습니다.\n\nVI 자체의 개념은 posterior p(z|x)를 계산하고 싶다는 생각에서 오래 전, 딥러닝이 나오기 전에 도입되었습니다.\n고전적인 VI는 데이터 x는 모델에 입력되는 변수라기보다는 최적화 과정에서 주어져 있는 ‘고정된 조건’ 등과 같이 해석을 했기 때문에 데이터 x에 따라 달라지는 분포를 찾기 보다는 데이터 전체를 대표할 수 있는 global한 latent 분포 q(z)를 찾고자 하였습니다.\n그래서 q(z)와 p(z|x)에 관한 식을 세운 것이 처음 VI의 시작인 것으로 압니다.\n\nlatent variable z가 여러 차원으로 이루어져 있기 때문에 상관관계를 고려하며 최적의 q(z)를 찾는 것이 힘들다고 생각해 강의에서 나온 것처럼 MFVI 등을 도입하는 등 VI를 딥러닝 전부터 계속 도입하고자 하였습니다.\n\n하지만 데이터가 많으면 VI를 즉시 수행해 계산하기 힘들었고, 해당 모델의 구조가 바뀔 때마다 VI 공식을 유도해야 하는 문제가 있었다고 합니다.\n시간이 흘러 딥러닝이 도입되며 신경망으로 바꾸어 학습하자고 처음 혁신적인 아이디어를 낸 것이 VAE였습니다.\n각 데이터 x마다 최적의 근사 분포 q(z|x)가 다를 것이므로 어떤 x가 들어오든 그에 맞게 q(z|x) 분포를 만들어주는 encoder 신경망을 학습시키는 것이죠.\n\n그래서 정리를 하자면 3강에서는 조금 더 근본적인, 이론적인 VI에 대한 설명을 하기 위해서 q(z)를 이용해 설명한 것으로 보입니다. 2강에서는 VAE 모델에 관한 설명을 하고 있으므로 q(z|x)라는 식으로 설명하신 것으로 보입니다.",
+          "user": "U09CH892EF5",
+          "user_name": "조민재",
+          "timestamp": "1760582484.664059",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH892EF5",
+              "ts": "1760583353.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7TQGP5",
+                  "U09CH871719",
+                  "U09CH88D69H",
+                  "U09CH85PLV9",
+                  "U09CH7Y6HEX",
+                  "U09CH8A1B6X",
+                  "U09CH7WV1PV"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "맞습니다. 3강에서 q(z)는 임의의 분포라서 q(z|x)가 아닌 q(z)로 표기를 했습니다. 2강에서는 신경망으로 만든 분포라서 q(z|x)입니다",
+          "user": "U09CH85AY7M",
+          "user_name": "고남호",
+          "timestamp": "1760582489.278279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH85AY7M",
+              "ts": "1760582532.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇다면 VAE가 아닌 이론적인 부분에서는 q(z)인게 VAE에서는 q(z|x)인게 맞을까요?",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1760582750.516429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다",
+          "user": "U09CH85AY7M",
+          "user_name": "고남호",
+          "timestamp": "1760582779.635829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아리송했는데 자세한 설명 감사합니다!!",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1760582939.773389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "남겨주신 답변들 덕분이 이해된 것 같습니다 감사합니다",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1760582988.224989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH85AY7M"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 이해한게 맞다면 만약 딥러닝이 아니라 데이터 전체에 대해 mu와 sigma를 구하여 분포를 구하는 경우는 q(z)가 맞을까요?",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1760582994.849159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 그 경우는 q(z)가 맞습니다.",
+          "user": "U09CH85AY7M",
+          "user_name": "고남호",
+          "timestamp": "1760583071.027619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH7W1NCT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 서현님!\n네 맞습니다. 과제 2,3,4,6 은 모두 동일한 movie lens 100k 를 사용합니다!",
+        "user": "U06BNEV5K71",
+        "user_name": "변호윤",
+        "timestamp": "1760588372.272169",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네네!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1760589957.508279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 정대현 캠퍼님!\n\n우선 좋은 질문 남겨주셔서 감사합니다!\n\n1. KL divergence를 최소화하는 것의 의미는 encoder가 학습한 q(z|x)와 prior p(z)를 가까워지도록하는 정규화 (또는 규제)항입니다. 즉 fitting 과정에서 q(z|x)가 너무 관측 데이터 x에 과적합하지 않도록 방지해주는 역할이며, 일반화된 모델을 얻기위한 목적을 갖습니다.\n    a. KL divergence를  최소화 하기 위한 업데이트 대상은 q(z|x) 분포의 모수가 되겠습니다.\n2. 말씀주신 \"보편 근사 정리\" 가 universal approximation theorem이 맞을까요? 맞다면, 보편 근사 정리는 neural networks가 충분히 클 때 어떤 연속 함수도 근사할 수 있다는 것인데요. 이는 함수 근사에 대한 보장이지, 확률 분포의 모수를 근사할 수 있다는 것과는 조금 다른 내용인 것 같습니다!",
+        "user": "U06BNEV5K71",
+        "user_name": "변호윤",
+        "timestamp": "1760593315.878089",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CD7Y1FPX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U06BNEV5K71> 답변 감사합니다! 추가로 VAE에 대해서 다음과 같이 정리해봤는데, 맞을까요?\n1. VAE는 잠재 변수 Z를 더 잘, 그리고 편하게 샘플링해서 입력했을 때, 괜찮을 결과를 위해서 만들어졌다. \n2. 연속성을 갖고 계산하기 편한 N(0,1)로 p(z)를 설정한다. \n3. p(z|x)를 p(z)에 가깝도록 KL(p(z|x)||p(z))를 구해서 최소화하려고 했더니 p(z|x)를 구할 수가 없다. 따라서, 정규분포인 q(z|x)로 구할 수 없는 p(z|x)를 근사시켜서 KL(q(z|x)||p(z))를 최소화하도록 한다. : 이러한 근사 방법을 변분추론이라고 한다.",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1760594377.660969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

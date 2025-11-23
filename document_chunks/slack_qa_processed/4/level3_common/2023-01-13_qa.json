@@ -1,0 +1,123 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "mmseg 관련해서 이런 에러 잡아보신 분 계신가요\n\n/opt/conda/envs/python9/lib/python3.9/site-packages/mmcv/_ext.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZNK2at6Tensor6deviceEv\n  File \"/opt/ml/Next-ViT/segmentation/train.py\", line 17, in &lt;module&gt;\n    from mmseg.apis import init_random_seed, set_random_seed, train_segmentor\nImportError: /opt/conda/envs/python9/lib/python3.9/site-packages/mmcv/_ext.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZNK2at6Tensor6deviceEv",
+        "user": "U041387471D",
+        "user_name": "김광연",
+        "timestamp": "1673599508.322209",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 13
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/open-mmlab/mmdetection/issues/4291#issuecomment-946909608>\n혹시 mmcv-full이나 pytorch 버전이 어떻게 되시나요?",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1673599697.299109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "토치 11.7에 mmcv-full은 1.4.0이네요",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1673599999.081379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "링크 걸어주신 방법으로 한번 해보겠슴닷",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1673600142.763079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 지난 대회에 SOTA모델(EVA, ViT-Adapter)을 설치하면서 얻은 교훈을 공유합니다.\n• 제시된 버젼을 모두 맞출 필요는 없으므로, 추천되는 버젼 이외에 일단 설치가 용이하고 유사한 버젼으로 설치해 보고 동작을 확인한다.\n• 설치시 발생하는 오류나 경고를 대충 보지 말고, 사용하는 개발환경과 구글링에서 제시된 해법을 비교해 본다.\n• GPU 드라이버→CUDA버젼→Pytorch버젼→mmcv버젼→mmdet버젼 순으로 설치.\n• 특정한 서버에서 설치가 계속 안될 경우 다른 HW(GPU)에서 시도해 보는게 더 쉬울 수도 있다.",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1673669225.853489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZR68K> 답변이 늦었네요 효과가 있었습니다 ㅎㅎ 감사합니다",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1673670871.380969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZ7PHR> 저도 하다보니 말씀해주신 순서대로 하게 되던데 그게 맞나보네요 ㅎㅎ 공유 감사드립니다",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1673670949.227569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "wink",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<https://fastapi.tiangolo.com/deployment/server-workers/>\n\nfastapi 공식 문서에서는 운영 환경에서는 gunicorn을 사용하기를 권장합니다. 아무래도 상렬님 말씀하신거 처럼 다양한 서버 프로세스 관련 오퍼레이션을 하기 위함인듯 합니다.",
+        "user": "U02TPADFY9Y",
+        "user_name": "안상태",
+        "timestamp": "1654686931.091159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02U0J704TV",
+                "U02U0E794M8"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02U0J704TV",
+                "U02U0E794M8"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!!",
+          "user": "U02U0J704TV",
+          "user_name": "김상렬_T3032",
+          "timestamp": "1654689121.051529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

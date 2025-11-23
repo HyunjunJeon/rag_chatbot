@@ -1,0 +1,134 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 데이터는 주어진 데이터만 사용하셔야 합니다. 주어진 것 외에는 아무것도 사용하면 안된다고 보시면 될 것 같습니다. 감사합니다.",
+        "user": "U047GUPLQ79",
+        "user_name": "오휘건_조교",
+        "timestamp": "1671523467.193579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "넵! 감사합니다 :pray::skin-tone-2:",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671523555.904339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "다음주 오피스아워 내용이 mmsegmentation 사용법이던데요, 혹시 mmsegmentation에 맞는 데이터셋구조로 변환해주는 코드도 추후에 제공될 예정인가요?",
+        "user": "U041ES179JR",
+        "user_name": "정상헌_T4193",
+        "timestamp": "1671529388.636999",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "dancing_puppy",
+              "users": [
+                "U04138C8PE3",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 코드는 제공드릴 예정이지만, 어려운 작업이 아니니 필요하신 경우 직접 해보시는 것도 좋을 것 같습니다. 감사합니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1671601473.427159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U041ES179JR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "segmentation model pytorch의 encoder에서 xception을 사용하고자 할 때\n`urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1123)&gt;`\n같은 에러를 경험하신 분이 계신가요..? 이 에러에 대한 해결방법을 구글링해봤는데 마땅한 해결책을 찾지 못해 질문 드립니다 ㅠ",
+        "user": "U04138964NB",
+        "user_name": "최명헌_T4220",
+        "timestamp": "1671529935.525579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QFUYQT7W"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "코드에 아래 스니펫 추가해서 사용하시면 됩니다 :slightly_smiling_face:\n```import ssl\n\nssl._create_default_https_context = ssl._create_unverified_context```",
+          "user": "U041B76DHAS",
+          "user_name": "Jewon Joel Park",
+          "timestamp": "1671530907.671109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "너무 좋은 정보 감사합니다!",
+          "user": "U04138964NB",
+          "user_name": "최명헌_T4220",
+          "timestamp": "1671531255.921259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041B76DHAS",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

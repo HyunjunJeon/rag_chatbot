@@ -1,0 +1,453 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[과제2번 RecSys 질문]\n안녕하세요 마스터님. 과제 2번의 RecSys쪽 문제와 관련해서 질문이 있습니다.\n과제 상에서 api.py 파일에 TODO가\n```# 여러 모델에 대한 옵션, 학습 옵션을 추가해 볼 수 있습니다\n# DeepCoNN 은 첫 실행 시 vector_create True 설정 필요\n# 요청 예시: 0.0.0.0:8000/scoring/context?model_type=wdn\n@router.get(\"/scoring/context\")\ndef predict(model_type: str = \"FM\") -> PredictionResponse:\n    # TODO: 데이터를 받아서 모델로 추론하고 결과를 반환\n    return PredictionResponse(...)```\n이렇게 되어있습니다.\nURI의 scoring과 파라미터에 model_type 하나만 있는걸 보면,\n해당 모델에 대한 훈련을 src에 있는 csv로 진행한 뒤\nscoring 값을 return해야될 것 같은데,\n\napi.py에 정의되어있는 PredictionResponse에는 user_id, isbn, rating이 있어서\nrequest에 없는 user_id와 isbn을 임의로 선정해서 return하는게 맞는 지,\nrequest에서 user_id와 isbn을 추가로 받아서 예상 rating을 return하는게 맞는지,\n아니면 그냥 valid scoring 값을 return하는게 맞는 지 궁금합니다.\n\n그리고 이 외에 README.md에 있는\npredict, Get all predictions, Get a prediction 이 3가지 api를 다 구현해보는게 맞을까요?",
+        "user": "U07F4EH0BMW",
+        "user_name": "김건율_T7505",
+        "timestamp": "1734482946.551259",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07F4EH0BMW",
+            "ts": "1734482987.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03UXQJ8T3Q"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U03SAGX725R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 해당 부분은 말씀 주신 것 처럼 user_id, isbn은 임의로 선정해서 return 해주시면 됩니다.\n\n중요한 부분은 rating 을 모델로 부터 내려주는 부분이라, 실제로는 여러 고민들을 해주셔야 겠지만 교육의 목적에서 간소화 한 것이라 봐주시면 감사하겠습니다!",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1734489442.389249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U07F4EH0BMW",
+          "user_name": "김건율_T7505",
+          "timestamp": "1734489473.635499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Docker 6강 관련질문]\n안녕하세요,\n다름이 아니라 6강 코드를 따라 치고이제\ndocker run --name mysql-tutorial -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:8 이부분 을 치면\n아래와 같은 오류가 나타납니다. 그래서 찾아보았는데요 isof같은 커맨드를 실행해서 혹시 제 로컬호스트에 프로세스가 진행되는지 확인해도 아무것도 진행사항이 없는데 이건 왜그럴까요??\n```docker: Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: address already in use.```",
+        "user": "U07EUAPHBPB",
+        "user_name": "신승훈",
+        "timestamp": "1734490988.159769",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U03SAGX725R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 28
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 담당 조교입니다.\n\n```lsof -i :3306```\n명령어 실행 시 어떤 내용이 출력되나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492164.947879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```(base) sinseunghun@sinseunghuns-MacBook-Pro-4 02-docker % lsof -i :3306\n(base) sinseunghun@sinseunghuns-MacBook-Pro-4 02-docker %```",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492191.259339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 나옵니다 ..",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492195.187699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "docker ps -a로 3306 포트 쓴거 있는지 확인해보셨나요?",
+          "user": "U07EFHC7YRZ",
+          "user_name": "박태영",
+          "timestamp": "1734492255.394699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```(base) sinseunghun@sinseunghuns-MacBook-Pro-4 02-docker % docker ps -a\nCONTAINER ID  IMAGE   COMMAND         CREATED     STATUS  PORTS   NAMES\n57937b2ecc21  mysql:8  \"docker-entrypoint.s…\"  30 minutes ago  Created       mysql-tutorial```",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492272.323189",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EUAPHBPB",
+              "ts": "1734492280.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 하나만 뜹니다!",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492292.223579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이미 만드신거 같네요 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492300.390699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 이미 만들고 start해도 들어가지지 가않아요..",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492317.031659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```docker rm 57937b2ecc21 -f```\n로 위 컨테이너 삭제하시고 다시\n```docker run --name mysql-tutorial -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:8  ```\n하시면 됩니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492321.818249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저거 해본 방법중하나인데\n\n```(base) sinseunghun@sinseunghuns-MacBook-Pro-4 02-docker % docker rm 57937b2ecc21 -f\n\n57937b2ecc21\n(base) sinseunghun@sinseunghuns-MacBook-Pro-4 02-docker % docker run --name mysql-tutorial -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:8\n0223b92eb8aa0b410e8bd79f05e5cf808bfc2697bfaca78c2a9c7b85db985fc7\ndocker: Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: address already in use.```",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492355.369649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "똑같이 이렇게 오류가 떠요",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492362.183469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```docker: Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: address already in use.```\n이 에러는\n```0223b92eb8aa0b410e8bd79f05e5cf808bfc2697bfaca78c2a9c7b85db985fc7```\n 이 컨테이너 아이디 보인 뒤에 바로 나온건가요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492425.081009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492451.515199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03UXQJ8T3Q> 이거 한번 봐주시겠어요?? 흠..",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492472.679049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 docker application에 컨테이너가 생긴게 보입니다.",
+          "user": "U07EUAPHBPB",
+          "user_name": null,
+          "timestamp": "1734492534.289229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이미 3306 포트에 mysql 컨테이너가 잘 만들어 진걸로 보입니다 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492638.231449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 지금 그럼 오류는 커맨드 상에서 컨테이너 안으로 진입이 안되는게 맞는걸까요?",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734492662.172349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "docker exec 명령으로 컨테이너 내 진입이 잘 되시나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1734492832.636549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Start mysql-tutorial 치면 똑같이 아래와같은 오류가 나오네요. 이걸 해야지 exec 을 할수있는걸로 알고있어서 따로 exec 실행을 하지는 않앗습니다!\n```docker: Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: address already in use.```",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734493308.414279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제 환경에서 커맨드를 다시 실행했어요\n\n```docker run --name mysql-tutorial -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:8```\n이렇게 하니까 정상적으로 도커 컨테이너가 생성되네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1734493648.967449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "코드의 문제보단 승훈님의 컴퓨터 상황의 특성일 것 같은데, 우선 위에서 시흠님, 태영님이 말씀하시고 승훈님이 시도한 것처럼 포트의 이슈가 있어보여요.\n\n근데 지금 원인이 잘 파악이 안되고, 도커 컨테이너는 띄워진 상황이지요.\n\n이럴 때 저는 일단 포트를 바꿔서 동작하는지 봅니다\n\n```docker run --name mysql-tutorial2 -e MYSQL_ROOT_PASSWORD=1234 -d -p 3307:3306 mysql:8```\n이렇게 하면 3307 -&gt; 3306이 되고, 컨테이너의 이름도 숫자 2를 붙였어요. 이게 만약 실행이 된다면 지금 승훈님 환경에서 포트 3306에 대한 이슈가 있는 것일거에요.\n\n때론 내가 의도하지 않았지만 설치한 프로그램이 포트를 잡는 경우도 있고, 포트가 제대로 해제가 안되는 경우도 있더라구요. 맥북 특성상 재부팅을 잘 안하는데, 재부팅을 하고 해보니 되는 경우도 있었어요.",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734493779.514739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 도커 컨테이너 띄워진 것도 삭제하고, 아예 재부팅하고 처음부터 해보시는 것도 추천드리고, 학습 과정에서 3306 포트를 꼭 써야하는 것은 아니기에 일단은 3307:3306을 사용해서 되는지 확인해보고 다음 학습으로 넘어가는 것도 추천드려요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734493827.216469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "로컬에 mysql, mariadb를 설치할 때 3306 포트를 잡고 있는 경우도 있고 승훈님의 환경이 뭔지 다 확인해야 원인을 더 구체적으로 파악할 수 있을 것 같네요.",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734493955.606289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님 친절한 답변감사합니다. 저도 제 포트에 문제가있는거같은데 컴퓨터에대해서 잘 알지 못해서 어떤게 문제인지 알고싶어도 잘 찾지를 못하겠네요 조금더 노력해서 찾아보고 알게되면 여기에 댓글로 남겨놓을게요!! 강의 진행을 위헤서 포트 3307로 수정해서 하겠습니다.\n조교님 태영님도 관심있게 봐주셔서 감사합니다!",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734497132.925229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U03PVSC77HR",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "고쳤습니다 ㅎㅎ\n이유는\nMYSQL 서버가 자동적으로 launchd 서비스 매니저를 통해 설정되있어서 그렇다고하네요\n그거 없애니까 자연스럽게 오류 없이 잘 되네요. 아마 제가 예전에 mysql을 따로 혼자 깔앗을때 깔린 configure 설정이였던거같습니다",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734497947.607679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "고생하셨어요~! 제가 예상한 것처럼 예전에 설치했던 것이 있어서 그랬군요. 학생분들이 이런 경우가 꽤 있더라구요. 과거에 설치했던 것이 영향을 미치기도 해요.\n\n이번 기회에 포트 개념이랑 내가 설치한 것이 있을수도 있구나!라는 것을 깨달으셨낄!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734498033.907959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U07EUAPHBPB"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 이번에 포트개념을 조금 자세히 알고갈수있는 좋은 기회가되었습니다 감사합니다 ㅎㅎ",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1734499132.475889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

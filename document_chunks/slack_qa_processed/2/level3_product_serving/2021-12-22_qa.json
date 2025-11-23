@@ -1,0 +1,100 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 :smile:\n프로젝트를 마무리하면서 개인 연구 포트폴리오를 만들어볼까 하는데 , 어떤 양식으로 작성하면 좋을지 잘 모르겠습니다. ㅠㅠ\n혹시 좋은 연구 포트폴리오 예시를 알고계신다면,  채널에 링크를 공유해주실 수 있으실까요?공유해주시면 감사하겠습니다. :pleading_face:\n프로젝트 발표가 벌써 내일입니다. 다들 마무리 잘하셧으면 좋겠습니다. ㅎㅎ:blush:",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1640228195.445200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U027SHXU18R",
+                "U029NG58Q84"
+              ],
+              "count": 2
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U027SHXU18R",
+                "U029H263PD1",
+                "U029NG58Q84"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02AF2JSQP2> 도움이 될지 모르겠지만 저는 예전에 연구 포트폴리오 작성할 때 이렇게 작성했습니다.\n<https://github.com/KimDaeUng/KimDaeUng/blob/main/%5BMasterThesis%5DDynamic_Memory_based_Capsule_Networks_for_Few-Shot_Text_Classification.pdf>\n\n논문 양식과 동일하게 Task 소개, 기존 방법론과 그 한계점, 제안하는 방법과 그 효과, 결론 및 제언 순으로 구성하는게 기본인 것 같습니다.",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1640228893.445300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029H263PD1",
+              "ts": "1640228904.000000"
+            },
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U02AF2JSQP2",
+                  "U029T92U2F3",
+                  "U029B6PDLFQ",
+                  "U029SLN0S1X",
+                  "U027SHXU18R",
+                  "U0298RU576J"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1>  오 좋은 답변 감사합니다.\n 잘 읽어보겠습니다.:100:",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1640228939.445700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U027SHXU18R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

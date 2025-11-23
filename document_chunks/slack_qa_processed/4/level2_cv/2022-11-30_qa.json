@@ -1,0 +1,409 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "10강 Kaggle VinBigData 에서 Preprocessing으로 WBF를 적용한 부분에 대해서 질문이 있습니다.\n전처리시 bounding box에 대한 confidence score가 아직 없는 상태인데, box의 score를 이용해서 box 합치는 WBF를 어떻게 적용할 수 있나요?\n강의노트의 reference로 언급된 kaggle discussion에는 각 모델의 결과를 ensemble할때만 WBF를 언급해서 문의드립니다.\n<https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/231511>",
+        "user": "U041HMZ7PHR",
+        "user_name": "1",
+        "timestamp": "1669796377.385509",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "해당 competition은 전처리 단계로 앙상블을 많이 사용하였는데요. 대회 데이터 설명에서도 확인할 수 있듯이 하나의 instance 에 하나의 box가 존재하는 것이 아니라 여러 전문가들이 box를 쳐두었습니다. <https://www.kaggle.com/competitions/vinbigdata-chest-xray-abnormalities-detection/overview|참고>\n그렇다면 전처리 기법들로 여러가지를 고려하였습니다. 해당 부분은 다음 <https://www.kaggle.com/code/t3sting/vinbigdata-fusing-bboxes-coco-dataset|노트북>을 참고하면 좋을 것 같아요. 코드 부분을 보면 score를 기반으로 weight를 주는 경우 전부 1로 통일해서 주는 것을 확인할 수 있습니다.\n해당 대회의 기술을 사용하기에 앞서서 대회에 대해 전반적으로 이해를 한다면 적용하는 것이 수월할 것으로 예상됩니다. 보통 대회의 전체 따라갈 수는 없기 때문에 대회에서 EDA해놓은 노트북을 보며 따라가보는 것도 추천드립니다.",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669797277.670309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041HMZ7PHR",
+                  "U0427G7EG72"
+                ],
+                "count": 2
+              },
+              {
+                "name": "grinning",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 YOLOv7 학습 잘 진행되다가 validation의 logging 값이 0으로 나오는 분들 계시나요? 빨간색 부분입니다",
+        "user": "U0427G93ETS",
+        "user_name": null,
+        "timestamp": "1669797483.046029",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 14
+        }
+      },
+      "answers": [
+        {
+          "text": "0으로 나오는 경우는 처음 봤습니다.\n혹시 가로축이 epoch 인가요? epoch이 170이면 과한 듯 합니다.",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1669798084.847209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 가로축은 epoch이고 200으로 맞추고 학습진행했습니다",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1669798137.176349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "0이 맞나요? 저는 0인줄 알았는데 nan인 경우가 있었습니다.",
+          "user": "U041B77LJ22",
+          "user_name": "최상호_T4221",
+          "timestamp": "1669798670.685509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "선이 끊어진 경우는 nan으로 나오고 val/bbox_mAP_50 은 0으로 나오네요",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1669798744.853889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 터미널에서 print 결과는 어떻게 나오나요?",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669798796.909179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "GPU가 터져버린거 아닐까요..?",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669798946.109009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "터미널도 0으로 바뀝니다..",
+          "user": "U0427G93ETS",
+          "user_name": null,
+          "timestamp": "1669799111.194169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wandb에서 0으로 바뀌는 시점의 GPU 상태 한 번 보시는 것도 추천드립니다",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669799187.566139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "grad가 터지는 경우도 간혹 있었는데 170에폭에서 grad가 갑자기 문제가 되지는 않을 것 같아요",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669799243.252299",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G5BJQG",
+              "ts": "1669799261.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wandb에서 system에서 GPU관련 로깅 내용을 체크해봤는데 특별하게 이상한 부분은 없네요..",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1669799511.872769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "melting_face",
+                "users": [
+                  "U0427G5BJQG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "생각해봤는데 혹시 서버 용량은 넉넉하신가요? 서버 용량으로 pt가 제대로 저장이 안되면 저럴 수 있을 것 같아요",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669805356.254859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버용량 충분했습니다 ㅎㅎ",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1669805415.102969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 free 명령어로 cpu 메모리는 충분한지 확인해 보셨나요?",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1669805443.879599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "메모리도 문제없습니다ㅠ제가 더 찾아봐야겠네요",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1669810416.408919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "배치를 키워서 학습하기 위해 각각 팀원에게 분산된 v100 gpu을 하나의 서버에서 4개의 gpu를 사용하듯이 쓰고 싶은데 혹시 방법이 있을까요? 이러한 방식으로 사용하려면 쿠버네티스를 사용해야 할 것 같은데 이 방식을 사용할 수 있는지 궁금하고 실제로 가능하다면 어떤 걸 참고해서 봐야할까요?",
+        "user": "U0427G48WAC",
+        "user_name": "시형",
+        "timestamp": "1669810367.999609",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041HMZR68K",
+                "U041ES0MH9B"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://blog.ksc.re.kr/124> 참고 바랍니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669810994.985809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "baseline 코드 중 sh 스크립트에 slurm 으로 실행하는 코드가 있긴 한데.. 환경 세팅하고 처음 해보시는데에는 다소 좀 시간이 걸리지 않을까 하는데 후기 공유해주세요 ㅎㅎ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669811053.693849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427G48WAC> 현재 batch_size 몇으로 하시고 있나요?",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669812104.485489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC> 한번 시도해보겠습니다!",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1669812242.948199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L94723E> gradient accumulation 적용해서 정확히 2라고 할순없지만 2로 돌리고있습니다",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1669812324.964969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pytorch에 DDP는 어떠실까요?\n공부해 보고 싶은데 테스트 해 볼 서버가 더 없네요...\n<https://pytorch.org/tutorials/intermediate/ddp_tutorial.html>",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1669812525.897029",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZ7PHR",
+              "ts": "1669812608.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "컴퓨터 사용 중에 잠깐 인터넷이 끊겼었는데 git pull 하는 경우에 username하고  password를 묻는 현상이 생기고 제대로 입력해도 연결이 안되네요. 혹시 해결방법 아시는 분 계실까요..?\n구글링해서 방법 다 해봤는데 안되서 여쭤봅니다...ㅠ",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1669879814.178889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "password를 git token classic을 넣으셔야 합니다",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1669879839.730579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "굳",
+                "users": [
+                  "U041HN1JMTM",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "성공했습니다. 감사합니다!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1669880112.429639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

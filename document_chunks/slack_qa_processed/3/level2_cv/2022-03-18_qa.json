@@ -1,0 +1,189 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "pretrained된 model 을 가져올때 어디에서는 마지막 자신만의 layer를 제외하고는 freeze를 시켜야 한다하고 , 어디에서는 같이 학습을 시켜줘야 한다고 하는데 어떤게 맞는걸까요??\n\n제 생각은 pretrained model 을 train 시킨 dataset이랑 제가 적용 시킬려는 dataset이랑은 다르니 freeze를 시키지 않고 학습을 시켜야한다고 생각하는데 혹시 다른의견 있을까요?",
+        "user": "U02U79DHFUY",
+        "user_name": "김승현",
+        "timestamp": "1647594166.626829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "동의하고 그래서 앞쪽은 lr을 작게 주고 마지막 layer는 lr을 크게 주는 방식이 사용되는 것으로 알고 있습니다.",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1647594306.397929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U79DHFUY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이건 기법의 차이라 뭐가 맞고 틀리고는 없다고 생각합니다\n첫번째것은 Layer Freeze이고 뒤에 꺼는 Finetuning인데 전이 학습에서 둘다 쓰이는 기법이라서....\n같이 쓰일 때도 있고 하나만 쓰이기도 해서 쓰는 사람 마음이에요!\n두가지 기법 모두 일반적으로 학습을 진행하면 기존의 weight들의 특징이 학습을 통해서 사라지기 때문에 이걸 방지하기 위해서 사용된다 만 알아두시면 좋을듯 합니다\nDeeplearning의 특성중에 Forgetting을 보시면 좀더 이해하시기 편할거에요\n<https://towardsdatascience.com/forgetting-in-deep-learning-4672e8843a7f>",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1647594377.808419",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1647594874.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U79DHFUY",
+                  "U02VB8HRD28",
+                  "U02U1RYL99C"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "규범님이 잘 정리해주신 것 같습니다.\n\ntask에 따라 다르고, pretrained 된 모델/데이터 정보를 얼마나 our task에 반영할 것 인지에 따라 달라질 것 같습니다.\n이 정도를 learning rate와 얼마나 layer를 freeze할지 등으로 조절할 수 있을 것 같습니다.",
+          "user": "U02SJMA8PJS",
+          "user_name": "이현",
+          "timestamp": "1647596267.445749",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02SJMA8PJS",
+              "ts": "1647596283.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U79DHFUY",
+                  "U02VB8HRD28"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! *심화문제 2번*에서 궁금한 점이 있어 질문올립니다.\n\n답안에서는 generator를 설계할 때 z와 label의 차원을 똑같이 256으로 올려서 1:1 비율로 concat을 했는데 논문에서는 각각 200,1000으로 올려서 1:5 비율로 concat한 것으로 알고 있습니다.\n\n그래서 두 경우 차이가 있을지 궁금해서 각 모델을 이미지로 비교해봤는데 task가 간단해서 그런지 눈으로는 차이점을 찾기가 어려웠습니다.\n\nz와 label의 비율이 어떤 의미를 가지는지, concat한 비율에 따라 결과에 어떤 영향을 주는지 궁금합니다.",
+        "user": "U02T936GYNA",
+        "user_name": "장수호",
+        "timestamp": "1647594901.497689",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "추정이긴 하지만 개인적인 생각으로는 Label의 비율이 높으면 생성이미지의 다양성이 떨어지거나 심할 경우에는 라벨 값에 대한 Mode Collapse가 일어나지 않을까 합니다.\n랜덤하게 생성되는 Latent Vector z로 인해서 생성되는 이미지가 같은 Label을 가지고 있어도 모양은 조금씩 다른 모습을 가지는데 여기서 Label의 비율이 높아지면 z보다는 Label로 생성될 Feature에 더 집중 할 가능성이 높아져서 GAN의 생성 이미지에 다양성이 떨어질거라고 생각이 드네요!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1647595512.671409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02T936GYNA",
+                  "U02U1RYL99C"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "규범님 가설이 합리적으로 보입니다.\n\n이 가설을 확인하기 위한 실험은 z, label 임배딩 차원 비율을 극단적으로 가져가서 진행해보면 좋을 것 같습니다(eg. z: 128, label: 2048 vs z:2048, label: 128).",
+          "user": "U02SJMA8PJS",
+          "user_name": "이현",
+          "timestamp": "1647598027.329759",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02SJMA8PJS",
+              "ts": "1647598036.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02T936GYNA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TCHR3LNS> 좋은 답변 감사합니다!",
+          "user": "U02T936GYNA",
+          "user_name": "장수호",
+          "timestamp": "1647599753.023619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TCHR3LNS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02SJMA8PJS> 답변 감사합니다! 나중에 한번 시도해보겠습니다 ㅎㅎ",
+          "user": "U02T936GYNA",
+          "user_name": "장수호",
+          "timestamp": "1647599815.763009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SJMA8PJS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 다들 annotation 하실 때 문장마다 txt파일 하나로 나눠서 하셨나요?",
+        "user": "U041ES0B9K7",
+        "user_name": "조문기",
+        "timestamp": "1670894852.164629",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "저희는 특별히 안나눴습니다! 작업할 때 장단점이 있을 것 같은데 깊게 생각은 안해봤네요...",
+          "user": "U041HN2FGMR",
+          "user_name": "이강혁",
+          "timestamp": "1670915653.841299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

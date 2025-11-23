@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "사용자 별로 아이템을 시간순 정렬 후 마지막 아이템과 중간 시퀀스의 일부 (N개)를 test set으로 사용힙니다",
+        "user": "U047UNPMNTF",
+        "user_name": "이원성",
+        "timestamp": "1708076684.799009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "아 그럼 1번일수도 2번일수도 있겠군요 유저별로 비율도 다르고...\n\n감사합니다.!",
+          "user": "U064DNMG40Y",
+          "user_name": "허욱_T6185",
+          "timestamp": "1708088434.813499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n내일 2차 Product Serving 오피스아워가 *(12/15 수요일) 18:00 ~ 19:00*에 진행됩니다.\n*전시흠 멘토님께서 &lt;직접* *MLFlow 프로젝트 클라우드에 띄우기&gt;* 를 설명해주실 예정입니다.\n사전에 간단한 설문조사를 받고 있으며, 설문 내역은 오피스아워 세션 진행에 참고하겠습니다! 궁금했던 지점에 대해서 다양하게 질문해주시면 오피스아워에서 더 많은 것을 얻어가질 수 있으실 겁니다:relaxed:\n&gt; <https://forms.gle/MG51TTr9j9AsU1GB7|Product Serving 2차 오피스아워 사전설문 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1639470154.288900",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02E375H869",
+            "ts": "1639527813.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "앗 지수님 내일은 시흠님이고 상태님이 목요일이에요!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639471019.289500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK> 앗 넵! 수정하였습니다! 감사합니다 마스터님 :slightly_smiling_face:",
+          "user": "U02E375H869",
+          "user_name": "Jisu Kang",
+          "timestamp": "1639471212.289800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헉 이거 주제도 다른것 같습니다 cc: <@U0296UZ7TJA>",
+          "user": "U029MCHFVEV",
+          "user_name": "Humphrey Ahn",
+          "timestamp": "1639483227.291300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주제 관련해서 제가 지수님 다른 곳에 태그드렸습니다 :pray:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639483267.291500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              },
+              {
+                "name": "pray",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "최종프로젝트에 간단하게 CI/CD 적용해볼만한것이 뭐가 있을까요?\n\np.s 처음엔 재학습 루틴을 만들어볼까했는데 생각해보니까 CI/CD보다는 airflow를 통한 배치성 프로그램으로 만드는게 더 맞아보이네요",
+        "user": "U02A3GWB4RX",
+        "user_name": "sight Over",
+        "timestamp": "1639489313.293100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "Test Code 작성해서 Test 통과하는지 보는 것 만들어보셔도 좋을 것 같아용~",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639489531.293200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹은 데이터셋 기반으로 재학습하는 것도 가능하지요!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639489544.293600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK> 음... 어떤부분을 테스트하는게 좋을지 감이 잘 안오는데 예시를 좀 들어주실 수 있을까요?\n그리고 재학습은 배치프로그램으로 월1회 그동안 쌓인 데이터로 추가학습 이런식으로 생각했는데 CI/CD로 접근하는 이유가 있을까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639489920.294500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "코드의 Test입니다!\n목요일에 상태님이 보여주실거고, 예전에 유석문님 특강에서 Unit Test 강의하신거로 알고 있어요~\n\nFastAPI에서 함수가 있으면 함수의 Input이 x가 들어오면 output으로 y가 기대된다 이런 것들을 Test하는 부분이에요. 목요일 상태님 세션 들으시면 이해되실거에요\n\n재학습은 배치로 하는 것이 항상 좋은 것이 아닐 수도 있어요. CT라는 개념이 있는데 예전에 1주차에 제가 읽어보길 권한 구글의 논문 보시면 CT 개념이 있어요. CT를 꼭 월1회로 하지 않고 수시로 해서 기존 모델보다 성능이 좋으면 모델을 교체해야 할 수도 있지요(재학습해서 성능이 더 안좋아지면 굳이 재학습한 파일로 교체할 필요는 없겠지요!)",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639494905.294800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639494933.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "CT 알아보려고 검색하는데...\n<https://zzsza.github.io/mlops/2020/05/16/cd-and-automation-pipeline-in-ml/>",
+          "user": "U02A3GWB4RX",
+          "user_name": null,
+          "timestamp": "1639543813.297800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sweat_smile",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!channel>\n오늘도 취업 관련 자료 공유드려보아요 :pray:  공부하시다가 시간 남으실 때 읽으시면 좋은 글입니다(커리어 시작한 2-3년차분들의 글이라 더 와닿을거에요)\n\n*데이터 엔지니어, 데이터 분석가 글을 가지고 왔습니다* :pray:  \n\n• 쏘카의 데이터 엔지니어로 근무하고 계시고 인프런에 그랩이라는 필명으로 강의하고 계시는 이호연님의 *데이터 엔지니어 취준 회고록*\n• 취준 과정을 어떻게 진행했는지, 회사를 어떻게 고를지에 대한 내용이 담긴 글입니다\n<https://tansfil.tistory.com/66>\n\n• 게임 회사에서 데이터 분석을 하고 계시는 이은지님의 *데이터 분석가 취업 Tip*\n• 동아리 후배였던 분이라 취준 당시 여러 의견을 드렸는데, 모두 진행하셔서 취업하시고 커리어를 열심히 진행하고 있어요. 여러 시행착오를 겪은 내용과 자기소개서, 면접, 어딜 왜 가고 싶은지 등에 대한 내용이 담긴 글입니다\n<https://assaeunji.github.io/etc/2021-10-24-tipsforjobs/>",
+        "user": "U029MCT2RTK",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1639553391.309900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U027SHXU18R",
+                "U029SLN0S1X",
+                "U029TQ9JFR8",
+                "U02A3BT4T17",
+                "U029GCDG954",
+                "U029B8QN2EA",
+                "U029B6PDLFQ",
+                "U028323UHE2",
+                "U029E1P5Z5G",
+                "U029BGDTLJH",
+                "U029MCHN1BK",
+                "U029C3CSPHB",
+                "U02AEP8281G",
+                "U027ASZ59KP",
+                "U02D9H0SFRD",
+                "U0296UZ7TJA"
+              ],
+              "count": 16
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U027SHXU18R",
+                "U028323UHE2",
+                "U028ZAA1X1V",
+                "U029MCHN1BK",
+                "U027ASZ59KP"
+              ],
+              "count": 5
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "fire",
+              "users": [
+                "U02E375H869",
+                "U029MCHN1BK",
+                "U027ASZ59KP"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "마스터님, 바쁘실텐데 항상 좋은 이야기 나눠주셔서 감사합니다~ :smile:",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1639553432.310900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK",
+                  "U028ZAA1X1V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 공유 항상 감사합니다 :)",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1639553915.312500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK",
+                  "U028ZAA1X1V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시간될 때 또 자료 공유드릴게요~!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639554421.314100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

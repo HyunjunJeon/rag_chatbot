@@ -1,0 +1,68 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "annotation 제출 후 수정하려고 하는데  퍼미션 에러 후에도 제출로 변경되지 않는데 방법이 없을까요?",
+        "user": "U02UATFS328",
+        "user_name": "서경국_T3103",
+        "timestamp": "1649838810.148009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 서경국 캠퍼님.\n파일 이름 알려주시면 수동으로 조치해드리겠습니다 :slightly_smiling_face:",
+          "user": "U03BLUPMEBS",
+          "user_name": "Daehyun(남대현)",
+          "timestamp": "1649839110.488149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1632648475323-13.jpg20210916_195950.jpeg",
+          "user": "U02UATFS328",
+          "user_name": "서경국_T3103",
+          "timestamp": "1649840244.176049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1632648475323-13.jpg\n20210916_195950.jpeg 입니다 감사합니다!",
+          "user": "U02UATFS328",
+          "user_name": "서경국_T3103",
+          "timestamp": "1649840252.323579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 조치해드렸습니다!\n아마 기존 이미지 작업하시고 제출 버튼 누르시면 해당 이미지가 다시 나오실거에요 :slightly_smiling_face:",
+          "user": "U03BLUPMEBS",
+          "user_name": "Daehyun(남대현)",
+          "timestamp": "1649841271.788539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

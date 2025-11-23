@@ -1,0 +1,95 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "대회에서 SwinV2 + UperNet에 Augmentation 적용 후 mIOU 성능이 하락했습니다.\n(뒤에서 3등이니, 이 구조가 높은 점수를 얻는 솔루션은 아닙니다.)\n1. RandomRotate90 만 적용 : 약간 하락\n2. HorizontalFlip/VerticalFlip/RandomRotate90 만 적용 : 많이 하락\n3. CLAHE만 적용 : 약간 하락\n4. RandomResizedCrop만 적용 : 많이 하락\n5. Equalize만 적용 : 많이 하락\n6. GaussNoise만 적용 : 약간 하락\n7. 1~6까지 모두 적용 : 많이 하락\n결론은 augmentation이 전혀 없는게, 제일 mIOU가 높습니다.\n근데, 원인을 잘 모르겠습니다?",
+        "user": "U041HMZ7PHR",
+        "user_name": "1",
+        "timestamp": "1672633307.372889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U041ES3K9LM",
+                "U041HMZ15RR",
+                "U0427G7HN6L",
+                "U041HN1JMTM",
+                "U041B7AA63G",
+                "U0427G9RVK2"
+              ],
+              "count": 6
+            },
+            {
+              "name": "smiling_face_with_tear",
+              "users": [
+                "U0427G7HN6L",
+                "U041HMZR68K",
+                "U0427G7EG72",
+                "U0427G9RVK2"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "Things와 Stuff 란?\n\nSegmentation관련 다른 데이터셋(ADE20K, COCO)을 보니, Things + Stuff = Class로 정의합니다.\n논문에는 이렇게 언급합니다.\n_\"things (objects with a well-defined shape, e.g. car, person), -&gt; 정형화된 모양의 물체._ \n_stuff (amorphous background regions, e.g. grass, sky)  -&gt; 비결정화된 배경. grass는 잘라져도 grass\"_\n\n이를, 대회 데이터셋에서 정의된 class에서 things/stuff로 나눠보면,\nBackgound, General trash, Paper, Metal, Plastic, Styrofoam, Plastic Bag, Clothing -&gt; stuff (형태 만으로 알기 어려움.)\nGlass, Paper pack, Battery -&gt; things (형태로 대강 알 수 있다.)\n그렇다면, \"things이냐 stuff냐에 따라서 augmentation의 영향이 다를 수 있지 않을까?\" 라는 생각이 드네요.\n<https://arxiv.org/abs/1612.03716>",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1672637099.241009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 UNet으로 실험했는데요...ㅎㅎ ㅠ\n\nRandomResizedCrop과 HorizontalFlip/VerticalFlip은 mIoU 상승이 있었습니다.\n\n또한 실험 초반에 작은 모델로 실험을 많이 했었는데, 너무 작은 모델(복잡도가 적은 모델)의 경우는 Augmentation으로 증강된 데이터를 잘 학습하지 못하는 경우가 있었습니다.",
+          "user": "U041L8ZANQL",
+          "user_name": "Kim HyeongSeok",
+          "timestamp": "1672639040.389479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041B76DHAS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "things, stuff 내용이 나와서 그런데 혹시 적용해서 돌리신 모델이 있으실까요?",
+          "user": "U041ES179JR",
+          "user_name": "정상헌_T4193",
+          "timestamp": "1672639213.736389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

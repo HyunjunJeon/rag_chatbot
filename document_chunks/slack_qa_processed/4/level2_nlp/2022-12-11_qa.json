@@ -1,0 +1,223 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!\n혹시 이번에 데이터제작 관련하여 주신 피드백을 받았는데, 이에 대한 추가적인 질문을 해도 되는 걸까요?\n\n해도 된다면 공유 문서에 내용을 추가하는 방법으로 하는 것이 좋을지, 다른 방법으로 질문을 드려야 할지 알려주시면 감사하겠습니다!",
+        "user": "U04138BGBMM",
+        "user_name": "현승엽",
+        "timestamp": "1670808785.302939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "질의응답 쓰레드에 남겨주셔도 되고, 도큐먼트에 코멘트로 남겨주시면 확인하고 답변드리겠습니다!",
+          "user": "U048A3T16KT",
+          "user_name": "정영훈_조교",
+          "timestamp": "1670815304.181489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U04138BGBMM",
+          "user_name": "현승엽",
+          "timestamp": "1670823490.402689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": ":booduck-coding: Tagtog으로 annotation한 data KLUE RE csv 파일처럼 바꾸기\n저희 팀은 Tagtog으로 열심히 entity annotation 후 파일을 다듬는 과정에서,\n• Annotation 결과와 legend, 원본 text 파일이 각각 따로 있고,\n• 한 document에 여러 relation이 추출될 수 있는데 이걸 어떻게 처리할 것인지\n라는 문제를 겪었습니다!:face_holding_back_tears:\n그래서, Tagtog으로부터 다운로드받은 파일을 지난 RE 대회에서 받았던 데이터와 유사한 형태(예시 이미지 참고 부탁드립니다!)로 바꿀 수 있는 코드를 작성했습니다!\n급하게 짠 코드라 코드 퀄리티는 ‘이게 맞냐…?’ 싶지만, 혹시나 사용하실 분이 계실까 해서 공유해봅니다!\n\n코드를 사용하기 전:\n• Tagtog에서 entity type을 설정할 때, ‘[SUBJ/OBJ]-[TYPE]-[relation]’과 같이 설정해주었습니다! 해당 양식과 다르면 코드가 작동하지 않을 수 있습니다:pleading_face:\n    ◦ Example) SUBJ-PER-alternate_name\nTODO:\n• *Tagtog에서 relation description을 가져올 수 있는 방법이 없을까요?* Tagtog에서 ’Download All Documents (and their annotations)를 하고 legend 파일을 열어보면, relation이 알 수 없는 문자들로 표현되더라고요! 해결 방법을 알고 계신 분은 공유해주시면 감사하겠습니다!",
+        "user": "U041B78AVBQ",
+        "user_name": null,
+        "timestamp": "1670822804.420449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "wa",
+              "users": [
+                "U041HMZAA9Z",
+                "U041B75CDEJ",
+                "U041ERWERHT",
+                "U041WE246SD",
+                "U041HR9UE2W",
+                "U041B7A4GNA",
+                "U041WE7FFUZ",
+                "U041HMZRBEX",
+                "U041HR962M8",
+                "U041L8Z91PW"
+              ],
+              "count": 10
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U041HMZAA9Z",
+                "U041ERWERHT",
+                "U041B7A4GNA",
+                "U041HMZRBEX",
+                "U041HR962M8"
+              ],
+              "count": 5
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U041WE192KT",
+                "U041ERWERHT",
+                "U041B7A4GNA",
+                "U041HMZRBEX"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "tagtog에서 document 다운로드 받으면 annotations-legend라는 json파일이 있습니다. 거기에 맞춰서 relation들을 변형해주면 됩니다!",
+          "user": "U041HMZAA9Z",
+          "user_name": "염성현_T4126",
+          "timestamp": "1670822937.182119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와앙 성현님 감사합니다! 사실 tagtog에 이미 작성한 description대로 json이 다운로드받아졌으면 하는 희망이 있었는데, 결국 json파일을 변경해주어야하는 수고까지는 해줘야하나보네요,,,",
+          "user": "U041B78AVBQ",
+          "user_name": "설유민_T4107",
+          "timestamp": "1670822981.356639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 제가 잘못 이해했네요. 당연히 relation 변형 문제인 줄 알았어요. 확실하지는 않지만 description에 해당 relation 설명을 넣어주면 추후에 저렇게 column을 뽑을 수 있는 것 같습니다!",
+          "user": "U041HMZAA9Z",
+          "user_name": null,
+          "timestamp": "1670823249.264579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어?? 뭐지 ㅋㅋㅋ",
+          "user": "U041HMZAA9Z",
+          "user_name": "염성현_T4126",
+          "timestamp": "1670823260.742479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아... 저희는 이런 식으로 했어요. 오피스 아워 자료에 보시면 (SUBJ/OBJ)-ENTITY-RELATION으로 ENTITY를 등록하라고 했던 게 아마 관계 변형하는 작업을 줄이고자 했던 것 같네요. 급하게 읽다 보니까 말씀하신 것을 바로 캐치하지 못했네요. ㅎㅎ;;",
+          "user": "U041HMZAA9Z",
+          "user_name": null,
+          "timestamp": "1670823544.432009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZAA9Z",
+              "ts": "1670823585.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아... 이제 이해했네요. 맞아요 저희도 이상한 문자로 표현되어서 따로 안썼습니다 ㅠㅠㅠ",
+          "user": "U041HMZAA9Z",
+          "user_name": "염성현_T4126",
+          "timestamp": "1670823678.051029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 메시지를 급하게 작성하느라 횡설수설한 부분이 있었습니다:smiling_face_with_tear: 찰떡같이 이해해주시고 사례를 공유해주셔서 오히려 감사한 걸요!:heart_hands:",
+          "user": "U041B78AVBQ",
+          "user_name": "설유민_T4107",
+          "timestamp": "1670823776.271519",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041B78AVBQ",
+              "ts": "1670823787.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U041HMZAA9Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U041HMZAA9Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 말씀 감사해요:)) 화이팅입니다! 공유해주신 자료 잘 참고할게요. 감사합니다. :booduck_happy:",
+          "user": "U041HMZAA9Z",
+          "user_name": "염성현_T4126",
+          "timestamp": "1670823872.098369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_3_hearts",
+                "users": [
+                  "U041B78AVBQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

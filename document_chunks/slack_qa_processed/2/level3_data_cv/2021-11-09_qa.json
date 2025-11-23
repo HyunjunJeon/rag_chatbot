@@ -1,0 +1,307 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "작업 하려고했는데 툴이 아직 많이 미흡하네요. 다른 분들도 작업에 참고하세요.\n이미지 순서대로 문제점입니다.\n1. 복붙 없음(투썸플레이스 타자연습하다 포기)\n2. A랑 ADT 분명 사각형툴로 찍었는데 다른부분 다각형 툴이랑 포인트 변경하는걸로 작업하다보니 밀리고 찌그러져있네요.(그런데 사각형 이동 미지원)\n3. 큰글씨 먼저 작업하고 화면 줌떙겨서 옆에 작은글씨 작업했더니 큰글씨들 위치가 다 변경되었네요\n4. 가이드 pdf, 작업 tool 왔다갔다 탭이동하면서 작업하다가 실수로 탭 껏는데 ctrl+shift+t 키 로 탭복구 했는데 다 날라갔어요(웹 베이스임에도 자동 저장이 안됩니다.)",
+        "user": "U02A3GWB4RX",
+        "user_name": null,
+        "timestamp": "1636453145.030700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02A3GWB4RX",
+            "ts": "1636453323.000000"
+          },
+          "reactions": [
+            {
+              "name": "sob",
+              "users": [
+                "U029UHZ6AHY",
+                "U028ZRPRJ5V",
+                "U029T4XRUCR",
+                "U029Z48KYCC",
+                "U0298BT8SNA",
+                "U028ZQU4N07",
+                "U029MTWGTJS",
+                "U029E8T7199"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 3번 줌 땡기고 뭐하고 하다가 다 위치가 바껴서 눈물을 머금고 리셋했습니다… 그래서 지금도 줌할 때 심장이 쫄깃합니다",
+          "user": "U028ZRPRJ5V",
+          "user_name": "이채윤",
+          "timestamp": "1636455026.032000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U028ZQU4N07"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 이거 너무 귀찮아요 ㅠㅠㅠ\n심지어 이거 annotation양도 많은 이미지예요\n복불복 꽝 ㅠ~ㅠ",
+          "user": "U0298BT8SNA",
+          "user_name": null,
+          "timestamp": "1636459987.032700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1636460017.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "첫 이미지에서 쉬운거 줌하다가 날라갔는데.. 요거 하다가 날라갔으면 화날뻔했습니다. 두번째부터는 줌 안하고 합니다.",
+          "user": "U0297TQCPHV",
+          "user_name": null,
+          "timestamp": "1636466240.042100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0297TQCPHV",
+              "ts": "1636466324.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 illegibility 어디서 하시는 지 아시나요..?\n텍스트 태그에 strikethrough는 뭔가요..?",
+        "user": "U028ZQU4N07",
+        "user_name": null,
+        "timestamp": "1636463870.039600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "illegibility 는 annotations - region 에 있어요..!",
+          "user": "U0297UZK86S",
+          "user_name": null,
+          "timestamp": "1636464966.041400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0297UZK86S",
+              "ts": "1636468370.000000"
+            },
+            "reactions": [
+              {
+                "name": "smiley",
+                "users": [
+                  "U028ZQU4N07",
+                  "U029UND0U1Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "region을 누르고 하는거였군여..! 감사합니다 상혁님!:raised_hands:",
+          "user": "U028ZQU4N07",
+          "user_name": "김현수",
+          "timestamp": "1636465317.041800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0297UZK86S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "strikethrough는 이번 태깅하실 땐 무시하셔도 됩니다! :slightly_smiling_face:",
+          "user": "U02L749N55K",
+          "user_name": "Juhyun Oh",
+          "timestamp": "1636507488.049300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U028ZQU4N07"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "annotation 질문이 있습니다.\n`...`, `^^`, `~~`을 포함을 해야하나요? 학습에 필요한지 아닌지 모르겠습니다. ^^ 이 ㅅㅅ랑 비슷한 것 같아서 어떻게 하는게 좋을까요?",
+        "user": "U029UND0U1Y",
+        "user_name": null,
+        "timestamp": "1636464169.041100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029ULW2X8A"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "`..., ^^, ~~` 등의 기호도 키보드로 입력 가능하니 사람이 인식하는대로 그대로 transcription 해주세요! :slightly_smiling_face:",
+          "user": "U02L749N55K",
+          "user_name": "Juhyun Oh",
+          "timestamp": "1636507031.048900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029UND0U1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "1번 상황에서 이어서 다른 다각형을 찍으려고 클릭하면 2번사진의 상황이되고\n컨트롤 Z해서 다시 돌아간 다음에 rectangle을 눌러서 이어서 하려하면 앞서 만들었던 다각형이 사라지는 버그(3번)가 있네요.",
+        "user": "U029B96RRJA",
+        "user_name": null,
+        "timestamp": "1636469321.044300",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "같은 팀원분 중에서도 같은 문제로 처음부터 다시하신 분이 있었는데, 박스들이 갑자기 옆으로 밀린경우에 복구하는 방법이 있을까요?",
+          "user": "U029B96RRJA",
+          "user_name": null,
+          "timestamp": "1636472706.046600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029BP86UBX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 경민님, 우선 불편을 드려 죄송합니다.\n확인해보니, 이미지 크기를 변경(확대/축소)를 한 이후 실행 취소/복귀 를 실행하면 박스 크기가 맞아떨어지지 않는 문제를 파악하였습니다. 해당 문제 수정 이후 공지드리겠습니다.",
+          "user": "U02L749P42Z",
+          "user_name": "남대현_멘토",
+          "timestamp": "1636510507.049700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 이미 완료한 건 다시 작업 못하는 건가요?? 그리고 문장 부호가 같이 있는 경우엔 1) 문장 부호를 따로 영역 지정해야하는지 2) 같이 지정한다면 언어 구분은 EN으로 두면 될지 가 궁금합니다! 추가로 박스가 너무 작아서 안쳐지는 경우는 그냥 무시하나요 혹은 옆의 단어와 같이 묶어주나요?",
+        "user": "U029ULW2X8A",
+        "user_name": "이유진_T2168",
+        "timestamp": "1636486738.048200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029ULW2X8A",
+            "ts": "1636489508.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "현재 툴 상에서는 이미 완료한 이미지는 다시 작업할 수 없습니다.\n1) 문장 부호가 같이 있는 경우도 공백 기준으로 생각해주시면 됩니다. 즉, `안녕^^` 의 경우 \"안녕^^\"로 transcription해주시면 되고, `안녕 ^^` 의 경우 \"안녕\" 과 \"^^\" 두 개의 Points로 분리해주시면 됩니다.\n2) 같이 지정하시면 문장부호는 태그가 따로 없기 때문에 KO, EN 등 언어 한 가지만 선택해주시면 됩니다.\n3) 박스가 너무 작아서 안 쳐지는 경우는 그냥 무시하셔도 됩니다.",
+          "user": "U02L749N55K",
+          "user_name": "Juhyun Oh",
+          "timestamp": "1636507442.049100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

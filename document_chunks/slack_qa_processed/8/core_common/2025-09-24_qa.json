@@ -1,0 +1,381 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "제가 보기에는 MaskFormer는 panoptic segmentation을 수행할 수 있어서, 풀이에서 다음과 같이 설명하지 않았을까 해요.",
+        "user": "U09CD83AUTF",
+        "user_name": null,
+        "timestamp": "1758711217.863529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH85PLV9"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH85PLV9"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "segmentation task에 semantic segmentation(per-pixel class labels), instance segmentation(per-object mask and class label)과 panoptic segmentation(per-pixel class+instance labels)이 있어요.\n<https://arxiv.org/pdf/1801.00868|Panoptic Segmentation> &lt;- task에 대한 설명이 적혀있는 자료라, 확인해보시면 좋을 거 같아요. :man-bowing:",
+          "user": "U09CD83AUTF",
+          "user_name": null,
+          "timestamp": "1758711251.905709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              },
+              {
+                "name": "book",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Weekly Mission 3 피드백 관련 질문]\n제가 받은 Weekly Mission 피드백에 관해 궁금한 사항이 있어서 질의를 남깁니다!\n\n피드백 내용\n### 5. `DecoderLayer`의 잘못된 첫 번째 잔차 연결\n- **문제점**: `DecoderLayer`의 첫 번째 잔차 연결에서 `residual, atten_dec = self.atten(Q=x,K=x,V=x, mask=dec_mask)` 호출 후 `x = self.norm1(x + residual)`을 사용합니다. 여기서 `residual`은 어텐션 모듈의 첫 번째 반환값으로, 이는 보통 입력 `x`를 의미하므로 결과적으로 `x = self.norm1(x + x)`와 같이 동작하게 됩니다. 이는 의도된 잔차 연결이 아닙니다.\n- **개선 방안**: `residual` 대신 실제 어텐션 모듈의 출력인 `atten_dec` (또는 `attn_out_dec` 등)을 사용하여 잔차 연결을 올바르게 구현해야 합니다. 또한, `EncoderLayer`와 일관성을 위해 드롭아웃을 적용하는 것을 권장합니다.\n- **코드 예시**:\n```python\n# 개선 전\nclass DecoderLayer(nn.Module):\n# ...\ndef forward(self, x, enc_out, dec_mask, enc_mask):\nresidual, atten_dec = self.atten(Q=x, K=x, V=x, mask=dec_mask) # residual이 x일 가능성\nx = self.norm1(x + residual) # x + x 형태가 될 수 있음\n# ...\n\n# 개선 후\nclass DecoderLayer(nn.Module):\n# ...\ndef forward(self, x, enc_out, dec_mask, enc_mask):\nattn_out_dec, _ = self.masked_self_attention(Q=x, K=x, V=x, mask=dec_mask) # 마스크드 셀프 어텐션\nx = self.norm1(x + self.dropout1(attn_out_dec)) # 올바른 어텐션 출력 사용 및 dropout 적용\n# ...\n```\n\n위와 같은 피드백을 제가 받게 되었는데 여기서 궁금한 사항이 있습니다\n아래는 제가 미션때 구현한 scaled_dot_product_attention과 MultiHeadAttention, DecoderLaye입니다\n```def scaled_dot_product_attention(Q, K, V, scale, mask=None):\n\n    ### Todo 2 ###\n    # 1) 스코어 계산 (normalize까지 진행해서 attention_score를 정의해주세요, scale은 이미 d_k에 대해 sqrt값으로 받습니다.)\n    attention_score = (Q @ torch.transpose(K, -2, -1)) / scale\n\n    ## 마스크에 해당하는 부분을 매우 작은값으로 채움\n    if mask is not None:\n        attention_score = attention_score.masked_fill(mask, -1e10)\n\n    # 2) 소프트맥스 확률분포\n    attention_dist = torch.softmax(attention_score, -1)\n\n    # 3) 컨텍스트 계산\n    attention = attention_dist @ V\n\n    # 4) 결과 반환\n    return attention, attention_dist\n    ###############################\n\nclass MultiHeadAttention(nn.Module):\n    def __init__(self, d_model: int, n_heads: int):\n        super().__init__()\n        ### TODO 3-1: 하이퍼파라미터/기본 설정 ###\n        self.d_model = d_model\n        self.n_heads = n_heads\n        assert d_model % n_heads == 0, f'd_model ({d_model})은 n_heads ({n_heads})로 나누어 떨어져야 합니다.'\n\n        self.head_dim = d_model // n_heads # 각 head의 dimension\n        #######################################\n\n        self.fc_q = nn.Linear(d_model, d_model)\n        self.fc_k = nn.Linear(d_model, d_model)\n        self.fc_v = nn.Linear(d_model, d_model)\n        self.fc_o = nn.Linear(d_model, d_model)\n\n        ### TODO 3-2: 스케일 값 정의 ###\n        self.scale = self.head_dim ** (1/2)\n        ############################################\n\n    def forward(self, Q, K, V, mask=None):\n        batch_size = Q.shape[0]\n\n        ### TODO 3-3: 선형 변환 ###\n        Q = self.fc_q(Q)\n        K = self.fc_k(K)\n        V = self.fc_v(V)\n        #########################\n\n        ### TODO 3-4: 멀티헤드 형태로 변환 (B, L, d) -&gt; (B, H, L, d/H) ###\n        Q = Q.view(batch_size, -1, self.n_heads, self.head_dim).permute(0, 2, 1, 3)\n        K = K.view(batch_size, -1, self.n_heads, self.head_dim).permute(0, 2, 1, 3)\n        V = V.view(batch_size, -1, self.n_heads, self.head_dim).permute(0, 2, 1, 3)\n        ################################################################\n\n        ### TODO 3-5: Scaled Dot-Product Attention 호출 ###\n        attention, attention_dist = scaled_dot_product_attention(Q, K, V, self.scale)\n        ################################################################\n\n        # (B, H, L, head_dim) -&gt; (B, L, d_model)로 되돌린 뒤 fc_o\n        x = attention.permute(0, 2, 1, 3).reshape(batch_size, -1, self.d_model)\n        x = self.fc_o(x)\n\n\n        return x, attention_dist\n\nclass DecoderLayer(nn.Module):\n    def __init__(self, d_model, n_heads, d_ff, drop_p):\n        super().__init__()\n        ### TODO 5-1: sub-layers 정의 ###\n        self.atten = MultiHeadAttention(d_model, n_heads) # MHA 선언\n        self.cross_atten = MultiHeadAttention(d_model, n_heads)\n        self.FF = FeedForward(d_model, d_ff, drop_p)\n        #################################\n        self.norm1 = nn.LayerNorm(d_model)  # Self-Attn 뒤 Norm\n        self.norm2 = nn.LayerNorm(d_model)  # Cross-Attn 뒤 Norm\n        self.norm3 = nn.LayerNorm(d_model)  # FFN 뒤 Norm\n        self.dropout = nn.Dropout(drop_p)\n\n\n    def forward(self, x, enc_out, dec_mask, enc_dec_mask):\n        ### TODO 5-2: Self-attention sub-layer ###\n        residual, atten_dec = self.atten(Q=x,K=x,V=x, mask=dec_mask)\n        x = x + self.norm1(residual)\n        #########################################\n\n        ### TODO 5-3: Encoder-Decoder attention sub-layer ###\n        residual, atten_enc_dec = self.cross_atten(Q=x,K=enc_out,V=enc_out,mask=enc_dec_mask)\n        x = x + self.norm2(residual)\n        #########################################\n\n        ### TODO 5-4: FFN sub-layer ###\n        residual = self.FF(x)\n        x = x + self.norm3(residual)\n        #########################################\n\n        return x, atten_dec, atten_enc_dec```\n저는 위와 같이 구현을 해보았는데요\n피드백에서 잘못된 잔차연결이라고 하셨는데 제가 보았을 때는 MultiheadAttention의 첫번째 리턴값이 attention의 결과이고 두번째 리턴값이 attention의 score matrix에 대해 softmax를 취해준 확률분포라고 생각이 들어서 잔차 연결에는 문제가 없다고 보고 있습니다\n혹시 변수명 때문에 그런걸까요?\n변수명 때문이라면 아래와 같이 수정하는게 오히려 더 좋은 걸까요?\n```residual, atten_dec = self.atten(Q=x,K=x,V=x, mask=dec_mask)\n\n# 위 코드 부분을 아래와 같이 수정을 하는게 오히려 맞는 걸까요?\nresidual, atten_dec = x, self.atten(Q=x,K=x,V=x, mask=dec_mask)[0]```\n그리고 이렇게 수정을 하게된다면\nMultiheadAttention에서 atten_dist를 왜 리턴을 해줘야 하는 걸까요?\n\n꽤나 긴 질의 응답이지만 봐주시면 감사하겠습니다!!",
+        "user": "U09CH89HZM1",
+        "user_name": "여지호",
+        "timestamp": "1758769375.556239",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 여지호님. 박성현 멘토입니다. 다시 확인해보니, 피드백에 문제가 있었습니다.\n\n변수명에 착각이 있었어서\n`residual, atten_dec = self.atten(...)` 부분에서 앞의 residual이 이전의 x를 다시 받아왔겠거니- 라고 보면서 착각을 하여서 잘못된 피드백을 남겼습니다. 즉 잔차연결 자체에는 문제가 없는 게 맞습니다.\n\n피드백을 드리고자 하였던 부분 중 하나는\nx + LN(residual) 형태보다는   LN(x+residual)로 가는 것이 더 나을것이다-라는 부분과, 논문 자체는 Post-LN 방식으로 구현되었으나 요즘은 Pre-LN 방식으로 진행된다는 점을 추가적으로 안내드리고 싶었습니다.\n\n뒷부분의 코드 수정은 불필요한 것으로 보입니다. 죄송합니다!",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758771676.407759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가질문이 있으시다면 또 댓글 남겨주시면 감사하겠습니다.",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758771743.617389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U09CH89HZM1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 답변해주셔서 감사합니다!\n\n추가적으로 궁금한게 있는데요\n1. Pre-norm 방식이 attention에 들어가기전에 x를 먼저 norm을 하는 방식인건가요?\n```def forward(self, x, enc_mask=None):\n        ### TODO 4-2: MHA  ###\n        x = self.ln1(x)\n        residual, attn_dist = self.self_atten(x,x,x,enc_mask)\n        # dropout 관련하여 찾아보기\n        x = x + self.dropout(residual)\n        #########################################\n\n        ### TODO 4-3: FFN  ###\n        x = self.ln2(x)\n        ff_out = self.FF(x)\n        x = x + ff_out\n        #########################################\n\n        return x, attn_dist```\n위 방식이 Pre-Norm 인걸까요?\n\n2. 각 단어들을 임베딩 벡터로 변환후 positional Encoding을 적용하기전에 sqrt(d_model)을 임베딩 벡터에 곱해주는 이유가 무엇인가요?\npositinal encoding의 영향력을 좀 줄여주기 위함인건가요?",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1758778712.475009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH89HZM1",
+              "ts": "1758779306.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "둘 다 맞습니다~!",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758779684.319399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U09CH89HZM1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1758779717.185189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RK3KSAN7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Pre-LN / Post-LN의 차이점과 관련된 논문은",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758779763.988749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://arxiv.org/pdf/2002.04745>",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758779764.767149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "를 참고해보시면 좋습니다",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758779771.112469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 잘 읽어보겠습니다!!",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1758779850.471369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grin",
+                "users": [
+                  "U04RK3KSAN7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Weekly Mission 3 피드백 관련 질문]\nQuestion 1에서 다음과 같은 피드백을 받았습니다\n```cross-token dependency 개념까지 포함해서 내용을 다시 한번 정리해보시면 좋겠습니다```\ncross-token dependency는 문장 내 토큰 관계를 의미하는 것으로 Attention 단계와 관련이 있다고 생각되는데\nFeedForward Network와는 어떻게 연결시켜 이해해야할지 잘 모르겠습니다",
+        "user": "U09CH8A1B6X",
+        "user_name": "황은배",
+        "timestamp": "1758774853.294579",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8A1B6X",
+            "ts": "1758774888.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CD805G85> 준혁님! 확인 부탁드립니다 :slightly_smiling_face:",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1758778548.299779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CD805G85"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "FeedForward Network는 어텐션 단계에서 종합된 문맥 정보를 받아 더 깊이 있는 표현으로 변환하는 역할을 합니다. 기존에 작성해주신 것 처럼 attention 단계는 기본적으로 선형적인 계산에 가까운데, FeedForward Network에는 ReLU와 같은 활성화 함수가 포함되어 있어 비선형성이 부여되고, 이를 통해 모델의 표현력이 더 풍부해집니다. 다만 중요한 점은, FeedForward Network는 각 토큰마다 독립적으로 적용되기 때문에 새로운 토큰 간 의존 관계(cross-token dependency)는 추가로 만들어지지 않는다는 것입니다. 따라서 Attention은 단어 간 관계를 학습하는 단계이고, FeedForward Network는 그 결과를 토큰 단위로 비선형적으로 가공해 표현력을 강화하는 단계라고 정리하여 표현한다면 더 쉽게 이해할 수 있지않을까 개인적으로 생각해봅니다..! :grinning:",
+          "user": "U09CD805G85",
+          "user_name": "박준혁_멘토",
+          "timestamp": "1758779796.141499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH8A1B6X",
+                  "U09CH84FBEF",
+                  "U09CH84PUDR"
+                ],
+                "count": 3
+              },
+              {
+                "name": "book",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CD805G85> 답변 너무 감사드립니다..!",
+          "user": "U09CH8A1B6X",
+          "user_name": "황은배",
+          "timestamp": "1758780563.784949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U09CD805G85"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[CV 이론 - 심화 과제 1]\n기본 과제 2에서는 이미지 변환 후 `ToTensor()` 를 사용하고\n심화 과제에서는 `ToTensor()` 를 먼저 사용하고 그 후에 이미지에 대한 변환이 이뤄지고 있는데 어떤 차이나 의도가 있을까요?\n```### 기본 과제 2\n_val_transforms = Compose(\n        [\n            Resize(size),\n            CenterCrop(size),\n            ToTensor(),\n            normalize,\n        ]\n    )\n### 심화 과제\ntransform = transforms.Compose([\n    transforms.ToTensor(),\n    transforms.Resize((224,224)),\n    transforms.Normalize(mean=[0.485, 0.456, 0.406],\n                          std=[0.229, 0.224, 0.225])\n])```",
+        "user": "U09CH8A1B6X",
+        "user_name": "황은배",
+        "timestamp": "1758775466.250529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "두 코드 모두 이미지 전처리라는 목표를 달성하는 코드라, 어느 것이 옳고 그르다-의 문제는 아닙니다. 하지만 나중에 더 사용할만한 코드는 심화 과제쪽이라고 생각하는 편입니다.\n\n제가 알기로는, ToTensor로 변환한 이후 전처리를 하면 GPU를 이용하여 Tensor를 이용하는 것이다보니.. 이미지 전처리의 어떤 단계를 CPU에게 맡길 것이냐, GPU에게 맡길것이냐-의 차이가 있다고 보시면 될 것 같습니다.\n\n여러 프로젝트를 진행하시거나 전처리를 하시다보면 어떤 케이스에선 CPU를 열심히 혼내면서 전처리를 하는 게 나을수도 있고, 어떨 땐 GPU를 최대한 활용해보자-라고 하실 수도 있습니다.",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1758776447.942589",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3KSAN7",
+              "ts": "1758777387.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U09CH81SQAX",
+                  "U09CH892EF5",
+                  "U09CH7ZHVJP",
+                  "U09CH84CA6P",
+                  "U09CH86HP4K"
+                ],
+                "count": 5
+              },
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH8A1B6X"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U03U4UPMM3L"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7T7TBM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

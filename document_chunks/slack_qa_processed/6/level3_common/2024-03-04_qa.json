@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "S3는 ARN 권한설정 안해서 접속안되는거 아닐까 하는 생각이 듭니다",
+        "user": "U063J3XMV70",
+        "user_name": "류경엽",
+        "timestamp": "1709603361.351069",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U063J3XMV70> !... 그럴수있을것같습니다 연락드리지요 ^^",
+          "user": "U0643C5PLQH",
+          "user_name": "임서현_T6145",
+          "timestamp": "1709625595.116049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

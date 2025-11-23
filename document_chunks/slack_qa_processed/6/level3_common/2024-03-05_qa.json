@@ -1,0 +1,316 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "처음부터 이랬나요? 아니면 잘 돌다가 갑자기 이렇게 된건가요?",
+        "user": "U03PVSC77HR",
+        "user_name": "전시흠",
+        "timestamp": "1709626233.824309",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U03PVSC77HR> 처음부터 문제 발생했습니다!\n재시작, 포트번호 변경을 해 봤는데\n효과는 없었습니다:smiling_face_with_tear:",
+          "user": "U063QL3917D",
+          "user_name": "강동기_T6001",
+          "timestamp": "1709626437.295119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; scheduler does not appear to be running\n는 말 그대로 스케줄러가 떠있지 않다고 판단하고 있는거라고 보시면 됩니다.\n\n음…",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709626724.624059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 스케줄러가 기동중인지부터 확인해보죠.\n```ps aux | grep \"airflow scheduler\"```\n결과가 어떻게 나오나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709626829.731139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PVSC77HR> 결과 다음과 같이 나옵니다!",
+          "user": "U063QL3917D",
+          "user_name": null,
+          "timestamp": "1709626980.760949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안떠있군요. 좋네요.\n\nAIRFLOW_HOME 디렉토리로 가볼까요? 이 안에는 파일 목록을 올려주시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709627047.167949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PVSC77HR> AIRFLOW_HOME 디렉토리가\n존재하지 않는 것 같은데 이게 원인일까요?\n아니면 제가 못 찾고 있는건지..",
+          "user": "U063QL3917D",
+          "user_name": null,
+          "timestamp": "1709627371.867509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하.. 루트 디렉토리에서 바로 사용하고 계시군요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709627413.887619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 저기서 다음 명령어로 `airflow.db` 를 삭제해봅시다.\n\n```rm airflow.db```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709627474.199759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. 잠시만요.. pwd를 폴더로 하셨군요…",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709627487.443859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "에어플로우 웹서버도 그냥 킬하시구요 ㅎㅎ\npwd 라는 폴더를 날려봅시다.\n```rm -rf pwd```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709627563.354709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U063QL3917D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 다음 순서대로 디비 초기화, 웹서버, 스케줄러를 기동해봅시다.\n\n디비 초기화\n```export AIRFLOW_HOME=$(pwd)\nairflow db init```\n어드민 계정 추가\n```export AIRFLOW_HOME=$(pwd)\nairflow users create \\\n\t--username admin \\\n\t--password 1234 \\\n    --firstname admin \\\n    --lastname admin \\\n    --role Admin \\\n    --email <mailto:admin@upstage.ai|admin@upstage.ai>```\n웹 서버 기동\n```export AIRFLOW_HOME=$(pwd)\nairflow webserver```\n스케줄러 기동\n```export AIRFLOW_HOME=$(pwd)\nairflow scheduler```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709627732.456289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PVSC77HR> 가상환경에서 문제가 있을거라 생각해서 루트에서 실행해 봤는데 적절치 않은 방법이었나 보네요\n\n강의에 나온 방법으로 .venv 생성해서\n말씀 주신 방법으로 했을 때 잘 실행되었습니다\n감사합니다!\n```export AIRFLOW_HOME=`pwd````\n를 사용하지 않고\n```export AIRFLOW_HOME=$(pwd)```\n위 방법대로 했을 때 잘 작동된 것 같은데\n어떤 차이가 있는 건가요?",
+          "user": "U063QL3917D",
+          "user_name": "강동기_T6001",
+          "timestamp": "1709628670.680539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`(백틱) 기호를 사용하신게 맞으실까요? 제가 알기로 둘 동일하게 작동하고, 후자가 좀 더 현대식 셸 표현인걸로 알고있습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709628782.416089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전자로 했을 때 안된 이유가 혹시 백틱이 아니라 ’를 사용하신건 아닐까 생각이 듭니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1709628794.334279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "챗지피티 답변도 달아둡니다.",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1709628824.843349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PVSC77HR> 제가 백틱 기호와 ' 를 구분하지 못한 것 같네요;;\n덕분에 배웠습니다 감사합니다!",
+          "user": "U063QL3917D",
+          "user_name": "강동기_T6001",
+          "timestamp": "1709629106.252499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의에서 ESC 옆에 있는 키라고 말씀드리고 있어요. 혹은 강의 자료 복사 붙여넣기하면 백틱이 복사될거에요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709629697.356909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 참에 백틱을 익히신 것으로 하시지요!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709629716.793989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-6",
+                "users": [
+                  "U063QL3917D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그런걸로 해야겠습니다~ 감사합니다!",
+          "user": "U063QL3917D",
+          "user_name": "강동기_T6001",
+          "timestamp": "1709629790.982079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "~/airflow : 이 폴더는 AIRFLOW_HOME을 설정하지 않는 경우에 생기는 디폴트 폴더입니다. 만약 이 폴더가 생겼다면 AIRFLOW_HOME을 설정하지 않았을 확률이 매우 높습니다(대부분 이 경우였습니다)\n• 이 경우에 pwd 관련해서 백틱(ESC 옆 키)을 사용하지 않은 경우에 단순한 스트링 pwd가 저장되거나 빈 칸이 저장됩니다. 그러면 당연히 ~/airflow가 생기지요\n````pwd````\n~/airflow가 생겼다 = AIRFLOW_HOME 설정의 이슈일 가능성이 크다고 생각하면 됩니다\n\n제가 원하는 폴더. pwd 찍어주고 해도 풀릴 때가 있습니다\n• 위와 마찬가지로 AIRFLOW_HOME을 명시하지 않았을 수 있습니다. 여러 airflow 폴더가 생겨서 헷갈리면 모든 폴더를 삭제하고 다시 하는 것을 추천해요\n특정 포트가 안됩니다\n• 이런 경우 바로 삭제하는 명령어도 있지만 특정 포트에 어떤 프로세스가 떠있는지 확인하고 킬하시면 됩니다. netstat, lsof 등을 확인해서 포트를 확인하고 킬을 해주시면 됩니다\n• 단순히 안된다고 하면 저희도 답변드리기 어려운데, 그 상황에 어떤 것이 띄워져있는지 모르기 때문입니다\n• 때론 다른 프로그램에서 이런 포트를 사용하는 경우가 있습니다. 이런 경우엔 재부팅을 하고 바로 시작해보시면 될 가능성이 큽니다(오라클쪽에서 뭔가 다운받으면 이런 것 같더라구요)\nS3 연결\n• 액세스키, 시크릿 액세스키를 체크하면 됩니다. 이 글을 참고하시면 될 것 같네요. 웹에서도 연결 테스트를 할 수 있습니다(Connection에서 test 버튼)\n• <https://velog.io/@dbgpwl34/DataEngineering-Airflow>\nairflow 파이프라인을 짠다\n• 파이프라인 관련된 모든 것을 의미한다고 보시면 됩니다. 보통 파이프라인이라고 하면 파일 단위를 의미하지만 그를 위한 인프라나 설정을 하는 것도 당연히 필요할 수도 있지요\n• 현업에선 굳이 나누지 않기도 하네요. 나눠서 어떻게 쓰냐할 때 의미가 딱히? 지금 단계에선 구체적으로 쪼개서 이해하지 않아도 괜찮을 것 같아요\n모델을 끌고 올 때\n• 여러 강의에서 말했는데(도커 등) 처음 init할 때 파일을 가져와서 다운로드하는 수도 있고, 매번 다운로드할 수도 있고 요구조건에 따라 다르긴 합니다\n• 규모가 너무 커져서 어렵다고 하면 모델 자체를 간단하게 만들고, 실행만 되는지 보고 나중에 확인하면 되지 않을까 싶어요",
+        "user": "U03PL9GCPFZ",
+        "user_name": null,
+        "timestamp": "1709631096.953539",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U03PL9GCPFZ> 했다고 생각했던 부분, 혼자서 의문이 들었던 땅굴 파고 있던 부분들을 콕콕 찝어서 말씀해주셔서 너무 감사합니다 ! 이렇게라도 늦게나마 다시 말씀해주셔서 너무 감사하고, 말씀해주신 것들 차근차근 해보도록 하겠습니다 ! 감사합니다 마스터님 :wavy_dash:",
+          "user": "U0643C5PLQH",
+          "user_name": "임서현_T6145",
+          "timestamp": "1709635333.147589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

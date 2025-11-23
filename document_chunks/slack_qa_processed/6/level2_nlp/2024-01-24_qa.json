@@ -1,0 +1,157 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "notice_nlp 채널에 url 정보를 사용하면 안된다고 말씀해주셨습니다.\n제가 이해한 상황은 url이 네이버 뉴스와 네이버 스포츠 뉴스가 있어서 해당 정보를 사용하면 안되는 걸로 이해가 되었습니다.\n더 나아가서 url에 접속해서 데이터를 크롤링하고. 크롤링된 정보를 활용하는 방식도 안된다고 이해하면 될까요?\n예를 들자면.  `뉴스 내용 크롤링 --&gt; 내용 3줄 요약 --&gt; 데이터에 반영`  이런식으로요.",
+        "user": "U0643C9AQQH",
+        "user_name": "이종원",
+        "timestamp": "1706089081.940819",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!\nurl 내에 모든 정보들은 데이터의 label을 추론하기에 너무 밀접한 정보들을 포함하고 있을 수 있어서, 일체 url 정보 및 url 내의 정보 사용을 금지하였습니다.\n따라서, *url 내의 크롤링된 데이터 활용 또한 불가능*합니다.\n\nurl은 추론을 위한 feature로 제공한 것이 아닌 *데이터의 출처 표기를 위함*이니, 이해 부탁드립니다!",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1706089588.412949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob-dance",
+                "users": [
+                  "U0643C9AQQH",
+                  "U064Z2427FG"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 확인했습니다. 감사드립니다~~:meow_attention:",
+          "user": "U0643C9AQQH",
+          "user_name": "이종원",
+          "timestamp": "1706089638.414869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사",
+                "users": [
+                  "U0619KW7QRY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 게시판 문의글보고 다시 문의드립니다.\n해당 대회에서 test파일을 대상으로 직접적인 수작업 수정이 아닌 코드 기반으로 전처리 적용도 제한되는 것인지 여쭤보고 싶습니다!",
+        "user": "U0643C6DEG1",
+        "user_name": "김유민_T6033",
+        "timestamp": "1706165128.935269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 유민 캠퍼님!\n이 경우 규칙에서 정의하지 않은 베이스라인 코드의 수정이 필요하게 되므로, 불가능합니다.\n잠시 후 오피스아워에서 한번 더 설명드리겠습니다 :slightly_smiling_face:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706165415.746209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답장감사합니다:blush:!! 그러면 train에서의 전처리코드 작성도 불가하다는 말일까요..?!",
+          "user": "U0643C6DEG1",
+          "user_name": "김유민_T6033",
+          "timestamp": "1706165482.541619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전처리를 완료하여 `train.csv` 로 저장한 데이터를 베이스라인 코드에서 로드 및 학습하는 것은 당연히 가능합니다 !!",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706165632.275209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "엇 그렇다면 전처리를 완료한 test.csv 파일로 predict를 진행해도 된다는 의미일까요? (계속 여쭤봐서 죄송합니당 ㅜㅜ)",
+          "user": "U0643C6DEG1",
+          "user_name": "김유민_T6033",
+          "timestamp": "1706165730.371369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오피스아워에서 한번에 정리하여 말씀드리겠습니다 !! 잠시 후 뵙겠습니다 :face_with_cowboy_hat:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1706165835.533889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U0643C6DEG1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다 !",
+          "user": "U0643C6DEG1",
+          "user_name": "김유민_T6033",
+          "timestamp": "1706165859.236649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

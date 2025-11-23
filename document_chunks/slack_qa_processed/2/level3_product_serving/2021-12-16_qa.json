@@ -1,0 +1,336 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "질문 두 가지가 생겨서 여쭤봅니다!\n1. streamlit의 동작과 fastapi 의 동작을 비교해보면 streamlit 은 동기화가 주로 되어있고 fastapi는 비동기화가 주로 이루어져 있는 것 같은데요 streamlit의 동작들도 비동기식으로 진행하는 것이 가능할까요? \n2. 구성된 프로잭트의 pre, post processing  부분이 python 함수로 대부분 짜여져 있어서 nlflow로 한번에 묶어서 관리하려고 하면 에러가 발생합니다.. 이런 상황에서는 python module만 따로 관리해야만 할까요?",
+        "user": "U029FSCQAKX",
+        "user_name": "박상현",
+        "timestamp": "1639641778.358200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029FSCQAKX",
+            "ts": "1639641870.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "상현님 안녕하세요!\n1. Streamlit을 비동기로 어떤 것을 하려고 하시나요~? \n<https://gist.github.com/wfng92/0cc6673e9ce4e8b880e6a38c134ed0cf>\n<https://discuss.streamlit.io/t/issue-with-asyncio-run-in-streamlit/7745>\n\n요런 내용이 있기도 한데, async를 사용해도 될지는 잘 모르겠네요..!\n\n혹은 큐를 만들어서 하는 것도 가능한데 이럴 경우 HTML 구성이 힘들어서, 조금.. 어려운 과정이 예상됩니다. streamlit을 많이 응용하려고 하시면 차라리 자바스크립트 하시는게 더 빠를 것 같기도 하네요!!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639644954.362100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2. 이건 제가 어떤 상황인지 알수가 없어서 코드를 공유해주시거나 에러 메세지를 같이  공유해주시는게 좋을 것 같아요!(MLflow에서 발생하는 오류는 정말 다양하니깐요..!)",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639644993.362400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "아항.. 빔서치 연산이 될지는 저도 안해봤네요 :thinking_face:\nBentoML 사용 방식이 어렵진 않으니 시도해보시는 것도 좋은 경험이 될 것 같아요!",
+        "user": "U029MCT2RTK",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1639641951.358500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다 마스터님! 만들어진 레포지토리의 파일을 보니 참 좋네요...;; 희망이 생깁니다...! 혹시 음성파일을 curl의 data argument에 패스를 지정해서 올리면 파일을 올릴 수 있을까요?",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639642030.358700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029E9LS8NP",
+              "ts": "1639642043.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 curl해서 파일 올린다는게 메모리에 말씀이신가용~~?",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639645097.362700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 네넵 지금은 로컬이기도 하니 직접 올려서 구동중에 메모리에 올릴 것 같습니다! 다만 사실 나중엔 어떻게 넘겨야 할지 모르겠습니다 ㅋㅋㅋ 외부 포트에서 마이크로 들어온 음성(바이트)를 인풋으로서 서버인 v100한테 predict 요청을 해야하는데 잘 모르겠네요...그때는 로컬에서 음성파일로 만들지 않은 채로 바이트 상태로 넘기고 싶어서 curl 대신 grpc랑 protobuf 공부해보는데 이해가 잘 안되어서요 ㅠㅠ",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639647460.364200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음성 데이터가 대략 사이즈가 어떻게 되나용? body 안에 데이터를 넣는 것이 기초적인 방법일 것 같고 bytes로 해서 넘길 때 어떤 이슈를 겪으셨나요? bytes로 넘기면 될 것 같은데 어떤 부분이 안되셨을지..! 궁금하네요",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639666440.373100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/pytorch/audio/issues/800>\n\n<https://github.com/pytorch/audio/pull/1158>\n\n이 내용이 도움이 될 수도 있을 것 같네요!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639666461.373300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n3차 Product Serving 오피스아워가 *오늘 (12/16 목요일) 18:00 ~ 19:00*에 진행되는 점 다시 한 번 알려드립니다~!\n*안상태 멘토님께서 &lt;Fast API Test Code 직접 작성하기&gt;*를 설명해주실 예정인데요! 코어 타임 내 필수 일정인만큼 모두 6시까지 늦지 않게 들어와주세요~:relaxed:\n&gt; <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|Product Serving 3차 오피스아워 Zoom Link>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1639643400.360400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V",
+                "U0290GAJGG7"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 발표 자료 공유드립니다! 오늘도 새로운 플레이리스트로 크리스마스 노래를 듣는 중이니 빠르게 들어와주세요~",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1639644874.361600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U0296UZ7TJA",
+                  "U028ZQU4N07",
+                  "U029MCHN1BK",
+                  "U029MCT2RTK"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "글로벌 변수를 사용하면 어디서나 수정이 가능하게 된다는 것이 단점이라고 생각이 되었습니다.. Depends 를 사용하게 되는 경우 함수 안의 변수나 파라미터에  Depends 적용을 하게 되고 그렇게 되면 다른 함수에서 접근할 수 있는 방법이 생각나지 않아서 방법이 궁금했습니다!",
+        "user": "U029BP86UBX",
+        "user_name": "임성민",
+        "timestamp": "1639645722.363200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "```import model as m\nmodel = None\n\n@app.on_event('startup')\ndef load_models():\n    model = m.get_model('../assets/mask_task/model.pth')\n    model.eval()```\n다음과 같이 시도해봤는데 python 에 이해가 부족해서 인지 계속 None 이 뜨는 상황이 이해가 잘 안되어 질문 남기게 되었습니다",
+          "user": "U029BP86UBX",
+          "user_name": "임성민",
+          "timestamp": "1639646108.363500",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029BP86UBX",
+              "ts": "1639646248.000000"
+            },
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029MKLUYFN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "streamlit에서 model을 load하는 함수에서 @st.cache를 사용하고 다음과 같이 torchscript로  받으려하면 첨부한 이미지와 같이 hash_funcs를 사용하라는(?)듯한 메시지가 뜨는데요.\nhash_funcs에 대한 글을 검색해서 봐도 어떤 것인지 잘 모르겠네요.. 혹시 torchscript를 @st.cache를 사용해서 load하는 방법을 아시는 분이 계실까요\n```@st.cache\ndef load_model(weights=os.path.join(MODEL_DIR_PATH, 'best.ts')):\n    # Load model\n    w = weights\n    model = torch.jit.load(w)\n    return model```",
+        "user": "U029T519KUH",
+        "user_name": null,
+        "timestamp": "1639662439.369600",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029T519KUH",
+            "ts": "1639665169.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "주영님 안녕하세요!\n우선 streamlit에서 cache가 어떻게 동작하지 알면 좋은데, 캐싱할 때 hashing을 해서 캐싱 데이터를 계속 사용하는 형태로 쓰고 있어요. 캐시를 다시 할 때 해싱 기준으로 판단합니다\n\n이런 경우 소스코드를 보시면 좋은데, <https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/legacy_caching/hashing.py#L602> 이쪽을 보시면 특정 type일 경우 return to_bytes하는 것을 볼 수 있습니다. 아마 torchscript의 module은 streamlit에서 작성되지 않은 경우 같네요(저도 처음 보긴했네요..!)\n\n이런 경우 해결하기 위해 hash_funs을 사용하게 됩니다. 커스텀한 hash 함수를 사용하셔도 괜찮고, <https://docs.streamlit.io/knowledge-base/using-streamlit/caching-issues> 문서에 나온 것처럼 lambda _: None을 사용하면 해당 object의 해싱을 사용하지 않을 수 있습니다\n\n해시 함수에 대해 궁금하시면 <https://docs.streamlit.io/library/advanced-features/caching#the-hash_funcs-parameter> 이 문서를 보시면 자세히 나와있습니다! lambda _: None의 장점, 파이썬의 hash 등을 알 수 있을거에요-!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639667296.373600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! 다음과 같이 데코레이터를 사용해서 해결했습니다!\n```@st.cache(hash_funcs={torch.jit._script.RecursiveScriptModule : lambda _: None})\ndef load_model(weights=os.path.join(MODEL_DIR_PATH, '<http://best.torchscript.pt|best.torchscript.pt>')):\n    # Load model\n    w = weights\n    model = torch.jit.load(w)\n    return model```",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1639669882.374200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요!\n혹시 FastAPI Response로 2차원 리스트 반환하는 방법 아시는 분 있나요?\n이미지와 pred_list라는 2차원 리스트를 streamlit에서 받아서 사용하려고 계속 해보고 있는데\n이미지는 잘 받아지는데 2차원 리스트는 잘안되네요...",
+        "user": "U02A1E57D17",
+        "user_name": null,
+        "timestamp": "1639665341.372700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "재현님 안녕하세요!\n해당 코드에서 잘 받아지지 않는다 = 어떤 현상인지 더 설명해주실 수 있으신가요? 값이 들어가지 않은 것인지, 어떤 형태를 기대했는데 그 기대와 다르게 나온다 등..! 코드와 어떤 부분이 안되는지 말씀해주셔도 좋을 것 같아요 :pray:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639667348.374000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님 안녕하세요!\n밤늦은시간인데 답변해주셔서 정말 감사드립니다!\n제가 하려고 했던게 frontend에서 request로 서버에 이미지를 전달하면 서버에서 이 이미지에 대해 object detection을 수행하고, 이에 대한 결과값을 Respone로 예측 이미지와 예측값(좌표값, 라벨, conf)을 frontend쪽에서 반환 받으려고 하였습니다!\n그런데 예측값과 같은 변수들은 Respone로 보내보려고 했지만 잘 되지 않아서 이렇게 질문을 남겼습니다!\n제가 접근을 잘못하고 있는건지, 이렇게 보내는게 맞는지 궁금합니다!\n아래에 frontend에서 서버로 보내는 코드, 서버에서 받아서 예측하고 반환해주는 코드, 오류 이렇게 3개 이미지 첨부하겠습니다!\n감사합니다!",
+          "user": "U02A1E57D17",
+          "user_name": null,
+          "timestamp": "1639671004.374400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A1E57D17>\n아! 오류 코드를 보니 더 이해가 되었어요\n말씀하신 대로 하시는게 맞는데, 지금 해당 오류가 발생한 이유는 FastAPI가 response value를 자동으로 json으로 컨버팅해요. 이 과정에서 list는 json으로 변환하지 못해 에러가 발생한거라 보시면 되어요\ndict 형태로 데이터를 넣어주시면 되어요 :slightly_smiling_face:\n아래 문서 참고하시면 좋을 것 같네요!\n<https://fastapi.tiangolo.com/advanced/response-directly/>",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639707502.377100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK>\n감사합니다 마스터님!! 참고해서 해결해보겠습니다!!",
+          "user": "U02A1E57D17",
+          "user_name": "장재현",
+          "timestamp": "1639725602.377700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

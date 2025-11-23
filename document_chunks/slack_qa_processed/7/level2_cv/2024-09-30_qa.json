@@ -1,0 +1,401 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저번에 알았던 내용인데요, 이 서버는 기본적으로 cuda가 깔려있고 cuda를 설치하면 터지게 되어있습니다. 그래서 conda 환경을 새로 만들면 cuda가 깔려있지 않기 때문에 이를 수정하고자 쿠다를 설치하면 터지게 됩니다. 그래서 저희는 지난번에 콘다환경 없이 base 환경에서 작업을 진행했었습니다. 근데 서버를 만들어서 확인해보시면 import torch; torch.cuda.is_available()로 체크해보시면 쿠다 자체는 깔려있는 것을 확인하실 수 있을 겁니다. 근데 requirements.txt 자체는 아직 윗 질문도 그렇고 여러 방면에서 해결이 된 것 같지 않아 다른 패키지를 설치해보는 중입니다.",
+        "user": "U07EJ5Q544C",
+        "user_name": "김한얼",
+        "timestamp": "1727679665.992619",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EJ5Q544C",
+            "ts": "1727679708.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "사실 근데 쿠다 설치파일을 로컬에서 받은 것 뿐이지 실제로 설치하려는 시도는 하지도 않았거든요, 로컬상에 용량 여유가 많이 있었는데 그냥 서버 연결이 끊겨서 의아하네요.",
+          "user": "U07E92018AJ",
+          "user_name": "성기훈",
+          "timestamp": "1727679711.404569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`/home` 폴더가 20gb, `/data/ephemeral/home` 폴더가 100gb라 체크포인트를 /home에다 저장하면 터지는 일이 있긴 한데요, 설치파일만 받았는데 터지는 건 좀 특이하네요...다운로드된 파일을 검사라도 한 걸까요?",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1727679783.067939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 잘 모르겠습니다. 적어도 현재 상황은 정상이 아닌것으로 보이고 추가적인 답변을 기다리고 있습니다..!",
+          "user": "U07E92018AJ",
+          "user_name": "성기훈",
+          "timestamp": "1727681044.298139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "저희 조도 같은 문제를 겪고 있습니다. mmcv-full==1.7.0 설치 중에 EnvironmentError('CUDA_HOME environment variable is not set. ' 오류가 납니다.\nstackoverflow보고 cudatoolkit-dev 설치를 시도했는데 서버가 종료되었습니다. (<https://stackoverflow.com/questions/52731782/get-cuda-home-environment-path-pytorch>)",
+        "user": "U07F4EGLCHW",
+        "user_name": "이동진",
+        "timestamp": "1727679748.849099",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C07PLBBETMY/p1727679665992619?thread_ts=1727679518.719899&amp;cid=C07PLBBETMY|윗 댓글>에도 달았지만 서버에 cuda는 설치하시면 안된다고 알고 있습니다.",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1727679859.461899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EJ5Q544C> 한얼님 남겨주신 댓글 잘봤습니다 감사합니다!",
+          "user": "U07F4EGLCHW",
+          "user_name": "이동진",
+          "timestamp": "1727679948.789289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 그래서 쿠다 설치 없이 해결하는 방법을 알아봐야할 것 같습니다...저희 팀도 라이트닝 설치를 해야하는 상황인데 쿠다가 같이 깔려서 문제네요",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1727680000.728579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "slightly_smiling_face",
+                "users": [
+                  "U07F4EGLCHW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "저번 서버에서는 pytorch lightning을 깔아서 진행을 했었는데요, 이번 서버는 이상하게 pytorch lightning이 중간에 cuda를 설치하면서 서버가 터지는 것을 확인했습니다. 혹시 lightning을 cuda 설치 없이 깔 수 있는 방법이 있을까요?",
+        "user": "U07EJ5Q544C",
+        "user_name": "김한얼",
+        "timestamp": "1727679868.233879",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "borat_thumbs",
+              "users": [
+                "U07EUAU2W1F",
+                "U0616F97Q0K"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "pip install pytorch_lightning==1.8\n\n저는 위의 커멘드로 ligthning을 깔았고, torch는 1.12로 gpu 지원되는 버전으로 자동으로 install 되었습니다.\n\npip으로 gpu지원되는 torch를 깔면 터졌습니다.\n\n저는 detectron base 코드를 돌리기 위해 버전을 1.8로 했습니다. 위 설정으로 detectron baseline 코드는 돌아갔습니다. (lightning 제외하고 다른 커멘드도 실행시켰는데, 정리가 안되어서 생략함다)\n\n아마 제 방법도 오류가 날 수 있으니 혹시 터지시면 댓글 남겨주세요!\n\n다른 베이스 코드는 어떤 torch 버전을 요구하는지 몰라, 아래 lightning 버전을 첨부해 드립니다! lightning 1.8을 깔면 torch 1.12+cu116이 깔렸습니다!\n\n<https://lightning.ai/docs/pytorch/stable/versioning.html>",
+          "user": "U07E14D9FST",
+          "user_name": "김태성",
+          "timestamp": "1727680580.555549",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E14D9FST",
+              "ts": "1727680685.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 버전을 낮추면 되는 꿀팁이 있군요! 설명 감사합니다! 그럼 lightning 낮은 버전 중에 cuda 버전을 맞춰보도록 하겠습니다!!",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1727680801.810599",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EJ5Q544C",
+              "ts": "1727680850.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 cuda 버전 말고 torch 버전으로 맞췄는데, cuda 버전으로 맞추는 것도 잘 되는지 궁금합니다! 하시고 공유해 주실 수 있나요...?",
+          "user": "U07E14D9FST",
+          "user_name": "김태성",
+          "timestamp": "1727681095.569039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네넵 만약 된다면 해보고 쓰레드에 공유 상황 남겨드리겠습니다.",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1727681373.370329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07E14D9FST",
+          "user_name": "김태성",
+          "timestamp": "1727681386.677049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ai한테 도움을 좀 얻어서 버전을 고정하고 더 윗버전을 설치하는 데에 성공했습니다!\n1. `print(torch.___version_)`으로 파이토치 버전이 1.12.1임을 확인했습니다.\n2. 라이트닝 사이트에서 torch 1.12.1을 <https://lightning.ai/docs/pytorch/stable/versioning.html|공식 지원하는 버전>이 2.1임을 확인했습니다.\n3. pip install lightning==2.1로 깔면 torch를 2.4로 업데이트하려고 해서 cuda가 새로 깔릴까봐 도중에 중단했습니다.\n4. pip install lightning==2.1 torch==1.12.1로 지정하면 torch 업데이트 없이 지원되는 lightning이 깔리고, import lightning까지 실행되는 것을 확인했습니다!!\n다만 이후에 혹시 문제가 생기지 않을까 걱정되기는 하는데요, 일단은 공식 문서에서 지원한다고 하니 저희 서버에서는 이대로 써보려고 합니다.",
+          "user": "U07EJ5Q544C",
+          "user_name": null,
+          "timestamp": "1727687895.393479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정말 감사합니다! 화이팅입니다 ㅎㅎㅎ",
+          "user": "U07E14D9FST",
+          "user_name": "김태성",
+          "timestamp": "1727688002.043599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 정보 감사합니다 ! 바로 시도해 보겠습니당",
+          "user": "U07EJ5NALQ4",
+          "user_name": "김동영",
+          "timestamp": "1727688178.092279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07EJ5Q544C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "공유 감사합니다! 같은 방법으로 일단 진행 해보겠습니다!",
+        "user": "U07EJ5R4Z8C",
+        "user_name": "조혜원",
+        "timestamp": "1727680147.805389",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "위처럼 바꾸고 밑의 naive하게 직접 만드는 code에서 `np.str` 부분을 `str`  로 모두 바꾸어 주면 맨 밑의 함수도 정상적으로 작동하는 것 같습니다 !",
+          "user": "U07ECPR5ZUM",
+          "user_name": "방민혁_T7158",
+          "timestamp": "1727680571.727689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "!pip install map_boxes==1.0.6\n!pip install numpy==1.26.4\n!pip install tqdm==4.65.0\n!pip install pycocotools==2.0.6\n\n안녕하세요 우선 버져닝에 혼란을 드려서 죄송합니다ㅠㅠ 현재 과제 파일 업데이트 했습니다! 댓글 달아주신 부분처럼 수정해서 진행해도 문제없는것으로 확인했습니다",
+          "user": "U0616F97Q0K",
+          "user_name": "최홍준_조교",
+          "timestamp": "1727680781.604929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "민혁님도, 조교님도 감사드립니다!",
+          "user": "U07EJ5R4Z8C",
+          "user_name": "조혜원",
+          "timestamp": "1727681502.101159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "기본과제2 질문입니다. train과정에서 한 epoch에 상당시간이 소요되는것 같은데 14에폭 전부 돌리는 것이 맞을까요?",
+        "user": "U07E14AQQMV",
+        "user_name": "염진봉_T7206",
+        "timestamp": "1727698401.175419",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 14에폭 전부 돌릴 필요는 없습니다!이미 아시겠지만 hyperparmeter는 본인이 스스로 설정해도 되는 항목입니다. 해당 과제의 목적은 faster rcnn, region proposal network 에 대한 이해입니다. 따라서 어느정도 학습이 진행됐다면 inference를 해보고 해당 모델이 잘 작동하는지 확인해보세요!",
+          "user": "U0616F97Q0K",
+          "user_name": "최홍준_조교",
+          "timestamp": "1727700090.689559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U07E14AQQMV",
+          "user_name": "염진봉_T7206",
+          "timestamp": "1727700867.757339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "과제 2번에서 질문이 있습니다!\nnormal_init 함수에서 truncated = True일 때는 bias를 초기화 시키지 않는 것 같습니다.\nFalse일 때와 다르게 bias를 유지시키는 이유가 궁금합니다 !",
+        "user": "U07EUAU2W1F",
+        "user_name": "강대민",
+        "timestamp": "1727756715.099489",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "코드 읽어보면서 한줄 남겨봅니다! 맞는진 확실하지 않지만 참고해주세요!\n\ntruncated normal distribution를 사용하여 가중치를 초기화하게 되면 대칭적으로 특정 범위 내에 고르게 분포되어 있을 거에요. 따라서 bias를 0으로 초기화하는 부분이 크게 학습에 영향을 미치지 않을 것이라고 생각이 드네요. false인 경우에는 일반적인 정규분포를 사용하는데 이렇게 된다면 각 뉴런의 출력이 0에 가깝게 되어서 초기에 그래디언트 전파가 더 안정적으로 이루어 질 것 같아요.\n\n결국에 각 경우에 적합한 초기화 방법을 적용하는 것으로 보이는데 네트워크 구조나 데이터셋에 따라 이런 초기화 방법이 더 효과적일지는 조금씩 달라질 듯합니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1727758860.851969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "truncated 한 정규분포를 사용하면 bias영향이 크지 않다고 볼 수 있겠네요\n말씀 들어보니 어떤 차이가 있는지 이해됐습니다 !! 감사합니다 !!",
+          "user": "U07EUAU2W1F",
+          "user_name": "강대민",
+          "timestamp": "1727759260.696429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "최고",
+                "users": [
+                  "U07E921DX9C"
+                ],
+                "count": 1
+              },
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07E921DX9C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

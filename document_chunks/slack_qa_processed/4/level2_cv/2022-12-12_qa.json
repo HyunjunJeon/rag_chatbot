@@ -1,0 +1,71 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U03MDFNTYCE> 완다님 혹시 가능할까요?",
+        "user": "U041L94723E",
+        "user_name": "집사",
+        "timestamp": "1670898116.448689",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041L94723E> 바로 확인해보고 답변 드리겠습니다!",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1670898252.869219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              },
+              {
+                "name": "pray",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L94723E> 다시 오픈해두었습니다!",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1670900420.248169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03MDFNTYCE> 감사합니다!",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670900494.027319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

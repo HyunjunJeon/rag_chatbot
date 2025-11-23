@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 성연님!\n*CC-BY-NC-ND (Creative Commons - Attribution, Non-Commercial, No Derivatives) 라이선스*에 따르면 *저작물의 수정 및 파생물 생성이 금지*됩니다. 따라서, 원본 데이터(이미지)를 기반으로 relabeling된 JSON 파일도 *파생물*로 간주될 수 있으며, 이를 공개하는 것은 라이선스 위반이 됩니다 :pray:",
+        "user": "U03L1UMDLUS",
+        "user_name": "크리스_운영진",
+        "timestamp": "1731378086.660529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U07EFHKFKPV"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!",
+          "user": "U07EFHKFKPV",
+          "user_name": "차성연",
+          "timestamp": "1731379416.388959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

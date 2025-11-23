@@ -1,0 +1,146 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "MRC 5강 실습 파일((5강-실습) Dense Passage Retrieval.ipynb)에 train() 함수에서 q_encoder, p_encoder를 train하고 아래에서는 q_model, p_model로 forward하여 학습이 안된 채로 결과가 나오는 것 같습니다.\nq_encoder -&gt; q_model, p_encoder -&gt; p_model 로 수정해줘야 할 것 같습니다.\n2번째 이미지는 수정 전 결과이고 3번째 이미지는 수정 후 결과입니다.",
+        "user": "U041WE7FFUZ",
+        "user_name": null,
+        "timestamp": "1671671936.999639",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041WE7FFUZ",
+            "ts": "1671672791.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041ES1D3L5",
+                "U03QKNSJVCY",
+                "U041L906VM2",
+                "U041HN1G4M9",
+                "U041HMY3EQ3",
+                "U041B75CDEJ",
+                "U041ES0JUFP",
+                "U041ES0GL0M"
+              ],
+              "count": 8
+            },
+            {
+              "name": "man-facepalming",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 준녕님! 5강 실습을 기반으로 미션4를 만들면서 저 오류를 발견하고 반영해서 미션을 만들었는데, 정작 5강 실습에 수정을 하지 않는 실수를 범했네요.. 공유해주셔서 감사합니다 :slightly_smiling_face:",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1671672851.442439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "jerry_very_thx",
+                "users": [
+                  "U041WE7FFUZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "실습과 미션 덕분에 학습에 많은 도움이 됩니다. 감사합니다!",
+          "user": "U041WE7FFUZ",
+          "user_name": "정준녕",
+          "timestamp": "1671673163.197589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 운영진님 mrc 미션-2 요청한 파일이 없다고 뜨는데 혹시 확인이 가능할까요?",
+        "user": "U041WE4FU6M",
+        "user_name": "이상문_T4149",
+        "timestamp": "1671693057.964979",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "meow_party",
+              "users": [
+                "U041HMY3EQ3",
+                "U0427G6BQJC",
+                "U041WE4FU6M"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MDFNTYCE"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 운영진 완다입니다.\n해당 파일 다시 업로드 해두었습니다 감사합니다 :slightly_smiling_face:",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1671693716.400819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041HMY3EQ3",
+                  "U041WE4FU6M"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

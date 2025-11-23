@@ -1,0 +1,78 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저기.. 같이 마스터클래스 들으실래요?..",
+        "user": "U028ZAA1X1V",
+        "user_name": "이홍규_T2178",
+        "timestamp": "1636095685.067800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029X5PRTJ5",
+                "U029B6PDLFQ",
+                "U029T92U2F3"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "질문인가요? .. 이제 질문만 보면 MRC 생각이 나네요",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636095841.068300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029PN9SX1R"
+                ],
+                "count": 2
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029PN9SX1R"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029B6PDLFQ> 헉 죄송합니다.... 저도 질문 공포증이",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1636098611.069100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "복기님 안녕하세요!\n준환님도 댓글 달아주셔서 감사합니다! :clap:\n\n이런 경우엔\n• 터미널이 왜 죽을까?\n    ◦ 어떤 상황에 터미널이 죽는걸까?\n• 간단하게 “when terminal die in python script” 정도로 검색하면 아래 글을 발견해볼 수 있어요\n    ◦ <https://unix.stackexchange.com/questions/614950/python-programs-suddenly-get-killed>\n    ◦ 위 내용을 보면 python killed라는 키워드가 보이네요. python script killed reason 라고 검색을 해봅시다\n• <https://stackoverflow.com/questions/47408608/how-can-i-find-the-reason-that-python-script-is-killed|How can I find the reason that Python script is killed?> 이런 질문을 가지는 글이 있네요!\n```On a Linux system, check the output of dmesg. If the process is getting killed by the kernel, it will have a explanation there. Most probable reason: out of memory, or out of file descriptors.```\n이런 답변이 있지요 =&gt; 그리고 다른 사람들의 이야기에 대부분 메모리 이야기가 나옵니다\n\n깨달음 포인트 : dmesg에 프로세스가 커널에 의해 죽은 경우 설명이 남는구나!\n\n그런 경우 생각할 수 있는 원인은\n• 메모리가 작아서 이슈가 생김\n• 디스크 용량이 작아서 이슈가 생김\n해결 방법은\n• 1) 메모리를 늘린다(디스크 포함)\n• 2) 스크립트 자체를 최적화한다\n지금 취하신 방법은 1번이고, 2번으로 하는 방법도 있습니다. 다만 모델이 익숙하지 않으면 1번이 학습하기엔 수월할거에요! :slightly_smiling_face:\n이 파트에 스펙을 자세히 정의하지 않고 해보라고 말씀드린 것은 *이런 과정을 통해 처음에 인스턴스 성능을 어떻게 해야할까?를 경험하게 만들고 싶었어요. 스파크나 딥러닝 모델을 위한 서버 구축할 때 처음 “아 성능 어떻게 해야하지?“라는 고민을 하곤 하는데 이렇게 성능 때문에 오류가 되는 경우를 많이 경험하진 않거든요-!*\n\n질문에 대한 답을 찾아가는 과정을 공유드리면 좋을 것 같아 작성해보아요-!",
+        "user": "U03PL9GCPFZ",
+        "user_name": null,
+        "timestamp": "1673395333.316319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U03PVSC77HR",
+                "U0427G35E4Q"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 저도 requirements 실행하는 중에 에러가 나서요..ㅠ 저는 조금 다른 것 같기는 한데 원인을 알 수 있을까요??",
+          "user": "U041L93GPNY",
+          "user_name": null,
+          "timestamp": "1673403049.311899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L93GPNY> 파이썬 버전이 어떻게 되시나요? 혹 3.6일까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673403195.392629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "3.8이요!",
+          "user": "U041L93GPNY",
+          "user_name": "정석희_T4194",
+          "timestamp": "1673403211.804969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2.5 파트 93쪽 쯔음 실행하다가 발생하신 것이 맞을까요? 강의 내에서 requirements.txt 언급한 것이 있어서 맥락을 알아야 좋을 것 같아 질문드려요-!\n\n현재 에러는 protobuf에서 버전 이슈가 생기는 것인데, 에러 메세지를 보면 3.20.1이 없다고 뜨는 상황이에요. 빨간 글씨를 보면 3.19.6이나 4.0.0rc1 만 있지요. 이런 경우 OS나 파이썬 버전 상황에 따라 다를 수 있는데, 저희가 최근에 다시 확인해도 동작했었는데 어떤 상황인지 궁금하네요..!\n\nrequirements.txt에서 protobuf 부분을 삭제하거나, 4점대 버전을 명시하면 될 것 같은데 해보시겠어요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673403702.064739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 실습하다가 안돼서 일단 넘어가고 인스턴스를 삭제한 상태라...ㅎㅎ 다시 확인해보고 동일한 문제 발생하면 다시 여쭤보겠습니다..!!\n그런데 혹시 강의랑 제가 다르게 설정한 부분이 부팅디스크 ubuntu 버전인데 이것도 원인이 될 수 있을까요??",
+          "user": "U041L93GPNY",
+          "user_name": null,
+          "timestamp": "1673404319.285179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어떤 OS를 쓰느냐에 따라서 (우분투도 16, 18, 20 버전이 있어요) 설치하는 과정에 이슈가 있을 수 있긴 해요(윈도우냐 맥이냐처럼)\n\n20.04 버전을 한번 해보시면 어떨까 싶어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673404510.646789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하.. 이런 것도 원인이 될 수 있군요.. 다시 버전 맞춰서 시도 해보겠습니당!! 감사합니다!",
+          "user": "U041L93GPNY",
+          "user_name": "정석희_T4194",
+          "timestamp": "1673404784.381619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "인진님 안녕하세요! 이제 해결이 되었을까요? 시흠님 말씀처럼 2가지 방법이 있는데 필요에 따라 둘 다 사용할 수 있으면 좋을거에요!",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1673395358.201799",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 해결했습니다~",
+          "user": "U041B7A12MU",
+          "user_name": "백인진",
+          "timestamp": "1673408169.249689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 주어진 서버 환경에서 dockerfile을 이용하여 build를 하려고 하고 있습니다. 그 과정에서 아래와 같은 오류가 발생하였습니다.\n\n해결을 해보려고 하였지만 쉽지 않아서 비슷한 케이스를 마주하고 해결하신 분들의 경험을 공유해주실 수 있는지 궁금하여 이렇게 질문글을 올립니다!!",
+        "user": "U041ES2RQLD",
+        "user_name": null,
+        "timestamp": "1673401341.338989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "Docker container 안에서 중첩으로 Docker container 를 생성하기 위해서는 컨테이너를 생성할때\n```-privileged```\n옵션이 필요합니다만, AI Stage 서버에서는 해당 옵션이 없이 실행되어 중첩은 불가능 할거예요.\n하지만 만약에 있다고 하더라도 도커 컨테이너를 중첩하는건 좋지 않습니다.\nGCP Compute Engine 같은 VM이나, *로컬 환경 (WSL2) 또는 VirtualBox 같은 Hyper-V 환경*에서 해야할 것 같습니다.\n제가 해당 내용 강의를 아직 듣지 않은 상태라 잘못 작성한 부분이 있으면 지적 부탁드립니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673401745.794829",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1673403803.000000"
+            },
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041ES2RQLD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 주어진 서버 환경에서\n주어진 서버 환경이 도커 컨테이너 환경인가요?\n맞다면, 위 산중님 말씀처럼 컨테이너 내에서 도커를 실행시키는 것은 컨테이너 밖에서 도커를 실행시키는 것과 조금 다릅니다.\n\n이렇게 도커 컨테이너 내에서 도커 컨테이너를 실행시키는 방식은 크게 2가지가 있는데요.\n• Docker in Docker\n• Docker out of docker\n이에 관해서는 아래 블로그 글에 잘 적혀있으니 한번 읽어보셔도 좋을거 같습니다.\n\n<https://rainbound.tistory.com/entry/docker-in-docker>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673402024.650889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041ES2RQLD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "~서버 환경이 도커 컨테이너 환경이 아니라면,~\n~그냥 도커가 안깔려있는거 같습니다.~\n\n서버 환경이 도커 컨테이너 환경이군요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673402049.736279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673402165.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가 답변 감사합니다! 건혁님 캡쳐를 보면 docker 설치는 하신것 같고, AI Stage 서버 환경이 맞다면 Docker container로 알고 있습니다.\n또 PID 1 에러 발생하는것 봐도 맞는것 같습니다.\n다만, -privileged 옵션이 빠진것 같은데 이러면 nested 하게 docker in docker 하는게 불가능한걸로 알고 있습니다. (사실은.. 이렇게 알고 아예 시도를 안해봤었는데 해결 방법이 있을까요?)",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673402166.876249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 불가능한 걸로 알고 있는데요. 도커 내에서 도커 컨테이너를 빌드하는 것을 일부러 막은 것인지는 운영진에게 확인해봐야할거 같네요.\n\n<@U03L1UMDLUS> 확인해주실 수 있으실까요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673402488.483799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Docker 실습은 자신의 Local 환경에서 해보셔요-!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673403730.498629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041ES2RQLD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 주셔서 감사드립니다!!!",
+          "user": "U041ES2RQLD",
+          "user_name": "허건혁",
+          "timestamp": "1673404921.202319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "강의에 제시된 poetry 설치방법에서 변경되었습니다.(3-1강 37페이지)\n아래와 같이 입력하세요.\n```curl -sSL <https://install.python-poetry.org> | python3 -```\n<https://python-poetry.org/docs/>",
+        "user": "U041HMZ7PHR",
+        "user_name": "1",
+        "timestamp": "1673401892.367649",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "jerry_very_thx",
+              "users": [
+                "U0427G7EG72",
+                "U041WE7FFUZ",
+                "U041ERZ3BKP",
+                "U041HR79V5G",
+                "U041L93GPNY"
+              ],
+              "count": 5
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U03PVSC77HR",
+                "U041L93GPNY",
+                "U03PL9GCPFZ",
+                "U041L92D136"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다! 강의 내용에 수정해야겠네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673403761.136779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "poetry 덕분에 *pipx* 를 알게 되었습니다!\n```파이썬의 패키지 관리자인 pip 는 \"패키지를 전역적으로 설치\"하는 잘못된 초기 설계를 갖고 있었습니다.\n이때문에 시스템 관리자가 아닐 경우 패키지 설치 자체를 못하는 문제가 생겼고 나중에 user mode 를 추가했지만 일일이 옵션을 주지 않으면 실수하는 경우도 많았습니다.\npipx 는 cli application 설치/관리에 촛점을 맞춘 패키지 관리자로 libraries 보다는 cli application 의 package 를 설치/관리하는데 중점을 두고 있습니다.```\n라고 하네요 ㅎㅎ\n<https://github.com/pypa/pipx>\n\npoetry 는\n```pipx install poetry```\n이렇게도 설치할 수 있습니다.\n<https://python-poetry.org/docs/#installing-with-pipx>",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1673402889.359929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041L93GPNY",
+                "U041ERZ3BKP",
+                "U041ES0MH9B",
+                "U03PL9GCPFZ",
+                "U03PVSC77HR",
+                "U041HN1G4M9"
+              ],
+              "count": 6
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U041HMZ7PHR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "오 pipx는 저는 처음 보네요! 저도 상준님 덕분에 알게 되었어요. 감사합니다!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673404553.629959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 오늘 처음 봤습니다 ^^ 감사합니다!",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673404656.741269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

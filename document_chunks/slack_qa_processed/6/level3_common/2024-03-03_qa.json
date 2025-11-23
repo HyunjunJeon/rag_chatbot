@@ -1,0 +1,156 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "airflow 전반적인 질문입니다.\n1주전부터 airflow를 미리 해보고 있었는데 마침 마스터님께서 airflow를 강의해주셔서 정말 다행이라고 생각합니다 !! 다시한번 좋은 강의 정말 감사드립니다.\n과제도 여차저차 해서 슬랙 알림보내기, 등 처럼 테스트를 해보아도 이게 당장은 눈에 보이는 inference 결과나 값이 넘어오는게 아니다보니 알림이 온다한들 이게 잘 되는건지, 잘하고 있는 건지 불안한 마음이 큽니다.\nairflow를 강의에 맞춰 다시 차근차근 똑같이 해보고, 과제도 최대한 해보고 하였습니다. 하지만 여전히 해결되지 않는 부분이나 속이 시원하지 않은 부분이 있어 여쭤볼것을 pdf로 정리해보았습니다. 시간이 되실 때 한번 봐주시면 정말 감사드리겠습니다 !! _airflow 장인분들 도움 도움 !!_ :6857-dogecry:",
+        "user": "U0643C5PLQH",
+        "user_name": null,
+        "timestamp": "1709457495.496949",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U063J3XMV70"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 14
+        }
+      },
+      "answers": [
+        {
+          "text": "1. ~/airflow로 홈이 잡히는 문제: AIRFLOW_HOME 기본값이 여기로 잡히는 걸로 알고 있어요 환경 변수 오버라이딩을 하시거나 airflow.cfg에서 변경도 해 보셨을까요?",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709457838.896279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2. 8080에 어떤 프로세스가 있는지 확인하고 킬 하고 다시했는데도 8080포트가 안될까요? 정보가 부족하네요",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709457894.828579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "3. Aws s3 관련해서는 설명을 잘 이해하지 못했습니다. 1) 어떤 걸 시도하는데 (목적) 2) 현상이 무엇이고, 3) 재현 방법은 어떻게 할 수 있으며, 4) 시도한 것들이 무엇인지 알려주시는 걸 추천 드립니다.",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709458069.807249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "4. Docker compose에서 어떤게 안될까요?",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709458195.815289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1번과 같은 경우에는 수정해주어도 connection 문제 처럼 cfg를 수정해도 다시 돌아오고.. 돌아오고.. 하더라구요. sudo로 강제 수정해주어야할까요? 저만 이런건지 :cry:\n2 번과같은 경우에는 프로세스까지는 확인 못해봤습니다 확인하고 다시 해보겠습니다 !!\n3. 최종프로젝트에서 사용자가 Inference 하고 나온 데이터를 추후 재학습에 넣고 싶어 aws로 연결하여 데이터를 받아올 필요가 있다 생각하여 중간에 연결해야겠다고 생각했습니다. providers 설치 확인 후 connections 연결하면 test를 해보면 될 때도 있고 안될때도 있어 connections를 확인하는 다른 방법이 있는지 여쭤보고 싶었습니다.\n4. docker가 안되는 것은 아니고 혹시 다른 분들은 어떻게 하시나 정보 공유 및 확인차... ㅎ 남겨두었습니다.",
+          "user": "U0643C5PLQH",
+          "user_name": "임서현_T6145",
+          "timestamp": "1709458359.162119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주말에 갑자기 질문을 길게 남겼는데 답변해주셔서 너무 감사합니다.. :joy:",
+          "user": "U0643C5PLQH",
+          "user_name": "임서현_T6145",
+          "timestamp": "1709458420.997799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 도커 데스크탑에서 컸다하는 건 개발 단계에서는 개인의 취향 같습니다. 저는 orbstack이라는 걸 최근에 쓰는데 메모리 사용량이 체감 50% 이하입니다\n2. s3연결을 하는데 뭐가 안되는 건지 알고 싶네요\n3. 모델 로드는 실무에서도 굉장히 중요한 지점인데요. 결국에는 트레이드 오프입니다. 빌드하는 타이밍에 오래 걸릴건지, 서빙할때 초기에 오래걸릴지 입니다. 이는 로드하려는 모델의 사이즈와 특성에 따라 다릅니다. 항상 옳은 것은 없고, 둘 다 해보시거나 다른 옵션은 없을지 서치해보시면 좋겠습니다. 해결하고자 하는게 로컬에서 테스트할 때 편하고 싶다, 면 빌드 한번만 하고 재사용이 맞겠네요.\n4. 파이프라인을 짠다는 말은 dag를 만들어낸다 인거 같아요. 목적이 잘 짜는 거라면 저는, ‘지속가능하게’ 짜는 게 잘하는 거라고 생각합니다. 그게 뭐 엄청 fancy 한 패턴을 쓰는게 아니라 시간이 지남에 따라 누군가 다른 사람이 봐도 유지보수하기 쉽게 신경 쓰는 거라고 생각해요. 저희 팀에도 이제 dag이 1000개가 넘어가니깐 체감하는 중입니다…",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709458610.237759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 1번과 같은 경우에는 수정해주어도 connection 문제 처럼 cfg를 수정해도 다시 돌아오고.. 돌아오고.. 하더라구요. sudo로 강제 수정해주어야할까요? 저만 이런건지 :cry:\n&gt; \n\n흠 뭔가 설정이 꼬인거 같은데 제대로된 디렉토리, cfg파일을 보고 있는게 맞을까요? 위 프로세스들 이야기랑 같습니다. 클린한 환경에서 실행중인지 확인해보시죠",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709458742.094259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "3. 커넥션은 airflow ui에서 테스트해보는 방법이 있는데 해보셨을까요? 간단하게 하고 점점 어렵게 가는 걸 추천드려요",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1709458804.248939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 헉 완전 꿀팁 ..! 바로 실행해보겠습니다 :saluting_face: 감사합니다 !!\n2. S3부분은 조금 더 해보고 다시 질문하겠습니다 !! \n3. 아 모델의 사이즈와특성에 따라 다름을 염두에 두고 해보겠습니다. \n4. 좋은 말씀 감사합니다. 지속가능한.. ! ‘좋은 파이프라인’이 무엇인가 고민이 되었는데 말씀해주셔서 좀 정립이 된것같습니다. 저 또한 그에 맞는 파이프라인을 짤 수 있도록 계속 고민해보겠습니다 !\n1. cfg 돌아오는 것은.. 다시 밀고 깔끔하게 해보겠습니다 :6857-dogecry: (3번째)\n3. ui 에서 테스트 하는것 -&gt; CL에서 connection 리스트 확인 순으로 계속 테스트 해봤던 것같습니다. 말씀처럼 다시 간단한것부터 해보아야할것같습니다 !\n\n주말인데 길게 하나하나 답해주셔서 정말 감사드립ㄴ디ㅏ !!!!:blob_aww:",
+          "user": "U0643C5PLQH",
+          "user_name": "임서현_T6145",
+          "timestamp": "1709459036.395659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03UXQJ8T3Q"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

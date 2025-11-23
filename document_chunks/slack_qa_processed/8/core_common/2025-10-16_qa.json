@@ -1,0 +1,231 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[ML for RecSys 4강. 변분추론 2 실습]\n변분추론의 과정을 50 epoch마다 시각화하는 실습을 진행하던 중 궁금한 점이 있습니다.\n학습 초기과정 (~200 epoch) 에는 노란 선이 데이터분포에 가깝게 가는 것을 확인할 수 있었는데, 이때 x의 값에 따라 예측 값의 신뢰구간이 달라지며, 특히 x의 값이 커질수록 그 신뢰구간의 크기(보라색 영역)가 커지는 것을 확인할 수 있었습니다.\n입력되는 x의 값에 따라 이 신뢰구간의 크기가 달라지는 것인지, 혹은 데이터 분포에 따라 변화가 있는 것인지 궁금합니다!",
+        "user": "U09CH83CMBM",
+        "user_name": null,
+        "timestamp": "1760598692.635259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "초기에 학습 모델의 예측값이 정확하지 않기 때문에, var을 생성하는 네트워크에 대한 loss가 커져서, 정답과 비슷한 값을 내뱉기 위해 variance가 초반에는 크게 나오는 것 같습니다.\n학습이 진행되며 원래의 line과 비슷해지면 variance가 점점 줄어들어 x=0일때와 비슷하게 나오지만 이전의 큰 값이 남아 있어 variance가 x가 커짐에 따라 커지는 것처럼 보입니다.\nepoch을 더 키워 모델을 안정적으로 만들었을 때는, x와 신뢰구간의 크기가 거의 무관하게 나타납니다.",
+          "user": "U09CH8393DH",
+          "user_name": null,
+          "timestamp": "1760601786.269249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7T8Z8T"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정확한건 아니지만...\n제가 생각한 내용은 이렇습니다\n1. 학습한 모델은 로그함수를 따른다\n 목적함수가 로그니까, 당연하다고 생각합니다.\n2. 신뢰구간의 크기는, 예측 모델의 기울기와 연관이 있다\n 변화가 클수록, 신뢰하기 어렵다고 생각했습니다.\n3. 신뢰구간은, x값이 극값으로 멀어질수록 길어진다\n 극단값에서 신뢰도가 낮아지는건 당연하다고 생각합니다.\n\n아무튼 이렇게 3가지를 가정했을때 대충 결과가 끼워맞춰져서 적어봅니다..!",
+          "user": "U09CH8BPMKM",
+          "user_name": null,
+          "timestamp": "1760612665.310209",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8BPMKM",
+              "ts": "1760613205.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[6주차 ML for RecSys /과제: 기본 2,3,4 / 데이터셋 문의 ]\n과제2,3,4 데이터셋 리눅스 환경에서 unzip하는 방법을 잘 모르겠어서 문의드립니다.",
+        "user": "U09CH85FVV1",
+        "user_name": "윤준상",
+        "timestamp": "1760661063.491469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!\n윈도우에서도 반디집을 설치하면 압축을 풀 수 있습니다",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1760661272.007519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH842TRR> 감사합니다!",
+          "user": "U09CH85FVV1",
+          "user_name": "윤준상",
+          "timestamp": "1760661314.999759",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH85FVV1",
+              "ts": "1760661319.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[ML for Recsys 기본-3 과제]\n\n이번 기본-3 과제의 정답을 가지고 공부하다가, 한 가지 궁금한 점이 생겨 질문드립니다.\n\n정답 코드에서는 AutoRec과 VAE 모두 아래와 같은 코드를 이용해서 Loss를 계산합니다.\n`loss = criterion(outputs * torch.sign(inputs), inputs) + weight_decay_loss(model, lambda_value)`\n그러나 이때의 NDCG@K나 Recall@K 지표가 매우 낮은 결과로 나오는 것을 확인할 수 있었습니다. (왼쪽 2개의 사진 - 각각 AutoRec, VAE)\n\n이를 개선하고 싶어서 몇 가지를 해보다가, Loss 계산에서 `outputs`에 `torch.sign(inputs)`를 곱하지 않는다면 Loss 값은 이전보다 커지지만 NDCG, Recall 등의 지표가 큰 폭으로 향상되는 것을 확인하였습니다. (오른쪽 2개의 사진 - 각각 AutoRec, VAE)\n`loss = criterion(outputs, inputs) + weight_decay_loss(model, lambda_value)`\n\n• Loss 계산에서 `torch.sign(inputs)`이 어떤 역할을 하는 것인가요?\n• `torch.sign(inputs)`  곱셈의 추가 유무로 결과가 왜 이렇게 차이가 나는 것인가요?",
+        "user": "U09CH83VDDZ",
+        "user_name": null,
+        "timestamp": "1760677876.404459",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH83VDDZ",
+            "ts": "1760677910.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7YMY59",
+                "U06BNEV5K71",
+                "U09CH7TFUKV",
+                "U09CH7WV1PV"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "&gt; • Loss 계산에서 `torch.sign(inputs)`이 어떤 역할을 하는 것인가요?\n저도 어제 과제에 대한 결과를 팀원들과 공유하다가 `torch.sign(inputs)` 이 train loss를 줄이는데 큰 역할을 하는 것을 알았습니다.\n\n`torch.sign(inputs)` 는 inputs의 양수/음수/0 일 때 각각 1, -1, 0을 반환합니다. input이 0이었다면 비교하는 값도 0이 됩니다.\n\nHOMEWORK (1)의 문항에 \"관측된 데이터에 대해서만 loss를 계산합니다.\" 라는 부분이 있는데 `torch.sign(inputs)` 를 곱해줌으로써 관측이 되지 않은 0의 데이터에 대해서는 loss계산을 하지 않겠다는 것으로 생각됩니다.\n\n하지만 여기서 또 의문점이 생겼는데,\n• 왜 모델 안에 `torch.sign(inputs)` 계산을 같이 하지 않고 외부에서 처리하는지\n• mask만 하면 안되는지, 꼭 같은 부호를 곱해주어야만 하는지\n에 대해 궁금증이 생겼습니다.\n\n강민우 캠퍼님 질문을 보고 해당 마스킹의 추가 여부로 왜 이런 결과의 차이가 나타나는지도 궁금해졌네요.",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1760679073.993569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7S61DZ",
+                  "U09CH83VDDZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[6주차 ML for RecSys 위클리 미션 / beta-TCVAE와 MFVI의 차이점 문의]\n안녕하세요, 위클리 미션을 하면서 기존 강의에서 배운 MFVI와 개념이 혼동되는 부분이 있어 질문드립니다.\n\n제가 이해하기로는 MFVI는 수학적으로 각 z들(=z1, z2, ..., zn)을 독립으로 만들어버리는 것이고,\n이는 z의 공분산 행렬을 대각 행렬로 만들어버리는 것이며,\n따라서 q(z) = ∏q(z_j)이 성립하는 것이다.\n라고 이해했습니다.\n그리고 이번 위클리 미션을 수행하면서 이해한 beta-TCVAE는 \"수학적으로 아예 독립으로 만드는 건 아니\"지만, \"*독립에 가깝게 되도록 학습시키는 기법*\"이다,\n그리고 이를 위해 E(log q(z) - log ∏q(z_j) ) = KL(q(z) || ∏q(z_j) )를 목적식에 가중치 beta를 곱한 형태로 TC항을 포함시켜 독립에 더 가까워지도록 학습시킨다고 이해했습니다. 왜냐하면 저 두 분포가 완전히 동일하여 KL 값이 0인 상황이 즉 수학적으로 \"독립\"인 상황이기 때문입니다.\n\n1. 우선 여기까지 MFVI와 beta-TCVAE에 대해 제가 이해한 것이 맞는지 궁금합니다.\n2. 제가 생각했을 때는 MFVI와 beta-TCVAE는 상충되는 개념으로 보입니다. MFVI를 쓰게 되면 TC항이 0이 되어버려 beta-TCVAE를 쓸 수가 없어지기 때문에 저 둘은 동시에 쓸 수가 없는 것으로 보입니다. *MFVI와 beta-TCVAE는 함께 사용할 수 없는 기법이 맞나요?*\n3. 찾아봤을 때는 MFVI는 VAE가 등장하기 이전 2000년대 classic VI를 사용할 때부터 사용되던 기법이고, beta-TCVAE는 2018년 발표된 논문에서 소개된 기법인 것 같은데 그렇다면 예전에는 수학적으로 아예 독립이라고 해버리는 MFVI가 있었지만, 그 이후 수학적으로 독립으로 만들어버리는 것까지는 아니어도 독립에 최대한 가깝게 학습시키자는 beta-TCVAE가 발명되었다 이런 식으로 흐름을 이해하면 되나요? \n4. (추가적으로) 2강에서 VAE를 학습할 때, 실제 구현에서는 q(z|x)의 각 공분산 행렬을 대각 행렬로 가정하고 구현한다고 배웠습니다. 이를 MFVI 및 beta-TCVAE와 엮어서 생각해 보면, \"*q(z|x)는 바닐라 VAE에서도 이미 독립이라고 가정하고 구현하는 게 맞으나, z|x가 아닌 z에 대해 q(z)는 바닐라 VAE에서는 독립이라고 가정하지 않는다. MFVI에서는 이 q(z)이 수학적으로 독립이라고 가정하는 것이며, beta-TCVAE에서는 이 q(z)이 독립에 가까워지도록 학습시키는 것이다.*\" 라고 생각해볼 수 있을 것 같은데, 이런 흐름으로 이해하면 되는지 질문드리고 싶습니다. \n첨부된 이미지는 순서대로 beta-TCVAE에 대한 위클리 미션 수식, MFVI에 대한 강의노트 3강 수식 참고용 캡처본입니다. 3, 4번째 이미지(댓글)는 4번 질문에 대해 GPT에게 물어본 답변입니다.",
+        "user": "U09CH85PLV9",
+        "user_name": null,
+        "timestamp": "1760678956.852379",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH85PLV9",
+            "ts": "1760680420.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U06BNEV5K71",
+                "U09CH894W3D",
+                "U09CMETRNFL",
+                "U09CH85PLV9",
+                "U09CH8BDAPM"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "3, 4번째 이미지",
+          "user": "U09CH85PLV9",
+          "user_name": null,
+          "timestamp": "1760680377.899149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 MFVI가 수학적으로 독립인 것을 보장하는 것이 아니라, 각각의 변수를 따로 계산하는 것이 쉽기 때문에 독립인 것을 \"가정\"한 것이라고 생각했습니다. 이러한 \"가정\" 에 더 가깝게 만들 수 있는 방식이 beta-TCVAE라고 생각합니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1760680587.514169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사드립니다. 저는 MFVI가 각각의 변수를 따로 계산하는 것이 쉽기 때문에 독립인 것을 가정했고, 그래서 수학적으로 독립인 것이 보장된다고 생각합니다. 즉 의미적으로 독립이도록 각 z가 잘 학습된 것은 아니지만, 계산 편의를 위해 강제로 독립으로 만들어버려서 결국 각 z들이 독립임이 보장이 된다고 생각합니다.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1760680743.023779",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH85PLV9",
+              "ts": "1760680785.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "MFVI는 실제로 \"독립이 아닌\" z들을 계산 편의를 위해 독립이라고 가정한 것이 맞습니다. 하지만 이것은 계산 편의만을 위한 가정이고, 실제로는 독립이 아닌 것을 독립처럼 계산하기 때문에 변수들이 독립적이지 않은 만큼의 오차가 발생하게 됩니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1760684378.096979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "bert4rec을 보다가 이해가 안되는 부분이 있어서 질문드려요.\n매 item마다 마스킹이 달라지다 보면 학습하면서 정답지를 계속 보게되는데 왜 validation recall값이 1에 도달하지 않는건가요??\neg. seq = [1,2,3,4,5], item1 = [1,2,masking,4,5], item2 = [1,2,3,4,masking]\n이런식이면 첫번째 정답을 두번째에 보게되고 다음번에 같은 부분이 masking이 놓이면,\n정답을 이미 알고 풀게 되는거 같아서 질문드립니다.",
+        "user": "U041HR4UCR0",
+        "user_name": "박경준_T4076",
+        "timestamp": "1672121919.314989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03M7B4JYMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "학습 데이터와 valid 데이터는 나뉘어져 있기 때문에 정답을 알고 푸는 것과는 거리가 멀어 보입니다. 만약 정답을 학습 시에 보았다면 data leakage 문제에 해당됩니다. <@U041VLUG4HF>",
+          "user": "U03M7B4JYMR",
+          "user_name": "Jaein Kim",
+          "timestamp": "1672125004.469459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HR4UCR0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

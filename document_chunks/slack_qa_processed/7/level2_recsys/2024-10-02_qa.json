@@ -1,0 +1,60 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U03MDFNTYCE> 확인부탁드립니당~!!",
+        "user": "U03U4UPMM3L",
+        "user_name": "이지현_운영진",
+        "timestamp": "1727855660.999949",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "ghost",
+              "users": [
+                "U07F4EGTJSC"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07F4EGTJSC> 네, 해당 부분 확인하였고 수정완료했습니다! 꼼꼼하게 살펴봐주셔서 감사합니다 :slightly_smiling_face:\n(fyi <@U076A0ENQGY>)",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1727857221.805329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "ghost",
+                "users": [
+                  "U07F4EGTJSC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠른 답변 감사합니다 사진은 지우겠습니다.",
+          "user": "U07F4EGTJSC",
+          "user_name": "김희수",
+          "timestamp": "1727858663.595479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

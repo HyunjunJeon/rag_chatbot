@@ -1,0 +1,188 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "음... 엘라스틱 서치 구현한건데... 공유해봅니다\n아래 코드 복붙하셔서 사용하시면 되는데,,\n`search(검색할 내용)` 하고 호출하면 검색된 문서들이 list로 묶여서 반환됩니다.\n저희 이번 스테이지에 있는 위키데이터 기반으로 만든 건데... 혹시라도 도움이 될까해서 ... 공유해봅니다.ㅠ\n```import requests\n\n\ndef search(query: str):\n    res = requests.get(url=f\"<http://49.164.19.151:9200/?q={query}>\")\n\n    return res.json()```",
+        "user": "U028ZAA1X1V",
+        "user_name": "이홍규_T2178",
+        "timestamp": "1635950744.043200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U028ZAA1X1V",
+            "ts": "1635950916.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029SLN0S1X",
+                "U029F62SBPD",
+                "U029F1JK1RB",
+                "U029Z7YSHEV",
+                "U029L0WMGUE",
+                "U029AHPA1GX",
+                "U029J7UCHR8",
+                "U02A3MC2UFJ",
+                "U02AF2JSQP2"
+              ],
+              "count": 9
+            },
+            {
+              "name": "+1::skin-tone-3",
+              "users": [
+                "U029WV30DMF"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-5",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029LNFL02G>",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1635951255.043800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U028ZTBCLFR",
+                  "U029Z7YSHEV"
+                ],
+                "count": 2
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029LNFL02G",
+                  "U029PN9SX1R"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1::skin-tone-5",
+                "users": [
+                  "U029PN9SX1R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n내일 MRC 마스터클래스가 *(11/5 금요일)* :fire:*16:00 ~ 17:00*:fire:에 진행됩니다. *18시가 아닌 16시라는 점, 꼭꼭 기억해주시기 바랍니다!*\n\n서민준 마스터님과 함께 MRC 대회 랩업이 진행될 예정입니다. 대회 진행 중에 궁금했던 점, 그리고 마스터님께 마지막으로 질문 드리고 싶었던 점에 대해서 자유롭게 의견 남겨주세요!\n&gt; :arrow_right: <https://forms.gle/SxHstjjgCV43aV147|MRC 마스터클래스 사전질문>\n또한, 대회 직후 마스터클래스이기 때문에, 여러분의 참여가 필요합니다! *대회 순위와 무관하게 팀 경험을 공유하고자 하는 캠퍼분들*은 DM 혹은 댓글을 남겨주세요!\n\n• 상세 컨텐츠 : 대회 Wrap-UP\n    ◦ 토론왕 공유 (대회 종료 시점 vote 수가 가장 많은 캠퍼)\n    ◦ 리더보드 1,2등 팀, 자원 1팀 대회 솔루션 공유 (5분, 최대 10분)\n    ◦ 마스터 피드백\n    ◦ 질의응답 진행 (사전 취합 예정)\n대회 솔루션 공유하게 되실 분들에게는 _*오늘 저녁 리더보드 공개 후 바로 발표 요청을 드리도록 하겠습니다*_. *대회 순위와 무관하게 팀 경험을 공유해 보고 싶으신 캠퍼분은 DM 혹은 댓글*로 말씀주세요! :)",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636006926.047800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U029B6PDLFQ",
+                "U029B4MRK8D",
+                "U02939WM57H",
+                "U029YDJ827J",
+                "U028U1ELLFR",
+                "U029H263PD1"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 운영진님! 저희조 발표 하고싶습니다!",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636007004.048100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029B6PDLFQ",
+                  "U029W8R96KW",
+                  "U02E375H869",
+                  "U028323UHE2",
+                  "U029Z7DE676",
+                  "U029XCS2ZLH",
+                  "U02A20H4QRF",
+                  "U029H263PD1"
+                ],
+                "count": 8
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U029Z7DE676",
+                  "U029XCS2ZLH",
+                  "U029H263PD1"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029B6PDLFQ> 넵! 이종혁 캠퍼님 감사합니다 :slightly_smiling_face: 발표 관련 내용은 디엠으로 연락 드리겠습니다! ㅎㅎ",
+          "user": "U02E375H869",
+          "user_name": "Jisu Kang",
+          "timestamp": "1636007107.048700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

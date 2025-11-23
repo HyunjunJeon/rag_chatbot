@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 데이터 토픽을 직접 주는 것에 대해 질문이 있습니다.\n이 제한의 목적이 LLM을 활용한 프롬프팅 역량 함양에 있다고 하셨고 예시도 LLM으로 보여주셨는데 그렇다면 LLM만 아니라면 직접적으로 주는 게 가능한지 궁금합니다. 예를 들면 BERT를 이용해 데이터를 분류하는 과정에서 토픽을 힌트로 주는 것은 가능한가요? 아니면 이 경우에도 정수 인코딩만 사용해야 하나요?",
+        "user": "U07EFLQ130A",
+        "user_name": "김현욱",
+        "timestamp": "1730683514.841759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07EFLQ130A> 님. 안녕하세요!\nLLM이 아니더라도 정수 인코딩만 사용해야 합니다.\n토픽을 직접적으로 입력하는 예외적인 경우를 포함하면, 대회 규정이 힘들어질 수 있다는 판단 하에 내린 결정입니다.\n\n화이팅입니다 :)",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1730686886.424829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U07EFLQ130A",
+          "user_name": "김현욱",
+          "timestamp": "1730686903.671169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U0619KW7QRY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

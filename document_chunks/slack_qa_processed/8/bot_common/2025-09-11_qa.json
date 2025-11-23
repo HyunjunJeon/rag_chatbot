@@ -1,0 +1,104 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 로지스틱 회귀에는 손실 함수로 MSE가 부적합 하다는데 여기에 대한 이유를 자세하게 설명해줘",
+        "user": "U09CH868GM9",
+        "user_name": "이봉학_T8144",
+        "timestamp": "1757590415.120559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH868GM9> 로지스틱 회귀에 MSE(Mean Squared Error)가 부적합한 주요 이유는 다음과 같습니다.\n\n1.  **비볼록성 (Non-convexity):** 로지스틱 회귀의 시그모이드(sigmoid) 활성화 함수와 MSE를 결합하면 손실 함수가 비볼록(non-convex)해집니다. 이는 여러 개의 지역 최솟값(local minima)이 존재할 수 있음을 의미하며, 경사 하강법과 같은 최적화 알고리즘이 전역 최솟값(global minimum)을 찾기 어렵게 만들고, 종종 suboptimal한 해에 갇히게 합니다.\n\n2.  **경사 소실 (Vanishing Gradients):** 시그모이드 함수는 입력값이 매우 크거나 작을 때(출력값이 0 또는 1에 가까워질 때), 그 기울기(gradient)가 거의 0에 가까워집니다 (포화Saturating). 이 포화 영역에서 모델의 예측이 실제 값과 크게 다를 경우(예: 정답이 0인데 0.9를 예측), MSE 값은 크지만, 기울기가 거의 0이 되므로 가중치 업데이트가 매우 느리게 진행되거나 거의 멈추게 됩니다. 이는 모델이 잘못된 확신을 수정하기 어렵게 만들며 학습 효율성을 저해합니다.\n\n이러한 문제들 때문에 로지스틱 회귀에서는 일반적으로 교차 엔트로피(Cross-Entropy) 또는 로그 손실(Log Loss)을 손실 함수로 사용합니다. 이는 볼록하고, 예측이 실제 값과 다를수록 기울기가 강해져 학습을 효과적으로 촉진하기 때문입니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757590424.246689",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> explain the difference between beta and b in SGD",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757643486.635419",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86HP4K> SGD에서 'beta'와 'b'는 완전히 다른 개념입니다.\n\n*   **b (Bias):**\n    *   신경망 모델의 **학습 가능한 파라미터** 중 하나입니다.\n    *   각 뉴런의 활성화 값에 더해지는 상수 값으로, 입력 값이 모두 0일 때도 뉴런을 활성화시킬 수 있도록 합니다.\n    *   모델이 데이터의 편향(bias)을 학습하고, 가중치(weights)만으로는 표현하기 어려운 복잡한 패턴을 학습하는 데 도움을 줍니다.\n\n*   **beta (β) (Momentum Coefficient):**\n    *   SGD나 Adam과 같은 **옵티마이저의 하이퍼파라미터**입니다.\n    *   주로 **모멘텀(momentum)** 값으로 사용되며, 이전 스텝의 그라디언트 정보를 얼마나 반영할지 결정합니다.\n    *   이 값은 0과 1 사이이며, 값이 클수록 이전 이동 방향의 관성을 강하게 유지하여 최적화 과정의 속도를 높이고 지역 최저점에서 벗어나는 데 도움을 줍니다.\n\n**핵심 차이:**\n'b'는 모델이 학습하는 **실제 값** (학습 파라미터)인 반면, 'beta'는 학습 과정을 **제어하는 설정 값** (하이퍼파라미터)입니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757643494.531709",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> SGD를 이용한 Trainer 구현하기에서 b가 하는 일은?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757656111.971129",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86HP4K> SGD를 이용한 Trainer 구현에서 'b'는 **편향(Bias) 항**을 의미합니다.\n\n편향은 다음과 같은 역할을 합니다:\n1.  **모델의 유연성 증가**: 모델이 데이터의 원점(0,0)을 통과하지 않는 패턴도 학습할 수 있도록 예측 결과 또는 활성화 함수의 출력을 특정 값만큼 상향 또는 하향 조정(이동)합니다.\n2.  **학습 가능한 파라미터**: 가중치(W)와 마찬가지로 편향(b) 또한 SGD 옵티마이저에 의해 손실 함수를 최소화하는 방향으로 기울기를 통해 업데이트되는 학습 가능한 파라미터입니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757656119.320699",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U09CH86HP4K> 서버 오류가 발생했어요. 잠시 후 다시 시도해주세요.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757656485.573049",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

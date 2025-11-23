@@ -1,0 +1,648 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "데이터 링크가 한국어 음성 데이터인 것 같습니다.\n\n<https://aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=&topMenu=&srchOptnCnd=OPTNCND001&searchKeyword=%ED%95%9C%EA%B5%AD%EC%96%B4-%EC%98%81%EC%96%B4+%EB%B3%91%EB%A0%AC&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=126|https://aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=&topMenu=&srchOptn[…]rchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=126>\n한국어-영어 번역(병렬) 말뭉치는 이 링크가 맞지 않나요?",
+        "user": "U09CH8B49R9",
+        "user_name": "김준수",
+        "timestamp": "1758243987.237729",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8B49R9",
+            "ts": "1758244122.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH8BPMKM",
+                "U09CH7ZR8JX",
+                "U09CH800JQK",
+                "U09CH81NW2X",
+                "U09CH7YMY59",
+                "U09CH894W3D",
+                "U09CH89RBT5",
+                "U09CH88G84T",
+                "U09CH83CMBM",
+                "U09CH8ADZ6X",
+                "U09CMF2L1H8",
+                "U09CH7Z1R8T",
+                "U09CH82GK51",
+                "U09CH7UQGR1",
+                "U09CH7YKLHH",
+                "U09CH7XL69Z",
+                "U09CH8BSGD9",
+                "U09CH855L91",
+                "U09CH8393DH",
+                "U09CH7ZHVJP",
+                "U09CH85SUP5",
+                "U09CH7Y6HEX",
+                "U09CH7WV1PV",
+                "U09CH7QQ1QT",
+                "U09CMEZS32N",
+                "U09CMEPMZLJ",
+                "U09CH8141SP",
+                "U09CH88SM5H",
+                "U09CH7Y9JKV",
+                "U09CH8BDAPM",
+                "U09CH86B2F5",
+                "U09CH7XTTNX",
+                "U09CH80KQFM",
+                "U09CH86DHFV",
+                "U09CH868GM9",
+                "U09CH8BUP51",
+                "U09CH7YCBFV",
+                "U09CH88ACLT",
+                "U09CH89HZM1",
+                "U09CH7UL5V1",
+                "U09CH873RDZ",
+                "U09CH7YETK5",
+                "U09CH89NYSF",
+                "U09CMEXCE4S",
+                "U09CH7Y3RFV",
+                "U09CH7Z54N7",
+                "U09CH85FVV1",
+                "U09CMENFY8J",
+                "U09CMF1G7HQ",
+                "U09CMETRNFL"
+              ],
+              "count": 67
+            },
+            {
+              "name": "melting_face",
+              "users": [
+                "U09CH8AU8P5"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "한국어-영어 번역(병렬) 말뭉치 데이터 다운로드 firefox에서는 안되네요 chrome에서 하셔야 잘 동작할 것 같아요",
+          "user": "U09CH7WV1PV",
+          "user_name": "성승우",
+          "timestamp": "1758244498.672739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다..",
+          "user": "U09CH8AU8P5",
+          "user_name": "Lee Jo Eun",
+          "timestamp": "1758244568.724009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "로그인 후 다운 받아야 하나요?",
+          "user": "U09CH7T7TBM",
+          "user_name": "황연하",
+          "timestamp": "1758244823.186779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 회원가입 하셔야합니다",
+          "user": "U09CH825FGT",
+          "user_name": "정무영",
+          "timestamp": "1758244938.515349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7T7TBM",
+                  "U09CH8B49R9"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "링크 수정해뒀습니다. 감사합니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758245654.907259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1758245102.559969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7WRGAX",
+                "U09CH7SJDUK",
+                "U09CH7T7TBM",
+                "U09CH7L65DH",
+                "U09CH7S61DZ",
+                "U09CH84LS3V",
+                "U09CMF138HG",
+                "U09CH86JZSP",
+                "U09CH85FVV1",
+                "U09CH894W3D",
+                "U09CMF1K4BC",
+                "U09CH868GM9",
+                "U09CH7ZR8JX",
+                "U09CH8B49R9",
+                "U09CMF2SK2N",
+                "U09CH7Z1R8T",
+                "U09CH7WV1PV",
+                "U09CH7T25QB",
+                "U09CH883B6X",
+                "U09CH81GZSP"
+              ],
+              "count": 20
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U09CH86JZSP"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다.",
+          "user": "U09CH86JZSP",
+          "user_name": "박동수",
+          "timestamp": "1758245153.854969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH81B2UT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1758245194.798429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH81B2UT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH81B2UT> 감사합니다!",
+          "user": "U09CH7S61DZ",
+          "user_name": "Park Corey",
+          "timestamp": "1758245279.565909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH81B2UT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 지웅님!\n데이터 공유해주셔서 감사드립니다:face_holding_back_tears:\n\nAIhub에서 다운받은 데이터를 직접적으로 공유하는 것은 제한하고 있어서 미션 내에서 데이터 링크 수정해뒀으니 댓글 삭제해주셔도 괜찮을 것 같습니다.\n감사합니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758249417.337119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH81B2UT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 학습 과정 중 궁금한 점이 있어 질문드립니다.\n현재 모델 학습을 진행하는데, Epoch을 5번 돌려야 하고 한 번 학습하는 데 약 841초 정도가 소요되고 있습니다.\n혹시 이 정도 학습 시간이 정상적인 범위인지, 아니면 제가 환경 설정이나 코드에서 개선할 부분이 있는지 궁금합니다.",
+        "user": "U09CH89FVK5",
+        "user_name": "손준서_T8105",
+        "timestamp": "1758247031.351309",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH89FVK5",
+            "ts": "1758247041.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 했던 심화 1의 경우 epoch 10까지 진행되는데 gpu로는 40분, cpu로는 12시간이 걸렸습니다....\n아마 정상적인 범위이지 않을까요..?",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1758247562.784469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 지금 training 중인데 오래걸려서 제출까지 촉박할거같아요",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1758247627.584629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "training 시간은 task, 모델의 크기 및 benchmark에 따라 다르지만 저희 위클리미션에서는 정상적인 범주입니다:face_holding_back_tears:",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758248275.526919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리 미션 3주차]\nMultiHeadAttention 클래스의 forward 함수 중 52번째 줄 코드\n`x = attention.permute(0, 2, 1, 3).reshape(B, -1, self.d_model)`\n\n여기서 B가 뭔가요? `batch_size` 의 오탈자인가요?",
+        "user": "U09CH879951",
+        "user_name": "이소진",
+        "timestamp": "1758247731.711959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH82GK51",
+                "U09CH8B49R9",
+                "U09CH8C0PUK",
+                "U09CH8A1B6X"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7TN9A7",
+                "U09CH7SAE1H",
+                "U09CH7YMY59",
+                "U09CH82C611",
+                "U09CH7T8Z8T",
+                "U09CH84FBEF"
+              ],
+              "count": 6
+            },
+            {
+              "name": "melting_face",
+              "users": [
+                "U09CH80KQFM",
+                "U09CMEZS32N",
+                "U09CH8AU8P5"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 소진님.:man-bowing:\n\n말씀 주신 부분처럼 B는 batch_size입니다.\n해당 부분 수정해뒀습니다. 감사합니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758247977.774229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH879951",
+                  "U09CH82GK51",
+                  "U09CH7ZR8JX"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 batch_size로 고치고 코드 돌아갔습니다.",
+          "user": "U09CH7WMSH1",
+          "user_name": "신현주",
+          "timestamp": "1758247981.051979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH879951",
+                  "U09CH7ZR8JX",
+                  "U09CH86B2F5",
+                  "U09CH8C0PUK"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이거 수정 안하면 나중 Train에서 배치사이즈가 2가 되어서 오류발생하네요. 저는 한참 헤메다가 찾았네요 ㅠㅠ",
+          "user": "U09CH82C611",
+          "user_name": "안효균_T8116",
+          "timestamp": "1758249569.843109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 사이즈 문제 때문에 헤메다 겨우 찾았네요 ㅜㅜ",
+          "user": "U09CH85AY7M",
+          "user_name": "고남호",
+          "timestamp": "1758250872.936399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. ㅠㅠ 방금 보고 이제 돌리니까 되네요 ㅠㅠ",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1758251083.392529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "시간 내 제출을 위해서 에폭 1로만 실험해도 될까요?",
+        "user": "U09CH7WMSH1",
+        "user_name": "신현주",
+        "timestamp": "1758248024.571849",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "Encoder Decoder의 구조를 구현하면서 이해하는 것이 학습 목표이므로 해당 부분은 유동적으로 조절하셔도 좋습니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758248155.495249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7WMSH1",
+                  "U09CH7T7TBM",
+                  "U09CH89NYSF",
+                  "U09CH8C0PUK"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 위클리 미션과 관련하여 질문 드립니다.\n한 가지 궁금한 점이, 현재 TODO 상에는,\n\ndef scaled_dot_product_attention(Q, K, V, scale, mask=None):\n함수 안 masking과 관련 부분 구현을 요구하지 않는 것 같은데요,\n이 부분 없이도 학습이 잘 이루어 지나요...? 아니면 추가적으로 구현을 해야할까요?",
+        "user": "U09CH82GK51",
+        "user_name": "방재연_T8092",
+        "timestamp": "1758248614.774559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 재연님.\n추가적으로 구현해보시는 것을 의도했으나 Todo에 언급이 부족했습니다:face_holding_back_tears: 현재는 함수 내에 추가해뒀습니다. 감사합니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758250796.982649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 감사합니다!!",
+          "user": "U09CH82GK51",
+          "user_name": "방재연_T8092",
+          "timestamp": "1758250843.141559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "colab이 사용량제한으로인해 GPU를 더이상 사용할 수 없다는데 어떻게해야 할까요...",
+        "user": "U09CH8ADZ6X",
+        "user_name": "Soohyun Jang",
+        "timestamp": "1758250110.887019",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH800JQK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "저 같은 경우에는 새로운 구글 아이디로 진행했습니다:cry::cry:",
+          "user": "U04RG8YTUP7",
+          "user_name": "김정현_조교",
+          "timestamp": "1758250361.340249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RG8YTUP7> 제출시간까지 얼마 남지않아 새로운 아이디로 진행할순 없겠네요 ㅜㅜ 일단 제출하고 추후에 새로운 아이디로 실행해 보겠습니다.",
+          "user": "U09CH8ADZ6X",
+          "user_name": "Soohyun Jang",
+          "timestamp": "1758250569.929129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U04RG8YTUP7"
+                ],
+                "count": 1
+              },
+              {
+                "name": "sob",
+                "users": [
+                  "U04RG8YTUP7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "학습시간이 1 epoch으로 실행해도 앞으로 10분 가량 남았는데, 실행 중단 후 제출해도 괜찮을까요?",
+        "user": "U09CH7ZHVJP",
+        "user_name": "송현우",
+        "timestamp": "1758250465.208919",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 일단 제출이 우선이라고 생각해서 그냥 중단하고 제출했어요 피어리뷰 전까지 다시 돌려보려고요...ㅠ",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1758250526.371009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "joy",
+                "users": [
+                  "U09CH7ZHVJP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

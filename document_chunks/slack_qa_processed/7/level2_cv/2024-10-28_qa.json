@@ -1,0 +1,95 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 이번 OCR 대회에 대해 질문이 있습니다.\n기존 대회에서는 원본 baseline code의 저작권으로 인해, 따로 코드를 정제 후에 github에 올려 협업을 진행했습니다.\n그런데 이번 대회에서 baseline 코드 변경이 불가한 것으로 확인됩니다. github에 베이스라인 코드를 그대로 올린 후 협업해도 되는 것인지 궁금합니다.",
+        "user": "U07EUAU2W1F",
+        "user_name": null,
+        "timestamp": "1730099373.953579",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EUAU2W1F",
+            "ts": "1730099401.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EJ5R4Z8C",
+                "U03L1UMDLUS",
+                "U07E14D9FST",
+                "U07EFHC7YRZ",
+                "U07EJ5N6136",
+                "U07EFLVD35Y"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "베이스라인 코드 일체를 바꾸면 안되는 것은 아니고, hyperparameter tuning 이나 data cleaning 등 코드를 변경할 여지가 충분히 있습니다. github 올리는 것 관련해서 확인해보고 말씀드리겠습니다",
+          "user": "U076G8QN5GS",
+          "user_name": null,
+          "timestamp": "1730109139.136409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_noddies",
+                "users": [
+                  "U07EUAU2W1F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "캠퍼님 안녕하세요, 원칙에 따라 조금이라도 수정이 된 코드를 올려주시면 됩니다. 수정이 가능한 부분은 재균 조교님이 말씀주신 내용을 참고해주시면 됩니다 :+1:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1730164840.023809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_noddies",
+                "users": [
+                  "U07EUAU2W1F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 이해했습니다! 감사합니다!",
+          "user": "U07EUAU2W1F",
+          "user_name": "강대민",
+          "timestamp": "1730165637.107059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

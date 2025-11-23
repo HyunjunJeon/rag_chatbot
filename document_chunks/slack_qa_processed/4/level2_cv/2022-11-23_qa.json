@@ -1,0 +1,67 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, AI stage 원격 접속에 대한 문의입니다.\n현재 데스크탑으로 원격접속해서 사용하고 있는데,\n노트북에서도 AI stage의 원격 서버를 이용하고 싶어요.\n이 경우 Key는 데스크탑에서 사용한 키를 복사 하면 되나요?",
+        "user": "U0427G7HN6L",
+        "user_name": "김형훈",
+        "timestamp": "1669262480.599449",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0427G7HN6L",
+            "ts": "1669262521.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "Jupyter Notebook을 말씀하시는 줄 알았습니다 ㅋㅋㅋ\n암튼.. 넵! key 파일을 복사해서 이용하면 다른 PC에서도 접속 가능하십니다~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669262776.211339",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1669262794.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G7HN6L",
+                  "U03R4JQQGHF"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "key 파일 복사해서 하셔도 됩니다.\n그리고 제가 작성한 글도 한 번  참고해보시겠어요?\n&gt; <https://nanpuhaha.tistory.com/57|aistages GPU 서버 접속 설정 (SSH key 등록)>",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669273320.092309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G7HN6L"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

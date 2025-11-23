@@ -1,0 +1,126 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "제공된 원시데이터를 모두 사용해야 하나요?",
+        "user": "U041387471D",
+        "user_name": "김광연",
+        "timestamp": "1670403369.829469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "아니요, 모든 원시데이터를 다 태깅하실 필요는 없습니다. 하지만 팀마다 *1000문장~1500문장은* 태깅하는걸 추천드려요. 그것보다 적을 경우 특정 관계는 데이터가 적은 문제가 발생할 확률이 높습니다. 제공드린 원시데이터가 1000문장이 안되는 몇 토픽들은 제공드린 데이터만 다 태깅하시면 되고, 키워드를 추가해서 데이터를 늘려서 태깅하셔도 됩니다.",
+          "user": "U048A3T16KT",
+          "user_name": "정영훈_조교",
+          "timestamp": "1670409242.696879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1670410871.471909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "가이드라인 제출은 금요일까지인가요 월요일까지인가요? 오피스아워에서 안내받은 사항은 금요일이고 부스트코스 스페셜 미션 설명란에는 월요일까지로 적혀있습니다!",
+        "user": "U041WE14UUR",
+        "user_name": "김남규_T4021",
+        "timestamp": "1670461569.124479",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041HN2FGMR",
+                "U041B78HN5C",
+                "U041HR9UE2W",
+                "U041ERXDSMT",
+                "U041387471D",
+                "U0413888C79",
+                "U0427G80SUQ"
+              ],
+              "count": 7
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U041HN2FGMR",
+                "U0413888C79"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "가이드라인 제출은 1주차 금요일까지입니다!\n부스트코스에 공지가 잘못 올라갔나봅니다, 혹시 어디에 월요일로 적혀있는지 알 수 있을까요?",
+          "user": "U048A3T16KT",
+          "user_name": "정영훈_조교",
+          "timestamp": "1670474282.211639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(미션-1) 가이드라인 작성하기 페이지입니다\n<https://www.boostcourse.org/boostcampaitech4/lecture/1462321?isDesc=false>",
+          "user": "U041WE14UUR",
+          "user_name": null,
+          "timestamp": "1670474369.251379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 해당 부분 공지가 잘못 올라갔네요 :smiling_face_with_tear: *12/9 금요일 자정까지*가 맞습니다. 혼란 드려서 죄송하고, 질문 주셔서 감사합니다!",
+          "user": "U048A3T16KT",
+          "user_name": "정영훈_조교",
+          "timestamp": "1670474598.692299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heavy_check_mark",
+                "users": [
+                  "U041WE14UUR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

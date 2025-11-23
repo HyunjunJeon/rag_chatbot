@@ -1,0 +1,545 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "AI Stage 서버 생성 관련한 질문입니다.\nAI Stage 플랫폼 이슈 문의에도 올렸는데.. 서버 삭제 후 재 생성시 GPU 할당 불가, 서버 시작 불가 상태네요..\n대회 종료 상태라 그런것 같은데 수동으로 생성 및 서버 시작 가능한지 확인 부탁드리겠습니다. :pray::skin-tone-2:",
+        "user": "U041L92FWCC",
+        "user_name": null,
+        "timestamp": "1673825761.103179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "interrobang",
+              "users": [
+                "U041L94723E"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03L1UMDLUS"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 담당 개발자 분이 확인 후 조치 취해주실 예정입니다 :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1673831631.426079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! ^^",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673832791.644649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅠㅠ 혹시.. 좀 더 시간이 필요한거겠죠?.. 서버를 언제쯤 할당받을 수 있을까요?..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673849831.374789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "최종 프로젝트에서 github action secret을 사용하고 싶은데 현재 권한이 없습니다 권한 변경이 가능할까요?",
+        "user": "U0427GAP4UQ",
+        "user_name": "신재영",
+        "timestamp": "1673843327.537499",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041ES2FNA1",
+                "U0427G5T6BS"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 15
+        }
+      },
+      "answers": [
+        {
+          "text": "요 부분은 부스트캠프 운영진분들이 확인해주셔야 할 것 같네요-!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673845742.451299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03L1UMDLUS> 요청드리면 될까요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673845866.793259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U044SL01LDD> 안녕하세요 욱표님 혹시 한 번 확인 부탁드려도 될까요?!",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1673846214.768459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, RecSys 12조 유영서입니다. 저희 조의 final project repository에도 동일 권한을 부여해주실 수 있을까요?\n\n<https://github.com/boostcampaitech4lv23recsys2/final-project-level3-recsys-12>",
+          "user": "U041ES2FNA1",
+          "user_name": "유영서",
+          "timestamp": "1673846843.395579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 <@U0427GAP4UQ>  캠퍼님. final project의 경우 팀별로 repository 생성 시점이 많이 달라 repository 권한 변경(write-&gt;maintain)을 아직 일괄 진행하지 않았습니다. 일단 방금 소속팀 final project repository에 대한 캠퍼 권한을 maintain으로 변경하였는데 secret생성이 가능한지 확인 부탁드립니다.  만약 maintain 권한으로 생성 가능하다면 <@U041ES2FNA1> 캠퍼님은 지금 생성 가능할 것으로 보입니다.  감사합니다.",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1673847283.266839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U044SL01LDD> 이렇게 나오면서 아직 바뀌지는 않은 것 같습니다",
+          "user": "U0427GAP4UQ",
+          "user_name": null,
+          "timestamp": "1673847404.542119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "secrets 항목이 보이지 않는것 같습니다",
+          "user": "U041ES2FNA1",
+          "user_name": null,
+          "timestamp": "1673847461.603549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427GAP4UQ> <@U041ES2FNA1> 캠퍼님 secrets 메뉴 미노출 원인 확인하였습니다.\n\n확인해보니 두 가지 secrets 중 하나는 plan을 유료 upgrade해야하고\n다른 하나는 생성을 위해 admin권한이 필요하다고 합니다.\n\n후자가 repository secrets이고 아마 캠퍼분들은 이걸 생성하고 싶어하셨을거 같습니다. 다만 현재 캠퍼분들께 \"admin\"권한이 아니라 \"maintain\"제공 되고 있어 secrets생성이 불가능한점  양해부탁드립니다.  감사합니다.",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1673848636.151249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 확인하였습니다 감사합니다!",
+          "user": "U041ES2FNA1",
+          "user_name": "유영서",
+          "timestamp": "1673848718.959259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, github action으로 추가 과제(?)를 하던 중 궁금한게 생겨 질문드립니다. :booduck_happy:\n일반적으로 git-flow나 github-flow 전략을 따라 코드를 분리하고, 여러 서버를 분리한다고 가정할 때\n*`github-action에 쓰이는 yml 파일은 어떻게 브랜치 관리를 하나요?`*\n\ngithub-action이 main이나 dev브랜치로의 CI, main,dev 서버로의 CD를 자동화하는게 목적이라면,\n*`main이나 dev브랜치에 그런 workflow가 있어야 CI/CD가 가능하다고 생각했는데요.`*\n이때 main이나 dev브랜치에 바로 yml 파일을 작성했다가, *`이게 잘못된 워크플로우 파일이면`*\n유지보수 측면에서 문제가 될 수 있겠다고 느꼈습니다.\n\naction용 yml 파일은 일반적으로 어떻게 git으로 관리하는지 궁금합니다. :computer:\n브랜치 전략으로 `main -&gt; dev -&gt; feat -&gt; my_branch`의 구조를 따른다고 할 때,\nfeat 브랜치/서버에서 CI/CD를 거친 뒤 workflow가 문제 없이 잘 돌아가면 ==&gt; main 브랜치/서버에서의 CI/CD로 거슬러 올라오는 느낌인가요?",
+        "user": "U041HMZR68K",
+        "user_name": "sangmo gu",
+        "timestamp": "1673845249.587149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "&gt; feat 브랜치/서버에서 CI/CD를 거친 뒤 workflow가 문제 없이 잘 돌아가면 ==&gt; main 브랜치/서버에서의 CI/CD로 거슬러 올라오는 느낌인가요?\n네. 이런 느낌입니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673845907.819469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; github-action에 쓰이는 yml 파일은 어떻게 브랜치 관리를 하나요?\n여타 다른 파일들과 똑같습니다. yaml 파일도 그냥 파일입니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673845932.993199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런 질문으로 생각해보면 어떨까 싶습니다.\n&gt; 애초에 애플리케이션 소스랑 CI/CD 소스랑 같은 레포지토리에서 관리하는게 과연 괜찮은걸까?\nCI/CD 관련 파일은 애플리케이션 그 자체랑은 별로 관련이 없으니까, 이런 질문이 떠오를 수 있습니다.\n\n여기에 대한 개인적인 생각은 어떠신지, 한번 답과 그 근거를 내보는 것도 좋을거 같아요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673846218.428049",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673846224.000000"
+            },
+            "reactions": [
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상모님 안녕하세요! Github Action 파트를 보시면 feature -&gt; dev -&gt; main으로 머지하는 부분을 말씀드렸는데 이 흐름이 맞습니다\n\nyaml 파일은 그냥 파일로 저장하고, yaml을 실행할 때 옵션을 바꿔서 할 수 있습니다\n\n예를 들면 dev branch라고 하면 server를 dev 서버로, main branch라고 하면 server를 main 서버로 향하게 할 수 있는거지요\n\n그래서 하나의 파일에서 옵션을 변경해서 사용할 수 있답니다",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673850050.300469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "fastapi 실습 강의에서 강의 마지막과 같이 실행을 할 때 이런 에러가 계속 발생합니다.... 계속 원인을 찾으려고 해도 모르겠는데 혹시 아시는 분 있다면 조언좀 구해도될까요? ㅠㅠ",
+        "user": "U041HRC9JRG",
+        "user_name": null,
+        "timestamp": "1673846530.215899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "이건 알아서 댓글 다는것은 아닙니다만.. 그냥 왠지 느낌적인 느낌으로 봤을때..\n\n먼저 한 번\n```streamlit run frontend.py```\n으로 실행해서 email 물어보면 입력하고 스트림릿 서버를 종료한 다음\n\n다시 그 전에 실행하던것처럼 한 번 해보시는건 어떨까요?",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673848096.955699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. 그걸 먼저 시도해볼걸그랬네요...저는 다른 방법만 생각하면서 헤메고있었는데 감사합니다!!",
+          "user": "U041HRC9JRG",
+          "user_name": "이지훈_T4171",
+          "timestamp": "1673848298.647549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지훈님 안녕하세요~!\n\n이런 경우에 저는 어떻게 접근하냐면\n• *일단 에러 창에서 어떤 부분이 Error, Err라는 단어가 나왔는지 확인합니다*\n• 그 부분을 유심히 확인해봅니다. 그러면 거기에 답이 많이 있을 수 있어요\n• *Error 255라는 곳을 보면 make라고 되어있네요. 강의 실습에서 makefile을 실행했는데 그 과정에서 오류가 난 것이지요(run_client라는 것도 나와있네요)*\n    ◦ 이런 상황에서 할 수 있는 것은\n    ◦ Error 255를 찾아본다 =&gt; Make 관련\n    ◦ Error 255에 나와있는 run_client를 확인해본다 =&gt; run_client를 보면 <https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/4e063ac9e7a4cc1a41af1ba02d612ece33679102/part3/01-fastapi/Makefile#L7|(Github)> python3 -m streamlit run app/frontend.py이므로 상준님 말씀처럼 한번 실행해봅니다\n    ◦ 여기서 Welcome to Streamlit Email이 있어서 오류가 생겼나? 생각해볼 수 있지요\n• 위에서 해결되면 =&gt; 계속 진행\n    ◦ 만약 해결이 안되면 Error 255를 찾아보는 것\n이런 흐름으로 해볼 것 같아요-!\n\n생각의 흐름을 알 수 있어 전체 보내기로 해보아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1673849968.193329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오우...감사합니다!!\n다음에도 에러가 있을 때는 체계적으로 나눠서 단계별로 해결하는 방식으로 생각의 흐름을 잡아보겠습니다!\n감사합니다:slightly_smiling_face:",
+          "user": "U041HRC9JRG",
+          "user_name": "이지훈_T4171",
+          "timestamp": "1673850093.980719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늘 느끼지만 제 \"*무*의식의 흐름\"을 마스터님께서 글로  잘 정리해주셔서 저 역시도 항상 도움이 되네요 ^^\n감사합니다~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673850167.192649",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1673850190.000000"
+            },
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U041HMZR68K> <@U041HMZ7PHR> 선생님들 바쁘신데 죄송합니다. 강의내용이 아니라서 질문을 새로 생성하기 조심스러워 태그드렸습니다ㅠㅜ 도와주신대로 진행하다가 아래와 같은 다른 에러가 등장했는데 서칭으로 해결이 좀 어려워서 혹 도움주실 수 있으실까요 에러 전문은 넘 길어서 일단 반복되는 에러 복사해봤습니다\n\n  File \"/opt/conda/envs/python9/lib/python3.9/site-packages/mmseg/datasets/builder.py\", line 133, in build_dataloader\n    sampler = DistributedSampler(\n  File \"/opt/conda/envs/python9/lib/python3.9/site-packages/mmseg/datasets/samplers/distributed_sampler.py\", line 44, in __init__\n    self.seed = sync_random_seed(seed)\n  File \"/opt/conda/envs/python9/lib/python3.9/site-packages/mmseg/core/utils/dist_util.py\", line 45, in sync_random_seed\n    dist.broadcast(random_num, src=0)\n  File \"/opt/conda/envs/python9/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py\", line 1159, in broadcast\n    work = default_pg.broadcast([tensor], opts)\nRuntimeError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:957, invalid usage, NCCL version 21.0.3\nncclInvalidUsage: This usually reflects invalid usage of NCCL library (such as too many async ops, too many collectives at once, mixing streams in a group, etc).\nERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 9985) of binary: /opt/conda/envs/python9/bin/python3",
+        "user": "U041387471D",
+        "user_name": "김광연",
+        "timestamp": "1673851217.909519",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 DDP(DISTRIBUTED DATA PARALLEL) 사용하시나요?",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1673851532.818649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "GPU나 서버를 1개 이상 동시에 사용하시나요?",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1673851563.001389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 선생님 GPU와 서버는 하나입니다 DDP(DISTRIBUTED DATA PARALLEL)가 있는지는 코드를 확인해보고 오겠습니다",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1673851645.711689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버 1대로 train할때는 DDP가 필요하지 않습니다. 실행하는 커맨드를 한번 확인해 보시고 DDP를 빼고 돌려보세요.\n<https://pytorch.org/tutorials/intermediate/ddp_tutorial.html>",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1673852223.137919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "광연님 안녕하세요, 이건 개인적인 호기심일 수 있는데요!\n\n[1] CV 트랙이 아니신 것 같은데, 프로젝트 때문에 mmseg를 공부하고 계신건가요?\n그냥 mmseg가 아니라 혹시 github에서 custom한 mmseg를 가져오는거라면, 다소 시행착오가 많을 수 있습니다.\n\n실례가 아니라면 어떤 모델을 사용하다가 오류가 난건가요?\n\n[2] train이나 inference를 어떻게 돌리시나요?\n\n비전 트랙에서는 mmsegmentation, mmdetection을 사용했었는데요, 캠퍼님들에 따라 다르겠지만\n저는 tools/train.py를 이용하여 학습시켰어요!\n```#train_script.sh\npython tools/train.py \\\nCONFIG_FILE_PATH \\\n--deterministic \\\n--seed 2022 \\\n--work-dir WHERE_TO_STORE_MODEL_OUTPUT```\n유사한 에러를 냈던 dist_train.sh로 학습시켰더라구요!\n<https://github.com/open-mmlab/mmcv/issues/1969>\n__\n\nmm계열을 볼때 개인적으로 도움이 되었던 방법론은...\n\n[1] 호환성을 잘 일치시킨다\n[2] train시키는 법, inference시키는 법, config 잘 먹이는 법 파악하기\n==&gt; config가 의심스러울 떄는 python config_file.py를 해보시면 config_file에 syntax_error가 있는지 확인 가능합니다.\n(+ mmseg 튜토리얼 제법 괜찮습니다.)\n\n쓰고보니 피어세션 시간이네요,,, 틈날때 더 적겠습니다",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1673852432.754859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!\n\n답변드리자면\n[1] CV 기업연계를 하게 되어서 제공된 다른 모델들을 참고하다가 Next-vit라는 모델을 보려고 했습니다 실행하려다 보니 여러 에러를 마주하네요\n\n[2] 일단 mmseg나 mmdet로 실행하는게 있는지는 몰랐습니다. 깃 허브에 제공된 사용법대로 bash파일 실행으로 inference만 돌려볼 생각이었습니다.\n\n공부할게 많군요 허허...",
+          "user": "U041387471D",
+          "user_name": "김광연",
+          "timestamp": "1673853304.055669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

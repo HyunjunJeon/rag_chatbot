@@ -1,0 +1,42 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> compute_gradient에서 beta_grad 어떻게 구함",
+        "user": "U03SAGX725R",
+        "user_name": "하종우",
+        "timestamp": "1757660774.695759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH84CA6P"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U03SAGX725R> `beta_grad`는 손실 함수(Loss function)를 파라미터 `beta`에 대해 미분한 값, 즉 손실 함수의 기울기(gradient)를 의미합니다. 이는 `beta` 파라미터가 손실 함수의 값을 최소화하는 방향으로 얼마나 이동해야 하는지를 나타내는 벡터입니다.\n\n**계산 방법:**\n`compute_gradient` 함수 내에서 `beta_grad`는 일반적으로 다음 단계로 계산됩니다.\n\n1.  **손실 함수 정의:** `beta`가 사용되는 모델의 손실 함수 `L(beta)`를 정의합니다. (예: MSE, Cross-Entropy 등)\n2.  **편미분:** `beta` 벡터의 각 원소 `beta_j`에 대해 손실 함수 `L`을 편미분합니다. 즉, `∂L/∂beta_j`를 계산합니다.\n3.  **총합:** 모든 훈련 데이터 샘플에 대한 이 편미분 값들을 합산하여 `beta`의 각 원소에 대한 최종 기울기 성분을 얻습니다.\n4.  **벡터/행렬 연산:** 실제 구현에서는 효율적인 계산을 위해 벡터 또는 행렬 연산 형태로 표현됩니다.\n\n**예시:**\n\n*   **선형 회귀 (Linear Regression)에서 MSE (Mean Squared Error) 손실 함수 사용 시:**\n    *   손실 함수: `L(beta) = 1/N * Σ(y_i - X_i * beta)^2`\n    *   `beta_grad = ∂L/∂beta = -2/N * X^T * (y - X * beta)`\n    *   여기서 `X`는 특성 행렬, `y`는 실제 값 벡터, `beta`는 계수 벡터입니다.\n\n*   **로지스틱 회귀 (Logistic Regression)에서 Cross-Entropy 손실 함수 사용 시:**\n    *   손실 함수: `L(beta) = -1/N * Σ[y_i * log(p_i) + (1-y_i) * log(1-p_i)]` (여기서 `p_i = sigmoid(X_i * beta)`)\n    *   `beta_grad = ∂L/∂beta = 1/N * X^T * (p - y)`\n    *   여기서 `p`는 예측 확률 벡터입니다.\n\n따라서 `beta_grad`를 구하는 구체적인 방법은 사용되는 모델과 손실 함수에 따라 달라집니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757660788.431459",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

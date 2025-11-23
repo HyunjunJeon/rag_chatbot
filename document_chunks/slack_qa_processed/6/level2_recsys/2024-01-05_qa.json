@@ -1,0 +1,63 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "배이스라인 dkt와 lightgcn에 각각 가상환경을 만드는 베이스라인 코드를 만들었는데  마지막 부분인 `conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y` 에서 서버가 죽는데 해결 방법이 없을까요?\n```# ssh연결 이후\n#!/bin/bash\n# Miniconda 설치 스크립트\nMINICONDA_INSTALLER_SCRIPT=\"Miniconda3-latest-Linux-x86_64.sh\"\nMINICONDA_PREFIX=\"${HOME}/miniconda3\"\n\n# Miniconda 다운로드\nwget <https://repo.anaconda.com/miniconda/${MINICONDA_INSTALLER_SCRIPT}> -O /tmp/${MINICONDA_INSTALLER_SCRIPT}\n\n# Miniconda 설치\nbash /tmp/${MINICONDA_INSTALLER_SCRIPT} -b -p ${MINICONDA_PREFIX}\n\n# Miniconda 초기화 및 PATH 설정\neval \"$(${MINICONDA_PREFIX}/bin/conda shell.bash hook)\"\nconda init\nconda config --set auto_activate_base false\n\n# 임시 파일 삭제\nrm /tmp/${MINICONDA_INSTALLER_SCRIPT}\n\necho \"Miniconda 설치가 완료\"\n\n# 베이스라인 다운로드\nwget <https://aistages-api-public-prod.s3.amazonaws.com/app/Competitions/000268/data/data.tar.gz> ~ /data.tar.gz\nwget <https://aistages-api-public-prod.s3.amazonaws.com/app/Competitions/000268/data/code.tar.gz> ~ /code.tar.gz\n\n# 압축 풀기\ntar -zxvf data.tar.gz\ntar -zxvf code.tar.gz\nrm -r *.gz\n\nsleep 3  \n\nfind ./ -name ._\\* -delete\n\n# vim열어서 환경변수 설정해야 하는데 엔터 한방으로 자동화 하기위해 echo 사용하여 넣기\necho 'CONDA_BASE=$(conda info --base)' &gt;&gt; ~/.bashrc\necho '. $CONDA_BASE/etc/profile.d/conda.sh' &gt;&gt; ~/.bashrc\n\n# dkt하고 lightgcn 각각 들어가서 가상환경 설정\n# dkt 가상환경 설정\ncd code/dkt\nconda create --name dkt python=3.8 -y\nconda activate dkt\npip install -r requirements.txt \nconda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y\n\n# lightgcn 가상환경 설정\ncd ..\ncd lightgcn\nconda create --name lightgcn python=3.8 -y\nconda activate lightgcn\npip install -r requirements.txt \nconda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y ```",
+        "user": "U065EMEFX9N",
+        "user_name": "배건우_T6198",
+        "timestamp": "1704447159.983549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041FE8FKBN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "서버에 기본으로 anaconda가 설치되어 있던데 which로 어떤 conda를 사용하고 계신지 확인 가능하신가요?\n```# which conda```\n제 생각엔 miniconda가 아니라 anaconda를 사용해서 /opt/conda에 계속 패키지들이 설치되고 용량이 부족해서 서버가 죽는 것 같아요",
+          "user": "U063MR9GLDB",
+          "user_name": "박경원",
+          "timestamp": "1704447858.416669",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063MR9GLDB",
+              "ts": "1704448117.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "root 쪽 용량은 적어서 유의해서 서버 사용해주셔야 합니다!",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1704448758.980539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

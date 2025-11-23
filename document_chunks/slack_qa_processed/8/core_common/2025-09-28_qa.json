@@ -1,0 +1,108 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[Week4 CV 이론 과제2 질문]\n안녕하세요, 과제2에서, 데이터 증강을 위해 Compose()로 함수들을 묶는 아래 정답 코드에서,\n보면 validation data에만 normalize가 적용되어 있고, train data에는 normalize가 적용되어 있지 않은데,\n이후 ViT를 추가로 학습시키기 위한 data 전처리이므로, train data에도 normalize가 들어가야 되는 게 아닌가 궁금증이 들어 질문드립니다.\n다만 과제에서 보여준 증강 데이터 시각화 이미지대로 출력하려면 train data에는 normalize가 들어가지 않는 게 맞는데,\n이후 학습을 돌릴 걸 생각하면 normalize를 넣는 게 맞는 게 아닌가 궁금합니다.\n```_train_transforms = Compose(\n        [\n            #############################################################\n            # TODO: 다양한 Augmentation을 적용해 보세요\n            RandomResizedCrop(16),\n            Resize(size),\n            RandomHorizontalFlip(),\n            transforms.GaussianBlur(kernel_size=5),\n            ToTensor(),\n            # normalize, # 정답 코드에는 이 line이 없는데, 추가되어야 하지 않나?\n            #############################################################\n        ]\n    )\n\n_val_transforms = Compose(\n        [\n            Resize(size),\n            CenterCrop(size),\n            ToTensor(),\n            normalize,\n        ]\n    )```",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1759104660.856559",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH85PLV9",
+            "ts": "1759104713.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH84CA6P",
+                "U09CH85PLV9",
+                "U09CH7Z54N7"
+              ],
+              "count": 4
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y",
+                "U09CH85PLV9",
+                "U09CH7Z54N7",
+                "U09CH84FBEF"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "주상우 캠퍼님 안녕하세요. Train/Val 동일한 normalize를 적용해주는 것이 맞습니다. 그래야 동일한 분포에서 학습이 가능합니다. 이후 문제에도 수정해두겠습니다. 감사합니다!",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1759121305.441039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "bow",
+                "users": [
+                  "U09CH8A1B6X"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "도담록 캠퍼님이 말씀해주신 것처럼\n1) 더 높은 차원의 테일러 전개를 이용하면 더 정확한 값을 구할 수 있지만, 계산 복잡도가 높아져 실무에서는 더 높은 항을 많이 사용하지 않습니다.\n2) Grad-CAM은 더 높은 차원의 테일러 전개의 결과라기보다는, representation level (feature space)에서 gradient 정보를 해석하기 위한 방법으로 다른 갈래라고 이해해주시면 좋을 것 같습니다.",
+        "user": "U03MQK0FF4Y",
+        "user_name": "김유지_조교",
+        "timestamp": "1759120976.682469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH894W3D"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1759123036.734149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03MQK0FF4Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

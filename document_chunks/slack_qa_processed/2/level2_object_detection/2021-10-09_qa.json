@@ -1,0 +1,43 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "mmdetection의 faster_rcnn_inference에서 다음과 같이 single_gpu_test를 실행했을때 아무런 값도 안나옵니다... 몇 시간째 원인을 찾고있는데 모르겠습니다....\n```output = single_gpu_test(model, data_loader, show_score_thr=0.05) # output 계산```",
+        "user": "U029T519KUH",
+        "user_name": null,
+        "timestamp": "1633791957.093100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029KG3T7L3"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "single_gpu_test에서 result 값이 비어서 나옵니다\n```def single_gpu_test(model,\n                    data_loader,\n                    show=False,\n                    out_dir=None,\n                    show_score_thr=0.3):\n    (...)\n    for i, data in enumerate(data_loader):\n        with torch.no_grad():\n            result = model(return_loss=False, rescale=True, **data)\n    (...)\n    return results```",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1633796861.093400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029T519KUH",
+              "ts": "1633796900.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

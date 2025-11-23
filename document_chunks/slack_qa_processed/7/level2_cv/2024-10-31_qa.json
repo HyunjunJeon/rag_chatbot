@@ -1,0 +1,287 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! (7강) OCR 성능 평가 중 궁금한 점이 생겨 질문 드립니다.\n강의와 강의 자료 34p에서 그림과 같은 상황에서 DetEval을 적용하면 0점이 나온다고 말씀해 주셨는데 “River Side” 부분이 왜 0점으로 처리되는지 모르겠습니다.\n첨부한 사진의 풀이에서 잘못된 부분이 있다면 알려주시면 감사하겠습니다!",
+        "user": "U07F4EQLTG8",
+        "user_name": null,
+        "timestamp": "1730365836.798709",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07ECPQCXNZ",
+                "U07E920E79U",
+                "U07EUAU2W1F",
+                "U07E92DD2CW",
+                "U07EFLRFF26",
+                "U07F4EDLDUG"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 알기론 우선 ground truth 에 대해 area recall 0.8 area precision이 0.4가 넘어야 하는 것으로 알고 있습니다.\n위 기준을 넘은 예측 bounding box에 대해서 1로 처리가 되고 그 이후 one-to-one, one-to-many, many-to-one인지를 확인하여 one-to-many일 경우 0.8로 페널티를 부여합니다. 이때 페널티를 부여받으려면 우선 저 기준을 충족한상태인 예측 bounding box이어야하는데 위 이미지의 경우 예측 bounding box들이 area recall 0.8을 넘지 못한것으로 보입니다. 그래서 DetEval에선 0점처리되는것같습니다!",
+          "user": "U07EFLT4EM8",
+          "user_name": "신영태",
+          "timestamp": "1730369169.771179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07F4EQLTG8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 저도 영태님이 말씀해 주신 부분이 가장 설득력 있다고 생각합니다. 다만 그렇게 생각했을 때 여전히 2가지 부분에 대해 궁금한 점이 남는 것 같습니다..\n1. 강의에서 그림에서 와 같은 경우를 score: 0.8 을 준 점\n2. 그렇게 될 경우 area recall threshold를 0.5 이상으로 두면 사실상 one-to-many 하는 경우가 나오지 않을 것 같은데 제가 이해한 부분이 맞는지",
+          "user": "U07F4EQLTG8",
+          "user_name": null,
+          "timestamp": "1730369976.775759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러게요..?! 왜 저런 결과가 나왔을까요... 제 개념에 혼돈이 오고있습니다 조교님의 답변이 기다려집니다 :exploding_head:",
+          "user": "U07EFLT4EM8",
+          "user_name": "신영태",
+          "timestamp": "1730371424.819229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한성님 감사합니다 이부분 확실하게 알게 된다면 프로젝트에 많은 도움이 될것같습니다..!",
+          "user": "U07EFLT4EM8",
+          "user_name": "신영태",
+          "timestamp": "1730371521.293109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07F4EQLTG8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 답변 감사드려요!! 같이 조교님 답변 기다려 보는 것으로 하죠:grinning:",
+          "user": "U07F4EQLTG8",
+          "user_name": "이한성",
+          "timestamp": "1730374117.197429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07EFLT4EM8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "새롭게 알게 된 사실이 있어 공유해드립니다!\n\nDetEval은 모든 정답 박스와 예측 박스를 순회하면서, 매칭이 되었는지 판단한 후 저희가 알고 있는 area recall, area precision기준을 통해 정답여부를 판별한다고 합니다.\n이때  Area Recall, Area Precision이 0이상일 경우에 매칭 여부를 판단하게 됩니다. 이미지 속 가장 하단의 GT4 에 대해선 one-to-many 매칭이 성립되었고, 표를 통해 계산해보면 Area Recall = (0.46+0.42) = 0.88로 Area Recall 0.8기준을 만족하고 Area Precision = (1.0 + 0.92)/2 = 0.96으로 Area Precision 0.4의 기준을 만족합니다.\n\n따라서 결론은\n우선 groundtruth와 예측 bounding box간의 매칭여부를 파악하고 매칭관계에 맞게 area recall, area precision을 계산하게 되는데 one-to-many의 경우 위와같은 방식으로 정답 여부를 판단하는것으로 확인하였습니다.\n\n이 내용은 <http://stages.ai|stages.ai> 개요-평가방법에서 확인하였습니다!",
+          "user": "U07EFLT4EM8",
+          "user_name": null,
+          "timestamp": "1730379585.347119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 중간의 GT 2,3에 대해선 many-to-one match가 성립되었는데\n이때 Area Recall은 각각의 ground truth에 대한 recall값의 평균으로 계산하여 (0.81+0.99)/2 = 0.9가 나와 Area Recall 0.8기준을 통과하며\nArea precision의 경우 각각의 precision 성능의 합으로 계산하여 0.41+0.5 = 0.91로 Area Precision 0.4의 기준을 통과하는 것을 확인할 수 있었습니다!",
+          "user": "U07EFLT4EM8",
+          "user_name": "신영태",
+          "timestamp": "1730380028.017819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "따라서 위기준으로 해당이미지를 이해해보면\n위에거는 one-to-many match 케이스로 Area Recall 0.8기준과 Area Precision 0.4의 기준을 넘어 0.8점을 부여받을 것으로 보이며 아래의 경우 one-to-one match의 케이스로 area recall 0.8을 충족하지못하여 0점 처리될것으로 보입니다.\n아래 케이스만 0점이라 자료에 약간 문제가 있지 않나 조심스럽게 생각해봅니다..!",
+          "user": "U07EFLT4EM8",
+          "user_name": null,
+          "timestamp": "1730380355.289689",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EFLT4EM8",
+              "ts": "1730380424.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위 이미지에 대해 최종점수를 계산해보면\n2 x ( Precision x Recall) / (Precision + Recall)\n\n2 x ( 0.55 x 0.4) / (0.55+0.4) = 약 0.46\nDetEval기준\n대략 0.46정도의 값이 나오는것 같습니다",
+          "user": "U07EFLT4EM8",
+          "user_name": "신영태",
+          "timestamp": "1730381540.413209",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EFLT4EM8",
+              "ts": "1730381563.000000"
+            },
+            "reactions": [
+              {
+                "name": "frog-wow-scroll",
+                "users": [
+                  "U07EUAU2W1F"
+                ],
+                "count": 1
+              },
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U07EUAU2W1F",
+                  "U07F4EQLTG8"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가장 헷갈리던 부분을 짚어주셔서 저도 보고 이해가 됐습니다! 감사합니다 영태님!:borat_thumbs:",
+          "user": "U07EUAU2W1F",
+          "user_name": "강대민",
+          "timestamp": "1730383850.006879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_3_hearts",
+                "users": [
+                  "U07EFLT4EM8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 “*-to-*” 매칭이 먼저인지 area recall, precision 계산이 먼저인지 헷갈렸는데 덕분에 확실하게 이해 할 수 있었습니다. 늦은 시간까지 답변 정말 감사합니다!!",
+          "user": "U07F4EQLTG8",
+          "user_name": "이한성",
+          "timestamp": "1730384618.922259",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07F4EQLTG8",
+              "ts": "1730384645.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 덕분에 제대로 알게 된 것 같습니다 감사합니다! :kissing_closed_eyes:",
+          "user": "U07EFLT4EM8",
+          "user_name": "신영태",
+          "timestamp": "1730385849.307759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "02_cheer",
+                "users": [
+                  "U07EUAU2W1F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 CV 21조의 윤남규입니다. 현재 저희 조에서는 대회 규정 상 수정이 금지된 파일들을 *baseline* 폴더 안에 넣어 관리하고 있습니다.\n\nimport에서 상대 경로만 수정 후 Github에 업로드하고 있었는데, 이 방법은 불가능한 것인지 궁금합니다.\n\n:package:.GitHub\n ┣ :open_file_folder:.git\n ┣ :open_file_folder:.github\n ┣ :open_file_folder:*baseline* : 대회 규정 상 수정이 금지된 파일들의 묶음입니다.\n ┃ ┣ :scroll:detect.py\n ┃ ┣ :scroll:east_dataset.py\n ┃ ┣ :scroll:loss.py\n ┃ ┗ :scroll:model.py\n ┣ :open_file_folder:tools\n ┃ ┗ ~\n ┣ :open_file_folder:utils\n ┃ ┗ ~\n ┗ ~",
+        "user": "U07EFHA4LSX",
+        "user_name": null,
+        "timestamp": "1730425679.307659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "해당 폴더를 github에 올리지만 않는다면 그 정도 수정은 허용될 것 같습니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730431607.717029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U07EFHA4LSX",
+                  "U075VV2KDTR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

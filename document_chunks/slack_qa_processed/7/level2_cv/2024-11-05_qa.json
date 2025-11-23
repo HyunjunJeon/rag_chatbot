@@ -1,0 +1,194 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 CV 18조 임찬혁 입니다. inference.py 코드의 일부분인데 images 리스트에 test 이미지를 넣기 전에 코드를 통한 전처리를 포함시켜도 되는걸까요? (간단한 cv2 method 등)",
+        "user": "U07EFH9UA2F",
+        "user_name": null,
+        "timestamp": "1730798254.825719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07E925NYJ2",
+                "U07EFLRFF26"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "앗 test set 은 augmentation을 비롯한 어떠한 수정도 허용되지 않습니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730821632.795669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U07EFH9UA2F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U07EFH9UA2F",
+          "user_name": "임찬혁",
+          "timestamp": "1730830418.144829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. cv7조 정지환입니다. Train시에 morphology transformation을 적용해서 학습시키면, inference에도 마찬가지로 morphology transformation이 적용되어야 결과가 제대로 나오는 것을 볼 수 있었습니다. 이러한 inference 파일 수정은 허용이 되는지 여쭤보고 싶습니다.",
+        "user": "U07E14EC4BH",
+        "user_name": "정지환",
+        "timestamp": "1730862975.819149",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07E14EC4BH",
+            "ts": "1730868493.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "회색영역에 있는 기법인듯 하지만, 대회 관리상 해당 방식은 허용하지 않기로 했습니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730869004.993459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다.",
+          "user": "U07E14EC4BH",
+          "user_name": "정지환",
+          "timestamp": "1730869660.939539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, CV21조 김한얼입니다.\n저희가 합성 데이터를 써보려고 했습니다. 그래서 합성 데이터를 학습하고, 원래 데이터를 학습하는 방식을 써보려고 했습니다(Curriculum Learning)\n이런 방식으로 합성 데이터를 써도 된다고 생각했던 근거는 2가지가 있는데요,\n1. 10강 ppt 27쪽 합성 데이터 사용 방법(_1번 이미지_)\n2. 10월 31일 마스터클래스 유하늘 마스터님 '현업에서의 Data-centric OCR과 lesson learned' 중 Curriculum learning 부분\n그런데 오늘 홈페이지를 확인하던 도중 생성형 AI 관련 규정에 Curriculum Learning이 금지되어있는 것을 봐서 다음 질문 드립니다.(_2번 이미지_)\n1. 여기 나와있는 Curriculum Learning이 뜻하는 의미는 데이터를 랜덤하게 섞지 않고 일정한 순서를 정해서 학습하는 방식이 맞나요? 아니면 다른 큰 의미의 학습 방식이 존재하는 건가요?\n2. 1번의 답변이 전자라면, 합성 데이터는 반드시 랜덤하게 섞어서 학습해야 하나요?\n3. 1번의 답변이 후자라면, 마스터클래스에서 배운 대로 합성 데이터를 순서를 정해서 학습해도 괜찮을까요?\n그리고 별개의 4번 질문이 있습니다.\n4. 파일명의 언어를 기준으로 언어마다 다른 모델을 사용해서 앙상블하는 것도 허용되어 있나요? 파일명 기준 분류는 안 될 것 같긴 한데 혹시나 싶어서 여쭤봅니다.",
+        "user": "U07EJ5Q544C",
+        "user_name": null,
+        "timestamp": "1730867511.568799",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EJ5N8GVA",
+                "U07EFHA4LSX",
+                "U07EJ5R2XU4",
+                "U07G0DA47U1",
+                "U07EJ5Q544C",
+                "U07EUAU2W1F"
+              ],
+              "count": 6
+            },
+            {
+              "name": "quad_parrot",
+              "users": [
+                "U07EFHA4LSX"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "해당 기법은 커리큘럼 러닝이라기 보다는 합성데이터 프리트레이닝 이라고 볼 수 있고, 대회에서 허용됩니다. 순서를 정해서 학습하셔도 됩니다.\n\n테스트 단계에서 파일명을 기준으로 모델을 직접 라우팅하는 것이 아닌 앙상블이면, 언어를 기준으로 개별학습된 앙상블은 허용됩니다.",
+          "user": "U075VV2KDTR",
+          "user_name": "Dongkwan Kim",
+          "timestamp": "1730868676.782999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_aww",
+                "users": [
+                  "U07EJ5N8GVA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "깔끔한 해설 감사합니다! 그럼 커리큘럼 러닝은 더 큰 다른 개념인 거군요 그 부분은 따로 찾아보겠습니다!",
+          "user": "U07EJ5Q544C",
+          "user_name": "김한얼",
+          "timestamp": "1730868730.670299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_aww",
+                "users": [
+                  "U07EJ5N8GVA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

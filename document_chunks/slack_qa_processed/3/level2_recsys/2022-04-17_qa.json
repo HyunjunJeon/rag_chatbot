@@ -1,0 +1,65 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "10조 깃허브와 슬랙 연동 부탁드립니다:blush:",
+        "user": "U02TM48175M",
+        "user_name": "이아현",
+        "timestamp": "1650257370.176899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02U7059RDX> <@U02TM48175M> 모두 완료했습니다!",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650258892.247349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02U7059RDX",
+                  "U02TM48175M"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "7조 깃허브와 슬랙 연동 부탁드립니다!",
+          "user": "U02TMB2QBCP",
+          "user_name": "백승주",
+          "timestamp": "1650259951.733839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TMB2QBCP> 추가했습니다~",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650260191.903009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

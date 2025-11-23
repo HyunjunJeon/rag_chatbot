@@ -1,0 +1,256 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*<!channel>* 다음주부터 시작되는 Segmentation repository와 *slack 연동*을 원하는 팀은 *댓글로 팀명(ex. cv-10)*을 작성해 주세요! 월요일에 업데이트 해드릴게요! github 합류 링크는 부코스에 있으니 참고 부탁드려요! :slightly_smiling_face:",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1650593839.632979",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 15
+        }
+      },
+      "answers": [
+        {
+          "text": "CV-16 연동 부탁드립니다!",
+          "user": "U02TU6LEYKT",
+          "user_name": "권순호",
+          "timestamp": "1650593860.388319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U587JMDE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-03 부탁드립니다!",
+          "user": "U02UM7QQTTK",
+          "user_name": "wxx",
+          "timestamp": "1650593867.143509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02UYE39KUY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv05 부탁드립니다",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1650593870.896649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "CV_09조 부탁드립니다!",
+          "user": "U02UAT2SVQU",
+          "user_name": "전다운_T3188",
+          "timestamp": "1650593877.315739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-11 부탁드립니다!",
+          "user": "U02THU7BG1Z",
+          "user_name": "김영운",
+          "timestamp": "1650593892.632769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFP6V1DY",
+                  "U02TU536QGZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-06 부탁드립니다!",
+          "user": "U02THPL8F0C",
+          "user_name": "박성호",
+          "timestamp": "1650593916.512479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-17 부탁드립니다!",
+          "user": "U02U4AZJLUC",
+          "user_name": "민선아_T3078",
+          "timestamp": "1650593932.165659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-15 부탁드립니다!",
+          "user": "U02UM6FUR33",
+          "user_name": "임종현_T3182",
+          "timestamp": "1650594414.115979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-12 부탁드립니다!",
+          "user": "U02UEH8U39P",
+          "user_name": "최홍록",
+          "timestamp": "1650594737.507019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-08 부탁드립니다!",
+          "user": "U02TJ3871FW",
+          "user_name": "이재홍_T3162",
+          "timestamp": "1650596593.151369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "CV-10 부탁드립니다!",
+          "user": "U02U2ELNU9Z",
+          "user_name": "전영우",
+          "timestamp": "1650598298.079459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-14 부탁드립니다!",
+          "user": "U02U0FR5GE7",
+          "user_name": "장상원",
+          "timestamp": "1650600540.250399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "segmentation github repository 제작 하려고 하였는데, repository 이름에 제 깃허브 닉네임이 삽입되어 accept 하지 않고 있습니다. 확인 해 주실 수 있을까요?\naccept 눌러도 되나요?",
+        "user": "U02UAT2SVQU",
+        "user_name": null,
+        "timestamp": "1650603513.620149",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02UAT2SVQU",
+            "ts": "1650603539.000000"
+          },
+          "reactions": null,
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "팀을 만드시거나 다른 팀원이 만든 팀에 들어가셔야 할 것 같아요..! 링크에 다시 들어갔을 때 계속 저렇게 뜨면 아마 운영진의 도움이 필요할 것 같습니다",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1650605352.267849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주영님 답변해주셔서 감사합니다!",
+          "user": "U02UAT2SVQU",
+          "user_name": "전다운_T3188",
+          "timestamp": "1650605375.875099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 다운님! 제공해 드린 링크로 접속하였을 때 기존 팀이 생성된 경우 *팀으로 합류* 또는 *팀 이름으로 생성*하는 경우 레포는 자동으로 생성됩니다!",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650606608.869969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02QJSQ1H1T> 저도 방금 접속해 보았는데 팀 관련 내용이 나오지 않고 저렇게 개인 아이디를 포함한 레포지토리를 만들어 주겠다는 페이지가 바로 나옵니다 ㅠㅜ",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1650606892.757959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

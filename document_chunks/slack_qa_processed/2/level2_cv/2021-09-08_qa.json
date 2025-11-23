@@ -1,0 +1,848 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "그리고 더 중요한건, 사실 conv커널이 홀수 사이즈인데 입력이 짝수인게 영상처리 관점에서 이상한 점을 느꼈을 것 같기도 한데요. 저 이후로 224라는 숫자가 VGG, ResNet 등 유명한 네트워크와 심지어 AlexNet reproduce들도 다 저 숫자를 고정으로 쓰게 된거죠. 역사적인 순간이었던 것 같습니다.",
+        "user": "U029EUXTG7N",
+        "user_name": "오태현 (포스텍)",
+        "timestamp": "1631086104.140700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029UHZ6AHY",
+                "U029BN43CDB"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029MCHH00Z> 좋은 말씀 감사합니다! 더 머쓱한 이야기들을 앞으로도 종종 올리겠습니다.\n<@U029EUXTG7N> 그 부분은 미처 생각해보지 못했던 부분인데 새로운 insight를 배웠네요 감사합니다!",
+          "user": "U029UHZ6AHY",
+          "user_name": "백인혁_T2101",
+          "timestamp": "1631086188.140900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 :kirby_dance: 저희 조 피어세션에서 나온 질문 공유합니다!\nCV 2강 Annotation Data Efficient Learning ppt의 33 페이지부터 나오는 knowledge distillation 그림에서 Softmax (T=1)일 때 화살표로 soft prediction에 연결되어 있고 , 40페이지에도 Student Loss에 CrossEntropy(Hard label, Soft prediction)이라고 되어있습니다. 저희 조에서는 temperature T가 1일 때는 Normal Softmax이기 때문에 soft prediction이 아니라 hard prediction이다 라는 결론이 나와서 ppt 오류가 아닐까 싶은데 혹시 다른 이유가 있을까요?",
+        "user": "U02A3RWDVPS",
+        "user_name": null,
+        "timestamp": "1631090908.142100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02AH59AT3N",
+                "U029T4XRUCR",
+                "U029VLER4AD",
+                "U029UHZ6AHY",
+                "U0297T6KRDL"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "강의 관련 질문은 부스트코스 질문게시판 통해서 올려주시면 멘토분들이 놓치지 않고 답변해 주실 수 있으니 참고 부탁드려요~",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1631091013.142600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sweat_smile",
+                "users": [
+                  "U02A3RWDVPS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 생각해도 약간 오타 같긴 한데..!! 동일 구조의 그림을 봤을 때도 거기에는 hard prediction으로 되어 있더라구요 :thinking_face:",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1631091172.142800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thinking_face",
+                "users": [
+                  "U02A3RWDVPS",
+                  "U029VLER4AD"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여기서 T=1인 softmax의 output도 soft prediction이라고 표시한 이유는, 실제 정답과 같이 완전 one-hot([0,0,1,0])으로 나오는 것이 아니라 model output이 [0, 0.1, 0.9, 0]과 같은 형태로 나오기 때문에 soft하다고 표시한 것입니다! 혹시 이해가 되셨나요??",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1631097828.153500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029ULW2X8A",
+                  "U029EUXTG7N",
+                  "U02A3RWDVPS"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "soft prediction : model output (e.x [0, 0.1, 0.9, 0])\nhard prediction : final output (e.x argmax([0, 0.1, 0.9, 0] = 2 (혹은 one-hot으로 나타내면 [0, 0, 1, 0]))\n\n본 강의에서는 이런 의미의 notation이라고 생각해주시면 될 것 같습니다",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1631097951.153800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298UMQQ75",
+              "ts": "1631097961.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UMQQ75> 오 감사합니다. temperature로 추가적인 스무딩은 없지만 soft한 확률값으로 나오기 때문에(?) soft prediction이라고 하신 거라고 이해하면 될까요??",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1631097960.154000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네넵 맞습니다 smoothing이 없더라도 discrete한 예측 값이 아니라 확률값으로 나타나는 값이기 때문에 soft prediction이라고 표현했는데, 아무래도 다른 글에서 사용하는 notation이랑 헷갈리실 수 있을 것 같네요",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1631098007.154300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298UMQQ75",
+              "ts": "1631098013.000000"
+            },
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029ULW2X8A",
+                  "U029EUXTG7N",
+                  "U02A3RWDVPS"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1631098050.154700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :smile:",
+          "user": "U02A3RWDVPS",
+          "user_name": "이윤영",
+          "timestamp": "1631148712.177300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "도움이 될지 모르겠지만, 혹시 저와 같은 문제를 겪고 있는 사람이 있을 수 있어서 공유드립니다!\n\n혹시 필수과제에서 `iter(qd_train_dataloader)` 진행하면서 Error 발생하신 분들 계신가요?\n\ntraining 시키는 Code의 for문에서 iter를 변수로 사용하고 있어서 기존 iter 함수에 int값이 들어가 문제가 발생하고 있었습니다.\n\nfor문에 변수 이름 바꾸고 kernel 초기화 하시고 사용하시면 될 것 같아요\n혹시 번거로우시면, iter() 대신 `qd_train_dataloader.__iter__()`\n로 사용하시면 문제 없이 사용가능합니다!\n\n계속 고민했었는데, 오늘 피어세션에서 답을 찾았네요 ㅎㅎ",
+        "user": "U029KG3T7L3",
+        "user_name": "홍요한",
+        "timestamp": "1631093075.150700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029LA9EQCU",
+                "U029TQ9JFR8",
+                "U029DCPSW3Z",
+                "U029T4XRUCR",
+                "U028ZQU4N07",
+                "U029BN43CDB",
+                "U029ULW2X8A",
+                "U029J0QCBDY",
+                "U029LPYKUR2",
+                "U029E8JH0BV",
+                "U029E1P5Z5G",
+                "U029ENX4TDZ",
+                "U029X8XP189",
+                "U029YDHQ9EU",
+                "U029EUXTG7N",
+                "U02A3RWDVPS",
+                "U029MCHH00Z"
+              ],
+              "count": 17
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029BP86UBX",
+                "U029MCHH00Z"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 그냥 커널 재시작 방법을 사용했었는데, 감사합니다!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1631093140.151100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-raising-hand",
+                "users": [
+                  "U029T4XRUCR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_penguin",
+                "users": [
+                  "U029KG3T7L3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 저 방금 이거 고민하고 있었는데 마침 올려주셔서 감사합니다.",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1631093619.152200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_penguin",
+                "users": [
+                  "U029KG3T7L3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아니면 iter(loader) 윗 부분에\ntry : del iter\nexcept : pass\n이렇게 적어도 작동하는 것 같습니다!",
+          "user": "U029UHZ6AHY",
+          "user_name": "백인혁_T2101",
+          "timestamp": "1631108420.159000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029UHZ6AHY",
+              "ts": "1631108759.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029ULW2X8A",
+                  "U029KG3T7L3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "좋은 질문이네요 ㅎㅎ 저는 실제로 예전에 문서 데이터에 대한 training을 진행할 때 ImageNet과 워낙 다른 분포라서 ImageNet mean, std가 아닌 [-1, 1]로 직접 normalize 해준 적 있습니다 ㅎㅎ",
+        "user": "U0298UMQQ75",
+        "user_name": "김종하",
+        "timestamp": "1631098210.155100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "amaze",
+              "users": [
+                "U029FSCQAKX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U0298UMQQ75> 저희가 지금 과제로 쓰고 있는 데이터가 퀵드로잉 데이터인데 문서 데이터랑 분포가 비슷할 것 같아요..! weight는 음수 양수 둘 다 사용해서 init 하는데 이미지 데이터도 그렇게 해주면 안될까 하는 생각이 들었습니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1631101172.157700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네넵 quickdraw도 ImageNet 말고 다른 mean, std로 해주는것도 좋을 수 있어요 다만 저는 quickdraw는 너무 쉬운 데이터셋이라 normalizing에 큰 신경 안쓰고 ImageNet으로 코드를 작성해둔거긴 합니다 ㅋㅋㅋ",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1631101282.157900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UMQQ75> 출제자님이신줄 몰랐습니다... 이것 저것 시도해보고있는데 말씀하신대로 데이터가 간단해서 그런지 크게 개선되거나 저하되는 일은 잘 없네요 :laughing: 맨날 MNIST 만 다뤘었는데 quickdraw 이번에 처음 알았습니다. file입출력으로 csv로그 남기는 것도 약간 씽크빅이었습니다. 좋은 자료 감사합니다!",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1631101831.158500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "data augmentation 과제를 하던 도중 `albumentations` 을 써보려다가 삽질을 해버려서 시간이 이렇게 되어 버렸는데요! :smiling_face_with_tear:\n혹시 `albumentations` 를 사용해보고 싶은 분들을 위한 간단한 가이드를 작성하였습니다!\n다른분들은 삽질하질 않길 바라며 얼른 과제를 마무리 하러 가겠습니다..:rocket:\n<https://spot-chill-154.notion.site/Albumentations-from-scratch-f3fff6a0944e4efb9709257f62896426>",
+        "user": "U029BP86UBX",
+        "user_name": "임성민",
+        "timestamp": "1631100662.156600",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029BP86UBX",
+            "ts": "1631100697.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029M37U7S8",
+                "U029TQ9JFR8",
+                "U029E1P5Z5G",
+                "U029L6H5SBW",
+                "U029ULW2X8A",
+                "U029UHZ6AHY",
+                "U029T4XRUCR",
+                "U029Y19TXRP",
+                "U029PQ4F9HB",
+                "U029T92U2F3",
+                "U0297DYMHLN",
+                "U029EUXTG7N",
+                "U029YDHQ9EU",
+                "U029UND0U1Y",
+                "U02A3RWDVPS",
+                "U029MCHH00Z"
+              ],
+              "count": 16
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U029MCHH00Z"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 오늘 albumentation으로 삽질모드였는데:smiling_face_with_tear: 정리를 너무 깔끔하게 잘 해주셨네요!!! 복잡한 머릿속이 정리되는 느낌입니다..ㅎㅎㅎ 공유 감사합니다!! :raised_hands::raised_hands::raised_hands:",
+          "user": "U029M37U7S8",
+          "user_name": "김세영",
+          "timestamp": "1631100905.157200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blue_hand",
+                "users": [
+                  "U029BP86UBX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "1조에서 피어세션 동안 나왔던 흥미로운 내용을 공유합니다. 저희가 과제로 다루었던 VGGNet의 구현 부분을 보면 Batch Normalization이 있는 것을 볼 수 있습니다. 저는 pretrain된 vgg를 freeze할 때 이 BN의 파라미터가 그냥 weight, bias 로 호출되는지 아니면 gamma, beta 등으로 호출되는지 궁금해서 찾아본 결과 torchvision에서 받아온 VGG에는 BN이 없었습니다. 논문에도 그렇게 적혀있는 것을 알 수 있는데 Local Response Normalisation(s는 오타일까요:grin:)이 성능에 영향을 주지 않아 사용하지 않았다고 적혀있습니다. 저희 CV강의 1강에서 교수님이 LRN은 이제 deprecate되어서 사용되지 않고 그 자리를 BN이 대신하고 있다고 하셨는데 그런 케이스라고 볼 수 있겠습니다. torchvision의 docs에도 bn이 있는 모델과 없는 모델로 나뉘어서 호출이 가능하네요. BN이 있는 모델을 다운 받아서 parameter들의 이름을 본 결과 gamma, beta는 그냥 weight, bias로 호출 되는 것을 알 수 있었습니다. 함께 조사해 주신 조원분들 감사합니다!",
+        "user": "U029FSCQAKX",
+        "user_name": null,
+        "timestamp": "1631111690.167600",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029FSCQAKX",
+            "ts": "1631111722.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029T519KUH",
+                "U02A3GWB4RX",
+                "U029EUXTG7N",
+                "U029BP86UBX",
+                "U029BQYGRFX",
+                "U029HMBUFT8",
+                "U029YDHQ9EU",
+                "U029TQ9JFR8",
+                "U029ENX4TDZ",
+                "U029E1P5Z5G",
+                "U029B96RRJA",
+                "U029UND0U1Y",
+                "U029ULW2X8A",
+                "U029T92U2F3",
+                "U02A3RWDVPS",
+                "U029X8XP189",
+                "U028ZRPRJ5V",
+                "U029EUNPFFW",
+                "U029MCHH00Z",
+                "U029BN43CDB"
+              ],
+              "count": 20
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029MCHH00Z"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "Deep 하게 파고들어서 찾아보고 발견하는 그런 행위를 hacking이라고 합니다. 실제 제가 미국 회사에 있을 때도 주변 사람들이 hack! hack 거리고 다니고 사장님도 hack 이라는 말을 많이 쓰고 다녔습니다.\n수업에서 다루지 않지만 이렇게 파고들어서 파악하고 연구하는게 다른 사람들은 경험하지 못하는 가치있는 경험과 배움을 제공합니다. 1조 엄청 잘하고 있네요!\n저도 새로운 것들을 몇개 배웠네요. 공유 고마워요!\n\n그리고 요즘 pretrained network들이 model zoo를 통해서 많이 공개되는데, 초창기의 original version이라고 하기 어려운 개선 버전들이 더 많이 사용되고 있습니다. 나중에 비교 실험을 할때, 이런 부분들을 인지하고 써야합니다.",
+          "user": "U029EUXTG7N",
+          "user_name": "오태현 (포스텍)",
+          "timestamp": "1631112333.168600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029FSCQAKX",
+                  "U029ST041PU",
+                  "U029YDHQ9EU",
+                  "U029TQ9JFR8",
+                  "U029MCHH00Z",
+                  "U029BN43CDB"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그나저나 읽다가 제 수업 얘기가 나와서, 혹시 제가 틀린 정보를 전달했나하고 화들짝 놀랐습니다ㅎ 다행이 틀렸다는 내용이 아니라 안심했는데요. 언제든지 틀린 내용 있으면 정정 바랍니다!\n\n세상 항상 맞는건 없고 실수가 있을 수도 있습니다. 의심을 할수록 배우는게 많아지니 지금처럼 합리적인 의심은 매우 좋은 학습 방식인 것 같아요.",
+          "user": "U029EUXTG7N",
+          "user_name": "오태현 (포스텍)",
+          "timestamp": "1631112466.169200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029EUXTG7N",
+              "ts": "1631112482.000000"
+            },
+            "reactions": [
+              {
+                "name": "ahhhhhhhhh",
+                "users": [
+                  "U029FSCQAKX",
+                  "U029ST041PU",
+                  "U029YDHQ9EU",
+                  "U029MCHH00Z"
+                ],
+                "count": 4
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029E28RUPL",
+                  "U029TQ9JFR8",
+                  "U029ENX4TDZ",
+                  "U029MCHH00Z",
+                  "U029BN43CDB"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 저는 BN이전에 어떤 식으로 레이어 사이의 feature들을 노말라이즈했는지 전혀 몰랐는데 이번에 강의 들으면서 처음 알게 되었습니다ㅎㅎ 앞으로도 꼼꼼하게 체크하면서 쓰겠습니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1631112611.169900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "교수님께서 말씀해주신 여러 버전의 모델의 예시로 Facebook의 <https://github.com/facebookresearch/detectron2|detectron2>가 있습니다! <https://github.com/facebookresearch/detectron2/blob/main/MODEL_ZOO.md|README>를 보시면 같은 ResNet50임에도 불구하고 deformable convolution (DC), feature pyramid network (FPN), group normalization (GN) 등을 활용한 굉장히 다양한 모델들이 공개되어 있습니다.",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1631112982.171400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029YDHQ9EU",
+              "ts": "1631112996.000000"
+            },
+            "reactions": [
+              {
+                "name": "cat_pink",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "combinations가 엄청 많네요.. 정말 무궁무진하네요..:scream:",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1631113422.172200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "짜란다짜란다:fire::fire: 참고로, 아마 vgg 논문이 uk에서 나왔다보니 sation으로 표기한것으로 보입니다. 오타는 아니고 영국식 스펠링이에용",
+          "user": "U029MCHH00Z",
+          "user_name": "Kyeongseon Ella Kim",
+          "timestamp": "1631170517.179600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              },
+              {
+                "name": "party_parrot_icecream",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "VGGNet 논문 읽고 간단하게 리뷰해봤습니다. 혹시 보시고 이상한 점이 있다거나 하시면 가차없는 피드백 부탁드립니다..! (늦은 시간에 죄송합니다ㅎㅎ)",
+        "user": "U029ULW2X8A",
+        "user_name": null,
+        "timestamp": "1631116568.173700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029ULW2X8A",
+            "ts": "1631116578.000000"
+          },
+          "reactions": [
+            {
+              "name": "clap",
+              "users": [
+                "U029UHZ6AHY",
+                "U02A7MXP5A4",
+                "U029YDHQ9EU",
+                "U029E484Z18",
+                "U029T519KUH",
+                "U029E1P5Z5G",
+                "U02A3S4V2U8",
+                "U02A3RWDVPS",
+                "U029KG3T7L3",
+                "U029X8XP189",
+                "U029MCHA5ED",
+                "U028ZRPRJ5V",
+                "U02905YS8J3",
+                "U029MCHH00Z",
+                "U029Q1QFELA",
+                "U028ZQU4N07",
+                "U02A7A42WHF",
+                "U029ST041PU",
+                "U029DCPSW3Z",
+                "U029FSCQAKX",
+                "U029T4XRUCR"
+              ],
+              "count": 21
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029BS21VL5",
+                "U029MCHA5ED",
+                "U028ZAA1X1V",
+                "U029MCHH00Z",
+                "U029FSCQAKX",
+                "U029X5PRTJ5"
+              ],
+              "count": 6
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U029MCHH00Z"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시나해서 말씀드리지만 con 1x1도 parameter의 수를 줄여줍니다... 알고 계실지 모르겠지만 ㅎㅎ",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1631120288.174600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party-blob",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "깔끔하게 정리된 자료 잘 읽었습니다~ ㅎㅎ\n필터 크기를 최소 3으로 설정해주어야 하는 이유가 \"4개의 방향으로 모든 맥락을 파악하기 위해서\" 라고 되어있는데, 이 설명이 잘 이해가 되지 않네요..! 혹시 설명해주실 수 잇을까요?",
+          "user": "U029E484Z18",
+          "user_name": "이유진",
+          "timestamp": "1631120849.174800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party-blob",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E484Z18> <https://www.boostcourse.org/boostcampaitech2/forum/96886> 질문게시판에서 비슷한걸 본 것 같아 공유드립니다!",
+          "user": "U029BP86UBX",
+          "user_name": "임성민",
+          "timestamp": "1631123602.175300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029ULW2X8A",
+                  "U029E484Z18"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029T519KUH> 제가 알기로는 여기서 1x1 convolution은 파라미터 수를 줄이는 용도는 아닌 걸로 알고 있었는데 혹시 제가 잘못 알고 있던 걸까요??!!",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1631123918.175500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E484Z18> 3x3 필터를 씌워주면 상하좌우 모두 1픽셀씩 커버가 가능하게 되어서 그런 식으로 표현했습니다. ㅎㅎ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1631123996.175800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029ULW2X8A",
+              "ts": "1631124840.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 너무 잘봤습니다.. 혼자 읽었을 때 이해 안되는 부분이 많았는데 덕분에 잘 이해했습니다ㅎㅎ!!",
+          "user": "U029BS21VL5",
+          "user_name": "임문경",
+          "timestamp": "1631125103.176200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party-blob",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029ULW2X8A> 아! 논문에서는 non-linearity를 강화시켜준다는 언급만 있었네요 ㅎㅎ제가 다른 모델과 헷갈렸던 모양입니다 죄송합니다",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1631147578.176700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029ULW2X8A",
+                  "U029MCHH00Z"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 캠퍼님들! <!channel>\n내일(10/8) 18:00 ~ 19:30 에는 김성현 마스터님과 함께 대회 랩업 및 GPT-3, Copilot 시연을 주제로 마스터 클래스가 진행될 예정입니다.\n대회에 대해서, 마스터님에 대해서 다양한 질문이 있으실 텐데요! 내일 오후 2시 전까지 아래 설문 통해서 전달 해주시기 바랍니다 :)\n<https://forms.gle/j81mqM2nGwd96y31A|마스터클래스 사전질문>\n\n또한, 대회가 끝난 이후 마스터클래스는 캠퍼 여러분들의 참여로 좀 더 특별하게 진행되는 것, 잊지 않으셨죠?\n자세한 내용은 아래를 확인해주시고, *순위와 무관하게 팀 경험을 공유해주시고 싶은 캠퍼 분은 DM이나 댓글로* 말씀 주시길 바랍니다 :slightly_smiling_face: 선착순 한 팀에게 발표의 영광을 드립니다! :+1:\n• 일정 : 10/8 (금) 18:00 ~ 19:30\n• 상세 컨텐츠 : 대회 Wrap-UP, GPT-3, Copilot 시연\n    ◦ 토론왕 공유 (10/7 목 오후 8시 기준 vote 수가 가장 많은 캠퍼)\n    ◦ 리더보드 1,2등 팀, 자원 1팀 대회 솔루션 공유 (5분, 최대 10분)\n    ◦ 마스터 피드백\n    ◦ 질의응답 진행 (사전 취합 예정)\n• 대회 솔루션 공유하게 되실 분들에게 목요일(오늘) 최종 리더보드가 공개된 이후 빠르게 발표 요청을 드리겠습니다.\n• 대회 순위와 무관하게 팀 경험을 공유해 보고 싶으신 캠퍼분은 DM 혹은 댓글로 말씀주세요!",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1633590535.082500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029B6PDLFQ",
+                "U029MCH75UH"
+              ],
+              "count": 2
+            },
+            {
+              "name": "raised_hands::skin-tone-2",
+              "users": [
+                "U029H263PD1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "Happyface 팀 발표하고 싶습니다!",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1633605274.085700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02E375H869",
+                  "U029U43KM8B",
+                  "U029B6PDLFQ"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

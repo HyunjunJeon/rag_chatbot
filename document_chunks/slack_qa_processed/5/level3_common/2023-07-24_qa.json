@@ -1,0 +1,78 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[GPT API 너무 많은 트래픽으로 인한 오류]\n:bow: NLP 캠퍼님들의 도움이 필요합니다.:bow:\n*text data* (ex: 브라운 컬러의 숏 패딩 ,블랙 컬러의 부츠컷 팬츠, 그레이 컬러의 스니커즈를 매치한 룩입니다.) 에서\n패션 관련 단어를 뽑아내기 위해서 GPT API 를 사용하고 있습니다.\n실행해야할 text가 10000개 정도 되어서 *반복문*을 사용중인데 그 과정에서\nopenai.error.ServiceUnavailableError: The server is overloaded or not ready yet.\n에러가 발생하는데 해결 방법 알고계신 분 있을까요?",
+        "user": "U04RMLULSR2",
+        "user_name": null,
+        "timestamp": "1690193985.820159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "근본적인 해결책은 아니긴 한데..\n저희는 try/except 문과 time.sleep()을 적절히 활용해서 대처했습니다.\n\n<https://help.openai.com/en/articles/6897213-openai-library-error-types-guidance>\n\n해당 링크에 있는 코드는 ServiceUnavailableError 에러에 대한 except는 없어서 따로 추가했던 거 같아요.",
+          "user": "U04RG941RM3",
+          "user_name": "강주형",
+          "timestamp": "1690194287.027439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RG941RM3",
+              "ts": "1690194416.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RMLULSR2",
+                  "U04R4LUUNS3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 GPT API를 반복문으로 사용하면서 똑같은 오류를 접했었습니다. 그래서 저는 데이터 프레임을 만들고 거기에 추가하면서 끊긴 부분부터 다시 추가하는 방식으로 해결하였습니다..",
+          "user": "U04R4LUUNS3",
+          "user_name": "이희만_T5169",
+          "timestamp": "1690194330.184549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RG941RM3",
+                  "U04RMLULSR2",
+                  "U04S8TBM39N"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RG941RM3> <@U04R4LUUNS3>  감사합니돠!!!",
+          "user": "U04RMLULSR2",
+          "user_name": "곽동호_T5013",
+          "timestamp": "1690194734.954279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

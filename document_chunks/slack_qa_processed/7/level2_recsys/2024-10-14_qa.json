@@ -1,0 +1,68 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! :blush:\n이번에는 데이터 외부 유출 금지 조항이 따로 없는 것 같아 질문드립니다.\n혹시 레포지토리에 원본 데이터나, 데이터를 바탕으로 만든 추가적인 피처 엔지니어링 결과물을 올려도 괜찮을까요?",
+        "user": "U07EUAR9FA5",
+        "user_name": "안규리",
+        "timestamp": "1728896320.121649",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07ECPJ7XE1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "아래 공지사항 확인하면 좋을것 같습니다\n<https://www.boostcourse.org/boostcampaitech7/notice/34576>\n\n• Competitive Datascience 강좌 : 아파트 실거래가 예측 데이터셋 / *CC-BY-NC-ND*\n• *캠프 교육용 라이선스, CC-BY-NC-ND* (<https://creativecommons.org/licenses/by-nc-nd/2.0/kr/|link>) : 교육 내에서만 활용해 주시고, 일부 이미지라도 외부에 노출되는 일은 없도록 부탁드립니다. (데이터셋에 대한 설명글이나, 데이터셋을 활용하여 학습한 weight 정도가 공개 가능합니다)",
+          "user": "U07ECPJ7XE1",
+          "user_name": "양시영",
+          "timestamp": "1728896658.425919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_aww",
+                "users": [
+                  "U07EUAR9FA5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07ECPJ7XE1> 감사합니당!!",
+          "user": "U07EUAR9FA5",
+          "user_name": "안규리",
+          "timestamp": "1728896783.413969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_noddies",
+                "users": [
+                  "U07ECPJ7XE1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

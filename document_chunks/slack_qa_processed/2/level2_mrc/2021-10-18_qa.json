@@ -1,0 +1,156 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\nMRC 오피스아워가 오늘 *(10/18 월요일) 18:00 ~ 19:00*에 진행됩니다.\n*서중원 멘토님께서 Elastic Search*에 대해 설명해주실 예정이니 많은 참여 부탁드립니다! 멘토님의 진행 자료를 미리 공유해드리니 참고해주세요! :)\n&gt; <https://zoom.us/j/92827134193?pwd=M2g1c1Jhc3ZKSDJuYnNwZXh0R3lLUT09|오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": null,
+        "timestamp": "1634545800.076200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "금일 오피스아워에서 진행된 실습 코드입니다 :slightly_smiling_face:\n<https://github.com/thejungwon/search-engine-tutorial>",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1634552325.077200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U0298NLPSRY",
+                  "U029SLN0S1X",
+                  "U029LN7NMRA",
+                  "U02AK81JACT",
+                  "U029T92U2F3",
+                  "U0297CU8JFQ",
+                  "U029F1JK1RB"
+                ],
+                "count": 7
+              },
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U0298UN562F",
+                  "U029H263PD1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 오늘 실습코드 올려주시나요?",
+        "user": "U029PN9SX1R",
+        "user_name": "신원지_T2120",
+        "timestamp": "1634552263.076600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0298NLPSRY",
+                "U028ZAA1X1V"
+              ],
+              "count": 2
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029Z7YSHEV"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/thejungwon/search-engine-tutorial> 입니다~",
+          "user": "U0295N1AWLV",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1634552316.076900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029Z7YSHEV",
+                  "U0298NLPSRY"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "과제 정답은 어디에 올라오나요?",
+        "user": "U029W76KWJY",
+        "user_name": "안명철_T2126",
+        "timestamp": "1634558229.078900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "[10/18] QA with Phrase Retrieval 10강 강의에 같이 올라가있습니다 ! 확인해주세요 !\n<https://www.boostcourse.org/boostcampaitech2/lecture/1188260?isDesc=false>",
+          "user": "U0298NLPSRY",
+          "user_name": "조대현_멘토",
+          "timestamp": "1634560170.079400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029W76KWJY",
+                  "U028323UHE2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다. 늦게 확인했습니다.",
+          "user": "U029W76KWJY",
+          "user_name": "안명철_T2126",
+          "timestamp": "1634566182.079700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

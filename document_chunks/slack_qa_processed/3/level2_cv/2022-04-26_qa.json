@@ -1,0 +1,67 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "batch_03 폴더에 있는 data.json 파일 내에 UNKNOWN이라는 category도 있는 것을 확인했는데, 이는 말 그대로 재활용 품목 객체이긴 하나 불분명한 것을 말하는 것일까요?",
+        "user": "U02U65KPEJW",
+        "user_name": "박정재",
+        "timestamp": "1650965053.534319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02RS1EC6S3"
+              ],
+              "count": 1
+            },
+            {
+              "name": "눈-사람-",
+              "users": [
+                "U02U1RYL99C"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 캠퍼님\n말씀하신대로, UNKNOWN도 하나의 category로 정의되어 있었지만, 이번 대회에서는 고려하지 않는 category로 생각해주시면 됩니다.",
+          "user": "U02RS1EC6S3",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1650965252.613619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U02U65KPEJW",
+          "user_name": "박정재",
+          "timestamp": "1650965301.586539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02RS1EC6S3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

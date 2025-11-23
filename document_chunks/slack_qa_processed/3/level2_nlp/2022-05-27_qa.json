@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "멘토님 답변 감사합니다!!\n공개된 BERT와 같은 대부분의 PLM은 general domain 데이터로 학습되어있는데요, BERT pre-training에 사용한 데이터가 제가 사용하려는 국회 회의록 데이터 분포와 다르다고 생각했기 때문에 국회 회의록 데이터셋 전체를 학습시키는 방법을 생각했습니다. 아래 사진을 참고해주시면 좋겠습니다!\n\n일반 위키피디아 데이터셋으로 학습한 모델을 그대로 의료 분야에 적용하면 성능이 떨어지는 점을 보완하는 domain adaptive pre-training을 생각했습니다.\n\n\n출처 - <https://arxiv.org/abs/2004.10964|Don't Stop Pretraining>",
+        "user": "U02UTH1484E",
+        "user_name": null,
+        "timestamp": "1653655301.236949",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "저기에서 전체란 의미는 학습할 때 하나의 인풋에 데이터 전체를 넣는 것으로 이해하고 꼭 그렇게 해야하는 이유에 대해 여쭤본거였어요",
+          "user": "U02S8SX1NVA",
+          "user_name": "문영기_멘토",
+          "timestamp": "1653656886.433359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U1APCEBC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

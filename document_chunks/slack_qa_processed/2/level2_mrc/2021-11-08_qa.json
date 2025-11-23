@@ -1,0 +1,590 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*방금 전에 <https://github.com/monologg/KoBigBird|KoBigBird>가 공개되었습니다* :raised_hands:\n• BigBird를 간단하게 소개하자면, Sparse Attention(Neighboring, Global, Random)을 활용하여서 max_seq_length를 4096까지 늘린 BERT 모델입니다. \n• Long Sequence에 있어서 확실히 성능이 좋은 것 같습니다!\n파이널 프로젝트로 MRC 관련해서 하실 분들은 참고하세용 :hugging_face:",
+        "user": "U029L0WMGUE",
+        "user_name": null,
+        "timestamp": "1636358931.083200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029L0WMGUE",
+            "ts": "1636359402.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U027SHXU18R",
+                "U029Z566G2G",
+                "U029B4MRK8D",
+                "U029DG66W9L",
+                "U029F2PUHBM",
+                "U029BL7P8KF",
+                "U029C175HAS",
+                "U029U43KM8B",
+                "U0290B2QXTR",
+                "U029F23R56F",
+                "U029LKLNE6Q",
+                "U02A4FVKM96",
+                "U029T92U2F3",
+                "U029MU09NLW",
+                "U02A3MC2UFJ",
+                "U029U4VQZ5Z",
+                "U029F62SBPD",
+                "U02A8HS8LP2",
+                "U02988Y6BGF",
+                "U029F1P9TS7",
+                "U029KFGPJ9H",
+                "U029NG58Q84",
+                "U029B6PDLFQ",
+                "U029G3HPQ2X"
+              ],
+              "count": 24
+            },
+            {
+              "name": "among-us-party",
+              "users": [
+                "U02E375H869",
+                "U029LKLNE6Q",
+                "U029H263PD1",
+                "U029F62SBPD",
+                "U029NG58Q84",
+                "U029F9U3MMH",
+                "U029TD91F09",
+                "U029X5PRTJ5"
+              ],
+              "count": 8
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V",
+                "U029LKLNE6Q",
+                "U029F62SBPD",
+                "U0297RF9E78",
+                "U029NG58Q84",
+                "U029TD91F09"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U028ZAA1X1V",
+                "U029LKLNE6Q",
+                "U029F62SBPD",
+                "U029NG58Q84",
+                "U029TD91F09"
+              ],
+              "count": 5
+            },
+            {
+              "name": "raised_hands::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029LKLNE6Q",
+                "U029F62SBPD",
+                "U029NG58Q84"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1",
+                "U029TD91F09"
+              ],
+              "count": 2
+            },
+            {
+              "name": "raised_hands::skin-tone-2",
+              "users": [
+                "U029TD91F09"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 22
+        }
+      },
+      "answers": [
+        {
+          "text": "헉 이렇게 좋은 정보를 공유해주시다니 너무 감사합니다 :smile:",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1636359192.085100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://huggingface.co/monologg/kobigbird-bert-base>",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359234.085300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이모델이 맞는지요? 대회 끝나기 일주일 전에 공개되어서 저희 조에서 테스트 해보았습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359252.085600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U0298UN562F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아쉬움을 제가 살짝 덜어드리자면, roberta-large... 강했습니다...",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359286.085900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "cat_pink",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "coolcry",
+                "users": [
+                  "U029L0WMGUE",
+                  "U028ZA8TXRD"
+                ],
+                "count": 2
+              },
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U0298UN562F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오호 그렇군요,,, 저희 팀은 대회 기간에 <@U029E8DLJ4B> 님이 Longformer을 Roberta-large로 만들었는데, 메모리를 많이 잡아먹었다는 것만 저는 알고 있습니다",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636359368.087200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시간 관계상 더 깊은 실험으로 들어가진 못했지만 개인적인 분석으로는 ODQA 특성상 다른 passage들까지 포함된 Embedding 벡터도 만들어져서(384 보다 길게) 그 부분이 방해가 된 게 아닌지 생각 하고 있습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359529.087700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              },
+              {
+                "name": "100",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 학습방법, inference를 실험했으면 더 좋아졌을 가능성....이 있긴 합니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359546.087900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그쵸 ㅎㅎㅎㅎ Inference할 때만 해도 multi-passage, single passage, annotated passage 등 주는 방법은 여러 가지 방법이 있으니까요 :coolcry:",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636359742.088400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다만 Training dataset의 30% 이상이 512 token 이상이었기 때문에,  BigBird를 꼭 써보고 싶었습니다 ㅠㅠ overflow 맵핑하는 거랑 비교해보는 재미가 있었을텐데… 아쉽네요 ㅠㅠ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636359824.088800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029LJ0JY05"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가적으로 단순히 max_seq_length를 키우는 것만이 정답이 아닐 수도 있었습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359830.089000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "많이 보셨을 것 같은데 384 이상의 max_seq_length를 했을때 mrc-1-00062는 대부분 블랑키 주의라고 나오지 않으셨는지요?",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359867.089600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "max_seq_length를 100, 그러니까 줄여서 학습을 했을 때 모델이 validation set에서 공산주의를 맞추는 것을 보고 신기했던 경험이 있습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359906.089800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029L0WMGUE",
+                  "U028ZAA1X1V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://arxiv.org/pdf/1908.08167.pdf>\n실험에 참고했던 논문입니다",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636360000.090000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029MU09NLW"
+                ],
+                "count": 1
+              },
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "“In addition, we find that splitting articles into passages with the length of 100 words by sliding window improves performance by 4%.” 부분 말씀하시는 거군요 ㅎㅎ 처음 알았습니다!",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636360310.091000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀도 Train할 때는 길게 주는 게 유리한데, Inference/Predict할 때는 max_seq_length는 줄여서 주는 게 낫다는 결론을 얻기는 했습니다. 저희도 결과물 dictionary를 유심히 볼 걸 그랬네요 ㅎㅎ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636360394.091200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1636362039.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```[Ground Truth + Elastic Search로 구축한 Negative Passage]```\n를 train dataset으로 Bigbird max length인 4096까지 입력하고, inference는 384 혹은 100으로 실험해도 재밌을 것 같습니다!",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636360409.091400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1636360835.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가적으로 공유를 드려보자면, sequence length에 대한 실험을 제가 해봤었는데요, 저희 학습데이터 기준 bigbird에서 attention type을 original_full 로 학습한게 오히려 더 성능이 좋았습니다. block sparse attention을 사용해보기 위해 1024, 2048, 4096 등의 Length로도 해봤었는데, train 데이터에서 대부분 passage length가 1024 미만이었기 때문에 padding을 포함하여 max sequence length를 맞춰주었고, padding이 많아진게 오히려 block sparse 의 장점을 못살린 것 같단 결과를 얻게 되었습니다. wiki 데이터에서 title이 같은데 다른 문단인 경우들을 통합하고 학습데이터를 변형한뒤에 해봤으면 조금이라도 좋은 결과가 있었을 것 같습니다. 말씀주신대로 overflow 등 비교하는 재미가 쏠쏠했는데 참고되시라고 적어보았습니다.",
+          "user": "U029TDJ305P",
+          "user_name": "이요한",
+          "timestamp": "1636360788.092300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029TDJ305P",
+              "ts": "1636361086.000000"
+            },
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029NG58Q84"
+                ],
+                "count": 2
+              },
+              {
+                "name": "clapping",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029NG58Q84"
+                ],
+                "count": 2
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U0298UN562F",
+                  "U029NG58Q84"
+                ],
+                "count": 2
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029MNM7SE8",
+                  "U029NG58Q84"
+                ],
+                "count": 3
+              },
+              {
+                "name": "raised_hands::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Dense Retrieval 모델로 사용한 Cross Encoder, Bi-Encoder도 그렇고 Elasticsearch로 negative in-batch sampling을 해서 훈련하니까 성능이 좋더라구요 ㅎㅎ\n\nIn-batch sampling과는 분명히 다른 맥락이지만, 저희는 elasticsearch로 top_k=3로 유사한 sample들을 추출해서 뒤에다가 concat시켜서 훈련시켰습니다. 다만 klue/roberta-large overflow 베이스라인 기법에서는 오히려 성능이 떨어졌습니다 :coolcry:\n\n그래서 저희 실험이었던 `[1 Ground Truth Passage + 3 Negative Passages]` 를 입력시켜서 KoBigBird로 훈련시켰으면 어떨까 했습니다 ㅎㅎ 말씀하신대로 그냥 입력하면, 데이터가 padding으로 넘쳐나기 때문에 성능저하가 있을 수도 있습니다!\n\n좋은 내용 공유해주셔서 감사합니다 :hugging_face:",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636361263.093000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1636361467.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정말 재미있는건 1 Ground Truth를 전처리 한 것과 안한 것에도 차이가 있다는 점입니다. 정말 신기하게도 전처리를 *안한* passage를 학습시키니까(negative는 전처리 수행) 성능이 더 좋더라구요. mulit-passage를 이용한 inference때 특수문자를 포함한 노이즈들 덕에 robustic에 도움이 되었다고 판단을 했습니다... 훈련과 inference때 max_seq_len을 다르게 하는 건 새로웠습니다. 공유 감사해요.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636361678.093600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029TDJ305P"
+                ],
+                "count": 2
+              },
+              {
+                "name": "thinking_face",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "topk negative passage를 붙여서 train도 해봤었는데 역시.. roberta large가 너무 강려크하더라구요.. 그래도 bert-base보단 좋게 나왔어서 더 튜닝이 가능했을 것 같기도 하더라구요. 시간이 좀만 더 있었으면! 아쉽네요. 암튼 좋은 공유 감사합니다. ㅎㅎ",
+          "user": "U029TDJ305P",
+          "user_name": "이요한",
+          "timestamp": "1636361847.093800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              },
+              {
+                "name": "clapping",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 생각한 combination을 벌써 실험하셨다니 :joy::joy::joy: 대단하십니다 :+1: 블로그 글 정리한 거 나오면 공유해주세요! 이번에도 좋아요 누르러 가겠습니다 ㅎㅎㅎㅎ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636361997.094300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029TDJ305P",
+                  "U029LJ0JY05",
+                  "U029B6PDLFQ"
+                ],
+                "count": 3
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U029TDJ305P",
+                  "U029LJ0JY05"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029TDJ305P",
+                  "U029LJ0JY05"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

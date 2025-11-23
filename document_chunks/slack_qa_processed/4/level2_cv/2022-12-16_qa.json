@@ -1,0 +1,63 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "랜덤채널에 잘못 올렸었는데 다시 올려주셔서 감사합니다!",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1671177608.798149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "sunglasses",
+              "users": [
+                "U041L94723E"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "다른 분이었던 것 같은데, 상준님 팀이었나 보군요?",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1671177639.866719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넹 ㅎㅎ 저희 아직 피어세션이 안 끝났는데 저희조에서 올리기로 했던...거 였습니다 ㅎㅎㅎㅎ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671177657.599429",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1671177712.000000"
+            },
+            "reactions": [
+              {
+                "name": "ok_hand",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

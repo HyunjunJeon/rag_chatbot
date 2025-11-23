@@ -1,0 +1,118 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 제작이 완료된 데이터로 Fine-Tuning을 진행할 때 train / validation / test set으로 나누는 대신, train / test set으로만 나누어서 Fine-Tuning을 진행해도 되나요?",
+        "user": "U02THRRHU3W",
+        "user_name": "주정호",
+        "timestamp": "1650524637.720509",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TUHB5D7V",
+                "U02TU6HBDG9"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "정호님 안녕하세요! 질문에 답변 먼저 드리자면, train/test 로만 나누어서 Fine-Tuning을 진행해도 괜찮습니다!\n데이터 제작 미션의 fine-tuning 과정의 목적은 만들어주신 데이터로 모델이 어느정도의 성능을 내는지 확인하는 것이기 때문에 validation까지 뽑아낼 만큼 수량이 충분치 않다고 판단되거나 할 경우 test set 으로만 split 해도 문제될 것은 없어보입니다. 다만 val set이 없는 만큼 test set에 fit(over/under) 하지 않도록 몇가지 파라미터 조합을 실험해서 전체적인 경향성을 파악하는 것이 중요할 것 같습니다:)",
+          "user": "U02SJ8Z5A7N",
+          "user_name": "정영훈",
+          "timestamp": "1650527468.822029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U02THRRHU3W",
+          "user_name": "주정호",
+          "timestamp": "1650528351.854989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*<!channel>* 다음주부터 시작되는 MRC repository와 *slack 연동*을 원하는 팀은 *댓글로 팀명(ex. nlp-10)*을 작성해 주세요! 월요일에 업데이트 해드릴게요! github 합류 링크는 부코스에 있으니 참고 부탁드려요! :slightly_smiling_face:",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1650593855.937509",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U4SD5Y4D",
+                "U02U0J704TV",
+                "U02TFFR63FU",
+                "U02RUR38GCF",
+                "U02THE97XT4",
+                "U02UJGCP265",
+                "U02U7N1DGHG",
+                "U02U7SPJU5S",
+                "U02TE6BT7AR",
+                "U02TZAV2830"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 11
+        }
+      },
+      "answers": [
+        {
+          "text": "nlp-09 부탁드립니다!",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1650598622.965349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U1APCEBC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "nlp-04 부탁드립니다!",
+          "user": "U02TCL8CQGM",
+          "user_name": "서인범",
+          "timestamp": "1650605931.216339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

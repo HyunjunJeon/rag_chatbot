@@ -1,0 +1,333 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 먼저 문제 표현이 명확하지 않아 학습 과정에서 혼란을 드린 점 사과드립니다.:man-bowing:\n\n진단평가 퀴즈로서 vanishing gradient를 유발하는 조건으로 weight initialization 역시 해당될 수 있다는 점을 전달하는 것이 의도였습니다.\n\n말씀하신 것처럼 활성화값이 0에 가까워지면 tanh 활성화 함수의 기울기는 1에 가까워집니다. 그러나 multi-layer NN에서 역전파 연산 시 활성화 값도 곱해지게 되므로 vanishing gradient 문제가 발생할 수 있습니다. (수식 함께 첨부드립니다!)\n\n그러나 캠퍼 분들께서 지적해주신 것처럼 문제의  `vanishing gradient가 발생하는 주된 원인` 표현과 보기의 `기울기가 작아진다는` 표현은 명확하지 않으므로 다음과 같이 퀴즈 문제와 보기를 수정하여 풀이해주시면 감사하겠습니다.:face_holding_back_tears::man-bowing:\n\n> Q) 다음 그림은 활성화 함수 중 tanh를 의미한다. 활성화 함수로 tanh를 사용하는 Neural Network에서, vanishing gradient 현상이 발생할 수 있는 원인으로 올바른 것은?\n> 보기 중) 가중치 초기화를 너무 작게 하면 back propagation 과정에서 gradient vanishing 문제가 발생할 수 있다.",
+        "user": "U04RG8YTUP7",
+        "user_name": null,
+        "timestamp": "1757922147.972859",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RG8YTUP7",
+            "ts": "1757923304.000000"
+          },
+          "reactions": [
+            {
+              "name": "book",
+              "users": [
+                "U09CH85PLV9",
+                "U09CH7WV1PV"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7S61DZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04RG8YTUP7> 답변 감사드립니다, 제가 오해한 부분이 있었네요.\n저는 아래 첫 번째 캡처본처럼 `delta^{l} = 라운드J/라운드z^{l}` 라고 정희했을 때, chain rule에 따라 `라운드L/라운드a^{l+1} = W^{l}delta^{l}`로 계산이 되니까,\n따라서 W를 너무 작은 값으로 초기화하면 입력층 쪽의 gradient를 계산할 때는 W가 계속 연달아 곱해진 꼴이다보니 gradient가 vanishing할 수도 있겠어서 5번을 정답으로 하신 게 아닐까 추측했었습니다. 그래서 제가 생각한 `tanh'(z)`의 문제가 아닌 W의 문제였을 거라고 추측했습니다.\n그런데 댓글을 남겨주신 걸 보고 다시 확인해보니, `라운드L/라운드W` 계산에 a 즉 `tanh(z) 함수값 자체` 가 곱해지고 있다는 사실을 간과하고 있었네요...\n말씀해주신 대로 W의 초기값이 너무 작을 때의 gradient vanishing 문제는 tanh'(z)이 아닌 tanh(z)의 함수값 즉 a가 곱해진 게 문제였던 것 같습니다.\n\n+) 조교님이 올려주신 식의 W^{l}가 제가 아래에 도출한 식에서는 {\\theta}^{l-1}와 같은데 정의만 살짝 다르게 한 것입니다. 즉 제 코드에서 {\\theta}^{l-1}를 {\\theta}^{l}로 바꾸면 조교님의 수식과 완전히 일치합니다. 혹시 참고하실 분은 참고해주세요",
+          "user": "U09CH85PLV9",
+          "user_name": null,
+          "timestamp": "1757924184.439689",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH85PLV9",
+              "ts": "1757925645.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RG8YTUP7",
+                  "U09CH7S61DZ",
+                  "U09CH7SNT8B"
+                ],
+                "count": 3
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RG8YTUP7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 대현 캠퍼님!\n페이지 글이 지워진 것 같아 소프트 맥스 회귀와 관련된 글을 첨부드립니다.\n<https://wikidocs.net/35476>\n확률로 변환하는 과정과 one-hot vector와 비교하시며서 학습하시면 도움될 것 같습니다:smile:",
+        "user": "U04RG8YTUP7",
+        "user_name": "김정현_조교",
+        "timestamp": "1757923003.249369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04RG8YTUP7>  조언해주신 부분도 신경쓰면서 읽어보겠습니다! 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1757923369.621679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[ML LifeCycle / 02. 선형대수 / 2강 / 1.2. Linear Regression의 가정]\n\n안녕하세요! Linear Regression의 정규성 가정에 대해서 두 가지 질문 드립니다. 강의자료 pg.9 4번째(2,2) Graph에서, x축이 관측한 시간, y축이 잔차가 된다고 말씀주셨습니다.(강의시간 12:10~)\n\n첫째, x축의 범위가 음수를 포함하는 데, 관측한 시간 x축을 나타내는 것이 맞는지 궁금합니다.\n\n둘째, 제가 이해가 부족하여, 관측한 시간에 따른 잔차의 분포가 random하게 분포하는 것이 잔차가 정규분포를 따르는 것을 어떻게 파악할 수 있는 것인지 잘 이해하지 못했습니다. 관련해서 이 부분을 어떻게 이해하면 좋을지 추가적인 설명을 요청드립니다.\n(질문 편집 19:27)",
+        "user": "U09CH88JL1Z",
+        "user_name": null,
+        "timestamp": "1757924574.840429",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH88JL1Z",
+            "ts": "1757932070.000000"
+          },
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "1 저는 그래프들은 단순히 개형을 보여주기 위함이라 생각합니다.\n2 잔차가 정규분포를 따르지 않는다면, linear한 모델보다 더 좋은 근사 방법이 있을거기에, linear regression을 적용하는 경우 정규분포를 따른다라고 생각하고 있습니다",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1757926781.243599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88JL1Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 첨부하신 그래프의 x축 값은 시간이 아니라 y_hat 즉, 예측한 값입니다. y축은 잔차를 의미합니다. 해당 그래프는 잔차의 정규성 검정을 할 때 사용하는 잔차 그래프로, 빨간색 점선은 잔차가 0인 지점을 나타냅니다.\n 아마 교수님이 말씀하신 x축이 시간이라는 그래프는 잔차의 독립성을 검정하는 그래프를 말하는 것 같습니다.\n\n2. 정규분포에서 추출한 데이터들은 랜덤하게 분포하는게 보장이 됩니다. 그러므로 잔차가 정규분포를 따른다는 말은 곧 잔차가 랜덤하게 분포한다는 의미가 됩니다. 하지만 잔차가 랜덤하게 분포한다고 해서 꼭 정규분포를 따르는 것은 아닙니다. 정규분포만이 랜덤 분포는 아니기 때문입니다.\n 그리고 중심극한정리에 의해 표본 크기가 커질수록 자연스럽게 정규분포를 따르게 됩니다.\n 더 찾아보니 잔차가 정규분포를 따른다고 가정하는게 필수는 아니라고 합니다. 정규분포를 가정하지 않더라도 OLS는 최적의 선형 불편 추정량(BLUE)를 만족하기 때문입니다. 그래도 잔차가 정규분포를 따른다면 MLE = OLS가 되기 때문에 OLE가 BLUE임을 자연스럽게 보장하게 됩니다.",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1757928803.562359",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7YCBFV",
+              "ts": "1757928819.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88JL1Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7YCBFV> 답변 감사합니다!! 먼저, 저는 강의에서 Linear Regression이 선형성, 독립성, 등분산성, 정규성을 필요조건으로(가정한다, 전제한다의 의미) 한다고 이해했습니다.\n\n일단 x축이 무엇을 의미하는지를 차치하고서... 말씀주신대로, 잔차가 랜덤하게 분포한다는 것이 잔차가 정규분포 따른다는 것을 내포하지 않습니다.\n\n반면, 교수님께서는 강의에서 \"데이터 시각화를 통해 선형회귀 가정의 적합성을 파악할 수 있다\"라고 하셨고 저는 이것을 토대로, \"잔차가 랜덤하게 분포하는 것(그래프를 이렇게 해석한다면)을 확인한다면, 어떻게 이 사실이 잔차가 정규분포를 따른다는 것을 파악할 수 있는지 잘 모르겠습니다\"가 2번 질문의 요지였는데, 제가 질문을 부족하게 작성한 거 같습니다. :smiling_face_with_tear:\n\n몰랐었던 내용인데, 답변주신 잔차 독립성, OLS 등 개념에 대해서도 더 search해보겠습니다 감사합니다.",
+          "user": "U09CH88JL1Z",
+          "user_name": "한승범_T8215",
+          "timestamp": "1757931356.240049",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH88JL1Z",
+              "ts": "1757931818.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH88JL1Z> 아 2번 질문이 그런 요지였군요 ㅎㅎ 데이터 시각화를 통해 잔차가 정규분포를 따르는지를 확인할려면 QQplot을 확인하면 됩니다.  QQplot에서 대각선 위에 점들이 놓여있으면 잔차가 정규 분포를 따른다고 볼 수 있습니다.\n\n근데 지금 보니 강의자료에 '등분산성'과 '정규성'을 검정하는 그래프 라벨링이 반대로 되어 있는 것 같네요. 저도 헷갈려서 좀 더 찾아봤는데, 첨부하신 그래프가 Residual vs Fitted Plot으로 등분산성을 검정하는 그래프고, 왼쪽에 있는 대각선 그래프가 QQplot으로 정규성을 검정하는 그래프인 것 같습니다.\n\nQQplot에 대해서 좀 더 자세히 설명되어 있는 블로그 첨부해드릴게요\n<https://diseny.tistory.com/entry/QQ-Plot-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EB%B0%8F-%ED%99%9C%EC%9A%A9%EB%B2%95#google_vignette>",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1757951108.629859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "relaxed",
+                "users": [
+                  "U09CH88JL1Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88JL1Z",
+                  "U09CH7T8Z8T"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 이부분에 대해 와닿지 않아 자료를 찾아 보았습니다.\n\n저는 교수님께서 선형회귀의 가정에서 x,y는 각각 독립변수와 종속변수를 의미하는 것이라 하셨어서\n강의 자료의 그래프에서 x축은 독립변수를 정규화한 것으로 생각하고 y축은 y-y_hat (잔차)이라고 본다면\n\n등분산성의 경우 이를 만족한다면 산점도가 첫번째 이미지의 그래프처럼 그려진다고 합니다\n등분산성을 만족하지 못한다면\n두번째 이미지 처럼 x에 따른 분산이 커지거나 작아지거나 특정구간에서 커지는 등의 이러한 그래프가 그려진다고해요\n\n그리고 해당 그래프의 정규성에 대한 부분은\n몬테카를로 샘플링 방식처럼 (y-y_hat의 특정 구간별 점의 개수)/(전체구간 점의개수) 가 정규분포의 해당 구간에서의 확률을 따른다는 의미로 저는 해석을 하였습니다",
+          "user": "U09CH89HZM1",
+          "user_name": null,
+          "timestamp": "1757995150.375959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88JL1Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "[ML LifeCycle / 02.선형대수 / 2강 ppt 9p]\n안녕하세요, 강의 영상 내에서 정규성과 등분산성의 이미지가 바뀌어 있어 하단 첫번째 이미지가 해당 페이지에서의 올바른 그래프임을 전달드립니다.:man-bowing::cry:\n\n관련해서 설명 추가드립니다.\n\n• 등분산성은 오류의 분산이 일정한 경우를 말합니다. x값과 관계없이 y값이 일정한 분산을 가져야합니다. 2번 이미지의 좌측 그래프는 등분산성을 갖지만 중앙, 오른쪽 그래프에서는 x에 따라 y값의 범위가 변화하는 패턴을 갖습니다. 이런 경우에는 등분산성이라고 말하기 어렵습니다.\n• 정규성은 잔차가 정규 분포를 따르는 경우를 말합니다. 이런 경우에는 영진 캠퍼님의 말씀처럼 QQplot으로 정규 분포를 따르는지 확인하는 과정을 거칩니다. 교수님께서 말씀하신`\"데이터 시각화를 통해 선형회귀 가정의 적합성을 파악할 수 있다\"` 는 QQplot을 이용한 시각화를 통해 정규성을 확인할 수 있다는 의미를 내포하는 것으로 이해하시면 좋을 것 같습니다. \n<@U09CH88JL1Z> 추가적인 질문 있으시면 빠르게 답변 드리도록 하겠습니다. 감사합니다.",
+          "user": "U04RG8YTUP7",
+          "user_name": null,
+          "timestamp": "1758003742.035259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U09CH88JL1Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88JL1Z",
+                  "U09CH7T8Z8T",
+                  "U09CH7XTTNX",
+                  "U09CH89HZM1"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "L1의 경우 boundary의 기울기가 x=0, y=0. y=x, y=-x만 가능하지 않나요?\n결국 두개의 점에서 거리가 같게 이동하려면, 각 점에서 유효한 x, y가 같이 증감하거나 유지되어야할테니까요\n저 이미지는 그냥 L2거리를 복사한게 아닌가요?",
+        "user": "U09CH8BPMKM",
+        "user_name": "한석근",
+        "timestamp": "1757983248.886899",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8BPMKM",
+            "ts": "1757983337.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 석근님!\n말씀 주신 것처럼 *L1의 경우 decision boundary는* x=0, y=0, y=±x 방향의 직선들로 이루어집니다.\n\n기존 이미지가 적절하지 못한 것 같아 예시 이미지 다시 첨부드립니다. (1번째 L1 Image, 2번째 L2 Image)추가적으로 KNN 실습이 가능한 링크를 공유드립니다.\n <http://vision.stanford.edu/teaching/cs231n-demos/knn/>\n\n다시 한 번 좋은 지적 감사드립니다!",
+          "user": "U04RG8YTUP7",
+          "user_name": null,
+          "timestamp": "1758004523.247809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "범용 근사 정리를 통해 신경망이 연속함수를 임의의 정밀도로 근사할 수 있음을 이론적으로 알 수 있습니다. 그러면 불연속적인 함수에 대해선 신경망이 근사할 적절한 방법이 존재하나요? 존재한다면 급격한 기울기 변화에 대한 문제가 발생하는지의 여부에 대해 알고 싶습니다",
+        "user": "U09CH88SM5H",
+        "user_name": "김민석",
+        "timestamp": "1757988704.231009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "임의의 주기함수는 싸인코사인의 합으로 근사시킬수 있습니다(푸리에급수)\n데이터는 제한된 범위 내에서 제공될테니 푸리에 근사가 가능해지겠고,\n그래서 결국 노드를 충분히 넓힌다면, 불연속이라도 학습이 가능하다고 생각합니다.\n물론 이건 single layer에서 제가 어떻게든 구현한다면 이런 방식이겠지만, 실제로 계층이 많아지면 더 효율적인 방식이 많을겁니다",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1757989148.009519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이론적으로만 보자면 디리클레 함수와 같이 비가산개의 불연속점이 존재하면 가산개로 구성되어 있는 신경망으로는 근사가 불가능하지 않을까 싶네요.",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1757995042.977929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

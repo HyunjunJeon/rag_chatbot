@@ -1,0 +1,58 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> *[6강 강의 영상 INTJ 관련]*\n안녕하세요!\n\n6강 19분 25초에 INTJ 태그를 접속사로 소개하고 있는데, INTJ 태그의 정의는 아래와 같습니다.\n“Interjection: exclamation, greeting, yes/no response, etc”\n강의자료에는 이상이 없으나 구두 설명 부분에 오류가 있었습니다.\n\n해당 부분에 자막을 달아 추후에 발생할 혼란을 방지할 예정입니다.\n영상 수정본 업로드 되는대로 다시 또 공지드리도록 하겠습니다.\n\n감사합니다.",
+        "user": "U0284GKL1T4",
+        "user_name": "김보겸",
+        "timestamp": "1636944258.067300",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U029F62SBPD",
+                "U029PN9SX1R",
+                "U029H263PD1",
+                "U029TD91F09"
+              ],
+              "count": 4
+            },
+            {
+              "name": "넵",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "인티제가 잘못했네요 ㅋㅋㅋ",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1636945290.067800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

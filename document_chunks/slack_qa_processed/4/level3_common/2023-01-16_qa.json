@@ -1,0 +1,933 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "말씀하시듯.. 보통 이렇게들 합니다 ㅎㅎ",
+        "user": "U03PVSC77HR",
+        "user_name": "전시흠",
+        "timestamp": "1673863734.604429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "&gt; 어떻게 디버깅하면 좋을까요?\n따라서 에어플로우는 아예 스케줄링만 담당하게 하고, 실제 로직은 별도의 애플리케이션 단에서 해결해버리기도 합니다. (DockerOperator, KubernetesOperator 등)\n\n이렇게하면 애플리케이션에서 개발 다하고, 이미지 만들어 둔 뒤, 에어플로우에서는 그냥 실행만 하는 것이죠. 그러면 디버깅을 에어플로우가 아닌 애플리케이션에서 직접하게 됩니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673863804.179759",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673863848.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한편, 로그 수집 및 모니터링을 고도화하면, 에어플로우 테스크 로그 화면이냐, 터미널 로그가 아닌, ES같은 툴을 통해서 통합해서 보기도 합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673863890.301019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G93ETS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사드립니다! 한번 찾아보겠습니다",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673882138.864839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주헌님 안녕하세요-!\n• Airflow DAG : DAG의 실행을 확인하기 위해 WEB UI를 확인하는 것이 제일 괜찮아요.\n• Scheduler의 로그를 보는 것은 케이스가 생각보다 적을 수 있어요. 로그가 많이 나와서 어렵거든요..!\n혹시 어떤 상황에서 에러 핸들링이 어려우셨나요? 어려웠던 상황을 말씀해주시면 더 좋은 방법이 있나 말씀드릴 수 있을거에요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673917243.804959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저같은 경우\n• A &gt;&gt; B &gt;&gt; C  - (DAG 1)\n• A &gt;&gt; B  - (DAG 2)\n이런 식으로 DAG 1, 2가 있을 때\nDAG2에서는 문제가 없는데\nDAG1실행 시 airflow scheduler에서 다음과 같은 에러가 발생합니다.\n\n`ERROR - Executor reports task instance &lt;TaskInstance: DAG1.A scheduled__2023-01-12T00:00:00+00:00 [queued]&gt; finished (failed) although the task says its queued. (Info: None) Was the task killed externally?`\n\nA,B,C 모두 python operator로 실행하고\nA,B,C 함수 모두 airflow 사용하지 않고 별도로 사용할 때는 문제가 없는 것을 확인했습니다..",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673920262.129289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그런데 C를 `PythonOperator` 대신 `BashOperator` 로 사용할 땐 해당 오류가 발생하지 않았습니다.",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673920330.686949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Airflow Webserver UI에서 Task Log엔 어떤 기록이 남았나요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673920344.470669",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1673920352.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "DAG, Task 로그는 스케쥴러를 보면 이해하기 어려워서, Webserver에서 DAG 초록색(또는 빨간색) 등을 눌러서 Log를 보시면 이해하기 수월한 에러 메세지가 나올거에요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673920428.940749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Webserver에 log가 남지 않아서..그게 문제였습니다 :melting_face:",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673920883.662419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "interrobang",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹 재현이 가능할까요? 재현을 해주시면 상황을 또 보고 말씀드릴 수 있을 것 같아요(Webserver에 로그가 남지 않는 것이 어떤 것을 의미하는지, 주헌님이 말씀하신 Webserver가 어떤 곳인지도 궁금하네요)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673920974.792679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "log가 안뜨는게 맞는거죠?..",
+          "user": "U0427G93ETS",
+          "user_name": null,
+          "timestamp": "1673921872.040619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 넵 지금은 뜨지 않는거 같고.. 2, 3 눌러도 비슷하게 나오겠죠?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673922002.066289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 로컬인가요? AI Stage 서버인가요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673922051.798589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 1,2,3같고 로컬 맥북 환경입니다!",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673922077.694349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우선.. 지금 상황을 정리하면\n• 주헌님 케이스는 웹서버에 로그가 안나와서 어려움을 겪는 문제였던 것\n\n• 저라면 airflow.cfg에서 base_log_folder를 확인하고 해당 폴더에 permission 어떤 상황인지 확인\n• 아까 말씀해주신 DAG2는 Log가 잘 남고 있나요? 만약 DAG2가 로그가 남는다면 =&gt; Airflow의 이슈는 아닐 것\n    ◦ DAG1의 파일의 문제라서 파일이 어떤 코드인지 확인할 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673922283.091999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주헌님 작업하신 모든 코드를 다 깃헙에 올려주실 수 있나요?\n제가 제 로컬에 받아서 뭐가 문젠지 좀 살펴보고 말씀드릴게요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673922730.641429",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673922746.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PVSC77HR> <https://github.com/OZOOOOOH/airflow_test|링크>입니다!!",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673923438.886589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "프로젝트 실행시키려니\n```(.venv) ~/Desktop/heumsi/airflow_test (main ✔) airflow scheduler\nTraceback (most recent call last):\n  File \"/Users/user/Desktop/heumsi/airflow_test/.venv/bin/airflow\", line 5, in &lt;module&gt;\n    from airflow.__main__ import main\n  File \"/Users/user/Desktop/heumsi/airflow_test/.venv/lib/python3.10/site-packages/airflow/__init__.py\", line 34, in &lt;module&gt;\n    from airflow import settings\n  File \"/Users/user/Desktop/heumsi/airflow_test/.venv/lib/python3.10/site-packages/airflow/settings.py\", line 35, in &lt;module&gt;\n    from airflow.configuration import AIRFLOW_HOME, WEBSERVER_CONFIG, conf  # NOQA F401\n  File \"/Users/user/Desktop/heumsi/airflow_test/.venv/lib/python3.10/site-packages/airflow/configuration.py\", line 1129, in &lt;module&gt;\n    conf.validate()\n  File \"/Users/user/Desktop/heumsi/airflow_test/.venv/lib/python3.10/site-packages/airflow/configuration.py\", line 224, in validate\n    self._validate_config_dependencies()\n  File \"/Users/user/Desktop/heumsi/airflow_test/.venv/lib/python3.10/site-packages/airflow/configuration.py\", line 267, in _validate_config_dependencies\n    raise AirflowConfigException(f\"error: cannot use sqlite with the {self.get('core', 'executor')}\")\nairflow.exceptions.AirflowConfigException: error: cannot use sqlite with the LocalExecutor```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673924827.505429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가 뜨는데요. 에어플로우의 메타 DB는 어떤거 사용하셨어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673924846.044219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "클론 받고 어떻게 실행해야하는지 알려주시면 좋을거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673924861.254229",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673924868.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗. 제가 잘 정리해서 리드미에 올리겠습니다",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673924876.633189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이따가 올려드려도 괜찮을까요?",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673924940.228729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네넵 올리시고 멘션 한번만 주세요. 다만 제가 15:00 - 19:00 동안에는 슬랙을 보지 못합니다 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673924963.568619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G93ETS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1673865159.805369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 34
+        }
+      },
+      "answers": [
+        {
+          "text": "질문을 잘 정리해주셔서 좋군요!",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865209.743369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U0427G5T6BS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "poetry install 로 설치하신건가요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865218.838929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 poetry init, poetry shell, poetry install 과정을 거쳤습니다",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673865244.730219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pip list 하셨을 때 에어플로우 버전이 2.5.0 으로 나오나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865261.468299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 ! 맞습니다",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673865281.962429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ".",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865291.456099",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673865301.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잠시만요 …",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865304.542099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "터미널에 which python 입려하면 뭐라고 뜨나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865338.201249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```'which' is not recognized as an internal or external command,\noperable program or batch file. ```",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673865376.074499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "라는 메시지가 나옵니다.. ㅠ_ㅠ ( cmd , power shell 모두 동일 )",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673865386.943809",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G5T6BS",
+              "ts": "1673865416.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음.. 그럼 처음부터 다시 같이 설치해볼까요.\n이렇게 한번 따라해보셔요.\n\n• 기존 가상환경 다 제거\n• 프로젝트 디렉토리로 이동\n• python -m venv .venv\n• source .venv/bin/activate (가상 환경 진입)\n• poetry install\n• pip list 로 에어플로우 버전 확인",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673865481.417139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헛 감사합니다",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673865497.506489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여전히 2.5.0 으로 설치가 되네용...",
+          "user": "U0427G5T6BS",
+          "user_name": null,
+          "timestamp": "1673866238.873979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아…",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866272.565949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pyproject.toml 에 `apache-airflow = \"^2.2.4\"` 으로 되어있네요…",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866284.785869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어 !",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866289.536329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "뭔가 잘못되었나요 ... ?",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866294.351839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "^의 의미는 2.2.4와 호환이 되는 상위 버전이라는 뜻입니다.\n따라서 2.5.0이 이 버전과 호환이 되기 때문에 받아진거네요",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866402.737619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ":booduck_cry:",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866411.105569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시간 내주셔서 감사합니다.................",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866417.259599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```apache-airflow == \"2.2.4\"```\n가 되어야 합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866418.022819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 ... :booduck_cry:",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866427.182229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866470.077669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "요것도 한번 스윽 봐보시고",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866475.937049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이번 기회에 프사만큼 완벽히 이해하셨기를…",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866483.657819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다,, 제가 너무 1차원적인 학습을 했네요..\n( 아~ 완벽히 이해했어 ! )",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866505.037279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "소프트웨어 개발, 배포할 때 버저닝 방식을 이해하는건 “많이” 중요한데요.\n혹시 시멘틱 버저닝을 잘 모르셨던 분들은 요것도 한번 보시면 도움이 될거 같아요.\n\n<https://velog.io/@rxjw95/Semantic-Versioning>",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1673866580.029779",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1673866590.000000"
+            },
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U041HN2FGMR",
+                  "U041ES2UBHB",
+                  "U0427G3B34G",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헛 감사합니다 :smile:",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866594.542399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헐 제가 질문을 ㅇ지워버렸어요",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866623.348169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅠㅠㅠㅠㅠ 팀에 공유하려고 하다가 ㅠㅠㅠㅠ",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673866657.598309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잘 적어주셨는데 아깝긴 하네요… ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673866685.483219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt;  질문을 실수로 지워버려 댓글로 다시 남깁니다... 하하 \n해당 스레드의 질문은\n\n*Windows10 환경에서 `airflow users create`* *시에 SIGNAL 속성 오류 발생 문제* 였습니다.\n문제 확인 과정에서 airflow version 이 `2.5.0` 으로 설치된 것을 확인했고, 이 부분 도움 요청드렸습니다 !\n\n결론은 toml 파일에서 tilde 의 역할을 이해하지 못해서 발생한 문제였고, 위와 같이 도움 주셨습니다 :smile:\n\n&lt; 질문했을 때 남겼던 환경 구성 &gt;\n\n• 환경 : Windows 10, Python 3.8.10\n• poetry.toml\n```[tool.poetry.dependencies]\npython = \"^3.8\"\napache-airflow = \"^2.2.4\"\ntyping-extensions = \"^4.4.0\"```",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673867048.469529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR",
+                  "U041L8X6A3W"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "업데이트 드립니다 :smile:\n도움 주셔서 감사합니다 ! 혹시 아래 내용이 틀렸다면 정정 부탁드립니다 ㅎㅎ\n\n• 2.2.4 version 에서는 `airflow db init` 과정에서 `ModuleNotFoundError: No module named 'termios'`  오류가 발생\n• ( 결론 ) Windows 미지원으로 WSL2 나 Docker 환경에서 진행  <https://github.com/apache/airflow/issues/10388>",
+          "user": "U0427G5T6BS",
+          "user_name": "허유진_T4229",
+          "timestamp": "1673868179.089149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR",
+                  "U041L93GPNY"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "유진님 안녕하세요! 질문 정말 잘 올려주셨네요 :+1:\n개발을 하다보면 윈도우에서 제한되는 경우가 종종 있습니다 ㅠ_ㅠ 그래서 저도 윈도우에서 개발할 때는 아예 모두 다 도커로 진행했었어요(파이썬을 로컬에 설치하지도 않고)\n\n하나씩 디버깅해서 답을 찾아가는 과정을 보니 너무 잘 하고 계신 것 같아요 :muscle:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673917332.368019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U0427G5T6BS"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G5T6BS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "그럼 final 프로젝트에서는 github action을 통한 자동 배포가 불가능한건가요? 혹시 그렇다면 따로 팀 repository 생성은 안되는건가요?",
+        "user": "U041L93GPNY",
+        "user_name": "정석희_T4194",
+        "timestamp": "1673882371.253629",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 일시적으로 admin 권한을 부여받아서 github action을 사용한 CI/CD 작업을 할 수 있을까요?",
+          "user": "U041ES2FNA1",
+          "user_name": "유영서",
+          "timestamp": "1673913509.243799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 <@U041L93GPNY> <@U041ES2FNA1> 캠퍼님 문의하신 답변 드립니다.\n\n admin권한 임시 제공 여부 &amp; github actions 정책 두가지 확인하였습니다.\n\n1.현재 admin권한은 임시로도 제공 하고 있지 않습니다.\n2.github actions는 free plan GitHub account에 대해 private repository(현시점 final project repository도 private)의 경우  제한된 용량의 action 사용을 허용하고 있습니다. ( <https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions|관련 URL> ) 잠깐 사용은 할수는 있으나 용량이 제한되어 있기에 언젠가는 block될 것이고 사용을 권장드리지는 않습니다.\n3. github action CI/CD 강의 내용은 public repository등에서 작업할때의 일반적인 방식에대한 설명입니다. 현 시점에서 해당 내용을 테스트하고자 한다면 별도의 public repository를 생성하여 테스트 부탁드립니다.\n\n\n감사합니다.",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1673917704.255439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요  <@U041ES2FNA1> <@U041L93GPNY> 님\n본 이슈 내부에서 좀 더 논의 하였습니다.\n\ngithub action CI/CD 사용시 final project와 연계하여 테스트하고 설정하는게 적절해보이고  1/25(수)에 final project repository를  private에서 public으로 전환하는걸로 의사결정하였습니다.\n\npublic 전환이후 data set 저작권에 유의해주시고 해당 시점 이후로 public 전환된\nrepository에서 해당 기능 사용하시면 됩니다.\n\nfinal project public전환 관련 공지도 1/25(수)에 나갈 예정입니다.\n\n감사합니다.",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1673922624.527349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 확인하였습니다 감사합니다!",
+          "user": "U041ES2FNA1",
+          "user_name": "유영서",
+          "timestamp": "1673923209.161989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인했습니다! 감사합니다!",
+          "user": "U041L93GPNY",
+          "user_name": "정석희_T4194",
+          "timestamp": "1673924660.364339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

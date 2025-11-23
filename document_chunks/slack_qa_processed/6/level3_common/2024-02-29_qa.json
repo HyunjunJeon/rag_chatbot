@@ -1,0 +1,132 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "과제 1 질문입니다.\nget_data_task라는 것은 그냥 get_dataset() 함수가 정상적으로 동작하는지 알아보기 위해서 존재하는 항목일까요?",
+        "user": "U063MR80TA9",
+        "user_name": "이선우라이언",
+        "timestamp": "1709193619.793129",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C06M7BAET2L/p1709132602802409?thread_ts=1709129389.798789&amp;cid=C06M7BAET2L>\n\n요기에 공유드린 내용을 보시면 될 것 같아요-!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709197246.692989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U0646PBD8CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!channel>\n\n1회차 마스터 클래스 듣고 어떤 느낌이 드셨는지 짧게나마 쓰레드로 남겨주시면 제가 다음 마스터 클래스 자료 만들 때 도움이 됩니다(어렵다라는 이야기도 가능)\n\n(발표 자료는 공지 채널에 있어요)",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1709197405.699489",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U03PL9GCPFZ",
+            "ts": "1709197688.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "Serving에서 집중적으로 봐야 하는 요소들이 무엇인지 알 수 있어서 좋았습니다!!\n또한 최종 프로젝트의 포트폴리오에서 문제 정의 및 제한사항이 있을때 어떻게 흐름을 잡고 작성을 해야 하는지 알 수 있어서 너무 좋았습니다.  감사합니다!!",
+          "user": "U063MR4HDMK",
+          "user_name": "신호준_T6091",
+          "timestamp": "1709198142.245589",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063MR4HDMK",
+              "ts": "1709198161.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이번 product serving강의를 들으면서 실제 현업에서 모델이 어떻게 배포되고 어떤 식으로 환경을 구축하는지 궁금했습니다.\n금일 클래스에서 마스터님의 실제 경험담을 들으면서(모든 내용을 다 이해하지는 못했지만..), 서빙 관련해서 많은 내용을 고려해야할 필요가 있다는 생각을 했습니다. 모델개발과 배포는 확실히 다르다는 생각이 들었으며 개발할 때 해당 모델이 실제 배포되었을때 어떤 문제가 발생할 지 한번쯤은 고민해보면 좋을 것 같다는 생각도 했습니다. + 다음주에 데이터 엔지니어링 내용 너무 기대됩니다ㅎㅎ 추가적으로 혹시 마스터님께서 경험해보신 MLops관련 프로젝트이야기도 들어보고 싶습니다~!\n좋은 강의 해주셔서 감사합니다.",
+          "user": "U063A72CD4P",
+          "user_name": "김창영_T6042",
+          "timestamp": "1709198585.907849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "두분 남겨주셔서 너무 감사해요:+1::+1::+1::muscle::muscle:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709210320.175449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "ditto_dance",
+                "users": [
+                  "U063MR4HDMK",
+                  "U063A72CD4P",
+                  "U064DNJ9M5W"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

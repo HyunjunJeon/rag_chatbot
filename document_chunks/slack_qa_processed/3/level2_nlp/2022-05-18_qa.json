@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! NLP 11조의 조혁준입니다.\n검색을 하다가 <https://pytorch.org/docs/stable/generated/torch.nn.utils.rnn.pad_packed_sequence.html|torch.nn.utils.rnn.pad_packed_sequence> 라는 모듈을 발견했는데, 일전에 배웠던 Sequence Bucketing과 유사한 기능을 하는 것 같아서 궁금한 점이 생겼습니다.\n\n제가 이해했을 땐 pad_packed_sequence는 이미 Padding이 되어있는 batch를 batch내에서 새롭게 정렬해서 연산 속도를 개선하는 것이고,\nBucketing은 Seqeunce를 미리 정렬한 후에 padding 및 batch구성을 하여 연산 속도를 개선하는 방법이라고 생각했습니닷\n\n그렇다면 두 기능은 순서가 다를 뿐 같은 기능을 하는 것이 맞는지 궁금합니다!!",
+        "user": "U02U0GDFTUH",
+        "user_name": "조혁준",
+        "timestamp": "1652940433.626089",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TUHB5D7V"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 궁금합니당..",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1652942122.435369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "cfg.data.test.test_mode = True\n혹시 이 옵션 때문은 아닌가요?",
+        "user": "U029UND0U1Y",
+        "user_name": "Yongbeom Kwon",
+        "timestamp": "1634120134.096400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029UND0U1Y> 아 지금은 새로 서버 할당 받아서 처음부터 다시해서 해결했어요. 모델에 관련된 파일들이 잘못된 것 같더라구요 ㅎㅎ 답변 감사합니다",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1634120348.096600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029UND0U1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

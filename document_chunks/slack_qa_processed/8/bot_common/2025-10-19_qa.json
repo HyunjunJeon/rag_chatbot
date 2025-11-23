@@ -1,0 +1,142 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> Data imbalance 문제를 해결하는 Resampling 기법(소수 레이블의 데이터를 단순히 duplicate)은 Data leak 문제를 야기하지 않을까?",
+        "user": "U09CH7UDBCK",
+        "user_name": "유채영",
+        "timestamp": "1760941012.986529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH894W3D",
+                "U09CH7Y6HEX"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7UDBCK> 아니요, 소수 레이블 데이터를 단순히 복제하는 Resampling 기법은 일반적으로 '데이터 유출(Data Leakage)' 문제를 직접적으로 야기하지 않습니다. 데이터 유출은 모델 훈련 시 예측 시점에는 사용할 수 없는 정보가 포함되는 것을 의미하며, 단순 복제는 기존 훈련 데이터 내의 정보를 재사용하는 것입니다.\n\n하지만 이 방법은 다음과 같은 문제를 야기할 수 있습니다:\n\n1.  **과적합 (Overfitting):** 모델이 복제된 소수 클래스 샘플에 과도하게 맞춰져, 실제 보지 못한 새로운 데이터에 대한 일반화 성능이 저하될 수 있습니다.\n2.  **평가 지표 왜곡:** 특히 교차 검증(Cross-validation) 시 Resampling을 전체 데이터셋에 먼저 적용하면, 동일한 복제된 데이터가 훈련 및 검증 폴드에 모두 포함되어 성능이 과대평가될 수 있습니다. Resampling은 반드시 훈련 세트에만 적용해야 합니다.\n\n결과적으로 모델이 실제 환경에서 예상보다 낮은 성능을 보일 위험이 있습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1760941025.451849",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> validation data에 train data에서 복제된 샘플이 들어가는 경우도 Data leak에 해당하지 않아?",
+          "user": "U09CH7UDBCK",
+          "user_name": "유채영",
+          "timestamp": "1760941390.649349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7UDBCK> 네, 검증 데이터에 훈련 데이터에서 복제된 샘플이 들어가는 경우는 **데이터 유출(Data Leakage)에 해당합니다.**\n\n이는 특히 '검증 세트 유출(Validation Set Leakage)'로 불리며, 모델의 일반화 성능을 과대평가하게 만듭니다.\n\n*   **원인:** 검증 세트의 목적은 모델이 '한 번도 보지 못한' 데이터에 대한 성능을 객관적으로 평가하는 것입니다. 훈련 세트에서 복제된 샘플이 검증 세트에 포함되면, 검증 세트가 더 이상 독립적인 '미지의 데이터'가 아니게 됩니다.\n*   **결과:** 모델은 해당 샘플(혹은 그 복제본)을 훈련 과정에서 이미 학습했기 때문에, 검증 세트에서의 성능이 실제보다 높게 측정됩니다. 이는 모델의 실제 배포 시 예상보다 낮은 성능을 초래하여 잘못된 의사결정을 유도할 수 있습니다.\n\n따라서 Resampling은 반드시 훈련 세트에만 적용하고, 데이터 분할을 먼저 수행하여 각 데이터셋 간의 독립성을 엄격히 유지해야 합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1760941409.910729",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> 훈련 세트에만 resampling(upsampling)하면 테스트 세트와 레이블 비율이 다른데 괜찮아?",
+          "user": "U09CH7UDBCK",
+          "user_name": "유채영",
+          "timestamp": "1760941675.991039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7UDBCK> 네, 괜찮습니다. 훈련 세트에만 resampling(upsampling)을 적용하여 레이블 비율이 달라지는 것은 **올바른 접근 방식**입니다.\n\n이유는 다음과 같습니다.\n\n1.  **훈련 세트의 목적:** 불균형한 데이터에서 소수 레이블에 대한 모델의 학습 능력을 향상시키는 데 있습니다. Up-sampling은 모델이 소수 클래스의 특징을 더 많이 학습하도록 돕기 위해 훈련 데이터의 분포를 의도적으로 변경합니다.\n2.  **테스트 세트의 목적:** 모델이 실제 환경에서 마주할 **원본 데이터 분포**에 대해 얼마나 잘 작동하는지 객관적으로 평가하는 것입니다. 테스트 세트는 실제 세계의 불균형한 레이블 분포를 그대로 유지해야만, 모델의 일반화 성능을 정확하게 측정하고 과대평가를 피할 수 있습니다.\n\n따라서 훈련 세트는 학습을 위해 재조정하고, 테스트 세트는 실제 성능 평가를 위해 원본 분포를 유지하는 것이 표준적인 방법론입니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1760941686.043069",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> 그럼 단순 복제가 아닌 LLM 증강과 같은 upsampling을 하고 Data split(train/validation)을 하면 data leak 문제가 생기지 않아?",
+          "user": "U09CH7UDBCK",
+          "user_name": "유채영",
+          "timestamp": "1760942194.035699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7UDBCK> 네, LLM 증강과 같은 고급 upsampling 기법을 사용하더라도, **데이터 분할(Data split)과의 순서에 따라 데이터 유출(Data Leakage) 문제가 발생할 수 있습니다.**\n\n핵심은 **언제 증강을 수행하느냐**입니다.\n\n1.  **데이터 유출 발생 가능성:**\n    *   만약 전체 데이터셋에 먼저 LLM 증강을 적용하여 새로운 샘플을 생성한 후, 이를 train/validation 세트로 분할한다면, 데이터 유출이 발생할 수 있습니다.\n    *   LLM이 원본 데이터의 특성을 기반으로 새로운 샘플을 생성하기 때문에, 검증 세트에 포함될 원본 데이터의 정보가 훈련 세트의 증강된 샘플을 통해 간접적으로 학습될 수 있기 때문입니다. 이는 모델이 '보지 말았어야 할' 정보를 보게 되는 결과로 이어집니다.\n\n2.  **데이터 유출 방지 방법:**\n    *   데이터 유출을 방지하려면, 반드시 **원본 데이터를 먼저 train/validation/test 세트로 분할**해야 합니다.\n    *   이후 **훈련 세트에만 LLM 증강을 적용**하여 소수 클래스 샘플을 생성해야 합니다.\n    *   이렇게 하면 검증 세트는 증강 과정에 전혀 노출되지 않아 모델의 일반화 성능을 객관적으로 평가할 수 있습니다.\n\n결론적으로, 증강 기법의 정교함과 상관없이 데이터 분할 전에 전체 데이터에 적용하면 유출 문제가 생길 수 있으므로, **분할 후 훈련 세트에만 적용하는 원칙**을 지켜야 합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1760942207.412319",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> 오키오키",
+          "user": "U09CH7UDBCK",
+          "user_name": "유채영",
+          "timestamp": "1760942237.670399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7UDBCK> 네, 알겠습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1760942241.713989",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저도 궁금해서 찾아봤는데 애초에 인코딩시 자동으로 부착되는 special token에만 1 처리가 되게 코드가 설계된 것 같습니다!!:booduck_confuse:\n<https://github.com/huggingface/tokenizers/issues/722>",
+        "user": "U02RZURAQT0",
+        "user_name": "오수지_멘토",
+        "timestamp": "1648712919.937309",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U02TUHB5D7V",
+                "U02U7CWH8RH"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02RZURAQT0> 오우 우리 멘토님ㅠ.ㅠ 저는 검색해도 못찾았는데 딱 찾아주셨네요 감사합니다 :booduck_happy: 그러면.. encode 시 자동으로 붙는 token 만 1 처리되는게 정상작동이 맞기 때문에, 제가 캡쳐한 사진처럼 추가로 special token 더한거에 마스킹 안되는 것은 신경쓰지 않아도 되는걸까용?",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1648713643.971809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02RZURAQT0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TUHB5D7V> 넵 그런 것 같습니다..!!:disguised_face:",
+          "user": "U02RZURAQT0",
+          "user_name": "오수지_멘토",
+          "timestamp": "1648716903.044759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

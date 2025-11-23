@@ -31,7 +31,7 @@ vdb_store/
 logs/
 
 # RAG Docs - Not used in Production
-document_chunks/
+# document_chunks/
 # document_processing/
 original_documents/
 

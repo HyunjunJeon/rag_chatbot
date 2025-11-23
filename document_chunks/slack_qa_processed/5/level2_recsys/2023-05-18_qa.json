@@ -1,0 +1,294 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 혜인님:relaxed:\n\n먼저 위의 코드는 slidding_window 함수내에서 호출하는 함수인데 목적은 특정 윈도우내의 데이터를 shuffle하기 위함입니다.\n\n혜인님 말씀하신것처럼 각 순서별로 변경이 될 때 이슈가 있는 데이터들이 존재할거라고 생각합니다. 참고로 제 경험상 대체로 sequence 데이터를 shuffle을 통해 증강을 했을 때 성능이 대체로 비슷하거나 올라가는 경향이 있었습니다.\n\n당연하겠지만 모든 데이터에 좋은 방법은 아닐 수 있습니다. 데이터의 특성에 따라 달라지기 때문에 가설을 세워보시고 실험을 통해 DKT에서는 어떤지 확인해보시는걸 추천드립니다 :)",
+        "user": "U041FE8FKBN",
+        "user_name": "권태양",
+        "timestamp": "1684461610.041549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "실험을 통해 확인해보는게 좋겠군요! 답변 해주셔서 감사합니다 조교님:blush:",
+          "user": "U04RK728FC2",
+          "user_name": "주혜인_T5208",
+          "timestamp": "1684470078.478159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              },
+              {
+                "name": "relaxed",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "챗지피티한데 물어본 결과는 아래와 같습니다..",
+        "user": "U04RG90U6H3",
+        "user_name": null,
+        "timestamp": "1684468313.073819",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RMLU2K52",
+                "U04RMLZD9FW",
+                "U04S26ESDPW",
+                "U04R4LTEM55",
+                "U041FE8FKBN",
+                "U04RXRVK3T3",
+                "U04R4LT3ZTR",
+                "U04RMLUABA8",
+                "U04RK3HBGR1"
+              ],
+              "count": 9
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "제 개인적인 추천은 <http://web.stanford.edu/class/cs224w/|http://web.stanford.edu/class/cs224w/> 이 사이트에서 GNN에 대해서 전반적으로 보는것도 괜찮을 것 같아요. 유튜브에 cs224w치면 강의도 있고요!!",
+          "user": "U04RG8YL0SH",
+          "user_name": "조재오_T5204",
+          "timestamp": "1684468565.347689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "논문으로 추천하면 GCN, GraphSAGE, GAT가 거의 기본 모델이라 한번 찾아서 보시면 좋아요. 이 내용도 위에 링크에 포함되어있어요!",
+          "user": "U04RG8YL0SH",
+          "user_name": "조재오_T5204",
+          "timestamp": "1684468659.427939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RG90U6H3",
+                  "U04RMLU2K52",
+                  "U04RXRV3T9P"
+                ],
+                "count": 3
+              },
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RG90U6H3",
+                  "U04RMLU2K52",
+                  "U04RXRV3T9P"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "알려주셔서 정말 감사합니다!!",
+          "user": "U04RG90U6H3",
+          "user_name": "김주의_T5057",
+          "timestamp": "1684468674.510939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "partydoge",
+                "users": [
+                  "U04RG8YL0SH"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저 중에 실제하지 않는 논문들이 있을수도 있습니다!",
+          "user": "U03PUH174BD",
+          "user_name": "이종혁_멘토",
+          "timestamp": "1684472170.737039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U04RG90U6H3"
+                ],
+                "count": 1
+              },
+              {
+                "name": "melting_face",
+                "users": [
+                  "U04RG90U6H3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 주의님 :)\n\n<https://arxiv.org/pdf/2109.12843.pdf>\n해당 논문 추천드려요. 이 논문에 주의님께서 궁금해하시는 GNN 히스토리가 있고 그 외에도 읽어보면 좋은 정보들이 있는 거 같아요!\n\n<https://github.com/tsinghua-fib-lab/GNN-Recommender-Systems>\n참고로 언급한 논문들의 링크는 여기에 정리되어 있어요.",
+          "user": "U041FE8FKBN",
+          "user_name": "권태양",
+          "timestamp": "1684472401.634539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PUH174BD> 챗지피티가 추천해준 자료는 진짜로 몇몇 개가 없었습니다ㅠㅠ\n\n<@U041FE8FKBN> 추천해주셔서 정말 감사합니다!!",
+          "user": "U04RG90U6H3",
+          "user_name": "김주의_T5057",
+          "timestamp": "1684472625.554699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C04SH9QPJUC/p1684473759332039>\nGNN 특강 추천드립니다아~! :star::star::star::star::star:",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1684473969.364589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY",
+                  "U04RXRT6QGZ"
+                ],
+                "count": 3
+              },
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY",
+                  "U04RXRT6QGZ"
+                ],
+                "count": 3
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY",
+                  "U04RXRT6QGZ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```A survey of deep neural network architectures and their applications (2017)\nDeep learning on graphs: A survey(2020)\nGraph neural networks: A review of methods and applications(2020)\nGraph neural network: A comprehensive review on non-Euclidean space(2021)```\n랑\n<https://github.com/thunlp/GNNPapers>\n퍼왔습니다",
+          "user": "U04R4LTEM55",
+          "user_name": "조현석_T5205",
+          "timestamp": "1684477444.568769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RG90U6H3",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 데이터로더를 생성할 때, 학습 데이터와 테스트 데이터에서 drop_last는 일반적으로 어떻게 설정해?\n```train_dataloader = DataLoader(train_sst_dataset, batch_size = batch_size, shuffle = True, drop_last=True)\ntest_dataloader = DataLoader(test_sst_dataset, batch_size = batch_size, shuffle = False, drop_last=True)```",
+        "user": "U09CH88MLJX",
+        "user_name": "김민진",
+        "timestamp": "1760090026.943889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH88MLJX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH88MLJX> `train_dataloader`와 `test_dataloader`의 `drop_last` 설정은 일반적으로 다음과 같이 사용됩니다.\n\n1.  **`train_dataloader` (학습 데이터): `drop_last=True`**\n    *   **이유**: 대부분의 경우 학습 시 `True`로 설정합니다. 모든 배치 크기를 동일하게 유지하여 모델의 안정적인 학습을 돕고, 특히 배치 정규화(Batch Normalization)와 같은 기법을 사용할 때 일관된 통계를 유지하는 데 유리합니다. 마지막에 남는 작은 배치가 학습에 불안정성을 초래하는 것을 방지합니다.\n\n2.  **`test_dataloader` 또는 `val_dataloader` (테스트/평가 데이터): `drop_last=False`**\n    *   **이유**: 평가 데이터는 일반적으로 `False`로 설정합니다. 모델의 성능을 정확하게 평가하기 위해 전체 데이터셋의 모든 샘플을 사용해야 하기 때문입니다. 마지막에 남는 작은 배치라도 버리지 않고 평가에 포함시켜야 모델의 실제 성능을 왜곡 없이 측정할 수 있습니다.\n\n**요약:**\n*   **학습**: `drop_last=True` (안정적인 학습 및 배치 일관성)\n*   **평가**: `drop_last=False` (정확한 전체 데이터셋 성능 측정)",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1760090035.248979",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

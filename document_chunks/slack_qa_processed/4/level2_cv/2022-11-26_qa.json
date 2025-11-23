@@ -1,0 +1,65 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*혹시 mmdetection에서 inference를 할 때, 각각의 img_sample에 대해 model loss를 구하는 방법을 아는 분이 계실까요?*\n\n`tools/test.py` 를 통해 AP 등에는 접근할 수 있는 상황이지만,\n각각의 이미지에 대해 loss를 구할 수 있는지 모르겠습니다.\n일반적인 파이토치의 경우 model(datasets[0]) 을 해서 loss를 하면 되는 쉬운 상황입니다만, mmdetection은 라이브러리가 밀접하게 연결되어있어서 아직 방법을 못 찾았습니다.",
+        "user": "U041HMZR68K",
+        "user_name": "sangmo gu",
+        "timestamp": "1669480420.296669",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0427GAL9KJ",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "비슷한 고민을 하고 있습니다.\nvalid loss는 나오지 않네요.\n선택한 img만 제외한 annot와\n선택한 img만 포함한 annot을 별도로 만들까 고민하고 있습니다.",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1669486108.331599",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G7HN6L",
+              "ts": "1669486209.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 알기로는 mmdetection 이 test.py에서 output에 대해 score는 계산하나 loss 계산은 이루어지지 않고 있는 걸로 알고 있는데요. 이 부분은 train.py 와 관련된 부분을 수정해서 활용할 수 있을 것 같습니다.",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669533468.389319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041HMZR68K",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

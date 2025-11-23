@@ -1,0 +1,254 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. Fast API를 활용해서 실습을 진행하는데 에러가 계속 발생합니다. (첫번째 화면처럼 화면은 로딩이 잘 되는데 버튼 클릭 시 에러 메시지가 뜹니다)\n여러 번 요청을 해서 Connection pool이 꽉 차서 발생한 에러라고 생각하여, retry나 sleep을 통해 해결하고자 했는데 해결되지 않습니다.\n`make -j 2 run_app`을 실행했을 때 두번째 사진처럼 `No module named app.__main__; 'app' is a package and cannot be directly executed` 에러가 발생하기에, 프론트엔드 쪽이 아니라 app쪽 문제인 것 같은데 혹시 아시는 분이 계신다면 조언을 구해도 될까요?",
+        "user": "U041HN1G4M9",
+        "user_name": null,
+        "timestamp": "1673943399.756049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0427G38CF2"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 파일 디렉터리 구조도 같이 올려주실 수 있나요?\n\n저도 비슷한 문제가 있었던거 같은데\nuvicorn.run(“app.main:app” ,)  여기서  app.main:app의 의미가 app 디렉터리 하위의 main.py에서 app 객체를 가르키게 되는거 같습니다.",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1673943710.772989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HN1G4M9"
+                ],
+                "count": 1
+              },
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041HN1G4M9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 pip install app으로 모듈을 설치했을때 저런 에러가 떴었어요! uninstall 한번 해보시겠어요??",
+          "user": "U041HMYTAR1",
+          "user_name": "김종해",
+          "timestamp": "1673943808.754069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L906VM2",
+                  "U041WE7FFUZ",
+                  "U041HN1G4M9",
+                  "U041HR6P5D0"
+                ],
+                "count": 4
+              },
+              {
+                "name": "meow_attentionreverse22",
+                "users": [
+                  "U041L906VM2",
+                  "U041WE7FFUZ",
+                  "U041HN1G4M9"
+                ],
+                "count": 3
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U041HN1G4M9"
+                ],
+                "count": 1
+              },
+              {
+                "name": "100",
+                "users": [
+                  "U041HN1G4M9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "python -m app은 패키지로 실행을 시키는데, 그러면 __main__.py를 entrypoint로 실행하게 되는 것 같습니다.\n위 경우에는 __main__.py이 없어서 그런게 아닐까 싶네요",
+          "user": "U041HR6P5D0",
+          "user_name": "sung su bae",
+          "timestamp": "1673943912.143129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HN1G4M9",
+                  "U041HRC9JRG"
+                ],
+                "count": 2
+              },
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041HN1G4M9",
+                  "U041HRC9JRG"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMYTAR1> 허거걱 해결됐습니다 감사합니다 :booduck_happy::booduck_happy::+1: 언제 app 모듈이 깔린 건지도 모르겠네요 ㅎㅎ",
+          "user": "U041HN1G4M9",
+          "user_name": "이정아_T4166",
+          "timestamp": "1673943946.327769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HR6P5D0",
+                  "U041HMYTAR1",
+                  "U041L906VM2",
+                  "U041WE7FFUZ"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정아님 안녕하세요! 잘 해결되었네요!\n보통 app, package라는 에러 메세지가 나오거나, `app.__main__`\n이런 단어가 나오는 경우 경로의 이슈거나 설치된 패키지의 이슈 두가지 중 하나인 경우가 많았어요-! 보성님이 말씀하신 것도 많이 발생하는 케이스라 어떤 경로에서 시작하는지가 중요해요\n\n관련해서 아래 글을 읽어보시고 메인의 역할을 잘 아시면 좋을 것 같아요!\n\n<https://stackoverflow.com/questions/4042905/what-is-main-py/36320295#36320295>\n\n모두 댓글 달면서 같이 해결하셔서 넘 멋져요 :muscle:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673945518.774959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Compute Engine에 Docker 이미지 배포하기 - Github Action 실습 관련 질문입니다.\nrepository는 Sync Fork상태입니다. (workflows tag 수정 commit이 반영되어 있습니다.)\n아래의 에러는 어디가 문제일까요?",
+        "user": "U041HMZ7PHR",
+        "user_name": null,
+        "timestamp": "1673949620.209789",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U045A59UDR6> <@U03UXQJ8T3Q>한번 봐주시면 좋을거 같습니다",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673949956.487909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "• <https://boostcampaitech.slack.com/archives/C04HHQWEFTK/p1673426448353599?thread_ts=1673426448.353599&amp;cid=C04HHQWEFTK|https://boostcampaitech.slack.com/archives/C04HHQWEFTK/p1673426448353599?thread_ts=1673426448.353599&amp;cid=C04HHQWEFTK>  도움이 될 내용일지 모르겠지만, setup-gcloud@v0에서 gcloud의 버전에 따라 사용되는 파이썬이 다른 것인지, 저는 버전을 높이니 저 Mutablemapping 에러가 안떴습니다. 혹시 버전업해보시고도 해결안되면 알려주세용 저도 궁금합니다 ㅎ.ㅎ",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1673950771.408009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "v413.0.0 으로 아래와 같이 수정해야만 동작합니다.\n이 문제는 setup-python,  setup-gcloud, google/cloud-sdk 의 버젼 조합에 따라 생기는 것 같습니다.\n결론적으로 제가 성공한 버전은 이와 같습니다. -&gt; setup-gcloud : *v0 (tag의 major vesion을 v0.x.x로 고정)*, google/cloud-sdk : *v413.0.0 (tag)*\n오픈소스를 사용할때 tag로 정해서 사용하는 것이 best practice 인 것 같습니다.",
+          "user": "U041HMZ7PHR",
+          "user_name": null,
+          "timestamp": "1673995526.487179",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZ7PHR",
+              "ts": "1673995563.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR",
+                  "U041HMZR68K",
+                  "U045A59UDR6",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

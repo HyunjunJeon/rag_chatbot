@@ -1,0 +1,160 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! fastapi 강의를 들으며 코드를 쭉 보고 있는데 궁금한 점이 있습니다!\n`main.py` 에 있는 코드인데 `bill`  function에 @property 라는 데코레이터가 어떤 기능을 하는지 잘 모르겠습니다. @property를 했을 경우 어떠한 장점이 있을까요?",
+        "user": "U0290GAJGG7",
+        "user_name": null,
+        "timestamp": "1639017644.174700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "muscle",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029T4XRUCR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! property decorator는 property 메서드를 만들때 사용하는데요,\n한 마디로 말하자면, 파이썬 클래스의 내부 정보를 외부에서 쉽게 조회할 수 있게 하기 위한 편의 기능이라고 생각합니다\n\n이게 무슨 말인지 아래 좀 더 설명을 적어보자면,\n파이썬에서 class 객체를 사용하실 때, 일반 함수를 클래스의 메서드로 바꿔서 사용을 주로 하실 텐데, `bill` 이라는 걸 클래스 메서드로 표현하자면 다음과 같습니다\n\n```class Order:\n  products: List[Product] = ...\n\n  def get_bill(self) -&gt; int:\n    return sum([product.price for product in self.products])```\n사용하는 부분에서 이 bill을 가져오기 위해서는\n```order = Order()\nbill = order.get_bill() # 여기```\n이런 식으로 작성해야합니다\n\n반면 property를 사용하면 조금 더 간결합니다\n\n```class Order:\n  products: List[Product] = ...\n\n  @property\n  def bill(self) -&gt; int:\n    return sum([product.price for product in self.products])```\n프로퍼티 데코레이터를 사용하면 이 코드를 사용하는 부분은 더 간결해지는데요\n```order = Order()\nbill = order.bill # 여기```\n이렇게 syntactic sugar 적인 역할만 하는 거 같은데, 이런 property method를 왜 쓸까요?\n\nproperty method는 주로 다음과 같은 경우에서 사용합니다\n• 파이썬 클래스에서 외부에서 접근 불가능하도록 한 private field들과 외부에서 접근 허용을 한 필드를 구분하기 위해서 \n• 필드를 조회하는 것 뿐만 아니라, 연산 및 validation 로직을 적용하기 위해서 \n사실 이 property 라는 기능은 자바와 같은 객체 지향 언어에서 getter, setter와 같은데요. 이 부분에 배경 지식이 있으신 분들은 더 쉽게 접근하실 수 있을 거 같습니다\n\n추가적인 부분들은 잘 설명되어 있는 아티클들로 대신하겠습니다. 더 궁금하신 점 있으면 편하게 알려주세요!\n\n<https://www.geeksforgeeks.org/getter-and-setter-in-python/>",
+          "user": "U029MCHFVEV",
+          "user_name": null,
+          "timestamp": "1639019358.175400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0290GAJGG7",
+                  "U029MCHN1BK",
+                  "U029E1P5Z5G",
+                  "U027SHXU18R",
+                  "U029DCPSW3Z",
+                  "U029NG58Q84",
+                  "U02905YS8J3",
+                  "U029MCT2RTK",
+                  "U029T4XRUCR"
+                ],
+                "count": 9
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상세한 답변 감사합니다 멘토님! 조금 더 간결하게 쓸 수 있다는 부분은 와닿는데 자바를 해보지 않아서인지  private field들과 외부에서 접근 허용을 한 필드를 구분한다는 것과 필드를 조회한다는 부분이 조금 낯선 것 같네요 ㅠㅠ  보내주신 링크 참조해서 조금 더 공부해보겠습니다!",
+          "user": "U0290GAJGG7",
+          "user_name": "김진용",
+          "timestamp": "1639027056.177100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0290GAJGG7> 님 안녕하세요! 좋은 질문 감사합니다 :slightly_smiling_face:\n\n상태님이 너무 잘 설명해주셔서 저는 간단한 의견만 공유드릴게요!\n\n파이썬을 하다보면 변수에 그냥 접근할 수 있어서 해당 개념에 대해 낯설 수 있을 것 같아요(저도 처음에 그랬어요..!) 객체 지향 프로그래밍이나 파이썬 클래스에 대해 더 공부를 하면서 아 이게 왜 필요한지, 없다면 불필요한 코드량이 있겠구나-를 느꼈어요!\n\nClass 관련 더 궁금하시면 <https://zzsza.github.io/development/2020/07/05/python-class/> 글 참고하시면 추상 메소드, slots, property, method의 종류 등을 보실 수 있을거에요\n\n객체 지향 프로그래밍 관련 글은 <https://zzsza.github.io/development/2018/09/09/oop/> 여기에 간단히 작성되어 있습니다 :pray:",
+          "user": "U029MCT2RTK",
+          "user_name": null,
+          "timestamp": "1639028818.177600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0290GAJGG7",
+                  "U029Z566G2G",
+                  "U027SHXU18R",
+                  "U029T4XRUCR"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파이썬은 다른 정적 언어 기반의 생태계보다 객체 지향에 대한 예제가 많이 없긴 합니다만, 적재적소에 잘 활용하면 더 깔끔하고 유지보수가 쉬운 코드를 만드는 데에 도움이 많이 된다고 생각합니다.\n\n성윤님이 주신 링크와 더불어서 property 메서드 같이 파이썬 클래스를 사용할때, private, protected, public에 대해 잘 설명해 놓은 블로그 글을 발견해서 공유드립니다~\n\n<https://inkkim.github.io/python/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4%EC%9E%90%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/>",
+          "user": "U029MCHFVEV",
+          "user_name": "Humphrey Ahn",
+          "timestamp": "1639029130.178300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0290GAJGG7",
+                  "U029MCT2RTK",
+                  "U029LA9EQCU"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헉.. 감사합니다!! 마스터님 멘토님! 참고하겠습니다!",
+          "user": "U0290GAJGG7",
+          "user_name": "김진용",
+          "timestamp": "1639029220.178700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "열심히 하시는 모습 보니 저희가 더 알려드리고 싶네요..!!!\n배우시지 않은 부분이여도 이렇게 질문주시면 많은 내용 공유드릴게요 :pray:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639029505.179200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0290GAJGG7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

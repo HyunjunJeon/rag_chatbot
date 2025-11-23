@@ -1,0 +1,44 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 .\n지식 그래프 기반 추천 모델을 이번 대회에 적용 해 보고자 하는데,\n무비렌즈 데이터로 학습된 지식 그래프를 이용해도 괜찮을까요?",
+        "user": "U063QNXGZFU",
+        "user_name": "전민서_T6151",
+        "timestamp": "1707984825.959329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 대회용 데이터로 새로 학습한 지식 그래프라면 상관 없지만, 기존에 공개된 지식 그래프는 외부 데이터에 해당하므로 불가합니다.",
+          "user": "U047UNPMNTF",
+          "user_name": "이원성",
+          "timestamp": "1707985603.558289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1707992280.160919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

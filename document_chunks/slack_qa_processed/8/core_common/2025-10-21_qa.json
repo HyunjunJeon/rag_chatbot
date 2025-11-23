@@ -1,0 +1,306 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "넵, 말씀하신대로 같거나 크면으로 보고 푸시면 감사하겠습니다.",
+        "user": "U04QH4ZVBJN",
+        "user_name": "SangJun Moon",
+        "timestamp": "1761032591.228159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다",
+          "user": "U09CH8BDAPM",
+          "user_name": "이승재_T8155",
+          "timestamp": "1761037566.102619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cool-doge",
+                "users": [
+                  "U04QH4ZVBJN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "4강 퀴즈 2번에서 틀린 선지를 골라야 하는데, \"R^2 값이 음수일 수 있다\"고 하는 선지는 명백하게 잘못되었다고 생각해서 선택했더니 오답이라고 나옵니다. 이 부분 확인 부탁드립니다.",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1761061257.487449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04QH4ZVBJN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "예측을 아주 못하는 모델에서는 음수가 나올 수 있습니다. 이 경우에 실제 값과 회귀 예측 값의 차의 제곱 합이 실제 값과 평균 값의 차의 제곱 합보다 클 수 있습니다.  <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html|sklearn의 R2_score 문서>를 보면 해당 경우의 간단한 예시가 제시됩니다. `y_true = [1,2,3]` 과 `y_pred = [3,2,1]` 의 경우를 생각해보면 이해에 도움이 될 것 같습니다.",
+          "user": "U09CH89NYSF",
+          "user_name": "정회성",
+          "timestamp": "1761091730.747959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U04QH4ZVBJN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그런 경우가 있었군요!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1761093766.378559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵, 회성님이 말씀 주신대로 모델이 종속 변수의 평균을 사용하는 것보다 예측을 더 못할 때 음수가 나오게 됩니다. 다시 말해, 모델이 아무런 예측도 하지 않고 단순히 평균값을 예측값으로 사용하는 것보다 더 나쁜 결과를 내놓을 때 R^2는 음수가 됩니다.",
+          "user": "U04QH4ZVBJN",
+          "user_name": "SangJun Moon",
+          "timestamp": "1761095406.387729",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04QH4ZVBJN",
+              "ts": "1761095577.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1761094803.640769",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86HP4K> 님, 중복된 글 같아서요, 이미지를 포함한 아래의 글은 삭제 부탁드리겠습니다",
+          "user": "U04QH4ZVBJN",
+          "user_name": "SangJun Moon",
+          "timestamp": "1761095456.843699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04QH4ZVBJN> 삭제했습니다",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1761095622.510159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U04QH4ZVBJN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[기본과제-2 마지막 코드 관련]\n코드 맨 마지막에서 여전히 \"전처리 중에 누수가 있습니다.\"가 출력되서 고민이신 분들에게 이 글이 도움이 되면 좋겠습니다. 저도 아직 모르는 게 많아서.. 혹시 다른 방법으로 해결하신 분이 계시다면 피드백 해주면 감사하겠습니다.\n\n우선 다운받은 기본과제-2 코드에선 맨 마지막 코드의 출력물이 이렇게 나와있습니다.\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 없습니다.\n0.9839```\n하지만 저는 위처럼 나오지 않더군요.. 아래처럼 나왔습니다.\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 있습니다. (<- 이 부분이 달라요)\n0.9839```\n누수를 탐지하고 해당 누수를 고치는 게 해당 과제의 목적이라고 생각했는데, 맨 마지막 코드(train_eval_pipeline 함수)에선 누수만 탐지하고 이를 수정하는 코드가 없는 것 같았습니다. 그래서 저는 아래 코드를 train_eval_pipeline 함수 안에 추가해줬습니다.\n\n```for feature in leaky_features:\n    num_cols.remove(feature)```\nleaky_features는 누수가 의심되는 피쳐고, num_cols는 학습 피쳐입니다. 한마디로 학습 피쳐에서 누수가 의심되는 피쳐를 제거해줬어요. 그리고 다시 학습을 수행해 아래와 같은 결과를 얻었습니다.\n\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 없습니다.\n0.8941```\nAUC-ROC 점수는 떨어졌지만 (누수가 되는 피쳐를 제거했으니 당연한 결과일까요..?) 원하던 대로 '전처리 중 누수가 없습니다.' 라는 결과를 얻을 수 있었습니다. 혹시 맨마지막 코드의 출력이 생각대로 나오지 않아 고민이신 분들께 이 글이 도움이 되었으면 좋겠습니다. 이상입니다.\n\n*추가)* 아 그리고..!! 코드에서 pandas.DataFrame.var 메소드를 사용하신다면 ddof=0로 설정하는 게 좋으실 것 같습니다. 분산을 계산할 때 N으로 나누는 경우하고 N-1로 나누는 경우가 있는데, StandardScaler는 N으로 나누는 것 같더라고요. 그래서 pandas.DataFrame.var 메소드가 N으로 나눈 분산을 내놓도록 ddof 옵션을 0으로 설정하면 좋을 것 같습니다.\n\nQ. ddof=0로 설정 안하면 어떻게 되나요?\nA. 아래처럼 출력되실 거에요\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 있습니다. (<- 여전히 누수가 있다고 떠요)\n0.8941```\nN으로 나눠서 얻은 분산과 N-1로 나눠서 얻은 분산 사이에 값 차이가 생각보다 있고, 이 오차(대략 1e-3~1e-4)가 np.allclose에서 허용하는 절대오차(1e-08)을 넘어설 정도라서.. check_scaler_fitted_on_train_only 함수가 False를 반환할 거에요. 그래서 \"전처리 중에 누수가 있습니다.\"가 뜨는 것 같습니다. 그러니 ddof=0으로 설정하시는 거 잊지 마세요..!",
+        "user": "U09CH8AU8P5",
+        "user_name": "Lee Jo Eun",
+        "timestamp": "1761109139.944039",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8AU8P5",
+            "ts": "1761109451.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH89NYSF",
+                "U09CH894W3D",
+                "U09CH85PLV9",
+                "U09CH7X3A8K",
+                "U09CH7Y6HEX",
+                "U09CH89RBT5",
+                "U09CH7YMY59",
+                "U04QH4ZVBJN",
+                "U09CH7XTTNX",
+                "U09CD7Y1FPX",
+                "U09CH7T8Z8T",
+                "U09CH89LEUB",
+                "U09CH8141SP",
+                "U09CH7TB5FV",
+                "U09CH8A1B6X",
+                "U04RMLUABA8",
+                "U09CH7Z1R8T",
+                "U09CH8B18RZ",
+                "U09CH7YCBFV",
+                "U09CH88SM5H",
+                "U09CH892EF5"
+              ],
+              "count": 21
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U09CH7U429H"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 전처리 중에 누수가 있습니다. 라고 나오는 것 때문에 찾아봤었는데, 글로 정리해주셔서 명확하게 이해가 되는 것 같습니다. 감사합니다.\n추가로 pandas var()는 분산 계산 시에 분모를 N-1, sklearn StandardScaler.var_는 분산 계산 시에 분모를 N으로 나누기 때문에 오차가 생기므로, 정리해주신 대로 pandas var 계산 시 ddof=0 옵션을 부여해 N으로 나눠서 계산하게끔 하면 sklearn StandardScaler.var_와 분산 계산 식이 동일해져 문제가 해결됩니다.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1761109422.194709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CD7Y1FPX",
+                  "U09CH8AU8P5",
+                  "U09CH894W3D",
+                  "U09CH7Y6HEX"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH85PLV9>  아 주상우님도 그렇게 해결하셨군요..! 경험 공유해주셔서 감사합니다. 덕분에 괜찮게 해결한 것 같아 마음이 놓이네요.",
+          "user": "U09CH8AU8P5",
+          "user_name": "Lee Jo Eun",
+          "timestamp": "1761109560.486079",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8AU8P5",
+              "ts": "1761109668.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요!\n저도 뭔가 이상해서 출력해보았을 때 실제로 마지막 셀에서는 mean과 var가 같은데도 불구하고 누수가 있다고 출력이 되더라고요..!\n• 누수를 판단할 때 \n    ◦ `scaler.mean_: [ 8.29602945e-01  8.31605444e-03 ...`\n    ◦ `X_train.mean().values: [ 8.19754425e-01 -1.54532967e-03 ...`\n• 마지막 셀에서의 누수 판단\n    ◦ `scaler.mean_: [ 8.19754425e-01 -1.54532967e-03 ...`\n    ◦ `X_train.mean().values: [ 8.19754425e-01 -1.54532967e-03 ...`\n그래서 저는 check_scaler_fitted_on_train_only 함수를 다음과 같이 수정했습니다!!\n```same_mean = np.allclose(scaler.mean_, X_train.mean().values, atol=1e-12)\n    same_var = np.allclose(scaler.var_, X_train.var(ddof=0).values, atol=1e-12)```\n그냥 단순히 `==` 를 사용해서 비교하게 되면 부동소수점 오차로 인해 1과 1.0000도 다르게 받아들이는 것 같아 부동소수점 오차를 방지하는 `np.allclose()`를 사용하고 `atol=1e-12` 정도로 설정해주었더니 올바르게 판단되고 auc도 기존 셀 출력에 맞게 나왔습니다..!\n말씀해주신대로 누수되는 피처를 삭제하는 것도 방법일 수 있겠다는 생각이 듭니다!! 공유해주셔서 감사합니다아!!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1761109733.535209",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7U429H",
+              "ts": "1761110253.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH85PLV9",
+                  "U09CH7T8Z8T",
+                  "U09CH8C0PUK",
+                  "U09CH8AU8P5",
+                  "U09CH894W3D",
+                  "U09CD7Y1FPX",
+                  "U09CH8A1B6X",
+                  "U09CH8BDAPM",
+                  "U09CH7Y6HEX",
+                  "U09CH892EF5"
+                ],
+                "count": 10
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7U429H> 아..! 누수 의심 피처를 삭제하지 않고 학습을 진행하면 '전처리 중에 누수가 없습니다.'랑 'AUC=0.9839' 라는 출력이 같이 나올 수가 있네요..?? 이건 생각 못했습니다.. 덕분에 저도 다운 받은 코드와 같은 출력을 얻을 수 있었습니다. 또한 다시 생각해보니.. 누수 의심 피처를 삭제하는 건 그저 제 개인적인 생각이었던 것 같습니다. 누수 의심 피처를 삭제하는 게 올바른 방식인지 다시 한번 검토해보겠습니다. 알려주셔서 감사합니다!!",
+          "user": "U09CH8AU8P5",
+          "user_name": "Lee Jo Eun",
+          "timestamp": "1761110862.888499",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8AU8P5",
+              "ts": "1761112751.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

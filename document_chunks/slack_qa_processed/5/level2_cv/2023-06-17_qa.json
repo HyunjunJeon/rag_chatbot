@@ -1,0 +1,47 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "최신 mmseg 버전에서는 wandbloggerhook이 사라지고 대신 visualizer?로 확인해야 한다고 읽은것 같아요. 저도 아직 알아보느라 정확하진 않습니다ㅠㅠ 공식 닥스 보면 나와있어요",
+        "user": "U04RG90B1AR",
+        "user_name": "임지윤_T5177",
+        "timestamp": "1686986108.571259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U04S8T86WHW"
+              ],
+              "count": 1
+            },
+            {
+              "name": "zzang",
+              "users": [
+                "U04S8T86WHW"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "그렇군요 더 알아보겠습니다 감사합니다 ! :slightly_smiling_face::slightly_smiling_face:",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1686988381.856969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

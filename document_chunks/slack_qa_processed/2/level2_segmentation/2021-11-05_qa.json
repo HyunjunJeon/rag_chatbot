@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:sparkles:Seg 마스터클래스:sparkles:가 잠시 후 *(11/5 금요일) 18:00 ~ 19:00*에 진행됩니다.\n김현우 마스터님과 함께 Segmentation 대회 랩업이 진행될 예정입니다!\n다른 캠퍼분들의 발표가 바로 이루어질 예정이니 18시 전에 입장 부탁드립니다 :)\n&gt; <https://zoom.us/j/94462317951?pwd=K3NrbUFTanVxZTh0cWc1ZzF0WUVsZz09|마스터클래스 줌 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636101432.089600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "발표해주실 캠퍼분들의 자료도 미리 공유드립니다! 18시에 만나요!",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636101509.089700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

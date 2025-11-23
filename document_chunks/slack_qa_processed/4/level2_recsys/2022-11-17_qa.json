@@ -1,0 +1,143 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 lightgcn install.sh 실행시 환경충돌이 저만 많이 발생할까요?",
+        "user": "U041L93DSAY",
+        "user_name": "조원삼_T4210",
+        "timestamp": "1668700567.233229",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "Conda 환경을 분리해서 사용하셨나요? 오늘 업로드해드린 오피스아워 자료 중간에 사용하는 방법을 넣어두었는데 혹시 이 방법이 잘 되지 않으시면 다시 문의남겨주세요!",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1668702554.659039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U041L93DSAY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "베이스라인에 주어진 LSTMAttn은 어떤 논문을 참조하셨는지 알 수 있을까요?",
+        "user": "U041HR79V5G",
+        "user_name": "고현욱",
+        "timestamp": "1668737918.644489",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 현욱님. 해당 코드는 논문을 참고한 것은 아니고, 이전에 DSB2019에서 업스테이지 김상훈님께서 진행해주신 솔루션을 참고하여 제작되었습니다. 여기 <https://github.com/lime-robot/dsb2019/blob/master/code/bowl_model.py|레포>에 현재 저희가 베이스라인에 담아둔 LSTMATTN과 정확하게 같지는 않은데, 그 전신(?)이 담겨있습니다.",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1668747800.992119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thumbsup_all",
+                "users": [
+                  "U041HR79V5G"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U041HR79V5G",
+          "user_name": "고현욱",
+          "timestamp": "1668747826.630619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "squence 모델에서, sequence 길이가 100인것을 학습했을때, 예를들어 길이가 15인 것도 같이 학습이 잘되고 있는건가요?? 아니면 100인것만 잘 맞추도록 학습이 되는건가요??",
+        "user": "U041HR4UCR0",
+        "user_name": "박경준_T4076",
+        "timestamp": "1668738588.855659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "길이가 100인것을 학습한다면 길이가 15인 것은 나머지 길이가 패딩된체로 입력됩니다.\n학습이 잘 되고 있는건지는 직접 확인하시면 좋을 것 같아요. 제 생각엔 모델 학습시 길이가 15인 것도 있기 때문에 어느정도 커버가 된다고 생각합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1668738844.021469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiley",
+                "users": [
+                  "U041HR4UCR0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 경준님. 위에서 <@U041ERYLS6R> 님이 말씀해주신 내용이 맞습니다. 어제 제공해드린 오피스아워 자료 중 max_seq_len보다 길고 짧은 경우에 대해 어떻게 입력값이 처리되는지 도식으로 첨부된 장표를 참고하시면 도움이 될 것 같습니다. mask를 통해 max_seq_len보다 짧은 경우에도 무효한 값의 자리를 무시하도록 의도했지만, 실제로 의도대로 잘 작동하는지는 실험을 통해 확인해보시면 좋을 것 같습니다 :)",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1668747812.965109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

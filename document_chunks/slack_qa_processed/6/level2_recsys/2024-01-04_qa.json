@@ -1,0 +1,130 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "Graph 의 Link prediction 으로 Link가 있을 확률을 예측하는 방식과, NLP에서 자주 사용하는 다음 seq예측 방식(USER단위) 크게 두가지 방법으로 베이스 라인이 구성 되어 있는 것 으로 보입니다. 위의 방식으로는, A 유저가 마지막 문제 alpha를 푸는 시점 T-3에, 유저 B가 T-1 시점에 alpha를 푼 정보(문제별 정답률..?) 등이 사용 될 수 있을것 같은데 해당 부분은 data leakage 로써 고려하지 않아도 괜찮을까요 ?",
+        "user": "U063QNXGZFU",
+        "user_name": "전민서_T6151",
+        "timestamp": "1704358877.908839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "ok_woman",
+              "users": [
+                "U041FE8FKBN"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U063QNW2PU2"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041FE8FKBN> 방금 전 오피스아워에서 질문 들어왔던 내용인데, 답변 주시면 감사드리겠습니다!!",
+          "user": "U06AK668KD0",
+          "user_name": "ChunBae(정준섭)",
+          "timestamp": "1704358980.723499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U063QNXGZFU>\n음.. 사실 데이터를 민서님 말씀처럼 각 데이터별로 이전 데이터만 사용한다고 하면 활용할 수 있는 데이터가 얼마나 있을까 궁금하긴 하네요.\n좋은 접근인거 같아요.! 한번 그렇게 진행해보는것도 좋은 시도일거 같아요. 다만, 코드가 복잡해질수도 있을거 같은데..!\n\n우선 주어진 train data와 test data는 모두 학습에 사용해도 상관은 없으니 자유롭게 활용하시면 좋을 거 같습니다.",
+          "user": "U041FE8FKBN",
+          "user_name": "권태양",
+          "timestamp": "1704360811.965939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다. 해당 부분 따로 고려하지 않도록 하겠습니다 !",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1704373784.648749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "relaxed",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션-7 MF 기반 분석]학습되지 않은 사용자에 대해서 inference를 진행하기 위한 수식전개가 이해가 잘 되지 않습니다. 이해하신분 계신가요 ㅠ",
+        "user": "U064DNN4B6U",
+        "user_name": null,
+        "timestamp": "1704432097.230079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041FE8FKBN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "직접 증명해보았습니다.\n<https://angeloyeo.github.io/2020/11/11/pseudo_inverse.html>\n\n이해하는데 도움되셨으면 하고 참고한 블로그 링크 첨부합니다.\n혹시나 틀린부분있으면 알려주시면 감사하겠습니다! 다들 열공하세요:grinning:",
+          "user": "U064DNN4B6U",
+          "user_name": null,
+          "timestamp": "1704436637.638829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

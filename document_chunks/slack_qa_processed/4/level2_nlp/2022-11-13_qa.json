@@ -1,0 +1,132 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 이번주 올라온 강의자료 중 3강부터 강의자료가 깨져서 이미지로 인해 자료에 적힌 글씨들이 보이지 않는 부분들이 종종 발생하여 문의드립니다! 혹시 확인 후 업데이트 가능하실지 질문드립니다~",
+        "user": "U041B7A12MU",
+        "user_name": "백인진",
+        "timestamp": "1668405215.127449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03KMAV0JR5"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 백인진 캠퍼님!\n확인해보고 말씀 드릴게요!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1668405261.570299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 확인하신 내용이 구체적으로 어느 부분인지 말씀 주실 수 있을까요? <@U041B7A12MU>",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1668405386.822039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 부분은 자잘자잘한 부분이어서 수정이 불필요할 수도 있겠으나 10강 6페이지, 8페이지에 그림이 글 위에 올라와있어서 필기에 어려움이 있습니다!",
+          "user": "U041B7A12MU",
+          "user_name": "백인진",
+          "timestamp": "1668405508.879429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그 외에는 자잘한 내용들이라 필기에는 큰 영향 없는 것 같스빈다..!",
+          "user": "U041B7A12MU",
+          "user_name": "백인진",
+          "timestamp": "1668405555.969669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇네요…! 확인해서 이 부분 다시 업로드 하고 말씀 드리겠습니다!\n늦어도 금일중에는 마무리하고 멘션 드릴 수 있을 것 같아요 :slightly_smiling_face:",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1668406253.385879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 감사합니다~!",
+          "user": "U041B7A12MU",
+          "user_name": "백인진",
+          "timestamp": "1668406459.474299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041B7A12MU>\n우선 보기에 불편한 내용들 먼저 수정했습니다. 추후에 업데이트가 있을 경우 다시 말씀 드릴게요!\n업데이트한 자료는 <https://www.boostcourse.org/boostcampaitech4/lecture/1457348|부코스>에서 지금 바로 확인하실 수 있습니다!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1668407783.620409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인했습니다! 빠른 수정 감사합니다~",
+          "user": "U041B7A12MU",
+          "user_name": "백인진",
+          "timestamp": "1668408123.835889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "carrot",
+                "users": [
+                  "U03KMAV0JR5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

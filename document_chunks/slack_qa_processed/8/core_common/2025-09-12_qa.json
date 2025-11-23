@@ -1,0 +1,288 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U09CH86HP4K>\n몰라서 많이 헤맸는데 감사합니다.\n오늘 덕분에 많이 알아갑니다.",
+        "user": "U09CH86JZSP",
+        "user_name": "박동수",
+        "timestamp": "1757660769.538889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86JZSP> 감사합니다. 저도 많이 알아갑니다.",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757660816.499719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "X_poly가 [x**2, x]와 [x, x**2] 둘 중 하나의 형태라고 말씀드렸었는데, [x, x**2]라면 맨 마지막 plot으로 시각화 시 아래 코드 블럭 내 X_pred와 beta의 대응이 맞지 않아 그래프가 벌어지는 문제가 있었습니다 :sob:\n\n만약 [x, x**2]로 X_poly를 초기화했다면 X_pred 부분도 `np.c_[x_grid, x_grid**2]`로 수정함으로써 해결할 수 있습니다!\n\n```X_pred = np.c_[x_grid**2, x_grid]\ny_hat = X_pred @ runner.beta + runner.b```",
+          "user": "U09CH8C0PUK",
+          "user_name": "양성호A_T8117",
+          "timestamp": "1757663502.657689",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8C0PUK",
+              "ts": "1757663580.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CMF1TQ1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8C0PUK> 제가 X_poly의 순서를 바꿀경우 X_pred도 같이 바꿔야 정확하게 나올것이라고 말씀드렸어야했는데 설명이 미흡했네요 ㅜㅜ 성호님 감사합니다 ~",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757663652.557279",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757663673.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "이 부분은 구현상의 편의성과 학습 절차를 더 눈에 잘 보이도록 나눈 것인데요 ! 실제로 서현님께서 따로 구현해보고 싶으시다면 변형해도 되는 부분입니다 :)\n미션 코드상에서 이렇게 구현한 이유는 initialize()를 따로 호출하게 만드는 것이 습관이기도하고 .. ㅎㅎ 혹시나 lr, batch, epoch등만 바꿔서 여러번 학습을 시켜보고 싶을때, 학습을 할 때마다 trainer class를 다시 초기화해서 불러오지않아도 fit만 새로 불러오면 가중치 기록을 초기화 할 수 있기 때문입니다 !(이때 초기화해서 불러온다는 것은 `runner = Trainer(X, y)` 이 코드를 실행하는 것을 의미합니다.) 이 외에 큰 이유는 없습니다 ~ 다른 방식으로 구현해도 전혀 문제가 없습니다 :relaxed:",
+        "user": "U0947M912SD",
+        "user_name": "SUMIN LEE",
+        "timestamp": "1757660973.862229",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0947M912SD",
+            "ts": "1757661456.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 감사합니다!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757661408.749969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리 미션 2] 맨 처음 todo1-2에서 X_poly = np.c_[x ** 2, x]를 써서 마지막에 X_pred = np.c_[x_grid**2, x_grid] 랑 같이 확인을 하는데 그 사이 코드에서 어떤 부분이 [x ** 2, x] 이 형식을 요구하는지 궁금합니다.",
+        "user": "U09CMER5PQA",
+        "user_name": "정승원T8182",
+        "timestamp": "1757663959.573189",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "승원님, 안녕하세요. 중간부분에서 `[x ** 2, x]` 이 형태가 굳이 필요한 부분은 없습니다 ~ 입력된 형태에 값에 따라 `[x ** 2, x]`  가 입력되었다면 beta는 `[3,2]`로 근사되었을 것이고, 반대의 경우라면 `[2,3]`으로 근사되었을 것입니다 ! `[x, x ** 2]` 이렇게 입력할 분들이 계실걸 예상하여 X_pred도 앞서 만든 형태에 따라서 자유롭게 조정하면된다고 써두었어야 했는데 그러지 못했네요 :smiling_face_with_tear:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757664343.269109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 그렇다면\n\n`[x, x ** 2]` 로 모델을 훈련시켰을 경우에도 x의 계수와 x^2의 계수의 순서만 달라졌을 뿐 제대로 훈련이 되었기 때문에\n\n`X_pred = np.c_[x_grid**2, x_grid]`\n\n해당 라인만 수정한다면 시각화도 제대로 된다는 것인가요?",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1757664721.521049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다 조교님! 답변을 토대로 X_pred = np.c_[x_grid, x_grid**2] 로 바꿔서 실행 했는데 target이랑 predition이 딱 맞네요. 그럼 이 순서를 바꿨을때의 그래프의 공식도 두 값을 바꿨을때랑 같은 형식인건가요?",
+          "user": "U09CMER5PQA",
+          "user_name": "정승원T8182",
+          "timestamp": "1757664873.179049",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CMER5PQA",
+              "ts": "1757664954.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7W1NCT> 네 맞습니다:) beta는 파라미터이기 때문에 초기 정보에서 계속해서 업데이트가 되는데요, `X_poly`의 각 열에 있는 데이터에 따라 업데이트가 되는 것이기 때문에 `X_pred` 의 순서를`np.c_[x_grid, x_grid**2]`로 바꿔주면 문제없이 시각화가 될 것 입니다 ~ 다른 캠퍼분께서도 이미 시도해보셨네요 ㅎㅎ\n\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757663502657689?thread_ts=1757659791.467129&amp;cid=C09D84Y9SQG>",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757664903.901999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 예시로 3x^2+2x 랑 2x+3x^2의 차이인건가요?",
+          "user": "U09CMER5PQA",
+          "user_name": "정승원T8182",
+          "timestamp": "1757664998.999419",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CMER5PQA",
+              "ts": "1757665006.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CMER5PQA> 네네 그렇게 바뀌는거라고 생각하시면 됩니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757665020.745769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CMER5PQA",
+          "user_name": "정승원T8182",
+          "timestamp": "1757665027.658889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 이해됐습니다 감사합니다!",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1757665099.859899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[8강 Quiz 3번]\n확률적 경사하강법이 1번 업데이트할 때 모든 데이터를 사용하는 것은 아니지만, 업데이트가 끝나면 실상 모든 데이터를 사용한 것이 아닌가요?\n그렇다면 SGD가 모든 데이터를 사용해서 업데이트한다고도 볼 수 있는 것 아닌가하는 의문점이 들어 질문합니다!!",
+        "user": "U09CMETRNFL",
+        "user_name": "윤종욱_T8131",
+        "timestamp": "1757680593.678549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CMETRNFL>종욱님, 안녕하세요 :slightly_smiling_face:\n\n말씀해주신 것처럼 1번 업데이트할 때 모든 데이터를 사용하는 것은 아니지만, 업데이트가 끝나면 실상 모든 데이터를 사용하는 것이 맞습니다. 오늘 오늘 weekly mission에서 구현한 Trainer도 dataloader 부분을 보면 batch_size에 맞게 모든 데이터를 분할하고 있는 것을 볼 수 있구요 ! ( 마지막 batch는 size가 맞지 않을 수 있습니다. ) 선지에 `경사하강법은 전체데이터를 가지고 목적식의 그레디언트 벡터를 계산한다.` 라고 나와있어서 SGD는 아닌가? 라는 생각이 드셨을 것 같아요 ~ 학습 과정 전체과정을 통틀어봤을 때는 SGD도 전체 데이터를 다 사용하는 것 맞습니다 !\n\n그러나 선지의 `목적식의 그레디언트 벡터를 계산한다.` 라는 부분의 관점에서 생각해보면, 조금 더 명확하게 이해할 수 있을 것 같습니다. 전체 데이터에 대한 궁극적인 목적식은 하나로 고정되어 있지만, 확률적 경사하강법은 매 스텝마다 근사적인 목적식을 사용하는데요. 이는 매번 다른 데이터 미니배치을 보기 때문에, 각 스텝에서 계산하는 손실 함수가 미세하게 계속 바뀌게 되는 것을 의미합니다. 따라서 각 스텝마다 목적식을 계산하는 관점에서 보면 하나의 목적식을 계산하기 위해서는 전체 데이터가 아닌 일부 데이터를 사용한다고 보는 것이 더 정확합니다!\n\n혹시  이정도로 이해가 되셨을까요 ~ ? 많은 분이 헷갈릴 수 있는 부분인데 질문주셔서 감사해요 :woman-bowing: 좋은 주말 보내세요 :)",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757688916.598569",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757688933.000000"
+            },
+            "reactions": [
+              {
+                "name": "grin",
+                "users": [
+                  "U09CMETRNFL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

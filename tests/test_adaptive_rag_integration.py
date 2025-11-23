@@ -222,7 +222,7 @@ async def test_answer_generator_structured_output(llm):
         create_answer_generator,
         AnswerOutput,
     )
-    from naver_connect_chatbot.service.graph.nodes import _coerce_model_response
+    from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
 
     # Simple 전략으로 에이전트 생성
     generator = create_answer_generator(llm, strategy="simple")
@@ -240,7 +240,11 @@ async def test_answer_generator_structured_output(llm):
         })
 
         # AnswerOutput으로 변환 가능한지 확인
-        response = _coerce_model_response(AnswerOutput, response_raw)
+        response = parse_agent_response(
+            response_raw,
+            model_type=AnswerOutput,
+            fallback=AnswerOutput(answer=""),
+        )
 
         # 검증
         assert isinstance(response, AnswerOutput), f"Expected AnswerOutput, got {type(response)}"
@@ -259,4 +263,3 @@ async def test_answer_generator_structured_output(llm):
 if __name__ == "__main__":
     # pytest 실행
     pytest.main([__file__, "-v", "-s"])
-

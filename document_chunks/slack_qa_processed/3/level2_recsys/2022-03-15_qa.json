@@ -1,0 +1,196 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요? 저희 팀에서 이번 기본 과제 3의 1.1번에 마크다운으로 올려주신 수식에서 행렬의 마지막 행이 잘못된 것 같다는 얘기가 나왔는데요. 혹시 오류가 있는지 확인해주실 수 있으신가요…? :pleading_face: 감사합니다!",
+        "user": "U02TNKDBF7D",
+        "user_name": null,
+        "timestamp": "1647347122.871419",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TNKDBF7D",
+            "ts": "1647348948.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02U0FPAQF5",
+                "U02U6FW5A03",
+                "U02U6HXKKDJ",
+                "U02TULQSABT",
+                "U02U56K2848",
+                "U02U6A7G6FM",
+                "U02TFFXDWQ2",
+                "U02TMB2QBCP",
+                "U02QQ5YTCVA"
+              ],
+              "count": 9
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02RRNTF7PT"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "fyi. <@U02QSE3JA1Y>",
+          "user": "U02QMRDDZCK",
+          "user_name": "이지현",
+          "timestamp": "1647395439.861469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02QSE3JA1Y"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U02QSE3JA1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "내용 확인하고 있습니다. 잠시만 기다려주세요!",
+          "user": "U02QSE3JA1Y",
+          "user_name": "공정필_운영진",
+          "timestamp": "1647395538.549889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 다른 트랙 영상들은 확인을 안해봐서 잘 모르겠지만 추천 트랙 이론 영상 볼륨이 좀 많이 작은 것 같습니다. 노트북 볼륨을 거의 최대로 해야 잘 들리는 정도인데 혹시 다른 분들도 그러신가요…?",
+        "user": "U02TRCAQU9J",
+        "user_name": "박기범",
+        "timestamp": "1647395285.928859",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TUC02EP4"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 인트로 아웃트로에 비해 강사님 목소리가 작게 녹음된 것 같다고 느낍니다:cry:",
+          "user": "U02TCQ81T0D",
+          "user_name": "신민철",
+          "timestamp": "1647396101.231729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TRCAQU9J> <@U02TCQ81T0D> 캠퍼님들 안녕하세요! 혹시 어떤 강의에서 해당 현상이 나타나는지 말씀해주실 수 있을까요?! 저를 비롯한 다른 운영진들 컴퓨터에서는 문제 없이 소리가 출력되고 있어서요...!",
+          "user": "U02QQ5YTCVA",
+          "user_name": "김보겸",
+          "timestamp": "1647396954.004339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02QQ5YTCVA> 추천시스템 2주차 (이번주) 강의들이 1주차보다 마스터님 목소리가 좀 작게 들리는 거 같습니다",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1647397240.773519",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TRCAQU9J",
+              "ts": "1647397252.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TRCAQU9J> 확인해보니 영상에는 문제가 없는 것 같습니다... ㅠㅠ 우선 이어폰이나 기타 다른 음향기기를 이용해서 들어주세요. 문제를 해결해드릴 수 있는 방안이 있을지 저도 계속 확인해볼게요!",
+          "user": "U02QQ5YTCVA",
+          "user_name": "김보겸",
+          "timestamp": "1647403278.174599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 알겠습니다 확인해주셔서 감사합니다!",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1647403370.129409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U02QQ5YTCVA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

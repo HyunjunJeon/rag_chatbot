@@ -1,0 +1,307 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "영국식 영어였다니ㅋㅋ 여러모로 흥미로운 논문이네요ㅋㅋㅋ",
+        "user": "U029FSCQAKX",
+        "user_name": "박상현",
+        "timestamp": "1631172875.181600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/open-mmlab/mmdetection|mmdetection> 에서도 Faster R-CNN에 RoI Pooling이 아니라 RoI Align이 적용된 구현이 있습니다 ㅎㅎ 저도 처음 보고 제가 잘못 알고 있었나 했네요",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1631207521.194600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요!\n오늘 강의에서 U-Net의 concatenation이 어떻게 이루어지는지 자세한 설명이 나와있지 않아서 공부하다 찾아본 내용 공유합니다.\n\n교수님께서 오늘 강의에서 U-Net architecture 중 expansive path에서 각 level의 layer의 input과, 대응되는 level에서 contracting path의 layer에서 나온 output을 concatenate하여 localization을 한다고 설명해주셨습니다.\n그런데 architecture 사진을 보면 두 feature map의 spatial dimension이 맞지 않는데 어떻게 concatenation을 적용하는지 의문이었습니다. 그래서 논문을 읽어본 결과, contracting path에서 나온 feature map을 expansive path의 feature map에 맞게 crop한 뒤, concatenation을 적용한다는 것을 알게 되었습니다.\n\n\"The cropping is necessary due to the loss of border pixels in every convolution.\"이라고 적혀있는데, 제 해석으로는 3x3 convolution 연산을 반복하면서 가장자리의 pixel이 줄어들어 dimension이 맞지 않게 되니, crop을 필수적으로 해야 한다고 주장하는 것 같습니다. unpadded 3x3 convolution을 적용했기 때문에 계속 사이즈가 줄어드는 불가피한 상황이 생겨 crop하게 된 것 같아요.\n\n그리고 그림에도 자세히 보시면 오른쪽 아래 회색 화살표에 copy and crop이라고 나와있네요! 시각화의 중요성을 다시 느끼게 되었습니다. 잘 보라고 친절하게 표현해주셨는데 뒤늦게 발견했네요.. 또 한 번 부끄럽습니다.\n틀린 부분이 있거나 추가로 설명해주실 부분 있으시면 댓글로 첨언해주시면 감사하겠습니다!",
+        "user": "U029UHZ6AHY",
+        "user_name": null,
+        "timestamp": "1631187557.183500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029RM03F6G",
+                "U029YDHQ9EU",
+                "U029QUNTRFX",
+                "U0297DYMHLN",
+                "U0297UZK86S",
+                "U029BS21VL5",
+                "U0297TQCPHV",
+                "U029J2FKWLS",
+                "U029F9BS37F",
+                "U029EUNPFFW",
+                "U029DCPSW3Z",
+                "U029FSCQAKX",
+                "U02905YS8J3",
+                "U029TQ9JFR8",
+                "U029BN43CDB"
+              ],
+              "count": 15
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "&gt; 매의 눈으로 architecture를 보신다면 input size (=572)와 output size (=388)도 다른 것을 확인 하실 수 있습니다! 요즘에는 흔히 쓰이는 방법은 아니지만 가장자리의 정보를 손실없이 활용하기 위해 overlap-tite input이라는 것을 만들어 아래와 같이 mirorring된 가장자리 정보를 함께 input으로 넣어주는 구조입니다 :slightly_smiling_face:",
+          "user": "U029YDHQ9EU",
+          "user_name": null,
+          "timestamp": "1631188168.184000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029UHZ6AHY",
+                  "U029FSCQAKX"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "또한 말씀해주신 copy and crop 이외에도 local information을 어떻게 concatenate하느냐에 따라 성능이 달라지기도 합니다!",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1631188299.184400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029UHZ6AHY",
+                  "U029FSCQAKX",
+                  "U029TQ9JFR8"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029YDHQ9EU> 아 mirroring이라는 게 단순히 대칭으로 복사한 외삽이군요.. 자세한 설명 감사드립니다!",
+          "user": "U029UHZ6AHY",
+          "user_name": "백인혁_T2101",
+          "timestamp": "1631188563.184700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029YDHQ9EU"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 <@U029YDHQ9EU>님 추가적으로 질문 드리면, 요새 흔히 쓰이는 테크닉들은 어떤게 있나요?",
+          "user": "U029EUNPFFW",
+          "user_name": "이주용",
+          "timestamp": "1631195232.192000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EUNPFFW> 요즘에는 그냥 input을 따로 더 키워주지 않고 original image 그대로 넣어주지 않나요?..ㅎㅎ",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1631195351.192400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029UHZ6AHY",
+                  "U029EUNPFFW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그렇군요. semantic segmentation 쪽을 tracking 하고 있지 못해서요ㅋㅋ",
+          "user": "U029EUNPFFW",
+          "user_name": "이주용",
+          "timestamp": "1631196029.192800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party_corgi",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EUNPFFW> 이주용 멘토님 혹시 요즘 어떤 분야를 연구하고 계신지 여쭤봐도 될까요?",
+          "user": "U029UHZ6AHY",
+          "user_name": "백인혁_T2101",
+          "timestamp": "1631196704.193400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "크게 보면 domain adaptation이라고 말할 수 있을 것 같은데, 좀 더 자세한 내용은 DM으로 답변 드릴게요~",
+          "user": "U029EUNPFFW",
+          "user_name": "이주용",
+          "timestamp": "1631196925.193600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029UHZ6AHY",
+                  "U029YDHQ9EU"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<https://paperswithcode.com/rc2021?fbclid=IwAR3MzF0kyQedqX7070bxA-jRK3HqXtA8ZHKUcT4qhIPZNyILnzdXNQ_hsMc>\n논문 구현에 관심 있으신 분들은 random한 논문을 구현해 보시는것도 좋지만 이런 challenge에 참여해보시는 것도 좋을 것 같아요~\n2021년 top conference에 발표된 논문들을 구현해보고 report 성능을 reproduce하는 목적의 대회고 우수한 코드는 관련 journal에도 게재된다고 하네요 ㅎㅎ\n아무래도 코드가 없는 최신 논문을 구현하는게 다른 사람들에게 더 도움이 되기도 하고, challenge 형식이라서 motivation도 강하지 않을까 싶습니다 ㅎㅎ",
+        "user": "U0298UMQQ75",
+        "user_name": "김종하",
+        "timestamp": "1631256102.201200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "amaze",
+              "users": [
+                "U029X8XP189",
+                "U029TQ9JFR8",
+                "U029MCHH00Z",
+                "U029YDHQ9EU",
+                "U029L86M9JQ",
+                "U029MTWGTJS",
+                "U029UHZ6AHY",
+                "U0295N0FL5T",
+                "U02905YS8J3",
+                "U029H263PD1",
+                "U028ZG5R31V",
+                "U029KSKF90V"
+              ],
+              "count": 12
+            },
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U029B96RRJA",
+                "U029MCHH00Z",
+                "U029YDHQ9EU",
+                "U029H263PD1"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029EFY0XD1",
+                "U029MCHH00Z",
+                "U029YDHQ9EU"
+              ],
+              "count": 3
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029E28RUPL"
+              ],
+              "count": 1
+            },
+            {
+              "name": "star2",
+              "users": [
+                "U029LPYKUR2"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오 이제 paperswithcode에서 대회도 여네요!.. 종하님 참여 각이신가여?",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1631256280.202600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

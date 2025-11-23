@@ -1,0 +1,184 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "미션 2 에서 질문 있습니다!\nsparse2torch_sparse는 어떻게 사용하는 건가요?\nnaive_sparse2tensor대신 사용하면 오류가 납니다",
+        "user": "U041WE790DP",
+        "user_name": "황선태",
+        "timestamp": "1671052711.130129",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "`sparse2torch_sparse`함수의 output의 type이 torch.sparse_coo이기 때문에 이를  to_desne()를 통해 dense한 tensor로 바꿔서 활용하시면 됩니다!\n\ntorch의 <https://pytorch.org/docs/master/sparse.html#sparse-coo-tensors|documentation>을 참고해주세요!",
+          "user": "U041VLUG4HF",
+          "user_name": "김강민",
+          "timestamp": "1671064357.833259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요!\n7강 강의자료에서 페이지 아래부분이 조금씩 잘려서 나옵니다..! 확인 부탁드립니다! :face_holding_back_tears:",
+        "user": "U041ES0E4H3",
+        "user_name": "전해리",
+        "timestamp": "1671073008.795399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03KMAV0JR5"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041ES0E4H3> 안녕하세요, 어떤 부분인지 좀 더 구체적으로 말씀해주시면 감사하겠습니다!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1671073610.232919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "11, 12 페이지처럼 한 페이지가 내용으로 다 채워져있을 경우 아래부분이 잘리는 것 같습니다!",
+          "user": "U041ES0E4H3",
+          "user_name": "전해리",
+          "timestamp": "1671073737.924549",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041ES0E4H3",
+              "ts": "1671074210.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ES0E4H3>\nDKT 7강을 말씀하시는 건가요?",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1671075893.891919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아뇨! MovieRec 7강입니다!\n(강의명 Temporal and Sequential Models (2))",
+          "user": "U041ES0E4H3",
+          "user_name": null,
+          "timestamp": "1671076459.778709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위 예시처럼 강의자료엔 밑부분이 잘려서 나옵니다! :face_holding_back_tears:",
+          "user": "U041ES0E4H3",
+          "user_name": "전해리",
+          "timestamp": "1671076489.384689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아아 네! 제가 날짜를 착각했네요..!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1671076520.052079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인했습니다. 잠시만 기다려주세요!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1671076528.495459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!!",
+          "user": "U041ES0E4H3",
+          "user_name": "전해리",
+          "timestamp": "1671076533.220899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "자료 수정했습니다!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1671077718.836179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041ES0E4H3",
+                  "U041ES2UBHB"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041ES0E4H3",
+                  "U041ES2UBHB"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

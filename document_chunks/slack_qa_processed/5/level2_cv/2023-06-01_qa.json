@@ -1,0 +1,226 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!! 위에서 K-Fold 앙상블은 가능하다고 말씀주셨는데 혹시 WBF앙상블도 가능한 것일까요? WBF 앙상블을 이미 진행해서 제출한 상태라서 만약에 안된다고 하신다면 private에 최종제출은 하지 않겠습니다. 감사합니다!",
+        "user": "U04RCJPDPP0",
+        "user_name": "김준영_T5058",
+        "timestamp": "1685609989.404259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04AY6Y68MR> 승님 함께 확인 부탁 드립니다!",
+          "user": "U046RDS8WUS",
+          "user_name": "Yeojin(오여진)",
+          "timestamp": "1685611086.339249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 준영님!\n모델 구조 변경 없이 학습한 여러 모델들로부터 나온 결과를 활용하는것이라면 WBF 앙상블도 사용 가능합니다만, 위 서지훈님 thread에 답변드린것처럼 detect.py 파일은 변경 불가하다는점 참고하여 작업해주시면 되겠습니다..!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1685611927.952999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RCJPDPP0",
+                  "U04RK3FKQTV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U04RCJPDPP0",
+          "user_name": "김준영_T5058",
+          "timestamp": "1685611963.351019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U04AY6Y68MR>\n조교님, 안녕하세요! 지금 답변 가능하실까요?",
+        "user": "U03SAGX725R",
+        "user_name": "하종우",
+        "timestamp": "1685611062.654779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 지훈님, 말씀주신대로 모든 경우에서 detect.py 는 수정 불가한것으로 이해해주시면 되겠습니다..!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1685611557.937389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U03SAGX725R",
+                  "U04RCJNA2HL"
+                ],
+                "count": 2
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RCJNA2HL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1685611849.577049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[github 관련]\n안녕하세요, 이번 data centric 대회 baseline 코드 중에 loss.py와 같은 수정이 불가했던 파일을 github에 올려도 되는지 잘 모르겠습니다. 이 또한 저작권 이슈가 있을까요?",
+        "user": "U04RXRU7AFK",
+        "user_name": "한현민",
+        "timestamp": "1685671421.450359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저희는 gitignore에 넣고 관리했는데, 필요하신 부분 백업하시고 ignore로 관리하시는건 어떤가요?",
+          "user": "U04RXRZ0W5P",
+          "user_name": "신현준_T5120",
+          "timestamp": "1685671720.281739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현민 캠퍼님 안녕하세요, :slightly_smiling_face: <https://boostcampaitech.slack.com/archives/C04S87G3EQ6/p1682490306100229|기안내>된대로, 모든 종류의 원본 베이스라인 코드는 업로드하실 수 없습니다.",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1685671797.209909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다 !! :slightly_smiling_face:",
+          "user": "U04RXRU7AFK",
+          "user_name": "한현민",
+          "timestamp": "1685672875.814429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RXRZ0W5P",
+                  "U04S26ESDPW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

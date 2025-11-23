@@ -1,0 +1,76 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02ULA3NLHW> 채원님 안녕하세요! 강의 자료 수정 후 재업로드 완료했습니다 :slightly_smiling_face:",
+        "user": "U02QQ5YTCVA",
+        "user_name": "김보겸",
+        "timestamp": "1647914152.406049",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02ULA3NLHW"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네!! 감사합니다!",
+          "user": "U02ULA3NLHW",
+          "user_name": "이채원",
+          "timestamp": "1647914208.903919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02QQ5YTCVA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 캠퍼님, 문의주신 내용 포함해서 최종 프로젝트 관련 공지 준비 중에 있습니다. 잠시만 기다려주세요 :slightly_smiling_face:",
+        "user": "U02QQ376VB6",
+        "user_name": "크리스",
+        "timestamp": "1647914164.658489",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 답변 감사합니다!",
+          "user": "U02U6FW5A03",
+          "user_name": "진완혁",
+          "timestamp": "1647914191.745699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

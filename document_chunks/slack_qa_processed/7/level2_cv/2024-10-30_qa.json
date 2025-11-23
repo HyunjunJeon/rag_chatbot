@@ -1,0 +1,201 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "음... east_dataset.py 의 수정을 막아둔 이유가 운영진에서 정한 방식대로 east dataset 를 preprocessing 해서 받기 위함인데 `east_dataset.py` 를 아예 안쓰게끔 train.py 를 변경하신 거는 취지에 맞지는 않는 것 같습니다. 물론 같은 로직대로 돌려서 pickle로 저장한다곤 하지만 일일이 코드를 뜯어볼 수도 없기도 하구요.",
+        "user": "U076G8QN5GS",
+        "user_name": "Jaekyun Park",
+        "timestamp": "1730271844.679199",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 알겠습니다 그러면 pickle 사용 없이 기존 베이스라인 코드로 사용하겠습니다. 베이스라인 코드 수정해주셔서 감사합니다!",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1730271905.190389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 이해해주셔서 감사합니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730271956.013259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "질문은 아니지만 혹시 이번 Data Centric 오피스아워 때 진행한 PPT 자료를 올려주실 수 있으실까요?? 감사합니다:)",
+        "user": "U07EFHKFKPV",
+        "user_name": "차성연",
+        "timestamp": "1730276923.173349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "clapclap-e",
+              "users": [
+                "U07ECPQJDRT",
+                "U03L1UMDLUS",
+                "U07EUAQ5W2V"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03L1UMDLUS"
+              ],
+              "count": 1
+            },
+            {
+              "name": "감사",
+              "users": [
+                "U07F4EGE2L8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "공지채널 확인해주세요!",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1730277219.684519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U07EFHKFKPV",
+                  "U07EUAQ5W2V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인했습니다! 감사합니다!",
+          "user": "U07EFHKFKPV",
+          "user_name": "차성연",
+          "timestamp": "1730277239.019069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 김보현입니다.\n(6강 -실습) 데이터셋 EDA.ipynb을 코랩에서 돌리고 있습니다.\n```# colab을 활용할 경우 train.json 파일을 google drive에서 불러오도록 수정 필요.\npath_lists = [\n    \"/content/drive/MyDrive/edabohyun/chinese_receipt/ufo/train.json\",\n    \"/content/drive/MyDrive/edabohyun/japanese_receipt/ufo/train.json\",\n    \"/content/drive/MyDrive/edabohyun/thai_receipt/ufo/train.json\",\n    \"/content/drive/MyDrive/edabohyun/vietnamese_receipt/ufo/train.json\"\n]```\n코랩에서는 와일드카드를 쓸 수가 없어서 직접 경로를 입력했습니다!\n혹시 colab 활용 시에는 와일드카드를 안쓰시나요?",
+        "user": "U07EJ5N8GVA",
+        "user_name": "김보현",
+        "timestamp": "1730280811.981659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 colab으로 돌렸을 때 glob를 사용해서 와일드카드로 불러왔습니다!",
+          "user": "U07EFHKFKPV",
+          "user_name": "차성연",
+          "timestamp": "1730280907.233569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헉 혹시 어떻게 하셨나요 ? ㅠㅠ\n저는 와일드카드 사용하니까 cannot access 뜨더라고요..",
+          "user": "U07EJ5N8GVA",
+          "user_name": null,
+          "timestamp": "1730280957.816139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 ls 명령어를 통해 와일드카드로 파일이 존재하는지 확인하지는 않았지만, drive에 mount하셨다면 아래와 같이 불러올 수 있을 것 같습니다!",
+          "user": "U07EFHKFKPV",
+          "user_name": null,
+          "timestamp": "1730281213.294929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 mount해오니까 drive/MyDrive로 가더라고요..\n그래도 알려주셔서 감사합니다!!",
+          "user": "U07EJ5N8GVA",
+          "user_name": null,
+          "timestamp": "1730281543.836039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 drive를 mount한 후에 경로를 바꿔주고 싶으시다면 %cd {경로} 명령어를 통해 직접 원하는 경로로 지정해 주실 수 있을 것 같습니다!",
+          "user": "U07EFHKFKPV",
+          "user_name": null,
+          "timestamp": "1730281694.211669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_aww",
+                "users": [
+                  "U07EJ5N8GVA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

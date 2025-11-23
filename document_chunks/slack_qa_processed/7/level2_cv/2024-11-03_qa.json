@@ -1,0 +1,230 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 CV 14조의 이소영입니다. 이번 대회 룰 관련 궁금한게 생겨 문의를 남깁니다.\ninferece 파일을 수정하거나 inferece 이후 코드를 추가하는 방식을 통해 bbox 정보를 다시 후처리(손으로 하나하나 수정하는 것이 아닌, 이상치를 감지해 수정 혹은 제거하여 더 나은 감지결과를 만드는 과정 추가)하여 리더보드에 제출하는 것은 대회 룰에 어긋나는지 여쭤봅니다.",
+        "user": "U07E14AL3E3",
+        "user_name": "이소영_T7222",
+        "timestamp": "1730683559.893989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 대회의 취지가 data centric CV이니 만큼, training set의 bbox를 클리닝하는 것은 허용되나, 모델의 출력을 바꾸는 것은 다소 취지에서 벗어난다 사료됩니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730687921.656749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 감사합니다!!",
+          "user": "U07E14AL3E3",
+          "user_name": "이소영_T7222",
+          "timestamp": "1730688934.213559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "• recall = 1: 실제 positive가 0개라면 모델이 얼마나 negative로 예측을 하든지 간에 “실제로 놓친 Positive 샘플이 없다“라고 해석할 수 있습니다. 이런 case에서는 recall을 1로 정의합니다. OCR 모델이 “실제 글씨가 없는상태에서 어떤 글씨도 놓치지 않고 예측을 잘한 상태“라고 보실 수 있습니다.\n• precision = 0 if det &gt; 0: 말씀주신 설명이 맞습니다.\n• precision = 1 if det == 0: gt가 없는 상태에서 예측된 box가 없다는 것은, 탐지하지 말아야할 상황에서 아무것도 탐지 안한 상황이기 때문에, 모델의 예측한 모든 샘플이 정확하다고 해석할 수 있습니다.",
+        "user": "U075VV2KDTR",
+        "user_name": "Dongkwan Kim",
+        "timestamp": "1730689156.757739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "아.. 해석이 그렇게 되는군요!! 한 번에 이해했습니다!!\n명쾌한 설명 감사드립니다!!",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1730693887.293849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 CV 6조 최민석입니다. 대회 룰 관련해서 질문드립니다. model.py수정없이 train.py에서 synth data 또는 오픈 소스 데이터를 직접 학습한 가중치를 사용해 fine tuning해도 되는지 궁금합니다.",
+        "user": "U07E144T08P",
+        "user_name": "최민석_T7258",
+        "timestamp": "1730701292.113219",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07E144T08P",
+            "ts": "1730701818.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 13
+        }
+      },
+      "answers": [
+        {
+          "text": "weight space 상에서 ensemble하신다는 말씀이실까요? 가능합니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730701915.181849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변해주셔서 감사합니다!",
+          "user": "U07E144T08P",
+          "user_name": "최민석_T7258",
+          "timestamp": "1730702031.190179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "train.py에서 .pth 불러오는 부분을 직접 학습한 가중치로 불러와도 되는 것인가요?",
+          "user": "U07EUASMK17",
+          "user_name": "정현우",
+          "timestamp": "1730702775.313719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그 제공해드린 vgg pth 를 아예 안쓰는 것이 아니라 다른 데이터셋으로 학습한 모델과 조합한다고 이해했는데 혹시 그런게 아닌가요?",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730702839.040329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 조합하는 방식이 아니라\n\n1. 오픈 데이터 셋에서 모델 학습 (vgg pth)\n2. 학습된 가중치 (1에서 학습된 가중치)를 불러와 aistage에서 제공한 데이터로 추가 학습\n이렇게 하려고 하는데 괜찮을까요??",
+          "user": "U07EUASMK17",
+          "user_name": "정현우",
+          "timestamp": "1730703047.311249",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EUASMK17",
+              "ts": "1730703223.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 가능합니다!",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730703234.229609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네넵 감사합니다!",
+          "user": "U07EUASMK17",
+          "user_name": "정현우",
+          "timestamp": "1730703238.887399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "train.py 에서 모델 불러오는 코드 정도는 수정 가능한가요??",
+          "user": "U07EUASMK17",
+          "user_name": "정현우",
+          "timestamp": "1730703353.353399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`train.py` 는 원래 수정이 가능합니다",
+          "user": "U076G8QN5GS",
+          "user_name": null,
+          "timestamp": "1730703402.233609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U07EUASMK17",
+          "user_name": "정현우",
+          "timestamp": "1730703680.222469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

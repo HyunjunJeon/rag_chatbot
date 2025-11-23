@@ -1,0 +1,142 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 CV 11조 임용섭입니다.\n이번 대회 데이터셋에 대해서 궁금한 점이 생겨서 질문 드립니다.\n업스테이지 홈페이지에는 데이터셋이 3채널이라고 나와있는데, PIL로 확인했을 때 image.mode가 L 이라는 1채널 값, 이미지 속성에서 봤을 때 8비트로 1채널 값이 나오는 것 같아서 질문 드립니다.",
+        "user": "U07F4EGE2L8",
+        "user_name": "임용섭",
+        "timestamp": "1731499983.870339",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "업스테지 홈페이지, mode 값, 비트 수준 사진 첨부해서 올려드립니다.",
+          "user": "U07F4EGE2L8",
+          "user_name": null,
+          "timestamp": "1731500099.334729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. 질문주셔서 감사합니다. 이미지는 말씀 주신대로 채널 차원이 없는 것이 맞습니다. 수정하도록 하겠습니다.\n\n데이터 작업 중 cv2에서 처리해주는 내용을 보고 3채널로 데이터 설명이 작성된 것 같습니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1731500878.464739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은시간에 질문해서 죄송하고 빠른 답변해주셔서 감사합니다!",
+          "user": "U07F4EGE2L8",
+          "user_name": "임용섭",
+          "timestamp": "1731500906.555979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U047GUPLQ79"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "질문 주신 내용 반영했습니다. 감사합니다",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1731500938.101229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사",
+                "users": [
+                  "U07F4EGE2L8",
+                  "U03QFUYQT7W"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 cv-2조 신승철입니다.\n퀴즈 u-net architecture에서 maxpooling 이후 채널 수가 2배 증가한다고 하는데 채널 수에는 변함없지 않나요?",
+        "user": "U07EFLV99SN",
+        "user_name": null,
+        "timestamp": "1731552581.741589",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03QFUYQT7W",
+                "U03L1UMDLUS"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "U-Net Architecture 사진 상에서는 채널 수가 유지되는 것처럼 보이지만 실제 U-Net Architecture 논문 상에서는 max pooling 이후 채널 수가 2배 증가한다고 작성되어 있습니다!\n본문에는 2 x 2 max pooling을 stride 2로 적용하는 downsampling을 진행하는데, downsampling 시 채널 수가 2배 증가한다고 작성되어 있습니다! 아래 논문은 참고하시면 좋을 것 같아서 남깁니다:)\n\n<https://arxiv.org/abs/1505.04597v1>",
+          "user": "U07EFHKFKPV",
+          "user_name": null,
+          "timestamp": "1731557217.102299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QFUYQT7W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! (cc. <@U03QFUYQT7W>)\n위 “보기 2”번의 경우 설명이 U-net 구조에서 순서상 모호한 내용이 있는 관계로 아래와 같이 수정 반영했습니다. 감사합니다. :slightly_smiling_face:\n• 변경 전 :  max-pooling 이후 채널의 수 2배 증가한다.\n• 변경 후 :  Contracting Path 이후 채널의 수 2배 증가한다.",
+          "user": "U03L1UMDLUS",
+          "user_name": null,
+          "timestamp": "1731557572.060469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

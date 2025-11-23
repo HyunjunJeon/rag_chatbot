@@ -1,0 +1,419 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*Docker Compose 관련 질문*\n\n안녕하세요? 저번 질문의 연장선으로 이번에는 React와 Node.js 서버를 docker로 말아서 배포하는 과정에서의 문제에 관해 질문드리고자 합니다.\n\n저희 팀은 현재 최종 프로젝트를 위해 React로 구성한 client와 Node.js로 제작한 server 폴더를 두고, 각 폴더 내의 dockerfile를 통해 image를 만들어서 최상위 디렉토리에 있는 docker-compose.yml을 통해 컨테이너를 생성하여 배포하고자 합니다.\n\n배포 과정은 이전 질문에서와 마찬가지로 github action으로 push 또는 pull request 되면 AWS S3 버킷으로 빌드한 파일이 자동으로 업로드되고, AWS CodeDeploy를 통해 S3 버킷에서 EC2로 자동 배포되도록 작업했습니다.\n\n현재 저희가 작업 중인 최종 프로젝트의 디렉토리 구조는 다음과 같습니다.\n\n• *디렉토리 구조*\n```.\n├── appspec.yml\n│ \n├── docker-compose.yml\n│ \n├── client (React)\n│   ├── public\n│   ├── src\n│   ├── package.json                  \n│   └── dockerfile           \n│   \n└── server (Node.js)\n    ├── src\n    ├── dockerfile\n    ├── ormconfig.ts\n    ├── package.json\n    └── tsconfig.json```\n\ndocker-compose.yml 파일은 docker-compose up -d 명령어로 각 폴더에 있는 dockerfile를 통해 빌드까지 완성되도록 했으며, client와 server의 dockerfile과 최상위 디렉토리에 있는 docker-compose.yml 파일 내용은 다음과 같습니다.\n\n• *client의 dockerfile*\n```FROM node:14.17.3\n\nWORKDIR /app\nCOPY . .\n\nEXPOSE 3000\n\nENTRYPOINT [\"yarn\", \"start\"]```\n• *server의 dockerfile*\n```FROM node:14.17.3\n\nWORKDIR /app\nRUN npm install -g pm2 \n\nCOPY . .\n\nEXPOSE 3001\n\nENTRYPOINT [\"yarn\", \"docker\"]```\n• docker-compose.yml\n```version: '3.3'\n\nservices:\n  backend:\n    build:\n      context: ./server\n      dockerfile: ./dockerfile\n    image: \"recjoon-backend\"\n    command: [\"yarn\", \"docker\"]\n    ports:\n      - \"3001:3001\"\n  frontend:\n    build:\n      context: ./client\n      dockerfile: ./dockerfile\n    image: \"recjoon-frontend\"\n    ports:\n      - \"3000:3000\"\n    command: [\"yarn\", \"start\"]\n    links:\n      - \"backend:be\"```\n*Local과 EC2 bash shell에서 직접 docker-compose up -d를 실행*했을 때는 빌드부터 컨테이너 실행까지 *정상적으로 되는 데 반해*, *CodeDeploy를 통해 배포가 되면* docker image가 빌드된 후 *생성된 container는 계속 실행되지 않고 종료*가 되는 것으로 보입니다. 첨부해 드린 첫 번째와 두 번째 이미지가 각각 로컬과 EC2 bash에서 직접 실행했을 때 정상적으로 container 실행까지 제대로 작동하는 모습이고, 세 번째 사진은 CodeDeploy의 log에서 나오는 결과입니다. 또한 세 가지 실행 방법 모두 아래와 같은 결과가 출력됩니다.\n\n```Creating server_backend_1 ...\nCreating server_backend_1 ... done\nCreating server_frontend_1 ...\nCreating server_frontend_1 ... done```\n이에 관해 구글링을 해 보니 <https://stackoverflow.com/questions/34482018/docker-compose-up-does-not-start-a-container|여기>에 나온 답변으로는 서버처럼 포트를 열고 요청을 받는 경우 등 Dockerfile이 아무 것도 하지 않는다면 명령이 실행되는 즉시 종료되어 버린다고 하며, docker-compose up -d 대신에 docker run 명령어를 사용하라는 내용이 있습니다.\n\n그러면 docker-compose up -d로 서버 자체를 docker image 빌드부터 container 실행까지 할 수 있도록 하는 방법은 없을까요? 만약에 docker run 명령어로 직접 실행한다면 CodeDeploy의 Hook에서 이를 직접 docker run으로 명령해서 실행하도록 해야 하는 건지, 아니면 다른 현명한 방법이 있는 건지 궁금하여 질문드립니다.\n\n다들 강의 수강하시면서 최종 프로젝트를 위해 달려가느라 바쁘실 텐데 파이팅 하시길 바랍니다! :booduck_coding_no_bg:\n\n감사합니다.",
+        "user": "U02TNKDBF7D",
+        "user_name": null,
+        "timestamp": "1653273735.274199",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "선호님 안녕하세요!\n\n우선.. 제가 업무 시간이라 간단하게 보자마자 떠오른 아이디어만 공유드릴게요(제가 CodeDeploy를 정확하게 쓰진 않아서 이 부분은 감안해서 봐주셔요~)\n\n저라면 일단\n• Pull Request가 Merge 될 경우 Github Action에서 Docker Image Build를 추가할 것 같습니다\n• Github Action에서 도커 이미지 빌드하고 =&gt; 그걸 AWS ECR에 추가합니다\n• docker-compose.yml에선 ECR 경로를 바라보도록 수정\n• CodeDeploy에선 docker-compose up -d만 실행\n\n이런 방식으로 할 것 같습니다. 이렇게 하는 이유는 도커 이미지 빌드를 매번 해야하는 구조 같아요. 동시에 10명 이상이 협업한다고 하면 누가 새로 할 때마다 이미지 빌드를 새로 할 수도 있을 것 같아요. 만약 환경 설정의 수정이나 코드는 건들지 않았을 경우에, 매번 빌드하는 것은 오류 포인트가 있을 것 같습니다\n\n정리하면\n• docker-compose up -d의 역할은 그냥 서버를 키는 것만 한다\n• 이미지는 ECR 등에 올려서 받아온다\n\n정도만 일단 생각이 나네요..! 일단 회의할 시간이라 다녀올 예정이고, 여러 생각 나시면 또 말씀해주세용\n\n코드가 없으니 조금 이해하기 어렵긴 하네용..! ^_ㅠ",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653274533.727839",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1653274658.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 생각한 것과 유사한 블로그 글 : <https://velog.io/@rudwnd33/zero-downtime-deployment>\n\n\n<https://velog.io/@lechuck/CICD-Github-Actions-Docker>",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653274553.810999",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1653274640.000000"
+            },
+            "reactions": [
+              {
+                "name": "393b2c5cf48b52c4",
+                "users": [
+                  "U02SK7TG473",
+                  "U02TNKDBF7D"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 선호님! docker image 빌드부터 container 실행하는 shell script를 작성해서 github action에서 ssh로 ec2에 접속하여 sh파일을 실행하면 될 것 같습니다.\n\ngithub action에는 아래와같은 방식으로 작성하면 될 것 같아요!\n```- name: Deploy service\n        uses: appleboy/ssh-action@master\n        with:\n          host: ${{ secrets.YOUR_HOST }}\n          username: ${{ secrets.YOUR_USERNAME }}\n          key: ${{ secrets.YOUR_KEY }}\n          port: ${{ secrets.YOUR_PORT }}\n          script: |\n            export DEPLOY_HOME={sh path}\n            bash $DEPLOY_HOME/update-service.sh```",
+          "user": "U02SK7TG473",
+          "user_name": "조영빈",
+          "timestamp": "1653274588.311639",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02SK7TG473",
+              "ts": "1653274631.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://velog.io/@rycando/%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-Github-Action-AWS-codedeploy%EB%A1%9C-%EB%A1%A4%EB%B0%B1-%EA%B0%80%EB%8A%A5%ED%95%9C-CI-CD%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0|https://velog.io/@rycando/%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-Github-Action-AWS[…]%9C-CI-CD%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0>\n\n이게 제일 생각한 것과 유사한 글이네용..! 위에 글보다 요게 더 Use Case가 맞을 것 같네요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653274802.524839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02SK7TG473"
+                ],
+                "count": 2
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "당근 인턴하신 분 같은데 의식의 흐름이 잘 정리되어 있으니 보셔도 좋을 것 같네요~!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653274836.952599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02TNKDBF7D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조영빈 멘토님께서 말씀해주신 것처럼 쉘로 짜는 것도 가능합니다! 쉘 스크립트 실행을 시키곤 해요. 다만 도커 이미지 빌드를 생각해주시면 좋겠다 정도의 의견을 드려봅니다..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653274879.851179",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1653274894.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02SK7TG473"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02TNKDBF7D",
+                  "U02SK7TG473"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 올려주신 조언과 링크 참고해서 docker 이미지 빌드를 EC2에서 하지 않고 분리하는 방법을 찾아보겠습니다. :blush:",
+          "user": "U02TNKDBF7D",
+          "user_name": "이선호",
+          "timestamp": "1653275050.411969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "vscode에서 fastapi를 실행하면 이러한 에러가 뜹니다.\nimportError: cannot import name 'ParamSpec' from 'typing_extensions'\n혹시 아시는 분 있나요?",
+        "user": "U02TXU3HPC5",
+        "user_name": "최용원_T3219",
+        "timestamp": "1653278040.085979",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "용원님 안녕하세요~!\n이 부분은 typing_extensions의 이슈일 것 같은데..\n\n• 터미널에서 실행해도 동일한가요?\n• 혹은 파이참에서 실행해도 동일한가요?\n요것은 fastapi의 이슈라기보단, typing extension의 이슈 같아요(VS Code의 Extension려나요?)",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278229.196879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```typing-extensions```\n요것의 버전이 몇일까요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278265.982599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/PyCQA/pylint/issues/5032>\n\n요런 이슈도 있기도 하고..",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278335.581799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/tiangolo/fastapi/issues/4877>\n\n오 FastAPI엔 이런 이슈가 있네요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278388.390109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "의견 감사합니다 한번 시도해보겠습니다.",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1653278391.257909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```\nsame to me, fastapi-0.75.* is good.\nfastapi-0.76.0 is good on py3.6 but fails on py3.7```",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278398.422279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파이썬 버전에 따라 조금 이슈가 보이네요",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278408.427929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇다면 이제 파이썬 버전이 무엇인지도 확인해볼 필요가 있을 것 같네요!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278427.768769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02TXU3HPC5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위 이슈의 comment에 <https://github.com/tiangolo/fastapi/issues/4868#issuecomment-1119678681> 이게 남겨져있는데,\n\n```This PR updates the dependency for Starlette to 0.19.0, which has the dependency included for a newer version of typing-extensions: #4488```\nStarlette 라는 디펜던시로 생긴 이슈일수도 있겠어요..!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278464.674829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "하시고 안되시면 또 말씀해주세용 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653278476.688709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "python__version___3.8.13_\n_Fastapi__version___ 0.74.1로 바꾸었더니해결됐습니다.",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1653279317.209249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

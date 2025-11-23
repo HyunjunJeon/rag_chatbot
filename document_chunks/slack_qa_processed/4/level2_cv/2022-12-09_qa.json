@@ -1,0 +1,719 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. 처음에 conda 버전을 함부로 22.11.0으로 올렸다가 conda 폴더 용량이 29G로 올라 서버 제출을 못하고 있습니다..\nversion을 4.9.2로 다시 내리긴 했는데 용량은 줄어들지 않네요ㅠ\n서버 밀고 다시 하는 것 말고는 방법이 없나요..?",
+        "user": "U041HMZ15RR",
+        "user_name": "김범준",
+        "timestamp": "1670573192.271259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "`conda clean --all --yes` 한 번 해보세요.\n\n&gt; `conda clean`<https://docs.conda.io/projects/conda/en/latest/commands/clean.html#conda-clean|>\n&gt; Remove unused packages and caches.\n&gt; <https://docs.conda.io/projects/conda/en/latest/commands/clean.html>",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670575792.529549",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1670575828.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZ15RR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 감사합니다!\n실행해보니 줄긴 하는데 여전히 22G 로 15G보다 높네요..ㄷㄷ",
+          "user": "U041HMZ15RR",
+          "user_name": "김범준",
+          "timestamp": "1670576254.565459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음 다른 방법 찾아서 더 시도해보고(conda 아예 지우고 재설치 등)\n안되면 그냥 서버를 재할당 받아야겠습니다\n답변 감사합니다!",
+          "user": "U041HMZ15RR",
+          "user_name": "김범준",
+          "timestamp": "1670576372.117649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "이런 에러 발생하신 분 계신가요..? 디스크 사용량이 15GB 이하로 되어야 한다면 dataset을 추가하는 실험은 어려울 것 같은데,, 사용량이 15GB 아래로 되도록 파일을 지워야 하는 것인지 궁금합니다.",
+        "user": "U041WE6EKB3",
+        "user_name": null,
+        "timestamp": "1670576051.797959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C049SV5AXK2/p1670557610363049?thread_ts=1670474565.698489&amp;cid=C049SV5AXK2>\n데이터셋 문제는 없을 것 같은데 아마 주영님도\n저처럼 conda 환경 사용하시면 conda 용량 때문에 생기는 문제 같습니다ㅠ",
+          "user": "U041HMZ15RR",
+          "user_name": "김범준",
+          "timestamp": "1670576208.644179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE6EKB3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "큰 데이터셋을 사용하고 제출하는데에는 가이드에 나온 것 처럼 input/data/ 하위 경로에만 있으면 문제 없습니다! 오늘 제출할 때 22기가짜리 데이터셋도 생각 없이 같이 넣었는데 잘 되더라구요",
+          "user": "U041B76DHAS",
+          "user_name": null,
+          "timestamp": "1670576435.879679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE6EKB3",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아~ 저는 code 폴더 아래에 데이터셋을 저장해서 발생한 문제 같습니다. `opt/ml/input/data`  경로로 옮겨 보겠습니다. 다들 감사합니다 ㅎㅎ",
+          "user": "U041WE6EKB3",
+          "user_name": "홍주영_T4234",
+          "timestamp": "1670576448.247719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041B76DHAS",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "데이터셋을 옮겼는데도 계속 문제가 발생하네요.. ㅎㅎ",
+          "user": "U041WE6EKB3",
+          "user_name": "홍주영_T4234",
+          "timestamp": "1670577121.527149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C049SV5AXK2/p1670474565698489|https://boostcampaitech.slack.com/archives/C049SV5AXK2/p1670474565698489>",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670577699.499279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE6EKB3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "계속 어려움 겪으신다면 AI Stages 플랫폼에 문의 부탁드리겠습니다 :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1670577710.797659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 장원님, 알려주신 방법으로도 한번 시도해 보겠습니다. ㅎㅎ",
+          "user": "U041WE6EKB3",
+          "user_name": "홍주영_T4234",
+          "timestamp": "1670577751.658119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위의 스레드에 댓글로 적었지만, conda 환경 하나라도 만들면 안됩니다.\nconda 환경 지우고 캐시도 지우고\n<https://boostcampaitech.slack.com/archives/C049SV5AXK2/p1670573231007699?thread_ts=1670573192.271259&amp;channel=C049SV5AXK2&amp;message_ts=1670573231.007699|https://boostcampaitech.slack.com/archives/C049SV5AXK2/p1670573231007699?thread_ts=1670573192.271259&amp;channel=C049SV5AXK2&amp;message_ts=1670573231.007699>",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670577819.338869",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1670577878.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "장원님은 서버 제출 전 conda 지우고 다시 설치하는 식으로 하셨나요\n아니면 이후엔 conda를 아예 사용안하셨나요?",
+          "user": "U041HMZ15RR",
+          "user_name": "김범준",
+          "timestamp": "1670577875.377549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만들어서 사용하고 있던 conda 환경은 제출 전에 지웠습니다. 그리고 작업할 때 다시 만들고.\n`conda env export &gt; environment.yml` 으로 백업하고 `conda env create -f environment.yml` 하시면 간단히 다시 생성됩니다.",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670577981.395949",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1670578261.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041WE6EKB3",
+                  "U041HMZ15RR",
+                  "U041HR3M8BU"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "장원님께서 말씀해주신대로 생성했던 가상환경 지우고 다시 제출하니 정상적으로 저장되었습니다..! 정말 감사합니다 ㅎㅎ",
+          "user": "U041WE6EKB3",
+          "user_name": "홍주영_T4234",
+          "timestamp": "1670578583.117349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E",
+                  "U041HR3M8BU"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다행이네요!  귀찮긴 하지만, 다른 방법이 없네요ㅠ",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670578627.248539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZ15RR",
+                  "U041WE6EKB3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "다른 팀에서도 많이 고민하고 계실 것 같아 공개합니다.\n&gt; *<https://jwseo.notion.site/Git-fa95630c073c4303841ed4baf28f33ec|서버 폴더 구조 유지하면서 Git으로 협업하기>* :point_left:",
+        "user": "U041L94723E",
+        "user_name": "집사",
+        "timestamp": "1670580104.527329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "muscle",
+              "users": [
+                "U03KW2M0J07",
+                "U0427G48WAC",
+                "U041ERX3Q8M",
+                "U041HN1DUFM",
+                "U041ES0MH9B"
+              ],
+              "count": 5
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U041HN1JMTM",
+                "U0413879JNB",
+                "U041ERX3Q8M",
+                "U041ES3K9LM"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "저~(와 저희 팀)~ 도 공유 해보고 싶었던 부분인데, 한 사람이 이걸 꾸린다고 되지 않고, 팀원 모두의 이해와 도움과 참여가 있어야 가능한 일이겠다 싶이서 공유를 못 했는데 이렇게 올려주셔서 다른 캠퍼분들도 도움이 많이 되겠네요..\n\n저희 조는 음..지금은 저희 조가 하는 방법이 익숙해서 이겠지만 좀 더 심플한것 같아 파일 디렉토리 트리만 먼저 공유해봅니다 ^^;;\n\n화살표 달린 파일들이 전부 symbolic link 파일이고.. 보시고 참고 해보시면 좋을것 같습니다.\n\n팀원간에 서로 개발자산을 공유할 수 있는데 공을 좀 들여봤습니다.\n*특히 리눅스 커맨드가 익숙하지 않을 수 있어서, gen_symlink.sh 로 좀 더 편하게 symbolic link를 만들 수 있는 스크립트를 짜서 이용하고 있습니다.*\n\n궁금하신 점이나 참고하고 싶은 부분이 있으시면 이어서 댓글 부탁드리겠습니다.",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1670580738.747179",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1670580829.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상준님은 레포지토리 root directory에 파일들을 두셨군요?! 왠지 이렇게 많이 하실 것 같아 다른 방법도 있다는 것을 보여드렸습니다.\n\n리눅스가 익숙하지 않은 팀원들을 위해 역시 쉘 스크립트를 작성하고 계시는군요! 여러 명의 팀원들이 서버를 똑같이 셋팅하면 환경 설정이 달라 발생 가능한 문제를 최소화할 수 있지요. 그리고 한 줄로 손쉽게 셋팅하면서도 human error를 배제할 수 있다는 점에서 쉘 스크립트가 정말 좋습니다.",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670581130.386249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```~/code# ll\ntrain.py -&gt; develop/train.py```\n```~/code/develop# ll\ntrain.py -&gt; 최종 대상파일```\n요 방법이고 위에 shell 스크립트로 쉽게 링크를 세팅할 수 있도록 해두었습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670581165.437399",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1670581174.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U041HN1JMTM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그나저나 Git Graph가 벌써부터 너무 화려한데요?!  저희도 좀 더 분발해야겠네요..",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670581220.339979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아직 반도 시작을 못 했습니다 ㅋㅋㅋㅋㅋ 지난번 대회 git graph 보면.....  ㅠㅠㅠㅠ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670581247.690989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "scream",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "*노션 5. 제출파일 symlink도*\n저희조에서는 human error 가 걱정되어서.. train.py 좀 건드시면 symlink 바로 만드는게 됩니다~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670581390.470099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마 장원님도 다른 조에 도움이 될까하여 공유하셨다고 생각하고, 혹시 개발 환경 세팅에 어려움이 있으신 조가 있으시면 저도 감히 \"컨설팅\"을 해드릴 수 있지 않을까 합니다 ㅋㅋ\n말은 거창하게 했지만.. 별거 없고, 저희조 세팅한게 궁금하신 분들이나 symlink 만드는 스크립트 같은거 파일 공유가 필요하신 팀은 여기 댓글 남겨주시면 가능한 선에서 도움 드리겠습니다.",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1670581847.180159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "구글링해서 사용한 방법으로는 다 성공을 못해서 질문 남깁니다. 터미널에서 의도치 않은 학습을 실행해서 멈추려고 ctrl+c를 눌러줬는데 아무런 반응이 없습니다. 혹시 이런 경우에 터미널에서 돌아가고 있는걸 어떻게 멈춰야 할까요? 이전에 ps kill은 사용하면 안된다고 들었어서... 해당 방법은 사용해보지 않았습니다.",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1670590192.372569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "아직 180 에폭이나 남았네요..ㅠㅠ",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670590258.056079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ctrl+z 로 되나요?",
+          "user": "U041387CGQ7",
+          "user_name": "박근태_T4078",
+          "timestamp": "1670590331.723239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해당 방법도 안먹히더라구요..",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670590361.079709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "tmux같은거 없이 터미널로 돌리면, 터미널을 끊으면 종료됩니다.",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1670590673.193139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해당 방법도 해보았으나 wandb에는 계속 running으로 되어있어서 ..",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670590978.720179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670590981.170939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "kill 하셔도 무방합니다 ㅎㅎㅎ\n• kill 하면 안되는건 \n```# ps -ef\nUID        PID  PPID  C STIME TTY          TIME CMD\nroot         1     0  0 Dec05 ?        00:00:00 /bin/bash /entrypoint.sh```\n얘는 죽이면 서버가 꺼집니다. AI Stage 가서 일시정지 → 재시작 눌러야 고쳐집니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670590989.068849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 감사합니다! wandb에 로그는 끊겼네요",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670591009.076649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```ps -ef | grep train```\nroot@c64d752d8f7f:~/code# ps -ef | grep train\nroot     *32636* 32607 65 22:03 pts/3    00:00:05 python train.py\n이렇게 나오면\n\n```kill -9 32706```\n이렇게 강제 종료 할 수 있습니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670591091.421529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1670591547.315489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "• 모델이 학습 중 터져버릴때의 디버깅 절차\n어떻게 하고 계신가요?\n음.. 결국 제가 해결해야 할 문제이지만, 다양한 이유로 여러 문제가 발생할텐데 그때마다 어떤식으로 디버깅을 하는지 그 접근법이 궁금하고, 같이 공유하다보면 서로 노하우가 쌓일 수 있을것 같아 질문 드립니다.\n\n지금 저는...\n```[Epoch 12]:  97%|█████████████████████████████████████████████████████████████████▉  | 31/32 [00:34&lt;00:01,  1.11s/it ***]\nTraceback (most recent call last):\n  File \"train.py\", line 137, in &lt;module&gt;\n    main(args)\n  File \"train.py\", line 132, in main\n    do_training(**args.__dict__)\n  File \"train.py\", line 94, in do_training\n    loss, extra_info = model.train_step(img, gt_score_map, gt_geo_map, roi_mask)\n  File \"/opt/ml/code/model.py\", line 181, in train_step\n    loss, values_dict = self.criterion(score_map, pred_score_map, geo_map, pred_geo_map,\n  File \"/opt/conda/lib/python3.8/site-packages/torch/tensor.py\", line 588, in __iter__\n    raise TypeError('iteration over a 0-d tensor')\nTypeError: iteration over a 0-d tensor```\n반복적으로 12 에폭에서 터져버립니다 ㅎㅎㅎㅎㅎㅎ;;;;\n제가 알 수 없는 이유로 이래버려서\n\n원인을 알면 재현을 빠르게 하거나 코드를 고쳐서 단숨에 해결하겠지만\n저의 능력 부족으로 아직 원인을 알지 못하여... 문제 상황을 확인하기 위한 디버그 로그를 추가한다던지\ntry - except 로 구문을 쪼개서 정확히 어디서 문제가 되고 있는지 찾는다던지\n문제가 될거라 예상되는 조건의 입력값을 추정해본다던지 하고 있는데\n이를 확인하려면 꼼짝없이 12에폭을 기다려야 하네요 :joy:\n\n12에폭에서 터지기를 기다리면서 글 쓰고 있었더니 금새 끝났네요.....\n이제 또 코드와 싸우러 갑니다 ㅠ",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1670615731.745369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "amaze",
+              "users": [
+                "U041ES3K9LM",
+                "U04AY6Y68MR"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "일단 터지는데는 막아놓긴 했지만 근본적으로 해결한 것은 아니고.. 두가지 추가 질문이 생겼습니다.\n\n• 수정 금지인 loss.py 에서 문제점을 발견한 경우 어떻게 해야할까요?\nloss.py: 30 행 에서\n```    def forward(self, gt_score, pred_score, gt_geo, pred_geo, roi_mask):\n        if torch.sum(gt_score) &lt; 1:\n            print(\"------------------ HERE ------------------\")\n            print(gt_score)\n            return torch.sum(pred_score + pred_geo) * 0```\ngt_score 가 1 보다 작은 경우 extra_info 를 빼고 return 하고 있습니다. Baseline 코드 그대로에서 위 상황이 발생하면 exception 발생합니다...\ntrain.py 에서 handling 하면 될것 같은데, loss.py 수정 없이 train.py 에서 처리하는게 맞겠죠?\ntorch.sum(gt_score) &lt; 1 이 되면 안되는지, 또는 상관이 없는데 코드 구현에 문제가 있는건지..\n\n• torch.sum(gt_score) &lt; 1 왜 발생했는지 이유를 추적해보자면 east_dataset.py: 98행 generate_score_geo_maps 함수에서\n```poly = np.around(map_scale * shrink_bbox(bbox)).astype(np.int32)```\n여기에서 문제가 발생하는것 같은데 마찬가지로 수정 금지 파일이라 문제를 더 찾아보는게 맞을지 모르겠습니다.\n이게 gt 값 불러오는건데, augmentation 영향인지 왜 어느 순간 갑자기 발생하는지 모르겠습니다. 이미 1 ~ 11에폭 동안 get_item 하면서 문제가 없었을건데요..\n위 문제로 잘 학습하다가 특정 에폭에 다다르면 갑자기 펑:exploding_head: 합니다....\n\n이것과 비슷한 사례 겪으신 분 없으실까요?",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1670629826.073759",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1670630080.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04AY6Y68MR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한가지 팁을 드리자면..보통 이런 경우 augmentation 적용되면서 문제가 될만한 샘플이 만들어져 학습 중간에 문제가 생긴것으로 보이는데요..! 보통 이런 경우 학습이 터지는 시점 사용되었던 image batch 와 gt batch 를 시각화 해보면 힌트를 얻을 수도 있을것같습니다..!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1670636441.486959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 그 쪽을 의심하긴 했었습니다만.. 지금 상황이 조금 넌센스한데..\n• 학습 이미지 그대로\n• 학습 모델/Augmentation 등 학습 조건 그대로\n달라진건\n• Train / Val split 을 해서 batch 내 이미지의 순서가 달라진것 + 데이터가 줄어든것 밖에 없다는게...\n:sweat_smile:\n그래서 좀 헤맸습니당.... ㅠ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670636888.086969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04AY6Y68MR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 혹시 순서/수량이 달라지면서 이미지마다 적용되던 augmentation이 달라지거나 하진 않았나요? gt_score &lt; 1 로 인해 발생하는 문제면 이런 샘플이 augmentation시 생성 안되도록 만들어주는 것도 방법일것같네요..!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1670637074.990559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아! 그럴 수 있겠네요.. 감사합니다! 이제 어디를 더 봐야할지 알 것 같습니다 ^^",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670637143.461249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04AY6Y68MR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

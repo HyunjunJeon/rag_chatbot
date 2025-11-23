@@ -1,0 +1,225 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "팀원 간 모델 학습 과정 및 Artifacts 공유를 위해 MLflow Remote Tracking Server를 구성했는데, Logging 시 학습 소요 시간이 심각하게 증가하는 문제가 있어 문의드립니다.\n\n구성한 환경은 다음과 같습니다.\n\n[MLflow Server]\n집에 남는 PC에 Ubuntu + Python + MLflow를 설치하여 구성\n\n[Server Network]\n집의 공유기에 유선으로 랜선을 연결하여 구성했습니다.\nServer에서 speedtest 시\nDownload: 18.04 Mbit/s\nUpload: 14.18 Mbit/s\n의 속도가 나옵니다.\n\n[DL Library]\ndetectron2,\ndetectron2.engine의 HookBase를 이용하여 logging 수행\n\nwith MLflow, without MLflow간 계산 소요 시간 차이는 1.5배 2배 까지 나는 것 같습니다.\n\n혹시 괜찮은 해결 방안이 있을까요?",
+        "user": "U041ES3K9LM",
+        "user_name": "신성윤_T4112",
+        "timestamp": "1672056546.183739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 _log_models_ 때문에 전송시간 문제로 느려진다고 생각하시는거라면.. log interval 을 늘려보거나, best epoch 일때만 log_models 전송을 해보시는건 어떨까요?\n\n우선 어느 부분에서 속도가 오래 걸리는건지 time 으로 찍어보시고 해당 이슈가 어딘지 찾아서 고쳐보는게 필요할 것 같습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1672058308.604209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U041ES3K9LM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "log_model을 이용한 고용량의 pth 파일들은 학습 종료 시 한꺼번에 전송되어 문제가 아닐 것이라 판단하였고, 학습의 매 iteration 마다 30번 정도 실행되는 log_metric에서 시간 지연이 많이 일어납니다.\n말씀해주신 interval 조절을 적용해보겠습니다. 감사합니다!",
+          "user": "U041ES3K9LM",
+          "user_name": "신성윤_T4112",
+          "timestamp": "1672059051.099549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. log_metric 도 의외로 트래픽이 좀 있나보네요.. 여러명이 동시에 접속해서 logging할때 트래픽 이외에도 PC CPU 로드도 한 번 확인해보시면...\n근데 원인이 CPU 로드이거나 네트워크 트래픽 로드가 맞다고 하면, interval 이외에는 해결이 쉽지 않을것 같네요 ^^;\n화이팅 하세요! 관련해서 노하우가 있다면 나중에라도 공유해주시면 좋을것 같습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1672059283.054879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041ES3K9LM"
+                ],
+                "count": 1
+              },
+              {
+                "name": "jerry_thx",
+                "users": [
+                  "U041ES3K9LM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답글 달면서 문제를 구체적으로 적다가 생각나서 찾아봤는데 log_metric 말고 log_metrics도 있었습니다..\n한 iteration에서 전송할 것들을 모아서 한꺼번에 log_metrics로 보내니 문제가 해결됐습니다. 감사합니다!",
+          "user": "U041ES3K9LM",
+          "user_name": "신성윤_T4112",
+          "timestamp": "1672063607.198959",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041ES3K9LM",
+              "ts": "1672065591.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U041HMZR68K> 상모님! 1번 질문에 대한 제 생각을 공유드립니다.\n\n상모님께선 unpooling, deconv, interpolation 이 3가지가 upsampling 이라는 같은 목적을 가지기에 이들 간에 우위를 궁금해 하셨는데, 전 약간 관점이 다릅니다.\n\n강의의 흐름 상, classification과 다르게 segmentation은 입력과 똑같은 크기를 갖는 prediction map을 출력 해야 해서 기존에 없던 upsampling 방법론들이 등장 했다라고 이해가 되는건 맞습니다!! 그런데, 제가 상모님 질문을 뒤집어서 (각각에 대해 정확히 반대되는 개념을 이용)\n\n`Undersampling 방법론으로 pooling, conv, decimation이 있는데 이들 간에 우위가 있나요?` 라고 생각해보면 이 3개가 undersampling 이라는 큰 틀 아래에서 비교되기엔 구체적인 역할과 모습이 다르다고 느껴지실겁니다. 이미 다 아는 얘기이시겠지만,\n\nConvolution은 undersampling의 의미보단, 네트워크가 이미지 feature를 뽑는데 최적화된 방법론으로 느껴지고\nPooling과 decimation은 이렇게 추출한 feature map을 어떤 대표 값으로 치환하느냐에 필요한 방법론으로 느껴집니다.\n그렇다보니, 상모님이 말씀하신 3가지 방법론이 장단점은 알려진 것들이 있어도 우위를 말할 수 있을까? 라는 생각이 드네요. 그래도 제 생각을 말해보자면,\n\nDeconv 는 unpooling이나 interpolation과 다르게 network가 parameter를 학습하면서 필요한 정보를 “능동적으로 선택” 할 수 있다는 점이 우월하다고 생각됩니다. Convolution을 거쳐 넘어오며 encoding된 `feature map내에 있는 각 정보들을 \"얼만큼, 어떻게\" 복원할지를 parameter를 통해 결정할 수 있다는 점`이 non-parametric한 다른 방법론에선 할 수 없는 일이니까요. 그런데, convolution과 달리 feature를 늘리는 과정이다보니 (=무에서 유를 창조해야 되다보니) 상모님께서 refer 해주신 artifact effect가 생기는 단점이 있군요..!! 링크로 달아주신 글 너무 흥미롭게 잘 읽었습니다.\n\nUnpooling은 수식 상으론 Pooling의 완전 반대되는 개념이지만, encoding된 feature map엔 남아있지 않은 정보인 `\"과거에 pooling 했던 위치 정보\"를 받는 새로운 루트처럼` 느껴졌어요. 그래서, 모델이 deconv 과정에서 각 feature를 “얼만큼, 어떻게” 복원할지 판단하는 데에 부담을 덜어줄수 있도록 외부에서 “얘는 원래 여기 있었어!” 라고 조언을 해주는 느낌? 처럼 느껴졌습니다.  사실상 Upsampling 그 이상의 의미를 갖는 거죠!\n\n`마지막으로 Interpolation은 최대한 주어진 정보를 유지하면서, 규격만 맞추기 위해 사용되는 느낌을 받았습니다.` 애초에 bilinear- Interpolation 자체가 그런 목적을 담고 있는 수식이기도 하고, network 내부에서 model에게 무언가를 알려주는 느낌이 아니라 모델의 결과물을 규격에 맞게 잘 다듬는 느낌 이랄까요..? Deconv나 unpooling이랑은 또 다르게 느껴지네요!!\n\n마지막으로 3개의 조합에 대한 저의 생각은, 3개가 서로 대체 불가능한 역할을 하며 upsampling을 진행하기 때문에 상황에 맞게 모두 쓰는게 제일 좋을 것 같아요. 최신 연구들은 적재적소에 이 3개를 다 사용하지 않을까요..?\n\n제가 상모님 질문에 대한 올바른 답을 했는지 잘 모르겠네요..(머쓱;ㅎㅎ) 그래도 이런 질문 덕분에 저도 깊게 생각할 기회를 얻어갑니다!!:+1:",
+        "user": "U041B78LL22",
+        "user_name": "김성수",
+        "timestamp": "1672061284.072999",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041B78LL22",
+            "ts": "1672061865.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U041HMZR68K"
+              ],
+              "count": 1
+            },
+            {
+              "name": "laughing",
+              "users": [
+                "U041HMZR68K"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "성수님, 안녕하세요!\n먼저 이 질문에 대한 성수님의 대답 진심으로 감사드립니다.\n\nOversampling에 대치되는 Undersampling을 이야기하시면서, 구체적인 역할과\n모습이 다르다고 언급하셨습니다.\n\n=&gt; 성수님의 말씀처럼,\n\n사실 제가 질문을 드린 의도 또한, 명확한 우위가 있는지보다는\n오버샘플링 방법론 간에 상호 비교가 가능할까?\n각각의 장단점이 뚜렷한 상황이라면, 어느 한 모듈을 다른 모듈로 전적으로 대체해도 되는게 아닐까?\n란 생각이 들었기 때문에 드린 질문입니다.\n\n일례로, DeconvNet과 SegNet은 Unpooling 연산을 통해 해상도(FM)를 높이고,\n정보 복원의 역할에서 Deconv, Conv를 쓰는 차이점이 있습니다.\n이 경우엔 처음부터 Unpooling을 쓸 필요 없이, Deconv에 stride를 조금 더 주어 해상도를 복원할 수는 없었을까?란 의문이 들어서 드렸던 질문입니다 ㅎㅎ\n\n다소 쌩뚱맞은 질문이었는데, 성수님의 답변을 통해 저 또한 많이 배워가는 것 같습니다.\n다시 한번 진심으로 감사드립니다 :smile:",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1672119830.108799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "apple",
+                "users": [
+                  "U041B78LL22"
+                ],
+                "count": 1
+              },
+              {
+                "name": "rabbit",
+                "users": [
+                  "U041B78LL22"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": ":zap: *[Boost Up]* CV Track *깜.짝. 미팅 2차* :boom:\n\n안녕하세요! 오늘도 열심히 Level Up 하고 계신 캠퍼분들 줌에서 함께 얘기 나눠보실래요? :man-shrugging:\n오늘은 많은 부캠일정과 새로고침데이를 앞두고.. 참여하실 수 있는 팀이나 개인이 적을지도 몰라서 :sweat_smile:\n*참여가 가능하신 분은* :white_check_mark: *표시 해주세요!! 15명 이상 모인다면 모이도록 하겠습니다.*\n\n&gt; :date: *오늘 저녁 6시 <https://us06web.zoom.us/j/85313699379?pwd=b05VSWRCQ3R6QmpxOFQ0VUZ1aGZidz09|라운지룸>*!!\n*Semantic Segmentation Task* 과제를 하면서, 또 대회를 하면서 많은 어려움과 답답함이 있을 캠퍼분들이 계실텐데요, 저 또한 질문들이 늘 쌓여갑니다.\n그러나 막상 질의응답 채널에 질문을 올려도 되는지, 답글을 달아도 되는지 늘 망설이고 계시지 않으신가요?\n\n음료:beer: 하나씩 들고 *<https://us06web.zoom.us/j/85313699379?pwd=b05VSWRCQ3R6QmpxOFQ0VUZ1aGZidz09|라운지룸>*에서 모여 *가볍게 얘기 나눠보면* 어떨까요? :beers:\n\n특히 이번주는 여러 팀에서 공통적으로 고민하고 계실지도 모를 *프로젝트 주제*에 관련해서 좀 더 이야기해봐도 좋을것 같습니다.\n• *대회에 관련하여*\n• *최종 프로젝트 주제 선정과 관련하여*\n자유롭게 질문하고 답변하는 자리가 되었으면 합니다.\n\n그렇기에 _난 질문이 없는데?_:thinking_face: 라고 생각하시는 캠퍼들의 도움도 많이 필요합니다! :pray:\n\n다른 캠퍼들에게 답변을 해주는 과정에서 복습의 효과도 얻을 수 있고, 내가 알고 있는게 맞는지 확인도 받을 수 있고,\n머릿속 지식을 입으로 인출하는 모든 과정이 어떤 경우에라도 도움이 될 거라고 믿고 있습니다.\n\n*많은 캠퍼분들이 함께 해주셨으면 합니다* :booduck_happy:\n\n&gt; [Boost Up 차회 예정]   3회 : 1월 2일",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1672107274.854859",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041L92FWCC",
+            "ts": "1672107303.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U041L92FWCC",
+                "U041L8ZANQL",
+                "U041B7AA63G",
+                "U04138AJC7R"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U041ERZ3BKP",
+                "U041HR6RWAE"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "참여율이 높지 않아서... ㅎㅎㅎ Boost Up 미팅은 없는걸로 하고..\n아마 CV룸에서 계속 사람들이 남아있으면 영상 녹화 업로드가 안되는걸로 알고 있습니다.\n그리고 예약은 라운지룸 으로 해야해서요.. 라운지룸에 예약 표시는 해두겠습니다.\n참여 가능하신 분들은 모여서 자유롭게 해주시되 주의사항이 있습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1672126312.890899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "대회 규정 상 *Private 하게 기술에 대해 토의하거나 공유하는 것은 금지사항*입니다. 그래서 이런 부분들은 주의 부탁드리고, *서로 토의한 내용이 있는 경우 이 채널 또는 AI Stage 공개 게시판에 꼭 글을 남겨서 공유* 부탁드리겠습니다. :pray::skin-tone-2:",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1672126402.741389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

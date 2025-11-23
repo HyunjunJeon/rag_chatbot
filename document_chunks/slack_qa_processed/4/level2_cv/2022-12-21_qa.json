@@ -1,0 +1,541 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요.\n\nsegmentation 조교 이해중 입니다.\n\n직접 albumentations 라이브러리에서 제공되는 resize 함수를 사용하여 출력해보면 아래와 같이 sampling된 결과가 나오게 됩니다.\n(즉, 캠퍼님께서 예시로 주신 2x2 픽셀 예제에 대해 resize하면 아래와 같이 \"1\"로 예측하게 됩니다.)\n\nresize를 주기 위해 albumentations 라이브러리에서 제공되는 resize 함수를 사용하고 있으며, GT에서도 resize도 동일한 함수를 사용하고 있습니다.\n\n원본 크기(512x512)를 수정된 크기(256x256)로 변경하고,  해당 수정된 결과를 기준으로 채점을 하여도 모델의 성능 경향성은 비례하고 있음을 알려드립니다.\n\n감사합니다.",
+        "user": "U03QFUYQT7W",
+        "user_name": null,
+        "timestamp": "1671615731.583599",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U03QFUYQT7W",
+            "ts": "1671619104.000000"
+          },
+          "reactions": [
+            {
+              "name": "face_with_open_eyes_and_hand_over_mouth",
+              "users": [
+                "U0427G5BJQG",
+                "U0427G7HN6L",
+                "U0427G57TJL"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!",
+          "user": "U0427G57TJL",
+          "user_name": "김동영",
+          "timestamp": "1671687694.627419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QFUYQT7W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "4강 96p에서 upsampling-Bilinear Interpolation 에서 질문 있습니다.\n\nalign_corners를 True 혹은 False 인자로 주는 경우 각 결과의 차이는 잘 이해가 되었는데, 그러면 True, False를 설정할 때 어떠한 기준이 있나요? 아니면 해당 인자는 하이퍼 파라미터로 실험해보면서 좋은 성능을 가지는 쪽으로 설정해서 사용하면 되는 건가요?",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1671624546.311219",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03QFUYQT7W",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QFUYQT7W"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요.\n해당 부분은 원리의 차이 정도를 이해하시면 좋을것 같습니다.\n실험적으로 결과의 차이를 비교해보면 좋겠지만 경험상 성능의 차이를 만드는 큰 요소는 아니였던것 같습니다.",
+          "user": "U03QFUYQT7W",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1671627597.073399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다.",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1671631236.968859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "FCN 강의의 model code 부분의 maxpool2D은  ceil_mode=True가 되어 있더라구요.\n궁금해서 찾아보니 ceil_mode를 활성화하면 비활성화한 경우보다 이전 정보를 더 많이 가져가는 느낌이던데. 제가 이해한게 맞을까요?\n\n저만 궁금했을수도 있지만... 궁금해서 알아보다가 관련 자료 공유 드립니다~\n<https://discuss.pytorch.org/t/ceil-mode-in-pooling/54646>",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1671631841.699169",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0427G7HN6L"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QFUYQT7W"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "해당 링크 직접 돌려보니 다음과 같은 결과를 얻었네요ㅋㅋ",
+          "user": "U041HN1JMTM",
+          "user_name": null,
+          "timestamp": "1671631898.512179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03QFUYQT7W"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03QFUYQT7W"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HN1JMTM> 끄트머리도 도장을 찍어주는지 버리는지 차이이군요 신기합니다.",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1671632603.153859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041HN1JMTM",
+                  "U0427G7HN6L"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "mission을 수행하면서 어려운 부분이 있습니다. model 구조 짜는 경우에 Conv2d의 in_channels와 out_channels는 다들 어떻게 넣고 계신가요?\nkernel size와 padding을 계산해서 다음 값을 넣고 계신건지.. 아니면 해당 인자들은 논문이나 자료 등을 참고해서 코드 작성하시는지 궁금합니다.",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1671632593.867719",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041HN1JMTM",
+            "ts": "1671634634.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "추가로 FCN 8의 경우 deconv 하는 경우 kenerl size나 stride, padding 등과 같은 인자들도 그냥 scratch로 다 짜려고 하는 경우에 어떻게 생각해서 넣어야 할지.. 막막해서 질문 올립니다.",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1671636409.893429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "채널 수는 우선 논문을 참고해 생각해 보고 논문에 나오지 않는다면 그 모델을 구현한 라이브러리나 블로그 코드를 참고해 보고 있습니다.\n\n커널 사이즈나 패딩, stride를 얼마나 주는지는 손으로 계산하고 있습니다. deconvolution의 경우도 마찬가지로 손으로 계산하고 있습니다.\n\n저도 제가 효율적으로 하고 있는지는 모르겠지만 .. 공부하면서 큰 어려움은 없어서 댓글 남깁니다.",
+          "user": "U041HN0UDEF",
+          "user_name": "원준식",
+          "timestamp": "1671642680.156509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 FCN8 deconv 구현할 때 직접 어떻게 계산할지 잘 모르겠어서 보니\nn배 up score 하는 경우\nstride = n\nkernel_size = n*2\npadding = n/2\n이런 규칙이 있는 거 같았습니다.\n\n예를 들어 마지막 output 출력을 위해 1/8 크기를 8배로 up score할 때\nkernel_size = 16, stride = 8, padding = 4 이렇게 넣어주는 식입니다.\n\n엄밀하게는 따져보지 않아 혹시 자세히 알고계신 분들이 있다면 첨언 부탁드립니다",
+          "user": "U041HMY8YCB",
+          "user_name": "이태희",
+          "timestamp": "1671663954.653449",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMY8YCB",
+              "ts": "1671667340.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 주신 분들 감사합니다!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1671674673.884999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "ninja library를 설치하는 중인데 CUDA_HOME 변수 &amp; nvcc가 필요한 것 같습니다. 그런데 echo $CUDA_HOME을 해도 아무것도 안뜨고 nvcc도 설치된 것 같지 않고, 보통 cuda 폴더가 있는 usr/local 위치로 가봐도 cuda 폴더가 없더라구요. 이런 경우에는 어떻게 해결해야 하나요? 없으니 포기하고 다른 길을 찾는 게 맞는건가요 :smiling_face_with_tear:",
+        "user": "U0427G9RVK2",
+        "user_name": "오한별",
+        "timestamp": "1671670017.905549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "AI Stage에서 생성한 서버 이미지에는 nvcc가 없었습니다 :sob: 굉장히 challenge 한 문제일 수 있는데..\n한 번 해보고 성공하게 되면 댓글 남기러 오겠습니다. 언젠가...",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671670579.807669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "conda 가상 환경에서 아래 페이지를 따라했을 때 nvcc -V 확인 가능했습니다.\n<https://kyubumshin.github.io/2022/04/23/tip/conda-cuda-%EC%84%A4%EC%B9%98/>",
+          "user": "U041ES3K9LM",
+          "user_name": "신성윤_T4112",
+          "timestamp": "1671670958.529509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "wobbuffet",
+                "users": [
+                  "U0427G9RVK2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는.. native하게 설치 해보려고 합니다 ㅎㅎㅎ 성공하면.. 댓글을...",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671671011.620139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U0427G9RVK2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다들 감사합니다!",
+          "user": "U0427G9RVK2",
+          "user_name": "오한별",
+          "timestamp": "1671671583.471279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "MMSegmentation 혹시 설정해서 돌려보신 분 계신가요..? MMCV에 쿠다 파이토치 호환성 이슈 때문에 계속 A,B,C 반복되는 에러가 뜨는거 같은데, 혹시 서버에 cuda 버전 업그레이드 시켜도 문제없을까요? 서버관련 무지해서 여쭤봅니다:smiling_face_with_tear:",
+        "user": "U04138ETVLP",
+        "user_name": "Soonyoung Hwang",
+        "timestamp": "1671670619.561539",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "mmseg 돌릴때 cuda 버전 때문에 문제 된 적은 없는 것 같습니다. 혹시 설치하실때 공식 문서에 나온 설치법으로 진행해보셨나요?",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1671670663.704319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 하면서 구글링으로 trouble shooting 하는데 에러가 결국 돌고 돌아 같은 에러가 나더군요. 저는 계속 고치다 안되서 쿠다11이 호환성 이슈가 좀 있다는걸 보고, 고치려고 했었는데..\n민기님은 혹시 이번 서버에서 그냥 공식문서대로 설치하셨더니 되신건가요?",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1671670777.950419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 저는 문제 없이 설치 했었습니다. 혹시 openmim 사용하셨나요?",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1671670809.305919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 민기님 의견에 동의합니다만, 그것과 별개로\n이게 첫 대회부터 계속 반복적으로 나오는 얘기네요 ㅎㅎ\nCUDA 버전업은 아마... 이미 생성된 컨테이너에서 하기에 굉장히 좀 신경써야 하거나 제약이 있다거나 해서 어려울 수 있습니다 :joy:\nDocker 구조 상 Host 의 NVIDIA Driver를 Container 에서 공유하는 개념이라서.. 파일 변경이 안되는 파일도 있기도 하고요..\n일단 해보기는 해볼건데 바로 위 한별님 글에 댓글이 달린다면 아마 이 문제도 같이 해보고 나서일겁니다 ^^ 언젠가 댓글 달러 와보겠습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1671670845.790149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 openmim 사용했습니다! 어렵네요:smiling_face_with_tear:",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1671670924.613789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC> 감사합니다.. 민기님 말씀대로라면 일단 버전 안 건드려도 될거 같긴한데 혹시 그 부분도 필요할거 같아서 하시면 올려주시면 감사하겠습니다! ㅎㅎ 항상 수고많으십니당",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1671670970.992109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 캠퍼님, 상준님 말씀처럼 쿠다는 드라이버 버전과 호환되어야 하기 때문에 쿠다 버전업은 현재 시스템으로는 지원이 불가능합니다. :pray: :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": null,
+          "timestamp": "1671671568.902799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04138AJC7R> 민기님 혹시 서버에 cuda version 몇인지 여쭤봐도 될까요?",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1671672079.919769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 확인해보니 11.0입니다",
+          "user": "U04138AJC7R",
+          "user_name": null,
+          "timestamp": "1671673254.086039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사드립니다~ 잘 고쳐보겠습니다!",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1671673304.839649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 다음 주 오피스아워 내용이 mmsegmentation 사용법이라는게 어디나와있는지 알 수 있을까요.?",
+        "user": "U04138ETVLP",
+        "user_name": "Soonyoung Hwang",
+        "timestamp": "1671672301.454919",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "앗 부제로 있었군요 .. 찾았습니당 :man-gesturing-ok:",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1671672342.444689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U041ES179JR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "github pre-commit 사용하시는 팀 있나요? 사용해보려고 하는데 오류 나는게 서버문제인것 같아서 여쭤봅니다",
+        "user": "U0427G93ETS",
+        "user_name": "오주헌_T4127",
+        "timestamp": "1671674856.214759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "```/opt/ml/.cache/pre-commit/repotkype2ss/node_env-default/bin/node: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found (required by /opt/ml/.cache/pre-commit/repotkype2ss/node_env-default/bin/node)\n\n관련 오류입니다```",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1671674869.356719",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G93ETS",
+              "ts": "1671674885.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

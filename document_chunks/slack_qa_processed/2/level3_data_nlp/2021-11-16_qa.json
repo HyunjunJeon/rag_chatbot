@@ -1,0 +1,100 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!\n요새 tagtog로 열심히 데이터를 제작하고 있는데 labeling tool에 대해서 궁금점이 생겼습니다.\n예전에, tesla aiday 유튜브에서 테슬라는 자율주행 데이터를 만들기 위해서 자작 레이블링 툴을 사용한다고 말했는데,\n국내/외 다른 기업들은 labeling tool을 돈을 주고 사서 쓰는지, 오픈소스를 활용하는지, 아니면 직접 제작하는지 궁금합니다. ㅎㅎ",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637050578.073100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U028ZAA1X1V",
+                "U02AF2JSQP2"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "큰 기업에서는 직접 레이블링 툴을 만들거나 아니면 자회사를 두어 데이터를 관리하고, 규모가 작은 곳에서는 (개발력이 된다면 직접 툴을 만들지만) 오픈소스를 활용하거나 소싱 업체에 맡기는 경우도 종종 있는 것 같습니다 ㅎㅎ\n<@U02920P28QN> 혹시 현업에서 어떻게 진행하는지 간단히 덧붙여주실 수 있으실까용 ㅎㅎ",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1637050959.073200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028FM07UQ3",
+                  "U028ZAA1X1V",
+                  "U029EUNLHV2"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 잘은 모르지만.. 제가 아는선에서 답을 해보자면\n\n아직 데이터 제작 영역에서 확실한 업계 표준이 없어서 필요성에 따라서 다른 것 같습니다.\n다면 몇 가지 기업 사례를 볼 수 있을 것 같은데요.\n\n1. 큰 규모의 이미지, 영상, NLP의 데이터 제작이 필요한 경우 외주를 전문으로 하는 회사들이 있습니다. 데이터 제작이 주 업무인 만큼 자사 툴이 존재할 것 같습니다. 국내에는 셀렉트 스타, Superb AI 등이 있는 것 같습니다. 외국 기업으로는 GCP가 잘 되어 있다고 알고 있습니다.\n2. 다음으로 자사 제품에 모델을 학습하기 위해 필요한 데이터가 필요한 경우 자체 제작툴을 제공합니다. 국내에는 코그닉스와 같은 회사들이 대표적인 것 같습니다. 외국에는 캠퍼분이 말씀해 주신 테슬라가 있습니다.\n3. 그 외 파일럿 형식으로 PoC를 진행할 경우 오픈소스들을 활용하는 것 같습니다. Tagtog, Label Studio와 같은 툴들이 있습니다.",
+          "user": "U02920P28QN",
+          "user_name": "전종섭",
+          "timestamp": "1637052456.073400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0296J0LP0D",
+                  "U028FM07UQ3",
+                  "U028ZAA1X1V",
+                  "U029EUNLHV2",
+                  "U02AF2JSQP2"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920P28QN>  <@U0296J0LP0D> 답변 감사합니다. 저라면 해야 한다면 GCP나 다른 클라우드 플랫폼을 이용해서 할거 같네요.\ngcp 다른 용도로 써봣는데 좋은거 같습니다. gcp로  labeling은 안해봤는데 좋을거 같은 느낌이 듭니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637061076.074800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1637061194.000000"
+            },
+            "reactions": [
+              {
+                "name": "party-blob",
+                "users": [
+                  "U02920P28QN",
+                  "U02AF2JSQP2",
+                  "U0296J0LP0D"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

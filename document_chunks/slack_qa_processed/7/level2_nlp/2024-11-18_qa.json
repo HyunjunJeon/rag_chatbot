@@ -1,0 +1,329 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*[Generation for NLP 대회 공식 공지]*\n\n*추가된 대회 규칙 안내*\n\n1. *유료 API를 사용하여* 테스트셋을 시드로 활용한 *데이터셋(CoT, 힌트 등) 제작* 금지\n2. 테스트 데이터의 *학습* 금지\n    ◦ 테스트 데이터를 모델 학습을 허용하지 않습니다.\n3. *투명성과 검증 가능성* 확보\n    ◦ 사용된 모든 데이터와 도구를 명확하게 공개하여, 필요 시 검증이 가능하도록 해야 합니다.\n*유의사항*\n• 새로운 공지 전에 유료 API를 사용해서 생성하신 데이터셋도 대회의 공정성을 위해 사용 금지하겠습니다.\n    ◦ 생성하신 데이터를 사용해서 제출하셨다면, 저희 대회 조교분들께 말씀해주세요!\n• 위의 경우에 해당된다면, 반드시 *코드 내에 해당 내용을 명시*해 주시기 바랍니다.\n*Robust한 기준*\n1. Train 데이터셋\n    a. Open Sourced 모델 및 유료 API 모두 사용 가능.\n2. Test 데이터셋\n    a. *Open Sourced 모델*: 학습 데이터를 특정할 수 있는 모델만 사용 가능(CoT, 문제 유형 분류, RAG 등 허용).\n    b. *유료 API*: 일절 사용 금지(훈련된 데이터를 특정할 수 없으므로 제한).\n\n갑작스럽게 대회 규칙을 수정하게 되어 죄송합니다. 여러분의 이해와 협조에 감사드립니다.",
+        "user": "U07B5FRE94J",
+        "user_name": "Kyochul Jang",
+        "timestamp": "1731922523.980719",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07B5FRE94J",
+            "ts": "1731982739.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U07E147BR7Z",
+                "U07EFLKGDHQ",
+                "U07ECPNBCPP",
+                "U07E922CJT0",
+                "U07EFHD5WLB",
+                "U07EFH9F0TV",
+                "U07EFLPLNUA",
+                "U07ECPU2N05",
+                "U07E14BU1L7",
+                "U07EJ5G4TPE",
+                "U07E926NQVC",
+                "U07F4EDU6BA",
+                "U07E9209L5U",
+                "U07EJ5NN3NG",
+                "U07EUAYFS0Z",
+                "U07EFLWA0QJ",
+                "U07EUANTJAV",
+                "U07EJ5H7HU4",
+                "U07F4EE0FCG",
+                "U07EUAY4Y1X",
+                "U07EUB29ZMX",
+                "U07EFHD3VD1",
+                "U07EUAP1XCH",
+                "U07EFHBA18T",
+                "U07F4EKEY2C",
+                "U07EUAW0JJD",
+                "U07EFLKEVA6"
+              ],
+              "count": 27
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 혹시 유로 API가 test 데이터셋에 한정인건지 train 데이터셋을 포함하여 사용하지 못하는 지 궁금합니다.",
+          "user": "U07E9209L5U",
+          "user_name": "이정민_T7420",
+          "timestamp": "1731924317.191039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 조교님.\n1. 1번 규칙에 대해 추가로 여쭙고 싶은 것이, RAG와 같이 테스트셋을 바탕으로 문서를 검색해와서 붙이는 것도 일종의 힌트로 작용할 수 있으므로 룰 위반으로 작용할까요?\n2. 또 1번 유의사항에 대해 여쭙고 싶은 내용이 있는데, \"불가피한 상황으로 인정\"된다는 말이 이미 만들어놓은 데이터셋이 있다면 계속 활용해도 된다는 것인지, 아니면 지금까지의 제출은 인정하지만 이후로는 인정되지 않는다는 것인지 여쭙고 싶습니다. (전 후자로 읽히긴 한데, 확실히 하고 싶어서 여쭈어봅니다!)",
+          "user": "U07EFHD3VD1",
+          "user_name": "박준성",
+          "timestamp": "1731924334.320569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07E9209L5U> 테스트셋에 한정입니다.",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1731924439.160009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EFHD3VD1>\n1. 네! 테스트셋을 모른다고 가정해야하기 때문에 룰 위반입니다!\n2. 추가된 대회 규칙 안내가 올라오기 전에 유료 API를 통해 생성된 데이터셋에 대해서는 지속적으로 활용하실 수 있습니다.",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1731924759.656509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "친절한 답변 감사합니다.\n제가 헷갈리는 부분이 있어서 짚고 넘어가고 싶어 한 가지 더 여쭈어보고 싶은 점이 있는데, 모델이 테스트셋을 기반으로 CoT를 생성하는 게 테스트셋을 안다고 가정하게 되는 건가요?\n제 생각엔 \"~~하기 때문에 정답은 ~~입니다.\" 라고 생성하도록 유도하는 것은 테스트셋을 모르고도 초견으로도 할 수 있는 것 같은데 아닌가요?",
+          "user": "U07EFHD3VD1",
+          "user_name": "박준성",
+          "timestamp": "1731925095.072909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07E14C7L7R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 조교님,\n위 질문에 대한 답변에 대해서 질문있습니다.\n`이미 유료 API를 사용하여 테스트 데이터셋을 기반으로 데이터셋을 생성` 이라고 하셨고, \"지속적으로 생성된 데이터셋을 사용할 수 있다\"고 하셨는데, *테스트 데이터셋을 모르는 상황*에서 *테스트 데이터를 기반으로 생성할 수 있다는것*이 모호합니다.",
+          "user": "U07E14C7L7R",
+          "user_name": "JeongHwi Lee (과일망)",
+          "timestamp": "1731925182.185339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07EFHD3VD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "계속 질문드려 죄송합니다 ㅠㅠ. 혹시 아래 상황 중 어떤 것이 룰 위반인 것인지 알 수 있을까요?\n1. 유료 API를 이용하여 테스트셋을 기반으로 힌트(ex. CoT)를 공지 전에 만든 내용을 공지 후 테스트셋 추론시 활용 *(이러한 힌트는 이미 다른 조교님께서 불가능하다고 답변하신 바가 있습니다: <https://boostcampaitech.slack.com/archives/C07PLBCCUUA/p1731550902803819?thread_ts=1731549705.468419&cid=C07PLBCCUUA|링크>)*\n2. 생성 기반으로 문제를 해결하기 위해 프롬프트 엔지니어링을 활용하여 테스트셋에 대해 inferece time에 CoT 이후의 정답을 생성하도록 함\n3. 테스트 데이터셋을 확인하지 않고 document를 수집한 후, 테스트셋에 대해 inference time에 수집한 document 중 하나를 retrieval하여 힌트로 사용 후 정답을 생성하도록 함\n4. (19시 39분 추가) 다른 캠퍼님께서 말씀하신 <https://boostcampaitech.slack.com/archives/C07PLBCCUUA/p1731899197360709|이 방법>과 유사하게, 테스트셋 하나를 inference할 때 여러 단계로 나누어진 파이프라인을 거쳐 정답을 생성하도록 함 (파이프라인의 모든 과정은 테스트 데이터셋을 모르는 상태에서 동작)\n제 생각엔 2번과 3번은 테스트셋을 모르는 상태에서도 활용할 수 있는 일반적인 방법이라 느껴져 여쭈어 봅니다!",
+          "user": "U07EFHD3VD1",
+          "user_name": "박준성",
+          "timestamp": "1731925741.788859",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EFHD3VD1",
+              "ts": "1731926921.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07EJ5F40TW",
+                  "U07E14BU1L7",
+                  "U07E145G30X",
+                  "U07EFHLV8G3",
+                  "U07ECPU2N05",
+                  "U07EFHB86HZ"
+                ],
+                "count": 6
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 조교님..!\nNLP -07조 홍성균이라고합니다..!\n저번에 질의응답에서 질문드렸을 때에\nTest Dataset에 대해서 별도 요약, 생성 같은 힌트를 주는게 아니라,\n위키피디아 데이터셋을 이용해 구축한 DB 에서\nRAG 이용해 연관 정보를 붙여주는 정도의 작업에 대해서\n이미 여쭤보고 현재 팀에서 상당부분 거기에 자원을 썼어서요 ㅠㅠ\n혹시 이부분 다시 한번 검토해주실 수 있을까요?",
+          "user": "U07EFHB86HZ",
+          "user_name": null,
+          "timestamp": "1731979953.921559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U07EFHD3VD1",
+                  "U07EFHLV8G3",
+                  "U07ECPU2N05",
+                  "U07F4ERQG1W"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "캠퍼 분들 질문에 한꺼번에 답변 드렸습니다. 양해 부탁드립니다!\n\n1. (테스트셋 기반으로) 유료 API를 통해 얻은 데이터는 공지 이전에 수집한 데이터라 하더라도 사용이 금지됩니다.\n    a. 이미 해당 데이터를 사용하여 리더보드에 점수가 등록되었을 경우, 반드시 조교에게 알려주시기 바랍니다.\n2. `1번 규칙에 대해 추가로 여쭙고 싶은 것이, RAG와 같이 테스트셋을 바탕으로 문서를 검색해와서 붙이는 것도 일종의 힌트로 작용할 수 있으므로 룰 위반으로 작용할까요?` ->\n    a. 테스트 데이터셋에서는 RAG 사용이 허용됩니다.\n    b. 다만, 유료 API의 활용은 금지됩니다(예: 유료 모델을 활용한 재랭킹 및 리트리버 사용 금지).\n3. `유료 API를 이용하여 테스트셋을 기반으로 힌트(ex. CoT)를 공지 전에 만든 내용을 공지 후 테스트셋 추론시 활용 *(이러한 힌트는 이미 다른 조교님께서 불가능하다고 답변하신 바가 있습니다: 링크)*`\n    a. 무료 모델 및 자체 학습 모델은 사용 가능합니다.\n    b. 단, 이는 stages.ai에서 공지한 기학습 가중치 정책을 위반하지 않는 범위 내에서만 허용됩니다.\n4. 생성 기반으로 문제를 해결하기 위해 프롬프트 엔지니어링을 활용하여 테스트셋에 대해 inferece time에 CoT 이후의 정답을 생성하도록 함\n    a. 무료 모델 및 자체 학습 모델은 사용 가능합니다.\n    b. 단, 이는 stages.ai에서 공지한 기학습 가중치 정책을 위반하지 않는 범위 내에서만 허용됩니다.\n5. 테스트 데이터셋을 확인하지 않고 document를 수집한 후, 테스트셋에 대해 inference time에 수집한 document 중 하나를 retrieval하여 힌트로 사용 후 정답을 생성하도록 함\n    a. 2번과 동일\n6. 다른 캠퍼님께서 말씀하신 이 방법과 유사하게, 테스트셋 하나를 inference할 때 여러 단계로 나누어진 파이프라인을 거쳐 `정답을 생성하도록 함`\n    a. 3번 답변과 동일\n7. <@U07EFHB86HZ> 님 질문 답변\n    a. 무료 RAG를 사용하셨다면 가능합니다.",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1731982158.706459",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07B5FRE94J",
+              "ts": "1731982251.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U07EFHD3VD1",
+                  "U07EFHB86HZ",
+                  "U07F4ERQG1W",
+                  "U07EFHLV8G3",
+                  "U07EUAU5B33",
+                  "U07EJ5F40TW",
+                  "U07E147BR7Z"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "친절히 답변해주셔서 감사합니다!!",
+          "user": "U07EFHD3VD1",
+          "user_name": "박준성",
+          "timestamp": "1731982414.029139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사드립니다!",
+          "user": "U07EFHB86HZ",
+          "user_name": "홍성균",
+          "timestamp": "1731982425.752549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다.",
+          "user": "U07E14C7L7R",
+          "user_name": "JeongHwi Lee (과일망)",
+          "timestamp": "1731982444.078209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "조교님들과 상의 후에 `추가된 대회 규칙 안내` 내용을 일부 수정하였습니다.\n큰 변경사항은 없으며, 공정성을 위해 *유료 API를 테스트셋에 활용하여 생성된 데이터는 일절 사용을 금지*하였습니다.\n수정된 공지를 한 번 더 확인해 주시면 감사하겠습니다!",
+        "user": "U07B5FRE94J",
+        "user_name": "Kyochul Jang",
+        "timestamp": "1731982384.317019",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07B5FRE94J",
+            "ts": "1732177715.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U07EFHD3VD1",
+                "U07EUAU5B33",
+                "U07EJ5F40TW",
+                "U07ECPTTS5B",
+                "U07EJ5NN3NG",
+                "U07F4EE0FCG",
+                "U07EFHDEZ7V",
+                "U07EFHD5WLB",
+                "U07EFLKGDHQ",
+                "U07EFLKEVA6"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "test 데이터 셋에 한해서 유료 API 사용이 안되는 것으로 이해하면 될까요?",
+          "user": "U07EUAU5B33",
+          "user_name": "윤선웅",
+          "timestamp": "1731983207.257639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다.",
+          "user": "U079B1LUAR3",
+          "user_name": "김규민",
+          "timestamp": "1731987436.988079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U07EUAU5B33"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

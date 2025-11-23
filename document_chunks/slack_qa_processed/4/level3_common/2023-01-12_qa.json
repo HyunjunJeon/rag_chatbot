@@ -1,0 +1,758 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 하둡을 적용해보려고 하는데 시작부터 막혀서 많이 부족한 질문 드립니다.\n자바를 설치하고 싶은데 캐쉬 메모리가 부족해서 설치가 안되는 것 같아요..\n혹시 아시는 분 답변 주시면 감사하겠습니다!",
+        "user": "U041ERYLS6R",
+        "user_name": null,
+        "timestamp": "1673576754.032769",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "loading",
+              "users": [
+                "U041ERXKAH3",
+                "U041HR79V5G",
+                "U0427G446D6"
+              ],
+              "count": 3
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U041ERXKAH3",
+                "U0427G446D6"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0427G5T6BS"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 21
+        }
+      },
+      "answers": [
+        {
+          "text": "이게 제일 비슷해보이는데 혹시 이미 시도해보셨나요?\n<https://stackoverflow.com/questions/65291124/docker-you-dont-have-enough-free-space-in-var-cache-apt-archives>",
+          "user": "U041ERV4EMT",
+          "user_name": "강수헌_T4003",
+          "timestamp": "1673577222.237729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "docker와 sudo 모두 command not found 문구가 나와 실행이 안되네요.\n권한이 없는 것 같아요. 댓글 달아주셔서 감사합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1673577400.116879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "apt install sudo 로 sudo 명령은 설치하실 수 있지만",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577428.525549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "docker 는 ai stage 안에서 하시기 힘들거예요 그 자체가 이미 docker 컨테이너라서요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577446.340949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 저 메시지 자체가 이미 ai stage 물리 스토리지 용량이 부족하신거 같은데..\ncd /\ndf -h\n해서 / 디렉토리의 남은 공간을 확인해보시기 바랍니다.\n컨테이너의 남은 스토리지 용량이 0byte가 되면... 접속도 못하실 수 있습니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577516.173979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수현님 작성해주신 글은 도커 컨테이너 내부가 아니라 호스트(도커 바깥)에서 실행할때의 상황인것 같네요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577572.245279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상준님 상세한 답변 정말 감사합니다! 제가 불필요한 작업을 많이 해서 용량이 없는걸까요??\n서버 관련 지식이 없어서 부족한 질문 드려서 죄송합니다. 다음 캡처를 공유해도 되는진 모르겠지만 상황이 이렇습니다.\n감사합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": null,
+          "timestamp": "1673577757.271759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```du -hd 1```\n명령으로 각 폴더별 용량을 보실 수 있습니다.",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1673577834.821199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 경로 기준 하위 디렉토리의 용량이라.. 의심가는 디렉토리로 cd 를 이용해서 파고들어가며 확인해보시고요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577863.477479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "df 나 du 명령은 자주 쓸때가 있으니 해당 명령어나 -hd1 파라미터가 어떤 의미일지 꼭 한 번 찾아서 공부해보시길 추천드립니다~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577886.434029",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1673577907.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "용량을 많이 차지하는 파일을 지워 메모리를 확보해야겠군요??\n꼭 공부를 해보겠습니다. 정말 감사합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1673577931.471399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어떤 디렉토리가 많이 차지할지 예상은 가지만 ㅎㅎ 한번 찾아보시면 더 기억에 남으실것 같습니다. 일단 /opt 밑에서부터 시작하시겠죠? ㅎㅎㅎ\n그리고 그 폴더가 어떤 것을 담고 있는지도 파악해보시고요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673577981.116619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "메모리... 보다는 스토리지 용량 이 더 보편적인 단어일것 같습니다. 메모리는 보통 RAM 용량을 말할때 더 많이 쓰이는것 같아요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673578005.799819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI Stage 서버에서 하둡을 설치하는 것은 아마 큰 고난이 될 것 같은데.. 저는 하둡을 사용하시려는 이유가 무엇이신지 묻고 싶네요(프로젝트에서 활용 목적인지, 개인 호기심인지 등)\n\n하둡을 학습하고 싶으시면 AWS EC2, GCP Compute Engine에서 설치해서 연결해보는 경험이 더 좋다고 생각해요. 또는 AI Stage보단 Local에서 해보는 것을 추천드리고 싶어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673578047.176909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "하둡을 경험하고 싶어하는 목적으로 사실 시작했는데 말씀해주셔서 감사합니다.\n배워갈 길이 많은데 피하지 않고 열심히 해보겠습니다.\n답변 달아주셔서 감사합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1673578267.065699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "요즘은 하둡을 사용하지 않아도, 클라우드 서비스를 사용하면 더 쉽게 프러덕트를 만들 수 있기도 해요. 하둡이 조금 더 로우레벨이라 하둡을 하고 싶으시면 여러 CS 지식이나 리눅스를 잘 다루시고 하는게 좋을 것 같아요(자바도 알아야 하고)\n\n서개기 리눅스 파트에 간단한 쉘 커맨드를 공유드렸는데 그정도는 모두 바로바로 사용할 수 있을 정도가 된 후에, 하둡을 해보시는 것이 어떨까 싶기도 해요-",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673578395.188909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "사실 학습 목적에 따라 다르겠지만.. GCP에 Dataproc 이 관리형 Hadoop 서비스이긴 합니다.. ㅎㅎ 근데 Dataproc 써보세요 아니면 Cloud Spanner나 Bigtable, BigQuery 써보세요 하기에는 목적이 좀 다를 것 같고..\n또 Hadoop 이나 Spark 를 깊게 이해하는데는 마스터님 조언대로 꽤 많은 노력이 필요한 분야이긴 합니다 ^^;\n앗... 작성중에 마스터님도 댓글을.. 달아주셨는데..\n넹.. 뭐 제가 생각해서도 관리형서비스를 사용하는게 추세이다보니 직접 구축하는 경우는 적고, 직접 구축하는 경우는 필요로 하는 지식의 요구수준이 더 높아 꽤 많은 공부가 필요하겠다는게 제 생각이였습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673578521.547379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "두 분 다 우문현답 해주셔서 감사합니다.\n하둡이 생각보다 리소스가 많이 드는 로우레벨 작업이였군요.\n정말 큰 도움이 되었습니다. 정말 감사합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1673578651.971649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어유.. 우문이라뇨~~~ 좋은 질문이었습니다 ^^",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673578676.302569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grin",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "질문을 해주셨으니 의견을 나눌 수 있었던거죠~~! 성연님 잘하셨어요:muscle:\n상준님도 의견 공유 너무 감사합니다!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673578761.895189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "muscle",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "amaze",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Hadoop 은 Data Engineer 에서 조금 더 가까울것 같아서 찾아봤습니다. 국내 블로그에는 잘 정리된게 없어서 영어로 찾아왔습니다.\n<https://emeritus.org/blog/what-is-data-engineering-why-is-it-a-popular-career-path/>\n한 번 읽어보시고 해당 직무가 나와 핏이 맞는지 가볍게 생각해보셔도 좋을것 같네요~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1673578864.860049",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1673578884.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "굳",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "airflow 질문있습니다. 처음에 다음과 같은 절차로 실행했는데요\n버전은 2.5입니다\n1. 프로젝트 내 airflow 폴더로 이동\n2. `export AIRFLOW_HOME=.`\n3. 유저 등록 `airflow users create --username admin --firstname ** --lastname ** --role Admin --email **@gmail.com` \n3번을 실행 했을 때 다음과 같은 에러가 발생합니다.\n```Traceback (most recent call last):\n  File \"/Users/juheon/.pyenv/versions/crawl/bin/airflow\", line 8, in &lt;module&gt;\n    sys.exit(main())\n  File \"/Users/juheon/.pyenv/versions/3.9.16/envs/crawl/lib/python3.9/site-packages/airflow/__main__.py\", line 39, in main\n    args.func(args)\n  File \"/Users/juheon/.pyenv/versions/3.9.16/envs/crawl/lib/python3.9/site-packages/airflow/cli/cli_parser.py\", line 52, in command\n    return func(*args, **kwargs)\n  File \"/Users/juheon/.pyenv/versions/3.9.16/envs/crawl/lib/python3.9/site-packages/airflow/utils/cli.py\", line 108, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/juheon/.pyenv/versions/3.9.16/envs/crawl/lib/python3.9/site-packages/airflow/cli/commands/user_command.py\", line 64, in users_create\n    appbuilder = cached_app().appbuilder\n  File \"/Users/juheon/.pyenv/versions/3.9.16/envs/crawl/lib/python3.9/site-packages/airflow/www/app.py\", line 167, in cached_app\n    app = create_app(config=config, testing=testing)\n  File \"/Users/juheon/.pyenv/versions/3.9.16/envs/crawl/lib/python3.9/site-packages/airflow/www/app.py\", line 89, in create_app\n    raise AirflowConfigException(\nairflow.exceptions.AirflowConfigException: Cannot use relative path: `sqlite:///./airflow.db` to connect to sqlite. Please use absolute path such as `sqlite:////tmp/airflow.db`.```\n이런 식으로 상대 경로 대신 절대 경로를 사용하라고 하는데요, 절대 경로를 써서 문제를 해결하긴 했습니다.\n그런데 상대 경로를 쓰면 왜 에러가 나는지 궁금합니다..",
+        "user": "U0427G93ETS",
+        "user_name": "오주헌_T4127",
+        "timestamp": "1673590719.048259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "laughing",
+              "users": [
+                "U041HMZR68K"
+              ],
+              "count": 1
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 17
+        }
+      },
+      "answers": [
+        {
+          "text": "`AirflowConfigException` 를 보시면 아시겠지만, 이는 에어플로우에서 정의한 Exception 입니다. 즉, sqlite는 사실 상대 경로로 써도 상관 없는데, 에어플로우에서 정책적인 차원에서 절대경로만 쓰도록 강제한 것입니다.\n\n그럼 왜 에어플로우는 이를 강제했을까요?\n이는 절대 경로가 더 명시적으로 경로를 표현해주기 때문입니다.\n일반적으로 상대 경로보다, 절대 경로가 훨씬 명시적이므로, 일반적으로 권장되곤 합니다.\n\n`AIRFLOW_HOME`  환경 변수를 다음처럼 절대 경로로 표현해두면, 사실 이 경로를 기준으로 위같은 에러가 안나긴 합니다.\n\n```export AIRFLOW_HOME=~/airflow```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673591221.340319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의에서는 `export AIRFLOW_HOME=.` 으로 세팅했었는데 `export AIRFLOW_HOME=~/airflow` 와 어떤 차이인지 궁금합니다.",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673591304.737359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잠시만요. 확인해보겠습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673591618.516889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 보니 강의 내용에 제가 버전을 지정안해놨군요. 그래서 조금 다를 수는 있을거 같습니다만… 그래도 마이너 버전 업데이트라 크게 바뀌는건 없을텐데..",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673591995.587539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "방금 2.5 설치한 뒤 했는데 저는 문제없이 잘 되었습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1673592006.778339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 진행한 과정은 다음과 같았습니다.\n1. pip install apache-airflow==2.5.0\n2. export AIRFLOW=.\n3. airflow db init\n4. airflow users create --username admin --firstname heumsi --lastname jeon --role Admin --email <mailto:heumsi@gmail.com|heumsi@gmail.com>\n혹시 다른게 있나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673592086.242579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시한번 해보겠습니다.",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673592101.627169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "같은 커맨드로 실행했는데 같은 에러가 발생합니다",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673592316.768319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음… 혹시 가상환경 생성하고 진행하신걸까요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673592525.255629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pyenv 3.9로 진행중입니다",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673592557.329469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음..\n\n<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/tree/main/part4>\n\n레포 받아서 위 경로에서 했을 땐 되었는데,\n아예 새로 디렉토리 만들어서 진행하면 말씀하신 에러가 나는군요.\n전자가 되는 이유는 `airflow.cfg` 가 이미 만들어져있기 때문이고, 후자가 안되는 이유는 이게 없기 때문입니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673592891.399699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의 내용에 제가 에어플로우 버전을 누락했었네요. 죄송합니다 :pray:\n강의 당시 사용하던 2.2.4 버전에서는 상대 경로를 써도 이를 문제로 안봤는데, 2.5로 버전 업이 되는 중에 상대 경로를 못쓰게 업데이트 한거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673592943.934089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "관련 PR\n\n<https://github.com/apache/airflow/pull/22530>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673592958.414899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의 내용 중에 버전을 필수적으로 명시했어야 했는데, 불편드려 죄송해요.\n제보해주셔서 감사합니다. 추후에 내용에 업데이트 해두겠습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673593001.178439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아닙니다 조교님 4-2강 01:53초 보시면 버전 명시해주십니다 ㅠ",
+          "user": "U0427G93ETS",
+          "user_name": "오주헌_T4127",
+          "timestamp": "1673593070.282959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 2.5 넘어가면서 저렇게 바뀐걸 덕분에 알았습니다. 감사해요~",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1673593156.795459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G93ETS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주헌님 안녕하세요!\n시흠님이 잘 이야기해주셨네요-! 저도 추가적으로 말씀드리면\n\n강의를 제작하던 시점의 최신 버전은 2.2.4 버전이였고 예전에 1점대일 때도 AIRFLOW_HOME=.을 사용해도 괜찮았었어요. 그래서 이후에도 이 부분은 변하지 않을 것 같다 생각했었어요\n\n그래서 강의 자료에서 상대 경로로 해둔거였어요-!\n\n근데 그 이후 2.2.5에서 새롭게 Merge된 내용이 있네요\n(위에서 시흠님이 올려주신 PR 링크)\n\n내용을 보면 flask-session이 2.2.4에서 추가되었는데, database 연결이 필요합니다. 그 전에는 상대 경로여도 괜찮았는데 이후에 sqlite에서 상대 경로를 인지하지 못하게 되었네요\n\n그래서 오류를 만든거고,\n\n````sqlite:///./airflow.db` to connect to sqlite. Please use absolute path such as `sqlite:////tmp/airflow.db`.```\n이런 메세지가 나온거라고 보시면 되어요\n\n버전이 변경되면서 새로운 기능, 라이브러리의 종속성이 생기면서 생긴 이슈라고 보시면 됩니다\n\n상대 경로와 절대 경로의 차이는 무엇인가?\n• 상대적인 경로를 사용할까, 절대 경로를 사용할까의 차이입니다 \n• 보통은 절대 경로를 더 많이 사용하나, 강의에선 절대 경로를 알려드리는 것보단 상대 경로가 쉽다고 판단해서 이렇게 진행했어요-!(폴더에 들어가서 현재 폴더 설정하고 설치 이런 방식이니..!)\n왜 2.5에선 오류가 나는가?\n• 2.2.5 버전부터 sqlite에서 절대 경로만 받게 되었음(flask-session의 종속성 때문에)\n\n이런 흐름으로 이해해주시면 될 것 같아요 :slightly_smiling_face: 말씀해주셔서 감사합니다!\n\n\n추천 방식\n• 2.2.4 버전을 사용해주시면 좋을 것 같아요 :slightly_smiling_face:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1673593552.196669",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1673593603.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G93ETS",
+                  "U041HMZR68K"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

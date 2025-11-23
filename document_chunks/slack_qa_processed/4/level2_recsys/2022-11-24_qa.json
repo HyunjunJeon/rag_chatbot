@@ -1,0 +1,79 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "model.fit 과 model.train 의 성능적인 차이가 있나요? 아니면 어떨 때 fit 을 쓰고 train을 쓰는 건가요? 궁금합니다",
+        "user": "U041ERTT6UD",
+        "user_name": "박우석",
+        "timestamp": "1669291885.971519",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0427G54D8Q",
+                "U03QKNSJVCY"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://stackoverflow.com/questions/73178041/xgboost-fit-vs-xgboost-train>\n\n읽어보시면 좋을 거 같습니다!",
+          "user": "U041HMY5ZNX",
+          "user_name": "전병웅",
+          "timestamp": "1669292507.226059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여러 토론글을 참고했을때 성능면에서 크게 차이가 없다고 합니다.\n먼저 fit과 train의 차이는 병웅님 올려주신 링크 참고해보시면 좋을 거 같습니다.\n\n간단하게 fit은 sklearn내의 method라고 보시면 되고 train은 독립적인 모델의 method라고 보시면 됩니다.\n그래서 큰 차이는 fit을 사용한다면 sklearn의 여러 모듈을 사용할 수 있습니다.\n\n참고로 저는 개인적으로 fit으로 사용합니다. 그 이유는 sklearn의 Pipeline을 사용하거나 eli5라고 permutation feature importance를 구해주는 라이브러리를 사용하기 위해 fit을 사용합니다:relaxed:",
+          "user": "U041FE8FKBN",
+          "user_name": "권태양",
+          "timestamp": "1669303940.074029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY",
+                  "U041B7A7D38"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03QKNSJVCY",
+                  "U041B7A7D38"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

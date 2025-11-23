@@ -1,0 +1,346 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U04RMLS59HA> 안녕하세요! 오피스아워 진행하느라 이제야 답변드리네요:slightly_smiling_face:\n\n우선 grid cell은 객체 bounding box의 중심 영역을 포함하도록 학습되게 된 거라, 객체는 grid cell 영역을 넘어서 존재할 수 있습니다. 따라서 전체 이미지를 보고 예측하게 하는 것이 맞고, 예측하고 싶은 output size를 맞춘 후에 각 grid cell별 예측을 할 수 있도록 *\"학습\"*하는 과정이기 때문에 예측이 보장될 수 있습니다.\n\n처음 질문의 1번 문장의 핵심은, 1개의 label을 예측하는 모델을 만들기 위해서는 1개의 tensor를 output하게 설계해야 하는 것처럼, 각 grid cell에 대한 예측을 하는 모델을 설계하고 학습하기 위해서는 *S*S grid cell과 동일한 사이즈의 output*을 가져야 한다는 것입니다.",
+        "user": "U04LLBX64LA",
+        "user_name": "이수아",
+        "timestamp": "1683194263.510999",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04LLBX64LA",
+            "ts": "1683194428.000000"
+          },
+          "reactions": [
+            {
+              "name": "너무나_감사",
+              "users": [
+                "U04R4LXE0KH",
+                "U04RMLS59HA"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "수아님께서 잘 설명을 해주셨는데요~ 추가 설명을 드리면, yolo 모델의 장점은 localization과 classification을 동시에 할 수 있다는 점입니다. 이 때, 2 stage model 과 다르게 rpn으로부터 roi 영역의 박스를 받지 않고 각 그리드별로 anchor box를 생성하여 각 그리드에 위치한 anchor box의 좌표와 클래스를 예측하도록 학습을 하는 것이 목표입니다. 따라서 input 에서 s*s 그리드로 나눈 후 최종 output features에서 각 1*1*30 tensor가 각 그리드로부터 추출된 anchor box의 좌표와 class를 학습하도록 하고 있습니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683205211.034399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dizzy",
+                "users": [
+                  "U04LLBX64LA",
+                  "U04RMLS59HA"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[1강 Object Detection Overview]\n안녕하세요. 1강 내용 중 AP(average precision)에 대해 질문드립니다. :slightly_smiling_face:\nQ. 다음 수식을 보았을 때 AP는 (recall의 변화량*precision 값)의 합으로 정의되는 것 같습니다.\n혹시 어떤 의미에서 precision의 \"평균값\"이라고 해석할 수 있는 것인지 질문드립니다.\n• 참고문헌: <https://hasty.ai/docs/mp-wiki/metrics/average-precision>",
+        "user": "U04S38FR69J",
+        "user_name": null,
+        "timestamp": "1683195324.466489",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04S38FR69J",
+            "ts": "1683195348.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RCJV3PAA"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U04RCJV3PAA"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "파스칼 VOC 2007에선 11개의 일정한 간격으로 값을 계산하고 그걸 11로 나눠 사용했었다는데 이거때문에 average가 붙은거 아닐까요?\n<https://glee1228.tistory.com/5>",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1683196653.859879",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3HU5RR",
+              "ts": "1683196833.000000"
+            },
+            "reactions": [
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U04S38FR69J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 첨부해주신 수식과 참고문헌 관점에서 보면, Recall=TP/(TP+FN)이기 때문에 항상 1보다 작은 값을 가지고 모든 변화량의 합은 1입니다(그림 참고). 따라서 Recall의 변화량[0-1]을 Precision의 \"weight\"라고 보는 것이 가능하고, 해당 수식을 Precision에 대한 weighted average라고 해석할 수 있습니다.\n\n&gt; 참고문헌 일부: To define the term, the Average Precision metric (or just AP) is the weighted mean of Precision scores achieved at each PR curve threshold, with the *increase in Recall from the previous threshold used as the weight.*",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1683197934.762159",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04LLBX64LA",
+              "ts": "1683198543.000000"
+            },
+            "reactions": [
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U04S38FR69J",
+                  "U04RK3HU5RR"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수아님에 이어 보충 설명 드립니다~ weighted average는 각 데이터 포인트의 상대적 중요성을 미리 결정하는 가중치를 할당합니다.\n\n예를 들어 첫째날에 10명의 사람이 밥을 평균 100g 먹었고 둘째날에 90명이 밥을 평균 200g 먹었다고 가정해보겠습니다. 그러면 첫째날과 둘째날에 모든 사람이 평균 얼만큼의 밥을 먹었는지를 계산하기 위해서는 단순히 1/2 * 100+ 1/2 *200 = 150g로 계산해서는 안된다는 생각이 드실텐데요~ 그 이유는 첫째날 먹은 사람과 둘째날 먹은 사람의 인원 수 차이 때문입니다.\n\n따라서 전체 인원의 비율을 따지기 위해서 다음과 같이 평균을 구해야 할 것입니다. 1/10 * 100 + 9/10 * 200 = 190g 이 때 1/10 과 9/10이 가중치라구 보시면 되겠습니다.\n\n수아님께서 위에 올려주신 그래프를 보면 recall이 왼쪽에서 오른쪽으로 갈수록  precision이 내려갈 때도 있지만 올라갈 때도 있습니다. 이 때 가장 위에 있는 precision을 취하는데요~ 그러면 각 precision에 곱할 recall이 동일한 값을 갖지 않고 다른 weight를 갖게 될 확률이 높습니다.\n\n정리하면 AP의 Average Precision은 (weighted) Average Precision이고 recall의 값이 가중치라고 보시면 되겠습니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683208318.305719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사",
+                "users": [
+                  "U04RG8WUAHK",
+                  "U04LLBX64LA"
+                ],
+                "count": 2
+              },
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U04S38FR69J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U04RK3HU5RR> 제가 설명이 부족했네요, 죄송해요.\n\nhierachical sampling 은 개인적으로 용어가 직관적이지 않다고 생각하는데, 찾아보니 요즘은 image-centric sampling 라고도 불리는 것 같네요.\n\n기존 rcnn 의 경우, N개 (논문에서는 N=128) 의 이미지 자체를 mini-batch 로 활용합니다. 이 경우, N개의 이미지에서 2000개의 region proposal 을 모두 계산할 수 없으니 (N * 2000 번 CNN 을 적용해야 하므로), 1개의 이미지 당 1개의 region proposal 을 선택하여 (sampling) 계산합니다.\n반면, fast rcnn의 경우, K개 (보편적으로 N&gt;&gt;K, 논문에서는 K=2)의 이미지를 선택한 후, 각 이미지에서 region proposal 을 R/K (논문에서는 R=128) 개 선택하여 계산합니다. 즉, 하나의 이미지에 대해 여러 개의 region proposal 을 계산합니다. 즉, 하나의 이미지에서 여러 개의 region proposal 에 대해 계산합니다. 이렇게 region proposal 단위로 mini-batch 를 모형에 feeding 합니다.\n\n이것 또한 위에서 말씀드린 region proposal 을 이미지 단위로 CNN 을 통과시켜 구하는 것이 아닌 feature map 단위에서 구하기에, 훨씬 더 계산이 용이해집니다.",
+        "user": "U03S1A1PV9T",
+        "user_name": "Yedarm Seong",
+        "timestamp": "1683197609.980139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cool-doge",
+              "users": [
+                "U04RK3HU5RR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U04LEMHC78S"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "코드를 보는 게 가장 직관적일 것 같은데, 너무 오래된 모형이라 코드 구현이 많지 않아 아쉽네요..",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1683199708.697439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RK3HU5RR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어느정도 이해한거같습니다 제가 기존 방법이 2000개중 1개를 샘플링하는걸 모르고 있었고 말씀하신 내용대로라고 생각해보면 각 region proposal이 학습시 같이 올라가 공유된다는게 이해되네요\n코드는 제가 한번 찾아서 좀 더 공부해보겠습니다\n답변 감사합니다!!",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1683199883.551969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dolphin",
+                "users": [
+                  "U03S1A1PV9T"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "예닮 멘토님께서 굉장히 상세하게 잘 설명해주셨네요 :+1:\n\n혹시나 코드 부분 참고하시면 도움 되시지 않을까 싶습니다. 중국어 readme이긴 하네요 :sweat_smile:\n<https://github.com/object-detection-algorithm/R-CNN|rcnn>\n<https://github.com/zjZSTU/Fast-R-CNN|fast rcnn>",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683212399.886549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오… 중국어가 있어서 그런가 더 어려워보이네요 ㅋㅋㅋㅋㅋ\n다행히도 그 코드를 한국어로 해설해주신 분이 계셔서 그걸 보고 공부중입니다\n<https://herbwood.tistory.com/6>\n<https://herbwood.tistory.com/9>\n늦은 시간인데 답변 달아주셔서 감사합니다",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1683215341.998049",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3HU5RR",
+              "ts": "1683215353.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[mission2 loc2bbox 관련 질문]*\n```ctr_y = dy * src_height[:, np.newaxis] + src_ctr_y[:,np.newaxis]\nctr_x = dx * src_width[:, np.newaxis] + src_ctr_x[:, np.newaxis]\nh = np.exp(dh) * src_height[:, np.newaxis]\nw = np.exp(dw) * src_width[:, np.newaxis]```\n해당 코드를 통해 anchor box의 위치를 조정한다고 하는데 어떤 원리로 조정되는지 이해가 잘 안돼서 질문 드립니다.\ndy = t_y = (g_y-p_y)/p_h 식을 통해 dy*src_height+src_ctr_y 는 계산하면 ctr_x가 나온다는 것은 알겠으나,\n*각 y좌표의 차이값(g_y-p_y)을 height로 나누는게* 어떤 의미가 있는지 궁금합니다..!",
+        "user": "U04R4LXE0KH",
+        "user_name": "김영한_T5043",
+        "timestamp": "1683229474.966259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RCJPDPP0"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U04R4LR1GET"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! bounding box regression에서 x, y좌표의 이동량을 구할 때는, 고정된 ground truth box에 비해 predicted box의 크기가 매우 다양할 수 있습니다. 이 box 크기에 덜 민감하고(scale-invariance) 안정성 있게 학습할 수 있도록 normalized offset을 사용하게 됩니다!!\n따라서 차이값을 height로 나눠 normalizing하는 과정이 들어갔고, 코드는 이해하신 바로 구성된 게 맞습니다:slightly_smiling_face:",
+          "user": "U04LLBX64LA",
+          "user_name": null,
+          "timestamp": "1683264107.477339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S",
+                  "U04R4LUGM71"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "휴일인데 답변 감사드립니다 안정성을 위한 normalize 과정이라고 이해하겠습니다~!",
+          "user": "U04R4LXE0KH",
+          "user_name": "김영한_T5043",
+          "timestamp": "1683268970.393659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

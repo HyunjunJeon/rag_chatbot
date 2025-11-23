@@ -1,0 +1,68 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "사실 한 개 글에 몽창 쓰려고 했으나...\nshift+enter을 잘못 눌렀는 데 편집시 사진 추가 안되는 것을 보고 ㅋㅋㅋ\n방법 아시는 분 알려주세요\n\nwandb 미세팁 2번째\n\n지표를 1개씩만 띄워놓고 보는 것이 너무 번거롭다\n몇 개 지표를 한번에 띄워놓고 비교를 하면서 보고 싶다!\nor 나의 x축은 step이나 iter가 아니라 다른 것이 되고 싶은데!!\n라는 분께 유용한 팁입니다.\n\n• 사진1 : 먼저 아까와 동일하게 패널에 마우스를 가져다 줍니다. edit을 눌러주세요(연필모양)\n• 사진2 : 눌러주시게 되면 다음과 같은 화면이 나오게 되는데 여기서 x축, y축에 대한 정보가 나오게 됩니다.\n(여기서 어? 나는 mmdet, seg쓸 때 epoch안되는데 하시는 분은 팀원 분이 해주신 부분이라서 댓글 남겨주시면 허락받고 올리도록 하겠습니다.)\n• 사진3 : 그러면 나는 앞으로 x축을 바꿀 때마다 일일히 edit에 들어가서 봐주는 노동을 해야하냐? 라는 분에게 드리는 사진 팁입니다.\n저처럼 모든 사진에 공통적으로 적용하고 싶으신 x축이 있다면 3번 째 사진의 X축 설정을 바꾸어 주시면 됩니다.\n\n이 외에도 더욱 좋은 wandb지표 관련 꿀팁 있으신 분들은 댓글로 이런 좋은 기능도 있다\n라고 말씀 주시면 환영합니다!!!!",
+        "user": "U0298BT8SNA",
+        "user_name": null,
+        "timestamp": "1634981638.050100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0298BT8SNA",
+            "ts": "1634992179.000000"
+          },
+          "reactions": [
+            {
+              "name": "clapping",
+              "users": [
+                "U029BN43CDB",
+                "U029UND0U1Y",
+                "U029MCHA5ED",
+                "U029T4XRUCR",
+                "U0290GAJGG7",
+                "U029EFY0XD1",
+                "U029DCPSW3Z"
+              ],
+              "count": 7
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0298RU576J",
+                "U029MCHA5ED",
+                "U029B96RRJA",
+                "U029KSKF90V",
+                "U029DCPSW3Z"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "알고 계시겠지만 .. 협업에서도 Wandb가 정말 좋은것 같습니다. Wandb에는 자신의 workspace가 있고 타인의 workspace를 들어가면 타인이 설정한 그래프를 볼 수 있어서 각자 실험하고 있는 것에 맞춰서 그래프를 설정하고 다른 사람은 굳이 새로 설정할 필요 없이 workspace를 구경해보면 되는 좋은 팁이 있습니다!!! 혹시 아직 workspace를 적극적으로 활용하지 않으신분들 참고!!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1634990662.052700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U0298BT8SNA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

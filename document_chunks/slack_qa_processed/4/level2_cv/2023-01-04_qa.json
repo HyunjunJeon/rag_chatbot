@@ -1,0 +1,142 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "궁금한게 있습니다. 잘 짜주신 코드 보면서 따라가고 있는데요~!\n현재 올려주신 ipynb 파일을 보면 하나의 모델config의 서로 다른 checkpoint를 앙상블 하는 방식인데요~\n서로 다른 모델들의 각 checkpoint를 앙상블하는 방식도 가능한 건가요?",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1672828963.190929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "\"서로 다른 모델\"이라고 말씀해주신 부분에서\n1. 모델의 구조가 다르다면(ex. resnet50과 resnet101)이라면 불가능합니다.\n2. 모델의 구조는 같지만 다른 하이퍼 파라미터로 실험한 모델(ex. resnet 50 with SGD와 resnet 50 with ADAM)이라면 가능하고, 이것이 논문의 저자가 원하는 바입니다.",
+          "user": "U041L8WPYKW",
+          "user_name": "류건",
+          "timestamp": "1672829110.778439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L8WPYKW> 그렇군요 제가 이해한게 맞았네요ㅎㅎ감사합니다!!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672829246.766989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U041L8WPYKW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ipynb 예시를 보면 그런 오해가 생길 수도 있겠네요 질문해주셔서 감사합니다.",
+          "user": "U041L8WPYKW",
+          "user_name": "류건",
+          "timestamp": "1672829356.251879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041HN1JMTM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "mmseg dataset에서 ade20k.py 파일을 보면  data dict에 img_dir, ann_dir가 'images/training' , 'annoatations/training' 형태로 짜여져 있는데 혹시 현재 데이터 셋과 json 파일을 이와 같은 형태로 변형해서 사용하려면 어떻게 해야 할까요? tools에있는 convert_datasets를 통해 변경하는 건가요?\n\n(ade20k로 학습한 모델 전체 가중치를 불러오는 경우 현재 cocodataset 형태로 짜둔 dataset.py로 학습을 하면 \"KeyError: 'backbone.layers.0.attn.relative_position_bias_table\"와 같은 오류가 떠서... ade20K.dataset.py 형태로 바꿔보려고 합니다. 혹시 이 오류가 data문제가 아닌 다른 부분이 문제라면 그 부분도 답변 주시면 감사하겠습니다.)",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1672832225.342439",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041HN1JMTM",
+            "ts": "1672832792.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "mmseg는 원본 이미지와 이름이 같은 mask 이미지가 img_dir과 ann_dir에 있어야 합니다",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1672833126.535319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04138AJC7R> 답변 감사합니다. 공식 문서 살펴보고 해당 형태로 만들어줘야하는것은 확인했었는데 그런 형태로 바꾸는 방법은 확인을 못해서요...!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672834221.442329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2기 리포 참조자료 드립니다.\n<https://github.com/boostcampaitech2/semantic-segmentation-level2-cv-04/tree/main/mmsegmentation>",
+          "user": "U041HMZ7PHR",
+          "user_name": "1",
+          "timestamp": "1672834450.042749",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZ7PHR",
+              "ts": "1672834461.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZ7PHR> 오.. 감사합니다~!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1672834493.987749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

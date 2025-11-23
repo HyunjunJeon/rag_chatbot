@@ -1,0 +1,41 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1704687696.576449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "*\"가 제한되는 단점을 해결했다.\"* 입니다.\n빠르게 수정해두겠습니다. :pray:",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1704690377.033189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U063A76R5M5",
+                  "U04LLBX64LA"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 대회 룰 중 라벨 교정에 대해 문의드립니다.\n라벨을 교정하기 위해 외부 모델을 불러와 학습시키는 것은 룰 위반인지 여쭙고싶습니다.",
+        "user": "U07EUATR4DP",
+        "user_name": "이재백",
+        "timestamp": "1730707659.110579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! <@U07EUATR4DP>님.\n라벨 교정을 위해 외부 모델을 불러와 학습시키는 것은 가능합니다. 다만 해당 학습데이터는 외부 데이터를 사용하시면 안되며, 대회에서 제공된 학습 데이터 또는 해당 학습 데이터를 기반으로 정제 또는 생성된 데이터만 사용되어야합니다.\n또한 KLUE 데이터셋을 학습시킨 외부 모델은 일체 사용이 불가합니다!",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730709175.981539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07EUATR4DP",
+          "user_name": "이재백",
+          "timestamp": "1730709244.310579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "gemini 같이 일일 사용 한도가 정해져 있는 모델은 무료로 사용가능한 범위 내에서는 사용해도 괜찮을까요?",
+        "user": "U07EFHD3VD1",
+        "user_name": "박준성",
+        "timestamp": "1730709353.529699",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07EFHD3VD1>님! 무료 사용범위내에서는 가능합니다.",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730720647.834379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U07EFHD3VD1",
+          "user_name": "박준성",
+          "timestamp": "1730720684.738209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 이번 대회에서 직접 데이터의 라벨을 수정하거나 노이즈를 제거하는 방법으로 전처리하는 것은 불가능하다고 들었습니다. 즉, 저는 인간의 추론 능력을 바탕으로 데이터를 개선하면 안되며 데이터 전처리 기법이나 모델링을 통해 개선해야 한다고 이해했습니다. 여기서 질문이 있습니다.\n• Rule-base나 Model-base로 디노이징 이나 라벨링 등의  전처리 진행 후 나온 결과 데이터를 눈으로 직접 확인하면서 해당 방식이 전처리가 얼마나 잘 되었는지를 판단하고 전처리 규칙 및 모델을 수정하는 것은 문제없나요? 아니면 오직 valitaion 점수와 제출 점수, 데이터 분포와 빈도, 분산 등과 같은 수치적으로만 판단해야 하나요?",
+        "user": "U07E147BR7Z",
+        "user_name": "이예서_T7413",
+        "timestamp": "1730711428.222179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFHD3VD1",
+                "U07EUAP1XCH",
+                "U07E145G30X",
+                "U07E14BU1L7"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07E147BR7Z> 님!\n네. 생각하시는 전처리 방법을 적용하셨을때, 품질적으로 퀄리티를 체크하셨을때 의도하신대로 나오지 않으신다면 이는 해당 룰 또는 모델 방법을 사용하지 않고 다른 방법을 사용하시는 것은 가능합니다.\n다만 이렇게 다른 방법을 선정하셨을때도 마찬가지로 코드에 따라 작동되어야합니다. 사람의 직접적인 개입은 있으시면 안됩니다!",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730720784.777329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07E147BR7Z",
+          "user_name": "이예서_T7413",
+          "timestamp": "1730720871.163819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. LLM을 활용한 데이터 증강에서 '7개의 주제를 직접 입력하는 것은 불가능하다'는 댓글을 보았습니다.\n```기사 제목 생성은 가능하지만, 7개의 주제를 직접 입력하는 것은 불가능합니다.\n7개의 주제가 무엇인지 알 수 없다고 가정하시면 됩니다.\n즉, 7개의 주제를 입력할 때, 매핑된 한국어 정보로 입력이 불가능하고 정수 정보로만 전달이 가능하다고 생각하시면 됩니다.\n저희는 7개의 주제가 무엇인지 알고 있지 않는 상황이라고 생각하시면 됩니다!```\n기본과제 2에 나온 Langchain을 활용하고싶어서 domain으로 '7개의 주제가 무엇인지 알 수 없다는 가정' 하에, LLM을 이용하여 '뉴스기사 도메인 리스트'를 뽑았고, 이는 7개의 주제를 직접적으로 언급하고 있지 않습니다. 이 정보는 활용해도 되는 것인가요? 라벨 없이 데이터 증강 후, 학습된 모델로 리라벨링 시키려는 목적입니다!",
+        "user": "U07EUAW0JJD",
+        "user_name": "송수빈",
+        "timestamp": "1730719709.419619",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07EUAW0JJD> 님!\n해당 방법은 가능합니다!",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730720950.817619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:",
+          "user": "U07EUAW0JJD",
+          "user_name": "송수빈",
+          "timestamp": "1730758585.352809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. data-centric 프로젝트에서 궁금한 점이 있어 문의드립니다.\n\n1. text를 이용하여 가상의 N개의 주제를 생성하고, 이 N개의 주제를 LLM에게 주어 문장을 생성하는 방법은 가능한가요? 1개의 공통된 target의 text를 여러 개 이용하여 새로운 주제를 생성하는 것이 가능한가요?\n( ex : 4번 라벨의 텍스트를 LLM에게 주어서 -&gt; '종교와 문화' 라고 하는 주제를 받는다)\n\n관련 링크 : <https://boostcampaitech.slack.com/archives/C07PLBCCUUA/p1730441246129839>\n\n2. \"7개의 주제를 직접 입력하는 것은 불가능하다\", \"target 정보는 사용할 수 있다\" 라는 질의응답이 있었습니다. 그렇다면 전체 데이터셋에서 target단위로 데이터셋을 분리하고, 각 target 단위의 텍스트를 이용하여 LLM 등의 전처리 증강을 사용할 수 있나요? (row 단위가 아닌, 하나의 target을 가지는 전체 텍스트 단위입니다!)\n\n관련 링크 : <https://boostcampaitech.slack.com/archives/C07PLBCCUUA/p1730719709419619>",
+        "user": "U07E9209L5U",
+        "user_name": "이정민_T7420",
+        "timestamp": "1730733968.325829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07E9209L5U> 님! 말씀하신 두가지 방법 모두 가능합니다.",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730786024.559589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U07E9209L5U"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U04L09BNA7R> 안녕하세요 조교님, Seq2Seq 모델을 사용하려고하는데, 위 글에서 말씀하신 대로면 다른 데이터셋으로 사전학습된 모델도 사용이 안되는 것이지요? (huggingface에 올라온)",
+        "user": "U07E14C7L7R",
+        "user_name": "JeongHwi Lee (과일망)",
+        "timestamp": "1730769575.634039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07E14C7L7R> 아닙니다. 모델의 경우는 가능합니다. 다만 추가 파인튜닝을 하거나 학습을하실때 외부데이터셋의 수집을통해서 진행하는 것은 불가합니다.",
+          "user": "U04L09BNA7R",
+          "user_name": "이승윤",
+          "timestamp": "1730772652.890449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07E14C7L7R",
+          "user_name": "JeongHwi Lee (과일망)",
+          "timestamp": "1730772664.036749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. data-centric 프로젝트 관련 질문이 있어 문의드립니다.\n\n프롬프트 엔지니어링 과정에서 예시를 입력하려고 할 때,\ntrain data 상의 text 중 몇 가지를 선정하여 본래의 형태를 직접 복구하여 예시로 입력하는 것이 규정에 위배될지 궁금합니다!",
+        "user": "U07EFLWCPNW",
+        "user_name": "강경준",
+        "timestamp": "1730781457.139439",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U07EJ5JLMC4"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U07EFLWCPNW> 님!\n텍스트를 직접 사람이 선별하고, 이 중 몇 가지를 뽑아서 진행하는 것인가요?\n해당 방법은 재현 가능성 및 데이터 변경에 따라 확장이 불가능한 방법이므로, 규정에 위배됩니다.\n\n하지만, LLM에게 예시로 선별하여 입력하는 것은 가능합니다.",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1730785670.871819",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0619KW7QRY",
+              "ts": "1730786114.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "프롬프트를 작성하는 과정에서 사람이 직접 선별하고 복구한 내용을 예시로 입력하는 방식입니다!",
+          "user": "U07EFLWCPNW",
+          "user_name": "강경준",
+          "timestamp": "1730788307.980989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네! 가능한 방법입니다.",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1730788365.815979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 답변 감사합니다!",
+          "user": "U07EFLWCPNW",
+          "user_name": "강경준",
+          "timestamp": "1730788376.239119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

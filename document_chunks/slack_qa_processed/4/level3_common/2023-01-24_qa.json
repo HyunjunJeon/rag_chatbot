@@ -1,0 +1,170 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "우선 저도 네트워크에 지식이 거의 없어서 확실하지는 않습니다.\n\n Aistage 서버 자체가 도커 컨테이너로 제공되어서 저희가 임의로 외부에서 접근가능한 포트를 열수가 없습니다. 다만 제가 올린 사진에 보이는 포트번호들은 처음 서버 컨테이너를 만들때 포트 포워딩이 되어 외부에서 접근이 가능합니다. \n\n 결론은 8001은 외부에서 접근이 불가능하고 내부에서만 사용가능하며, 30001 같은 외부 접근이 허용된 포트로 변경하면 가능할거 같습니다~",
+        "user": "U041WE0BG81",
+        "user_name": "김보성_T4034",
+        "timestamp": "1674548250.379269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041WE0BG81> 아 되네요 감사합니다!!",
+          "user": "U041HR4UCR0",
+          "user_name": "박경준_T4076",
+          "timestamp": "1674548824.246199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "GCP를 사용하지 않는 경우 더이상 비용이 청구되지 않도록, 사용중인 서비스를 모두 확인할 수 있는 방법이 있을까요?",
+        "user": "U041HMZ7PHR",
+        "user_name": "1",
+        "timestamp": "1674622682.423589",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://www.edureka.co/community/213504/in-gcp-how-to-list-all-the-resources-running-under-project>\n\n찾아보니 이런 방법이 있는거 같아요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674622762.215299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041ES2UBHB"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마 기억이 맞다면... 결제 → 비용관리: 보고서 탭 선택하시고",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1674623003.777379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우측 필터를 이렇게 설정해보세요",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1674623020.479789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런식으로 확인 가능하실겁니다.",
+          "user": "U041L92FWCC",
+          "user_name": null,
+          "timestamp": "1674623046.257349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 아예 안사용할 것 같으면 그냥 프로젝트를 날립니다(?)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1674623567.017999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "관련해서 예전에 답변받은 내용이 있어 공유드립니다. 일단 결제 계정과 프로젝트의 연결만 끊으면 요금은 청구되지 않는다고 합니다.\n---\n먼저 안내를 드릴 내용은 왜 비용이 발생했는지에 대해 간단히 설명드리고자 합니다. 고객님께서는 10월 30일부터 무료체험판 사용을 시작하셨는데, 해당 무료체험판의 300달러 상당의 무료 크레딧이 12월 14일에 전액 소진이 되었습니다. 이 상태에서 결제 계정의 업그레이드가 10월 31일에 되어있었기 때문에, 12월 14일부터 비용이 발생되기 시작했습니다.\n\n현재 고객님의 결제 계정 및 프로젝트를 확인해본 결과, 결제 계정에는 추가적인 비용이 발생되지 않도록 프로젝트와 연결을 중지해 두신 것을 확인했습니다. 해당 조치만으로도, 현재 상황이 바뀌지 않는 한 비용이 발생될 일은 없을 것이기 때문에, 이 점은 걱정하시지 않으셔도 됩니다.\n그렇기 때문에 굳이 프로젝트를 삭제하시지 않으셔도 된다는 점을 안내해 드리고자 합니다. 프로젝트와 결제 계정의 연결이 중지된 것만으로도 비용이 발생하지 않도록 하는데는 충분한 조치가 되기 때문입니다. 이를 통해, 차후에 필요하실 때, 결제 계정에 다시 연결하셨다가, 사용이 완료되시면 연결을 중지하는 방식을 통해 비용을 조절하실 수 있습니다.",
+          "user": "U041HN3RFNF",
+          "user_name": "최동혁",
+          "timestamp": "1674624110.030299",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HN3RFNF",
+              "ts": "1674624130.000000"
+            },
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

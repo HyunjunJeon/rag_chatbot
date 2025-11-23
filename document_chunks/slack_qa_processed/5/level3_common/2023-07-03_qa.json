@@ -1,0 +1,57 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "aistage에서 서버를 재할당 받으려고 하니 해당 오류가 발생하는데 어떻게 하면 될까요",
+        "user": "U04RK70P61G",
+        "user_name": null,
+        "timestamp": "1688433612.340839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RMLTG284",
+                "U04R4LTFJTZ",
+                "U03PVSC77HR"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "관련 문의는 Stages 각 대회 페이지의 ‘플랫폼 이슈 문의’ 게시판에 문의주시면 개발자 분께서 확인 후 대응해 주실 예정입니다 :slightly_smiling_face:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1688433698.689419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RK70P61G"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

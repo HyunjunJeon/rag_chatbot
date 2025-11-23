@@ -1,0 +1,92 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이건 오늘 발표할 때 시간이 부족해서 이야기를 못했던 저희 팀의 좌충우돌 실험일지입니다! 오늘 발표 시간에는 `Improved Baseline with Punctuation Method`와 `RBERT` 중심으로 얘기했는데, 요것도 도움이 됐으면 좋겠네요! ㅎㅎ\n<https://snoop2head.github.io/Relation-Extraction/>",
+        "user": "U029L0WMGUE",
+        "user_name": "안영진_T2129",
+        "timestamp": "1633701577.097600",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029L0WMGUE",
+            "ts": "1633703616.000000"
+          },
+          "reactions": [
+            {
+              "name": "birthday_party_parrot",
+              "users": [
+                "U029TD91F09",
+                "U029H263PD1",
+                "U029LKLNE6Q",
+                "U029T92U2F3",
+                "U028U1DB7LP",
+                "U029J7UCHR8",
+                "U02A3MC2UFJ",
+                "U02A7FZP5FA",
+                "U029WFW8H25",
+                "U029PN9SX1R",
+                "U029E8DLJ4B",
+                "U029NG58Q84",
+                "U029EUTJS8K"
+              ],
+              "count": 13
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029SLN0S1X",
+                "U029DG66W9L",
+                "U029MU09NLW",
+                "U029NG58Q84"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1::skin-tone-5",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 발표 잘봤어요! 발표자료도 올려주시나요?",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1633701789.098800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 ㅎㅎㅎㅎ 아마 부스트캠프 웹에 오피스아워 영상과 함께 저희 팀이 운영진님들께 전달한 자료들도 함께 업로드될 것 같습니다",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1633702139.099000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_pikachu",
+                "users": [
+                  "U029PN9SX1R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

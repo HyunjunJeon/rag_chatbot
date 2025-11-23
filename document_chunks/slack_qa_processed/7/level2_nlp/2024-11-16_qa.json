@@ -1,0 +1,49 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "오피스아워 시간에 서버에서 SLERP 사용 가능 여부에 대한 질문이 있었어서 조금 찾아봤는데, <https://github.com/Digitous/LLM-SLERP-Merge|SLERP Github> 리포가 이게 맞다면 가능할듯 싶습니다! 설치하는 모듈들이 dependency 문제를 크게 일으킬 것 같지는 않은데, 혹시 SLERP 직접 해보시는 캠퍼분 계시면 공유해주시면 큰 도움 될 것 같습니다!",
+        "user": "U07B5FRE94J",
+        "user_name": "Kyochul Jang",
+        "timestamp": "1731747133.125079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "gratitude-gamsahamnida",
+              "users": [
+                "U07EFHB39EX",
+                "U07ECPJJ3GD"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 mergekit을 활용해서 merge를 진행하려 했는데 조교님께서 올려주신 리포도 확인해보겠습니다.\n주말에 답변을 주셔서 정말 감사합니다!\n<https://github.com/arcee-ai/mergekit/blob/main/mergekit/merge_methods/slerp.py>",
+          "user": "U07EFHB39EX",
+          "user_name": "김현서",
+          "timestamp": "1731748504.947089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U07B5FRE94J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

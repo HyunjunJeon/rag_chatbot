@@ -1,0 +1,306 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n:dizzy:3차 데이터 제작 CV 오피스아워:dizzy:가 *오늘 (11/15 월요일) 18:00 ~ 19:00*에 진행됩니다.\n*박종호 멘토님*께서 *&lt;데이터 샘플링 강화하는 방법&gt;*에 대해 설명해주실 예정입니다!\n많은 참여 부탁드립니다!\n&gt;  <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|데이터 제작 CV 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636965000.094100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 오피스아워의 자료를 미리 공유드립니다 :slightly_smiling_face: 18시에 뵈어요!:grinning:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636965512.094200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 다들 CV데이터 제작에서 validation 은 어떻게 구성해서 진행하고 계신가요?\nLoss와 Metric 둘 다 출력을 하려다 보니 Loss에서는 dataloader를 쓰고 Metric 계산시에는 cv2.imread로 불러와서 바로 계산하는데 이를 한 번에 처리하려다 보니 쉽지 않은 문제에 직면해서... 다른 캠퍼님들은 validation Loss나 metric을 어떻게 출력하고 게신지 궁금합니다 !",
+        "user": "U029KSKF90V",
+        "user_name": "dongjin seo",
+        "timestamp": "1636989613.097400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029ULW2X8A",
+                "U029KG3T7L3",
+                "U029B96RRJA",
+                "U029E1P5Z5G",
+                "U029BP86UBX"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저희팀은 detect함수와 calc_deteval_metrics함수를 이용해서 f1, precision, recall을 계산하고 있습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1636989849.097800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029B96RRJA",
+              "ts": "1636989860.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029KSKF90V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029B96RRJA> 답변 감사합니다.\n아 그러면 Loss는 출력은 안하시는 건가요?\n그리고 혹시 f1, precision, recall 계산시에 illegibility의 경우 어떻게 처리해서 진행하셨나요?\n질문이 많아서 죄송합니다 ㅠㅠ",
+          "user": "U029KSKF90V",
+          "user_name": "dongjin seo",
+          "timestamp": "1636989959.098100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029KSKF90V",
+              "ts": "1636990094.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "처음에는 그냥 손이 가는대로 코드를 짜다보니 loss를 위한 forward 한번\nmetric을 위한 forward를 한번 하고 있더라고요 그래서 지금은 loss출력은 안하고 있고\nloss랑 metric을 forward한 번에 해결할 수 있도록 코딩하고는 있습니다..\n\nillegibility의 경우는 어떤 걸 물어보시는 지 정확히 모르겠는데 SceneTextDataset코드를 참고했습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1636990598.098500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 저도 2번 forward 하다가 한번에 처리하려다 보니.. 쉽지가 않아서 질문 드렸는데 비슷한 문제를 겪고 계신가 보군요 저는 dataset.py을 건드려야  고민중입니다 :joy:\n다시 한 번 답변 감사합니다~~!",
+          "user": "U029KSKF90V",
+          "user_name": "dongjin seo",
+          "timestamp": "1636990810.098700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029KSKF90V",
+              "ts": "1636990864.000000"
+            },
+            "reactions": [
+              {
+                "name": "joy",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 지금 어떻게 forward 한번에 출력은 되는데 input값이 잘못되었는 지\nloss가 계산은 되는데 이상한 값들이 나오더라고요..\n해결 중에 있는데 추가적인 내용있으면 공유하겠습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1636990989.100200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029KSKF90V",
+                  "U029KG3T7L3",
+                  "U029ULW2X8A"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029KSKF90V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "convert_mlt.py 를 실행하는 도중 문제가 생겨 질문드립니다! 디버깅을 통해 class MLT17Dataset의 return 값은 제대로 나오는 것을 확인했습니다!\n그런데,\n```mlt_merged = ConcatDataset([mlt_train, mlt_valid])```\n여기서 mlt_merged의 len을 찍어보니 0이 나와 제대로 실행이 되지 않고 있습니다.\n경로도 이상이 없고 중간 중간 디버깅을 해봐도 모든 함수가 제대로 작동하는데 main문에서\n```    mlt_train = MLT17Dataset(osp.join(SRC_DATASET_DIR, 'ch8_training_images'),\n                             osp.join(SRC_DATASET_DIR, 'ch8_training_gt'),\n                             copy_images_to=dst_image_dir)\n    \n    print(len(mlt_train))```\nmlt_train, mlt_valid 변수에 값이 제대로 할당되는 것 같지 않습니다. 혹시 원인을 알 수 있을까요?\n** 경로를 제외하고 다른 코드는 건들지 않았습니다!",
+        "user": "U029TU25PG9",
+        "user_name": "김민준",
+        "timestamp": "1636991499.105000",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029TU25PG9",
+            "ts": "1636991522.000000"
+          },
+          "reactions": null,
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02LZPTP596>",
+          "user": "U0298UX7GN7",
+          "user_name": "Hwalsuk Lee",
+          "timestamp": "1637020423.105500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 김민준님 상황 파악을 위해 몇 가지 확인을 부탁드리겠습니다.\n\n• ConcatDataset을 생성하기 이전에 len(mlt_train), len(mlt_valid)의 값이 모두 0으로 나온다면 경로의 문제일 가능성이 높아 보입니다. `/data/datasets/ICDAR17_MLT/raw` 정확히 이 경로에 MLT17 데이터셋의 이미지들이 위치하고 있는 상황일까요?\n    ◦ 37번 라인 직후에 len(image_paths)를 확인해보시면 좋을 것 같습니다.\n혹시 경로 문제가 아니라면 진단을 위해 조금 더 자세한 정보가 필요할 것 같습니다.\n\n• “class MLT17Dataset의 return 값은 제대로 나온다“라는 것은 혹시 어떤 것을 확인하셨던 것일까요?",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637022338.105700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`/data/datasets/ICDAR17_MLT/raw`  는 아니고 image와 gt가 있는 `/opt/ml/input/data/ICDAR17_MLT`  로 설정했습니다!\n• 37번 라인직후에 len을 찍어서 image_path와 label_path가 같은 value를 갖는 것은 확인했습니다!\n• `return words_info, dict(languages=languages)`\n이 return 값을 찍어봤는데 값이 제대로 출력됬었습니다!",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637024568.105900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음 MLT17Dataset의 초기화 직후에 self.sample_ids의 길이가 몇으로 나오시나요?",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637029780.106800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "self.sample_ids의 길이는 0으로 찍힙니다ㅠㅠ",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637030491.107000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 그럼 image_paths의 길이는 어떤가요? 이 길이도 0이면 파일 경로들이 제대로 읽히지 않은 것 같고, 0이 아니라면 50번 라인에서 continue 되지 않고 통과하는 샘플이 왜 없는지 값을 살펴봐야할 것 같습니다!",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637030618.107200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! 그 부분 한번 보겠습니다",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637034955.107400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵, 혹시 베이스코드에 문제 발견되면 말씀 부탁드리겠습니다! 타이트한 일정에 다들 수고 많으시네요! ㅠㅠ",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637038045.107600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "star-struck",
+                "users": [
+                  "U029TU25PG9",
+                  "U028323UHE2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결됬습니다!! 감사드립니당ㅎㅎ",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637038526.107900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02LZPTP596"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

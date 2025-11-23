@@ -1,0 +1,961 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[*(2강) Airflow를 활용한 Batch Serving*]\n안녕하세요. 마스터님 2강 강의를 들으며 강의 내용을 함께 진행해보고자하는데 windows 환경에서 진행하다보니 막히는 부분이 많아 질문드립니다. 해당 환경에서는 강의 및 실습을 어떻게 진행하는 것이 좋을까요?",
+        "user": "U07EFLLRU10",
+        "user_name": "이효준_T7545",
+        "timestamp": "1733735266.376129",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "sad-cat",
+              "users": [
+                "U07ECPR5ZUM",
+                "U07EJ5DES5S",
+                "U07E921DX9C",
+                "U07EFHF03JP",
+                "U07E14EJP1V",
+                "U07F4EME9BJ",
+                "U07EFHAFF7V",
+                "U07EUAR9FA5"
+              ],
+              "count": 8
+            },
+            {
+              "name": "dizzy_face",
+              "users": [
+                "U07ECPR5ZUM"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 29
+        }
+      },
+      "answers": [
+        {
+          "text": "추가적으로 windows 환경에서 하려고 하다보니 unix 환경이 구축이 안되어있어 ubuntu 설치, docker 설치가 필요한 것으로 보이는데 그러면 windows 환경인 경우에는 이런 설치환경들을 다 설치를 해야되는지 여쭤보고 싶습니다.\npwd module 자체가 unix/linux 구조에서만 가능하다고 알고 있어서요. 여기서 no module named pwd로 나와있네요",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1733735355.827759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07ECPR5ZUM",
+                  "U07EFLLRU10",
+                  "U07E144HA79",
+                  "U07E14EJP1V",
+                  "U07EFHJSQCT"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "효준님, 재만님 질문해주셔서 감사합니다. 설치 과정이 제일 어렵죠.. 항상 설치가 이슈입니다. :face_holding_back_tears:\n\n\n윈도우에서 Airflow를 설치하는 것은 여러가지로 가능한데, 다양한 방법을 말씀드릴게요\n\n*1. WSL을 사용한 방법.* \n• WSL은 Windows Subsstyem for Linux인데, 윈도우에서도 WSL을 사용하면 리눅스의 기능을 사용할 수 있어요\n• 윈도우에서 PowerShell 관리자 모드 실행 -> `wsl --install` 실행을 하면 설치가 됩니다\n• 이 때 Username, New password 입력이 필요합니다. 이 때 입력해도 화면엔 안보일 수 있어요\n• 그 후 WSL을 실행하면 정상 동작하고 그 후에 Airflow 설치가 가능합니다\n• 참고 자료가 필요하다면 <https://hyundoil.tistory.com/348|이 블로그>에 이미지와 함께 나와있어요\n\n*2. Docker를 사용한 방법*\n• 이 방법은 6강 Docker를 보면 Docker에 대해 사용 방법을 알 수 있게 됩니다\n• 6강-실습에서 Airflow를 설정하는 방법에 대해 공유드리고, Docker Compose를 익히면 Airflow 컨테이너를 바로 띄울 수 있어요\n• Docker Compose 사용 방법은  다음 <https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/01-batch-serving(airflow)/docker-readme.md|Github README>에 남겨두었어요\n    ◦ Docker를 설치할 때도 WSL을 많이 사용해서 윈도우라면 WSL을 설치하는 것이 개발을 할 때 유용할거예요\n*3. 클라우드 서비스를 사용하는 방법*\n• 7강의 클라우드 서비스에 Google Cloud에서 Managed Airflow를 띄우는 것을 보여드려요. 이걸 사용해서 진행하는 것도 가능합니다\n• 다만 *비용이 나가고*(무료 크레딧 활용하는 것을 추천하고, 이메일을 새롭게 만들면 새 크레딧을 제공합니다) Composer를 꼭 잘 꺼야하는 것을 주의해주셔요\n\n이 3가지 방법 중에 현업에서 가장 추천하는 것은 2번 방법. Docker를 사용하는 것이긴 합니다. 다만 Docker 설정이 어렵다고 하면 WSL을 사용해서 하셔도 괜찮습니다. 결국에 익숙해지면 Docker 베이스로 가지만, Airflow 학습에 중요해서 어디서 실행하는지보다 Airflow 자체에 집중하는 것이 필요해요.\n\n만약 이 부분으로 하시다가 안되시면 말씀해주셔요. 같이 오류 디버깅하는 것도 가능해요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1733737746.648009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1733738547.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR",
+                  "U07E147BR7Z",
+                  "U07E92AJ0UW",
+                  "U07F4EG6Q6L",
+                  "U07EFHF03JP",
+                  "U07E145UUNT",
+                  "U07F4EGE2L8",
+                  "U07EUAR2Z4H",
+                  "U07EUAVRXNV",
+                  "U07EUANTJAV",
+                  "U07ECPJ7XE1",
+                  "U07EFHAFF7V",
+                  "U07F4EGLCHW",
+                  "U07E92C8S86",
+                  "U07EFHJSQCT"
+                ],
+                "count": 15
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U07EFHF03JP",
+                  "U07EUAVRXNV",
+                  "U07E92C8S86",
+                  "U07EFHJSQCT"
+                ],
+                "count": 4
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U07EFLKGDHQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EFLLRU10> <@U07EJ5DES5S> 두분 혹시 WSL 등으로도 시도를 해보셨을까요? 안되신다면 같이 화면 공유하고 시도해봐도 좋을 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733738098.803169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 마스터님 저도 동일한 문제로 WSL 사용하여 시도해보려고 하고있는데요! 제 노트북 문제인지 install 부터 막힙니다..\n\n도움주실수 있으실까요?",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733738670.243469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wsl 사용해서 스케줄러 생성까지는 성공했는데 이후 Airflow DAG 작성에서 막힌 상태인데 마스터님처럼 vscode활용해서 진행하려면 어떻게 해야할까요..",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733738777.884329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "질문을 주실 때 어떤 상황인지 어떤 오류인지 알려주시면 더 빠르게 원하는 답을 얻을 수 있어요. 막힌다라는 것이 이유가 다양하거든요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733738929.825209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07E921DX9C> 설치가 안된다는 것이 어떤 오류 메시지를 반환하나요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733738940.369239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EFLLRU10>\nvscode활용해서 진행하려면 어떻게 해야할까요..\n\n요게 잘 이해가 안되네요. Airflow DAG 파일을 폴더에 파일을 저장하면 Airflow가 파싱해서 읽는데 어떤 부분을 의미할까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733738988.228019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "스레드를 따로 파시죠 질문이 나뉘니깐 여기선 효준님 질문으로 하고 상혁님은 따로 태그할게요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739001.100089",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1733739241.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 화면공유 가능할까요??",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733739201.597809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제..가.. 지금 아직 저녁을 먹지 못하고 불만 올린 상태라",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739219.196389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 남겨주시고 그 후에 볼게요! (그 이후 밤엔 계속 시간이 있으니..!)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739236.409599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네네",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733739249.087819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파일은 첫번째 그림과 같이 생성되어있는 상태고 여러번 시도하는 과정에서 log, venv, dags가 이렇게 나누어져있는 상황입니다. 해당 상황에서 3.3 Airflow DAG 작성 파트를 진행하려고 vscode를 실행했더니 4번째 그림과 같은 에러가 발생하는 상황입니다.",
+          "user": "U07EFLLRU10",
+          "user_name": null,
+          "timestamp": "1733739606.403019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 오류는 윈도우에서 WSL의 우분투 파일시스템에 접근하려고 하는데 보안 이슈라서 생기는 문제네요\n\n여러가지 방법이 떠오르는데\n\n우선\n\nvscode를 어떻게 띄우셨나요? WSL 내부에서 vscode를 띄우면 문제가 해결될 것 같아요. WSL터미널에서 `code .` 입력",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740061.196539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹은 wsl의 옵션을 수정하면 될 것 같은데..\n<https://code.visualstudio.com/docs/setup/windows#_working-with-unc-paths>\n\n위 링크에 나와있네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740121.760589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결됐습니다 감사합니다!",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733740214.123689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님 ubuntu 환경을 다시 설치하고 vscode wsl를 통해서 진행하려고 하는데 그 방법도 괜찮은걸까요?",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1733740221.889759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 어떻게 해서 해결되셨나요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740222.189499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "터미널에서 vscode실행하니까 열렸어요!",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733740239.133369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 네네 그게 wsl 안에서 vscode를 실행하는거라 제일 편할거에요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740281.000489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EJ5DES5S>\n우분투 설치한다는 것이 wsl --install -d Ubuntu로 한다는 것일까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740328.126529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 powershell에서 ubuntu 환경을 설치하고 vscode WSL로 새롭게 열어서 ubuntu 환경으로 개발하려고 합니다",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1733740356.742809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 airflow과 Airflow 파일에 logs, dags, venv 파일이 나뉘어 있는건 문제가 되지 않을까요?",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733740379.807469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EJ5DES5S> 네 그 방법 이슈 없을 것 같은데, 만약 안되시면 말씀해주셔요!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740406.948869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EFLLRU10> airflow 처음할 때 폴더가 다양해서 헷갈리곤 해서 저는 다 날리고 다시 하는 것도 추천해요..^_ㅠ 경로가 잘 잡혀있으면 문제가 되진 않아요. 우리는 dags에 있는 코드를 작성하려는 것이라서!! vscode는 단순히 코드 수정 용도라서 거기에서 나노 에디터로 써도 상관은 없어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740463.910409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 감사합니다",
+          "user": "U07EFLLRU10",
+          "user_name": "이효준_T7545",
+          "timestamp": "1733740483.684399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 분들 이슈가 있으시면 새 메시지로 남겨주셔요!! (히스토리가 다를 수 있으니..!)\n\n일단 잠시 저녁만 후루룩 먹고 일하고 있어서 남겨주시면 볼게요~!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733741291.765169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 성윤님께서 tricky 할 수 있는 윈도우 환경에서 셋업들에 대해서 디테일하게 잘 설명해 주신거 같고, 환경이 마련된 이후에 에어플로우 코드를 어떻게 관리하면 좋을지 고민이 생기실 수 있을 거 같습니다. 그 때 참고하실 수 있는 material 몇 가지 추천드립니다.\n\n• Airflow를 이용한 SaaS 회사 astronomer에서 정리한 <https://www.astronomer.io/docs/learn/managing-airflow-code/|Manage Airflow code> (간결함)\n• Airflow 공식문서에서 제공하는 <https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html|Best Practice> (볼륨이 있음, 하지만 더 깊이있음)\n일독을 권장드립니다!",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1733757885.240969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ",
+                  "U07EFHF03JP",
+                  "U07EFLRFF26"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U07E921DX9C> wsl install 이슈에 대한 질문 스레드",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1733739023.291829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ",
+                "U07ECPQND2R"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 15
+        }
+      },
+      "answers": [
+        {
+          "text": "여기에 남겨주셔요~!\n\ncc <@U03PVSC77HR>",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739036.964899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이와 같이 가상머신 플랫폼이 활성화되지 않았다고 뜹니다!\n따라서 작업관리자와 f2 bios를 들어가서 확인해본결과 이미 가상화가 활성화되어 있다고 나와있는데 wsl --install 실행시에 똑같은 오류가 반복됩니다.",
+          "user": "U07E921DX9C",
+          "user_name": null,
+          "timestamp": "1733739057.691589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 windows 기능 켜기/끄기를 통해서도 Hyper-V 관리도구를 체크해놓았습니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733739098.798209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흐음... 이 오류 메시지는 어딘가 설정 이슈인데",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739261.517109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "컴퓨터가 어떤 컴퓨터인가요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739274.384579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://velog.io/@jaylnne/WSL-Error-0x80370102-%ED%95%B4%EA%B2%B0>\n\n이 케이스인데 지금 1~4번이 모두 다 되어있는거지요? :face_holding_back_tears:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733739324.891449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "레노버 idea-pad s540-14api입니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733739327.993329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 맞습니다. 블로깅후 이미다 시도해보았습니다",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733739336.882869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "후 이 부분은 찾아보고 있는데 지금 상혁님이 bios 레벨에서 하신 것 말고는 저도 떠오르지 않는데 조금 더 고민해볼게요 :thinking_face:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740259.873189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wsl이 아예 안되는 랩탑이 있나 찾아보고 있어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740269.047329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 노트북을 한번 변경해서 시도해보도록하겠습니다.. 아마도 노트북 문제일 가능성이 큰거같아요.\n예전에도 docker 사용하려다 동일한 문제때문에 서치해본경험이 있는데 포맷 후 윈도우를 재설치하라는 답변을 본적이 있습니다.\n\n찾아봐주시고 같이 고민해주셔서 감사합니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733740389.354889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "face_holding_back_tears",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07E921DX9C> 아하.. 저도 그 부분 찾아볼게요. 저도 윈도우 사용할 때 특정 제품(델 제품이였는데)에서 이슈가 있어서 고생했던 기억이 나네요 ㅠ ㅠ\n\n아예 지금 wsl이 안된다고 하면 클라우드 서비스에서 하는 것이 더 수월할 것 같긴 하네요:face_holding_back_tears:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733740614.350419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아주 잘 진행이 되네요... 도커도 이 설치할때 wsl관련하여 비슷한 오류가 발생해서 새로운 노트북에서 진행해야할듯합니다.",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733741140.669149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!!",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1733741146.472999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07E921DX9C> 새 노트북이 있어서 그래도 다행이네요 ㅠ_ㅠ 새 노트북에서 학습하시지요 :pray: 고생하셨어요!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733741248.593499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "누렁충성",
+                "users": [
+                  "U07E921DX9C"
+                ],
+                "count": 1
+              },
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U07E921DX9C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[2강 실습]\n안녕하세요 마스터님 webserver를 키면 다음과 같은 에러가 발생하는데 kill을 해도 반복되는데 어떻게 하면 되나요?",
+        "user": "U07F4ESLHS4",
+        "user_name": null,
+        "timestamp": "1733809957.560329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ",
+                "U07EJ5N8GVA"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 14
+        }
+      },
+      "answers": [
+        {
+          "text": "fastapi 관련 running 혹시 다 kill 하셨나요? 저도 어제 그래서 찾아보니까 fastapi가 한개의 id로만 run하지는 않는거 같길래 찾아서 다 날렸더니 되긴 하더라구요",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1733810030.260029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 종민님은 airflow 관련 오류 중에 많은 분들이 겪는 웹서버 이슈를 겪고 계시네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810119.847259",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1733810369.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EJ5DES5S>  혹시 이게 맞을까요?",
+          "user": "U07F4ESLHS4",
+          "user_name": null,
+          "timestamp": "1733810268.252019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 여전히 Already on PID 8299라고 나오는데, 이럴 때는\n\n```ps aux | grep airflow```\nairflow 프로세스를 확인하고, 이 때 pid가 나오나 확인합니다\n\nairflow-webserver.pid 파일이 있다면 해당 파일에 프로세스 id가 남아있을거에요.\n\nkill -i로 죽이는데, 이 때 그냥 했는데 안되었다면.. 상황은 여러가지인데 간단한 것은 sudo로 꺼지나 확인하는 것도 방법이에요\n\n계속해서 안된다고 하면 간단한 방법은 터미널을 끄거나 재부팅을 하면 되긴 하는데, 상황은 여러가지긴 하네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810318.009899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저 프로세스를 다 죽여보면 될 것 같네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810336.196899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```kill -9 8299 8480 8481 8482 8483```\n요거 하면 어떻게 뜨시나요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810350.054709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(혹시나 싶어 지금 개발하는 환경이 어떻게 되시나요? OS)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810408.214759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 WSL2 환경에서 진행하고 있습니다",
+          "user": "U07F4ESLHS4",
+          "user_name": "오종민_T7207",
+          "timestamp": "1733810427.594519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "kill -9 8299 8480 8481 8482 8483\n이 명령어 하고 다시 실행시키니까 잘 작동하는 것 같습니다!",
+          "user": "U07F4ESLHS4",
+          "user_name": "오종민_T7207",
+          "timestamp": "1733810477.439139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "굿 잘하셨어요~!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810596.822679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(이런거가 불편해서 나중엔 도커로 갑니다...ㅋㅋㅋ... Docker Compose로 한방에 키고 끄고..)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733810617.817149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U07F4ESLHS4",
+          "user_name": "오종민_T7207",
+          "timestamp": "1733810720.178989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 종민님의 케이스를 추상화해서 정리해보면\n\n• 오류 메시지를 보고 읽음 : 프로세스가 켜져있음\n• *아 아직 꺼지지 않은 것이 있구나 : 꺼지지 않은 것을 찾아보자*\n• ps로 프로세스 확인\n• 모두 다 kill \nAI 개발의 기초에서 리눅스를 먼저 다룬 이유는 리눅스에 대한 이해가 필요하기 때문이에요. 만약 리눅스 지식이 부족하다고 느끼신다면, AI 개발 기초 강의를 다시 한번 복습하는 것도 추천해요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1733810851.363249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07F4ESLHS4",
+                  "U07EFLRFF26",
+                  "U07EFHAFF7V",
+                  "U07E148SW9M",
+                  "U07EFH9CXS7",
+                  "U07F4EJ1D5E",
+                  "U07E92AM45C",
+                  "U07EFLNGH6W",
+                  "U07EJ5NALQ4"
+                ],
+                "count": 9
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 저거 맞았는데 잘 kill 하신 거 같습니다:+1:",
+          "user": "U07EJ5DES5S",
+          "user_name": "조재만_T7253",
+          "timestamp": "1733811468.535169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07F4ESLHS4",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

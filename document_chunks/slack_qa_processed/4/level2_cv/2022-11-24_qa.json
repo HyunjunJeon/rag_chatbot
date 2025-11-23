@@ -1,0 +1,780 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 실험 재현에 관한 질문입니다.\n실험이 재현이 안되고 있습니다.:smiling_face_with_tear:\n아래와 코드로 시드를 고정하고 있습니다.\n하지만 wandb 로깅값이 미세하게 조금씩 다른 것이 보여집니다.\n혹시 원인을 알고 계시거나 해결하신 분 있으신가요?\n```def seed_everything(seed: int):\n    random.seed(seed)\n    os.environ['PYTHONHASHSEED'] = str(seed)\n    np.random.seed(seed)\n    torch.manual_seed(seed)\n    torch.cuda.manual_seed(seed)\n    torch.backends.cudnn.deterministic = True\n    torch.backends.cudnn.benchmark = True\n\ncfg.seed = args.seed```",
+        "user": "U0427G7HN6L",
+        "user_name": null,
+        "timestamp": "1669342519.257879",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0427G7HN6L",
+            "ts": "1669342973.000000"
+          },
+          "reactions": null,
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "```python train.py CONFIG --seed 숫자 --deterministic```\n옵션 두개 넣으시면 됩니다. 소수점 이하자리까지 동일하게 재현되는것 확인했습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669343822.823359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0427G7HN6L"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "mmdetection 으로 하시는거... 맞으시죠?",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669343937.682359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아.. 그리고 일단 코드상에서\n```torch.backends.cudnn.benchmark = False```\n이거 False 로 하셔야 합니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669343974.971059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "train.py에서\ncfg.seed를 주는거랑 터미널에서 주는거랑 다른가요 ㅠ?",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1669344034.898439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "터미널에서 주면 파일 수정 없이 할 수 있다는거 정도?.. ㅎㅎㅎ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669344535.586219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cfg.deterministic을 줘야되나보군요!",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1669344583.407499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파라메터 주는거 없이 수정하셨으면 --deterministic 옵션 대신으로 이에 맞게 torch.backends.cudnn.benchmark = False 가 되어야 하는데, 저도 기억에 의존한거라..\n아 넵 말씀하신게 맞습니다.\ncfg.deterministic 이거 주면 알아서 위에 값 False 해줄거예요\n그래서 파라메터에서 옵션 주는게 굳이 train.py 고치지 않아도 되는 방법이라 말씀드려봤습니다.\n\n옵션 주기 귀찮으면 sh 스크립트 하나 만들어두고 쓰셔도 될것 같습니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669344612.179099",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1669344660.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 어휴~ 이거저거 만지다가 자꾸 재현이 안되어서 고생했어요 ㅠ",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1669344726.407749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://hoya012.github.io/blog/reproducible_pytorch/>\n저는 이 블로그 참고했었습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669344771.678229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0427G7HN6L",
+                  "U03R4JQQGHF"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Augmentation 관련한 질문인데요\nmmdetection/configs/albu_example/mask_rcnn_r50_fpn_albu_1x_coco.py 에서\nbbox_params를 설정할때 format이 pascal_voc로 되어 있습니다\n여기서 coco로 바꿔서 설정하려는데 오류가 발생하네요\n혹시 format= \"coco\"로 설정해서 동작시켜보신 분 계신가요?\n```train_pipeline = [\n    dict(type='LoadImageFromFile'),\n    dict(type='LoadAnnotations', with_bbox=True, with_mask=True),\n    dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),\n    dict(type='Pad', size_divisor=32),\n    dict(\n        type='Albu',\n        transforms=albu_train_transforms,\n        bbox_params=dict(\n            type='BboxParams',\n            format='pascal_voc',\n            #format='coco',\n            label_fields=['gt_labels'],\n            min_visibility=0.0,\n            filter_lost_elements=True),\n        keymap={\n            'img': 'image',\n            'gt_masks': 'masks',\n            'gt_bboxes': 'bboxes'\n        },\n        update_pad_shape=False,\n        skip_img_without_anno=True),\n    dict(type='Normalize', **img_norm_cfg),\n    dict(type='DefaultFormatBundle'),\n    dict(\n        type='Collect',\n        keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks'],\n        meta_keys=('filename', 'ori_shape', 'img_shape', 'img_norm_cfg',\n                   'pad_shape', 'scale_factor'))\n]```",
+        "user": "U041L94T804",
+        "user_name": "이광민_T4144",
+        "timestamp": "1669344881.437419",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041L94T804",
+            "ts": "1669345057.000000"
+          },
+          "reactions": null,
+          "reply_count": 11
+        }
+      },
+      "answers": [
+        {
+          "text": "저희 팀도 겪은 오류인데, mmdetection 단에서\n*`Resize 이후에는 bbox format이 자동으로 pascal_voc로 바뀌는 것 같습니다`*.\n따라서 Resize를 진행 후 Albu에서 bbox format을 정할 때는 pascal_voc로 해야되는 것 같습니다.\n\ncoco로 하면 계속 normalize관련 에러가 뜨더라구요!\n저도 궁금한 질문이라, 한번 채널로도 전송해보겠습니다!",
+          "user": "U041HMZR68K",
+          "user_name": null,
+          "timestamp": "1669348661.010489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E",
+                  "U041L94T804",
+                  "U03R4JQQGHF",
+                  "U041HMZ15RR"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 coco 데이터에 segmentation 데이터가 없는데 rotate 같은 augmentation을 사용하시는지도 궁금합니다.\nrotate를 수행하면 bbox의 크기가 변화하는 문제 때문에 accuracy가 떨어질 거라고 예측하고 있거든요",
+          "user": "U041L94T804",
+          "user_name": "이광민_T4144",
+          "timestamp": "1669348993.281219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZR68K> 이거 저희팀도 궁금해하던 중이었어요 감사합니다!",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1669349027.348389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/open-mmlab/mmdetection/pull/1354#issuecomment-535880138>\n\n<https://github.com/open-mmlab/mmdetection/pull/1354/files#diff-51670d2fae9c1b4f5fb4edd6dc32b2e2R167>\n\n상모님께서 말씀하신대로 해당 트랜스폼의 경우 입력이 coco 든 아니든 pascal_voc 로 변환하는 warpper가 있습니다.\n\n입력은 상관없는데 출력이 pascal_voc로 변환될거예요.. 그래서 타입지정을 저렇게 한걸로 알고 있습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669349096.064829",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1669349141.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZR68K",
+                  "U041L94T804",
+                  "U041B78LL22"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "mmdetection은 하나하나 파고들면 거의다 mmcv 클래스까지 들어가게 되더라구요...ㅎㅎ\n라이브러리의 심해(?)를 파고드는 경험, 개인적으로 재밌고 낯선 것 같아요",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1669349253.814849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/albumentations-team/albumentations/blob/master/albumentations/core/bbox_utils.py#L327>",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669349282.074289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94T804"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅎㅎㅎㅎ 오피스아워였나 마스터클래스였나 에서 들었던...\n이게 AI 를 공부하는건지 툴을 공부하는건지 라는 생각이 문득 들때가 있습니다 ㅠㅠㅠㅠ 하하...",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669349322.963309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sad_pepe",
+                "users": [
+                  "U041HMZR68K",
+                  "U0427G3B34G",
+                  "U041HN3C7B5",
+                  "U041ES0MH9B",
+                  "U041HR3M8BU"
+                ],
+                "count": 5
+              },
+              {
+                "name": "dizzy_face",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC> 아휴 저도 너무 공감되는 부분이네요. 기존 classification과는 다르게 detection은 모듈도 많고 학습 과정도 복잡하다보니 engineering 요소들이 정말 많은 것 같아요. 실제 현업에서도 mmdetection, detectron2 뿐만 아니라 최신 기술들 적용하기 위해 코드를 뜯어보기도 하고,,! 이러한 경험들이 나중에 꼭 도움이 되었으면 좋겠네요 :smile:",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669352569.429769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041L92FWCC",
+                  "U041HN1JMTM"
+                ],
+                "count": 2
+              },
+              {
+                "name": "typingcat",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "tools/train.py에서\nimport mmdet ~~ 이 전원 baseline/mmdetection/mmdet를 가리키지 않고, site-packages의 mmdet를 가리키네요.\n해결 방법이 있을까요?",
+        "user": "U041L903LH2",
+        "user_name": null,
+        "timestamp": "1669345968.015469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 23
+        }
+      },
+      "answers": [
+        {
+          "text": "안해봐서 잘 될지 모르겠는데...\n```cd ~/baseline/mmdetection\npip install -v -e .```\n실행하시면 될겁니다.\n\nPython 가상환경 쓰시면 조금 상황에 따라 다를 수 있습니다만..\n댓글 달기 전에 한 번 해보니 변경되는거 확인했습니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669346733.319799",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1669346750.000000"
+            },
+            "reactions": [
+              {
+                "name": "point_up_2::skin-tone-2",
+                "users": [
+                  "U041L92FWCC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "point_up_2",
+                "users": [
+                  "U03R4JQQGHF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```&gt;&gt;&gt; import mmdet\n&gt;&gt;&gt; mmdet.__version__\n'2.25.3'\n&gt;&gt;&gt; mmdet.__file__\n'/opt/ml/baseline/mmdetection/mmdet/__init__.py'```",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669346788.016919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와.. 전에 파일 정리한다고 막 지우고 하던게 화근이 되었던 것 같아요.. 감사합니다 ㅠ",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669346958.512169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```~/baseline/mmdetection```\n이 폴더 안에서 파일 건든게 아니시라면 위에 커맨드로 복구 되실거고요..\n\n저 폴더를 날렸거나 고쳤거나 하면 팀원에게 공유 받으시거나..\nmmdetection github 에서 받으시거나 (이 경우 버전이 올라가요 ㅎ)\n어쨌든 해결방법은 있을거니까 계속 문제있으면 댓글 남겨주세요~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347068.922479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "중요한건.. 팀 내에서 공통적으로 서버 설치/설정 매뉴얼을 하나 표준으로 만들어서 공유해두시면 좋지않을까 합니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347163.127429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위의 mmdet.version은 site-package,\n아래의 mmdet.*.*은 폴더 mmdet를 가리키는데 이런건 무슨상황이죠..??",
+          "user": "U041L903LH2",
+          "user_name": null,
+          "timestamp": "1669347409.126199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```.__file__```\n로 각각 path 찍어보신건가요?",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347454.761009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그건 아니긴 한데 ctrl + click으로 이동하면",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669347481.882979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다르게 나오네요",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669347496.471189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "python 인터프리터 실행해서도 확인 한 번 해보세요~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347505.494039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그래도 문제 있으면 진짜 문제인듯 하고, ctrl + click 이동이 문제라면 vscode 네비게이션 캐싱에도 문제가 생기나? 뭐 이런쪽으로 구글링 해보겠습니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347552.286729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "인터프리터 바꾸니까 또 인식해요...",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669347552.509639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 넵 인터프리터는 항상 기준이 동일하게 해두셔야 될거예요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347590.346919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "기준이 동일하다는게 어떤의미죠..?",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669347606.354629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 ㅎㅎ 안그래도 설명이 부족한거 같아서 댓글 수정하고 있었습니다..\n\n파이참 쓰시는거죠? 우측 하단에서 python 인터프리터 버전 + Python 가상환경 쓰시면 그것도 맞춰서 선택을 해주어야 합니다.\n그 기준에서 python 이 인식하는 패스를 불러와서 그 패스로 열어준다고 생각합니다.\n\n터미널에서 python train.py... 처럼 실행핼때 이 python 이랑 파이참 우측 하단에 나오는 python 이 같은 애여야 합니다..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669347921.126209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "vscode 쓰긴 하는데..\nvscode 인터프리터랑 하단 터미널 인터프리터를 동일하게 설정한 상태로 확인한 결과였습니다 ㅠㅠ 그래서 더 멘탈 나간 상태..",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669348004.181819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "워매.. ㅎㅎ 그럼... vscode 익스텐션 뭐 설치한거 많이 있으실까요? 그거 재설치하셔도 되는거면..\n\n먼저 구글링으로 VS Code 에서 위와 같은 문제가 발생하는 사례가 있는지 한 번 찾아보시고 캐시나 \".vscode-server\" 같은 키워드 넣고도 한 번 검색해보세요..\n터미널에서 python 실행해서 path 찍어봤을때 전혀 문제가 없다고 한다면 제 생각에는 캐시 문제일것 같습니다.\n\n• VS Code 종료\n• 터미널에서 VS Code 캐시파일 찾기\n```ls -al /opt/ml/```\n((( 또는 VS Code 에서 Open Folder 어디하셨는지.. 그 폴더 기준일 수 있습니다. )))\n• 터미널에서 아래 명령어 *오타없이* 실행해서 캐시 지우기\n```rm -rf \"/opt/ml/.vscode-server\"```\n((( 또는 VS Code 에서 Open Folder 어디하셨는지.. 그 폴더 기준일 수 있습니다. )))\n• VS Code 재실행\n• VS Code Extension 재설치 (다 지워졌을거니까...)\n해보시고 알게된게 있으면 공유도 부탁드립니다 ^^",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669348339.519869",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L92FWCC",
+              "ts": "1669348382.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "캐시도 다 지웠고\nvs code는 문제가 아니라고 생각한게 터미널에서도 mmdet를 각각 다르게 인식해버려서..\n쨋든 많이 나아진 것 같아요. 감사합니다!! ㅠㅠ",
+          "user": "U041L903LH2",
+          "user_name": "김주엽",
+          "timestamp": "1669348416.912129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아..... ㅎㅎ 터미널은 멀쩡한줄 알았는데.. 여기저기서 참조하는데가 꽤 꼬였나보네요..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669348458.782029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요~ <@U041L92FWCC> 님께서도 mmdet 어떻게 설치하면 되는지 알려주셨는데요. 여기서 추가적으로 말씀드리면 해당 pip 명령어로는 업데이트가 되지 않아서\n```pip uninstall mmdet\ncd ~/baseline/mmdetection\npip install -v -e .```\n삭제 후 다시 설치하거나\n`pip install -U -v -e .`\nu 옵션을 통해서 업데이트 시도해보시면 좋을 것 같습니다.",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669350478.443899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아! 그러네요.. -U 넣거나.. 아예 강제로 해보시려면 --force-reinstall 옵션까지도 넣어볼 수 있을것 같습니다!",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669350517.049489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03R4JQQGHF> 감사합니다 ^^",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669350546.224719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03R4JQQGHF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "yolov7을 돌리던중에 아래와 같이 디스크 공간이 부족해서 에러가 뜨는것같은데 혹시 어떻게 해결하는지 아시는분있나요..? 그냥 삭제하면 안될것같아서 질문 올려봅니다",
+        "user": "U0427G48WAC",
+        "user_name": null,
+        "timestamp": "1669348845.033419",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041B77LJ22"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "만약 디스크 용량문제라면 의미가 없다고 생각되시는 실험결과들은 정리하면서 해보세요!! 생각보다 weight 파일의 크기가 커서..금방 찰거에욥",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1669348952.736229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제 경우 yolov7은 아니었지만 mmdetection에 wandb를 연동하여 생긴 문제였는데,\n `.cache` 폴더에 메모리가 많이 남아있어(80GB인가 잡아먹고 있더라구요!) 삭제했던 기억이 있습니다.",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1669348956.331979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "요 명령어 치면서 정리하셔야 할거에요\n`wandb artifact cache cleanup 100`",
+          "user": "U0427G7EG72",
+          "user_name": "박민지_T4081",
+          "timestamp": "1669349246.461049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버 용량이 많이 부족해서 그런 것 같아요~ 저는 이럴 경우에 du 명령어로 용량을 확인해서 정리하고 있어요\nex.\n```du ./ -d 1 -h```",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669350554.952769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 캐시 삭제로 해결했습니다!",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1669351299.982289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U0427G7EG72"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

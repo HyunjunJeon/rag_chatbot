@@ -1,0 +1,87 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 내일 18:00 ~ 19:00 에는 *김정훈 마스터님*과 함께 *&lt;대회 랩업 (솔루션 발표, 피드백, 질의응답)&gt;을 주제로 마스터 클래스*가 진행될 예정입니다.\n:sparkles:대회 직후 마스터클래스이기 때문에, 여러분의 참여가 필요합니다! *대회 순위와 무관하게 팀 경험을 공유해 보고 싶으신 캠퍼분은 DM 혹은 댓글*로 말씀주세요! 선착순 한 팀만 가능합니다:wink:\n\n• 상세 컨텐츠 : 대회 Wrap-UP\n    ◦ 토론왕 공유 (대회 종료 시점 vote 수가 가장 많은 캠퍼)\n    ◦ 리더보드 1,2등 팀, 자원 1팀 대회 솔루션 공유 (5분, 최대 10분)\n    ◦ 마스터 피드백\n    ◦ 질의응답 진행 \n:sparkles:대회 솔루션 공유하게 되실 분들에게는 오늘 대회 리더보드 공개 직후 발표 요청을 드리도록 하겠습니다! `*대회 순위와 무관하게 팀 경험을 공유해 보고 싶으신 캠퍼분은 DM 혹은 댓글*로 말씀주세요!`\n\n:sparkles:마스터님께 질문을 남기고 싶은 분들은 아래의 링크에서 남겨주세요!\n&gt; <https://forms.gle/PGbMxW9ENiWcRomV7|마스터클래스 질문 Link>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1638432008.159800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U02A7FZP5FA"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "NLP 15조 팀 공유하고 싶습니다 ㅎㅎ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1638432042.159900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029F62SBPD",
+                  "U0284GKL1T4",
+                  "U02A7FZP5FA",
+                  "U028323UHE2",
+                  "U029W8R96KW",
+                  "U029B6PDLFQ",
+                  "U0298AUH17H",
+                  "U029BP86UBX",
+                  "U02A20H4QRF",
+                  "U02E375H869",
+                  "U029KSKF90V",
+                  "U029B96RRJA",
+                  "U029C3CSPHB"
+                ],
+                "count": 13
+              },
+              {
+                "name": "amaze",
+                "users": [
+                  "U0284GKL1T4",
+                  "U028323UHE2",
+                  "U029W8R96KW",
+                  "U029B6PDLFQ",
+                  "U029FSCQAKX",
+                  "U02A20H4QRF",
+                  "U029MTWGTJS"
+                ],
+                "count": 7
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

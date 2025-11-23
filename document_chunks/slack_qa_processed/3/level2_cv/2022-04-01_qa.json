@@ -1,0 +1,117 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 대회에서 Pseudo labeling을 사용하면 치팅인가요..?",
+        "user": "U02T0SYSCG7",
+        "user_name": "이준현_T3167",
+        "timestamp": "1648800806.703319",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T0SYSCG7",
+            "ts": "1648800839.000000"
+          },
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "치팅 아닙니다 :fast-parrot-1:\n\n• *[테스트셋 활용 여부]* 대회 테스트셋은 자유롭게 활용 가능하나 (EDA, *`pseudo-labeling`* 등), 정답을 매뉴얼하게 파악 후 코드로 심는 행위는 허용하지 않습니다. 즉, 눈으로 직접 판별 후 라벨링 하는 행위는 금지합니다.",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1648801099.904899",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TYM38093",
+              "ts": "1648801188.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "~Train 데이터셋에 대해서는 가능하지만 test 데이터셋에 대해서는 문제가 될 것 같습니다.~ 이번 프로젝트의 train 데이터셋은 이미 라벨링이 되어 있기 때문에, 어떻게 사용하려고 하시는 것인지 정확히 모르겠어서 나눠서 의견 드립니다.",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1648801221.639589",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1648804931.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Test 데이터셋의 일부에 대한 라벨링을 하시는 것이 아니라면 pseudo labeling을 사용하고자 하시는 이유가 궁금해지네요..!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1648801275.908359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 준현 캠퍼님! 진우님이 말씀해주셨듯이 '테스트셋'을 pseudo-labeling에 활용하셔도 괜찮습니다.  참고로 이 규정은 그라운드룰에서 확인하실 수 있습니다. (<https://stages.ai/competitions/178/discussion/notice/post/1182>)",
+          "user": "U02SERAL49Y",
+          "user_name": "남혜린",
+          "timestamp": "1648801412.207969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SK8MPGN5",
+                  "U02THU7BG1Z"
+                ],
+                "count": 2
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02SK8MPGN5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 약간 착각한 것 같은데요, 그러니까 train 데이터셋을 가지고 test 데이터셋에 pseudo 라벨을 붙인 다음, 그걸 학습에 사용하는 것은 가능한데, 사람이 test 데이터셋에 pseudo 라벨을 직접 붙인 다음, 그걸 학습에 사용하는 것은 불가능한 것으로 이해하면 될까요?",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1648805046.323329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T1HLM9NK> 넵 정확합니다 :slightly_smiling_face:",
+          "user": "U02SERAL49Y",
+          "user_name": "남혜린",
+          "timestamp": "1648831334.453039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

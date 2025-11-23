@@ -1,0 +1,315 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 4강 퀴즈 질문이 있습니다.\n\n&lt;문제 2 : Sparse Embedding의 특징으로 올바른 것을 고르시오&gt;\n선택지 : \"드물게 사용되는 단어와 자주 사용되는 단어의 구분이 임베딩 내에서 명확하다.\"라는 선택지가 있습니다. 저는 TF = rawcount/numwords 이면, 빈도 수가 많을수록 높은 값을 가지니 중요도가 높다고 판단되어 구분이 명확하다고 생각했는데 틀린 답으로 나왔습니다. 그래서 해설을 봐도 이해가 안 됩니다 ㅠㅠ 혹시 좀 더 설명해 주실 수 있나요?\n\n&lt;문제 3 : 다음중 TF-IDF에 대한 설명으로 부적절한 것을 고르시오.&gt;\n마찬가지로, 선택지 : \"TF는 단어의 빈도를 나타내는 수치로, 일반적으로 자주 등장하는 단어는 정보 가치/중요도가 낮다고 판단되는 경향이 있다.\"에서 TF = rawcount/numwords 이면, 빈도 수가 많을수록 높은 값을 가지니 중요도가 높으니 틀렸다고 생각했는데 적절한 선택지로 나오더라고요. 그래서 해설을 보려 했는데 따로 해설이 없어 혹시 설명해 주 실 수 있나요?",
+        "user": "U07ECPU2N05",
+        "user_name": "김성훈",
+        "timestamp": "1727769722.282919",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "1. 문제 2: Sparse embedding는 tf를 포함하는 term입니다! sparse embedding 중 bow 같은 경우 따로 중요도를 측정을 하지는 않죠.\n2.  문제 3: 네 말씀해주신 부분이 맞습니다! 문항이 잘못 들어간 거 같네요.",
+          "user": "U060ZS109AT",
+          "user_name": "Doyoung Kim",
+          "timestamp": "1727777390.121119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U07ECPU2N05"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "4강 퀴즈 문제 3의 보기 중\nTF는 단어의 빈도를 나타내는 수치로, 일반적으로 자주 등장하는 단어는 정보 가치/중요도가 낮다고 판단되는 경향이 있다\n는\nTF는 단어의 빈도를 나타내는 수치로, 일반적으로 자주 등장하는 단어는 정보 가치/중요도가 높다고 판단되는 경향이 있다\n로 정정하겠습니다!",
+          "user": "U060ZS109AT",
+          "user_name": null,
+          "timestamp": "1727777456.150089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U07EUAU5B33",
+                  "U07E145G30X",
+                  "U07ECPTTS5B",
+                  "U07EFHJSQCT",
+                  "U07EFLKGDHQ"
+                ],
+                "count": 5
+              },
+              {
+                "name": "done",
+                "users": [
+                  "U04S26ESDPW",
+                  "U07EFLKGDHQ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요~ 5강 강의 질문이 있습니다.\n\n5강 22:50에서 첨부드린 사진과 같은 코드가 나오는데요.\n*training_dataset 길이*가 왜 *5*로 나오는지 이해가 안되네요..\n제 생각에는 128로 나와야 된다고 생각을 했거든요. 혹시 왜 5로 나오는 걸까요?",
+        "user": "U07EFLKGDHQ",
+        "user_name": null,
+        "timestamp": "1727772721.367829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "마침 5강 실습코드를 돌리는 중이여서 스크린샷 남깁니다. train_dataset 타입이 딕셔너리라서 그렇습니다.",
+          "user": "U07E147BR7Z",
+          "user_name": null,
+          "timestamp": "1727773577.312309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U07EFLKGDHQ",
+                  "U07EUAU5B33",
+                  "U07E14BU1L7"
+                ],
+                "count": 3
+              },
+              {
+                "name": "clapclap-e",
+                "users": [
+                  "U07EFLKGDHQ",
+                  "U07EUAU5B33",
+                  "U07E14BU1L7"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U079A729ZU3",
+                  "U07EUAU5B33",
+                  "U07E14BU1L7"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "예서님이 말씀해주신 부분이 맞습니다 :+1:",
+          "user": "U079A729ZU3",
+          "user_name": "Jeon Sangmin",
+          "timestamp": "1727776118.658279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 이번 심화과제 1은 정답코드가 따로 주어지지 않나요? 저번주까지와 다르게 심화과제 정답 페이지가 없어서 질문 올립니다..!",
+        "user": "U07EFLKEVA6",
+        "user_name": "정준한",
+        "timestamp": "1727773568.995769",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "done",
+              "users": [
+                "U04S26ESDPW"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07EFLKEVA6> 준한 캠퍼님 안녕하세요~! 지금은 보이시는지 확인 가능하실까요?!",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1727775187.047409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 잘 보입니다! 감사합니다!",
+          "user": "U07EFLKEVA6",
+          "user_name": "정준한",
+          "timestamp": "1727775391.970969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U04S26ESDPW",
+                  "U07EUAU5B33"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04S26ESDPW",
+                  "U07EUAU5B33"
+                ],
+                "count": 2
+              },
+              {
+                "name": "black_heart",
+                "users": [
+                  "U07F4EDU6BA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U07EJ5F40TW> 재협 캠퍼님, 불편을 끼쳐드려 죄송합니다. 현재 빠르게 복구 작업 중에 있으니, 조금만 더 기다려주시면 감사하겠습니다. :bow:",
+        "user": "U04S26ESDPW",
+        "user_name": "영훈_운영진",
+        "timestamp": "1727776617.086909",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thank",
+              "users": [
+                "U07EJ5F40TW"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07EJ5F40TW> 기다려주셔서 감사합니다 재협 캠퍼님! 3강 강의 자료 업데이트 완료되었습니다. 부스트코스에서도 바로 확인하실 수 있습니다.\n=&gt; *<https://www.boostcourse.org/boostcampaitech7/lecture/1545465|3강 페이지 바로가기>*",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1727849689.893279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U07EJ5F40TW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "과제 1 관련해서 질문있습니다..!\n<http://trainer.qa|trainer_qa>.py에서 나온 코드인데요..!\n```# 일시적으로 metric computation를 불가능하게 한 상태이며, 해당 코드에서는 loop 내에서 metric 계산을 수행합니다.\ncompute_metrics = self.compute_metrics\nself.compute_metrics = None # 일시적으로 메트릭 계산을 None으로 설정하여 비활성화 처리\ntry:\n        # prediction_loop...\n            \n            \nfinally:\n    self.compute_metrics = compute_metrics  # 원복```\n위 코드가 조금 이해가 되지 않습니다.\n지금 self.compute_metrics를 compute_metrics에 할당했고\n그 후에 self.compute_metrics에 None을 넣어줬는데\n\n그럼 현재 상태에서 compute_metrics가 None이지 않나요?\n마지막에 원복을 위해서 self.compute_metrics에 None인 compute_metrics를 넣어주는게 어떻게 원복이 되나요..?",
+        "user": "U07EFHB86HZ",
+        "user_name": "홍성균",
+        "timestamp": "1727847725.677719",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EFHB86HZ",
+            "ts": "1727847748.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "비슷한 예제를 만들어서 확인해보니, 아마 `compute_metrics = self.compute_metrics` 가 shallow copy가 아니라 deep copy로 일어나는 것 같습니다.",
+          "user": "U07EFHD3VD1",
+          "user_name": null,
+          "timestamp": "1727850221.541519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07EFHB86HZ",
+                  "U07EFHD5WLB"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U060ZS109AT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아아... 그렇군요..!\n답변 감사합니다 ㅎㅎ",
+          "user": "U07EFHB86HZ",
+          "user_name": "홍성균",
+          "timestamp": "1727850262.157539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

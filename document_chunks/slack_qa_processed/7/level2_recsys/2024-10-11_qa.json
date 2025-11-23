@@ -1,0 +1,35 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[기본과제 3]\n안녕하세요. 기본과제3 관련해서 질문드립니다.\n2. Holdout을 통한 훈련, 테스트 준비 수행하기 아래 셀 41번 줄 for루프에서\ntrain_late[feature] = train_late['user_id'].map(combined_early.groupby('user_id')[feature].mean())\n    test_late[feature] = test_late['user_id'].map(combined_early.groupby('user_id')[feature].mean())\n여기서 .mean()은 위에 combined_early부분에서 이미 처리되어서 중복인 것 같은데 맞나요?",
+        "user": "U07F4EFQV0Q",
+        "user_name": "박재현_T7522",
+        "timestamp": "1728633533.057169",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07F4EFQV0Q",
+            "ts": "1728633823.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "학생님께서 말씀하신대로 연산을 한번만 수행할 수도 있겠네요\nfeature_map =combined_early.groupby('user_id')[feature].mean()\ntrain_late[feature] = train_late['user_id'].map(feature_map)\ntest_late[feature] = test_late['user_id'].map(feature_map)과 같이 사용하실 수 있겠습니다",
+          "user": "U075CCNNKH9",
+          "user_name": "허효식 조교",
+          "timestamp": "1728658595.908589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

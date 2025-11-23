@@ -1,0 +1,128 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 .!\nstreamlit실습에서 prediction 에서 오류나길래  왜나나 했더니  model input은 cpu에 있는데 , model의 weight는 cuda에 loading 되어 있어서  오류가 났습니다.\n저는 input tensor를 .to('cuda')로 해결을 했는데, 다른분들을 어떻게 하셧나요?\n\n<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/part2/02-streamlit/predict.py>",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1639277100.215100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1639277767.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "아마 이 질문은 코드 질문이라 부스트코스로 해주시면 좋을 것 같아요~~\n\n그리고 어떤 오류가 발생했는지도 같이 말씀해주셔야 좋은 답변을 해드릴 수 있답니다!(물론 말씀해주신 부분으로 추론할 수는 있지만 그게 실제랑 다를 수도 있으니!)\n\n+ 어떤 OS고, GPU 서버에서 했는지 등 환경도 같이 작성해주세요~!\n\n(오류가 난다 = 오류 메세지는 너무 많이 존재해요. 회사에서도 이거 오류나요! 라고 하는 것보단 ~~~ 오류가 나는데 어떻게 해야할까요? 이런 질문을 하시는게 좋은 신입이라 느껴지곤 하더라구요)",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639278990.215400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639279136.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 마스터님&gt;\n답변 감사합니다.\n'오류가 난다' 보다는 '오류가 나는데 어떻게 해야할까요' 가 좀더 좋은 질문형식인 같네요 .좋은 조언 감사합니다.\n오류를 해결하고 그 부분을 github repo에 pull request를 걸었습니다.\n추가적으로  어떤 OS인지, 어떤 GPU 서버인지 조사해보겠습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639279912.215700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2>\n넵 감사합니다!\n\n어떤 GPU냐는 것은 현재 부스트캠프에서 제공된 서버를 사용하신건지, GCP에서 Compute Engine을 띄워서 하신건지 질문드린거에요-!\n\nServing은 CPU에서 많이 진행해서, GCP에서 Compute Engine을 띄우고 거기서 실행하는 것을 염두에 두고 강의를 진행했습니다. 해당 코드는 CPU 서버에서 동작하는데, 그래서 GPU 서버에서 만드신건지 궁금했습니다 :pray:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639280091.215900",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639280211.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "언제나 항상 좋은 답변 감사합니다.:smile:\n\n서빙을 하는 서버가 다양한데 , 그 경우를 고려를 못했네요. 저는 Serving을 GPU 서버에서 했습니다. !\n실제로는 현업에서 모델 추론을 해줄때에도 cpu server에서 많이 하는군요.\n실제로 cpu server를 많이 사용하는 이유가 있으면 알려주실수 있으실까요?\n혹시 pull request 확인 해주실수 있으실까요?",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639280455.216200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1639282496.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2>\n\n이야기는 이제 부스트캠프로 이동하면 좋을 것 같아요~\nPR 확인했는데 이 부분은 FastAPI랑 BentoML에도 계속 활용되는 부분이라 따로 고민해볼게요!(강의의 의도와 다르게 사용한 케이스니..!)\n\n지금 제시해주신 코드가 문제 해결은 되지만 중복되는 코드가 있어서 Global로 설정하는 방법을 쓰면 더 좋을 것 같네요!\n\n웅준님 강의 들으실 때 GPU 머신이 아니라 Local에서 하시겠어요? 실제 개발하는 것과 비슷하게 해주시면 좋겠습니다 :pray:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639287478.217400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "device = torch.device(“cuda” if torch.cuda.is_available else “cpu”)\n\n여기서 torch.cuda.is_available() 이게 아닐까 싶네요..!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639287673.217600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U02AF2JSQP2",
+                  "U028ZAA1X1V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

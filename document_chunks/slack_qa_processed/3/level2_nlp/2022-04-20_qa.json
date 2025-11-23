@@ -1,0 +1,121 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "운영진님, 공지사항에 금요일 마스터 클래스 이전에 데이터셋 제출이라 적혀있는데 학습일정에는 목요일 19시에 프로젝트 마감이라 적혀있습니다.\n목요일 19시까지 제출해야 해야 하는 것이 있을까요?",
+        "user": "U02VB6KC3BN",
+        "user_name": "김선재_T3252",
+        "timestamp": "1650439480.137619",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02RUR38GCF"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "아시겠지만 다른 강의와는 다르게 리더보드 대회가 진행되지 않습니다. 서버를 통한 fine-tuning 진행은 내일 저녁 7시 정도까지만 진행해 주시고 금요일까지 최종 제작된 데이터셋 제출해 주시면 됩니다 :slightly_smiling_face:",
+          "user": "U02QQ376VB6",
+          "user_name": "크리스",
+          "timestamp": "1650440000.208739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U02VB6KC3BN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U02T6SH1BKR> 님 안녕하세요? NLP 3조 임수정입니다.\n조교님께 IAA를 확인하기 위한 Fleiss' Kappa 관련 질문 드립니다. 제가 이해하기로는 Fleiss' Kappa가 동일 데이터에 대한 평가자들의 응답(평가) 일치도를 측정하는 지표라고 생각되는데,\n조원들이 각자 다른 데이터에 대해 레이블링을 진행했을 때에도 Fleiss' Kappa를 적용하는 데 문제가 없는 것인가요? 저희 조 같은 경우는 파일을 분배해서 각자 다른 파일을 레이블링 했는데 이 경우에도 Fleiss' Kappa로 IAA 확인이 가능한 것인지, 아니면 동일 데이터를 여러 명이 레이블링 해야 하는지 궁금합니다. 감사합니다!",
+        "user": "U02U7CWH8RH",
+        "user_name": "임수정_T3181",
+        "timestamp": "1650507231.033159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 동일 데이터를 여러 명이 레이블링해야 Fleiss' Kappa를 적용가능한 것이 맞습니다\n그래서 tagtog 플랫폼으로 1인이 데이터/레이블의 draft를 만들고, 그것을 구글스프레드시트에 옮겨서 여러 명이 해당 데이터에 대해 태깅하여 agreement 측정을 하는 것입니다.\n물론 이 과정에서 원 제작자의 레이블은 새로운 annotator에게 보이지 않는 것이 제일 공평하겠죠?\n그렇게 하여 여러 명의 voting으로 최종 레이블 결정을 하게 되고, 자동적으로 결정이 되지 않는다면 그러한 데이터셋에 관해서는 별도의 논의를 진행하여 결정하는 것이 일반적입니다.\n\n모든 팀원이 모든 데이터를 다 태깅하기에 너무 많다면, 한 데이터 당 최소 세 개의 레이블 정도는 받을 수 있도록 조정하여 진행할 수 있습니다. 그런데 이 때는 Fleiss' Kappa 가 아닌 krippendorf's alpha 라는 지표를 사용하는 것이 일반적입니다\n<https://github.com/pln-fing-udelar/fast-krippendorff>\nFleiss' Kappa 산출이 어렵다면 이 방법도 고려해 보실 수 있을 것 같습니다 (크라우드소싱에서 많이 활용되고, Fleiss' Kappa 와 비슷하게 해석됩니다)",
+          "user": "U02T6SH1BKR",
+          "user_name": null,
+          "timestamp": "1650507586.559319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TCL8CQGM",
+                  "U02TMMJDC14",
+                  "U02UMKZGNN8"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02U7SPJU5S",
+                  "U02TVNVSKML"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하.. 자세한 설명 감사합니다 조교님!!:booduck_happy:",
+          "user": "U02U7CWH8RH",
+          "user_name": "임수정_T3181",
+          "timestamp": "1650507752.445869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "woman-gesturing-ok",
+                "users": [
+                  "U02T6SH1BKR"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02T6SH1BKR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

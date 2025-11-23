@@ -1,0 +1,68 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[nvidia-smi mismatch 에러]\nnvidia toolkit 다운로드를 \"installer type\"을 deb(local)로 하다가 다음과 같은 에러가 발생했는데요 'nvidia-smi' 명령어 입력 시 mismatch error가 발생했을 때 해결방법에 대해서 궁금합니다.",
+        "user": "U04R4LSLQVD",
+        "user_name": null,
+        "timestamp": "1689151839.520889",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04R4LSLQVD",
+            "ts": "1689152022.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RXRU7AFK",
+                "U04RG92R093"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "장착된 GPU 모델이랑 맞지않는 nvidia 드라이버 및 툴킷을 설치한게 아닐까 하는 의심이 되는데요 ㅎㅎ\n올바르게 설치하셨는지 한번 확인해보시면 좋을거 같아요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689159293.840019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만약 본인은 설치한적이 없다면, 운영진 분을 호출하셔서 해결해달라고 하셔야 할듯 합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1689159318.852959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다 조교님!",
+          "user": "U04R4LSLQVD",
+          "user_name": "조성운_T5201",
+          "timestamp": "1689207774.459949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

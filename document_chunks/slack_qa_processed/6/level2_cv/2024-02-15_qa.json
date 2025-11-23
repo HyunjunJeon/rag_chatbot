@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "mmsegmentation관련 질문입니다.\n여기 load_data_list에서, pngs와 jsons와 IMAGE_ROOT와 LABEL_ROOT가 갑자기 생겼는데, 두 가지를 global로 지정해 두신건가요?",
+        "user": "U063MR541NZ",
+        "user_name": null,
+        "timestamp": "1708060245.939659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U063MR541NZ> 승환님~! 조교님께서 코드 파일 공유해주셨습니다!\n공지 채널 참고 부탁드려요~! ㅎㅎ",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1708066562.918579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U063MR541NZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> LSTM에서 Cell state가 덧셈 연산을 통해 업데이트되기 때문에 gradient vanishing 문제가 완화된다고 하였는데, GRU에는 cell state가 없는데 gradient vanishing 문제를 어떻게 해결하는거야?",
+        "user": "U09CH84CA6P",
+        "user_name": "오천영",
+        "timestamp": "1759303227.387429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH84CA6P> GRU는 Cell state 대신 **Hidden state($h_t$)**를 직접 제어합니다. 이를 위해 **Update Gate($z_t$)**와 Reset Gate($r_t$)를 사용합니다.\n\n특히 **Update Gate**는 이전 Hidden state($h_{t-1}$)의 정보를 얼마나 유지하고, 새로운 Candidate Hidden state($\\tilde{h}_t$)의 정보를 얼마나 반영할지 결정합니다. Hidden state 업데이트 수식은 다음과 같습니다:\n\n$h_t = (1 - z_t) \\odot h_{t-1} + z_t \\odot \\tilde{h}_t$\n\n이 수식에서 $(1 - z_t) \\odot h_{t-1}$ 항은 이전 시점의 Hidden state 정보를 직접 전달하는 일종의 **Additive update**와 유사한 역할을 수행합니다. $z_t$ 값이 0에 가까울수록 이전 Hidden state 정보를 거의 그대로 전달하므로, Gradient가 이전 시점으로 끊기지 않고 원활하게 흐르도록 하여 Gradient vanishing 문제를 효과적으로 완화합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1759303243.598249",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U> $z_t$ 값이 0에 가까울수록 현재 시점의 정보는 거의 사라지는 것 아니야?",
+          "user": "U09CH84CA6P",
+          "user_name": "오천영",
+          "timestamp": "1759303476.074999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH84CA6P> 네, 맞습니다. $z_t$ 값이 0에 가까울수록 **새로운 후보 은닉 상태($\\tilde{h}_t$)**의 정보가 $h_t$에 반영되는 정도는 줄어듭니다.\n\n하지만 이는 문제가 아니라 GRU의 의도된 동작입니다. $z_t$가 0에 가까울 때, $(1 - z_t)$는 1에 가까워지므로 **이전 은닉 상태($h_{t-1}$)의 정보가 거의 그대로 $h_t$로 전달됩니다.**\n\n즉, GRU는 현재 시점의 입력($x_t$)에 기반한 새로운 정보($\\tilde{h}_t$)를 적게 반영하고, 대신 **과거의 중요한 정보($h_{t-1}$)를 장기간 보존하기로 결정**하는 것입니다. 이처럼 과거 정보를 직접적으로 전달하는 경로를 통해 Gradient가 끊기지 않고 흐를 수 있어 Gradient vanishing 문제가 완화됩니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1759303490.534639",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

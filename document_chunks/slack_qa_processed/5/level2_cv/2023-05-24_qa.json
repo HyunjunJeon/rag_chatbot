@@ -1,0 +1,608 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[대회 룰 관련 질문]\n안녕하세요. 비동기적 연산을 위해 non_blocking=Ture를 적용하려 보니 input이 model.py의 EAST의 train_step함수에서 device로 할당됩니다.\n\ntrain_step에서 <http://image.to|image.to>(device) 부분을 아래와 같이 변경하는 것도 문제가 될까요?\n```    def train_step(self, image, score_map, geo_map, roi_mask):\n        device = list(self.parameters())[0].device\n        image, score_map, geo_map, roi_mask = (<http://image.to|image.to>(device, non_blokcing=True), <http://score_map.to|score_map.to>(device, non_blokcing=True),\n                                               <http://geo_map.to|geo_map.to>(device, non_blokcing=True), <http://roi_mask.to|roi_mask.to>(device, non_blokcing=True))```",
+        "user": "U04RK3ETW4T",
+        "user_name": null,
+        "timestamp": "1684914182.591009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U04RG8WUAHK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 동우님!\n공유주신 코드 변경해도 문제 없습니다",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1684916638.762209",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04AY6Y68MR",
+              "ts": "1684925796.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03L1UMDLUS",
+                  "U04RK3ETW4T"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[aistages 리더보드 제출 관련 질문]\n안녕하세요:slightly_smiling_face: 현재 aistages 팀 관리 &gt; 팀 제출 목록에서 output 파일별 수치가 기록되지 않아 해당 부분이 일시적인 플랫폼 오류로 인한 것인지, 혹은 이번 대회에서는 별도 제공되지 않는 부분인지 문의드립니다 !",
+        "user": "U04RK74M4RY",
+        "user_name": null,
+        "timestamp": "1684915183.051889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "이 부분 확인해보고 말씀드리겠습니다 :slightly_smiling_face:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1684915227.472119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U04RK74M4RY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠른 답변 감사드립니다:relaxed: 추가로 이전 대회와는 다르게 현재 팀 제출 목록에는 제출이 failed된 output 파일들도 포함되어 있어 (+ 제출 횟수는 차감되지 않았습니다) 해당 부분도 함께 확인 부탁드립니다:pray:",
+          "user": "U04RK74M4RY",
+          "user_name": null,
+          "timestamp": "1684916245.672809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RK74M4RY> 안녕하세요 캠퍼님, 우선 리더보드에는 반영될 수 있도록 채점이 완료되긴 했습니다. 다만 버그사항으로 확인하여 현재는 ‘Failed’로 표기되고 있을 수 있습니다. 이 부분 버그사항으로 리포팅 되었으니 추후 확인 후 반영하고자 합니다. 감사합니다! :pray: :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1684919174.187859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사",
+                "users": [
+                  "U04RK74M4RY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 ! 빠르게 대응해주셔서 감사드립니다:blush:",
+          "user": "U04RK74M4RY",
+          "user_name": "박혜나",
+          "timestamp": "1684919433.091369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Annotation 실습]\n안녕하세요! annoatation 실습을 하려는데 OCR Labeling에서 시작 버튼을 누르면 “더 이상 불러올 작업이 없습니다.“라고 뜹니다.\n어떻게 해야 할까요?",
+        "user": "U04S8T86WHW",
+        "user_name": "오서영_T5125",
+        "timestamp": "1684920597.798179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04S8T7FU0G",
+                "U04RXRRLR5F",
+                "U04RXRSRWU9",
+                "U04RK3DTTD1",
+                "U04RG92564V",
+                "U04RK3HU5RR"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 아래 스레드 댓글 확인 부탁드립니다! 내일 오전까지 실습 진행하실 수 있도록 이미지 추가 후 안내드리겠습니다 :slightly_smiling_face:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1684926573.828759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 라벨링 툴이 처음 열렸을 때 이미지들 살펴보려 몇장 더 넘겨봤었는데 지금 그런 게 문제가 되고있는 것 같아요 ㅠ\n할당 취소 방법이 안보이는데 없는건가요?",
+        "user": "U04RXRUG60H",
+        "user_name": "김령태_T5029",
+        "timestamp": "1684921105.700399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 실습 진행 기간은 조금 연장해서 내일 오전에도 진행하실 수 있도록 조치 취한 후 안내드리겠습니다 :pray: 현재는 할당된 이미지가 모두 소진된 것으로 보입니다 :smiling_face_with_tear:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1684926502.432269",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03L1UMDLUS",
+              "ts": "1684926529.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[MultiProcessDataLoader 관련 질문]*\n안녕하세요!\n이번 BaseLine에는 dataloader에 num_workers를 지정해 multiprocessing dataloader를 사용합니다.\n이와 관련해서 저희 팀에서 작업 중 속도가 매우 느려지는 현상이 있어서 도움이 필요하여 질문드립니다..\n\n*먼저 저희는 아래와 같은 현상을 겪고 있습니다.*\n• AI Stage 서버 생성 시 기본 설정되어 있는 conda(base) 환경으로 학습 시 1epoch에 약 3분~4분이 소요\n• poetry 가상환경으로 학습 시 1epoch에 약 11~12분 소요\n*poetry 가상환경에서 사용한 패키지 버전은 다음과 같습니다.*\n- python : 3.10\n- torch : 1.13.1+cu11.7\n\n*시도해 본 것*\n• 서버 재할당\n• poetry의 패키지 버전에서 python만 3.8로 conda(base)와 같은 버전 사용\n• poetry의 패키지 버전에서 torch 버전을 1.7.1로 conda(base)와 같은 버전 사용\n서버를 재할당 받거나 패키지 버전을 base의 버전과 똑같이 맞춰도 동일한 현상이 발생했습니다.\n\n*의심되는 부분*\n아래의 코드처럼 dataloader만 Profiling 했을 때 두 환경 모두 호출되는 함수의 소요되는 시간은 거의 같지만\nthread를 connection 하는 횟수가 4배 정도 많게 나왔습니다. *(자세한 내용은 사진 첨부하였습니다.)*\n```import cProfile\nwith cProfile.Profile() as pr:\n    next(iter(train_loader))\n\npr.print_stats()```\n패키지 버전을 바꾸고 서버를 재할당 해도 동일한 현상이 나타나며\n차이점은 `python {python file} / poetry run python {python file}` 과 같이 실행 환경밖에 없는데 실행 시간이 4배 정도 느려집니다.\n열심히 디버깅과 구글링을 해봤지만 결국 해결을 하지 못해서 질문드립니다..:cry:  감사합니다!",
+        "user": "U04RK74L01Y",
+        "user_name": null,
+        "timestamp": "1684937040.638399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RMLTG284",
+                "U04RXRZ0W5P",
+                "U04RK75AHDY",
+                "U04RG8WUAHK",
+                "U04S8T7EHGQ",
+                "U04R4LVHAK1",
+                "U04RK761KC2",
+                "U04S8T8TRR6",
+                "U04S8TAESG0",
+                "U04R4LXE0KH"
+              ],
+              "count": 10
+            },
+            {
+              "name": "crying_cat",
+              "users": [
+                "U04RMLTG284",
+                "U04RXRZ0W5P",
+                "U04S8T7EHGQ",
+                "U04R4LXE0KH"
+              ],
+              "count": 4
+            },
+            {
+              "name": "smiling_face_with_tear",
+              "users": [
+                "U04RMLS4BGC",
+                "U04RXRZ0W5P",
+                "U04S8T7EHGQ",
+                "U04R4LXE0KH"
+              ],
+              "count": 4
+            },
+            {
+              "name": "thinking_spin",
+              "users": [
+                "U04RK3HU5RR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 14
+        }
+      },
+      "answers": [
+        {
+          "text": "conda와 poetry의 파이썬 버전과 torch 버전을 같게 한 실험 결과가 있을까요?",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1684939119.533779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04RK74L01Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 base 환경을 그대로 클론한 새로운 가상환경에서 학습 시켰는데도 매우 느려졌습니다 ㅠ",
+          "user": "U04S8T7EHGQ",
+          "user_name": "강나훈_T5002",
+          "timestamp": "1684939188.745809",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04S8T7EHGQ",
+              "ts": "1684939212.000000"
+            },
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RK74L01Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "버전을 동일하게 맞추고 실행한 결과입니다.:slightly_smiling_face:",
+          "user": "U04RK74L01Y",
+          "user_name": null,
+          "timestamp": "1684941305.283919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "종서님께 얘기를 들었는데 서버 재할당을 받고 conda로 하셔도 똑같이 느려진다고 하신다고 하던데 맞을까요?\n서버 재할당이 어떻게 이뤄지는지는 모르지만 아예 새 환경을 준다고 생각했었는데 그러면 conda와 poetry의 차이로 나뉘는게 맞는건가? 싶기도 합니다\n그냥 의견입니다:thinking_spin:",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1684941537.031779",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3HU5RR",
+              "ts": "1684947860.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 재할당 받았을 때도 정확하게 동일한 현상이 재현됐고 종서님만 특이하게 conda 환경에서도 느려졌습니다...:everythings_fine_parrot:",
+          "user": "U04RK74L01Y",
+          "user_name": "서영덕_T5105",
+          "timestamp": "1684942138.879019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어딘가에 스레드를 만드는 코드가 있는것도 아니고 직접 구현한 augmentation이 문제일까 싶었는데 poetry와 conda간의 차이만 있는게 아니고 conda와 conda간에도 차이가 있고, 멀티프로세싱을 끄면 어떻게 될까 하고 종서님께 여쭤봤는데 num_workers=0으로 해도 똑같다고 하시고 어렵네요…",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1684943792.628599",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3HU5RR",
+              "ts": "1684944924.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "나훈님도 1 epoch에 11분 정도 걸리시는 건가요?",
+          "user": "U04RMLS4BGC",
+          "user_name": "박종서_T5092",
+          "timestamp": "1684974949.865119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 13-15분정도 걸렸습니다!",
+          "user": "U04S8T7EHGQ",
+          "user_name": "강나훈_T5002",
+          "timestamp": "1684976178.788479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "나훈님도 저랑 비슷한 상황이신것 같네요 ㅠ",
+          "user": "U04RMLS4BGC",
+          "user_name": "박종서_T5092",
+          "timestamp": "1684976476.234129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry",
+                "users": [
+                  "U04S8T7EHGQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04S8T7EHGQ> <@U04RMLS4BGC> <@U04RK74L01Y>\n안녕하세요, poetry 사용 없이 base 환경에서(코드수정 없이) 1 epoch 학습 돌리는데 3분 이상 걸리고 있는건가요?\npoetry 사용했을때는 환경 이슈로 인해 속도가 느려질수는 있을것같은데요, 아무 수정 없이 baseline 코드를 서버에서 그냥 돌릴때 10분 이상 걸리는거라면 서버쪽 문제로 인해 생기는 현상일 수도 있을것같네요\n<@U046RDS8WUS> 혹시 할당받은 서버쪽 문제인지 파악 가능할까요?",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1684995416.662999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "loading",
+                "users": [
+                  "U046RDS8WUS"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U046RDS8WUS",
+                  "U03L1UMDLUS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 poetry사용없이 새로운 conda환경에서 라이브러리 버전 모두 동일하고 베이스라인 코드 그대로 실행 했을 때 차이가 있었습니다.",
+          "user": "U04S8T7EHGQ",
+          "user_name": "강나훈_T5002",
+          "timestamp": "1684996478.948899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RK74L01Y> 안녕하세요 캠퍼님, 혹시 AI Stages 이슈 게시판에 해당 내용 첨부 부탁드려도 될까요?! 조교님이 설명해주신 맥락도 같이 넣어주시면 담당 개발자분께서 확인 후 대응해주실 예정입니다 :slightly_smiling_face:\n(슬랙 스레드 링크도 첨부해 주시면 더욱 좋습니다)",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1684996659.066359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03L1UMDLUS>\n넵 작성하겠습니다. 감사합니다!",
+          "user": "U04RK74L01Y",
+          "user_name": "서영덕_T5105",
+          "timestamp": "1684996727.765659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[대회 베이스 라인 질문]*\n안녕하세요! 대회 베이스라인 코드 관련 질문이 있습니다. 이번 베이스라인 코드는 수정이 불가능한 파일들이 존재하는데 이러한 파일들을 GitHub에 게시할때 문제가 되는지 궁금합니다..! Public 으로 전환 됐을 때에도 문제가 되지 않을지도 궁금합니다!",
+        "user": "U04RMLTUXEG",
+        "user_name": "황준하",
+        "timestamp": "1684981703.052349",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RMLTUXEG",
+            "ts": "1684984437.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RCJPDPP0",
+                "U04RK3HU5RR",
+                "U04S8TAESG0",
+                "U04RK3LHX7D",
+                "U04RG8YTUP7"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, <@U04RMLTUXEG> 캠퍼님 :slightly_smiling_face:\n<https://boostcampaitech.slack.com/archives/C04S87G3EQ6/p1682490306100229>\n기존 공지드렸던 규칙에 따라 모든 프로젝트에서 베이스라인 코드를 공개할 수 없습니다.",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1684994338.642199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[annotation 실습 데이터]\n안녕하세요. 현재 추가로 제공된 annotation 실습 결과물(json)에 해당하는 이미지 파일(jpg)은 어디서 찾을 수 있을까요?!",
+        "user": "U04S8T86WHW",
+        "user_name": "오서영_T5125",
+        "timestamp": "1684987389.624109",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RXRRLR5F",
+                "U04RG9121NZ",
+                "U04RG92R093",
+                "U04RG92GDV3",
+                "U04RK3DTTD1",
+                "U04RK3HU5RR",
+                "U04RK3LHX7D",
+                "U04RK3GCBQT"
+              ],
+              "count": 8
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RXRXM5LM"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "확인 후 이미지 업로드 드렸습니다. :pray: :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1684994631.980089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03L1UMDLUS> 감사합니다! 혹시 어디 있을까요?",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1684994904.139109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U04RG9121NZ",
+                  "U04RK3DTTD1",
+                  "U04RG92GDV3",
+                  "U04RCJTBG5U",
+                  "U04RXRRLR5F",
+                  "U04RK761KC2",
+                  "U04RMLTG284",
+                  "U04RK75BL9Y",
+                  "U04RXRW22RX",
+                  "U04RMLSJJ7N",
+                  "U04RK3HU5RR"
+                ],
+                "count": 11
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

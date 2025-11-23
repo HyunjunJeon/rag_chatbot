@@ -1,0 +1,44 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "9강 퀴즈 2번 문항의 선지 일부도 미완성입니다!",
+        "user": "U063T6S4JVA",
+        "user_name": "오주영_T6103",
+        "timestamp": "1708682969.993289",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "9강 퀴즈 2번에 미완성인 지문들은 각각\n“Language Models as Knowledge Bases?“(Petroni et al.,2019)에서는 언어 모델이 특정 Entity에 대한 사실 정보를 내재함을 증명하며, GPT-2가 Closed-Book QA의 가능성을 보인다.\n과\nOpen-Book QA 방식에서는 대량의 지식 소스를 문서 단위로 표현하고 검색하는 방식이 필요하므로, 지식을 저장하고 검색하는 데 어려움이 있을 수 있지만, Closed-Book QA 방식에서는 사전학습된 언어 모델이 지식을 기억하고 있으므로 검색 없이 정답을 생성할 수 있다.\n란 지문들이 잘린 것으로 이해해주시면 감사하겠습니다!",
+          "user": "U060ZS109AT",
+          "user_name": null,
+          "timestamp": "1708685417.011519",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U060ZS109AT",
+              "ts": "1708685643.000000"
+            },
+            "reactions": [
+              {
+                "name": "hearts",
+                "users": [
+                  "U063T6S4JVA",
+                  "U063MR95Q69"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

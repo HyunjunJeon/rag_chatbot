@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "train/ val/ test로 데이터를 나눠보고 holdout에 대한 MAE를 측정하는 것이 HOLDOUT을 사용하는 취지였고, 홀드아웃을 포함하고 훈련을 수행하고 test의 정답을 제출하는 방법도 무방합니다.",
+        "user": "U076A0ENQGY",
+        "user_name": "김정훈조교",
+        "timestamp": "1729160368.546519",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1729212454.034289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "일단 팀에서 한 명만 제출하긴 했는데… 저희도 궁금합니다!",
+        "user": "U029L0WMGUE",
+        "user_name": "안영진_T2129",
+        "timestamp": "1631765538.109900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 팀 이름의 경우 제출자의 캠퍼ID를 적거나, 논의를 통해 결정하거나, 임의로 써서 내셔도 무방합니다! 나중에 매칭만 되면 괜찮을 것 같습니다 ㅎㅎ 어제 결정이 되지 못했던 사안이라 답변이 늦어 죄송합니다\n\n팀에서 한 명만 제출하면 되는 것은 동일합니다. 그 분이 팀에 제출팀명을 공유해주시면 될 것 같습니다 :grin:",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1631771406.110600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

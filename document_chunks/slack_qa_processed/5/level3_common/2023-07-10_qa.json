@@ -1,0 +1,108 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "CUDA관련 에러 해결에 대해서 질문 드립니다..\nNotImplementedError: CUDA_HOME is None. Please set environment variable CUDA_HOME.\n위와같은 에러가 발생해서 원인을 찾아보니 PATH 설정 문제인 것으로 파악되었습니다.\n~/.bashrc에 사진과 같은 방식으로 입력해야하는 것 같은데 경로를 찾아보니 cuda가 존재하지 않았습니다. cuda가 어디에 설치되어 있는지 알 수 있을까요?",
+        "user": "U04RK77TQUS",
+        "user_name": null,
+        "timestamp": "1688995351.290139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RMLS4BGC",
+                "U04RXRU7AFK"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://developer.nvidia.com/cuda-11.0-download-archive?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=Ubuntu&amp;target_version=1804&amp;target_type=runfilelocal|https://developer.nvidia.com/cuda-11.0-download-archive?target_os=Linux&amp;target_arch=x86[…]distro=Ubuntu&amp;target_version=1804&amp;target_type=runfilelocal>\n에서 Linux -&gt; x8664 -&gt; Ubuntu -&gt; 아무거나 선택해 CUDA Toolkit 설치하고(드라이버는 설치할 필요 없습니다)  bashrc에 환경변수 추가해주시고\n```source ~/.bashrc\nnvcc --version```\n로 설치 됐는지 확인하시면 됩니다\n<https://stages.ai/competitions/241/discussion/talk/post/2182|참고1>, <https://nirsa.tistory.com/332|참고2>",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1688996177.341059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RG8WDHTP",
+                  "U04RMLTG284",
+                  "U04RK70P61G",
+                  "U04RMLS4BGC",
+                  "U04RMLS59HA",
+                  "U04RXRU7AFK",
+                  "U03PVSC77HR",
+                  "U04RK3E9M99",
+                  "U04R4LWE3RV",
+                  "U04R4LR1GET"
+                ],
+                "count": 10
+              },
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RK77TQUS",
+                  "U04RK3E9M99"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결했습니다! 감사합니다. 재민님 <@U04RK3HU5RR>",
+          "user": "U04RK77TQUS",
+          "user_name": "김도환",
+          "timestamp": "1689039557.634889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK3HU5RR",
+                  "U04RXRU7AFK"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 서로 알려주시는 모습 넘 보기 좋네요! 재민님 감사합니당",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1689045466.540119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK3HU5RR",
+                  "U04RXRU7AFK"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

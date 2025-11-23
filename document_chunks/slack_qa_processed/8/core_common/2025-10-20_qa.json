@@ -1,0 +1,89 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U09CH7YCBFV> 확인 감사드립니다! 주석이 잘못 작성된 것이 맞습니다. 말씀해주신대로 BERT 모델은 WordPiece 기반으로 학습된 토크나이저를 사용하고 있습니다. (fyi: <https://huggingface.co/google-bert/bert-base-uncased/raw/main/tokenizer.json> 디코더 타입을 살펴보시면, \"WordPiece\"라고 명시되어 있는 것을 확인하실 수 있습니다.)",
+        "user": "U073SBHL2PJ",
+        "user_name": "배성수",
+        "timestamp": "1760945520.972179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7YCBFV",
+                "U09CH85PLV9"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1760947075.853679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[도메인 공통 프로젝트 5강 강의 자료 16p]\n안녕하세요. K-Fold 교차 검증 강의 자료를 보다가 전처리(스케일링) 시점에 대해 헷갈리는 부분이 있어 질문드립니다.\n강의 자료에 보면 \"독립적인 모델 구성\" 파트에서 다음과 같이 설명하고 있습니다.\n&gt; \"폴드마다 서로 영향을 주는 구조로 구성하면 성능이 왜곡될 수 있습니다. *(스케일링, 인코딩 등 작업은 폴드 내에서 개별적으로 수행해야 됩니다.)*\"\n여기서 *\"스케일링... 등 작업은 폴드 내에서 개별적으로 수행해야 됩니다\"*라는 문구가 정확히 어떤 의미인지 궁금합니다.\n\n만약 5-Fold CV를 수행한다면, *데이터 유출(Data Leakage)을 막기 위해* 다음과 같이 'CV 반복 루프 안에서' 전처리를 진행해야 한다고 알고 있습니다.\n• *Iteration 1 (검증: 1번 / 학습: 2,3,4,5번):*\n    a. *[2,3,4,5]번 폴드(학습 데이터)*를 합친 데이터로 스케일러를 `.fit()` 합니다.\n    b. `fit`된 스케일러로 [2,3,4,5]번(학습)과 [1]번(검증)을 각각 `.transform()` 합니다.\n• *Iteration 2 (검증: 2번 / 학습: 1,3,4,5번):*\n    a. *[1,3,4,5]번 폴드(학습 데이터)*를 합친 데이터로 (새로운) 스케일러를 `.fit()` 합니다.\n    b. `fit`된 스케일러로 [1,3,4,5]번(학습)과 [2]번(검증)을 각각 `.transform()` 합니다.\n• (이후 반복...)\n*[질문]*\n1. 제가 위에서 이해한 방식이 올바른 절차가 맞나요?\n2. 만약 맞다면, 강의 자료의 \"폴드 내에서 개별적으로 수행\"이라는 말의 정확한 의미는, [1], [2], [3]... 각 폴드를 따로따로 스케일링하라는 뜻이 아니라, *\"CV의 각 Iteration(반복)마다 개별적으로 (즉, 루프 안에서) 수행\"*하라는 의미로 해석하는 것이 맞을까요?\n강의 자료의 문구가 다소 오해의 소지가 있어 명확한 확인을 부탁드립니다. 감사합니다.",
+        "user": "U09CH7U1SP5",
+        "user_name": null,
+        "timestamp": "1761023668.288879",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04QH4ZVBJN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 캠퍼님이 말씀하신대로 이해하였습니다. 학습과 검증 데이터 간의 교차가 일어나면 안되고, 학습 데이터에서는 공통된 스케일러를 사용해야하니 k-fold로 학습과 검증데이터를 나눈 후 학습 데이터에 대해서 스케일링을 하면 되는 것으로 이해했습니다.\n일례로, time series split에서도 검증데이터를 나눈 기준으로 학습 데이터에 대해서만 스케일링을 진행한 것으로 보아, fold별로 작업을 하는 것이 아니라 fold에 따라 나뉜 학습데이터에 대해 작업을 하는 것으로 보입니다.\n\n각각의 fold에 대해 따로 작업을 하게되면(예시로 5-fold의 경우), 4개의 학습 fold에 대해 각각 다른 스케일러가 적용되므로 이는 학습의 일관성을 담보할 수 없을 것입니다.",
+          "user": "U09CH7ZHVJP",
+          "user_name": "송현우",
+          "timestamp": "1761024116.165359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 말씀하신 내용이 맞습니다. 각 반복마다 검증 데이터 fold 를 제외한 나머지 fold로 전처리 해야한다는 내용입니다",
+          "user": "U04QH4ZVBJN",
+          "user_name": "SangJun Moon",
+          "timestamp": "1761025204.554409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

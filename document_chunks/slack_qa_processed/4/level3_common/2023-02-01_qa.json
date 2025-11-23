@@ -1,0 +1,79 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "현재 a, b, c 카테고리 별로 테이블을 나눠놓은 상태입니다\nDB는 읽기작업이 쓰기작업보다 많을 예정인데 카테고리 칼럼을 만들어 하나의 테이블로 합쳐서 데이터를 저장하는게 더 나은 방법인가요? 아니면 카테고리 별로 테이블을 쪼개서 저장하는게 더 나은 방법인가요?",
+        "user": "U0427G48WAC",
+        "user_name": null,
+        "timestamp": "1675320904.123789",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "위처럼 하면, 쓰기할 때마다 프로그래밍 코드에서 조건문으로 입력 카테고리가 뭔지 파악해야할텐데요. 굳이 이렇게 나누신 이유가 있을까요?\n별 이유가 없다면 저라면 한 테이블로 합칠거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675321072.790449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "api를 받을 때 카테고리 별로 이미지 경로를 가져오게 되어있어 카테고리는 무조건 필요한 상황입니다.\n조건문을 걸어서 테이블 내용전체를 가져오는 것과 sql에서 쿼리문으로 카테고리 필터링 하여 관련 카테고리를 가져오는 것에 시간적으로 차이가 크게 없나요? sql 내부 알고리즘이 효율적일 것 같긴한데 정확히 잘 몰라서 여쭤봅니다",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675321308.519249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 조건문을 걸어서 테이블 내용전체를 가져오는 것과 sql에서 쿼리문으로 카테고리 필터링 하여 관련 카테고리를 가져오는 것에 시간적으로 차이가 크게 없나요?\n데이터가 몇억개 쌓일게 아닌이상, 별 차이없을거 같습니다.\n몇억만건 쌓이면, 테이블을 그냥 샤딩하면 되구요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675321446.356949",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1675321455.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 감사합니다",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675321484.487779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

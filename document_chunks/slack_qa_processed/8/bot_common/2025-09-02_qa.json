@@ -1,0 +1,307 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 선형회귀 가정 중 Weak exogeneity에 대해서 자세히 설명해줘. 오차항과 얽힌게 없는 게 왜 중요하고, 왜 선형회귀가 이 가정을 따라야하는지 궁금해",
+        "user": "U09CMF1TQ1Y",
+        "user_name": "김광영",
+        "timestamp": "1756801057.808519",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CMF1TQ1Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CMF1TQ1Y> 부덕이_답변bot의 답변입니다.\n\n## 선형회귀 가정: 외생성(Exogeneity)과 내생성(Endogeneity)\n\nAI/ML 엔지니어에게 선형회귀 모델의 신뢰성을 이해하는 것은 필수입니다. 질문 주신 '약한 외생성'은 모델 계수 추정의 타당성을 위한 핵심 조건입니다.\n\n### 1. 외생성(Exogeneity)이란? (오차항과 독립변수가 얽히면 안 되는 이유)\n\n선형회귀 모델 `Y = Xβ + u`에서 **외생성**은 **독립변수(X)와 오차항(u) 사이에 상관관계가 없어야 한다(`Cov(X, u) = 0`)**는 가정입니다. 오차항 `u`는 모델에 포함되지 않은 모든 설명되지 않는 요인들의 합을 의미합니다.\n\n*   **엄밀한 외생성(Strict Exogeneity):** `E[u | X] = 0`. 모든 독립변수 값에 대해 오차항 평균이 0이라는 강력한 가정으로, OLS 추정량의 불편성(Unbiasedness)을 보장합니다.\n*   **약한 외생성(Weak Exogeneity):** 주로 시계열 데이터에서 현재 시점의 독립변수 X와 현재 시점의 오차항 u가 무상관하다는 의미로 사용됩니다. 일반적인 OLS 선형회귀 맥락에서는 `Cov(X, u) = 0`이 핵심이며, 이 가정이 깨지면 `X`는 **내생적(Endogenous)**이라고 합니다.\n\n**이 가정이 중요한 이유:**\n만약 `Cov(X, u) ≠ 0` (내생성)이라면 OLS 추정량 `β̂`는 실제 모수 `β`와 달라지는 심각한 문제가 발생합니다.\n1.  **추정량의 편의(Bias) 및 비일치성(Inconsistency):** 추정치가 편향되어 실제 관계를 왜곡하고, 표본 크기가 커져도 편의가 사라지지 않아 비일치성으로 이어집니다.\n2.  **잘못된 인과관계 추론 및 통계적 오류:** `X`와 `Y`의 인과 관계를 오해하게 만들며, 회귀계수의 표준오차, t-검정 등 통계적 추론의 유효성을 잃게 됩니다.\n\n**선형회귀가 이 가정을 따라야 하는 이유:** OLS 추정량이 편향되지 않고, 일치적이며 효율적인 '최적 선형 비편향 추정량(BLUE: Best Linear Unbiased Estimator)' 특성을 갖기 위한 핵심 조건이기 때문입니다. 이 가정이 없다면 모델의 추정치는 신뢰할 수 없습니다.\n\n### 2. 실무자를 위한 가이드 및 해결 전략\n\nAI/ML 엔지니어로서 내생성 문제를 의심하고 해결하는 것이 중요합니다.\n\n*   **주요 원인:**\n    *   **누락 변수 편향(Omitted Variable Bias):** 중요한 설명변수가 모델에서 누락되었을 때.\n    *   **동시성(Simultaneity):** `X`와 `Y`가 서로에게 영향을 미칠 때 (상호인과관계).\n    *   **측정 오차(Measurement Error):** 독립변수 `X`가 정확하게 측정되지 않았을 때.\n*   **해결 전략:**\n    *   **도구 변수(Instrumental Variables, IV) 활용:** `X`와는 상관관계가 높지만 `u`와는 무관한 '도구 변수(Z)'를 찾아 2단계 최소제곱(2SLS) 같은 방법을 적용합니다.\n    *   **통제 변수(Control Variables) 추가:** 누락 변수 편향이 의심될 경우, 관련 변수를 모델에 직접 포함합니다.\n    *   **패널 데이터 모델:** 시간과 개체 데이터를 활용, 고정 효과(Fixed Effects) 모델로 관측되지 않는 특성으로 인한 내생성을 완화합니다.\n    *   **실험 설계:** 가능하다면 A/B 테스트 같은 무작위 대조군 실험으로 외생성을 보장하는 것이 가장 강력합니다.\n\n### 참고 자료\n\n*   Jeffrey M. Wooldridge, \"Introductory Econometrics: A Modern Approach\", Chapter 2 (OLS Assumptions), Chapter 3 (Multiple Regression), Chapter 15 (Instrumental Variables Estimation).\n\n---\n\n**글로벌 동향:** AI/ML 분야에서는 예측 정확도와 더불어, 모델 결과의 **인과적 이해와 검증**을 위한 Causal AI 연구 및 적용이 활발하며, 이를 위해 계량경제학 방법론(예: DoWhy, CausalML 라이브러리)이 AI 프레임워크에 통합되고 있습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756801106.393049",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 노름을 구할 때, l1_norm = torch.norm(a, p=1) 라는 코드에서 p=1이 정확히 어떤 역할을 하는건지 알려줘",
+        "user": "U09CH879951",
+        "user_name": "이소진",
+        "timestamp": "1756803816.519269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH879951> 안녕하세요! 부덕이_답변bot입니다. AI/ML/DL 엔지니어의 꿈을 향해 나아가는 학생분들을 위해 `p=1`의 역할을 명확하게 설명해 드릴게요.\n\n`torch.norm(a, p=1)` 코드에서 `p=1`은 텐서 `a`의 **L1 노름(L1 Norm)**을 계산하라는 지시입니다. L1 노름은 다른 말로 '맨해튼 노름(Manhattan Norm)' 또는 '택시 거리(Taxicab Distance)'라고도 불립니다.\n\n### `p=1`의 정확한 역할 (L1 노름)\n\n`p=1`은 텐서 `a`에 포함된 **모든 원소의 절댓값을 합산한 값**을 의미합니다.\n\n*   **수학적 정의:** 벡터 $\\mathbf{x} = [x_1, x_2, \\dots, x_n]$가 있을 때, L1 노름 $||\\mathbf{x}||_1$은 $\\sum_{i=1}^{n} |x_i|$ 와 같습니다.\n*   **예시:** 텐서 `a = [-1, 2, -3]` 이라면, L1 노름은 `|-1| + |2| + |-3| = 1 + 2 + 3 = 6`이 됩니다.\n\n### AI/ML/DL 실무에서 L1 노름이 중요한 이유 (구체적 가이드)\n\n1.  **스파스(Sparse)한 모델 유도 (Feature Selection):**\n    *   L1 노름은 모델의 가중치(weights) 중 많은 수를 0으로 만들려는 경향이 있습니다. 이는 모델이 중요하지 않다고 판단하는 특성(features)에 대한 가중치를 0으로 만들어, **불필요한 특성을 자동으로 제거**하는 효과를 줍니다.\n    *   **실무 적용:** 모델의 복잡도를 줄여 과적합(Overfitting)을 방지하고, 모델의 해석력(Interpretability)을 높여 어떤 특성이 중요한지 파악하는 데 유용합니다. 대표적으로 **Lasso 회귀(Lasso Regression)**에서 L1 정규화(L1 Regularization)를 사용하여 이러한 특성 선택 효과를 얻습니다.\n\n2.  **이상치(Outlier)에 대한 강건성(Robustness):**\n    *   L2 노름(p=2, 유클리드 노름)은 오차를 제곱하여 패널티를 부여하므로, 아주 큰 이상치(outlier)가 있을 경우 그 이상치에 모델이 과도하게 반응하여 가중치가 크게 변동할 수 있습니다.\n    *   반면 L1 노름은 오차의 크기에 비례하여 선형적으로 패널티를 부여하기 때문에, **이상치에 덜 민감**하여 더 안정적인 모델을 만들 수 있습니다.\n\n3.  **모델 경량화:**\n    *   스파스 모델은 0이 아닌 가중치만 저장하고 계산하면 되므로, 모델의 저장 공간을 줄이고 추론(inference) 속도를 높이는 데 기여할 수 있습니다. 이는 특히 임베디드 시스템이나 모바일 기기와 같은 **자원 제약적인 환경**에서 중요합니다.\n\n### 코드 예시\n\n```python\nimport torch\n\n# 1D 텐서 예시\na = torch.tensor([-1.0, 2.0, -3.0])\nl1_norm_a = torch.norm(a, p=1)\nprint(f\"텐서 a의 L1 노름: {l1_norm_a}\") # 출력: 텐서 a의 L1 노름: 6.0\n\n# 2D 텐서 (행렬) 예시\nb = torch.tensor([[1.0, -2.0],\n                  [3.0, -4.0]])\n\n# 텐서 전체의 L1 노름 (기본 동작)\nl1_norm_b_all = torch.norm(b, p=1)\nprint(f\"텐서 b 전체의 L1 노름: {l1_norm_b_all}\") # 출력: 텐서 b 전체의 L1 노름: 10.0 (1+2+3+4)\n\n# 특정 차원(dim)에 대한 L1 노름 (실무에서 유용)\n# dim=0: 각 열에 대한 L1 노름\nl1_norm_b_dim0 = torch.norm(b, p=1, dim=0)\nprint(f\"텐서 b의 각 열에 대한 L1 노름: {l1_norm_b_dim0}\") # 출력: 텐서 b의 각 열에 대한 L1 노름: tensor([4., 6.]) (열1: 1+3=4, 열2: 2+4=6)\n\n# dim=1: 각 행에 대한 L1 노름\nl1_norm_b_dim1 = torch.norm(b, p=1, dim=1)\nprint(f\"텐서 b의 각 행에 대한 L1 노름: {l1_norm_b_dim1}\") # 출력: 텐서 b의 각 행에 대한 L1 노름: tensor([3., 7.]) (행1: 1+2=3, 행2: 3+4=7)\n```\n\n### 참고 자료\n\n*   **PyTorch 공식 문서 - `torch.norm`:** [<https://pytorch.org/docs/stable/generated/torch.norm.html>](<https://pytorch.org/docs/stable/generated/torch.norm.html>)\n*   **L1 및 L2 정규화 설명:** 다양한 머신러닝 교재 및 온라인 자료 (예: 스탠포드 CS229 머신러닝 강의 자료, 핸즈온 머신러닝 등)\n\n---\n\n**글로벌 동향:** 최근에는 모델 경량화 및 엣지 AI(Edge AI) 환경에서의 효율성을 위해 L1 노름 기반의 스파스(Sparse) 모델 연구 및 이를 활용한 네트워크 프루닝(Network Pruning) 기법이 활발히 연구되고 있습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756803835.513289",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 데이터set을 훈련,검증,테스트로 분류하는 비율에 대한 최근(2024년 이후) 논문이나 글을 조사해줘",
+        "user": "U09CH84CA6P",
+        "user_name": "오천영",
+        "timestamp": "1756859882.273779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH84CA6P"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH84CA6P> 자네, AI/ML 엔지니어를 꿈꾸는 학생들을 위해 \"부덕이_답변bot\"이 명확하게 설명해주지! 2024년 이후 데이터셋 분할 비율에 대한 '특정' 신규 논문이나 정답처럼 정해진 비율이 등장한 것은 아니네. 데이터셋 분할 비율은 '절대적인 정답'이 아니라, 데이터셋의 크기, 도메인, 모델의 복잡성, 그리고 자네가 해결하려는 문제의 특성에 따라 유동적으로 결정되는 '전략적인 선택'이라네.\n\n**데이터셋 분할의 핵심 원칙**\n\n*   **훈련(Training) 세트:** 모델이 학습하는 데 사용되는 데이터.\n*   **검증(Validation) 세트:** 모델 훈련 중 하이퍼파라미터 튜닝이나 조기 종료(Early Stopping) 결정 등 모델 성능을 평가하고 최적화하는 데 사용되는 데이터. 훈련 세트와는 분리되어야 하지만, 모델 개발 과정에서 여러 번 '보는' 데이터.\n*   **테스트(Test) 세트:** 모델 개발이 완전히 끝난 후, 모델의 최종 성능을 측정하기 위해 딱 한 번만 사용되는 데이터. 모델이 **절대 보지 않은** 독립적인 데이터로, 실전에 가까운 성능을 예측하게 해준다네.\n\n**실무에서 일반적으로 활용되는 분할 비율 (최근 경향 포함)**\n\n특정 '새로운' 비율보다는, 데이터셋의 규모에 따라 유연하게 접근하는 것이 중요하네.\n\n1.  **대규모 데이터셋 (예: 수십만~수억 개의 샘플)**\n    *   **훈련:검증:테스트 = 80~90% : 5~10% : 5~10%** (예: 80/10/10, 90/5/5)\n    *   **근거:** 데이터 양이 충분히 많기 때문에 훈련에 더 많은 비중을 두어도 검증 및 테스트 세트가 전체 데이터의 대표성을 잘 가질 수 있다네. 각 세트의 샘플 수가 충분히 많아 통계적 유의미성이 확보되기 때문이지.\n\n2.  **중소규모 데이터셋 (예: 수천~수만 개의 샘플)**\n    *   **훈련:검증:테스트 = 60~70% : 15~20% : 15~20%** (예: 60/20/20, 70/15/15)\n    *   **근거:** 데이터가 적을수록 각 세트가 전체 데이터의 특성을 잘 반영하도록 균형을 맞추는 것이 중요해. 너무 적은 검증/테스트 세트는 모델 성능 평가의 신뢰도를 떨어뜨릴 수 있기 때문이야.\n\n**자네가 기억해야 할 실무 가이드 (구체적)**\n\n*   **충분한 샘플 수 확보:** 단순히 비율을 따르기보다, 검증 및 테스트 세트에 충분히 다양한 샘플이 포함되도록 **절대적인 샘플 수를 고려**하게. 예를 들어, 분류 문제라면 각 클래스마다 최소 수십~수백 개 이상의 샘플이 각 세트에 포함되는 것이 좋네.\n*   **K-Fold 교차 검증 (K-Fold Cross-Validation):** 데이터셋이 작거나 모델 성능의 신뢰성을 높이고 싶다면 K-Fold 교차 검증을 강력히 고려하게. 이는 데이터를 K개의 '폴드'로 나누어 K번의 훈련/검증을 반복하여 모든 데이터가 한 번씩 검증에 사용되도록 하는 방법일세.\n    *   **예시:** `from sklearn.model_selection import KFold`\n*   **계층적 샘플링 (Stratified Sampling):** 클래스 불균형 데이터셋(예: 특정 질병 진단 데이터)에서는 단순히 무작위 분할 시 특정 클래스가 검증/테스트 세트에 거의 포함되지 않을 수 있어. 이 경우 각 세트의 클래스 분포가 원본 데이터셋과 동일하도록 **계층적 샘플링**을 사용해야 해.\n    *   **예시:** `from sklearn.model_selection import train_test_split; X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)`\n*   **시간 순서 데이터 (Time-Series Data):** 시계열 데이터(주가 예측, 날씨 예측 등)는 절대로 무작위로 섞으면 안 돼. 과거 데이터로 훈련하고, 미래 데이터로 검증/테스트해야만 **데이터 누수(Data Leakage)**를 방지하고 실제 예측 상황을 모사할 수 있지. (예: 2023년까지 데이터로 훈련, 2024년 데이터로 검증/테스트)\n*   **데이터 누수 방지(Data Leakage Prevention):** 가장 중요해! 테스트 세트는 모델 개발 및 튜닝 과정에서 단 한 번도 보지 않은, '최종 시험지'여야 하네. 테스트 세트로 모델을 튜닝하거나 전처리 파라미터를 결정하면 자네는 실제 환경에서 '시험 문제 유출'과 같은 심각한 과대적합(Overfitting)을 겪게 될 거야.\n\n**근거 자료 (필독):**\n\n*   **Andrew Ng 교수의 Machine Learning 강의 (Coursera):** 데이터 분할의 기본 원칙을 명확히 설명하고 있지.\n*   **Scikit-learn 공식 문서:** `train_test_split` 및 `KFold` 사용법 및 모범 사례 (특히 `stratify` 옵션과 `random_state`의 중요성).\n*   **Deep Learning (Ian Goodfellow, Yoshua Bengio, Aaron Courville) Chapter 5: Machine Learning Basics:** 데이터 분할의 중요성과 원칙을 깊이 있게 다루고 있어.\n*   **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (Aurélien Géron):** 실제 코드와 함께 실용적인 가이드를 제공하지.\n\n**글로벌 동향 한 줄:**\n최근 AI/ML 글로벌 트렌드는 데이터셋 분할 비율 자체보다 **양질의 데이터셋 구축과 관리(Data-centric AI)**, 그리고 **효율적인 데이터 증강(Data Augmentation) 및 합성 데이터(Synthetic Data) 생성 기술**에 더 초점을 맞추고 있다네.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756859903.792349",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 비연속(non-contiguous)인 텐서에서 view()가 작동하기 위해서는 어떤 조건이 필요한 지 알려줘",
+        "user": "U09CH7U1SP5",
+        "user_name": "박제혁",
+        "timestamp": "1756864127.066799",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "x",
+              "users": [
+                "U09CH7U1SP5"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7U1SP5> 안녕하세요, AI/ML/DL 엔지니어 꿈나무 여러분! 부덕이_답변bot입니다.\n\n비연속(non-contiguous)인 텐서에서 `view()` 메서드가 작동하기 위해서는 **해당 텐서가 반드시 연속적인 메모리 블록에 할당되도록 만들어주는 과정이 필요**합니다. 즉, `view()`는 기본적으로 **연속(contiguous)인 텐서에 대해서만 작동**합니다.\n\n### 1. `view()`와 메모리 연속성\n\n`view()`는 텐서의 데이터를 복사하지 않고, **기존 데이터에 대한 새로운 \"뷰(view)\"를 생성**합니다. 이는 단순히 텐서의 **메타데이터(형태, 스트라이드)**만 변경하여 메모리 상의 동일한 데이터를 다른 형태로 해석하도록 하는 방식입니다.\n\n이러한 방식은 데이터가 메모리에 순서대로 연속적으로 저장되어 있을 때만 가능합니다. 만약 텐서가 비연속적이라면 (예: `transpose()`, `permute()` 또는 슬라이싱 등으로 인해 메모리 주소가 불연속적으로 되어버린 경우), `view()`는 올바른 스트라이드(stride)를 계산할 수 없어 에러를 발생시킵니다.\n\n### 2. 비연속 텐서에 `view()`를 적용하는 방법: `.contiguous()`\n\n비연속 텐서에 `view()`를 사용하려면, 먼저 `.contiguous()` 메서드를 호출하여 텐서를 연속적인 메모리 블록에 재할당해야 합니다.\n\n**작동 방식:**\n1.  **`tensor.is_contiguous()`**: 텐서가 연속적인지 확인합니다. (True/False 반환)\n2.  **`tensor.contiguous()`**: 텐서가 비연속적인 경우, `.contiguous()`는 **데이터를 새로운 메모리 공간에 복사**하여 연속적인 형태로 만듭니다. 이미 연속적인 경우, 기존 텐서 자신을 반환하며 복사가 일어나지 않습니다.\n\n**실무 가이드:**\n`transpose()`, `permute()`, `slice()` 등 텐서의 차원을 변경하거나 특정 부분을 추출하는 연산 뒤에는 텐서가 비연속적으로 변할 가능성이 높습니다. 이럴 경우 `view()`를 사용하기 전에 항상 `.contiguous()`를 붙여주는 습관을 들이는 것이 좋습니다.\n\n```python\nimport torch\n\n# 1. 연속적인 텐서 생성\nx = torch.randn(2, 3)\nprint(f\"Original tensor x: {x}\")\nprint(f\"x is contiguous: {x.is_contiguous()}\") # True\n\n# 2. transpose() 연산으로 비연속 텐서 생성\ny = x.transpose(0, 1) # (3, 2) 형태\nprint(f\"\\nTransposed tensor y: {y}\")\nprint(f\"y is contiguous: {y.is_contiguous()}\") # False\n\n# 3. 비연속 텐서에 view() 직접 적용 시도 (에러 발생)\ntry:\n    y.view(6)\nexcept RuntimeError as e:\n    print(f\"\\nError when calling view() on non-contiguous tensor: {e}\")\n    # Error: view size is not compatible with input tensor's size and stride\n    # (at least one dimension spans across non-contiguous storage)\n\n# 4. .contiguous() 호출 후 view() 적용 (정상 작동)\nz = y.contiguous()\nprint(f\"\\nz after .contiguous(): {z}\")\nprint(f\"z is contiguous: {z.is_contiguous()}\") # True\n\n**(계속...)**",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756864142.270529",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "output_tensor = z.view(6)\nprint(f\"output_tensor after .contiguous().view(): {output_tensor}\") # 정상 작동\n\n# 5. .reshape() 사용 (내부적으로 .contiguous()를 처리)\n# .reshape()는 .contiguous()가 필요한 경우 자동으로 처리해줍니다.\noutput_tensor_reshape = y.reshape(6)\nprint(f\"\\noutput_tensor after .reshape(): {output_tensor_reshape}\") # 정상 작동\n```\n\n### 3. `.view()` vs `.reshape()`\n\n`torch.reshape()`는 `torch.view()`와 유사하게 텐서의 형태를 변경하는 기능을 제공합니다. 가장 큰 차이점은 `reshape()`는 **입력 텐서가 비연속적인 경우에도 자동으로 `.contiguous()`를 호출하여 처리**해준다는 것입니다. 따라서 `reshape()`는 `view()`보다 좀 더 유연하게 사용할 수 있습니다.\n\n*   `view()`: 입력 텐서가 연속적일 때만 작동하며, 메타데이터만 변경.\n*   `reshape()`: 입력 텐서의 연속성 여부와 상관없이 작동하며, 필요한 경우 데이터를 복사하여 연속적으로 만든 후 뷰를 생성 (내부적으로 `contiguous().view()`와 유사).\n\n### 정보 출처 및 근거\n\n*   **PyTorch Documentation - `torch.Tensor.contiguous()`**: [<https://pytorch.org/docs/stable/generated/torch.Tensor.contiguous.html>](<https://pytorch.org/docs/stable/generated/torch.Tensor.contiguous.html>)\n*   **PyTorch Documentation - `torch.Tensor.view()`**: [<https://pytorch.org/docs/stable/generated/torch.Tensor.view.html>](<https://pytorch.org/docs/stable/generated/torch.Tensor.view.html>)\n*   **PyTorch Documentation - `torch.Tensor.reshape()`**: [<https://pytorch.org/docs/stable/generated/torch.Tensor.reshape.html>](<https://pytorch.org/docs/stable/generated/torch.Tensor.reshape.html>)\n\n---\n\n**글로벌 동향 한 줄:** 최근 대규모 AI 모델의 효율적인 추론 및 배포를 위해 텐서 연산의 메모리 접근 패턴 최적화(예: `contiguous` 연산 최소화)가 주요 연구 및 개발 동향 중 하나로 부상하고 있습니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756864143.481709",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> '학습한 모델로부터 intercept에 대한 값을 변수 `b0`에, 나머지 변수에 대한 회귀계수 값을 변수 `b1`에 저장하세요.'가 무슨 의미인지 더 자세히 설명해줘",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756874466.998149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH85FVV1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86HP4K> 이 문장은 학습된 선형 회귀 모델에서 주요 파라미터들을 추출하여 특정 변수에 저장하라는 지시입니다.\n\n1.  **`b0` (Intercept / 절편):**\n    *   모델의 Y축 절편 값입니다.\n    *   이는 다른 모든 독립 변수(X값들)가 0일 때 종속 변수(Y)의 예측되는 평균 값입니다.\n    *   모델의 기준선 역할을 합니다.\n\n2.  **`b1` (나머지 변수에 대한 회귀계수 / Coefficients):**\n    *   모델의 절편을 제외한 모든 독립 변수(X1, X2, ..., Xn) 각각에 대한 회귀계수(기울기) 값들의 집합입니다.\n    *   각 회귀계수는 다른 모든 변수가 고정된 상태에서 해당 독립 변수가 한 단위 변화할 때 종속 변수가 얼마나 변하는지를 나타냅니다.\n    *   독립 변수가 여러 개일 경우 `b1`은 이러한 계수들을 담는 리스트(List)나 배열(Array) 형태가 됩니다.\n\n**예시:**\n*   단순 선형 회귀: Y = `b0` + `b1` * X1\n*   다중 선형 회귀: Y = `b0` + `b1[0]` * X1 + `b1[1]` * X2 + ...\n\n이는 모델의 해석, 특성별 영향력 파악 또는 예측 계산에 활용됩니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756874478.669569",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 확률적 경사 하강법 (SGD) 에서, 왜 확률적이라는 표현이 붙은 것인지에 대해 조사.",
+        "user": "U09CH83CMBM",
+        "user_name": "김성호",
+        "timestamp": "1756880716.914029",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH83CMBM"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH83CMBM> 확률적 경사 하강법 (SGD)에서 '확률적(Stochastic)'이라는 표현이 붙은 이유는 **가중치 업데이트에 사용할 기울기를 계산할 때 전체 훈련 데이터셋이 아닌, 무작위로 추출된 단일 샘플 또는 작은 배치(미니 배치)를 사용하기 때문**입니다.\n\n전체 데이터셋의 평균 기울기를 사용하는 배치 경사 하강법과 달리, SGD는 매 단계마다 무작위성을 도입하여 기울기를 추정합니다. 이 무작위 샘플링 과정이 '확률적'이라는 의미를 부여합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756880723.744819",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> torch.tensor에서 dtype 지정하지 않을 경우 사용하는 디폴트  dtype을 알려줘",
+        "user": "U09CH868GM9",
+        "user_name": "이봉학_T8144",
+        "timestamp": "1756881194.393299",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH868GM9> `torch.tensor`에서 `dtype`을 지정하지 않을 경우, 입력 데이터의 유형에 따라 디폴트 `dtype`이 결정됩니다.\n\n*   **정수형(integer) 데이터**: `torch.int64` (예: `torch.tensor([1, 2, 3])`)\n*   **부동 소수점(floating-point) 데이터**: `torch.float32` (예: `torch.tensor([1.0, 2.0, 3.0])`)\n*   **불리언(boolean) 데이터**: `torch.bool` (예: `torch.tensor([True, False])`)",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756881202.461379",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH868GM9",
+                  "U09CH8A1B6X",
+                  "U09CH88PA1H"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> torch.norm() 함수에서 파라미터 p의 의미와 입력하지 않았을 경우의 디폴트값이 어떻게 되는지 설명해줘",
+        "user": "U09CH8A1B6X",
+        "user_name": "황은배",
+        "timestamp": "1756882235.917479",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH8A1B6X"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH8A1B6X> `torch.norm()` 함수에서 파라미터 `p`는 **노름(norm)의 차수(order)**를 의미합니다.\n\n*   `p=1`: L1 노름 (맨해튼 거리)\n*   `p=2`: L2 노름 (유클리드 거리)\n*   `p='fro'`: 프로베니우스 노름 (행렬에 적용)\n*   `p=float('inf')`: 무한대 노름 (최대 절대값)\n*   `p=-float('inf')`: 음의 무한대 노름 (최소 절대값)\n\n`p` 파라미터를 입력하지 않았을 경우의 디폴트값은 `2`입니다. 즉, 기본적으로 L2 노름을 계산합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1756882242.648769",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

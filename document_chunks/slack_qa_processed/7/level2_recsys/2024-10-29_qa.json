@@ -1,0 +1,73 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "RecSys-09조 하현진입니다.\n이번 베이스라인 코드와 데이터에 대한 라이센스가 없는 것으로 이해했습니다.\n이 경우에 깃허브에 바로 원본을 올려도 괜찮을까요?",
+        "user": "U07EFLMTDLJ",
+        "user_name": "하현진",
+        "timestamp": "1730188813.207499",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03UZRA4K1A",
+                "U03UTB61ZNZ"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "이 부분은 운영진을 통해 확인 후 명확하게 답을 드려야 할 것 같습니다만, 가장 안전한건 지금까지처럼 프라이빗으로 작업해주시는 방식일 것 같긴 합니다.\n\n일단 제가 알고 있는 부분만 가지고 답해드린다면,\n1. 데이터셋 : 이번 대회에서 사용되는 book crossing 데이터셋은 cc0이나, 저희가 이미지를 추가적으로 크롤링하여 제공드리게 되어 이 부분까지 고려했을 때는 cc0으로 봐야할지 확인이 필요합니다. 그렇지만 저희가 고작 이미지 크롤링해서 덧붙였다고 갑자기 cc0이 cc-??가 되는 건 무리라고 생각이 듭니다 (cc0의 취지를 생각해볼때..). 고로 데이터셋은 올려도 무방할 것 같습니다.\n2. 베이스라인 코드 : 제가 기억하기로 본 부스트캠프를 통해 제공되는 모든 자료(ppt/과제/실습/대회 등등)는 전부 부캠에 저작권이 있는 걸로 알고 있고, 그래서 공유에 굉장히 민감한 걸로 알고 있습니다. 그럼에도 문의주신 부분을 확인은 한 번 해봐야 할 것 같습니다. \n지금은 운영진분들도 굿나잇할 시간이고 하니 내일 확인 후 보다 정확하게 답변드리도록 하겠습니다~",
+          "user": "U03UZRA4K1A",
+          "user_name": "Yoomin",
+          "timestamp": "1730200766.232689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07EFLMTDLJ> 운영진 측에 문의했고, 대회 룰 추가해두었습니다~ 원본 업로드는 불가하다고 합니다!",
+          "user": "U03UZRA4K1A",
+          "user_name": "Yoomin",
+          "timestamp": "1730203420.162009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은 시간 감사합니다!!",
+          "user": "U07EFLMTDLJ",
+          "user_name": "하현진",
+          "timestamp": "1730203464.425319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U03UZRA4K1A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

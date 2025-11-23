@@ -1,0 +1,51 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 시각화할때는 어떤 패키지를 쓰느냐에 따라 denormalize를 하는지 달라집니다.\n현재 코드에서는 0-255 값의 array를 받아서 visualize를 하고 있으므로, train loader에서 얻은 normalize 하는 것을 다시 돌려주는 denormalize를 적용해야 합니다.\n\n```import torch\n\n# train dataloader에서 normalize를 진행했으므로, visualize를 위해서는 denormalize 적용 필요\ndef denormalize(tensor, mean, std):\n    \"\"\"\n    tensor: (C, H, W) torch.Tensor, normalized\n    mean, std: list or tuple, e.g. processor.image_mean, processor.image_std\n    \"\"\"\n    mean = torch.tensor(mean).view(-1, 1, 1)\n    std = torch.tensor(std).view(-1, 1, 1)\n    return tensor * std + mean\n\n# augmented image에만 적용, original_image는 PIL 형태이므로\naugmented_image = denormalize(transform(augmented_image), mean=image_mean, std=image_std)```",
+        "user": "U03MQK0FF4Y",
+        "user_name": "김유지_조교",
+        "timestamp": "1759317237.025279",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U03MQK0FF4Y",
+            "ts": "1759317259.000000"
+          },
+          "reactions": [
+            {
+              "name": "book",
+              "users": [
+                "U09CH85PLV9"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH85PLV9",
+                "U09CH7W1NCT"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "위 함수 적용하시면 augmented image에서도 시각화 잘 될 것입니다! 해당 부분 정답코드에도 반영해두겠습니다.",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1759317280.401469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

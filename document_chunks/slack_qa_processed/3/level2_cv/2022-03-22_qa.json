@@ -1,0 +1,203 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "Mask R-CNN 계열의 모델을 사용해 보기 위해서 질문 드립니다. 지금 데이터셋에서 annotation json 파일을 열어 보면 GT mask가 없는데요. 이건 5주 뒤에 같은 데이터셋으로 Semantic Segmentation 대회를 할 때 추가로 제공되고 지금은 없는 건가요, 아니면 이게 아예 GT mask가 없는 데이터셋인 건가요? 만일 아예 없는 데이터셋이라면 mask branch가 있는 Mask R-CNN은 아예 시도해 볼 수 없는 것인지 궁금합니다. 그리고 Swin Transformer를 사용할 때도 Faster R-CNN 기반으로 바꿔야 할 것이고요.",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1647936994.311629",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T1HLM9NK",
+            "ts": "1647937117.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02RS1EC6S3"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "우선 detection에서는 detection에 집중하기 위해서 segmentation정보를 없앴습니다. \nSegmentation은 <@U02RS1EC6S3> \nMask rcnn을 적용해보려는것은 좋은 시도인 것 같습니다. 그리고 해당 모델 구조는 논문을 참고해보시면 faster rcnn에 mask head만 추가된 구조입니다. (논문 꼭 참고 바랍니다) 그러므로 faster rcnn으로 충분히 구조를 바꿀 수 있습니다. 좋은 시도 성공하시길 바랍니다.",
+          "user": "U02SK8MPGN5",
+          "user_name": "주세환_조교",
+          "timestamp": "1647937547.349819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK",
+                  "U02RS1EC6S3"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02SERAL49Y",
+                  "U02RS1EC6S3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 그래서 고치는 게 어려울 것 같지는 않습니다. 정보 감사합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1647937775.339479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Pretrained model을 쓰고 싶은데, 저희 task는 class가 10종류이고, COCO를 가지고 학습시킨 것들은 class가 80종류라서 -&gt; 모델 구조가 달라서 -&gt; checkpoint가 안 불러와질 거란 말이예요? 다들 어떻게 하고 계신지 궁금합니다!",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1647998464.681429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "보통 클래스 수가 바뀌면서 헤드가 변경되면 가중치를 불러올 수 있는 부분만 pretrained 모델에서 불러옵니다. mmdetection의 경우는 다음처럼 가중치 shape가 안맞는 부분만 알려주고 나머지는 로딩이 됩니다.\n```size mismatch for bbox_head.multi_level_conv_cls.0.weight: copying a param with shape torch.Size([80, 128, 1, 1]) from checkpoint, the shape in current model is torch.Size([10, 128, 1, 1]).```",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1647998920.716529",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TYM38093",
+              "ts": "1647998952.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SERAL49Y",
+                  "U02T1HLM9NK",
+                  "U02SFPC4VMZ"
+                ],
+                "count": 3
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "그리고 validation set split하는 것도 다들 그냥 이미지 개수 기준으로 임의로 20% 뽑아서 하셨는지, 아니면 stratify 비슷하게 뽑기 위해서 다른 규칙을 정하셨는지 궁금합니다. 그냥 20% 뽑기에는 class imbalance가 고민인데, 사진과 class가 1:1 대응이 아니라서 어떻게 해야 할 지 조금 난감하네요.",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1647998572.591169",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02U65KPEJW",
+                "U02TBLB4RHC"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://stages.ai/competitions/178/discussion/talk/post/1203>",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1648001290.322389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TFP6V1DY",
+                  "U02T1HLM9NK",
+                  "U02SERAL49Y",
+                  "U02UAT2SVQU"
+                ],
+                "count": 4
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀도  주영님 질문 관련해서 어떤 방식으로 train-test split을 할지 고민하고 있는데요! 이미지 내 객체 수가 다르다보니, 이를 고려해서 나눠주긴 해야할 것 같더라구요. ai stages에 규범님도 방금 올려주셨고,  캐글의 object detection 대회에서 공유된 아이디어들을 한번 참고해봐도 좋을 것 같아요!<https://www.kaggle.com/code/backtracking/smart-data-split-train-eval-for-object-detection/notebook>",
+          "user": "U02TFP6V1DY",
+          "user_name": "이승현",
+          "timestamp": "1648001335.194449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02T1HLM9NK",
+                  "U02SERAL49Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

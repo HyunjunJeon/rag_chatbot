@@ -1,0 +1,137 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "어떤 환경에서 어떤 오류를 겪고 계실까요~?",
+        "user": "U04LEMHC78S",
+        "user_name": "김진용",
+        "timestamp": "1683715013.854299",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04LEMHC78S> 오류는 해결했습니다! 하지만 lr_config를 설정할 때 scheduler에 따라서 지정할 수 있는 argument가 다른 것 같은데 정확히 어떤 argument가 있는지 확인할 수 있는 방법이 있을까요? :smiling_face_with_tear:",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1683732804.110899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위에 영덕님께서 공유해주신 lr_scheduler.py 에서 여러 스케줄러가 나오는 것을 확인하실 수 있는데요!\n\n결론적으로 말씀드리면, param_scheduler의 값으로 들어가는 값들은 lr_scheduler.py 에서 확인하실 수 있습니다.\n\n예를 들어 설명드리겠습니다. param_scheduler라는 변수는 dictionary로 type이라는 key 값은 스케쥴러 클래스를 변수로 받습니다. 아래 첨부드린 사진과 같이 type='LinearLR'이라는 클래스를 인자로 받습니다. 그 다음 docstring을 살펴보면 다음과 같이 나와있는데요!\n```Args:\n        optimizer (Optimizer or OptimWrapper): Wrapped optimizer.\n        start_factor (float): The number we multiply learning rate in the\n            first epoch. The multiplication factor changes towards end_factor\n            in the following epochs. Defaults to 1./3.\n        end_factor (float): The number we multiply learning rate at the end\n            of linear changing process. Defaults to 1.0.\n        begin (int): Step at which to start updating the learning rate.\n            Defaults to 0.\n        end (int): Step at which to stop updating the learning rate.\n            Defaults to INF.\n        last_step (int): The index of last step. Used for resume without\n            state dict. Defaults to -1.\n        by_epoch (bool): Whether the scheduled learning rate is updated by\n            epochs. Defaults to True.\n        verbose (bool): Whether to print the learning rate for each update.\n            Defaults to False.```\n값을 넣어주기를 원하는 파라미터를 key 값으로 하여 다음과 같이 값을 넣어줍니다.\n``` dict(\n        type='LinearLR', start_factor=0.001, by_epoch=False, begin=0, end=500),```\n어떤 스케쥴러에 어떤 파라미터를 넣어줘야하는지를 공부해보는 것도 좋을 것 같습니다~\n\n다음 링크를 참조하였습니다.\nbase config : <https://github.com/open-mmlab/mmdetection/blob/main/configs/_base_/schedules/schedule_2x.py|링크>\nlr_scheduler &gt; LinearLR : <https://github.com/open-mmlab/mmengine/blob/8a0fae01f5cfdeeec4bdef4ffd175de1093edd92/mmengine/optim/scheduler/lr_scheduler.py#L121|링크>\n\n혹시나 질문주신 사항이 이 부분이 맞을지 모르겠네요. :slightly_smiling_face:",
+          "user": "U04LEMHC78S",
+          "user_name": null,
+          "timestamp": "1683761805.093849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[Framework Ensemble 관련]*\nFramework Ensemble에서 여러 library를 사용하면 다양성이 추가되어 좋다고 하셨는데,\n같은 모델일 경우, 라이브러리가 다르면 어떤 다양성이 있을까요?\n라이브러리마다 어떤 것에서 차이가 있어서 다양성이 추가되는 걸까요?",
+        "user": "U04RXRU7AFK",
+        "user_name": "한현민",
+        "timestamp": "1683783616.440619",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "같은 모델이더라도, 서로 다른 library를 사용하면 (직접 구현하지 않은 경우) detail implementation은 조금씩 다른 경우가 많고, 각 framework에서 내부 계산에 사용하는 numerical 방식도 조금씩 달라서 다양성이 생기게 됩니다.\n다른 모델 아키텍쳐나 학습 strategy에 대한 앙상블보다는 효과가 미묘할 수 있지만, library 내 구현 방식에 따라 단일 모델의 성능을 올리는 좋은 앙상블 방법이 될 수도 있습니다!",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1683785316.186159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RXRU7AFK",
+                  "U04LEMHC78S"
+                ],
+                "count": 2
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RXRU7AFK",
+                  "U04LEMHC78S"
+                ],
+                "count": 2
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RXRU7AFK",
+                  "U04LEMHC78S"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그렇군요..! detail implementation에서 다르군요 감사합니다 조교님!",
+          "user": "U04RXRU7AFK",
+          "user_name": "한현민",
+          "timestamp": "1683785408.092159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dizzy",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다:relaxed:",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1683785449.070719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U04RXRU7AFK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

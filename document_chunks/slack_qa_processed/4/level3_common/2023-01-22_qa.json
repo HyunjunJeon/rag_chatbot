@@ -1,0 +1,44 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "업스테이지 서버는 ssh를 통해 접근하고 있습니다",
+        "user": "U041L93GPNY",
+        "user_name": "정석희_T4194",
+        "timestamp": "1674452058.094029",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "&gt; stage 서버를 웹 배포용 서버로 사용하면 안되나요?\n그러면 배포용 서버로 사용하는데 문제 없을거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1674452127.962219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 넵 감사합니다!",
+          "user": "U041L93GPNY",
+          "user_name": "정석희_T4194",
+          "timestamp": "1674452158.163309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

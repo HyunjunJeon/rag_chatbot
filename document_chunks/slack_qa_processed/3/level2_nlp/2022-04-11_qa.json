@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "모두 완료했습니다! 확인 부탁드려요! (<@U02TCL8CQGM> <@U02UTH1484E>)",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1649665008.476419",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "확인하였습니다! 감사합니다~",
+          "user": "U02TCL8CQGM",
+          "user_name": "서인범",
+          "timestamp": "1649665994.408079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

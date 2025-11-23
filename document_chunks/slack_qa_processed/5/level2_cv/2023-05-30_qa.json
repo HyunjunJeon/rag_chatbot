@@ -1,0 +1,152 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "server에 대한 여러가지 이야기가 있다 보니 부끄럽게도 착각을 한 것 같습니다. 저희 조원들과 상의 해보니, 학습 시간은 dataset이 늘어난 만큼 늘어난 것으로 추정이 되고 이번 CV task가 CPU를 사용 할 수 밖에 없는 작업 비중이 기본적으로 많은 것으로 판단이 됩니다. server 문제는 없는 것 같습니다!",
+        "user": "U04RK761KC2",
+        "user_name": "김대희",
+        "timestamp": "1685436052.291859",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 캠퍼님 다행입니다. CPU/GPU 같이 쓰는건 일반적인 현상으로 생각되긴 했어서 개발자 분이 검토해 주시기도 사실 어렵지 않았을까 합니다 :sweat_smile:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1685447705.964349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇군요.. 하핳",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1685451036.921929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 언제쯤 해결되는지는 알 수 있을까요?",
+        "user": "U04S8T5TT0Q",
+        "user_name": "이윤표_T5148",
+        "timestamp": "1685447498.063449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "공지를 곧 전달드리려고 했는데요 :sweat_smile: 현재 개발자 분들이 살펴봐 주시고 계시는데 해결에 다소 걸리네요… 늦으면 내일 오전까지 이어질 수도 있겠습니다 :pray:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1685447820.055109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry",
+                "users": [
+                  "U04S8T5TT0Q"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 내일 오전에 해결이 된다면 제출 횟수 기회에 변동이 있을까요...?ㅠㅠ",
+          "user": "U04S8T5TT0Q",
+          "user_name": "이윤표_T5148",
+          "timestamp": "1685447878.077049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04S8T5TT0Q> 내부 논의 거친 다음에 추가 공지드리겠습니다!",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1685450522.213759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04S8T5TT0Q"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "testset을 pseudo labeling해서 학습에 사용해도 되나요?",
+        "user": "U04RG8ZQ4A1",
+        "user_name": "박승희_T5086",
+        "timestamp": "1685507176.713709",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 승희님 :slightly_smiling_face:\n테스트 데이터셋은 학습에 사용 불가능합니다..!",
+          "user": "U04AY6Y68MR",
+          "user_name": "Seung Shin",
+          "timestamp": "1685507863.311679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다:woman-bowing:",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1685507894.506129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

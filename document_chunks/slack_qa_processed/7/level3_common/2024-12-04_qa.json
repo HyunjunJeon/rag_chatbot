@@ -1,0 +1,47 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. Generative AI 조교 허재혁 입니다.\n\n업로드 되어 있는 예시 코드에서는 말씀해주신 내용이 맞습니다.\n실제로 lm_eval v4.1.0 에서는 아래와 같이 코드가 추가로 있습니다.\n\n```versions[task_name] = task.VERSION\nconfigs[task_name] = dict(task.dump_config())```\n<https://github.com/EleutherAI/lm-evaluation-harness/blob/a0a2fec8dc0c7da009029640d3316cb1091ee1c1/lm_eval/evaluator.py#L262-L263>\n\n실습에서는 zero-shot으로 진행하기 때문에 간단히 코드를 보여드리고자 생략된 부분들이었는데 그 과정에서 오해가 생긴 것 같습니다.\n\n확인 감사합니다. ㅎㅎ",
+        "user": "U04R6NQP3NC",
+        "user_name": "허재혁",
+        "timestamp": "1733319239.670359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U07EUAPHBPB"
+              ],
+              "count": 1
+            },
+            {
+              "name": "borat_thumbs",
+              "users": [
+                "U07EUAPHBPB"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "친절한 답변 감사합니다 ㅎㅎ 너무 깊게 안들어가고 흐름만 따라가는식으로 듣겠습니다 !",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1733360747.910419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

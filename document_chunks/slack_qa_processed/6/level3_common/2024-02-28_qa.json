@@ -1,0 +1,954 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U03PVSC77HR> <@U0646PBD8CA>\n안녕하세요!\n웹서버 상단 경고문구는 첫 번째 사진과 같습니다!\n0.0.0.0:8080/health는 두 번째 사진과 같습니다!\n+ 한 번도 실행 안 되었습니다..ㅠ",
+        "user": "U063J3XLCR4",
+        "user_name": null,
+        "timestamp": "1709107392.723159",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063J3XLCR4",
+            "ts": "1709107877.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다 :thinking_spin: dag 목록에는 example dag들만 떠있는 상태시죠?\n$AIRFLOW_HOME 에 airflow-scheduler.err 와 같은 파일도 없으신가요~?",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709125181.016349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "load_examples=True인데 example도 없는 상황입니다! airflow_scheduler.err도 없어요!",
+          "user": "U063J3XLCR4",
+          "user_name": null,
+          "timestamp": "1709125482.061669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "승아님 케이스는 아예 스케줄러가 정상 동작을 하지 않아서, airflow_home 관련 환경 설정 이슈가 있을 것으로 추측을...",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709128173.893919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "승아님과 원격으로 한 결과 airflow_home 설정 이슈인 것 같아 아예 다 삭제하고 다시 하니 정상적으로 되었습니다\nlocalhost 접근 안되는 이슈가 있어서 아예 재부팅하니까 되었다고 하네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709132680.644519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!here>\n\n<@U063J3XLCR4> <@U0643C7M6JV> 두분 Airflow 관련 이슈를 겪고 계신 것 같은데, 23시 10분에 시간 되시나요? 한번 보고 이야기하는게 더 빠를 것 같네요. (다른 분들도 Airflow 설치 이슈를 겪고 계시면 이야기해도 좋구요)\n\n23시 10분~23시 40분에 Airflow 설치 이슈 겪는 분들에 대해 도와드릴게용\n\n관심있으시면 :hand: 눌러주셔요(없으면 패스하구요)\n\n그냥 과제 물어보는 것도 가능함니다.",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1709126878.188069",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U03PL9GCPFZ",
+            "ts": "1709128026.000000"
+          },
+          "reactions": [
+            {
+              "name": "booduck_check",
+              "users": [
+                "U0646PBD8CA"
+              ],
+              "count": 1
+            },
+            {
+              "name": "face_holding_back_tears",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "hand",
+              "users": [
+                "U063QNXGZFU",
+                "U064DNPTK16"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 같이 들어가 볼게요!",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709127065.289889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "허나 늦게 태그해서 시간이 되는 분이 없는 느낌",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127715.167749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              },
+              {
+                "name": "crycat",
+                "users": [
+                  "U0646PBD8CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은 시간에 정말 감사드립니다..ㅠ 이따 뵙겠습니다!",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1709128272.767769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C06M7BAET2L/p1709129389798789>",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709129489.920719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 airflow 관련 질문입니다!\n• catch up을 하는 과정에서, 제가 생각했던 것과 다른 문제가 생겼습니다 !\n    ◦ 21일 DAG 가 끝나지 않은 상황에서, 22일 DAG가 병렬적으로 수행되며, 예상하지 못했던 문제가 생기고 있습니다 .\n    ◦ 전날 DAG가 끝나지 않았다면, 다음날 DAG가 시작되지 않도록 하는 방법이 있을까요 ?",
+        "user": "U063QNXGZFU",
+        "user_name": "전민서_T6151",
+        "timestamp": "1709126977.217959",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063QNXGZFU",
+            "ts": "1709127139.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://airflow.apache.org/docs/apache-airflow/2.6.3/core-concepts/dags.html#depends-on-past>\n\ndepends_on_past 옵션을 주면 되어요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127476.884079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "You can also say a task can only run if the _previous_ run of the task in the previous DAG Run succeeded. To use this, you just need to set the `depends_on_past` argument on your Task to `True`.",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127514.880669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 !!!",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709127526.866609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 추가적으로 또 이슈가 있었습니다.\n서버 시간은 KST인데, airflow 시간은 UST로 했더니,\nexcution time이랑, 파이썬 코드 내부의 datetime이 달라져서\n한국시간 기준으로 24시 지나면, 코드가 가끔 오류를 일으킵니다 다음날 9시까지 .. (ㅠㅠ..)",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709127581.135019",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNXGZFU",
+              "ts": "1709127593.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저라면 회사에선 아예 서버 시간을 KST로 안쓸 것 같긴 하네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127626.034109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "exclamation",
+                "users": [
+                  "U063QNXGZFU"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 코드를 제공해주시면 더 이야기가 가능할 것 같아요. 지금은 어떤 코드를 작성했는지 알 수 없어서 제가 어둠 속에서 추측하며 답하게 되어서 파일도 주시면(파이썬 datetime을 어떻게 쓰고 있을지 궁금) 더 답변드릴게요~",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127685.016829",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709127704.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 해당 기능을 삭제해서요 ..!\n파이썬 코드는 대략 아래와 같았습니다 .\n\n```if excution_time의 날짜 - datetime.now의 날짜 == theshold: 조건 실행 \n\n사용 이유 : 서버시간 기준 학습일로부터 N일 전까지 학습된 모델을 제외하고는 모델을 삭제하려고 했었습니다. \n (computer 하드디스크 이슈)```",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709128241.043799",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNXGZFU",
+              "ts": "1709128280.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오호 서버 시간 기준 학습일부터 N일 전까지 모델을 제외하고 삭제한다고 하면\n\n저라면 파이썬 함수를 만드는데, execution_date를 인자로 받아서 그 일자 기준으로 N일 전까지 학습된 모델을 제외하고 삭제하도록 구현할 것 같네요\n\n\n```if excution_time의 날짜 - datetime.now의 날짜 == theshold: ```\n요 조건으로 하신 이유가 있으신가요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709128613.135049",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709128982.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Airflow에서 datetime.now를 쓰는 것은 멱등성이 없어질거라서, 저런 방식으로 짜면 이슈가 있을 가능성이 클 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709128662.187869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹은 쉘 스크립트를 계속 돌리는 방법도 있을 것 같네요 => 다만 요것도 멱등성이 없어서 execution_date를 고려해서 짜도록 조금 더 수정하는 것이 필요하겠어요\n\n```N=3\n\nTARGET_DIRECTORY=\"모델들이 저장된 경로\"\n\n# 파일과 디렉토리 삭제\nfind \"$TARGET_DIRECTORY\" -type f -mtime +$N -exec rm -f {} \\;\nfind \"$TARGET_DIRECTORY\" -type d -mtime +$N -exec rm -rf {} \\;```",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709128750.190829",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709128852.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "serving_assign을 만드시고 docker-compose down을 하셨을지 궁금하네요. 기존에 잡아둔 것을 쓰신게 아닌가?라는 추측이 드는데.. history를 치셔서 터미널에서 어떤 명령어 쓰셨는지 알려주시는 것도 좋을 것 같아요\n\n추천하는 것은 현재 과제에서는 그냥 기존에 쓰던 Airflow DAG에서 사용하는 것을 추천해요. Airflow 학습하는게 메인이니깐요(Docker Compose 폴더 바뀌어서 이슈가 생기면 그것도 수정하는게 맞을수도 있으나 현재 의도에선 Airflow 학습하는게 더 먼저!)",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1709127803.097469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/01-batch-serving(airflow)/docker-compose.yml#L76>\n\nDocker Compose에서 해당 내용(${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags) 이 현재 AIRFLOW_PROJ_DIR가 설정되어 있다면 그걸 쓰고 없으면 현재 폴더를 쓴다는다인데 이 부분을 수정하시면 될거에요-!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127951.120859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C06M7BAET2L/p1709126878188069>\n\n혹은 이따 오셔서 같이 보아욤!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127963.577779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어찌저찌 처음부터 다시 시작해보니까 과제 잘 마무리했습니다!!",
+          "user": "U0643C7M6JV",
+          "user_name": "김영일_T6030",
+          "timestamp": "1709127965.607829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03PL9GCPFZ",
+                  "U0646PBD8CA"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 다행이네용",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709127977.852159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님 말씀대로 기존꺼를 잡아서 쓰는게 문제여서",
+          "user": "U0643C7M6JV",
+          "user_name": "김영일_T6030",
+          "timestamp": "1709127986.574019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그부분을 해결했습니다 ㅎㅎ",
+          "user": "U0643C7M6JV",
+          "user_name": "김영일_T6030",
+          "timestamp": "1709127995.717859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 그럴 것 같다라는 생각을 했었어요. 도커 컨테이너 끌 때는 docker-compose down으로 해주시면 되어요-!\n\n끄고 다시 열면 되는!\n\n고생하셨어요 :muscle:  오답노트로 작성해서 다음엔 이슈 없도록 해보시지요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709128071.160559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U0643C7M6JV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U063QNXGZFU> <@U064DNPTK16> <@U063QNW2PU2> 궁금하신거 여기에 남겨볼까요?",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1709130071.480649",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "airflow 과제 2번째에서, 성공시 slack notify 메세지를 보내도록 작성되어 있는데요,\n해당 코드를 이용해서 작성하려고 하다 보니, 어떤 분기로 흘러서 가도 항상 성공으로 표시되는것 같더라구요",
+          "user": "U063QNXGZFU",
+          "user_name": null,
+          "timestamp": "1709130071.569789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그래서 success callback에 등록하는 방식으로 진행 하려고 하다보니( 추가적인 task_instance를 생성하지 않고)",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709130101.393219",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNXGZFU",
+              "ts": "1709130115.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런식으로 XCOM 이용해서 구현했는데, 혹시 과제가 이런 방식으로 설계된게 맞나 해서요 !",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709130172.615339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런식으로 업데이트 되면 할당해 주도록 설정 해 두었구",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709130216.036629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오류 발생하지 않도록, train_model 선언시 False로 지정해두었습니다",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709130257.744709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ":cry-cat-thumbs-up:",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709130322.086469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "과제1 2번을 하는 중에 질문이 있습니다! update를 할 때 이전 DAG(전날?)의 score를 가져와서 비교해야하는데, 이걸 따로 저장하려면 txt 파일로 score를 저장했다가 꺼내와서 비교하는 식으로 해야하는 것일까요?(이전의 score를 어디에 저장해 두었다가 써야하는지 모르겠습니다.) xcom은 한 cycle 안에서 task간에만 활용할 수 있어서 사용하지 못하는 것으로 아는데요. 제가 문제의 의도를 정확히 이해하지 못한 것 같아 여쭈어보고 싶었습니다!",
+          "user": "U064DNPTK16",
+          "user_name": "한예본_T6181",
+          "timestamp": "1709130337.553079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "계신가요 여러분..?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709131485.907679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 ..!",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709131491.099039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안 들리세요~?",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709131501.667069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 네",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709131505.154079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "왜 안들리지 잠시만요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709131507.443029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "요거 위에 채팅 내역 삭제 해야할까요 ?\n(코드가 남아있어서요)",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709132031.707949",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNXGZFU",
+              "ts": "1709132041.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 :slightly_smiling_face:",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709132229.756939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709132241.850789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "성윤님도 고생 많으심니다",
+          "user": "U0646PBD8CA",
+          "user_name": "김노은_조교",
+          "timestamp": "1709132266.751859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은 시간에 너무 감사드립니다!",
+          "user": "U064DNPTK16",
+          "user_name": "한예본_T6181",
+          "timestamp": "1709132281.083369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은 시간에 감사합니다 !!",
+          "user": "U063QNXGZFU",
+          "user_name": "전민서_T6151",
+          "timestamp": "1709132287.725539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다~",
+          "user": "U063QNW2PU2",
+          "user_name": "김수진",
+          "timestamp": "1709132292.930719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Summary\n• Airflow 과제에서 score를 어떻게 해야하나요?\n    ◦ 해당 과제에서 score를 어떻게 저장하는지는 메인이 아닙니다. csv 파일로 저장하셔도 괜찮고, txt로 하셔도 괜찮고 만약 DB를 아신다면 DB에 저장하셔도 괜찮습니다\n    ◦ 이 과제에서 핵심은 조건은 저장한 데이터를 불러와서, 조건을 처리해서 실행하도록 하는 것입니다\n    ◦ 물론 XCOM을 사용할 수도 있지만, XCOM을 통해 대량의 데이터를 불러오는 것은 Airflow에서 선호하지 않는 방법입니다(XCOM에 들어갈 수 있는 데이터가 적습니다) 따라서 XCOM은 일단 csv, txt로 해보신 후에 시간이 남으실 때 해보시는 것을 추천드려요\n• Airflow 과제에서 get_data_task 2번 호출하는 부분에 대한 궁금증\n    ◦ Airflow 과제의 의도는 여러분들이 Airflow DAG을 익숙하게 작성할 수 있도록 하는 것이 목표에요.\n    ◦ 해당 부분 get_data_task, train 등 이런 코드를 Airflow DAG의 Task로 돌릴 수 있구나를 알려드리고다 했습니다\n    ◦ 따라서 해당 부분에서 중복으로 호출하는 것보다, *Airflow DAG을 만드는 것에 집중해보시면 좋을 것 같아요!*\n*핵심) Airflow의 과제 : Airflow DAG을 만드는 경험을 충분히 할 수 있도록 만든 과제*\n\n밤 늦게 오셔서 이야기해주셔서 감사합니다 :pray:\n\n더 자세한 질문은 내일 마스터 클래스 때 오셔서 이야기해주셔요",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1709132602.802409",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709167744.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U063QNW2PU2",
+                  "U063T6NV90U",
+                  "U063QNXGZFU",
+                  "U064DNPTK16",
+                  "U063J3X3UKY",
+                  "U0643C2HA3T",
+                  "U0648LHTXGD"
+                ],
+                "count": 7
+              },
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U063QNW2PU2",
+                  "U063QNXGZFU",
+                  "U064DNPTK16",
+                  "U0648LHTXGD"
+                ],
+                "count": 4
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U063QNW2PU2",
+                  "U063QNXGZFU",
+                  "U064DNPTK16",
+                  "U0648LHTXGD"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 도커 이미지 관련해서 질문드립니다. 우선 docker에 대한 이해도가 낮아 용어 선택이 적절치 못할 수 있는 점 양해 부탁드립니다. :smiling_face_with_tear:\n현재 저희 최종 프로젝트에 크게 세 가지 modal을 사용하고 있습니다. (STT-whisper-, LLM-summarization-, CLIP4CLIP)\n현재 각 modal들에서 사용되는 패키지 다르기 때문에 충돌이 발생한 상황입니다. (가령 whisper와 CLIP4CLIP에 필요한 torch 버전이 다름)\n\nQ1. 각 요소별로 도커 이미지화해서 하나의 application처럼 사용할 수 있는지 궁금합니다. ex) docker의 compose\n이 때, 각 이미지를 다운로드 하는 과정이 파이프라인에 포함되어야 하는지, 이 때 시간이 오래걸릴지 궁금합니다.\n(가령 A docker 이미지 끝나면 나온 아웃풋 넣어서 B docker 이미지 실행의 파이프라인이 가능한지)\n\nQ2. 혹시 위의 과정에 대한 전체적인 플로우를 간략하게 설명해주실 수 있을까요?",
+        "user": "U063QL4TFD1",
+        "user_name": "이재형",
+        "timestamp": "1709190909.491449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U064GCC5DGR",
+                "U063QL4TFD1",
+                "U063A71HZST",
+                "U064DNQD7NU"
+              ],
+              "count": 4
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U063QL4TFD1",
+                "U063A71HZST",
+                "U064DNQD7NU"
+              ],
+              "count": 3
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U063A71HZST",
+                "U03PVSC77HR",
+                "U064DNQD7NU"
+              ],
+              "count": 3
+            },
+            {
+              "name": "loading",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "재형님 안녕하세요. 흥미로운 질문 감사합니다.\n\n\n1. 요소별 도커 이미지화 : 넵 가능합니다\n• 이미지 다운로드 과정 : 이 부분은 학습할 때의 이야기인지 인퍼런스할 때의 상황인지 명확하게 말씀해주셔야 될 것 같네요. (배치 서빙이냐 온라인 서빙이냐에 다라 다를거구요)\n• 시간이 오래 걸리냐는 어떻게 하냐에 따라 다를 것 같고, 시간이 오래 걸린다라는 것도 기준이 구체적이지 않아 답변이 어렵네요. 다운로드가 있으니 일단 다운로드하는 시간이 소요되겠지요\na model output => b의 input을 하는 것은 다양하게 가능할 것 같은데 별도로 구현해서 a output을 다시 b의 input으로 보내줘야겠지요. 구현을 하면 가능합니다(근데 지금도 batch냐 online이냐에 따라 구현이 아예 다르겠는데 라는 생각이 듭니다)\n\n저라면 캠퍼분들의 프로젝트에선 복잡성을 늘리는 것보단, Volume Mount를 활용해서 모든 이미지가 동일한 저장소를 바라보고 사용할 것 같네요.",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709191535.687919",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709191767.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 필요한 내용\n• model 이야기만 하고 뭘 하는지에 대한 이야기가 정확하게 나와있지 않아서 더 이야기를 해주시면 좋습니다\n    ◦ A 이미지 끝나면 나온 아웃풋이라고 하시면 인퍼런스에 대한 이야기인가? 라는 생각도 들긴하는데 그렇다면 배치/온라인 어떤 구성인지에 따라 다를 것\n    ◦ 다운로드하는 과정 : 인퍼런스라고 하면 배치 인퍼런스는 어딘가에 데이터가 있어서 불러오는 과정이 필요할 것이고, 온라인이면 API 요청할 때 같이 데이터가 오겠지요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709191649.077269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "볼륨 마운트를 사용하면\n\n/output\n  /model1\n  /model2\n  /model3\n\n이렇게 저장할 수 있을 것 같고(정의하기 나름), 순차적으로 실행할지 병렬적으로 실행할지 등도 다 다를 것 같네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709191700.818069",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1709191716.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03UXQJ8T3Q> 상태님도 추가적으로 이야기 주실 내용 있으면 남겨주셔요~!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709191779.981959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "각각의 도커 이미지를 별도의 API로 만들고, 클라이언트 역할을 할 서버에서 3개에 요청해서 쓰는 것도 가능하겠네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1709192037.441149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fire",
+                "users": [
+                  "U064DNQD7NU",
+                  "U063QL4TFD1"
+                ],
+                "count": 2
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U064DNQD7NU",
+                  "U063QL4TFD1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "A가 빠를까요? 느릴까요? 라는 질문은 보통 \"실험해보시고 판단하시면 좋아요\"라는 답변을 드리게 되더라구요. 비교 대상을 주시면 더 답변하기 좋답니다.\n\n이런 답을 하게 되는 이유는 상황에 따라 모두 다 다를거라서요(데이터의 양, 네트워크, 코드에서 데이터 처리 로직, 인프라 등)\n\n질문을 받은 사람도 정확한 답을 드리기 어렵답니다 :sweat_smile: (빠르다/느리다의 기준을 명확하게 하지 않았기에)\n\n회사에서도 동일하게 의사결정합니다. 팀원분이 이게 더 빠르다?라고 하면 어떤 데이터를 가지고 테스트를 했는지 그 데이터의 선별 기준음 무엇이였는지, 다른 실험도 해볼 수 있도록 합니다.\n\n인프라 영역도 학습과 비슷하게 실험하는 경우가 꽤 많아요(물론 벤치마크를 보고 할지 말지 고민해보긴 하고, 실제로 우리의 로직마다 다를거라서 *결국 스스로 실험하는게 핵심*)",
+          "user": "U03PL9GCPFZ",
+          "user_name": null,
+          "timestamp": "1709192303.992999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U063QL4TFD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 마스터님 정성스러운 답변 감사합니다. :grinning: 말씀해주신 이슈 바탕으로 기획 초안 정리해서 좀 더 명확하게 추후에 질문드리겠습니다.",
+          "user": "U063QL4TFD1",
+          "user_name": "이재형",
+          "timestamp": "1709192502.456559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ",
+                  "U064GCC5DGR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

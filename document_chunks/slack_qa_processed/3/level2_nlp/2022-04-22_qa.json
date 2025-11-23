@@ -1,0 +1,44 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "nlp-08 부탁드립니다!",
+        "user": "U02TJD5REP6",
+        "user_name": "정재윤",
+        "timestamp": "1650612699.923299",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "nlp-06 부탁드립니다!",
+          "user": "U02VB6KC3BN",
+          "user_name": "김선재_T3252",
+          "timestamp": "1650612916.747899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모두 완료하였습니다! <@U02VB6KC3BN> nlp-06 레포는 생성이 안되었네요!",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650625967.685949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

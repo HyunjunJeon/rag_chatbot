@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "제출했을 때 failed가 뜨는 경우가 뭐가 있을까요?",
+        "user": "U02U79DHFUY",
+        "user_name": "김승현",
+        "timestamp": "1648912348.262559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "음 저번에 분류대회때 class가 17이상 값이 나온적있는데 이때 fail떴었습니당..",
+          "user": "U02TTV8MDJB",
+          "user_name": "김주연",
+          "timestamp": "1648912723.846719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U79DHFUY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

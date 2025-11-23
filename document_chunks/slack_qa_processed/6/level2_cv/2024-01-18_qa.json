@@ -1,0 +1,35 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요.\n\n*혹시 금요일, 솔루션 발표를 지원한 팀이 계실까요?*\n\n다름이 아니라 대회 솔루션 발표와 관련하여,\n따로 발표를 지원하지 않는 경우 Private 1, 2위 팀이 발표하는 것으로 알고 있습니다.\n\n저희 팀은 감사하게도 Private 순위에 해당하게 되었습니다.\n\n다만, 발표를 지원한 팀이 계신지 여부가 확실하지 않아\n\n발표 준비를 해야하는지 확실하지가 않아 여쭙게되었습니다.\n\n너무 늦은 밤이라\n혹시 발표를 지원한 CV 팀 분들 계시면 답변 부탁드립니다.",
+        "user": "U063T6Q7S2G",
+        "user_name": "김정택_T6038",
+        "timestamp": "1705588716.827249",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U063T6Q7S2G",
+            "ts": "1705588733.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 김정택 캠퍼님! 따로 디엠 드릴게요!",
+          "user": "U03KMAV0JR5",
+          "user_name": "공필_운영진",
+          "timestamp": "1705622105.648589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

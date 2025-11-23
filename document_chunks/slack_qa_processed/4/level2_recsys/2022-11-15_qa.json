@@ -1,0 +1,91 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "우선 해당 논문에 대한 코드는 다음과 같습니다.\n<https://github.com/arshadshk/Last_Query_Transformer_RNN-PyTorch/blob/main/last_query_model.py>\n\n위 코드를 참고하면 트랜스포머 결과값으로 마지막 Query에 대한 값만 나오는게 맞습니다.\n\n추가로 입력 전과 입력 후의 크기가 같아지는 이유는 Skip Connection으로 기존 입력 전의 값에 마지막 입력 Query의 값을 더해주는 연산을 하기에 결과적으로는 입력 전과 입력 후의 크기가 같다고 볼 수 있습니다.\n\nex)\n트랜스포머 input 크기 : (64, 100, 128) # (Batch Size, Sequence length, model dimension)\n트랜스포머 output 크기 : (64, 1, 128) # (Batch Size, Sequence length, model dimension)\nSkip connection 후 : (64, 100, 128) + (64, 1, 128) =&gt; (64, 100, 128)",
+        "user": "U041FE8FKBN",
+        "user_name": "권태양",
+        "timestamp": "1668506848.800449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041ERYLS6R",
+                "U03QKNSJVCY"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041FE8FKBN>\n빠른 시간 내 친절하게 답변 해주셔서 감사합니다!\n트랜스포머 자체가 조금 햇갈렸는데 정리 잘해주셔서 이해가 잘 된 것 같습니다.\nSkip connection으로 기존 입력 전의 값과 마지막 입력 쿼리의 값을 더해주는 연산은 마지막 입력 쿼리로부터 나온 값을 모든 레이어에 뿌려준다고 생각하면 될까요??\n감사합니다.",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1668514052.552509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다:relaxed: Broadcasting이 되었다고 생각해주시면 될 거 같아요:+1:",
+          "user": "U041FE8FKBN",
+          "user_name": "권태양",
+          "timestamp": "1668516686.661329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "grin",
+                "users": [
+                  "U041ERYLS6R",
+                  "U03QKNSJVCY",
+                  "U041ERZUPA9"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦은시간까지 감사합니다!!",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1668516752.460219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

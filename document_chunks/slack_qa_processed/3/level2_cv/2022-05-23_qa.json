@@ -1,0 +1,86 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "최종프로젝트 진행중에 오류가 발생해서 질문드립니다ㅠㅠ retinanet_swin모델로 학습 진행했으며 inference 실행중 config파일을 불러오는 과정에서 오류가 발생했습니다. 혹시 해당 오류에 대해 경험하신 캠퍼님 있으실까요?🥹",
+        "user": "U02TT8WU6J3",
+        "user_name": null,
+        "timestamp": "1653375151.565299",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "참고로 vscode로 작업중입니다!",
+          "user": "U02TT8WU6J3",
+          "user_name": "강소망_T3003",
+          "timestamp": "1653375196.549299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저거 보통 mmdetection에서 ( 하나를 빼먹었던가 문법 트리면 저렇게 나와요",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1653375212.699859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "config파일에서 괄호 다 닫았는지 따옴표 안 빼먹었는지 콤마 안 적었는지 확인해보시면 될 것 같습니다.",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1653375261.265419",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TFK3K0CA",
+              "ts": "1653375270.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상윤님 말씀대로 config파일도 파이썬 코드이기때문에 문법 오류가 생기면 저런 형식으로 에러가 발생합니다. `python3 {config명}.py` 로 config 코드 자체를 돌려보시면 어디서 문법오류가 있는지 찾으실 수 있을겁니다.",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1653375425.845509",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TYM38093",
+              "ts": "1653375458.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다! 다시 한 번 잘 봐볼게요:)",
+          "user": "U02TT8WU6J3",
+          "user_name": "강소망_T3003",
+          "timestamp": "1653375484.308429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "서버에 baseline 코드 외에 ._train.py나 ._train.csv와 같은 임시파일? 들이 많이 있던데, 혹시 이 파일들의 역할이 무엇인지 알 수 있을까요? 중요하지 않다면 단순히 지우고 진행해도 괜찮을지 여쭤봅니다!",
+        "user": "U04RK3M35CK",
+        "user_name": "김민호_T5032",
+        "timestamp": "1683191034.758529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "`._파일`의 경우 운영체제간 파일시스템이 달라서 생기는 파일로 알고 있습니다.\n\n전 해당 페이지 확인해서 일단 지워서 사용하였습니다.\n<https://www.cuonet.com/bbs/board.php?bo_table=qna2&amp;wr_id=1333381>",
+          "user": "U04RMLU78LU",
+          "user_name": "황지원",
+          "timestamp": "1683193937.617759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사",
+                "users": [
+                  "U04RK3M35CK",
+                  "U04RK3K6EMR"
+                ],
+                "count": 2
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RK3M35CK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U04RK3M35CK",
+          "user_name": "김민호_T5032",
+          "timestamp": "1683194660.363269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

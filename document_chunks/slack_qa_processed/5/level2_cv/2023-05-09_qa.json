@@ -1,0 +1,125 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*[pretrained=bool]*\n오피스아워 때 yolov8 질문 주셨던 부분 답변 드립니다~ 코드 상으로서는 해당 하이퍼파라미터를 사용하는 부분 확인이 어려워서 간단하게 실험을 진행해봤는데요~\n결론적으로 default.yaml에 있는 pretrained 하이퍼파라미터는 크게 상관이 없는 부분인 것 같습니다. 똑같이 default.yaml의 pretrained=False로 진행하였고 첫번째 사진은 `model = YOLO(\"<http://yolov8n.pt|yolov8n.pt>\")` 을 사용하였고 두번째 사진은 `model = YOLO(\"yolov8n.yaml\")` 을 실험한 사진인데요. loss 차이, map 차이가 나는 부분을 확인하였고 pretrained 모델을 사용한 것이 잘 학습한 것을 확인해보실 수 있습니다.",
+        "user": "U04LEMHC78S",
+        "user_name": null,
+        "timestamp": "1683635262.777759",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U04LLBX64LA",
+                "U04RXRU7AFK"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "pt 파일을 인자로 받으면 구조와 pretraiend 인자와 무관하게 pretrained weight를 전부 가져오는 것 같더라구요.",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1683635379.059289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S",
+                  "U04LLBX64LA"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 learning rate scheduler 관련 모듈 파일이 mmdetection 라이브러리 안에 어디 있을까요?\nmmcv 깃허브 레파지토리 참고하고 있었는데 저희 서버 내 라이브러리랑 내부 구조가 조금 다르네요 :smiling_face_with_tear:",
+        "user": "U04S8T86WHW",
+        "user_name": "오서영_T5125",
+        "timestamp": "1683687416.281789",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04S8T86WHW",
+            "ts": "1683687690.000000"
+          },
+          "reactions": null,
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "mmdetection &gt; configs &gt; _base &gt;_ schedules 파일 입니다 !",
+          "user": "U04RG8WUAHK",
+          "user_name": "김근욱_T5020",
+          "timestamp": "1683687864.556159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RG8WUAHK> 앗 config 파일 말고 실제 원본 모듈 여쭤본 거였습니다. mmdetection&gt;mmdet에 있는 파일들이요 :slightly_smiling_face:\n답변 감사합니다!",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1683687930.856619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U04RG8WUAHK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "MMEngine에 정의되어 있고 여기서 가져온다고 하네용\n<https://github.com/open-mmlab/mmengine/blob/main/mmengine/optim/scheduler/lr_scheduler.py>\n<https://github.com/open-mmlab/mmengine/blob/main/mmengine/optim/scheduler/param_scheduler.py>",
+          "user": "U04RK74L01Y",
+          "user_name": "서영덕_T5105",
+          "timestamp": "1683690408.114999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오류 메시지는 파이썬 내장 packages에서 뜨더라구요 :smiling_face_with_tear: 따로 정의가 되어 있는 게 아니라 내부적으로 외부 모듈을 가져오는 코드가 있는 건지… 감사합니다!",
+          "user": "U04S8T86WHW",
+          "user_name": "오서영_T5125",
+          "timestamp": "1683693986.477219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

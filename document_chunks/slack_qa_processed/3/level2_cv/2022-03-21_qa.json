@@ -1,0 +1,130 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 베이스라인코드를 돌려보는 중 이슈가 생겨서 글을 남겨봅니다.\nfaster_rcnn에서 모델을 돌리고 다른 모델을 다시 돌렸을 때 checkpoints가 생성이 되지 않습니다 ㅜㅜ\ncheckpoints 폴더에 들어가지지도 않구요... 혹시 같은 이슈를 겪고 계신 분이 계실까요?",
+        "user": "U02TL4Y5HJB",
+        "user_name": "김창현_T3062",
+        "timestamp": "1647860853.793619",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "checkpoints 폴더가 UI에서 안 들어가지는 문제는 저번에도 있었던 것 같습니다. 혹시 cd checkpoints 후에 ls 했을 때 그 폴더가 비어 있나요?",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1647910064.413429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "2강 63번째 슬라이드에서 질문이 있습니다. 400x400x3짜리 이미지를 64x64x512짜리 feature map으로 변환한 이미지를 n by n 셀로 나눠서, 각 셀에 대해 9개의 anchor box를 적용한다는 말 아닌가요? 근데 왜 PPT에서는 채널 수가 64x64x9x4죠? nxnx9x4 여야 하지 않나요?",
+        "user": "U02T95G3EQN",
+        "user_name": "김재훈",
+        "timestamp": "1647915499.504959",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T95G3EQN",
+            "ts": "1647915540.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "64x64x512의 featuremap을 추출한다면 각 셀(픽셀)별로 anchor box를 생성하게 됩니다. 이때 featuremap을 다시 특정한 셀로 나누는 것이 아닙니다.\n이 부분은 62페이지 설명에서 강사님께서 숫자의 예시를 들면서 설명하시니 참고바랍니다.",
+          "user": "U02SK8MPGN5",
+          "user_name": "주세환_조교",
+          "timestamp": "1647916411.004849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 각 픽셀이 곧 셀이 되는 거네요",
+          "user": "U02T95G3EQN",
+          "user_name": "김재훈",
+          "timestamp": "1647916498.335979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SK8MPGN5",
+                  "U02SERAL49Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "관련 Issue인데요.. \"embed_dim 이름을 embed_dims로 바꿔라 -&gt; 그러면 ape 에서 에러 뜬다 -&gt; 그러면 아예 이 레포지토리를 쓰지 마라 -&gt; 그럼 Swin Transformer 자체를 어떻게 쓰라는 소리인데요?? -&gt; mmsegmentation 쪽에서 Swin Transformer를 지원한다 -&gt; 근데 그것도 해봤는데 다른 에러 뜨는데요?\" 상태입니다. 그 뒤에는 대화가 버전이 안 맞다 어쩌구 저쩌구까지 넘어가서 도저히 읽지 못하겠더라고요..\n<https://github.com/open-mmlab/mmsegmentation/issues/752#issuecomment-908889667>",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1647928231.670809",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T1HLM9NK",
+            "ts": "1647928326.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "버전이 안맞는게 맞습니다 mmcv 버전이 swin transformer에서는 1.4.0를 쓰지만 mmdetection 에서는 1.4.6을 사용하거든요\nmmdetection 예전 버전 써야 돌아가는 걸로 압니다",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1647931238.188199",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1647931974.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 mmdetection에 swin transformer가 구현되어 있습니다. 해당 모델 참고하시면 좋을 것 같습니다. 관련해서 강의에도 해당 내용이 있으니 공부해서 먼저 이해를 한 뒤 만들어보심을 추천드립니다.\n미리 스포를 하자면 1차 오피스아워에서 해당 모델을 다룰 예정입니다 :raised_hands:",
+          "user": "U02SK8MPGN5",
+          "user_name": "주세환_조교",
+          "timestamp": "1647932335.118619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

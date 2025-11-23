@@ -1,0 +1,116 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "cv-02 부탁드립니다~",
+        "user": "U02TTV8MDJB",
+        "user_name": "김주연",
+        "timestamp": "1650610953.860259",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "cv-19 부탁드립니다~",
+          "user": "U02U78DCAC8",
+          "user_name": "김대유_T3023",
+          "timestamp": "1650615219.775039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모두 완료했습니다!",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650625854.417009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02THPL8F0C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U02T1HLM9NK> 네! 저도 확인해보았는데 합류하는 방식이 변경되었더라고요! 이부분 제가 확인해볼게요!! 혹시 기존 팀에 join도 되시나요?",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1650611428.576849",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02QJSQ1H1T",
+            "ts": "1650611449.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02QJSQ1H1T> 아니요 팀 관련된 내용이 아예 안 뜨고, 바로 저 페이지부터 나옵니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1650612076.244849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T1HLM9NK> <@U02UAT2SVQU> 저기서 승락하시면 바로 팀 레포가 생성되네요!!",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1650612217.162799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러네요 그냥 수락하면 되네요! 감사합니다!!",
+          "user": "U02T1HLM9NK",
+          "user_name": null,
+          "timestamp": "1650612733.982589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02QJSQ1H1T",
+                  "U02UAT2SVQU"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "도와주세요 ㅜㅠ!\n대시보드를 구성하기 위해 tableau public 을 쓰려고 하는데, 저희가 postgreSQL 로 구축한 DB 를 tableau public 에 연결하고 싶습니다. 그런데 연결 부분에 sql server 이런게없고, OData 라는게 있네요. 그런데 이부분을 알아봐도 잘 모르겠습니다 ㅜㅜ\n\nSQL server를 tableau에 연결하는 방법을 좀 알려주실 수 있을까요?",
+        "user": "U041ERTT6UD",
+        "user_name": "박우석",
+        "timestamp": "1675743548.498089",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041ERTT6UD",
+            "ts": "1675743572.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "PostgreSQL 커넥터 있었던 것 같은데… 어떤 검색어를 보신건가요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1675744581.089279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://help.tableau.com/current/pro/desktop/ko-kr/examples_postgresql.htm>",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1675744582.388299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PL9GCPFZ> 답변 감사합니다!! 커넥터가 있는데 tableau public 에는 잠겨 있는것 같아요 ㅠㅠ 학생 계정으로 tableau 인증하면 열리는것 같아서 살펴보고 있습니다. 혹시 잘못 알고 있는 것이라면 정정 부탁드려요. 감사합니다!",
+          "user": "U041ERTT6UD",
+          "user_name": "박우석",
+          "timestamp": "1675745042.611629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

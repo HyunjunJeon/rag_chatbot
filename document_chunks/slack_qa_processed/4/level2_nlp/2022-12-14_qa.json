@@ -1,0 +1,47 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "현재 최종 산출물 제출 구글드라이브 링크 편집이 불가한 것으로 나옵니다. 폴더를 생성하거나 파일을 업로드할 수 없습니다. 확인 부탁 드립니다.",
+        "user": "U041HMZAA9Z",
+        "user_name": "염성현_T4126",
+        "timestamp": "1671073465.362509",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041HMZAA9Z> 네 안녕하세요 성현님!\n링크 업데이트 완료했습니다. 감사합니다! :pray:",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1671074443.033319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041HMZAA9Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U041HMZAA9Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

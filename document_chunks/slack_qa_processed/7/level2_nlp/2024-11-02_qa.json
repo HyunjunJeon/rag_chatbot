@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 <@U07E14BU1L7> 님!\nKLUE 데이터셋을 성능 평가용으로 사용하는 것은 정말 좋은 방법이기는 하나, 대회 룰 정의에서 *KLUE 데이터셋 (ynat) 사용 허가 범위*가 굉장히 모호해 집니다.\n따라서, 공통적으로 외부 데이터셋 사용 범위는 제한하는 것이 최선일 것 같습니다.\n주어진 데이터를 가공하거나, 그 중 일부만 필터링해서 성능 평가용으로 사용하는 방법으로 변경 부탁드립니다.",
+        "user": "U0619KW7QRY",
+        "user_name": "JS Lee",
+        "timestamp": "1730541554.606429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네 답변감사합니다:)",
+          "user": "U07E14BU1L7",
+          "user_name": "김민서(Ricky)",
+          "timestamp": "1730595743.193599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

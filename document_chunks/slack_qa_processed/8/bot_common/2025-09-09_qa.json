@@ -1,0 +1,210 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\n[Rule]\n• Think in English but answer in Korean.\n• Score your answer separately for confidence on a 0-1 scale. If confidence is under 0.8, try again with a better answer.\n• Base your answer on the official NumPy and einops documentation.\n[Question]\nCompare how Numpy's transpose function and einops's rearrange function handle transposition. Do they copy the data, or return a view by changing strides?",
+        "user": "U09CH7Z54N7",
+        "user_name": "현윤성",
+        "timestamp": "1757404358.025329",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH7Z54N7",
+            "ts": "1757404460.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7Z54N7> 현재 질문이 제공되지 않았습니다. 답변을 위해서는 질문을 명확히 제시해주시기 바랍니다.\n\n---\n**Confidence:** 1.0",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757404362.562819",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U>\n[Rule]\n• Think in English but answer in Korean.\n• Score your answer separately for confidence on a 0-1 scale. If confidence is under 0.8, try again with a better answer.\n• Base your answer on the official NumPy and einops documentation.\n[Question]\nCompare how Numpy's transpose function and einops's rearrange function handle transposition. Do they copy the data, or return a view by changing strides?",
+          "user": "U09CH7Z54N7",
+          "user_name": "현윤성",
+          "timestamp": "1757404478.390939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7Z54N7> NumPy의 `transpose` 함수는 일반적으로 값을 복사하지 않고, 배열의 `shape`와 `strides`를 변경하여 **뷰(view)**를 반환합니다. 데이터 복사는 배열이 비연속적인(non-contiguous) 메모리 레이아웃을 가지거나 특정 복사 조건이 필요할 때만 예외적으로 발생합니다.\n\n`einops.rearrange` 함수 또한 메모리 효율성을 위해 가능한 한 **뷰**를 반환하는 것을 최우선으로 합니다. 이는 `numpy`와 유사하게 배열의 `shape`와 `strides`를 재해석하여 이루어집니다. `rearrange`는 전치 외에도 다양한 변환을 수행하지만, 복사는 오직 원하는 형태가 뷰로 표현될 수 없거나 복잡한 재배열로 인해 필연적으로 데이터 이동이 필요한 경우에만 발생합니다.\n\n요약하자면, 두 함수 모두 기본적으로 `strides`를 변경하여 원본 데이터를 공유하는 뷰를 반환하며, 실제 데이터 복사는 예외적인 상황에서만 이루어집니다.\n\n---\n**Confidence:** 1.0",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757404489.181309",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U098C3KRB8U>\ninclude references(sources) in your answer?",
+          "user": "U09CH7Z54N7",
+          "user_name": "현윤성",
+          "timestamp": "1757404597.096039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7Z54N7> 출처나 근거는 필요시에만 포함합니다.\n\n---\n**Confidence:** 1.0",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757404603.062489",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        },
+        {
+          "text": "<@U09CH7Z54N7> NumPy의 `transpose` 함수는 일반적으로 값을 복사하지 않고, 배열의 `shape`와 `strides`를 변경하여 **뷰(view)**를 반환합니다. 데이터 복사는 배열이 비연속적인(non-contiguous) 메모리 레이아웃을 가지거나 명시적으로 복사를 요청(예: `.copy()`)하는 경우에만 예외적으로 발생합니다.\n*   **출처:** NumPy `transpose` 공식 문서 ([<https://numpy.org/doc/stable/reference/generated/numpy.transpose.html>](<https://numpy.org/doc/stable/reference/generated/numpy.transpose.html>))\n\n`einops.rearrange` 함수 또한 메모리 효율성을 위해 가능한 한 **뷰**를 반환하는 것을 최우선으로 합니다. 이는 NumPy와 유사하게 배열의 `shape`와 `strides`를 재해석하여 이루어집니다. `rearrange`는 전치 외에도 다양한 변환을 수행하지만, 복사는 오직 원하는 형태가 뷰로 표현될 수 없거나 복잡한 재배열로 인해 필연적으로 데이터 이동이 필요한 경우에만 발생합니다.\n*   **출처:** einops 공식 문서 (Memory efficiency 섹션: [<https://einops.rocks/>](<https://einops.rocks/>), `rearrange` API 문서: [<https://einops.rocks/api/rearrange/>](<https://einops.rocks/api/rearrange/>))\n\n요약하자면, 두 함수 모두 기본적으로 `strides`를 변경하여 원본 데이터를 공유하는 뷰를 반환하며, 실제 데이터 복사는 특정 상황에서만 이루어집니다.\n\n---\n**Confidence:** 1.0",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757404859.795509",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U> 미니배치 경사하강법이 배치 경사하강법보다 빠르다고 배워왔는데, 실제 코드를 실행해보니 미니배치가 훨씬 더 많은 시간이 걸렸어. 5000개의 데이터를 가진 데이터셋에서 10개의 사이즈를 가진 미니배치를 사용하니 500번의 학습을 진행해야 해서 에포크마다 학습을 하는 시간이 훨씬 많이 걸리는데 이게 정상인건가?",
+        "user": "U09CH820HNF",
+        "user_name": "Kim jimin",
+        "timestamp": "1757409855.575579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH820HNF> 네, 겪으신 현상은 정상입니다.\n\n미니배치 경사하강법이 배치 경사하강법보다 일반적으로 빠르다고 하는 것은 전체 학습 과정(여러 에포크)에서 더 빠르게 수렴하거나, 대규모 데이터셋 처리 시 메모리/연산 효율성이 좋기 때문입니다. 즉, 전체 학습을 완료하는 데 필요한 에포크 수가 적거나, 대용량 데이터셋 처리 가능성 측면에서 우위에 있다는 의미입니다.\n\n하지만 단일 에포크 기준으로 보면, 배치 경사하강법은 전체 데이터를 한 번에 처리하므로 업데이트 및 관련 오버헤드(데이터 로딩, GPU/CPU 통신 등)가 한 번만 발생합니다. 반면, 미니배치 경사하강법은 각 미니배치마다 모델 업데이트와 오버헤드가 반복됩니다. 5000개 데이터셋에서 10개 배치 사이즈면 500번의 업데이트와 오버헤드가 발생하므로, 단일 에포크의 총 소요 시간은 배치 경사하강법보다 길어질 수 있습니다.\n\n특히 데이터셋 크기가 5000개처럼 비교적 작을 때는 배치 경사하강법이 메모리에 효율적으로 적재되어 한 번에 빠르게 처리되므로, 미니배치의 반복적인 오버헤드가 상대적으로 더 크게 느껴질 수 있습니다. 미니배치의 진정한 이점은 데이터셋이 매우 커서 배치 경사하강법으로는 메모리에 올릴 수 없거나, 지역 최저점에서 벗어나 더 나은 최적점을 찾는 능력 등에서 두드러집니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757409868.321639",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH820HNF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\n미분시, 벡터가 입력인 다변수 함수인 경우에는 편미분을 사용하여 계산하게 된다. 이에 대한 이유가 분모가 벡터이면 안되는 것인데, 왜 벡터이면 기존 미분을 사용할 수 없지?",
+        "user": "U09CH8BDAPM",
+        "user_name": "이승재_T8155",
+        "timestamp": "1757420451.880369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH8BDAPM"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH8BDAPM> 미분 시 분모가 벡터이면 안 되는 이유는 **표준적인 벡터 대수학에서 벡터로 나누는 연산이 정의되어 있지 않기 때문**입니다.\n\n1.  **스칼라 미분 정의:** 단일 변수 함수 $f(x)$의 미분은 $\\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$ 입니다. 여기서 $h$는 스칼라(실수)이며, 스칼라 간의 나눗셈은 잘 정의됩니다.\n\n2.  **벡터로 나누는 문제:** 만약 다변수 함수 $f(\\mathbf{x})$에 대해 벡터 $\\mathbf{h}$를 이용한 유사한 정의 $\\lim_{\\mathbf{h} \\to \\mathbf{0}} \\frac{f(\\mathbf{x}+\\mathbf{h}) - f(\\mathbf{x})}{\\mathbf{h}}$를 시도한다면, 분모에 벡터 $\\mathbf{h}$가 오게 됩니다. 그러나 벡터는 스칼라처럼 직접적인 나눗셈 연산(역원)이 정의되어 있지 않습니다. 어떤 벡터를 다른 벡터로 나눈다는 개념은 수학적으로 모호하며, 단일하고 일관된 의미를 부여하기 어렵습니다.\n\n3.  **편미분 및 방향 미분으로 해결:**\n    *   **편미분**은 입력 벡터의 한 성분만 변화시키고 나머지는 상수로 간주하여, 문제를 단일 변수 미분으로 환원합니다. 이 경우 분모는 변화하는 해당 스칼라 변수($\\Delta x_i$)가 되므로 나눗셈이 가능합니다.\n    *   **방향 미분**은 특정 방향 벡터 $\\mathbf{u}$를 따라 함수가 얼마나 변하는지를 측정하며, 정의는 $\\lim_{h \\to 0} \\frac{f(\\mathbf{x}+h\\mathbf{u}) - f(\\mathbf{x})}{h}$ 입니다. 여기서 $h$는 스칼라로서 단계 크기를 나타내며, 분모가 스칼라이므로 문제가 없습니다.\n\n결론적으로, 벡터로 나누는 연산 자체가 수학적으로 정의되지 않아 기존 미분 정의를 직접 적용할 수 없기 때문에, 편미분과 같은 우회적인 방법으로 다변수 함수의 변화율을 계산합니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757420470.258659",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U098C3KRB8U>\nSGD에서 sample generator에서 데이터를 shuffle하여 추출해주는 이유가 뭐야?\n통계학 관점으로 이렇게 데이터를 추출하는 것의 이점은 무엇이 있을까?",
+        "user": "U09CH7WRGAX",
+        "user_name": "강민준",
+        "timestamp": "1757470262.743639",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U09CH7WRGAX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7WRGAX> SGD에서 sample generator가 데이터를 shuffle하여 추출하는 주된 이유는 다음과 같습니다.\n\n1.  **모델 학습의 안정성 및 효율성 증대:**\n    *   **경사 하강 방향의 일관성 유지:** 데이터가 정렬된 상태(예: 특정 클래스만 연속되거나, 특정 특징 값만 이어지는 경우)로 미니배치가 구성되면, 모델은 해당 미니배치에만 최적화되는 방향으로 경사 하강을 진행하게 됩니다. 이는 전체 데이터 분포를 대표하지 못하는 잘못된 경사 방향으로 학습이 이루어져 모델이 전역 최적점에 도달하기 어렵게 하거나, 학습 과정에서 심한 진동을 유발할 수 있습니다.\n    *   **로컬 미니마 탈출:** 무작위로 섞인 데이터를 통해 다양한 미니배치가 제공되므로, 모델이 특정 지역 최적점에 갇히는 것을 방지하고 더 넓은 탐색을 통해 더 나은 최적점을 찾을 가능성이 높아집니다.\n    *   **가중치 업데이트의 일관성:** 각 미니배치가 전체 데이터셋의 통계적 특성을 더 잘 대표하도록 하여, 가중치 업데이트가 전체 데이터셋에 대한 경사 방향과 유사하게 유지되도록 돕습니다.\n\n2.  **통계학적 관점의 이점:**\n    *   **독립동일분포(i.i.d.) 가정 충족:** 대부분의 통계 학습 모델은 데이터가 독립동일분포(independent and identically distributed, i.i.d.)를 따른다고 가정합니다. 데이터를 섞으면 각 미니배치가 전체 데이터셋에서 무작위로 추출된 독립적인 표본으로 간주될 수 있어, 이 i.i.d. 가정을 더 잘 만족시킵니다.\n    *   **경사 추정치의 분산 감소:** 미니배치로부터 계산되는 경사 추정치는 전체 데이터셋의 실제 경사에 대한 근사치입니다. 데이터를 섞음으로써 각 미니배치가 더 대표성 있는 표본이 되고, 이는 경사 추정치의 분산(noise)을 줄여주어 학습 과정의 안정성을 높이고 더 정확한 파라미터 업데이트를 가능하게 합니다.\n    *   **과적합 방지 및 일반화 능력 향상:** 순차적인 패턴이나 특정 데이터 부분에 모델이 과도하게 학습되는 것을 방지하고, 모델이 다양한 데이터를 통해 학습함으로써 새로운 데이터에 대한 일반화 능력을 향상시킵니다.",
+          "user": "U098C3KRB8U",
+          "user_name": null,
+          "timestamp": "1757470274.755979",
+          "is_bot": true,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0,
+            "bot_name": "부덕이_답변bot"
+          }
+        }
+      ]
+    }
+  ]
+}

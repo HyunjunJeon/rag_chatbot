@@ -1,0 +1,48 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[(3강) torch.zeros_like()에 관한 질문]\n강의에서 torch.zeros_like() 함수를 쓰면 메모리 주소가 변경되지 않는다고 말씀하셨는데, id()를 사용하니 주소가 다르게 나오는 것 같습니다. 새로운 tensor를 만드는 것이기에 torch.zeros_like()는 함수 방식인거죠? in-place방식은 아니니 메모리 주소가 달라지는 게 맞는지 조금 더 상세히 알고 싶습니다",
+        "user": "U09CMETRNFL",
+        "user_name": "윤종욱_T8131",
+        "timestamp": "1757175626.251239",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1756703272371459|https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1756703272371459>\n\n안녕하세요 윤종욱 캠퍼님. \n\ntorch.zeros_like 함수는 새로운 텐서를 만드는 방식이 맞고, 해당 스레드 참고해주시면 감사하겠습니다.\n\n주말에도 수고가 많으십니다. 앞으로의 강좌도 응원하겠습니다 :bow:",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1757209939.650529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CMETRNFL",
+                  "U05QLE6RKSS"
+                ],
+                "count": 2
+              },
+              {
+                "name": "smile",
+                "users": [
+                  "U09CMETRNFL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

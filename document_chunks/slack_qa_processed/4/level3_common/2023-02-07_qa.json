@@ -1,0 +1,119 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "플젝 마지막까지 도저히 해결을 못해 질문드립니다.\n현재 아키텍쳐는 아래처럼 구성했습니다.\n사용자 이미지를 받아 추론시 현재 10초 걸리는데 처음엔 uvicorn을 이용해 프로세스 하나로 했을 때 사용자 여러명이 동시애 추론 요청이 들어오면(locust로 부하테스트 했습니다) 10초 걸릴게 처음요청한 사람부터 반환하는게 아니라 60~70초 정도 걸려서 한번에 반환됩니다. 그래서 프로세스 개수가 문제인 것 같아 gunicorn을 이용해서 프로세스 4개를 띄우니 처음엔 잘 돌아가는데 역시 여러명 추론을 하면 CUDA OOM 에러 혹은 502에러가 뜹니다. 추론이 오래 걸릴 경우 어떻게 처리를 하는게 좋을지 의견이 궁금합니다.",
+        "user": "U0427G48WAC",
+        "user_name": null,
+        "timestamp": "1675838954.663179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR",
+                "U0427G38CF2",
+                "U041HMZR68K",
+                "U0427G5T6BS"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 21
+        }
+      },
+      "answers": [
+        {
+          "text": "비동기 처리 문제 같아보이는데 비동기는 어떻게 설계하셨나요?",
+          "user": "U041ERV4EMT",
+          "user_name": "강수헌_T4003",
+          "timestamp": "1675839106.407899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 비동기로 둔 뒤, 큐에 넣어서 모델에 넘길 요청을 제한하거나,\n2. 동기로 처리한다면 Rate Limiter(처리율 제한 장치)를 두어서 모델 추론으로 넘길 수있는 요청 수를 제한하는게 좋을거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675839252.825029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERV4EMT> 당장 비동기 처리는 하지 않았습니다.\n<@U03PVSC77HR> 혹시 큐라고 하시면 방금 검색을 해봤는데 RabbitMQ같은 도구를 이용해야 하는 건가요?",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675839522.525059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그래도 되는데, 처음부터 굳이 그럴 필요는 없고, 그냥 python 내장 큐를 쓰시면 될거 같아요. <https://docs.python.org/ko/3.7/library/queue.html>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675839607.741239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 프로세스 개수가 문제인 것 같아 gunicorn을 이용해서 프로세스 4개를 띄우니\n프로세스 1개만 띄워도 CPU 부하가 100% 을 찍진 않나요?\n이 상황에서 프로세스를 늘리면 컨텍스트 스위칭 부하만 더 일어나고, 전체적인 쓰로풋은 내려갈겁니다. (말씀하신 상황입니다)",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675839660.038329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "프로세스 1개 띄웠을 떄 부하 한번 확인해보시고, 잘 못하시겠다 싶으시면 그냥 1개만 띄우시길 추천드립니다.\n\n멀티 프로세싱은 CPU 자원이 남을 때 극대화 하는 방법이고, CPU 자원이 안남으면 의미 없습니다.\n한편 멀티 쓰레드는 I/O Bound 한 작업이 많을 때 리소스를 극대화하는 방법인데, 지금 모델 추론은 I/O Bound 보다 CPU Bound 한 작업일거 같으므로, 이것도 큰 의미는 없을거 같습니다.\n\n한마디로 말해서, 한 모델 입력이 출력까지 대부분 CPU Bound 한 작업이라 가정했을 때 10초가 걸리면, 이는 최적화할만한게 하드웨어 성능밖에 없다는 생각이 듭니다.\n이미 충분히 부하가 걸리고있다면, 부하를 덜 주기 위해서 위에 말씀드린 거처럼 처리율 제한기(Rate Limter) 를 두는 것이구요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675839815.658819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

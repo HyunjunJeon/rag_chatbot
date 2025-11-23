@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U07E14BSS1M> 네, 광진님 해당 부분 문제로 수정완료하였습니다!\n감사합니다 :slightly_smiling_face: (fyi <@U076A0ENQGY>)",
+        "user": "U03MDFNTYCE",
+        "user_name": "Wanda(김수완)",
+        "timestamp": "1727773127.957989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!",
+          "user": "U07E14BSS1M",
+          "user_name": "박광진",
+          "timestamp": "1727773801.696369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

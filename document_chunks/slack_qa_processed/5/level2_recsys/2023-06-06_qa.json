@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 확인이 늦어져서 죄송합니다. 원섭 캠퍼님께서 말씀주신 대로 그래프에 대한 설명이 반대로 표현이 된 것이 맞는 것 같습니다 ㅠㅠ 논의 후 수정하도록 하겠습니다. 질문 작성해주셔서 감사드립니다! <@U04RG8X8AJH>\n\n참고로 첫번째 그래프는 All Data가 아니라 (시청 기록 X), 전체 6807개 영화의 장르 분포를 나타냅니다!",
+        "user": "U03M7B4JYMR",
+        "user_name": "Jaein Kim",
+        "timestamp": "1686094117.942929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "너무나_감사",
+              "users": [
+                "U04RG8X8AJH"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사합니다!",
+          "user": "U04RG8X8AJH",
+          "user_name": "이원섭",
+          "timestamp": "1686111449.882429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

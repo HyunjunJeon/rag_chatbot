@@ -1,0 +1,82 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[Movie Rec] - 미션 2\n\"2. 데이터 전처리\" 에 속하는 코드입니다.\n제공된 코드에서는 (사진 1)과 같이 `tp['item']`이 `itemcount.index`에 있는지 검사합니다.\n하지만 `get_count` 함수에서 `as_index=False` 로 설정되어 있기에 의도와 다른 코드가 된 것 같습니다.\n실제로 모든 유저의 평가 수가 5회를 넘기에 `raw_df` 에 `filter_triplets` 을 적용한 후에도 `raw_df` 가 그대로 유지되어야 하나, 크기가 작아지는 것을 확인했습니다.\n\n그래서 (사진 2)와 같이 코드를 수정한 결과 `raw_df` 가 유지되는 것을 확인했습니다.\n\n이전 코드가 의도하셨던 것이 맞는지, 아니었다면 제가 올바르게 수정한 것인지 확인 부탁 드립니다!",
+        "user": "U063QNP8GNN",
+        "user_name": null,
+        "timestamp": "1706585123.854409",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03M7B4JYMR"
+              ],
+              "count": 1
+            },
+            {
+              "name": "zzang",
+              "users": [
+                "U063QNXGZFU",
+                "U063J3X3UKY",
+                "U063J3U3WVC",
+                "U063J3V2A14"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 준혁님! MovieRec 조교 김재인입니다.\n코드 확인 결과, 준혁님께서 에러를 잘 발견해주신 것 같습니다! 미션 2에서 해당 부분 바로 반영하여 수정하도록 하겠습니다. 감사합니다:)",
+          "user": "U03M7B4JYMR",
+          "user_name": "Jaein Kim",
+          "timestamp": "1706587177.528269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U063QNP8GNN",
+                  "U063QNXGZFU"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한 가지 더 리뷰 요청 드리고 싶은 부분이 있습니다!\n마찬가지로 전처리 부분입니다.\n\n아래 두 코드를 감안하면 (사진 1)의 `index` 대신 `unique()` 가 사용되어야 할 것 같습니다.\n\n`tr_users = unique_uid[:(n_users - n_heldout_users * 2)]`\n`train_plays = raw_data.loc[raw_data['user'].isin(tr_users)]`\n\n이 부분도 확인 부탁드리겠습니다!",
+          "user": "U063QNP8GNN",
+          "user_name": null,
+          "timestamp": "1706587838.621789",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U063QNP8GNN",
+              "ts": "1706587875.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03M7B4JYMR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

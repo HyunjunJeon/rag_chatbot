@@ -1,0 +1,50 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "대회 룰에 대한 질문입니다.\n*[평가 데이터 사용]* 평가 데이터를 가공하거나 모델 학습에 활용하는 행위를 일체 금지합니다.\n라는 항목이 있는데 \"평가 데이터를 가공\" 이 평가데이터의 전처리도 금지하는건가요?",
+        "user": "U064DNHMA3A",
+        "user_name": "정재웅_T6156",
+        "timestamp": "1706509682.554319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U063A72QX1V",
+                "U063QKZG5SP",
+                "U063QKZLGEP"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "Fair comparison을 위해서는 동일한 조건의 전처리와 inference 코드를 거치게 됩니다.\n학습에 사용할 수 없고, inference도 동일한 조건에서 이루어져야 하니 평가데이터의 전처리도 불가능합니다.\n\n따라서 평가 데이터, 즉 테스트셋 관련된 부분은 절대 터치하지 않으시면 된다고 이해하시면 될 것 같습니다.",
+          "user": "U03MQK0FF4Y",
+          "user_name": "김유지_조교",
+          "timestamp": "1706515072.106039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U063QKZLGEP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

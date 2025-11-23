@@ -1,0 +1,411 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1669884448.576039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "살살...부탁드립니다 ㅠㅠ",
+          "user": "U0427GAL9KJ",
+          "user_name": "유승종",
+          "timestamp": "1669884681.052089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "aistage 문의 게시판에 다시 질문하였습니다",
+          "user": "U04138AJC7R",
+          "user_name": "민기",
+          "timestamp": "1669885167.336989",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04138AJC7R",
+              "ts": "1669885173.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HN1JMTM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "제출파일 크기가 200mb가 넣으면 제출이 안되는 건가요??",
+        "user": "U041B7BQ6F8",
+        "user_name": "조용재",
+        "timestamp": "1669885441.393839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "dancing_puppy",
+              "users": [
+                "U04138C8PE3"
+              ],
+              "count": 1
+            },
+            {
+              "name": "fire",
+              "users": [
+                "U0427GAL9KJ",
+                "U0427G7EG72",
+                "U0427G6LY3A",
+                "U041HN1JMTM"
+              ],
+              "count": 4
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U041HMZ15RR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "용량이 상당히 크네요...ㄷㄷ",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1669885821.647979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "뇌정지가 왔슴다",
+          "user": "U041B7BQ6F8",
+          "user_name": "조용재",
+          "timestamp": "1669885865.648619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "score_thres를 좀 높여보시면 박스가 많이 줄어들고 용량이 줄어들 것 같습니다",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669886137.098149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "다들 바쁜 대회, 3주간 열심히 달려오느라 고생하셨습니다!\n*이번 대회를 하면서 Detection은 `Error case analysis`를 어떻게 할 수 있을지가 참으로 궁금했는데,*\n*그와 관련되어 재밌게 읽은 논문 하나와, 그 아이디어를 커스텀하게 구현한 medium 글을 공유해봅니다.*\n\n<https://medium.com/data-science-at-microsoft/error-analysis-for-object-detection-models-338cb6534051>\n<https://arxiv.org/abs/2008.08115>\n\n`TIDE`라는 논문에서는 object detection의 False positive, False negative 등의 error를 6가지의 유형으로 나누어 제시하고 있는데요,\n\n```[1] Cls error : localization은 잘되었으나 클래스는 틀림\n[2] Localization error  : 클래스 분류는 잘했지만 localization이 틀림\n[3] BOTH(CLS &amp; LOC) : 분류, localization 둘다 틀림\n[4] DUP error: 잘 맞췄지만, 이미 그보다 더 IoU가 좋은 duplicate detection 존재\n[5] BG error: background를 object로 착각 \n[6] MISS error: object를 background로 착각```\n이 각각의 에러를 고친다면 mAP가 얼마나 상승할 수 있었을지를 알려줍니다.\n*`일례로 제 모델의 경우 다른 에러보다는 MISS, Cls Error로 인한 mAP@50 하락이 더 크다고 나왔습니다.`*\n\n실제로 제 model의 confusion matrix를 보니\n각 label을 조금씩 다른 label과 헷갈렸고, 탐지하지 못한 label이 꽤나 많았습니다 ㅠㅠ.\n\n이런 TIDE의 프레임워크는 wandb 등을 통해 error case를 분석하거나 &amp; Loss가 많은 샘플을 분석하거나 &amp; confusion matrix를 보는 등..\n기존의 에러 분석 방법론들과 시너지가 좋겠다고 느꼈는데요.\n*`문제 해결은 몰라도 문제 정의에는 도움이 되었던 프레임워크 같았습니다.`*\n\n---\n후일담이지만, task의 어려움 탓인지 데이터셋의 복잡함탓인지....\nEDA 단에서 했던 다양한 시도는 성능을 크게 끌어올리지 못했던 것 같습니다.\n되려 `Well-known recipe` 를 조합해서 성능을 올렸던 느낌입니다.\n그래서 모델의 다양성을 통해 간접적으로 TIDE에서 발생했던 에러를 줄이려고 했던 것 같네요.\n그럼에도 이렇게 모델 디버깅을 해볼 생각을 한 게 뿌듯했고, TIDE를 알게 되어 나름(?) 뿌듯했었습니다.\n\n저처럼 이런 거에 흥미를 느낄 캠퍼님이 계실 것 같아 공유해봅니다.",
+        "user": "U041HMZR68K",
+        "user_name": null,
+        "timestamp": "1669898271.311149",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041HMZR68K",
+            "ts": "1669898691.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0427G7EG72",
+                "U0427G7HN6L",
+                "U041HN1JMTM",
+                "U0427G93ETS",
+                "U041HN3C7B5",
+                "U0413879JNB",
+                "U041ES0MH9B",
+                "U047R3JG4F8"
+              ],
+              "count": 8
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U041L94723E",
+                "U0427G48WAC",
+                "U0427G7HN6L",
+                "U041HR6RWAE",
+                "U041B78LL22",
+                "U041ES1A1B7",
+                "U041HR3M8BU"
+              ],
+              "count": 7
+            },
+            {
+              "name": "blush",
+              "users": [
+                "U0427G9RVK2",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "좋은 정보 감사합니다!",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669898860.472439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오호 감사합니다.. 저희도 cls loss 잡는게 상당히 어려웠는데ㅠㅠ",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1669899043.011259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HN1JMTM> 맞아요 동훈님ㅠ  레이블끼리 서로 헷갈리는 경우가 종종 있어서 image의 복잡한 feature를 잘 잡아내는게 필요하고, 그것때문에 큼직한 모델을 쓰거나 앙상블이 효과를 발휘하는 대회였다구 생각해요. 일반쓰레기는 사람도 헷갈릴 label이 많던데, 이를 EDA 단에서 처리할 수는 없었을지 아쉬워요 ㅠ",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1669899356.182299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZR68K> 저희는 다수의 bbox가 있는 이미지의 경우 하나씩 bbox를 다 점검하면서 bbox사이즈를 조금 더 tight하게 조절하거나 지우거나 심지어는 라벨을 바꾸는 방식으로 EDA를 했거든요ㅋㅋㅋ근데 성능 향상이 눈에 띄지는 않고 오히려 떨어지기도 하더라구요..ㅠㅠ  참 아쉬웠습니다.. 신발의 label이 clothing이기도 하고 general trash인 경우도 있고..",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1669899556.799639",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HN1JMTM",
+              "ts": "1669900087.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041HMZR68K> 읽어보고 제 생각을 정리해서 올려볼게요!!! 상모님 수고하셧슴다!",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1669954122.022109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "12월 19일부터 배우는 Segmentation 에서도 사용하는 라이브러리가 mmdetection과 detectron2인가요? 다른 라이브러리에 대해서도 배우나요?\nSegmentation 대회가 이번 Detection과 똑같이 재활용 품목 분류이던데, 데이터도 똑같나요?",
+        "user": "U041L94723E",
+        "user_name": "집사",
+        "timestamp": "1669945420.480249",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. segmentation하고 detection은 주제는 같지만 데이터 내용이 다른 것으로 알고 있습니다. 라이브러리에 대해서는 강의에서는 직접 작성한 코드와 segmentation_models_pytorch를 사용하고 있습니다. 하지만 지난 대회에서 mmsegmentation을 사용했던 팀들도 있습니다. 감사합니다.",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1669951677.698179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E",
+                  "U041HN1JMTM"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "segmentation_models_pytorch가 <https://github.com/qubvel/segmentation_models.pytorch> 이건가요?",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669964735.727689",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다",
+          "user": "U047GUPLQ79",
+          "user_name": "오휘건_조교",
+          "timestamp": "1669966803.438839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 식사는 다들 잘 하고 오셨나요 ㅎㅎ 날이 엄청 추워졌네요..\n대회 핑계로 두문불출한지 일주일인데 지난주와 오늘 차이가..........;;;;;\n\n갑자기 말 꺼내기가 어색해서 주절주절 해봤습니다 ^^; 본론은..\n\n혹시 오늘 마스터클래스에서 발표가 끝난 후 오후 6시부터 대회 관련으로 디스커션 할 수 있는 기회가 있었으면 좋겠다 싶어서요\nCV룸에 남아서 서로 발표도 이어가고 질문 답변도 자유로운 분위기에서 얘기해보고 서로간의 고충도 얘기해볼 수 있으면\n좋을것 같은데요.. 뜻이 맞으시는 분이 계시다면 서로 얘기해볼 수 있을까요? ^^;\n\n저희조는 진짜 짧은 기간에 어려움이 많았어서 노하우나 팁을 드리기는 어려울수 있지만 염치 불구하고 다른 조에 물어보고 싶은게 어마어마 합니다 :sweat_smile:\n\n가능하신 분은 여기 댓글로 의견 부탁드릴 수 있을까요?",
+        "user": "U041L92FWCC",
+        "user_name": "Sangjoon Han",
+        "timestamp": "1669955559.088679",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03SAGX725R",
+                "U041L8ZANQL",
+                "U04138AJC7R"
+              ],
+              "count": 3
+            },
+            {
+              "name": "coding",
+              "users": [
+                "U03KMAV0JR5",
+                "U041HN1JMTM"
+              ],
+              "count": 2
+            },
+            {
+              "name": "laughing",
+              "users": [
+                "U041HMZR68K"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "아이고 ㅠㅠ 전 오늘 학교에 일이 있어서 참석하고 싶은데 못할것 같아요. 오늘은 다른 캠퍼분들과 진행하시고 혹시 괜찮으시면 다음주에 추가로 저와 시간잡으시는건 어떠신가요? 저도 궁금해서요!",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1669956340.519839",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041B78LL22",
+              "ts": "1669956416.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 분들 의견도 들어보고 오늘 1차 다음주에 2차 하는것도 좋지 않을까 합니다 ^^;\n대회 막 끝나자 마자고, 오늘 3시부터 연속으로 계속 줌을 켜놔야 해서 부담스러울 수 있을것도 같아서.. 참여하시는분이 없거나 적으면 다음주에 하는것도 좋을것 같습니다.\n다만 ^^; 다음주는 또 다음주대로 또 대회에 빠져있을것 같아서 오늘 급하게 글 남겨보았습니다 ㅠㅠㅠㅠ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669956433.503959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵넵 좋습니다 ㅎㅎ 대회 고생많으셨습니다!",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1669956629.960769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 ^^ 그리고 조금 더 윗글 중 지식 아카이브 관련해서 상모님 장원님 글이 있는데 개인적으로는 꼭 참여해서 티끌이라도 기여할 수 있으면 좋겠다 하고 있고, 팀으로도 참여는 의견 모아보고 있습니다..",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669956727.513379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02UTH1484E> 멘토님들은 제가 내일 오전중으로 깃허브에 일괄 초대해 드릴게요!! 양해 부탁드려요!!",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1649924747.561169",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "네! 감사합니다 :slightly_smiling_face:",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1649928700.146649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

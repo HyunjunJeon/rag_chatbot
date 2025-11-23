@@ -1,0 +1,132 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "초기 데이터를 LSTM으로 계산한 결과가 매번 다르게 나옵니다. 왜 그런걸까요?",
+        "user": "U041HR79V5G",
+        "user_name": "고현욱",
+        "timestamp": "1668600723.566939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03QKNSJVCY",
+                "U041ERXKAH3"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QKNSJVCY",
+                "U041WE0BG81"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 현욱님. 아무래도 seed 고정이 제대로 작동하지 않은 것 같네요. seed 고정 함수의 경우 매 기수 같은 함수를 사용했고 항상 잘 작동했는데, 이번에 저도 테스트해보니 시드 고정이 잘 되지 않는 것 같습니다. 현재 아래 두 줄을 추가하니 제 경우에는 잘 작동하고 있습니다. 한 번 시도해보시고 또 고정이 되지 않으면 질문 남겨주세요! :slightly_smiling_face:\n\n```#src/utils.py\n\ndef setSeeds(seed):\n    ...\n    torch.cuda.manual_seed_all(seed)\n    torch.backends.cudnn.benchmark = False```",
+          "user": "U03QKNSJVCY",
+          "user_name": null,
+          "timestamp": "1668601668.308779",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03QKNSJVCY",
+              "ts": "1668601696.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가했는데 여전히 다르게 나옵니다...",
+          "user": "U041HR79V5G",
+          "user_name": "고현욱",
+          "timestamp": "1668608413.459319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "wandb에서 그래프는 전부 똑같이 나오는데 inference 실행한 후 나오는 파일에서 값이 다릅니다.",
+          "user": "U041HR79V5G",
+          "user_name": "고현욱",
+          "timestamp": "1668608944.529569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이번에 베이스라인 코드를 수정하면서 inference쪽 코드 한 줄이 잘못들어갔네요.\n기존에 code/dkt/inference.py 내에서 아래 코드를 수정해주세요! 오늘 오피스아워 때 공지하겠습니다\n```Before:\n    model = trainer.get_model(args).to(args.device)\n\nAfter:\n    model = trainer.load_model(args).to(args.device)```",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1668644181.170269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-3",
+                "users": [
+                  "U041HR79V5G"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U041ERYHTV3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결됐습니다. 감사합니다!:slightly_smiling_face:",
+          "user": "U041HR79V5G",
+          "user_name": "고현욱",
+          "timestamp": "1668645479.450339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U029MCT2RTK> <@U029MCHFVEV> 멘토님 보내주신 링크로 해결되었습니다. :kirby_dance: 답변 정말 감사드립니다!!",
+        "user": "U029E8JH0BV",
+        "user_name": "안소정",
+        "timestamp": "1640009161.424200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029E8JH0BV",
+            "ts": "1640009298.000000"
+          },
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "오 고생하셨습니다!!! 어떻게 해결하셨을지 궁금하네요..!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1640009948.424600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

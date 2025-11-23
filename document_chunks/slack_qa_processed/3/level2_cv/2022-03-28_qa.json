@@ -1,0 +1,133 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "swin transformer를 backbone으로 쓸 때 따로 inputsize를 조절하지 않아도 동작하네요? 기본적으로 model를 call할 때 resize하도록 하는 걸까요?",
+        "user": "U02TFK3K0CA",
+        "user_name": "이상윤_T3148",
+        "timestamp": "1648475906.692579",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "config 보시면 안에 Resize 있지 않을까요?",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1648487816.166479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Swin transformer는 cnn과 유사하게 이미지 사이즈를 고정할 필요는 없습니다. 논문 참고하셔서 먼저 어떤 모델인지 이해하시면 도움될 것 같습니다. 물론 어떤 이미지 사이즈로 pretrain을 하였는지는 차이가 있을 수 있습니다.\n<https://arxiv.org/pdf/2103.14030.pdf|https://arxiv.org/pdf/2103.14030.pdf>",
+          "user": "U02SK8MPGN5",
+          "user_name": "주세환_조교",
+          "timestamp": "1648518066.047829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA",
+                  "U02SERAL49Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1648518607.947389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여기 mmdet swin transformer backbone 코드 보시면 좀더 이해하시기 쉬울겁니다. CNN모델처럼 Input size에 무관합니다.\n<https://github.com/open-mmlab/mmdetection/blob/master/mmdet/models/backbones/swin.py>",
+          "user": "U02SBKPD8JG",
+          "user_name": "박예찬_멘토",
+          "timestamp": "1648527687.029519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 서버 남은 용량 확인하는 방법이 있을까요?",
+        "user": "U02TFK3K0CA",
+        "user_name": "이상윤_T3148",
+        "timestamp": "1648529756.257549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "명령창에 df -h 입력하시면 용량 정보가 나오더라구요",
+          "user": "U02TJ0CKVLJ",
+          "user_name": "손정균_T3111",
+          "timestamp": "1648529882.477929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TU92GURF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1648531188.849959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

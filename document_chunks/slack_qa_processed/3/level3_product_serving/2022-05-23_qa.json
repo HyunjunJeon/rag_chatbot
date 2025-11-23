@@ -1,0 +1,129 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!\npoetry 가상환경에서 uvicorn과 FastAPI를 사용해 \"Hello World\"를 출력하는 웹서버를 띄우는 실습을 하고있습니다. (FastAPI 1강)\n저는 aistages 서버에서 작업하고 있는데요, 아래와 같이 할당받은 서버의 ip주소와 포트번호를 사용해도 에러가 발생했습니다. 혹시 도움을 받을 수 있을까요??\n어떤 포트번호가 맞는건지 잘 모르겠어서 주석 처리한 코드 모두 실행해봤는데 동일한 에러가 발생했습니다.",
+        "user": "U02UTH1484E",
+        "user_name": null,
+        "timestamp": "1653369612.836319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "나연님 안녕하세요~! 해당 경우에 포트에 다른 프로세스가 열려있을 수 있어요\n\n```sudo lsof -t -i:30001```\n위 명령어를 통해 포트에서 사용중인 프로세스가 있는지 확인해보시고 PID를 확인해주세요\n\n그 후엔 kill 명령어를 주시면 되어요\n\n```sudo kill -9 $(sudo lsof -t -i:30001)```\n그리고 다시 실행하면 어떨까요?\n\n----\n\n\n요 방법은 error while attempting to bind on address: address already in use\n\n에러일 경우에 해결 방법입니다..!\n\n밑에 host로 수정해보셔요~!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653370143.118079",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1653370412.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아, 오류를 더 자세히 보니.. host를 0.0.0.0으로 해보시면 어떨까요?",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653370212.460499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 바인딩은 0.0.0.0으로 하고 접속은 ip주소로해서 해결했습니다!!",
+          "user": "U02TUJ81E1X",
+          "user_name": "김동현",
+          "timestamp": "1653370247.685749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0E794M8> 확인해보니 30001번 포트에 다른 프로세스가 돌아가고있었어요. 아마도 어제 streamlit을 실행하고 제대로 끄지 않았나봐요 감사합니다!!\nhost=\"0.0.0.0\"으로 하니까 에러는 안 나는데, 아직도 웹페이지에서 뜨지 않고 있습니다 ㅠㅠ",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1653370847.446609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TUJ81E1X> 답변 감사합니다!!! 혹시 바인딩이랑 접속 주소를 다르게 한 이유가 있을까요~? 그리고 *바인딩*이 어떤 과정인지 알려주실 수 있을까요??",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1653371034.746129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "같은 팀원분들의 도움으로 해결했습니다!\n*uvicorn으로 웹서버를 띄울 때는 0.0.0.0으로, 웹페이지를 접속할때는 aistages에서 할당받은 ip주소를* 사용해야 하는군요!! 감사합니다 :hugging_face:",
+          "user": "U02UTH1484E",
+          "user_name": null,
+          "timestamp": "1653371964.933679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TVNVSKML",
+                  "U02U79DHFUY",
+                  "U02U7N1DGHG",
+                  "U02TRCAQU9J",
+                  "U02U0E794M8",
+                  "U02TJ0CKVLJ",
+                  "U02UEH8U39P"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0E794M8> 안녕하세요 마스터님! 나연님이 겪었던 문제를 해결하는 도중 해당 문제에 대해 다음과 같이 생각했는데, 혹시 맞는 생각이었을 지 여쭤봅니다.\n\n제가 생각했을 때 0.0.0.0이 Local host의 주소를 일컫는데, 저희 서버의 주소는 제공받은 49.50.XXX.X이기 떄문에 결론적으로는 0.0.0.0:30001이  49.50.XXX.X:30001 주소가 됐다고 생각했습니다. 혹시 이런 방향으로 생각한 게 맞을까요?",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1653372445.669119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

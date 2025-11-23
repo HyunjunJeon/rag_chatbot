@@ -1,0 +1,48 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, nlp 9조 이재학 입니다\n저희 데이터에 .arrow 형식의 데이터가 있습니다. 처음 보는 형식이라 불러오는 방법을 잘 모르는 상태인데, 도움이 될만한 자료 같은게 있을까요? aistage에 있는 데이터 개요 안의 코드로 EDA하는 것은 가능한데 처음 보는 형식이라 궁금하네요!",
+        "user": "U02U1APCEBC",
+        "user_name": null,
+        "timestamp": "1651170158.270429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TL9P0GCF"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "아마 이거 찾고 계신것 같은데.. 글 중간에 실습코드가 있습니다. 근데 제가 돌려보진 않아서 확실하지는 않네요..;;\n<https://towardsdatascience.com/apache-arrow-read-dataframe-with-zero-memory-69634092b1a>",
+          "user": "U02TFFR63FU",
+          "user_name": "민원식",
+          "timestamp": "1651212389.453309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U1APCEBC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

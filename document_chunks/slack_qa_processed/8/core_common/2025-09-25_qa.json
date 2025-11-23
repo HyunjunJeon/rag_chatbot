@@ -1,0 +1,155 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[CV 5. On-demand learning 질문]\n안녕하세요. On - demand learning 에 대해서 궁금한 점이 있어서 질문드립니다.\n처음, 난이도가 올라가는 쪽으로 N개의 sub-task 배치를 구성한다고 하는데, 이 난이도에 대한 기준이 궁금합니다.\n감사합니다.",
+        "user": "U09CH7X3A8K",
+        "user_name": "장효성",
+        "timestamp": "1758787945.911169",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "논문을 보면,\nImage Inpainting(빈 칸 채우기)의 경우 빈 칸의 크기,\nPixel Interpolation의 경우에는 지우는 픽셀의 개수,\nImage Deblurring(blur 제거) 문제에 대해서는 Blur를 진행하는 kernel의 크기,\nImage Denoising의 경우에도 Gaussian noise의 분산의 범위를 사용했습니다.",
+          "user": "U09CH8393DH",
+          "user_name": null,
+          "timestamp": "1758791299.695259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7X3A8K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[CV 이론 심화 과제]\n안녕하세요. 심화 과제에 있는 Saliency map에 관해 질문이 있습니다.\n\n1. Sailency map S_c(I)를 I에 대해 더 높은 차원의 테일러 전개를 이용한다면 모델이 이미지 I를 클래스c로 분류할 때 어느 부분에 집중했는지 더 자세히 알 수 있나요?\n2. 만약 1번이 맞다면, Visualizing Grad-CAM 설명 부분에 \"Saliency map을 시각화하기 위해서, 논문 [2]을 따라하면 Grad-CAM을 얻을 수 있다\"고 되어 있는데, S_c(I)를 더 높은 차원의 테일러 전개를 사용할수록 Grad-CAM에 수렴해가기 때문인가요?\n감사합니다.",
+        "user": "U09CH894W3D",
+        "user_name": "정대현_T8179",
+        "timestamp": "1758829587.832179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7UDBCK",
+                "U09CH868GM9"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "1.  더 높은 차원의 테일러 전개를 이용한다면, 조금 더 정확한 값을 구할 수 있겠지만 gradient를 구하는 과정이 굉장히 복잡해질 것 같습니다.\n 2.   두 논문은 Sailency map을 다른 방식으로 구하기 때문에, 더 높은 테일러 전개를 사용한다고 같은 값이 나올 것 같지는 않습니다.  Grad-CAM에서는 feature map 단에서 map을 구하지만, S_c의 경우에는 입력 이미지 단에서 결과값에 미치는 영향을 구하기 때문입니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1758865863.249619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH894W3D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Weekly Mission 4 - TODO (1) ResNet 구현]\n안녕하세요 TODO1번에서 ResBlock 부분의 주석에서 Conv 블럭을 연속해서 쌓고 64 -&gt; 128 채널이 증가하는 부분만 스킵 커넥션을 적용해주고 있는데 이는 논문의 34-layer residual의 매 conv 블럭마다 적용시켜주는 것이 아닌, 논문의 구조와 다르게 채널이 증가하는 부분만 적용하는 거라 이해해도 될까요?",
+        "user": "U09CH868GM9",
+        "user_name": "이봉학_T8144",
+        "timestamp": "1758856088.120359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH85PLV9"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "그건 좀 이상한 거 같아서, 저는 써있는거 지우고 다시 썼어요",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1758856694.194019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "conv 블럭에서 아이덴티티 매핑 시켜주고 채널 수 증가하는 부분에 ResBlock 해주나 싶었는데 주석에 내용이 없어서 헷갈리긴 했습니다.. 논문 구조 그대로 가야겠습니다 감사합니다 ㅎㅎ",
+          "user": "U09CH868GM9",
+          "user_name": "이봉학_T8144",
+          "timestamp": "1758856978.808679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

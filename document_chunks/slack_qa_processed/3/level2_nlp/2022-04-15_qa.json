@@ -1,0 +1,251 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. NLP 5조 강나경입니다.\n지금 tagtog 서버에 오류가 있는게 맞을까요??\n다른 조원들이 테스트해봐도 문서 업로드가 불가능한데 저희 조만 겪고 있는 오류인지 궁금합니다!\n\n다들 이번 프로젝트도 화이팅하세요! :booduck_coding_no_bg:",
+        "user": "U02U7N1DGHG",
+        "user_name": "강나경",
+        "timestamp": "1650007067.315689",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_confuse",
+              "users": [
+                "U02TMMJDC14",
+                "U02TZTQ6T1C",
+                "U02TKEWKS4X",
+                "U02TL9P0GCF"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "저희 조도 문서 업로드 못 하고 있습니다:booduck_cry:",
+          "user": "U02U4SD5Y4D",
+          "user_name": "김덕래_T3024",
+          "timestamp": "1650007118.868699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_confuse",
+                "users": [
+                  "U02U7N1DGHG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 조도 오늘 오전부터 업로드가 안되고 있네요ㅜㅠ 텍스트로 넣어봐도 안되는걸 보면 파일보다 사이트의 문제가 맞는것같아요...!",
+          "user": "U02U1U97QA2",
+          "user_name": "최성원",
+          "timestamp": "1650007135.654069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_confuse",
+                "users": [
+                  "U02U7N1DGHG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 tagtog에 서버문제가있나요?ㅠ 일단 1차산출물은 태깅과정 자체가 꼭 필요한 것은아니니 일단 relation map 및 가이드라인 먼저 부탁드리고, 피드백드리며 저희도 확인해보도록 하겠습니다!",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650013468.082429",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T6SH1BKR",
+              "ts": "1650013499.000000"
+            },
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02U7N1DGHG",
+                  "U02U1U97QA2"
+                ],
+                "count": 2
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02U5H18SP7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "인범님 안녕하세요! 혹시 가이드라인이나 어노테이션 작업 과정중에 어떤 부분에 있어서 어려움이 있으신지 조금만 더 구체적으로 말씀해주실 수 있을까요?",
+        "user": "U02SJ8Z5A7N",
+        "user_name": "정영훈",
+        "timestamp": "1650007368.772119",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "법이라는 엔티티를 설정해서 진행하는 것은 좋은 방향 같습니다. 현재의 설정만 보았을때는 큰 문제는 없어보이지만, 다소 구별이 아리까리한 부분들이 있을수있어 따로 1차산출물 업로드 후 그에 대한 피드백을 드리겠습니다!",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650013045.921309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 네!! 아무래도 relation map을 구체적으로 잘 설정하지 못해서 어려움을 겪는 거 같습니다.\n법을 주제로 관계 추출을 하려고 했을 때, 용어 자체적으로 의미가 관계를 내포하는 경우가 많았습니다. (피의자, 가해자 등)  그리고 저희가 '법률:이해관계자' 처럼 관계가 불분명하게 설정한 것도 이유 중 하나였던 거 같습니다.\n\n그래서 가이드라인 작성과 annotation 작업을 할 때 이게 관계 추출을 위한 것이 맞나라는 의문이 들어서 질문을 드렸던 거 같습니다!!",
+          "user": "U02TCL8CQGM",
+          "user_name": "서인범",
+          "timestamp": "1650013178.283489",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCL8CQGM",
+              "ts": "1650013320.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "질문이 구체적이지 않았던 이유도 스스로가 잘 정리가 되지 않아서 그랬던 거 같습니다. 조금 더 진행해보고, 다시 짊문을 남기도록 하겠습니다!",
+          "user": "U02TCL8CQGM",
+          "user_name": "서인범",
+          "timestamp": "1650013405.810799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네!\n제일 좋은 것 중 하나는 데이터를 보시면서, 내가 이 토픽으로 뭔가 어플리케이션을 해보고싶다면 어떤 관계가 궁금할까?같은 질문을 스스로 해보시는 것입니다. \n아쉬운 것은 '법'을 주제로 하지만 판결문을 제공해 드리지는 못했다는 점인데요, 판결문 같은 경우는 국가에서 사용 가능하게 풀어둔 곳들이 있을 것이라 그런 부분 참고해보셔도 좋을것같습니다 :)",
+          "user": "U02T6SH1BKR",
+          "user_name": null,
+          "timestamp": "1650013699.762389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!!",
+          "user": "U02TCL8CQGM",
+          "user_name": "서인범",
+          "timestamp": "1650014436.280849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. NLP 6조 강진희입니다\n가이드라인과 relation 파일을 산출물 제출 폴더에 올리려고 하는데 접근 권한이 없다고 해서 문의 드립니다!\n• <https://drive.google.com/drive/folders/1o5_vjwAHQjUTSxJSmVaH7CYL0krHPUkQ> \n혹시 제출 경로가 다른 곳인가요?",
+        "user": "U02TTC9RBFZ",
+        "user_name": "강진희",
+        "timestamp": "1650012075.825839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "meow_party",
+              "users": [
+                "U02T6SH1BKR",
+                "U02RUR38GCF"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02TFH06BV0> 혹시 저희가 부스트코스에 달아둔 1차산출물 및 최종산출물 제출 폴더 링크들에 캠퍼들이 현재 접근권한을 받았는지 확인 부탁드려도 될까요?",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650013765.091669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TTC9RBFZ> 지금 다시 시도해보시겠어요? 권한이 막혀있어서 수정 조치하였습니다.",
+          "user": "U02TFH06BV0",
+          "user_name": "김의겸",
+          "timestamp": "1650014409.405949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TFH06BV0> 넵 확인했습니다! 덕분에 파일 업로드 잘 되었습니다 감사합니다:booduck_dance:",
+          "user": "U02TTC9RBFZ",
+          "user_name": "강진희",
+          "timestamp": "1650014561.050219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "ballot_box_with_check",
+                "users": [
+                  "U02TFH06BV0",
+                  "U02SJ8Z5A7N"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

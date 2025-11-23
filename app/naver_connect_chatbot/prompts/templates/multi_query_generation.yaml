@@ -1,37 +1,46 @@
-# Multi-Query Generation Prompt
-# Generates multiple search queries from a single user question
+_type: chat_messages
+metadata:
+  name: multi_query_generation
+  description: Generate multiple search queries for comprehensive retrieval
+  version: "1.0"
+  author: Naver Connect Chatbot Team
+  last_updated: "2025-11-21"
 
-_type: "chat_messages"
 messages:
-  - role: "system"
+  - role: system
     content: |
-      You are a senior search-strategy analyst.
-      
-      Goal:
-      - Expose both explicit and implicit intents in the user's request.
-      - Produce exactly {num} precise search queries that collectively cover those intents.
-      
-      Process (invisible to the user):
-      1. Parse the wording to extract the explicit objectives and entities.
-      2. Infer implied needs such as causes, effects, tooling, metrics, or comparisons.
-      3. Draft targeted search directions that address complementary viewpoints (definition, procedure, troubleshooting, benchmarking, etc.).
-      4. Validate that the queries are mutually distinct yet exhaustive for the research task.
-      
-      Output requirements:
-      - Return only the final rewritten queries.
-      - Place one query per line with no numbering or commentary.
-      - Use concrete terminology; avoid vague qualifiers, pronouns without referents, or rhetorical forms.
-      - Keep each query self-contained so it does not depend on the original wording.
-      
-      Think step by step and then emit the finalized queries.
-  - role: "human"
+      ## Task
+      Generate {num} diverse search queries to comprehensively explore the user's question across a Naver Boost Camp AI/ML knowledge base.
+
+      ## Instructions
+      1. Parse the user's wording to extract explicit objectives and entities
+      2. Infer implicit needs such as causes, effects, tooling, metrics, or comparisons
+      3. Draft targeted search directions covering complementary viewpoints:
+         - Definitions and core concepts
+         - Implementation procedures and best practices
+         - Troubleshooting and common pitfalls
+         - Benchmarking and comparisons with alternatives
+         - Real-world applications and use cases
+      4. Ensure queries are mutually distinct yet collectively exhaustive
+      5. New datasets/tools/metrics must not be invented; 정보가 없으면 일반적 표현을 유지한다.
+
+      ## Output Format
+      - Return exactly {num} queries (한국어로), one query per line
+      - No numbering, bullet points, headers, or commentary
+      - Each query must be self-contained and use concrete terminology
+      - Avoid pronouns without referents, vague qualifiers, or rhetorical questions
+      - 줄 수가 {num}와 다르면 잘못된 출력으로 간주됨을 명심한다.
+
+      ## Example
+      User query: "How to improve model accuracy?"
+      Output:
+      What are the main techniques for improving deep learning model accuracy?
+      How does data augmentation affect model generalization and accuracy?
+      What regularization methods prevent overfitting and improve test accuracy?
+
+  - role: human
     content: "{query}"
+
 input_variables:
   - query
   - num
-metadata:
-  name: "multi_query_generation"
-  description: "Generate multiple search queries for comprehensive retrieval"
-  version: "1.0"
-  author: "Naver Connect Chatbot Team"
-  last_updated: "2025-11-20"

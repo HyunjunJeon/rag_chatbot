@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 항상 애써주셔서 감사드립니다!\n\n[Movie Rec] 2강 첫 번째 퀴즈\n2강 교안을 보면 BPR의 경우 pairwise optimization이라고 나와있는데 2강 첫 번째 퀴즈 5번 보기에서는 'BPR알고리즘은 Pointwise(One item) Optimization을 진행한다.'라고 나와있습니다! 확인해주실 수 있으실까요??",
+        "user": "U063J3XLCR4",
+        "user_name": null,
+        "timestamp": "1706665186.833429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U041VLUG4HF"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 김강민 조교입니다. 말씀해주신것처럼 5번. 보기에 문제가 있었고 현재 수정했습니다 감사합니다!",
+          "user": "U041VLUG4HF",
+          "user_name": "김강민",
+          "timestamp": "1706667554.788539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠른 확인 감사합니다!",
+          "user": "U063J3XLCR4",
+          "user_name": "박승아",
+          "timestamp": "1706667580.171579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

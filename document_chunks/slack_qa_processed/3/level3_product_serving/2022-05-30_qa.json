@@ -1,0 +1,78 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "streamlit에서 cv2.videocapture를 사용해서 이미지를 fastapi로 보내는 작업을 캡처된 이미지와 같은 코드로 하고 있고 다음 이미지와 같은 에러가 납니다. 혹시 아시는분 있나요?\n\naistage server를 사용하고 있고 이미지 타입도 bytes 타입으로 바꾸어 봤지만 소용이 없었습니다.",
+        "user": "U02TXU3HPC5",
+        "user_name": null,
+        "timestamp": "1653897096.530809",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "용원님 안녕하세요!\n이런 경우엔 에러 메세지를 잘 보시는 것이 좋습니다. *제가 어떤 방식으로 문제를 해결할지를 사고의 흐름을 공유드릴게요*\n\n• JSONDecodeError 라는 오류가 발생하고, print(response.json())에서 오류가 발생하고 있습니다\n• 이런 경우 response에서 JSON으로 디코딩하는 경우에 에러가 발생했구나! 라는 것을 확인할 수 있지요.\n• 그러면 이제 Input을 확인해야 합니다 =&gt; files엔 무엇이 들어갔나요?\n• 그리고 Output을 확인해봅시다 =&gt; response엔 무엇이 들어가있나요? (.json()하기 전에 값)\n• 그리고 API를 확인합니다. /order는 어떤 방식으로 구현되어 있나요?\n• API의 HTTP Code는 200을 뱉고 있나요? 오류를 뱉진 않나요?\n• 강의에서 동작하는 코드와 cv2.videocapture는 무슨 차이가 있을까요?\n    ◦ 단, aistage 서버에선 cv2.videocapture가 정상적으로 동작하나요?\n    ◦ 간단한 토이 스니펫 코드가 동작하는지 확인해보면 좋습니다\n\nFastAPI + cv2.videocapture 등으로도 검색해보시면 좋을 것 같아요. <https://stackoverflow.com/questions/59612135/cv2-videocapture-isnt-read-video-coming-from-frontend> 이런 글도 있네요!",
+          "user": "U02U0E794M8",
+          "user_name": null,
+          "timestamp": "1653912497.944029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J",
+                  "U02THPJ7JVA",
+                  "U02TXU3HPC5"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://aitech3.slack.com/archives/C02QWMPJPDM/p1653468835379869>\n\n이 메세지 참고하셔도 좋을 것 같아요~!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653912659.119309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스터님 캡쳐된 이미지 처럼 바꾸었더니 되더라구요. 마스터님 말대로 천천히 생각했더니 됐습니다 감사합니다",
+          "user": "U02TXU3HPC5",
+          "user_name": "최용원_T3219",
+          "timestamp": "1653970045.010029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "fastapi 부분도 바꾸었습니다!",
+          "user": "U02TXU3HPC5",
+          "user_name": null,
+          "timestamp": "1653972033.605699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[CV 이론 / 기본과제2]\nApplying augmentations 코드에서 `Resize`, `CenterCrop`을 동일한 `size`로 하면\n`CenterCrop`은 의미가 없을 것 같은데 이렇게 구현되어 있는 이유가 있을까요?\n\n```size = processor.size[\"height\"] # 224\n...\n_val_transforms = Compose(\n        [\n            Resize(size),\n            CenterCrop(size),\n            ToTensor(),\n            normalize,\n        ]\n    )```",
+        "user": "U09CH7UDBCK",
+        "user_name": "유채영",
+        "timestamp": "1758599794.856919",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "말씀해주신대로, 해당 과제에서는 CIFAR-10을 사용하고 있고 CIFAR-10의 경우, 32*32이기에, 반응을 하지 않을 겁니다.",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1758600097.203379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7WRGAX",
+                  "U09CH7UDBCK",
+                  "U09CH8A1B6X",
+                  "U03MQK0FF4Y",
+                  "U09CH892EF5"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만약 정사각형이 아닌, 직사각형 형태의 데이터셋을 사용할 경우\n• resize시 짧은 변을 기준으로 비율이 유지된채로 변경될거고\n• CenterCrop 되면서, 직사각형 비율이 유지됐던 이미지를 정사각형 크기로 맞춰줄겁니다. :man-gesturing-ok:",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1758600320.810109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이해했습니다~ 감사합니다!!",
+          "user": "U09CH7UDBCK",
+          "user_name": "유채영",
+          "timestamp": "1758600532.176149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U09CD83AUTF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[CV이론 기본2]\nAugmentation을 바꿔서 실험해도, 결국 1에폭에선 2250step만 하고 끝나다보니 기존이미지+증강된 이미지셋이 아니라 둘중 하나만 학습이 되는것 같습니다. /그로 인해서 성능 개선이 되지 않는것 같습니다\n성능 테스트를 위해서는 max_epochs=1이 아니라 더 늘려서 각각의 경우를 랜덤하게 학습될 수 있게 하는게 맞을까요?",
+        "user": "U09CH8BPMKM",
+        "user_name": "한석근",
+        "timestamp": "1758609493.619899",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8BPMKM",
+            "ts": "1758609517.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03MQK0FF4Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "Augmentation 있을 때, 없을 때의 성능은 Transform 함수를 다양하게 바꿔보시면서 test loss와 accuracy를 확인하는 방식으로 비교하실 수 있을 것 같습니다!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1758609792.718399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7U429H> transform 함수를 바꿔도, 기존 이미지 대신 전환된 이미지만 train에 들어가게됩니다\n데이터셋을 증강시킨게 학습에 어떤 영향을 미치는지에 대해서 프로그램을 돌리는거로 인지했는데,\n주어진대로 epoch=1로 돌리면 어떻게 전처리헤야 원활한 학습이 되는지만 알아보게 되는것 같아서 질문했습니다!",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1758610021.122719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

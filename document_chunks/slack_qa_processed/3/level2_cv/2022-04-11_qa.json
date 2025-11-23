@@ -1,0 +1,308 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02VB8HRD28> <@U02TFH06BV0> 확인 부탁드려요!!",
+        "user": "U02QJSQ1H1T",
+        "user_name": "고아라",
+        "timestamp": "1649660894.320379",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 상윤님, 제가 가이드 대로 상윤님 정보를 입력하여 로그인했을 때는 잘 되는 것으로 보이는데요. 오입력하지 않으셨는지 한번더 확인 부탁드립니다:pleading_face: <@U02QJSQ1H1T>",
+          "user": "U02VB8HRD28",
+          "user_name": "엘라_운영진",
+          "timestamp": "1649661423.401199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02QJSQ1H1T",
+                  "U02TFH06BV0"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결했습니다. 감사합니다.",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1649661591.088429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02VB8HRD28",
+                  "U02TFH06BV0"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02VB8HRD28",
+                  "U02TFH06BV0"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "cv-17 부탁드립니다!",
+        "user": "U02U7RTB5C2",
+        "user_name": "이효석",
+        "timestamp": "1649663981.829289",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "모두 완료했습니다! 확인 부탁드려요! (<@U02TCHR3LNS> <@U02UM7QQTTK> <@U02TTV8MDJB> <@U02U7RTB5C2>)",
+          "user": "U02QJSQ1H1T",
+          "user_name": "고아라",
+          "timestamp": "1649664921.951989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "늦어서 죄송합니다! ㅜㅜ cv-11조 부탁드립니다!!",
+          "user": "U02U4FZ7PQV",
+          "user_name": "허석용",
+          "timestamp": "1649723591.244309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cv-09 부탁드립니다!",
+          "user": "U02U65KPEJW",
+          "user_name": "박정재",
+          "timestamp": "1649727314.810519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Annotation 매뉴얼을 보면 \"박스의 포인트는 좌측 상단을 시작점으로 시계 방향으로 표시\"하라고 되어 있는데요, 혹시 이미 박스를 그린 상태에서 제가 어떤 순서로 포인트를 잡았는지 확인할 방법이 있을까요? 박스를 그리고 나서 회전시키다 보면 포인트 순서를 맞게 잡았는지 헷갈리는 상황이 많이 생길 것 같아서요.",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1649671020.159139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "현재로서는 해당 부분이 바로 수정, 반영되기는 어렵습니다. 좌상단 점이 사각형으로 나타난다는 점을 활용해주셔야 할 것 같습니다.",
+          "user": "U03AX6GJQCS",
+          "user_name": "Juhyun(오주현)",
+          "timestamp": "1649729560.899359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네넵 그 정도만 알아도 잘 할 수 있을 것 같습니다. 감사합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1649733457.839969",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1649733504.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03AX6GJQCS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Annotation 툴에서 영어 한글이 아닌 글자에 대해서 &lt;UNK&gt;를 입력하면 자동으로 영어가 잡히고 해제하고 제출해도 영어로 잡혀 있는 버그가 있습니다\n이부분 어떻게 해결방법이 존재할까요?",
+        "user": "U02TCHR3LNS",
+        "user_name": "신규범",
+        "timestamp": "1649727229.507329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "단어들을 선택할때, 저희 도구에서 자동으로 언어 선택값을 입력해주게끔 되어있는데요, 만약 변경 필요 시(캠퍼분의 경우 언어 선택 해제) 변경 내용을 반영한 이후, 다른 단어를 선택하면 다시 해당 단어를 누르지 전까지 언어 선택이 해제되어있는 상태로 저장되어 있습니다. 변경하시고 제출하시면 됩니다",
+          "user": "U03AX6GJQCS",
+          "user_name": "Juhyun(오주현)",
+          "timestamp": "1649729405.087199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "작업한 이미지가 자꾸 한 두장 씩 없어지는 현상이 계속됩니다\n이미 제출한 이미지를 수정하거나 페이지를 새로고침 할 때 마다 발생하는데 어떻게 해야할까요",
+        "user": "U02TCHR3LNS",
+        "user_name": "신규범",
+        "timestamp": "1649737782.677939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "의도에 맞지 않게 이미지를 과도하게 할당해가신 몇몇  캠퍼분들로 인해, 운영측에서 \"아무런 작업을 하지 않은 채 본인에게 할당되어있는 이미지\" 를 전부 초기화하였습니다. 작업 중이었거나, 작업을 제출한 이미지들은 그대로 남아있으니 걱정하지 않으셔도 됩니다!",
+          "user": "U03AX6GJQCS",
+          "user_name": "Juhyun(오주현)",
+          "timestamp": "1649738337.650869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03AX6GJQCS> 혹시 작업 이미지 목록에 들어가지 않아도 남아있다는 말씀이신가요?\n수정 버튼 누르고 다시 OCR Annotation으로 들어와 있을 때 적으면 1장 많으면 최대 5장까지 이미 제출 완료한 이미지들이 자꾸 사라집니다\n지금까지 약 30장 좀 안되게 제출했는데 지금 제출 완료한 이미지가 15장 만 남아있습니다",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1649741487.982249",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1649741554.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 규범님!\n데이터베이스 상에는 37장의 이미지를 완료한 것으로 나타나는데요,\n혹시 화면에서 어떤 이미지들이 보이지 않는지 파악을 위해 화면 캡쳐 부탁드려도 될까요?",
+          "user": "U03BLUPMEBS",
+          "user_name": "Daehyun(남대현)",
+          "timestamp": "1649743080.536589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 보이는 이미지는 이렇게 나오고있습니다!",
+          "user": "U02TCHR3LNS",
+          "user_name": null,
+          "timestamp": "1649743557.966749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 규범님!\n확인해본 결과, 저희 개발팀에서의 버그로 인한 오류로 파악되었습니다.\n서버에서 목록을 가져올 때 pagination을 고려하지 않은 채 요청을 하고 있어, 화면에서 모든 정보를 보여주지 못하고 있네요 불편을 드려 죄송합니다 :smiling_face_with_tear:\n제출하신 이미지들은 비록 목록에서 보이지 않더라도 성공적으로 제출되는 상태이니, 제출에 대한 걱정은하지 않으셔도 됩니다!",
+          "user": "U03BLUPMEBS",
+          "user_name": "Daehyun(남대현)",
+          "timestamp": "1649745336.598909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02VB8HRD28"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인했습니다. 감사합니다!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1649745400.738879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U02VB8HRD28"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

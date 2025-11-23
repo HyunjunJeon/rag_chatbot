@@ -1,0 +1,56 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, RecSys 9조 이하윤입니다. train과 ground-truth 데이터셋 관련하여 몇가지 여쭤보려 합니다.\n1. train_ratings.csv에서 timestamp가 유저의 해당 영화 시청 시작 시간을 뜻하는지, 아니면 유저가 평점을 매긴 시간을 뜻하는지 궁금합니다.\n2. 다른 movielens 데이터셋을 찾아봤을 때 rating과 timestamp가 같이 제공됨을 확인하였습니다. 만약 대회에서 제공된 데이터셋이 rating이 제거된 movielens 데이터라면, train 데이터와 ground-truth 데이터에 유저가 평점을 낮게 매긴 영화들 또한 포함되어 있는지, 이 또한 의도된 부분인지 궁금합니다.\n대회 운영을 위해 항상 힘써주셔서 감사합니다.",
+        "user": "U07EFLNSYFL",
+        "user_name": "이하윤",
+        "timestamp": "1731661939.624789",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07EFLMTDLJ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03M7B4JYMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 하윤님, 좋은 질문 주셨습니다.\n1. user가 평점을 매긴 시간을 뜻합니다.\n2. 의도된 것이 맞습니다. explicit feedback이 아닌 implicit feedback으로 추천을 진행하기 위해 이와 같이 가공했는데요, 사용자가 1점을 주었든 5점을 주었든 동일하게 positive sample로 간주합니다.",
+          "user": "U03M7B4JYMR",
+          "user_name": "Jaein Kim",
+          "timestamp": "1731739625.202239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapclap-e",
+                "users": [
+                  "U07E9200JTY",
+                  "U07EFLNSYFL"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

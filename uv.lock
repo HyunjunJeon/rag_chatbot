@@ -948,7 +948,7 @@ requires-dist = [
     { name = "kiwipiepy", specifier = ">=0.22.0" },
     { name = "langchain", specifier = ">=1.0.8" },
     { name = "langchain-openai", specifier = ">=1.0.3" },
-    { name = "langfuse", specifier = ">=3.0.0" },
+    { name = "langfuse", specifier = ">=3.7.0" },
     { name = "langgraph", specifier = ">=1.0.3" },
     { name = "langgraph-checkpoint-redis", specifier = ">=0.2.0" },
     { name = "langgraph-checkpoint-sqlite", specifier = ">=3.0.0" },

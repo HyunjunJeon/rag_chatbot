@@ -1,0 +1,84 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "ai stage 제출 파일이 지속적으로 fail 나는 현상이 있는데 다른 조도 비슷한 문제가 있나요??",
+        "user": "U04138D7539",
+        "user_name": "Minsu Chae",
+        "timestamp": "1672911148.057849",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "네 저희도 그러네요 ㅠㅠ",
+          "user": "U041HR7TX26",
+          "user_name": "장원준_T4184",
+          "timestamp": "1672911166.208749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 캠퍼님, 오류사항 발생시 Stages 게시판 통해 문의 부탁드립니다. 제출 Fail 관련해서는 안내된 파일 형식에 벗어날 경우 발생할 확률이 매우 높습니다 :smiling_face_with_tear:",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1672911229.373719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인 결과 같은 파일인데 사람에 따라 제출 되는 사람이 있고 아닌 사람이 있는 거 같아요 일단 저희 조에서는\n같은 파일인데 다른 사람이 제출하면 되더라구요",
+          "user": "U04138D7539",
+          "user_name": "Minsu Chae",
+          "timestamp": "1672911323.827389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버가 힘든가봐요...ㅠㅠ",
+          "user": "U041HN3U7DH",
+          "user_name": "정준환_T4203",
+          "timestamp": "1672912322.069349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "bow",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

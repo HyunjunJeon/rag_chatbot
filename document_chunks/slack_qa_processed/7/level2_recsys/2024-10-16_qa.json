@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 업로드 되었나요 다시 확인해봐도 똑같에서 여기에 남겨봅니다 조교님.!",
+        "user": "U07EUAPHBPB",
+        "user_name": null,
+        "timestamp": "1729068083.155729",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "Many to Many RNN X도 (seq_len,inputsize) 이걸로 초기화되야하는게맞죠?",
+          "user": "U07EUAPHBPB",
+          "user_name": null,
+          "timestamp": "1729068379.083459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

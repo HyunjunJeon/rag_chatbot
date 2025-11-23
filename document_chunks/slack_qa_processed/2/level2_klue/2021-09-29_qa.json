@@ -1,0 +1,266 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "4강 실습 코드 중 nlp_fill('Martin is living in [MASK].') Martin 대신 다양한 국적의 이름을 넣어본 결과가 재밌어서 공유해봅니다!\n\n동기: Martin은 서양적인 이름이라 유럽(London, Rome 등)에 살 것이라 예측을 한 것일까? 그렇다면 다른 국적의 이름은?\n\n1. 한국계 이름 - 지유, 하준, 도윤, 하윤\n한국계 이름은 Seoul, Beijing 등 동아시아에 살 것이라 예측하는 경향이 있습니다(하준, 하윤 결과 생략)\n```BERTforMaskedLM predicted Ji-yoo living in:\nJi - yoo is living in Seoul.\nJi - yoo is living in Beijing.\nJi - yoo is living in Shanghai.\n\nBERTforMaskedLM predicted Do-Yun living in:\nDo - Yun is living in Seoul.\nDo - Yun is living in Shanghai.\nDo - Yun is living in Korea.```\n2. 일본계 이름 - 아이리, 미레이, 류, 히로시 일본계 이름\n류와 히로시는 예측 결과 모두 일본의 지역이 나온 반면, 아이리와 미레이는 다국적으로 예측하였습니다. (류, 아이리 결과 생략)\n```BERTforMaskedLM predicted Hiroshi living in:\nHiroshi is living in Tokyo.\nHiroshi is living in Japan.\nHiroshi is living in Osaka.\nHiroshi is living in Sapporo.\nHiroshi is living in Kyoto.\n\nBERTforMaskedLM predicted Mirei living in:\nMirei is living in Italy.\nMirei is living in Japan.\nMirei is living in Brazil.```\n3. 중국계 이름 - 하오란 유시, 이천\n유시와 이천은 중국에 살 것이라 예측한 반면, 하오란은 유럽에 살 것이라 예측하였습니다.(이천 결과 생략)\n```BERTforMaskedLM predicted Yuxi living in:\nYuxi is living in Beijing.\nYuxi is living in China.\nYuxi is living in Shanghai.\n\nBERTforMaskedLM predicted Haoran living in:\nHaoran is living in London.\nHaoran is living in Italy.\nHaoran is living in Paris.```\n4. 그렇다면 영어권의 이름이 아닌 다른 서양권의 이름은 어떻게 예측을 할까요? 체코에서 인기 있는 이름을 가져와봤습니다. - Jakub, Tereza, Jan, Eliška\n\nEliška와 Jakub의 경우 체코(프라하)를 포함한 동유럽에 살 것이라 예측을 한 반면, Tereza는 남유럽에 살 것이라 예측하였습니다. Tereza가 체코 뿐만 아니라 유럽 전체에서 인기 있는 이름이라 그럴까요? 한편 Jan은 Jan에 살 것이라 예측을 하였습니다. :thinking_face:\n\n```BERTforMaskedLM predicted Eliška living in:\nEliška is living in Romania.\nEliška is living in Prague.\nEliška is living in Slovenia.\n\nBERTforMaskedLM predicted Tereza living in:\nTereza is living in Spain.\nTereza is living in Portugal.\nTereza is living in Italy.\n\nBERTforMaskedLM predicted Jakub living in:\nJakub is living in Poland.\nJakub is living in Warsaw.\nJakub is living in Czech.\n\nBERTforMaskedLM predicted Jan living in:\nJan is living in Jan.\nJan is living in Amsterdam.\nJan is living in London.```\n5. 마지막으로 nlp_fill('Martin's gender is [MASK].')의 결과를 공유하고자 합니다. 이름을 들으면 '아 이 사람은 여자겠구나, 남자겠구나'를 예측 할 수 있듯이 transformer도 예측을 할 수 있을까 궁금했습니다!\n\n결과는 처참했습니다. 해리의 성별은 포터고, 히로시의 성별은 일본인이며 Eliška(주로 여자에게 쓰이는 이름입니다)의 성별은 '남성적'입니다.\n```BERTforMaskedLM predicted Harry gender as:\nHarry's gender is Harry.\nHarry's gender is white.\nHarry's gender is Potter.\nHarry's gender is black.\nHarry's gender is S.\n\nBERTforMaskedLM predicted Hiroshi gender as:\nHiroshi's gender is Japanese.\nHiroshi's gender is white.\nHiroshi's gender is female.\nHiroshi's gender is unknown.\nHiroshi's gender is pink.\n\nBERTforMaskedLM predicted Eliška gender as:\nEliška's gender is masculine.\nEliška's gender is male.\nEliška's gender is unknown.\nEliška's gender is gender.\nEliška's gender is female.```\n물론 잘 맞춘 경우도 있습니다! 한국계 이름은 제법 잘 맞추는 편이였습니다.\n```BERTforMaskedLM predicted Do-Yun gender as:\nDo - Yun's gender is male.\nDo - Yun's gender is female.\nDo - Yun's gender is white.```\n여기까지입니다! 어떻게 마무리를 해야할지 모르겠네요ㅎㅎ 읽어주셔서 감사합니다!",
+        "user": "U029SLN0S1X",
+        "user_name": "김다인",
+        "timestamp": "1632925223.041200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "ahhhhhhhhh",
+              "users": [
+                "U029PN9SX1R",
+                "U029Z7YSHEV",
+                "U029YDTQP7S",
+                "U029RJGJRPX",
+                "U029MCH75UH"
+              ],
+              "count": 5
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029Z7YSHEV",
+                "U029PN9SX1R",
+                "U02AK81JACT",
+                "U029LKLNE6Q",
+                "U029L0WMGUE",
+                "U029T92U2F3",
+                "U029XA5SWTE",
+                "U029YDTQP7S",
+                "U029F23R56F",
+                "U029MCH75UH",
+                "U029F1JK1RB"
+              ],
+              "count": 11
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029Z7YSHEV",
+                "U029L0WMGUE",
+                "U029LKLNE6Q",
+                "U029WFW8H25",
+                "U029YDTQP7S",
+                "U029TBMGW81"
+              ],
+              "count": 6
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U029Z7YSHEV",
+                "U029PN9SX1R",
+                "U029LKLNE6Q",
+                "U029MCH75UH"
+              ],
+              "count": 4
+            },
+            {
+              "name": "100",
+              "users": [
+                "U029PN9SX1R",
+                "U029MCH75UH"
+              ],
+              "count": 2
+            },
+            {
+              "name": "among-us-party",
+              "users": [
+                "U029PN9SX1R",
+                "U029MCH75UH"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1::skin-tone-5",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            },
+            {
+              "name": "open_mouth",
+              "users": [
+                "U029C3CSPHB",
+                "U029PN9SX1R",
+                "U029MCH75UH"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1",
+                "U029MCH75UH"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "what is dain's gender?",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1632925522.042600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/Kyubyong/name2nat|이름을 기반으로 어느 국적일지 확률을 구하는 박규병님의 프로젝트도 있습니다 ㅎㅎ>",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1632925543.042800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029SLN0S1X",
+                  "U029T92U2F3"
+                ],
+                "count": 2
+              },
+              {
+                "name": "party-blob",
+                "users": [
+                  "U029SLN0S1X",
+                  "U029PN9SX1R"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1::skin-tone-5",
+                "users": [
+                  "U029PN9SX1R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "덤으로 제 이름도 넣어 돌려봤습니다! Dain은 일본에 사는 여성이라 예측을 합니다!\n\n```\"Dain's gender is female.\",\n\"Dain's gender is male.\",\n\"Dain's gender is unknown.\"\n\n'Dain is living in Japan.',\n'Dain is living in Tokyo.',\n'Dain is living in Shanghai.'```",
+          "user": "U029SLN0S1X",
+          "user_name": "김다인",
+          "timestamp": "1632925888.043800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-5",
+                "users": [
+                  "U029PN9SX1R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029T92U2F3"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029L0WMGUE> 오오 재밌어 보이는 프로젝트네요! 감사합니다!!",
+          "user": "U029SLN0S1X",
+          "user_name": "김다인",
+          "timestamp": "1632925947.044200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "니혼진데스까?",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1632926334.044700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dolls",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029U4VQZ5Z",
+                  "U029SLN0S1X",
+                  "U029H263PD1"
+                ],
+                "count": 4
+              },
+              {
+                "name": "flower_playing_cards",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029U4VQZ5Z",
+                  "U029SLN0S1X"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "재밌어요!",
+          "user": "U0297LELCQ6",
+          "user_name": "이대희",
+          "timestamp": "1632928175.045700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_penguin",
+                "users": [
+                  "U029SLN0S1X",
+                  "U029H263PD1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

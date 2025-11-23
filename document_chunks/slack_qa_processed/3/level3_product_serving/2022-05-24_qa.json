@@ -1,0 +1,344 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02UTH1484E> 나연님 잘 해결하셨군요!! 팀원분들과 잘 해결해주셨네용\n\n<@U02TVNVSKML>\n\n찬국님 질문에 대해 답변드리면\n\n일단 네트워크 영역에 대한 이해가 있으면 좋습니다\n\n간단히 설명드리면\n\n1) 127.0.0.1\n• IP : 인터넷에 연결되어 있는 모든 장치들(컴퓨터, 서버 장비, 스마트폰 등)을 · 식별할 수 있도록 각각의 장비에게 부여되는 고유 주소\n• 여기서 127.0.0.0/8 대역은 호스트 내부에서 사용하기로 약속되어있습니다\n• 그 중에서도 익숙할 *127.0.0.1*은 127.0.0.0/8 대역 중 하나로, localhost라고 부르기도 합니다(자신의 컴퓨터를 의미합니다)\n    ◦ 외부 네트워크에서 패킷을 받을 수 없습니다\n• OS에서 아래 경로로 가면 hosts에 대한 설정이 저장되어 있습니다\n```1. Linux\n- /etc/hosts\n\n2. Windows\n- 64비트 버전:: %SystemRoot%\\SysWOW64\\drivers\\etc\\hosts \n\n3. Mac\n- /private/etc/hosts```\n• 위 파일은 OS가 호스트 이름을 IP 주소에 매핑할 때 사용하는 컴퓨터 파일입니다\n```##\n# Host Database\n#\n# localhost is used to configure the loopback interface\n# when the system is booting.  Do not change this entry.\n##\n127.0.0.1\tlocalhost\n255.255.255.255\tbroadcasthost\n::1             localhost```\n\n위에 127.0.0.1 localhost라고 되어있는데, 이 IP는 localhost로 하겠다! 라고 되어있다고 보시면 됩니다\n\n그 외에 IP에 별칭을 주고 싶다면 hosts 파일을 수정하면 됩니다*(SSH로 특정 IP에 접근할 때, IP 숫자를 다 쓰는 것도 있지만 편하게 별칭주고 사용하는 방법도 있습니다)*\n\n2) 0.0.0.0\n• 이제 또 익숙한 IP 중 하나는 0.0.0.0입니다\n• 이 부분은 모든 네트워크의 주소를 의미합니다. \n• 어디서든 접근할 수 있습니다\n• 보통 자신의 IP 주소를 모르면 이 주소를 사용합니다\n3) 외부 IP\n• 다른 외부와 통신할 때 사용하는 IP가 외부 IP입니다. 외부에서 컴퓨터에 접속하려고 할 때 해당 IP를 통해 접근할 수 있습니다\n• 내부 IP : 컴퓨터 내부에서 사용할 때 사용\n고로 현재는 0.0.0.0를 사용해 실행하고, 그 결과로 웹 서버가 띄워집니다\n그 후에 외부IP를 사용해 접근하게 되는것이지요!\n\n\n*(참고로) 제가 강의를 설계할 때는 AI Stage을 사용하는 것보단 여러분들의 로컬 컴퓨터에서 하시는거로 생각했답니다.* \n\n*실제 현업에서 개발할 때 GPU가 있는 서버에 바로 붙는 것보단 로컬에서 하고 배포하는 과정을 하고 있어요(개발하는 과정일 경우! 딥러닝 모델 개발과 조금 분리해서)*\n\n*여러분들의 로컬 환경에 직접 설치해보시는 것을 추천드리고 싶어요*",
+        "user": "U02U0E794M8",
+        "user_name": null,
+        "timestamp": "1653379016.908989",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02U0E794M8",
+            "ts": "1653379296.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TVNVSKML",
+                "U02S8SPLTTN",
+                "U02UTH1484E",
+                "U02TUDVH1BK"
+              ],
+              "count": 4
+            },
+            {
+              "name": "bow",
+              "users": [
+                "U02TVNVSKML",
+                "U02RUR38GCF",
+                "U02UTH1484E"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02UTH1484E>\n우선 바인드(bind)는 해당 프로그램이 사용할 ip주소와 포트번호를 할당하는 과정이라고 할 수 있습니다! 해당 프로그램이 사용할 ip주소와 port번호를 고정해주어서 외부에서 접속할 수 있도록 해주는 것 같아요!!\n그리고 aistages에서 제공한 ip주소로 접속할 수 없는 이유에 대해서는 저도 잘 몰랐는데, 덕분에 찾아보게 되었네요!! 감사합니다ㅎㅎㅎ\n\n결론부터 말씀드리자면, 지금 저희 서버가 *docker 컨테이너 안에서 돌아가고 있어, 실제 서버 컴퓨터의 ip주소에 접근할 수 가 없는 것 같습니다.*\n\n서버 터미널에서 ifconfig 명령어를 입력해보니 ip 주소가 `172.17.0.2` 이더라고요,  (첨부된 그림을 참고해주시면 좋을 것 같습니다)\n\n구글링을 해보니, 도커에서 컨테이너에 ip 주소를 할당할 때, *`172.17.0.x`* 를 순차적으로 할당한다고 합니다! 결국 저희 서버가 컨테이너안에서 돌아가고 있고, 컨테이너는 격리된 공간이기 때문에, 현재 컴퓨터의 ip주소 즉, aistages에서 준 ip주소로 바인딩을 할 수가 없었던 것 같습니다!!\n\n따라서, 마스터님께서도 말씀하셨듯이, 자신의 ip주소를 정확하게 모르기 때문에, `0.0.0.0`으로 주소를 바인딩을 하는 부분이 먼저 되어야 할 것 같습니다. 그 후에 aistages에서 준 ip주소(외부 ip)와 port번호로 접속하게 되면, 컨터이너 안에 있는 서버로 연결이 되는 것 같습니다.\n\n+  `0.0.0.0` 외에, 도커에서 할당한 ip주소(ex. `172.17.0.2`)로 바인딩을 하면 접근 가능합니다!!",
+          "user": "U02TUJ81E1X",
+          "user_name": null,
+          "timestamp": "1653381348.691359",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TUJ81E1X",
+              "ts": "1653381620.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TVNVSKML",
+                  "U02U0E794M8",
+                  "U02UTH1484E",
+                  "U02TJ0CKVLJ",
+                  "U02THE97XT4"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<https://github.com/davidefiocco/streamlit-fastapi-model-serving>\n\n우연히 Github를 보다가 이런 Repo를 발견했네요!\n강의에서는 frontend, backend를 폴더 나누지 않았는데, 궁극적으론 이렇게 나누는 것도 좋답니다!\n(더 나아가선 프론트엔드는 따로 repo를 쓰고, 백엔드도 따로 repo를 쓰곤 합니다..!)\n\n한번 이 Github도 참고해보셔요 :slightly_smiling_face:",
+        "user": "U02U0E794M8",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1653380084.721469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02U0E794M8",
+                "U02TRCAQU9J",
+                "U02TCHR3LNS",
+                "U02THPJ7JVA",
+                "U02TUDVH1BK"
+              ],
+              "count": 5
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02TCHR3LNS"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/cali-in-cau>\n<https://github.com/helpdiana>\n예전에 fastapi를 이용해서 E2E 프로덕트를 개발한게 있습니다. 프로덕트 측면에서는  github organization 기능을 이용해서 각 레포를 별도로 분리해서 디커플링을 최대화 했는데 팀원이 많을수록 도움이 많이 되었습니다. 각 레포간 정의되거나 합의되어야 하는 사항은 API문서에 정리해서 공유했었습니다. 위 프로젝트는 FE, BE, 모델, 모델서빙 이렇게 총 4개로 나누어서 진행을 했습니다 :)",
+          "user": "U02U0J704TV",
+          "user_name": "김상렬_T3032",
+          "timestamp": "1653380614.960249",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0J704TV",
+              "ts": "1653380705.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TCHR3LNS",
+                  "U02U0E794M8"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0J704TV> 오 넘 잘하셨네요..! FastAPI에 익숙하시겠네요..!\n\n목적이나 상황에 따라 서버 안에 ML을 넣는 경우도 있고, 서버와 ML 서버를 나누는 경우도 존재한답니다. 아마 아실텐데 MSA 형태로 구현하는 것이지요\n\n트래픽 고려해서 앞단에 캐싱 레이어도 추가해보시는 것도 해보시는 것도 해보셨나요? 캐싱까지 하시면서 트래픽 고려하는 프로젝트가 나온다면 더욱 좋을 것 같네요-!! :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653380839.871889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 마스터님. 추가적으로 예전부터 고민 사항이 서빙하는 PC가 GPU가 없는 환경일수 있다보니(아무래도 비용이...) 모델을 loading 하고 inference하는데 병목 현상이 너무 발생하는것을 발견했습니다. 혹시 현업에서도 이런문제를 어떻게 해결하는지(말씀하신대로 cacheing이 제일 먼저 떠오릅니다. 예산에 여유가 있으면 서빙서버에 GPU할당등. ) 혹시 코멘트 남겨주실 수 있는 부분이 있으실까요?",
+          "user": "U02U0J704TV",
+          "user_name": "김상렬_T3032",
+          "timestamp": "1653381054.738539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0J704TV> 오 말씀해주신 부분도 넘 좋은 질문입니다\n\n일단 이런 경우라면 프로젝트 상황을 정리해야 합니다\n\n• Online Serving인지?(아마 맞겠지만)\n    ◦ API 호출이 얼마나 되는가?\n        ▪︎ 집중되는 시간대가 있는가? 혹은 사용량이 적은가?\n    ◦ 병목 포인트가 어디인가?\n        ▪︎ Profiling을 통해 어떤 부분이 병목인지 확인합니다\n        ▪︎ <https://github.com/benfred/py-spy> 이 프로파일링 도구를 사용하기도 합니다\n    ◦ 병목 포인트를 줄일 수 있는가?\n        ▪︎ 데이터를 주입하는 방식이 이슈일 수도 있고\n        ▪︎ 통신하는 과정의 이슈일 수도 있고\n        ▪︎ 네트워크 이슈\n        ▪︎ 데이터 전처리 이슈\n        ▪︎ 여러가지가 있습니다. 각각의 방법에 따라 해결 방법이 다르곤 합니다\n        ▪︎ 모델 구조의 경량화(사실 좀 어렵기도 하지만)\n    ◦ *저는 할 수 있는 부분은 대부분 하는 편입니다. 그래서 MLOps를 하다보면 소프트웨어 개발, CS에 대해 알면 알수록 좋습니다*\n• 만약 실시간 대응이 필요없다고 하면 Batch Serving을 하고 결과값을 저장하고, 그걸 사용하는 방식도 존재합니다(그리고 Input 데이터의 형태가 예상된다고 하면 미리 연산이 가능하겠죠)\n    ◦ 추천 시스템에서 매번 새로운 데이터 기반으로 예측할 때는 Online Serving이겠지만, 어제 올라온 데이터 내에서 추천하겠다 하면 Batch Serving으로 미리 집계하고 API에서 그 결과를 리턴하는 것도 가능하지요\n    ◦ 이 부분은 우리가 만든 모델이 *어떻게* 활용되는가? 관점으로 생각해보시면 좋습니다. 무조건 Online Serving이 좋다고 생각하진 않고, 상황에 따라 다를 것 같네요\n• CPU, GPU\n    ◦ 저는 현업에서 GPU 서빙을 거의 하지 않는데, GPU 비용이 너무 비싸긴 합니다 ㅠ_ㅠ 물론 연산 속도가 GPU가 더 빠르기 때문에 필요에 따라서 사용하기도 하지만, 왠만하면 CPU 서빙을 하기도 합니다\n    ◦ 간혹 API 요청이 많거나 많은 양을 해야하는 경우엔 GPU 서빙을 하기도 하고, 그럴 땐 선점형 인스턴스(혹은 스팟 인스턴스)를 사용해서 저렴한 가격으로 해결하곤 합니다\n    ◦ GPU가 있는 모델보다 CPU 코어가 많은 경우가 연산이 더 빠를 수도 있습니다(병렬처리 진행해서) 저도 회사에서 CPU 224 Core(선점형이라 시간당 1.9달러)로 서빙한 적이 있는데, GPU보다 더 많은 양을 처리하곤 했어요(물론 단일의 예측은 GPU가 더 빠릅니다)\n        ▪︎ 해결 방법은 여러가지가 될 것 같아요..! \n    ◦ 회사에선 모델이 자주 사용된다고 하면(트래픽이 많다면) 합의하고 사용하기도 합니다..!\n    ◦ 사용하지 않으면 서버를 저렴하게 내리게 한다거나 트래픽을 기반으로 조정하도록 쓰기도 한답니다",
+          "user": "U02U0E794M8",
+          "user_name": null,
+          "timestamp": "1653394914.138409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02U0J704TV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 마스터님!!",
+          "user": "U02U0J704TV",
+          "user_name": "김상렬_T3032",
+          "timestamp": "1653395636.962709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "뜬금없지만 갑자기 궁금한 부분이 있어요…!\n\nFastAPI에서 제가 라이브코딩하는 영상이 있는데, 주석을 작성하면서 라이브 코딩을 했었어요\n\n*혹시 주석을 남기면서 작업하던 영상을 보고 이해하기 어려움이 있으셨나요? (FastAPI가 처음이라 익숙하지 않다는 부분은 제외하고 이해하는 영역에서..!)*\n\n강의 자료를 보고 코드를 하는 것보다 구현하는 과정을 보여드리고, 그 과정에서 필요한 내용을 주석으로 써드리는게 이해하기 더 수월할 것 같아서 코드 강의는 이렇게 진행했는데 여러분들이 이해하시기에 수월했는지 궁금하네요…!\n\n\n<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/part3/01-fastapi/app/main_with_comments.py>",
+        "user": "U02U0E794M8",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1653380175.478529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02U0E794M8",
+                "U02TRCAQU9J",
+                "U02RUR38GCF",
+                "U02S8SPLTTN",
+                "U02U0J704TV",
+                "U02TKE3H7TN",
+                "U02THPJ7JVA",
+                "U02TMB2QBCP",
+                "U02TUDVH1BK"
+              ],
+              "count": 9
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "~의견이 없다면 이해하기 수월했다라고 이해해도 될까요~\n\n영상 강의 vs 코드에 주석 남기는 방식의 강의 어떤 것이 더 효율적일지 매번 고민되네요 헤헤",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653382898.043789",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U0E794M8",
+              "ts": "1653382924.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "라이브 코딩하시면서 설명을 해주시는 것 덕분에 중간중간 영상 멈추고 따라적으면서 좀 더 사용법 익히고 이해하는데 도움이 많이 됐던 것 같습니다.",
+          "user": "U02TFNQ6BQB",
+          "user_name": "김기훈",
+          "timestamp": "1653383392.265859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "영상으로 주석을 남기면서 수업해주시니까 이해하기 한결 수월했습니다.:+1:",
+          "user": "U02TFFR63FU",
+          "user_name": "민원식",
+          "timestamp": "1653386712.604699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "실습강의는 말로만 설명해주시는 경우가 많아서 코드를 제대로 이해하기가 어려웠습니다. 그러나 주석도 함께 달아주시면서 강의해주시니 이해하기가 더 편했습니다!:grinning:",
+          "user": "U02THPJ7JVA",
+          "user_name": "dongseok lee",
+          "timestamp": "1653394548.103849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "단순히 영상 강의를 듣는 거로는 머리로 이해만 되는 느낌이라서 저는 오히려 실습 영상에서 주석 달아주시면서 설명해주셔서 다행이었습니다..!",
+          "user": "U02V73VLM9B",
+          "user_name": "강면구_T3253",
+          "timestamp": "1653396968.152269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 같이 병행해주시니 더 좋았던 것 같습니다. 실습을 같이 진행하다 보니 놓치는 부분이 생기는데, 주석 덕분에 중요한 부분은 다시 한 번 볼 수 있었던 것 같습니다!!",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1653398064.392649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 모두 좋은 의견 감사합니다! 혹시 이런 형태가 어려우셨다는 분도 알려주시면 더 반영해볼게요..!\n\n다음부턴 코드 강의엔 모두 주석을 달면서 라이브 코딩으로 해봐야겠네용 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653453222.694549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

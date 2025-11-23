@@ -1,0 +1,107 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "드디어…………………………..! (두근)\n\n마지막 수업이라 기다리다가 현기증 났는데, 드디어..!",
+        "user": "U02U0E794M8",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1652425767.059849",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02U0E794M8",
+            "ts": "1652425805.000000"
+          },
+          "reactions": [
+            {
+              "name": "meow_party",
+              "users": [
+                "U02TRCAQU9J",
+                "U02U587JMDE",
+                "U02TFH06BV0",
+                "U02U65KPEJW",
+                "U02TJSFMHNZ",
+                "U02U0J704TV",
+                "U02THPJ7JVA",
+                "U02TD6CD5QD",
+                "U02TDNW0YBZ",
+                "U02RSNJQPBR",
+                "U02T8Q1C48N",
+                "U02U8G6NKEW",
+                "U02TFQ6QTTL",
+                "U02TTC9RBFZ",
+                "U02U4SD5Y4D",
+                "U02TKEWKS4X",
+                "U02U0KX9P7D",
+                "U02TL7LK78F",
+                "U02TS21LNVD",
+                "U02QJSQ1H1T",
+                "U02TG0F5TD1",
+                "U02U5H18SP7",
+                "U02TUDVH1BK",
+                "U02TZSTNP5X",
+                "U02TFFXDWQ2",
+                "U02TZAV2830",
+                "U02U1APCEBC",
+                "U02TCHR3LNS",
+                "U02THPL8F0C",
+                "U02TBLB4RHC",
+                "U03A55V79FA"
+              ],
+              "count": 31
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02TDNW0YBZ",
+                "U02RSNJQPBR",
+                "U02U5H18SP7",
+                "U02TFFXDWQ2"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "와! 프로덕트 서빙! 와! 마지막!",
+          "user": "U02U587JMDE",
+          "user_name": "전경민",
+          "timestamp": "1652425816.636039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "최종 보스만 남았네요 :393b2c5cf48b52c4:",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652425817.168389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ":booduck_coding_no_bg:",
+          "user": "U02TU6LEYKT",
+          "user_name": "권순호",
+          "timestamp": "1652426078.000269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

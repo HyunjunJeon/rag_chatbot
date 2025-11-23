@@ -1,0 +1,70 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 성연님. embedding dimension은 제가 드릴 수 있는 최선의 조언은 실험 밖에 없네요. 제 경험에 비추어서 저만의 일반화된 생각이자, 어떻게 보면 당연한 설명을 드리면, embedding dimension은 커질수록 그 표현이 풍부해진다는 것입니다. 여기서 풍부한 표현이란, 동일한 column 내에서의 feature들이 서로 잘 구분될 수 있도록 학습하는 것이에요. 그래서 질문주신 “실제 카테고리가 3개 밖에 없으면, 더 적은 임베딩을 사용해도 되지 않을까“는 이런 맥락에서 일리가 있다고 생각합니다. 하지만 동시에 다른 feature들과 결합된다는 관점에서 다른 feature들보다 비교적으로 표현력에 있어 차이가 생기면, 특정 feature에 더 집중하는 현상도 생길 수 있다는 생각도 듭니다. 이는 절대로 일반화된 공식이 없고, 처음 말씀드린대로 여러 실험을 통해 최적값을 찾아야하고, 현재 내가 풀어야하는 task에 맞춰 달라질 수 있다는 점 전달드려요!\n• <https://ai.stackexchange.com/questions/28564/how-to-determine-the-embedding-size>",
+        "user": "U03QKNSJVCY",
+        "user_name": "조대현",
+        "timestamp": "1668771842.136089",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U041FE8FKBN",
+                "U041B777D54",
+                "U041ERYLS6R"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "임베딩 레이어의 크기는 모델 복잡도를 올려준다는 직관만을 가지고 있었는데 상세한 설명과 참고자료까지 보내주셔서 감사합니다. 이 대회 뿐만 아니라 최근 가장 고민인 부분이였는데 잘 설명해주셔서 감사합니다.\n뒷 부분 말씀이 제가 이해하기로는 다른 임베딩레이어와 concat를 하고 다음 레이어 인풋값에 들어가게 되는데 특정 칼럼의 카테고리가 적다는 이유로 그 부분의 임베딩 크기를 줄인다면 다른 칼럼 대비 그 칼럼의 모델에 끼치는 영향력이 떨어질 수 있다는 말씀이실까요??\n말씀해주신 내용을 기반으로 이번 대회에서 여러 실험을 해보며 저만의 직관을 고도화해보겠습니다.\n감사합니다!",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1668817437.664229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 근데 그 부분도 정확히 임베딩 차원이 몇 대 몇 비율일때 그렇다 이런 공식은 당연히 없고, 어느정도 2의제곱수 내에서 실험해보시면 좋습니다. Stages에 소개해드린 wandb sweep으로 여러개 실험 한번에 돌려보세요! 그리고 생각보다 dkt 데이터가 아주 크지 않아서 큰 영향이 없을 수 있습니다",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1668833482.157159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

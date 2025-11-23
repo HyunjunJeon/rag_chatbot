@@ -1,0 +1,167 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 efficientdet 학습시켜서 제출시켜 보신 분 있나요? 왜 map가 0.001이 나올까요?",
+        "user": "U02TFK3K0CA",
+        "user_name": "이상윤_T3148",
+        "timestamp": "1649037533.651529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_cry",
+              "users": [
+                "U02TTV8MDJB"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "backbone 뭐쓰시나용",
+          "user": "U02TTV8MDJB",
+          "user_name": "김주연",
+          "timestamp": "1649037586.580829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "training시에는 validation의 mAP가 정상으로 나오나요?",
+          "user": "U02TJ0CKVLJ",
+          "user_name": "손정균_T3111",
+          "timestamp": "1649037622.377669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TTV8MDJB> efficientdet_d3 였어요",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1649037694.049579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TJ0CKVLJ>  아 과제로 나왔던 efficientdet 코드 얘기였어요",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1649037711.323349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 확인해봤을 때는 efficientdet이 0을 예측 안 하는 것 같더라구요 json 파일에서 category를 1~10으로 바꾸고 해야하지 않을까 싶습니다. 딴거 하느라고 아직 제대로 못 해봤는데, 제 생각엔 그렇습니다",
+          "user": "U02U65KPEJW",
+          "user_name": "박정재",
+          "timestamp": "1649037773.293549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U65KPEJW> 저도 이렇게 생각했는데 감사합니다!",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1649037829.835929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 512x512로 학습 후, inference시 1024x1024 사이즈에 맞춰서 bounding box 좌표값 수정해주셨나요?! 이 부분도 수정해야하더라구요..!",
+          "user": "U02TFP6V1DY",
+          "user_name": "이승현",
+          "timestamp": "1649038003.758579",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TFP6V1DY",
+              "ts": "1649038033.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U65KPEJW",
+                  "U02TU536QGZ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "토론글에도 공유했어요! <https://stages.ai/competitions/178/discussion/talk/post/1243>",
+          "user": "U02TFP6V1DY",
+          "user_name": "이승현",
+          "timestamp": "1649039772.614079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA",
+                  "U02TTV8MDJB",
+                  "U02TJ0CKVLJ",
+                  "U02TU536QGZ"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TFP6V1DY> 오와아 감사합니다!",
+          "user": "U02TTV8MDJB",
+          "user_name": "김주연",
+          "timestamp": "1649047486.599669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02TFP6V1DY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "기본과제 1 질문입니다. 안내해주신대로 필요 패키지를 import 하던 중,\n`!pip install numpy==1.19.0`\n에서 오류가 발생하는 것을 확인 했습니다. python 버전과 충돌이 나는 건 아닐까 해서 3.7 버전으로 다운그레이드 했음에도 에러가 발생합니다. 혹시 해결하신 분이 있으실까요? 다른 패키지들은 잘 다운로드 됩니다.\nmetadata 파일 에러인 듯 보이는데, 저희가 수정하여 진행 하는 부분이 맞을까요?",
+        "user": "U07EJ5R4Z8C",
+        "user_name": null,
+        "timestamp": "1727677321.897239",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U07ECPR5ZUM",
+                "U07EFHE37PV"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "파이썬 3.10.12 버전입니다!",
+          "user": "U07EJ5R4Z8C",
+          "user_name": "조혜원",
+          "timestamp": "1727677767.810999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정확한 대안이 될지는 모르겠지만... map_boxes install을 `!pip install map_boxes` 으로만 바꿔서 진행하니 밑에서 막히던 `mean_ap, average_precisions = mean_average_precision_for_boxes(gt, new_pred, iou_threshold=0.5)` 까지는 진행이 되는것으로 확인이 됐습니다 !",
+          "user": "U07ECPR5ZUM",
+          "user_name": "방민혁_T7158",
+          "timestamp": "1727678821.137069",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07ECPR5ZUM",
+              "ts": "1727678859.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "아, 그럼 bert4rec은 data leakage가 일어나도 상관없는 이유가 있을까요??",
+        "user": "U041HR4UCR0",
+        "user_name": "박경준_T4076",
+        "timestamp": "1672129708.626059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "data leakage가 bert4rec에서 일어나는 것이 아니고 캠퍼님께서 얘기해주시는 item 1 item 2만 보게 된다면 seq대로 나오겠지만 실제 데이터 상에서는 다양한 히스토리랑 시퀀스가 많을 것입니다.",
+          "user": "U041VLUG4HF",
+          "user_name": "김강민",
+          "timestamp": "1672130202.908919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HR4UCR0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇기 때문에 정답을 이미 알고서 푸는 건 아닙니다",
+          "user": "U041VLUG4HF",
+          "user_name": "김강민",
+          "timestamp": "1672130409.587899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HR4UCR0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 다름아니라 Sequential Baseline에서 궁금한 점이 생겨서 질문 드립니다!\n\n`hd, intd = self.hidden_dim, self.hidden_dim // 3`\n\nhiddem_dim과 intermediate hidden dimension의 값을 지정하는 코드에서, 왜 3으로 나누어 몫을 구하는지 잘 이해가 되지 않습니다..! hidden_dim은 2의 배수인 64인게 이해가 가는데, 왜 intd에서는 이걸 3으로 나누는걸까요..? :thinking_face:",
+        "user": "U04RG93LWP7",
+        "user_name": "박동연",
+        "timestamp": "1684215037.781709",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RG93LWP7",
+            "ts": "1684215062.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04R4LVMWP9",
+                "U04RK728FC2",
+                "U04RXRT6QGZ",
+                "U04RXRV3T9P"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 <@U04RG93LWP7> 님! 3에 크게 의미를 두지는 않았는데 매기수 질문이 들어와서 다음에는 4로 바꾸려고합니다.",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1684218970.689479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RG93LWP7",
+                  "U04S8T91UKS",
+                  "U041FE8FKBN",
+                  "U04R4LVMWP9",
+                  "U04RXRT6QGZ",
+                  "U04RXRV3T9P",
+                  "U04RMLU2K52"
+                ],
+                "count": 7
+              },
+              {
+                "name": "고생하셨습니다_아주감사합니다",
+                "users": [
+                  "U04RG93LWP7",
+                  "U04S8T91UKS",
+                  "U041FE8FKBN",
+                  "U04R4LVMWP9",
+                  "U04RXRT6QGZ",
+                  "U04RXRV3T9P",
+                  "U04RMLU2K52"
+                ],
+                "count": 7
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RG93LWP7",
+                  "U04S8T91UKS",
+                  "U041FE8FKBN",
+                  "U04R4LVMWP9",
+                  "U04RXRT6QGZ",
+                  "U04RXRV3T9P",
+                  "U04RMLU2K52"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 그렇군요! 빠르게 설명해주셔서 감사합니다! 좋은하루 보내세요 :grinning:",
+          "user": "U04RG93LWP7",
+          "user_name": "박동연",
+          "timestamp": "1684219067.128729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

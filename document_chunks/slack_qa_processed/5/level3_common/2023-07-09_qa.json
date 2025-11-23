@@ -1,0 +1,41 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "헤헤 저 사실 vscode 팩 이것저것 설치했는데.. 자동으로 바꾸게 된거일거에요 &lt;=를 입력했는데 저렇게 된 것..!",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1688953514.177599",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry-cat-thumbs-up",
+              "users": [
+                "U04RK761KC2",
+                "U04RK3E9M99"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "오 감사합니다. VS Code extention에 찾아봐야겠네요. :slightly_smiling_face:",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1688954241.338169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

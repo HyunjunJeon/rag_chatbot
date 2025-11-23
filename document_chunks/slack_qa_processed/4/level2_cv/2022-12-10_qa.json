@@ -1,0 +1,84 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이 이슈,  디버깅을 통해 명확하게 확인하면 채널에 공유하고 싶었던 내용이기도 한데요,\nshirnk_bbox에서 해당 에러가 생길 수도 있겠단 관점을 상준님 스레드 덕분에 알게 됐습니다.\n\n제 생각으로는, 현재의 베이스라인 상에서는 SceneTextDataset에서  `crop_img`를 하는데,  `crop된 부분` 이 score map을 만들 수 없는 background밖에 없으면, gt_score &lt; 1 이 될 수밖에 없는 것 같습니다. 유사하게, `제외 영역밖에 없는 데이터` 또한 터졌던 경험이 있습니다 ㅠㅠ.\nhard negative sample..?느낌이려나요.\n\n실제로 `EASTLoss` 에서도 해당 loss를 0으로 간주하는 걸 보면 hard negative sample로 여기는 것 같아, 저는 train.py를 고쳤습니다.",
+        "user": "U041HMZR68K",
+        "user_name": "sangmo gu",
+        "timestamp": "1670659778.033179",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041HMZR68K",
+            "ts": "1670659859.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 경험 공유해주셔서 감사합니다! 역시 비슷한 사례들이 모아지면 트러블슈팅에 도움이 되는것 같네요",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670660084.337439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 맞다.. 저의 경우는 train.py 보다 먼저 model.py 181행에서 self.criterion 에서 return value 를 못 가져오면서 터지는거라 예외처리도 불가능 한 상태라서\n조교님 말씀처럼 augmentation 에서 문제가 될만한 대상을 뺀다거나 조건을 변경하는 등으로 수정 방향을 잡고 있습니다",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1670661286.119849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "convert_mlt.py 를 사용하려는데 자꾸 아래 에러가 뜹니다. 어떻게 해결해야 할까요?\n```Traceback (most recent call last):\n  File \"d:\\Workspace\\week12\\convert_mlt.py\", line 137, in &lt;module&gt;\n    main()\n  File \"d:\\Workspace\\week12\\convert_mlt.py\", line 125, in main\n    for batch in DataLoader(mlt_merged, num_workers=NUM_WORKERS, collate_fn=lambda x: x):\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 435, in __iter__\n    return self._get_iterator()\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 381, in _get_iterator\n    Traceback (most recent call last):\n  File \"&lt;string&gt;\", line 1, in &lt;module&gt;\nreturn _MultiProcessingDataLoaderIter(self)\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 1034, in __init__\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\spawn.py\", line 116, in spawn_main\n    w.start()\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\process.py\", line 121, in start\n    exitcode = _main(fd, parent_sentinel)\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\spawn.py\", line 126, in _main\n    self._popen = self._Popen(self)\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\context.py\", line 224, in _Popen\n    self = reduction.pickle.load(from_parent)\nEOFError: Ran out of input\n    return _default_context.get_context().Process._Popen(process_obj)\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\context.py\", line 327, in _Popen\n    return Popen(process_obj)\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\popen_spawn_win32.py\", line 93, in __init__\n    reduction.dump(process_obj, to_child)\n  File \"D:\\ProgramData\\anaconda3\\envs\\boostcamp\\lib\\multiprocessing\\reduction.py\", line 60, in dump\n    ForkingPickler(file, protocol).dump(obj)\nAttributeError: Can't pickle local object 'main.&lt;locals&gt;.&lt;lambda&gt;'\n(boostcamp) ```",
+        "user": "U0427G9UU56",
+        "user_name": "송영섭",
+        "timestamp": "1670660984.622809",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "해결했습니다. 윈도우 환경 말고 서버에서 하니 되네요 :sad_pepe:",
+          "user": "U0427G9UU56",
+          "user_name": "송영섭",
+          "timestamp": "1670666228.174089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck-zoom",
+                "users": [
+                  "U0427G6QV08",
+                  "U041HN1BATV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

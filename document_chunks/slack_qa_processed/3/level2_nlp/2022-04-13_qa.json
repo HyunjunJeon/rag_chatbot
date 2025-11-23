@@ -1,0 +1,156 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 NLP 4조의 정시현 캠퍼입니다.\ntagtog을 사용하면서 조금 헷갈리는 부분이 있어서 질문 올립니다.\n\n첨부한 이미지를 보면 똑같은 entity 타입에 대해 2가지 다른 relation이 만들어 질 수 있는데요 이렇게 하면 중복되는 문제점이 있을까요?? entity 타입을 다르게 설정해야되는지 궁금합니다.",
+        "user": "U02U1UWCVNE",
+        "user_name": null,
+        "timestamp": "1649845854.006199",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "bori_jungsaek",
+              "users": [
+                "U02TZ6B7G3G",
+                "U02T6SH1BKR"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "시현님 안녕하세요ㅎㅎ 먼저 질문에 답변을 드리자면 tagtog의 relation은 중복이 되어도 괜찮을 것 같습니다.  부연 설명을 드리자면 tagtog 사용에 golden rule이 있는 것은 아니고, 결국 최종적으로 스프레드시트에 옮길 때만 format이 확정되면 되는 것이라서, 똑같은 entity 타입들에 대해 여러 가지 다른 relation이 만들어져도 상관은 없습니다. 나중에 파싱을 하여 떼내면 될 것으로 보입니다! :slightly_smiling_face:",
+          "user": "U02SJ8Z5A7N",
+          "user_name": "정영훈",
+          "timestamp": "1649864321.791789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U02U1UWCVNE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "설명해주셔서 감사합니다!",
+          "user": "U02U1UWCVNE",
+          "user_name": "정시현",
+          "timestamp": "1649897987.338629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 NLP3조 김소연입니다.\n혹시 이번 데이터셋 구축 프로젝트 마지막에 팀이 최종 제출해야하는 것이 무엇인지 궁금합니다!\nRelation map, 가이드라인은 피드백도 받고, 제출하는 것으로 이해하고 있습니다. 데이터 평가, 모델 학습등도 수행하게 되는데 이러한 전체 과정을 정리하는 *wrap up 레포트가 존재하는걸까요?*\n또한, 저희 팀이 진행한 데이터 구축 진행 과정을 팀 단위 또는 개인이 기록(블록/깃헙 등)하고 공개할 경우 *1) 제공해주신 크롤링 데이터 , 2) 팀에 할당된 데이터에 대해 저희가 작성한 relation map, 가이드라인을 공개해도 되는지 궁금*합니다. :eyes:",
+        "user": "U02TUHB5D7V",
+        "user_name": "Soyeon Kim",
+        "timestamp": "1649849135.061449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "bori_jungsaek",
+              "users": [
+                "U02TZ6B7G3G",
+                "U02T6SH1BKR"
+              ],
+              "count": 2
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U02TJSFMHNZ",
+                "U02U7N1DGHG",
+                "U02TCL8CQGM",
+                "U02U4SD5Y4D"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 일단 두 번째 질문에 대해서는, 제공해드린 데이터는 위키피디아를 출처로 하기에 CC BY SA 3.0으로 재공개하는 데에는 문제가 없고 (팀이든 개인이든), 작성하신 relation map 이나 가이드라인 역시 저희가 제공해드리는 템플릿 기반으로 / 혹은 참고하여 직접 작성하신 것이기 때문에 공개가 문제가 되지 않을 것 같습니다 ㅎㅎ 별도로 아카이빙을 위한 산출물 제출만 드라이브에 해 주시면 됩니다!\n\n그리고 첫 번째 wrap-up report 에 관해서는, 기존에는 강좌가 마칠 때 즈음 하여 작성을 따로 했던 것으로 기억하고 있는데 이번에는 저희도 따로 그에 대한 instruction을 받지는 못했던 것 같은데요,\n혹시 <@U02QQ5YTCVA> 혹은 <@U02QQ376VB6> wrap-up report에 대해서 데이터제작 NLP에서도 논의된 내용이 있다면 공유 주시면 감사드리겠습니다!",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1649869755.306439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "소연 캠퍼님 안녕하세요 :slightly_smiling_face: 랩업리포트 관련한 사항 답변드리겠습니다!\n\n기존의 리포트와 달리, 데이터제작 NLP 종료 후 제출하게 되는 Wrap UP 리포트는 1~2장 분량으로 간략하게 수행내역을 정리하는 형식입니다. *멘토 피드백이 별도로 없으며*, '*학습정리*' 및 '*수행회고*'에 중점을 두고 작성해주시면 됩니다.\n\n말씀주신 것처럼 데이터 평가, 모델 학습, fine-tuning 시도, Kappa 결과분석 등 어떤 주제로 어떤 모델링을 왜 수행했고 어떤 결과가 나왔는지 등 전체적인 수행 과정을 요약적으로 작성해주시면 됩니다.",
+          "user": "U02TFH06BV0",
+          "user_name": "김의겸",
+          "timestamp": "1649906156.947289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 원익 조교님, 의겸님!",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1649908752.424209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02TFH06BV0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

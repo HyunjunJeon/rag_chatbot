@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요. project2 관련해서 질문 드립니다.\ntrain data의 전처리 과정에서 이상치를 median, 평균 등 전체 train data의 통계량으로 대체하면 미래 시점(contract year, month)의 data가 들어가기 때문에 data leakage에 해당하는지 궁금합니다.",
+        "user": "U07E14APJ6T",
+        "user_name": "서재은_T7528",
+        "timestamp": "1728547285.373039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "답변드립니다.\n시계열 모델링에서 미래 시점을 사용하는것은 바람직하지 않지만 대회에서 주어진 train 데이터를 사용하는 것은 룰에 위배되지 않습니다.",
+          "user": "U075CCNNKH9",
+          "user_name": "허효식 조교",
+          "timestamp": "1728561428.283649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07E14APJ6T"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네, 감사합니다.",
+          "user": "U07E14APJ6T",
+          "user_name": "서재은_T7528",
+          "timestamp": "1728565534.360789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

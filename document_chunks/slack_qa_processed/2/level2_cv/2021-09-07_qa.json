@@ -1,0 +1,368 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "VGG과제에서 model.train()을 dataloader for loop안으로 넣어야 뒤에서 model.eval() 한 후에 되돌아갈 수 있을 것 같습니다! model.eval, model.train을 지정하는 이유는 dropout, batchnorm이 train, inference시에 각각 다르게 적용되어야하기 때문인데, 모델에 dropout이 있습니다. 혹시 둘 사이에 acc차이가 있을까하여 찍어봤더니 model.train을 정상적으로 해준 경우 val_acc가 초기부터 잘나오는 것이 보입니다! 근데 최종 acc는 model.train()을 잘못한 경우가 더 높네요..ㅎㅎ 1에폭이라 운이 좋아그런걸까요..?ㅎㅎ (아래 사진은 20 iteration마다의 val_acc입니다. 1번사진: 정상적, 2번사진:잘못한것)",
+        "user": "U0297P884ES",
+        "user_name": null,
+        "timestamp": "1631000002.087800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "yellow_heart",
+              "users": [
+                "U02AJA6R02C",
+                "U029RM03F6G",
+                "U029V25N58U",
+                "U029YDHQ9EU",
+                "U029EUXTG7N",
+                "U029LA9EQCU",
+                "U029EFY0XD1",
+                "U029UND0U1Y",
+                "U029KG3T7L3",
+                "U029ULW2X8A",
+                "U029FSCQAKX"
+              ],
+              "count": 11
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U029TU25PG9",
+                "U029T4XRUCR",
+                "U029TQ9JFR8",
+                "U02905YS8J3",
+                "U029BN43CDB"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 if 문이 끝나는 부분에서 해주었는데 이것도 하나의 방법일 것 같습니다.\n 그리고 dropout의 경우 임의로 subsample된 모델을 train하고 test phase 에서는 모든 노드를 사용해서 inference 하기 때문에 작은 모델들의 앙상블의 효과를 가져온다고 이해하고 있습니다. 이렇게 작은 모델들을 훈련하여 앙상블을 했을 때는 모델의 복잡도가 데이터의 복잡도 보다 높아 overfitting되는 것을 방지할 수 있게 되지만 반드시 최고의 성능을 보장할 수는 없는 것으로 알고 있습니다. subsample된 모델의 성능이 더 좋은 것은 이런 이유가 아닐까 합니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1631011238.098400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0297P884ES"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 코랩 돌리려고하면 어느순간 부터 이런 에러가 뜨는데요 구글 찾아봐도 딱히 해결책은 안보이고,,, 어떠카죠? Hardware accelerator는 GPU로 설정했습니다",
+        "user": "U028ZRPRJ5V",
+        "user_name": null,
+        "timestamp": "1631004009.092400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "구글 내부의 Colab 규정으로 인해 GPU 사용 제한이 걸리신 것 같습니다!.. GPU 초기화까지 시간이 걸리실테니 다른 구글 계정을 이용하시거나 부스트캠프 서버를 이용하셔야 할 것 같습니다 :(\n\n\n<https://github.com/googlecolab/colabtools/issues/1523|https://github.com/googlecolab/colabtools/issues/1523>",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1631004365.092700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "elmofire",
+                "users": [
+                  "U028ZRPRJ5V",
+                  "U029E8JH0BV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ": OOOO 그런 일이…! 흑흑 알겠습니다 부스트캠프 서버 이용해볼게요 감사합니다~",
+          "user": "U028ZRPRJ5V",
+          "user_name": "이채윤",
+          "timestamp": "1631004899.093100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U029YDHQ9EU",
+                  "U029L6H5SBW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 계속해서 문제가 발생하시면 말씀해주세요! :slightly_smiling_face:",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1631008824.094900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "bow",
+                "users": [
+                  "U028ZRPRJ5V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "함께 자라기 책을 읽고 공유문화에 큰 감명을 받아서 저도 오늘 공부한 내용 올려봅니다 !!\ncv ch2 data augmentation 강의를 듣다가 아핀변환이 뭐고 왜 3개의 인자를 전달해야 하는지 궁금해져서 공부하게 되었어요.\n수학과인 제가 뭘 공유할 수 있을까 고민하다가 수학적인 부분을 열심히 공부하고 제가 이해한만큼 최대한 쉽게 설명해보려고 했습니다.\n오늘 피어세션 때도 공유를 했는데 팀원 중 한 분이 관련된 NeRF라는 기술을 소개해 주어서 너무 감명받고 앞으로 더 열심히 공유해야겠다고 생각했어요.\n그리고 제가 이해한 만큼 설명하는 게 참 어렵다고 다시 한 번 느꼈습니다.\n\n<https://silver-cuckoo-eba.notion.site/969ed3ac88ff4a798a59b98f41ce54b2>",
+        "user": "U029X2SMQRJ",
+        "user_name": "나캐리",
+        "timestamp": "1631022561.104600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "birthday_party_parrot",
+              "users": [
+                "U02905YS8J3",
+                "U029T92U2F3",
+                "U029X2SMQRJ",
+                "U02A3S4V2U8",
+                "U029YDHQ9EU",
+                "U029BS21VL5",
+                "U029QUNTRFX",
+                "U029UHZ6AHY",
+                "U029DCPSW3Z",
+                "U029BP86UBX",
+                "U029LPYKUR2",
+                "U029KG3T7L3",
+                "U02AJA6R02C",
+                "U0297UZK86S",
+                "U029T4XRUCR",
+                "U029TQ9JFR8",
+                "U029EUXTG7N"
+              ],
+              "count": 17
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029E28RUPL"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029UND0U1Y"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "우와 궁금했던 부분인데 친절하게 설명해주셔서 감사합니다:raised_hands:",
+          "user": "U02905YS8J3",
+          "user_name": "최민서",
+          "timestamp": "1631023034.105500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와우 글이 정말 잘 읽히네요. 저도 수학관데 분발하겠습니다..",
+          "user": "U029L6H5SBW",
+          "user_name": "허정훈",
+          "timestamp": "1631024961.106600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수학과...! 저도 분발하겠습니다ㅎㅎ",
+          "user": "U029MTWGTJS",
+          "user_name": "Mikyoung Cha",
+          "timestamp": "1631026396.106900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 내용 감사합니다:+1:",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1631027880.116400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와.. 너무 쉽게 읽히네요! 좋은 내용 공유해주셔서 감사합니다ㅎㅎ",
+          "user": "U029KG3T7L3",
+          "user_name": "홍요한",
+          "timestamp": "1631053678.118600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "&lt;나만 몰랐던 이야기&gt;\n안녕하세요! 저만 모르는 것 같은 사소한 내용 공유합니다.\nAlexNet 논문에 타이포가 있는 것 같습니다.\n\n먼저, input의 dimension이 3*224*224로 나와있지만, 첫 번째 convolutional layer 통과 후 output의 H, W dimension이 55가 아니라 54.25로 계산이 됩니다. 실제 사용한 input data의 dimension은 3*227*227이라고 합니다.\n다음으로 첫 번째 convolutional layer의 뉴런 수가 253,440으로 나와있는데, dimension을 이용해 계산해보면 55*55*48*2 = 290,400이 나옵니다. 참고로 48*48*55*2 = 253,440으로 계산되는데 아마 피로 누적으로 졸면서 쓰시지 않았을까 생각됩니다...\n\n어제 강의 복습하면서 network 구조 공부하다가 여기까지 와버렸네요.. 아직도 모르고 있었다는게 조금 부끄럽지만 공유문화 활성화를 위해 공유합니다!\n링크에 자세하게 설명이 되어있으니 참고하시면 좋을 것 같습니다~\n\n<https://learnopencv.com/number-of-parameters-and-tensor-sizes-in-convolutional-neural-network/>\n<https://stackoverflow.com/questions/36733636/number-of-neurons-in-alexnet>",
+        "user": "U029UHZ6AHY",
+        "user_name": null,
+        "timestamp": "1631027955.117000",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029UHZ6AHY",
+            "ts": "1631028407.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029YDHQ9EU",
+                "U029BS21VL5",
+                "U029RM03F6G",
+                "U029KG3T7L3",
+                "U029T4XRUCR",
+                "U029TQ9JFR8",
+                "U0297TQCPHV",
+                "U029EUNPFFW",
+                "U029EUXTG7N",
+                "U029MCHH00Z",
+                "U02905YS8J3",
+                "U028ZQU4N07",
+                "U029UND0U1Y",
+                "U029E28RUPL",
+                "U029BP86UBX"
+              ],
+              "count": 15
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U029MCHH00Z",
+                "U029E1P5Z5G",
+                "U029BN43CDB"
+              ],
+              "count": 3
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029MCHH00Z"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "하나를 알려주면... 열을 알아버리는 당신.. 쵝오쵝오... !!! 멘토들과 마스터님 사이에도 얼마전 나왔었던 얘긴데 ㅎㅎ 대단하십니다!!!",
+          "user": "U029MCHH00Z",
+          "user_name": "Kyeongseon Ella Kim",
+          "timestamp": "1631080556.126700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다들 한번 1분씩만 시간내서 오랜만에 사칙연산 직접 계산해보시고 희대의 오타를 구경해보시는것도! 레고레고:meow_party: 저 계산이 이해가 안되시는 분들은 지금바로!!! 언제든 질문 주세요 :slightly_smiling_face:",
+          "user": "U029MCHH00Z",
+          "user_name": null,
+          "timestamp": "1631080783.127100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "세상에 안좋은 질문, 넘모 쉬워서 머쓱한 질문은 없댭니다~!~! :duck:",
+          "user": "U029MCHH00Z",
+          "user_name": "Kyeongseon Ella Kim",
+          "timestamp": "1631080850.127400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCHH00Z",
+              "ts": "1631080874.000000"
+            },
+            "reactions": [
+              {
+                "name": "duck",
+                "users": [
+                  "U029RM03F6G",
+                  "U0297P884ES",
+                  "U029UHZ6AHY",
+                  "U029UND0U1Y"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "ai agent가 유료가 아닌 오픈소스 모델이면 가능합니다. 제한되는 도메인은 <https://stages.ai/en/competitions/330/overview/rule|외부데이터셋 규정>과 동일합니다.",
+        "user": "U079B1LUAR3",
+        "user_name": "김규민",
+        "timestamp": "1732014013.388779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다!",
+          "user": "U07EJ5F2DJ8",
+          "user_name": "임상엽",
+          "timestamp": "1732026603.272939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

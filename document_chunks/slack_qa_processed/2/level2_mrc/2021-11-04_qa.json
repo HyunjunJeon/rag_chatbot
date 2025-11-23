@@ -1,0 +1,222 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "부캠시작하고 가장 긴 기간이었는데 , 4주간 캠퍼 여러분 모두 고생많으셨습니다!!!! 등수를 떠나서 모두 최고십니다!!  :party_parrot_icecream:",
+        "user": "U029B6PDLFQ",
+        "user_name": "조녁",
+        "timestamp": "1636020512.051800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U028ZA8TXRD",
+                "U029T92U2F3",
+                "U0284GKL1T4",
+                "U02A1GMPQ65",
+                "U029W76KWJY",
+                "U029H263PD1",
+                "U029WV30DMF",
+                "U029KFGPJ9H",
+                "U029F9U3MMH",
+                "U027SHXU18R",
+                "U029SLN0S1X",
+                "U029J4FN18T",
+                "U029DG66W9L",
+                "U029WFW8H25",
+                "U029TD91F09"
+              ],
+              "count": 15
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029F1JK1RB",
+                "U0284GKL1T4",
+                "U029W76KWJY",
+                "U029H263PD1",
+                "U029WV30DMF",
+                "U029F9U3MMH",
+                "U027SHXU18R",
+                "U029SLN0S1X",
+                "U029TD91F09",
+                "U029XA5SWTE"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "발표 기대하겠습니다.",
+          "user": "U029W76KWJY",
+          "user_name": "안명철_T2126",
+          "timestamp": "1636020929.052700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "종혁님도 고생 많으셨습니다! 오늘은 푹 쉬세요!",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1636021113.054100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "고생 많으셨어요 ㅎㅎ 밥 드셔야죠??",
+          "user": "U029WV30DMF",
+          "user_name": "허진규",
+          "timestamp": "1636021441.054500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029WV30DMF> 넵 저는 이제 먹었습니다!! 진규님도 고생많으셨습니다 ㅋㅋㅋ 맛저하세욥!!!",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636023220.060800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U029WV30DMF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1> 대웅님도 고생많으셨습니다!! :laughing:",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636023240.061400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029W76KWJY> 크으.. 명철님 발표는 제가 아닙니다 ㅋㅋㅋㅋ 4주 길었는데 고생많으셨습니당ㅎㅎ",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636023289.062800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:seedling:MRC 마스터클래스:seedling:가 잠시 후 *(11/5 금요일) 16:00 ~ 17:00*에 진행됩니다.\n서민준 마스터님과 함께 MRC 대회 랩업이 진행될 예정입니다.\n다른 캠퍼분들의 발표가 바로 이루어질 예정이니 16시 전에 입장 부탁드립니다 :)\n&gt; <https://zoom.us/j/92356314868?pwd=THNxVTF0UWlBVHFrdWdOT21hR3J5UT09|마스터클래스 줌 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636094121.066000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "캠퍼님들의 소중한 발표자료도 공유드립니다 :slightly_smiling_face:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636094261.066100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029B6PDLFQ",
+                  "U029SLN0S1X",
+                  "U029RJGJRPX"
+                ],
+                "count": 3
+              },
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U065EMEFX9N> 네 맞습니다.\ncorrect를 활용하여 interaction을 만들었습니다!:relaxed:\n\n간단하게 설명드리면\n1. correct를 한칸씩 밀어줍니다. 이때 가장 왼쪽의 값은 target이고 이전 seqeunce가 없기에 0이 되어야 하는데 interaction_mask와 원소 곱을 하면 없어지기에 따로 바꿔주지는 않습니다.\n2. 이후 mask의 값도 한칸씩 밀고 가장 왼쪽의 값은 0으로 할당을 해줍니다.(Why? 마지막 원소가 제일 처음으로 왔기에 당연히 0으로 바꿔줘야해요)\n3. 이제 interaction과 interaction_mask에 대해 원소 별로 곱해주면 최종 Baseline에서 사용하는 interaction 형태가 나오게 됩니다.\n참고로 interaction이 어떻게 만들어지는지 아래 그림을 참고하시면 좋을 거 같아요.\n\n혹시나 답변이 부족하거나 궁금한 내용이 있으면 말씀해주세요 :)",
+        "user": "U041FE8FKBN",
+        "user_name": null,
+        "timestamp": "1704887844.805319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변주셔서 감사합니다!!",
+          "user": "U065EMEFX9N",
+          "user_name": "배건우_T6198",
+          "timestamp": "1704888094.977029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "relaxed",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "DB에서 optuna optimize 돌리다가 objective 함수가 바뀌면 어떻게 처리해주어야 할까요?",
+        "user": "U029TN5RCQ1",
+        "user_name": "김은란",
+        "timestamp": "1638259778.118600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "objective 함수가 바뀌면 study도 처음부터 돌리는게 일반적이긴 합니다.\n하지만 suggest 값의 범위만 바꾸시는거라면 변경 후 다시 실행 하시면 됩니다. suggest_categorical 은 study 생성 후, 변경할 수 없으니 유의해주세요!",
+          "user": "U029EUP1N84",
+          "user_name": "임종국_멘토",
+          "timestamp": "1638260352.119100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "처음부터 돌리기 위해서 study_name만 바꾸면 될까요? 아니면 DB자체를 초기화해야 될까요?",
+          "user": "U029TN5RCQ1",
+          "user_name": "김은란",
+          "timestamp": "1638260698.119300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "study_name 만 중복되지 않게 변경하시면 됩니다~",
+          "user": "U029EUP1N84",
+          "user_name": "임종국_멘토",
+          "timestamp": "1638260731.119500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다",
+          "user": "U029TN5RCQ1",
+          "user_name": "김은란",
+          "timestamp": "1638260737.119700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029EUP1N84"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "```trainer.train(train_loader, hyperparams[\"EPOCHS\"], val_dataloader=val_loader)\nloss, f1_score, acc_percent = trainer.test(model, test_dataloader=val_loader)\nparams_nums = count_model_params(model)\n\nmodel_info(model, verbose=True)\n\nreturn f1_score, params_nums, mean_time```\ntune.py의 objective에서 학습이 끝나면 `trainer.test` 를 통해서 얻은 f1_score를 반환하는데요. 이 때 얻는 f1_score는 마지막 epoch의 모델의 점수인데, 마지막 모델의 성능이 최고는 아니기 때문에 사실상 `trainer.train` 을 통해 얻은 best_f1 을 반환해야 맞지 않나 생각이 들어서요. 혹시 다른분들은 어떻게 생각하시나요?",
+        "user": "U029SN2HG0H",
+        "user_name": "전상민",
+        "timestamp": "1638287766.123500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029B96RRJA",
+                "U029U4NB3UZ",
+                "U029FSCQAKX"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 상민님!\n\n`trainer.train()` 은 train과 val을 둘 다 진행해서, valid score가 최고로 높을 때의 pt 파일을 저장합니다.\n\n그리고 베이스라인의 train.py 코드에는 `train()` 과 `test()`  사이에 `train()`에서 저장한 pt 파일을 불러 읽는 코드가 들어있습니다. 아마 tune.py에는 그 코드가 빠져있는 것 같습니다.",
+          "user": "U029L7Q4FJ8",
+          "user_name": "yongchan Kim",
+          "timestamp": "1638331442.123800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "범찬님 안녕하세요.\n맞아요, 그 부분이 없어서 search space가 완전 달라진 건 아니겠지만 조금 엇나간게 아닐까 싶어요!",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1638331696.124000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 그렇게 생각합니다. 사실 train이나 test나 둘 다 val_loader로 검증하기 때문에 여기서 test는 굳이 없어도 될 거 같아요.\n\n실제로 코드 돌려보면 valid 2번 하더라구요",
+          "user": "U029L7Q4FJ8",
+          "user_name": "yongchan Kim",
+          "timestamp": "1638332776.124200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 아이디어네요! 저도 충분히 고민해 봐야겠습니다\n\n AutoML을 돌리는 경우는 한정된 자원에서 최고의 성능을 얻을 수 있는 hyper parameter를 찾는 과정이기 때문에 주로 모델의 information capacity를 낮추는 방향으로 진행이 됩니다. 원하는 문제를 풀어내는데 집중하도록 하는 것이라고 생각하는데요 그래서 학습 과정을 나타내는 지표들의 커브를 보면 크고 넉넉한 모델들의 커브보다 훨씬 noisy한 것을 볼 수 있었습니다.\n 이 말은 결국 valid data에 대해서 성능이 높은 모델을 뽑아도 test되는 상황에서의 성능은 여전히 (충분히 좁은 범위에서)불확실하다는 것으로 보여집니다. 특히나 validation이 최고 점수를 보인 특정 지점을 인위적으로 골라낸다면 모델이 validation에 대해서 overfitting되어있거나 약하게 bias되어 있을 가능성도 무시할 수 없을 것 같습니다.\n 따라서 어느 정도 학습이 진행되고 train data에 overfitting 되지 않은 상태에서는 무작위로 선택된 모델들이 model size - metric score평면에서 어떤 군집을 이루는지 관찰하는 관점으로 접근하는게 맞지 않을까 생각이 되네요. 이런 관점으로는 반드시 best score 기준으로 search를 진행할 필요는 없어 보입니다. early terminate 기법들도 역시 이런 관점에서 진행이 된다고 이해하고 있습니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1638338208.125200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA",
+                  "U029SN2HG0H"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "설득력 있는 말씀인 것 같습니다. 굉장히 잘 설명해주셔서 이해가 잘 되었네요. 저도 말씀하신대로 이해해보겠습니다! 다만, 머리로는 \"최적\"의 파라미터를 찾는 과정에서 \"평균적인\" 파라미터를 가져오는 것처럼 보여서 이런게 살짝 찜찜하네요.",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1638341947.127700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

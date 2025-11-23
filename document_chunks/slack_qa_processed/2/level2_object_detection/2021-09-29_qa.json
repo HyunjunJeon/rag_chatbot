@@ -1,0 +1,140 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 서버가 지나치게 느리신 분 있으신가요?.. 주피터 노트북 간단한 코드 한 셀 실행하는데에도 10초씩 걸려서 속터져 죽겠는데 서버 새로 받는 거밖에 방법이 없을까요..",
+        "user": "U029ULW2X8A",
+        "user_name": "이유진_T2168",
+        "timestamp": "1632978093.044000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 16
+        }
+      },
+      "answers": [
+        {
+          "text": "죽지 않고 살아있는 notebook kernel이 있는지 확인해 보세요",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1632978805.044200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 이미지나 플롯들 많이그리다보면 해당 증상이 발생하지 않나요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1632980370.044400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A3GWB4RX> 헉 네 맞습니다...저번 마스크 때는 안 그랬는데 이번에 유독 이러네요ㅠㅠ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1632980526.044600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 환경을 안물어봤네요 주피터노트북이시면 주피터랩을 말하시는걸까요? vs_code를 말하시는걸까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1632980654.044900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "vs code 입니다. 제가 안 적어뒀네요ㅠㅠ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1632980933.045100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 검색해서 찾은건아니라 경험으로 추측한건데...\n조금 느려진다 싶을때마다 `출력 지우기` 하고 저장해보시겠어요?\n아예 안느려지진 않는데 참을만은 해집니다.\n\n이미지 백개씩 그리면 캐싱같은거하느라 느려지는거 같아요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1632981123.045300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "코랩보다 느린 느낌...",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1632984263.045500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A3GWB4RX> 감사합니다. ㅎㅎ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1632984623.045900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

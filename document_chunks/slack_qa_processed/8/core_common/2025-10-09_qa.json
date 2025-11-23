@@ -1,0 +1,311 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[5주차 미션]\n 학습 코드 내에서는 forget_bias가 forget gate에 더해지는 bias인 b_f에 일정한 숫자를 곱하는 방식으로 작성되고 있습니다. 그래서 학습 코드에서는 b_f에 5를 곱하는 방식으로 설정되어있음을 추가로 확인했습니다.\n 이는 forget bias를 1로 설정한다는 것이 forget gate 내의 sigmoid를 거친 값이 1에 가까워지도록 설정한다는 의미로 받아들여도 될까요?",
+        "user": "U09CH83CMBM",
+        "user_name": "김성호",
+        "timestamp": "1760063912.329189",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "init에서 torch.ones에 곱해지는 형식이라, 초기값이 0이 아닌 forget_bias이 되는 것입니다.\n초기에 sigmoid를 거친 값이 1에 가까워지도록 설정하는 것은 맞는 것 같습니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1760064418.875019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 '오타났네..' 라고 생각했어요",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1760064555.401849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러게요 default는 1로 되어있는데 학습은 5로 하네요",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1760064690.102109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "print에서는 Forget Bias 5.0이라고 하는 걸 보니 5.0으로 하는 게 맞는 것 같습니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1760064705.283139",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8393DH",
+              "ts": "1760064726.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "sigmoid에 5를 적용하면 1에 가까워지니 bias로 5를 곱해서 넣어주는 것 같아요",
+          "user": "U09CH8BSGD9",
+          "user_name": "조현수",
+          "timestamp": "1760064731.662719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH83CMBM> 님께서 말씀하신 부분이 맞는 것 같습니다!\n실제로 sigmoid를 거친 값을 확인해봤을 때 다음과 같이 나와서 저도 말씀하신대로 이해했습니다!\n```print(torch.sigmoid(torch.tensor(1)))  # tensor(0.7311)\nprint(torch.sigmoid(torch.tensor(5))) # tensor(0.9933)```",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1760064795.013469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "print에서는 forget_bias 설정 따라가는것 같아요!\n\n의도는 forget gate를 1에 가깝게 만든다는 것 같은데 bias로 쓰여있어서 오타로 이해했습니다. 실제로 1로 학습하면 0과 비슷하네요.",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1760064887.159389",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7W1NCT",
+              "ts": "1760064923.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "문제 만드신 분이 1로 테스트하셨다가 예상하신 대로 성능이 안 나와서 임의로 조정을 하신 게 아닐까 싶어요 ~",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1760065148.261069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH820HNF> 지민님 말씀이 맞습니다~!",
+          "user": "U097N652BQW",
+          "user_name": "Kyungmin Lee",
+          "timestamp": "1760077359.529259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[5주차 과제2 정답 TODO3 Question 답변]\n정답 노트북에 적혀 있는 답변을 보면,\n```다른 언어가 들어오면 Unknown 토큰이 발생할 수 있다. 영어로 학습된 BPE 토큰화기는 한글은 처리 가능한 문자가 아니기 때문에 한국어는 다룰 수 없을 것이다. 이를 해결하기 위해 GPT-2 토큰화에선 [byte-level BPE](<https://huggingface.co/docs/transformers/tokenizer_summary#bytelevel-bpe)를> 통해 이 세상 모든 언어를 다루고자 하는 시도 역시 있었다.```\n위처럼 적혀 있는데,\n\"시도 역시 있었다.\"라는 건 GPT-2 이후 GPT 3, 4, 5에는 Byte-level BPE를 사용하지 않았다는 의미인가요?\n인터넷으로 찾아봤을 때는 여기에 딱 맞는 대답은 없어 보였고 LLM에 물어봤을 때는 GPT 3, 4, 5 또한 Byte-level BPE를 사용했다고 알려주긴 하는데\n저렇게 적어주신 의도가 있는지 조금 찜찜해서 해결하고자 질문 드립니다.",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1760075138.933769",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "'기본 BPE로 해보고 싶었지만, 비효율적인 문제가 발생하기에, 이를 보완하기 위해 Byte-level BPE를 통해 이를 해결하고자 했었다.\n그리고 최근에는 더 나아가 이를 개선한 버전을 사용하고 있다' 정도로 이해해주시면 되지 않을까 싶습니다. :man-gesturing-ok:\n`GPT-1 기본 BPE(WordPiece와 유사)` -&gt; `GPT- 2 Byte-level BPE` -&gt; `그 이후 Byte-level BPE를 개선한 버전`",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1760076216.505789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U097N652BQW",
+                  "U09CH85PLV9",
+                  "U09CD7Y1FPX"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "참고 논문: <https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf|Language Models are Unsupervised Multitask Learners>",
+          "user": "U09CD83AUTF",
+          "user_name": null,
+          "timestamp": "1760076485.837379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2024년 12월에 메타에서 발표한 BLT 라는 개념도 재미삼아 읽어보시면... (<https://arxiv.org/abs/2412.09871>)",
+          "user": "U04RK3KSAN7",
+          "user_name": "박성현",
+          "timestamp": "1760076526.873049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CD83AUTF",
+                  "U09CH85PLV9",
+                  "U09CD7Y1FPX"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[5주차 NLP 이론 - 심화 1]\nCBOW Dataset을 구축하는 과정에서 window_size만큼 양쪽에 단어가 있는 경우에만 데이터를 사용하는 것 같은데\n```for tokens in tqdm(train_tokenized):\n    token_ids = [w2i[token] for token in tokens]\n    for i, id in enumerate(token_ids):\n        if i-window_size &gt;= 0 and i+window_size &lt; len(token_ids):\n            self.x.append(token_ids[i-window_size:i] + token_ids[i+1:i+window_size+1])\n            self.y.append(id)```\n문장의 맨앞과 마지막에 있는 케이스는 데이터셋으로 사용하지 않는, 이 방법이 일반적인 방법인가요?",
+        "user": "U09CH8A1B6X",
+        "user_name": "황은배",
+        "timestamp": "1760075383.007779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH894W3D",
+                "U09CH85PLV9",
+                "U09CH84CA6P",
+                "U09CH88G84T",
+                "U09CH7WRGAX"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "저같은 경우에는 토큰화된 문장 양 끝에 window size 만큼 &lt;pad&gt; 토큰을 추가해준 후에 진행했습니다.",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1760075591.135589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CD83AUTF",
+                  "U09CH84CA6P",
+                  "U09CH8A1B6X",
+                  "U09CH85PLV9"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH820HNF> 저도 패딩을 하는데 조금 지저분하게 코드를 작성한 것 같습니다..\n깔끔한 방식 알려주셔서 감사합니다!",
+          "user": "U09CH8A1B6X",
+          "user_name": "황은배",
+          "timestamp": "1760075708.468599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 패딩을 추가하는 방식으로 했었는데, 정답 코드대로면 짧은 문장 + 큰 window size의 경우에 학습에 사용할 샘플 개수가 크게 적어질 것 같은데\n정답 코드의 방식이 일반적인 방식인지 궁금하네요",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1760075880.410609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thinking_face",
+                "users": [
+                  "U09CH8A1B6X"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "CBOW가 주위에 있는 단어들을 가지고 임베딩을 만드는거라 그럴거에요. 앞이나 뒤에 &lt;PAD&gt;를 넣으면, 맨 처음 단어나 맨 끝 단어도 가능할 거 같지만, CBOW의 원리 관점에서 보면, &lt;PAD&gt;는 무의미한 값을 전달하는거라, 잘못된 문맥이 학습될 수 도 있어서요.",
+          "user": "U09CD83AUTF",
+          "user_name": null,
+          "timestamp": "1760077058.765429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH85PLV9",
+                  "U09CH8A1B6X",
+                  "U09CH820HNF"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

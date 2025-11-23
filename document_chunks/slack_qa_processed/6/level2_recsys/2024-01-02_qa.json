@@ -1,0 +1,60 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[DKT 1강 퀴즈 마지막 문제] 혼동 행렬에서 \"실제 정답을 잘못 예측한 부분\"과 \"실제 True인 정답을 False로 잘못 예측한 것\"이 동일한 의미를 가진다고 할 수 있는 건가요? 실제 False를 True로 잘못 예측한 것도 실제 정답을 잘못 예측한 것에 속하는 것 아닌가요?",
+        "user": "U063MQZV8PP",
+        "user_name": "Juyeon Lee",
+        "timestamp": "1704257074.890159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RXRUJ3DX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 해설에서 이야기한 True와 False는 정답값 1/0이 아닌 정답/오답의 의미로 사용됐는데 이를 올바른 표현인 “실제 정답을 잘못 예측한 것”으로 수정했습니다.",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범",
+          "timestamp": "1704264714.297339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 넵! 저도 positive/negative와 True/False의 차이를 제대로 숙지하고 넘어가겠습니다. 감사합니다.",
+          "user": "U063MQZV8PP",
+          "user_name": "Juyeon Lee",
+          "timestamp": "1704264963.504399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U04RXRUJ3DX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

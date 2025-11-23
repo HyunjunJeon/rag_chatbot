@@ -1,0 +1,678 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "PC, Mobile 파일 내보내기로 하면 각각 다른 파일 형태가 보였습니다!\npipe 6개를 사용한 게... 맞을까요? \"uniq -c\" 찾은 게 핵심이었습니다!",
+        "user": "U02AH59AT3N",
+        "user_name": "곽민구_T2255",
+        "timestamp": "1639555381.317900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02AH59AT3N>\n\n오 맞아요 내보내기 형태가 다를 수 있음 (=같은 데이터여도 어떤 환경에서 추출하느냐에 따라 다르다)\n파이프는 몇개 사용해도 괜찮아요! 정답이 하나는 아니고 여러가지가 가능해요~! 저도 uniq -c 사용했어요 :slightly_smiling_face:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639555450.318100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버 문제인것 같지만 LC_COLLATE=“ko_KR.UTF-8” 조건을 달아줘야 sorting이랑 uniq가 작동하더라고요! 저도 마지막은 uniq -c였습니다.",
+          "user": "U02AM2MKYG1",
+          "user_name": "박진형",
+          "timestamp": "1639555631.318300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AM2MKYG1",
+              "ts": "1639555652.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AM2MKYG1>\n오 서버 문제로 LC를 지정하고 하셨군요! uniq -c 쓰셨으면 맞을거 같아요! :slightly_smiling_face: :thumbsup:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639584839.329200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분:dizzy:\n오늘 2차 Product Serving 오피스아워가 (12/15 수요일) *18:00 ~ 19:00*에 진행됩니다.\n*전시흠 멘토님께서 &lt;MLFlow 프로젝트 클라우드에 띄우기&gt;*에 대해 설명해주실 예정입니다. 6시까지 늦지 않게 참여해주시기 바랍니다 :slightly_smiling_face:\n:exclamation:️`코어 타임 내에 진행되는 세션이므로 필수 참석임을 알려드립니다!` \n&gt; <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|Product Serving 2차 오피스아워 Zoom Link>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1639557000.319200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 오피스아워 자료 미리 공유드립니다 :slightly_smiling_face: 잠시 후 6시에 시작입니다! 먼저 들어오셔서 크리스마스 노래 들어요:hugging_face:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1639558127.320700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "fastAPI에서 response로 이미지를 전달하는 방법이 있을까요?\n업로드한 이미지를 받아서 GAN으로 생성한 이미지를 다시 클라이언트에 전달하고 싶은데 잘 안되네요ㅠ",
+        "user": "U029ENX4TDZ",
+        "user_name": "장동주",
+        "timestamp": "1639582190.328200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029UND0U1Y",
+                "U0298RU576J"
+              ],
+              "count": 2
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U029B96RRJA",
+                "U028ZAA1X1V"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "fastapi.responses.FileResponse을 사용해봤는데 &lt;~response 200~&gt; &lt;status 200&gt; 이라는 값만 찍히고 이미지 데이터는 담겨 있지 않네요",
+          "user": "U029ENX4TDZ",
+          "user_name": "장동주",
+          "timestamp": "1639582293.328500",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029ENX4TDZ",
+              "ts": "1639635456.000000"
+            },
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029KSKF90V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "동주님 안녕하세요! 자세한 내용은 코드를 봐야 더 좋긴한데.. 설명으로 생각해보면 StreamingReponse를 사용하셔도 좋을 것 같아요~!\n\n<https://fastapi.tiangolo.com/advanced/custom-response/#using-streamingresponse-with-file-like-objects>\n\n\n“fastapi image response”라는 검색어로 구글에 검색하시면 아래 글이 나오는데 참고하셔도 좋을 것 같네요!\n\n\n<https://stackoverflow.com/questions/55873174/how-do-i-return-an-image-in-fastapi>",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639583086.328800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029TQ9JFR8",
+                  "U029MTWGTJS",
+                  "U029ENX4TDZ"
+                ],
+                "count": 4
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U029ENX4TDZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK> 헉 정말 감사합니다.. 저 이거 어려워서 그냥 express로 처리해버릴까 했는데.... :smile: :smile: 지금이라도 다시 도전해보려고 합니다",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1639614477.330200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 base64 활용해서 이미지 response합니다.\n\n제가 사용한 예제 코드입니다.\n참고로 buffer은 type이 np.array입니다.(cv2에서 jpg화 시킨 거예요!)\n\n`jpg_as_text = base64.b64encode(buffer)`\n\n`response = <http://requests.post|requests.post>(\"<http://localhost:8001/order>\", files=files)`\n`jpg_as_text = response.json()[\"products\"][0][\"result\"]`\n`jpg_original = base64.b64decode(jpg_as_text)`",
+          "user": "U0298BT8SNA",
+          "user_name": null,
+          "timestamp": "1639629941.339800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1639630133.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MCT2RTK",
+                  "U029KSKF90V"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298BT8SNA> 오 base64 인코딩하는 것도 방법이지요! 잘하셨네요 :muscle:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639631493.341400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U0298BT8SNA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다! 저는 이런 식으로 해결했어요! file형태로 저장된 이미지가 아니라서 streamingResponse가 적절한지 고민하다가 Response 메소드로 구현했어요!\n torch.tensor를 pilImage 객체로 바꾼 다음에 다시 png byte 형태로 바꿔서 전달하는 방식이라 중간에 변환 과정이 많아서 개운하진 않지만 일단은 원하는 결과가 출력이 되었어요!",
+          "user": "U029ENX4TDZ",
+          "user_name": null,
+          "timestamp": "1639635300.345600",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029ENX4TDZ",
+              "ts": "1639635473.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다~",
+          "user": "U029ENX4TDZ",
+          "user_name": "장동주",
+          "timestamp": "1639635490.346400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "v100 서버에서 AWS, GCP 연결없이 airflow 실습을 했습니다.\n어제는 연결도 잘 되고 DAG실행도 잘 되었는데 오늘 다시 webui 를 띄우려고했는데 연결이 안되네요,,,\n• airflow db reset 후 init, create user 까지 다시 설정 후 연결\n• `cat $AIRFLOW_HOME/airflow-webserver.pid | xargs kill -9`  , `cat /dev/null &gt;  $AIRFLOW_HOME/airflow-webserver.pid`  후 다시 연결\n위의 두 가지를 해봤는데 사진과 같이 ERROR가 뜨면서 계속 안되네요. 이 에러 만나보신 분 계신가요? 초기화 하고 다시해야할까요?ㅜㅜ",
+        "user": "U029E484Z18",
+        "user_name": null,
+        "timestamp": "1639628826.338900",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029E484Z18",
+            "ts": "1639628867.000000"
+          },
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 13
+        }
+      },
+      "answers": [
+        {
+          "text": "유진님 안녕하세요!\n• 현재 서버에서 8080 포트를 사용하고 있는 것 같은데, `lsof -i :8080` 을 사용해서 열려있는 것이 무엇인지 확인해볼 것 같아요\n• 열린 부분을 하신 것처럼 kill -9 &lt;process id&gt;\n• 혹은 airflow webui를 어제 띄운 방식이 스크린이나 nohup이였을까요? 그냥 커맨드였을까요",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639629012.339300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029E484Z18"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "8080 으로 열린애들 다 kill 해서 해결했습니다 !! 감사합니다. airflow를 띄운 방식은 그냥 커맨드였습니다!\n지금은 제가 airflow 를 그냥 커맨드 창에서 Ctrl-C로 멈추는데 제대로 종료하는 방법이 있을까요?",
+          "user": "U029E484Z18",
+          "user_name": "이유진",
+          "timestamp": "1639629601.339600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cat $AIRFLOW_HOME/airflow-webserver.pid | xargs kill -9 &lt;- 이 커맨드가 airflow webserver pid를 모두 종료하는 명령어로 잘하셨는데, 하다보면 다른 라이브러리에서 8080을 쓰는 경우도 있더라구요! 이런 경우 lsof를 쓰시면 편리합니다\n\n쉘 커맨드 부분에서 알려드린 nohup을 쓰시면 계속 백그라운드에서 띄우게 됩니다. AIrflow는 보통 ctrl c로 나가지 않고 계속 띄워두어야해요(웹서버 스케줄러 모두)",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639630289.340700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639631522.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029E484Z18"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029E484Z18"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 마스터님!!",
+          "user": "U029E484Z18",
+          "user_name": "이유진",
+          "timestamp": "1639631453.341100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E484Z18> 혹시 저희 v100의 다른 커스텀 포트도 외부에서 접근 가능한가요 포워딩 없이? 외부에 열린 포트가 텐서보드용 포트 말고 또 있나요...?",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639631962.341900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E9LS8NP> 안녕하세요 보성님 죗옹한데 질문 자체를 이해를 못했읍니다^^,, 제가 알기론 텐서보드용 포트 말고 열린건 없어서 로컬에서 진행했습니닷! 커스텀어쩌고랑 포워딩저쩌고는 시도해보지 않았습니다~!",
+          "user": "U029E484Z18",
+          "user_name": "이유진",
+          "timestamp": "1639632618.342100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마 보성님 질문은 “v100 서버“라고 유진님이 말씀해주셔서 AI Stage 서버에서 포트 오픈이 되어있는지 질문하신 것 같네요..! 유진님은 로컬에서 하셨다고 한 것 같구요..!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639633857.343100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029E9LS8NP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E484Z18> 아하 로컬에서 하셨군요? 마스터님의 말씀이 맞습니다 ㅠ 잘못 읽고 엇 다른 포트가 열려있나? 해서 여쭤봤습니다...!",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639635239.345100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E9LS8NP> 엇 잠시만요,,, 뭔가 이상해서 확인해보니 저는 v100 서버에서 한 것이 맞았습니다,,, 서버에서 했는데 어케 8080으로 접속이 되는지 모르겠네요 알아보고 답변 드리겠습니다!",
+          "user": "U029E484Z18",
+          "user_name": "이유진",
+          "timestamp": "1639637143.352100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요!\napi요청받아서 인퍼런스를 하는과정에서 인퍼런스할때마다 python file을 실행해주는데 이 때 pretrained model load 하는 시간을 줄여보고자 redis를 사용해서 할 수 있지않을까? 라는 생각이 들었는데 이런 고민을 하신 분이 계신가요?? 여쭤보고싶습니다!",
+        "user": "U029F5F344T",
+        "user_name": "허지훈",
+        "timestamp": "1639633874.343500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029MCT2RTK",
+                "U029MKLUYFN",
+                "U029J2FKWLS"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 13
+        }
+      },
+      "answers": [
+        {
+          "text": "지훈님 안녕하세요~! Redis에 어떤 것을 저장하려고 하는 목적이신가요?\n\n저라면 동일한 데이터가 존재하는지 Redis에 체크하고 =&gt; 있으면 Redis의 값을 return하고, 없으면 예측하고 그 결과를 Redis에 저장하는 캐싱 역할로 사용할 것 같아요 =&gt; *인퍼런스 시간 단축*\n\n예측이 들어올 때마다 Model Load 를 하는 부분은 저라면 서버에서 Global 변수나 FastAPI에서 Depends로 주입해서 사용할 것 같네요(Depends를 사용하면 할 때마다 하지 않고 캐싱하고 가지고 있어요) =&gt; *모델 Load 시간 단축*",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639634125.343900",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639634165.000000"
+            },
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029MKLUYFN",
+                  "U029ST041PU",
+                  "U029ENX4TDZ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저 같은 경우에는 위의 마스터님이 말씀하신 대로 model을 None으로 정의, global 변수 사용하고 post가 올때 model이 None이면 model이 로드 될수 있게 코드를 작성했습니다.\n이 경우 첫 post는 오래 걸린다는 단점이 있었는데요. 강의를 듣고 startup 실행시 모델을 로드 할 수 있도록 변경을 했습니다!!\n근데 이부분에서 이제 걱정되는 것은 서버는 항상 모델을 들고있어야 하고 그 만큼의 GPU 메모리를 계속해서 사용하고 있다는 것인데 속도를 생각하면 충분히 감수할만한 리소스라 생각했습니다.",
+          "user": "U02AM2MKYG1",
+          "user_name": "박진형",
+          "timestamp": "1639635555.346600",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AM2MKYG1",
+              "ts": "1639635609.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 global 변수를 사용하지 않고 startup 때 모델이 로드된 정보를 가지고 있을 방법은 없을까요??(Depends 를 사용하지 않으면서 할 수 있는 방법이 있나 궁금합니다!)",
+          "user": "U029BP86UBX",
+          "user_name": "임성민",
+          "timestamp": "1639638089.355400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029BP86UBX",
+              "ts": "1639638250.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK>그런방법이 있었군요! 감사합니다\n<@U02AM2MKYG1> 진행해보신 경험담 공유 감사합니다!",
+          "user": "U029F5F344T",
+          "user_name": "허지훈",
+          "timestamp": "1639638396.355700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029BP86UBX> 저는 글글로벌로해봐야겠어요ㅎㅎ..",
+          "user": "U029F5F344T",
+          "user_name": "허지훈",
+          "timestamp": "1639638409.355900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cattyping",
+                "users": [
+                  "U029BP86UBX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029BP86UBX>\n글로벌 변수와 Depends를 사용하지 않으려는 이유는 무엇이신가요?",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639640193.357200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 벤토ML 강의를 보고 지금 가진 모델로 벤토를 만들어보려고 하는데 제가 가진 모델이 음성을 입력받아 전처리를 거쳐 텐서로 먹이는 상황입니다. AudioSegment로 만드는 것도, 전처리도 predict api 내부에서 시도하려고 하는데요, 이때 predict api 위의 데이터 어댑터를 어떤 것으로 고르는 것이 맞을지 궁금해서 질문드립니다. 일단은 파일이든 오디오 스트림이든 바이트로 읽히니 raw 데이터를 읽는 Fileinput을 쓰는게 맞을까요?",
+        "user": "U029E9LS8NP",
+        "user_name": "김보성",
+        "timestamp": "1639636129.351300",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://docs.bentoml.org/en/0.13-lts/api/adapters.html>\n\n네 일단 fileinput으로 읽을수 있게 입력값을 가공해 주시는 게 좋을 거 같구, 아니면 커스텀 인풋 어댑터를 구현해서 좀 더 편하게 사용하는 방법도 있을 거 같습니다!\n\n커스텀 인풋과 error를 만드는 건 라인에서 잘 정리해주셨습니다.\n<https://engineering.linecorp.com/ko/blog/mlops-bentoml-1/#2-4>",
+          "user": "U029MCHFVEV",
+          "user_name": "Humphrey Ahn",
+          "timestamp": "1639636906.351700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 멘토님! 제가 도큐멘테이션을 이상한 버젼을 봐서ㅋㅋ 토픽만 있는걸 보고 어리둥절해서 여쭤봤네요ㅋㅋ좋은 레퍼런스 감사드립니다!",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639637328.352300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요.\n모델이 nn.module만으로 이루어진게 아니라 내부에 커스텀 연산이 많은 상태인데 이래도 벤토ML을 사용할 수 있을까요?",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639638574.356100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "개인적인 경험상 nn 모듈 외의 여러 커스텀한 게 많은 경우는 최대한 BentoService에서 해당 연산을 구현해주는 쪽이 편했습니다!",
+          "user": "U029MCHFVEV",
+          "user_name": "Humphrey Ahn",
+          "timestamp": "1639639289.356800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마 BentoML에서 audio input이 없었던거로 알고있는데, image input adapter 소스코드 참고하셔서 audio input adapter 만드셔서 PR 해보는 것도 좋을 것 같아요 :slightly_smiling_face:\n커스텀 연산이 데이터 전처리쪽일까요?",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639640152.357000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅠ 이게 모델이 (인코더+빔서치(디코더+CTC)) 이렇게 생겨서 빔서치 내부의 연산이 같이 패킹 되나 싶읍니다... 사실 이 모델을 ONNX로 떨구려다가 커스텀 연산땜시 문제가 났어서 미리미리 겁먹게 되네요...;;",
+          "user": "U029E9LS8NP",
+          "user_name": "김보성",
+          "timestamp": "1639640745.357700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029E9LS8NP",
+              "ts": "1639641105.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "CV 강의 10강의 후반에 나오는 실습 파트 강의자료 슬라이드도 업로드해 주실 수 있을까요?",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1647570445.172149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02RBNNL7LG",
+                "U02TFH06BV0"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "fyi <@U02TFH06BV0>",
+          "user": "U02RBNNL7LG",
+          "user_name": "강지혜",
+          "timestamp": "1647572103.022449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TFH06BV0"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T1HLM9NK> 슬라이드 전달 드립니다:)",
+          "user": "U02SJMA8PJS",
+          "user_name": null,
+          "timestamp": "1647577951.170499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK",
+                  "U02RBNNL7LG"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

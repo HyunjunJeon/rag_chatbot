@@ -1,0 +1,99 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1759158494.660329",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "Greedy로는 첫번째 결과가 [3, 1, 5, 5, 5, 6]가 되지 않나요?",
+          "user": "U09CH7W1NCT",
+          "user_name": "김민회",
+          "timestamp": "1759192845.987919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 제가 잘못 이해한걸 수도 있을거 같아요 뭔가 명확하진 않아서..",
+          "user": "U09CMETRNFL",
+          "user_name": "윤종욱_T8131",
+          "timestamp": "1759193012.424029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 계속 보니까 제가 잘못이해한거 같아요..",
+          "user": "U09CMETRNFL",
+          "user_name": "윤종욱_T8131",
+          "timestamp": "1759193271.392609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CMETRNFL",
+          "user_name": "윤종욱_T8131",
+          "timestamp": "1759193274.894649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 이 부분에서 시각화 이미지도 normalize를 적용하고 출력하는게 올바른 방법인걸까요? 주상우 캠퍼님이 말씀해주신대로 시각화에는 normalize를 적용하지 않아야 과제에서 제시한 이미지대로 출력이 돼서 어떤 게 맞는건가요?",
+        "user": "U09CH7W1NCT",
+        "user_name": "김민회",
+        "timestamp": "1759193525.044739",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 김민회님 말씀대로 그 부분이 의문이긴 합니다. 그래서 normalize를 적용하고, 시각화하기 전에 역normalize를 적용할 수 있을까도 생각해봤는데 구현하기 어려워보여서 하진 않았는데 저게 맞는 방법인지도 잘 모르겠어요",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1759193649.456359",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH85PLV9",
+              "ts": "1759193694.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

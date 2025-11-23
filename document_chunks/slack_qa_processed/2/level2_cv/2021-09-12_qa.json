@@ -1,0 +1,77 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "주말 잘 보내고 계신가요!\n\nKnowledge distillation (Teacher-Student Learning)에 대해서, '왜 soft label을 사용하는가?' 정리한 내용입니다.\n(제 생각이 많이 들어가 있습니다! 참고해주세요)\n<https://www.notion.so/zzin33/Knowledge-distillation-Teacher-Student-Learning-ce9549c2b9fd41bfb93ac9f1d2c52be9>\n\n결론적으로 제 의견은 KD 학습의 Loss는 Distillation Loss와 Student Loss의 합으로 표현되는데, bias와 variance와 마찬가지로 trade-off를 고려하여 최젓값을 찾아야 합니다.\n하지만, 그 부분을 찾기가 어려워서 다른 쉬운 방법을 고려했고, 그에 대한 해법이 generalization을 올려주는 soft-label이며 그래서 사용된다고 생각합니다. :thinking_face:\n(사실 아직도 뭔가 명쾌하지는 않지만, 아직도 다른 정리할 게 많이 남아서.... :smiling_face_with_tear:)",
+        "user": "U029L86M9JQ",
+        "user_name": "박성진",
+        "timestamp": "1631438342.222500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "amaze",
+              "users": [
+                "U029BGDTLJH",
+                "U028ZAA1X1V",
+                "U029TQ9JFR8",
+                "U029M37U7S8",
+                "U0295N0FL5T",
+                "U029E1P5Z5G",
+                "U028ZQU4N07",
+                "U029E484Z18",
+                "U029V25N58U",
+                "U0290GAJGG7",
+                "U029KSKF90V",
+                "U029R6PA9HT"
+              ],
+              "count": 12
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029BS21VL5",
+                "U029X8XP189",
+                "U029T92U2F3",
+                "U02A3RWDVPS",
+                "U02905YS8J3"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://research.google/pubs/pub50401/>\n여전히 연구되고 있는 분야인데요. 가장 최근 나온 위 ICML21 논문은 좋은 관점을 제시합니다. 결국에 상대적으로 그리고 절대적으로 각 클레스의 확률과 uncertainty 관계를 잘 학습시키는게 중요한거다라고 해석될 수도 있겠네요.\n단 하나의 관점이고 또 다른 많은 관점이 있을 수 있을 것 같습니다. 세상에 답은 하나가 아니니까요.",
+          "user": "U029EUXTG7N",
+          "user_name": "오태현 (포스텍)",
+          "timestamp": "1631451902.224000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029EUXTG7N",
+              "ts": "1631451917.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EUXTG7N> 좋은 자료 감사합니다! 아직 자세하게 읽어보지는 않았지만, 이 논문에서는 제가 읽어 본 논문들 처럼 student의 학습만 보는 것이 아니라 teacher의 부분도 잘 이해하고 사용하는 것 같네요! 정말 다양한 관점이 있는 것 같습니다! 감사합니다",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1631452557.224400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "기초적인 질문인데요..\nmmdet/mmseg에서 아래와 같이 주면 하나의 GPU 스레드에서 batch size가 8/2=4가 되는 건가요, 아니면 2개의 스레드에 동시에 8개씩 한꺼번에 8*2=16개가 로드되는 건가요, 아니면 하나의 연산 스레드에 2개의 데이터 로드용 스레드가 협업을 하면서 8개의 이미지를 로드하는 건가요??\n`samples_per_gpu=8\nworkers_per_gpu=2`",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1651885980.314399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TJ0CKVLJ",
+                "U02U8G6NKEW"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "samples_per_gpu = batchsize\nworkers_per_gpu = dataloader의 num_workers\n여기에 multigpu일 경우 배로 늘어납니다\n주영님이 말하신 것 중 후자에요!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1651888001.986579",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1651888052.000000"
+            },
+            "reactions": [
+              {
+                "name": "100",
+                "users": [
+                  "U02U1RYL99C",
+                  "U02U8G6NKEW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마지막이군요. 감사합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651892558.438789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TCHR3LNS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 하나의 gpu에 8사이즈의 batch를 2개의 worker로 올리는거라 생각하시면 되어요! 그리고 추가적으로 연산 스레드라기 보다는 연산 Process라고 하시는게 좋을듯 합니다!\ndataloader는 multiprocess 기반으로 돌아가서요!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1651892654.643089",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1651892724.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TJ0CKVLJ",
+                  "U02U8G6NKEW"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "구체적인 설명 정말 감사합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651893374.613019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

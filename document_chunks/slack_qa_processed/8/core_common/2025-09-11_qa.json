@@ -1,0 +1,1243 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[AI Math 심화 과제]\n\n1. Trainer class 내부에 있는 compute_gradient 함수에 부분에서 아래와 같은 식이\n```error = (y / pred) - ((1 - y) / (1 - pred))```\nBCE를 미분한 결과와 부호가 반대로 나오는데 의도된 것인지 궁금합니다.\n\n2. 1.에서 error의 부호가 반대로 되어있다면\n```b_grad = np.mean(error)```\n이 부분도 -를 붙여줘야 하지 않나요?\n\nMSE부분에 대해서도 같은 질문입니다!",
+        "user": "U09CH8B49R9",
+        "user_name": "김준수",
+        "timestamp": "1757576625.006459",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8B49R9",
+            "ts": "1757577680.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH89NYSF",
+                "U09CH7SLK5H",
+                "U09CH7UDBCK",
+                "U09CH85JCFM",
+                "U09CH871719",
+                "U09CH89RBT5",
+                "U09CH845YEP",
+                "U09CH83VDDZ",
+                "U09CH81NW2X",
+                "U09CH88G84T",
+                "U09CH7WV1PV",
+                "U09CH7Z1R8T",
+                "U09CH81B2UT",
+                "U09CH83S70B",
+                "U064FHT8RU1",
+                "U09CH7YMY59"
+              ],
+              "count": 16
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7Z54N7",
+                "U09CMETRNFL",
+                "U09CH871719"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "준수님 안녕하세요 :relaxed:\n\n*[심화과제]* 정답 코드를 만드는 과정에서 편의를 위해 1번 질문에서 물어주신것처럼 편의를 위해 error부호가 반대되도록 구현이 된것 같은데요, 그 후 뒷부분의 코드가 꼬이며 b_grad의 -부호가 누락된 것이 맞습니다. 기존 과제 페이지에 bce는 `- np.mean(error)` 로, mse는 `-2 * np.mean(error)` 수정해두도록 하겠습니다. 혼란스러우셨을 것 같아요 :smiling_face_with_tear:\n\n기존의 경사하강법 알고리즘은 beta_new = beta_old - lr*grad / batch size로 구현됩니다. 여기서 핵심은 경사’하강’법이기 때문에 lr*grad 앞에 붙는 -기호가 되는데요. 그런데 구현상의 편의를 위해서 준수님이 말씀해 주시는 것 처럼 error를 부호가 반대되게 정의하는 경우가 종종 있습니다. 따라서 이 부분은 의도된 부분이 맞습니다. *Beta_grad도 이에 맞게 구현해주시면 됩니다!* \n\n추가로 그럼 왜 기존의 b_grad로 학습을 해도 잘 되냐는 의문을 가지시는 분들이 있을 것 같은데요, b는 단 하나의 값인 반면, beta는 더 많은 파라미터를 가진 행렬입니다. 학습 과정에서 beta가 올바르게 업데이트되는 영향이 훨씬 크기 때문에 b의 영향이 상쇄되었을 것입니다.\n\n질문 주셔서 감사합니다 !!",
+          "user": "U0947M912SD",
+          "user_name": null,
+          "timestamp": "1757579635.273149",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757582081.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH871719",
+                  "U09CH845YEP",
+                  "U09CH8B49R9",
+                  "U09CH81NW2X",
+                  "U09CH8A1B6X",
+                  "U09CH85JCFM",
+                  "U09CH7YMY59",
+                  "U09CH84CA6P"
+                ],
+                "count": 8
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U09CH81SQAX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 답변 감사합니다!\n\n과제 전체에 대한 질문이 하나 더 있습니다!\n\n제출 페이지에 과제 진행 시 유의사항에\n• 손실 함수에 따라 학습 곡선과 수렴 속도가 크게 달라질 수 있으므로, 두 손실 함수를 모두 실험해 비교해야 합니다.\n라는 항목이 있습니다.\n\n제가 과제에서 원하는 코드를 제대로 구현했다는 가정 하에 학습 곡선과 수렴 속도에 큰 차이가 없는 것으로 보입니다. 여러 실험을 해봤을 때, lr을 더 줄여야(0.001보다 작게) 손실 함수에 따라 학습 곡선과 수렴 속도에 차이가 있는 것을 확인할 수 있었습니다. 과제에 본 의도에 맞게 lr이 설정되어 있는지 궁금합니다.",
+          "user": "U09CH8B49R9",
+          "user_name": "김준수",
+          "timestamp": "1757580713.488239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8B49R9> 네 준수님, lr의 경우, 종종 1e-4과 같이 아주 작은수로 설정되는 경우도 있습니다. 따라서 이부분은 캠퍼분들께서 자유도를 가지고 설정해보시기를 권장한것이고, 아주 작은수부터 큰 수 까지 설정해보시면서 변화를 비교해보시면 좋습니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757581347.098809",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757581372.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8B49R9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 네! 감사합니다~",
+          "user": "U09CH8B49R9",
+          "user_name": "김준수",
+          "timestamp": "1757581850.959099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U0947M912SD> 우선 답변 감사드립니다! 답변에서 한 가지 궁금한 점이 있어 추가로 질문드리게 되었습니다.\n\n현재 코드에서 `reshape` 없이도, Broadcasting으로 계산이 된다고 하셨는데, 실제로 오류없이 계산되는 것은 맞지만,\n```import numpy as np\n\na = np.random.rand(10)\nb = np.random.rand(10, 1)\nprint((a*b).shape, (a-b).shape)```\n위 코드를 실행했을 때, 모두 `(10, 10)`이라는 결과를 얻게 되었습니다.\n\n저희가 직관적으로 예상하는 결과는 `a, b` 각각의 성분곱 또는 뺄셈으로 이루어진 배열이지만, 실제 결과는 다르게 나온다는 점에서 차원이 맞지 않는 경우 Loss 계산 상 큰 문제가 발생할 수 있지 않을까 하는 궁금증이 생겼습니다!",
+        "user": "U09CH83VDDZ",
+        "user_name": "강민우",
+        "timestamp": "1757578414.530779",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH83VDDZ",
+            "ts": "1757578449.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "강민우 캠퍼님 안녕하세요! 추가 질문에 대한 답변드립니다.\n\n먼저 심화과제 내에서 실제로 학습을 하고 결과를 확인하는 부분은 Trainer 클래스이고, Trainer.fit 함수를 살펴보면 reshape이 존재하여 차원을 맞추어줌을 알 수 있습니다.\n\n반면에 질문주신 부분(아래 코드 블럭)은\n```small_X, small_y = make_classification(...)\n\nsmall_W = np.random.normal(size=(n_features, 1))\nsmall_b = np.random.normal(size=(1, 1))\nsmall_y_pred = small_X @ small_W + small_b\n\nloss_ce = cross_entropy_loss(small_y, small_y_pred)\nloss_mse = mse_loss(small_y, small_y_pred)\nprint(loss_ce, loss_mse)```\n지적해주신 것처럼 `small_y`와 `small_y_pred` 의 차원에 대해 맞추어주지 않고 바로 loss 계산을 하고 있어 의도치 않은 브로드캐스팅이 적용되어 차원이 달라지고, 값도 달라지게 됩니다. 따라서 loss를 정확히 계산하기 위해서는 캠퍼님께서 말씀하신 것처럼 해당 코드 블럭에서도 차원을 맞춰주어야 합니다.\n\n아래에 조성해 캠퍼님이 잘 분석해주신 것이 있어 해당 스레드 링크 남깁니다. 메모리 부족 문제에 대해 분석하신 것이지만, 차원이 달라짐에 따라 loss 값이 달라지는 것도 확인할 수 있어 첨부드립니다.\n중요한 부분에 대해 추가 질문해주셔서 감사합니다! 해당 부분은 수정하겠습니다.\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757579496156899>",
+          "user": "U064FHT8RU1",
+          "user_name": "김연규",
+          "timestamp": "1757589574.795979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH83VDDZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[AI Math 심화 과제]  안녕하세요!\n\n심화과제 파일을 보면 \"# 주의: 아래 코드는 메모리 부족 때문에 실행되지 않음.\" 이라는 주석으로 시작하는 코드 블록이 있는데요.\n우리가 수행해야 하는 계산이 공간복잡도 O(n^2)짜리가 아닐텐데 왜 n_samples=100000 에서 메모리 부족이 일어나지? 가 궁금해서 조금 살펴보았습니다.\n\n세 종류의 cross_entropy 함수를 만들어서 실행해보았습니다.\n0번 함수) 수식의 지시를 for문으로 따라 구현함.\n1번 함수) y_pred.shape=(100000,1), y_true.shape(100000,) 인 것을 둘 다 (100000,) 으로 먼저 맞춰주고 NumPy 기능을 이용한 수식 실행.\n2번 함수) shape이 다르게 놔둔 채로 NumPy 수식 실행.\n\n실행 결과:\n사진1. 0번과 1번 함수는 n_samples=100000 에서도 메모리 부족 현상을 겪지 않고 실행이 잘 됩니다.\n사진2. 그 바로 아래 있는 코드블록에서 n_samples=5000 으로 줄여서 2번 함수도 실행할 수 있는 크기가 되었을 때, 0번과 1번은 (거의) 같은 값을 반환하고 2번 함수 혼자 다른 값을 반환합니다.\n그리고 이 때 2번 함수가 반환하는 값은 y_true와 log(y_pred)를 방문하는 파라미터를 (원래는 둘 다 i로 맞춰서, 둘의 곱을 5000개 더해야 하는 것을) 하나는 i, 하나는 j를 써서 5000*5000개의 합으로 계산했을 때랑 똑같은 값입니다.\n\n그래서 n_samples=100000 일 때 메모리 부족이 발생하는 것은 cross_entropy_loss 함수의 구현이 의도와는 다른 것이 되었기 때문으로 보입니다.",
+        "user": "U09CH842TRR",
+        "user_name": null,
+        "timestamp": "1757579496.156899",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH842TRR",
+            "ts": "1757593340.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH83S70B",
+                "U0947M912SD",
+                "U09CH8ABJRZ",
+                "U064FHT8RU1",
+                "U09CH7WV1PV",
+                "U09CH8339B5",
+                "U09CH8633C3",
+                "U09CH8B49R9"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "업로드한 캡쳐에 코드블록 아래에 print문의 출력값이 써있는 것을 같이 담았습니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1757580481.749749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "(기본-2) einsum 기본 문제 에서 마지막 test_get_answer3 을 하면 최종값이 70이 나오지 않습니다.\n\"# TODO : einsum을 활용하여 두 텐서의 4차원 텐서곱을 계산하는 코드를 완성하세요.\" 이 부분에서 문제가 발생한 듯 한데 텐서곱을 하는 방법이 하나만 있는게 아니라 여러개가 있는 것으로 알고 있는데 이게 맞는지 궁금하고 그 여러가지에 대한 최종값을 다 구해봐도 70이 존재하지 않는데 이것도 맞는지 궁금합니다",
+        "user": "U09CH855L91",
+        "user_name": "주현규",
+        "timestamp": "1757579678.594279",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "비슷한 내용이 있어서 참고하시면 좋을 것 같습니다..!\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757396984675599>",
+          "user": "U09CH868GM9",
+          "user_name": "이봉학_T8144",
+          "timestamp": "1757580037.314049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD",
+                  "U064FHT8RU1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH868GM9> 답이 나오는 경우의 수가 더 있었군요. 덕분에 해결했습니다",
+          "user": "U09CH855L91",
+          "user_name": "주현규",
+          "timestamp": "1757581047.499809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD",
+                  "U09CH868GM9"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U0947M912SD>\n저도 방금 퀴즈 풀었는데 아직 정답이 그대로인 것 같아요 :joy: 확인 부탁드려요!",
+        "user": "U09CH7WV1PV",
+        "user_name": "성승우",
+        "timestamp": "1757583911.318449",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH7WV1PV> 승우님, 강의 수강 기간에는 정답을 고칠 수 없다고 하여 공지사항에 적어두었습니다 ! 불편을 드려 죄송해요 :smiling_face_with_tear:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757583998.497509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 아 퀴즈에 올려두신 것 확인을 못했었네요! :slightly_smiling_face: 감사합니다",
+          "user": "U09CH7WV1PV",
+          "user_name": "성승우",
+          "timestamp": "1757584205.845679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[AI Math 심화 과제]\n1. Trainer 클래스의 `___init___()` 에서\n```self.minibatch_sampler = self.dataloader(self.train_data, self.train_label, self.n_samples)```\n3번째 인자로 다음과 같이 `self.n_samples` 를 사용하고 있는데\n`n_samples`는 전체 데이터 길이라서 훈련 데이터셋의 길이보다 긴 거 아닌가요?\n\n2. 그리고 Trainer 클래스의 `dataloader()` 에 마지막 인자로 `batch_size` 라는 변수를 사용하고 내부에서 `sampler()` 함수에서 다시 `batch_size` 변수를 인자로 받고 있습니다\n```def dataloader(self, X, y, batch_size):\n        def sampler(batch_size):\n            ...```\n이 상황에서는 처음 `dataloader` 에 들어온 `batch_size`는 스코프가 달라서 사실상 사용되지 않는거 같은데 제가 이해한게 맞을까요?",
+        "user": "U09CH8A1B6X",
+        "user_name": "황은배",
+        "timestamp": "1757584917.365179",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8A1B6X",
+            "ts": "1757584975.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH8A1B6X> 황은배 캠퍼님 안녕하세요 !\n\n관련해서 이 스레드 읽어주시면 이해에 도움이 될것 같습니다 ! 혹시 더 궁금한 점이 있다면 또 질문 주세요 :relaxed:\n\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757562376433289|https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757562376433289>",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757585205.941859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "1thanks",
+                "users": [
+                  "U09CH8A1B6X"
+                ],
+                "count": 1
+              },
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U09CH8A1B6X"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0947M912SD> 아 같은 질문이 이미 있었네요. 알려주셔서 감사합니다...!",
+          "user": "U09CH8A1B6X",
+          "user_name": "황은배",
+          "timestamp": "1757585356.166629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "(미션-1) w1_잘 쓴 손글씨 판독기 피드백 관련 질문\n\n*[문항 4]*\n기준을 어떻게 잡고 접근해야 하는지 잘 모르겠습니다. 혹시 참고할 만한 가이드가 있을까요?\n\n*[문항 5]*\n피드백에서는 분류가 되지 않았다고 하셨는데, 실제 데이터 확인 결과는 분류가 되어 있습니다.\n```python\nprint(\"target_y unique values:\", set(target_y.tolist())) # {0, 3, 8}\nprint(\"test_y unique values:\", set(test_y.tolist())) # {1}```\n혹시 권장하지 않는 방식이라든지, 제가 놓친 다른 문제가 있는 건가요?\n\n*[문항 6, 7, 8]*\n제가 이해한 게 맞는지 확인 부탁드립니다.\n- [문항 5]에서 분류한 0, 3, 8 훈련 데이터를 [문항 4]에서 정의한 `score`를 활용해서 평가 라벨 생성\n- [문항 6] 잘 쓴 글씨 평가 모델 학습(0, 3, 8)\n- 이후 [문항 7]은 데이터 1, [문항 8]은 데이터 2, 4, 5, 6, 7, 9로 테스트\n\n[문항 4]를 건너뛰고 [문항 6]으로 넘어오면서 “이진 분류 모델에 입력 라벨이 3개”라는 부분만 보고 과제를 잘못 이해한 것 같습니다.",
+        "user": "U09CH86JZSP",
+        "user_name": "박동수",
+        "timestamp": "1757590569.255659",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86JZSP",
+            "ts": "1757590869.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 이 질문 내용들 도움 받았었는데 참고하시면 좋을 것 같습니다..!\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757556272854369?thread_ts=1757554957.590459&amp;cid=C09D84Y9SQG>",
+          "user": "U09CH868GM9",
+          "user_name": "이봉학_T8144",
+          "timestamp": "1757590841.347359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리미션 2주차] x는 랜덤 생성을 한다고 되어있는데 랜덤값을 뽑을때 균일한 값을 뽑으라고 되어있습니다. 이경우에는 랜덤을 사용하지 않는건가요?",
+        "user": "U09CH85FVV1",
+        "user_name": "윤준상",
+        "timestamp": "1757639341.676089",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH85FVV1",
+            "ts": "1757639368.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "준상님, 균일 분포에서 뽑으라는 뜻입니다 ! 균일한값이라는 말이 조금 헷갈릴 수 있겠네요 :smiling_face_with_tear: 질문 감사합니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757639414.770199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "[위클리미션 2주차]\n안녕하세요, 노이즈도 uniform 분포로 뽑아야한다는 말씀이시죠?",
+          "user": "U09CH7WV1PV",
+          "user_name": "성승우",
+          "timestamp": "1757639451.668349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 ~ 승우님, 데이터 생성시 랜덤한 값은 모두 같은 형태로 뽑아주시면 됩니다 :slightly_smiling_face:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757639491.418689",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757639503.000000"
+            },
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH7WV1PV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리미션 2주차] 안녕하세요. 문제를 읽다가 질문이 있어 메시지를 남깁니다.\n1번 문항에 아래와 같은 주석이 있었는데요,\n# y = 3x^2 + 2x + 2 + noise 형태를 만족하도록합니다.\n여기서 noise는 어느 정도로 설정해주면 될까요? 기존 과제에서 했던 대로 randn으로 noise를 만들어줘도 될까요?\n읽어주셔서 감사합니다.",
+        "user": "U09CH8AU8P5",
+        "user_name": "Lee Jo Eun",
+        "timestamp": "1757639608.328009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "조은님 안녕하세요 ! 문제 상에 y값 생성시에 필요한 데이터도 -5,5 사이의 균일분포에서 뽑으면 된다고 명시해두었는데요 ! 이것이 noise를 의미하는 것입니다 :slightly_smiling_face: 질문주셔서 감사합니다 ~",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757639695.093319",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757639720.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 감사합니다! 열심히 풀어보겠습니다.",
+          "user": "U09CH8AU8P5",
+          "user_name": "Lee Jo Eun",
+          "timestamp": "1757639726.667099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 ! 화이팅 .. :heart_eyes_cat:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757639752.598529",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757639776.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리미션 2주차] 혹시 추가적으로 함수를 사용하기 위해 import를 추가해도 될까요?",
+        "user": "U09CH8BPMKM",
+        "user_name": "한석근",
+        "timestamp": "1757642307.766059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "석근님, 안녕하세요:) 기존 미션 코드상 import 되어있는 패키지들로 모두 구현이 가능합니다 ! 그러나 석근님께서 사용하고 싶은 패키지가 있으시다면 사용해도 무방합니다 :relaxed:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757642450.475629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리미션 2주차] 안녕하세요. MLE 구현 부분에서,\nNLL가 수식적으로는 -log(확률) 형태 즉 손실값을 모두 더하는 식으로 되어있는데,\n왜 TODO 2-5 부분에서는 손실값을 평균내는(=모두 더하고 데이터 크기로 나눠주는) 건가요??",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1757642951.777429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "상우님, 보통 loss 값을 사용할때는 데이터의 크기로 나눠주는 것이 일반적입니다 ~ 그에 관한 질문 스레드가 있었는데 찾아서 링크로 남겨두도록 하겠습니다 ! 미션 코드 페이지의 수식 상에서는 MLE와의 관계를 설명하기 위해 비슷한 형태로 적기 위해 평균 내는 부분을 생략하였는데요 ! 그 아래의 그림과 함께 이해해주시면 더 좋을 것 같습니다. 수식이 헷갈리게 작성하여 죄송해요 :smiling_face_with_tear:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757643267.351679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "나눠줘야하는 이유는 이 스레드여서 설명한 데이터 크기로 나눠주는 이유와 동일합니다 ~\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757384494953389>",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757643346.161869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8393DH> 도담록 캠퍼님 도와주려고 하신거 봤습니다 ㅎㅎ 감사해요 ! :relaxed:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757643492.051139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "sweat_smile",
+                "users": [
+                  "U09CH8393DH"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리미션 2주차] 안녕하세요! TODO 3의 Trainer 클래스 내에서 Loss 출력을 위해 MSE와 RMSE가 혼용되고 있는 것 같은데 제가 이해한 것이 맞을까요? 맞다면, TODO 세부 지시사항만 보고 해당 Loss를 활용하면 될까요?",
+        "user": "U09CH8C0PUK",
+        "user_name": "양성호A_T8117",
+        "timestamp": "1757643325.652169",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "성호님, 안녕하세요 ! mse와 rmse가 혼용되고 있는 것이 맞으나, rmse는 값을 확인하기 위한 도구로만 사용되고, 전체 training 과정에서는 mse loss가 사용되고 있는 것으로 이해해주시면 좋을 것 같습니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757643437.742829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH8C0PUK",
+                  "U09CH7WV1PV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다! 그렇다면 TODO 3-6에서 집계하는 Loss는 이후 plot 확인을 위한 것이므로 Loss 유형은 상관없으며, 출력 기준의 일관성 등 각자 기준에 따라 선택하는 것으로 이해하고 진행해도 될까요?",
+          "user": "U09CH8C0PUK",
+          "user_name": "양성호A_T8117",
+          "timestamp": "1757644835.406139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 ~ 출력을 위한 loss는 자유롭게 선택해주시면 됩니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757644969.794609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH8C0PUK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[AI Math 심화 과제] 함수 compute_gradient 에서 bce, mse 둘다 error * pred * (1 - pred) 연산을 해주고 있는데 혹시 왜 이 연산을 해주는 걸까요??\n그리고 아래에 beta_grad와 b_grad를 구하는 부분을 이해하기 위해 강의나 자료의 어떤 내용을 참고하면 좋을까요?",
+        "user": "U09CH868GM9",
+        "user_name": "이봉학_T8144",
+        "timestamp": "1757652750.401869",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH86HP4K"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 앞 질문에 대해서는 chain rule때문에, 시그모이드를 편미분한 값이 y(1-y) 꼴이여서 곱해준다고 저는 이해했습니다.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1757653066.183599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH868GM9",
+                  "U0947M912SD"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "loss = bce(sigmoid(wx+b)) 를 w, b로 미분하는 과정에서, chain rule로  각각의 미분값을 곱해 주는 형태로 나타나게 됩니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757653151.952569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH868GM9",
+                  "U0947M912SD"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "역전파 알고리즘으로 값들을 update해 주는데, 프리코스의 기초튼튼, 수학튼튼-딥러닝 학습방법 이해하기의 23분부터 내용을 보시면 왜 곱해진 값으로 update되는지가 나옵니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757654301.067059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH868GM9",
+                  "U0947M912SD"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "error에 chain rule이 필요한 이유는 MSE의 그레디언트를 계산할 때 ||y-X \\beta||^2을 편미분하게 되고, 여기서 beta의 값이 sigmoid 내의 변수로 들어가 있기 때문에 chain rule로 beta에 대한 w, b 편미분이 필요합니다.\nsigmoid의 미분 결과는 sigmoid*(1-sigmoid)의 형태로 나오기 때문에 해당 식이 들어간게 아닌가 싶네요",
+          "user": "U09CH7ZHVJP",
+          "user_name": "송현우",
+          "timestamp": "1757654477.102859",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH7ZHVJP",
+              "ts": "1757654496.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH868GM9",
+                  "U0947M912SD"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "beta_grad는 `∂Loss/∂w` 이고, b_grad는 `∂Loss/∂b`입니다. 그리고 위 과제에서 이진 분류를 위해 sigmoid를 사용하고 있습니다.\n\nLoss는 다음과 같이 계산되므로,`(w, b),x → z → sigmoid → pred → Loss`\n미분은 다음과 같이 계산됩니다. *`Loss` → `pred`→`sigmoid` → `z` → `w`, `b`*\n따라서 chain rule을 활용하여 beta_grad(`∂Loss/∂w`)와 b_grad(`∂Loss/∂b`)를 구할 수 있습니다.\n\n`z(x) = xw+b`, `pred(z) = sigmoid(z) = 1/(1+exp(-z))`입니다.\n\nbeta_grad만 보겠습니다. `∂Loss/∂w = ∂Loss/∂pred * ∂pred/∂z * ∂z/∂w`이고, 위에서 작성하신 `error * pred * (1 - pred)`에서  `∂Loss/∂pred`가 error, `∂pred/∂z`는 pred(1-pred)입니다. 그리고 `∂z/∂w`는 `x`입니다. (정확히는 `∂Loss/∂z`를 error라고 해야 하지만 작성해주신 코드 기준으로 설명 드렸습니다.)\n\n질문하신 error * pred * (1 - pred) 연산은 `∂Loss/∂pred * ∂pred/∂z`부분에 해당합니다. `∂pred/∂z`는 sigmoid를 미분한 것 입니다.",
+          "user": "U09CH8B49R9",
+          "user_name": "김준수",
+          "timestamp": "1757654574.142219",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8B49R9",
+              "ts": "1757655047.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8393DH",
+                  "U09CH86HP4K",
+                  "U09CH7T7TBM",
+                  "U0947M912SD",
+                  "U09CH871719",
+                  "U09CH8BUP51",
+                  "U09CH868GM9"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "봉학님, 안녕하세요 !\n\n상우님, 담록님, 현우님, 준수님께서 이미 너무 잘 설명해주셨는데요, 말씀해주신것처럼 심화과제에서는 분류문제를 풀고 있기 때문에 시그모이드 함수를 사용합니다.\n\n담록님께서 잘 설명해주셨듯이 error * pred * (1 - pred) 연산은 chain rule을 이용하여 그레디언트를 계산하는 과정입니다. 앞선 계산 과정부터 살펴보면\n```logit -> sigmoid(logit) -> loss 계산```\n의 순서로 학습이 진행됩니다.\n이제 여기서 beta와 b를 얼마나 업데이트 할지 알아내려면 loss 부터backward pass를 통하며 미분을 진행해야합니다. 이 부분에서 loss를 pred에 대해 미분하고, pred를 logit에 대해 미분하고, logit을 beta와 b에 대해서 미분하는 값을 모두 곱해주기 때문에 chain rule이 적용되는 것이라고 할 수 있습니다. 따라서 사진상의 식에서 앞쪽항이 bce와 mse가 각각 정의하고 있는 부분이라고 할 수 있겠습니다.\n\n먼저 도움주신 캠퍼분들 모두 정말 감사합니다 !",
+          "user": "U0947M912SD",
+          "user_name": null,
+          "timestamp": "1757655060.970439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757655080.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7T7TBM",
+                  "U09CH868GM9"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[AI-Math 10-2강 질문]\n13:00 쯤에 쿨백 라이블러는 항상 0보다 크거나 같다고 말씀을 하셔서 왜 그런지 찾아보았는데 교차엔트로피에서 엔트로피를 뺀 값이 항상 0보다 크거나 같다고 나와있는데\n그럼 위 식에서 교차 엔트로피는 P(x) 에 대한 log(Q(x))의 기댓값의 음수가 맞고\n엔트로피도 그럼 P(x)에 대한 log(P(x))의 기댓값의 음수를 취한 값자체가 엔트로피인건가여?\n아래의 식에서는 음수를 취하지 않는 값에 엔트로피라고 되어있어 헷갈려서 여쭈어봅니다",
+        "user": "U09CH89HZM1",
+        "user_name": null,
+        "timestamp": "1757654320.619509",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH89HZM1",
+            "ts": "1757654415.000000"
+          },
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U09CH8A1B6X"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "잘 이해하신 것 같아요!\n\n쿨백-라이블러 발산은 식이\nP(x)log(P(x)/Q(x)) 처럼 쓰입니다.\n\n그래서 로그식을 분해하면 사진처럼 쓸 수 있는 건데, 두 엔트로피 둘 다 원래는 마이너스가 붙는 값입니다.\n\n당연히 자기 자신의 엔트로피보단 서로 다른 정보에 대한 엔트로피가 클 것이고, 크로스 엔트로피에서 P(x)의 엔트로피를 뺀 값이 KL 발산이 됩니다.\n\n<https://jimmin.tistory.com/46>\n\n제가 대충 적은 글이 있는데 참고해보세용 저때 저도 잘 이해하고 적은 글은 아닌데 일단은 첨부해봅니다,,,",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1757654895.184749",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH820HNF",
+              "ts": "1757654930.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH89HZM1",
+                  "U09CH7WV1PV"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지호님, 안녕하세요 !\n\n지민님이 너무 잘 설명해주셨는데요, 이해하신바가 맞습니다. `교차 엔트로피 - 엔트로피` 식이 사용되며 엔트로피의 -부호가 중첩사용되어 +로 바뀐것입니다 ! 부호가 조금 헷갈리셨을 것 같아요 :smiling_face_with_tear:\n\n지민님 친절하게 먼저 설명해주셔서 정말 감사합니다 :relaxed:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757655534.194579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH89HZM1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지민님, 조교님 친절한 답변 감사합니다!!",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1757656027.181479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "rmse를 구할 때 y_true와 y_pred를 각각 reshape하는 것은 왜일까요?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757655971.922959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "데이터 형태에 상관없이 1차원 만들어서 계산하기 위함으로 보입니다.\n\n예를 들어 y_true의 shape이 (10, 1), y_pred의 shape이 (1, 10)인 값이 함수로 들어왔을 때, reshape을 하지 않으면 numpy가 배열을 늘려서 계산하므로 (10, 1) - (1 ,10)의 결과로 (10, 10)으로 나올 것 같습니다.\n\nreshape(-1)로 데이터를 모두 1차원으로 펼쳐준다면 (10,) - (10,)이므로 정상적으로 각 오차를 계산합니다.",
+          "user": "U09CH8B49R9",
+          "user_name": "김준수",
+          "timestamp": "1757656781.587819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH871719"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 서현님, 준수님의 설명이 맞습니다 ~ 만약 차원이 다르게 적용된다면 Numpy를 사용하는 경우 자동적으로 broadcasting이 적용되기때문에 사전에 reshape을 적용해서 정확하게 계산되도록 하는 것입니다. 그러나 위클리 미션 코드 상에서는 없어도 문제없이 작동하며, shape이 같은 벡터를 연산한다는 것을 한번 더 보여주기위해 넣은 코드입니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757657724.694449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Week2 Weekly mission 및 심화 과제 질문]\n두 과제의 fit 함수 부분에서, 에포크 당 loss를 구하기 위해 우측처럼 배치 당 loss를 계산해준 후, `loss_batch += mse_loss(y_batch, pred) * batch_size` 우측처럼 에포크마다 loss의 합을 train 데이터 샘플 개수로 나눠서 append해주고 있습니다. `self.loss.append(loss_batch / self.num_train_samples)`\n여기서, dataloader에서 꺼내온 마지막 배치의 크기가, 우리가 설정한 batch_size보다 작을 경우를 대비해, 아래처럼 코드를 수정해야 명확하지 않나 궁금증이 들어 질문드립니다.\n```loss_batch += mse_loss(y_batch, pred) * batch_size\n-&gt; \nloss_batch += mse_loss(y_batch, pred) * len(y_batch)```\n기본적으로 주어진 예제대로면 1000개의 데이터에 대해 100개의 batch size를 사용하고 있지만,\n만약 1000개의 데이터에 대해 256개의 batch size를 사용했다면 마지막 batch는 필연적으로 batch_size 값보다 batch size가 작을 텐데,\n이런 경우에는 len(y_batch)를 써 줘야 정확하지 않을까 궁금하여 질문드립니다.",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1757656803.975179",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "심화 과제에서는 직접 구현하지만..\nWeekly mission의 dataloader는 마지막 배치의 크기가 맞지 않으면 가져오지 않는 것 같습니다.",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757656878.209179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "상우님, 헷갈릴 수 있는 부분인데 질문 감사합니다.\n\n네 질문 주신대로 엄밀하게 하려면 len(y_batch)를 곱해주는 것이 맞습니다 ! 심화과제에서는 아마 기존 배치인 100을 사용하면 정확히 맞아 떨어질겁니다. 그러나 초기설정을 하며 캠퍼분들께서 바꿀것을 고려하지 못했네요 .. :smiling_face_with_tear: 정확하게 수정해두도록하겠습니다:) \n\n좋은 피드백 감사합니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757658853.033009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757663703.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8393DH> 담록님, 배열의 경우 `[start:end]`에서 `end`의 값이 마지막 인덱스를 넘어서도 배열의 끝까지만 반환하는 특성이 있습니다 !",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757659020.134389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 코드를 잘못 읽었네요..",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757659331.768329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[위클리미션 2] 1번에 나오는 X_poly가 어떤 의미인지 알고 싶습니다. noise를 제외하면 y가 x에 대한 다항식으로 표현되는 만큼 저는 y로 간주하고 문제를 풀었는데 맞는 걸까요?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757659791.467129",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH87N3PV",
+                "U09CMEZS32N"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U09CMF1D8KC"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "a*x^2+b*x+c의 이차다항식에서 각 항에서의 x^n 값이 X_poly에 들어갑니다. X_poly는 [x^2, x] 또는 [x, x^2] 꼴이 될 것 같습니다.",
+          "user": "U09CH8C0PUK",
+          "user_name": "양성호A_T8117",
+          "timestamp": "1757660117.422009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8C0PUK",
+              "ts": "1757684041.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "계층이 하나라서 그냥 학습하면 선형에 근사되어버립니다\n그래서 그냥 이차식에 근사를 시키려고 해서 쓰는거로 생각하고 문제를 풀었습니다\n[x^2,x]에 대한 각각 linear하게요",
+          "user": "U09CH8BPMKM",
+          "user_name": "한석근",
+          "timestamp": "1757660237.699839",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8BPMKM",
+              "ts": "1757660286.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서현님, X_poly는 다항식을 학습시키기위해서 변형해준 x 값이라고 이해하시면 좋습니다. 성호님께서 말씀해주신대로 형태는 [x^2, x] 또는 [x, x^2]가 됩니다 !\n\n선형 회귀 모델은 `y=w⋅x+b` 처럼 직선 관계만 학습할 수 있는데요. 따라서 `y = 3x^2 + 2x + 2` 와 같은 곡선 관계를 학습시키려면 이차항과 일차항을 각각 다른 항으로 정의하고 각각의 beta값을 구하는 형태로 학습을 진행해야하는 것입니다.\n\n따라서 X_poly 형태의 (data_size,2) 형태의 입력으로 모델에게 넘겨줘야 올바른 학습이 가능한 것 입니다 !\n\n성호님, 석근님도 설명해주셔서 감사합니다 :relaxed:",
+          "user": "U0947M912SD",
+          "user_name": "SUMIN LEE",
+          "timestamp": "1757660333.203299",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0947M912SD",
+              "ts": "1757660357.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U09CH86HP4K",
+                  "U09CH7WRGAX"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8A1B6X",
+                  "U09CH7WRGAX"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757660387.346759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "todo 3-2번에서 boolean mask로 [y_true == 1]을 사용하면 문제 의도대로 필터링되지만, [y_true]를 사용하면 필터링이 이루어지지 않습니다. array에 0이 있으면 False로 처리될 것이라고 생각했는데, [y_true]로는 왜 필터링이 이루어지지 않는 것일까요?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757659929.737789",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CH86JZSP> numpy는 float index를 허용하지 않아서라는 설명이 맞는 것 같아요. 감사합니다!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1757660218.863949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U0947M912SD"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

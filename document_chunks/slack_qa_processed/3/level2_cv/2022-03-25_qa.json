@@ -1,0 +1,35 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02U5LY17J4>\n아닙니다. 오피스아워에서 설명은 faster_rcnn_r50_fpn_1x_coco.py 의 _base_리스트에 faster_rcnn_r50.py 라는 파일을 가져와야 하는데 fast_rcnn_r50.py를 가져와서 오류가 났던것입니다. 파일만 잘못 가져왔을뿐 설명부분에서는 틀린부분이 없으니 오피스아워 영상 참고바랍니다.",
+        "user": "U02SK8MPGN5",
+        "user_name": "주세환_조교",
+        "timestamp": "1648194941.681059",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02SK8MPGN5",
+            "ts": "1648195138.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "아 이해됐습니다 감사합니다",
+          "user": "U02U5LY17J4",
+          "user_name": "백경륜",
+          "timestamp": "1648196063.254219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

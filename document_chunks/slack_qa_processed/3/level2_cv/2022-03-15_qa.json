@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 *심화과제2* 관련 질문입니다.\n\n훈련할 때 log 폴더에서 train_log.csv를 사용하는 것 같던데, 전 보내주신 data 파일 압축을 풀어봐도 log 폴더가 나오지 않습니다..:disappointed_relieved:\n혹시 log 폴더가 누락이 된 것인지, 아니면 제가 못 찾는 것인지 아시는 분 있으시면 답변 주시면 감사하겠습니다!",
+        "user": "U02U26ECDKL",
+        "user_name": "윤서연",
+        "timestamp": "1647399895.637399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "cry",
+              "users": [
+                "U02TCHR3LNS"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "말씀해주신 train_log.csv파일은 훈련하는 동안 새롭게 '생성되는' 파일입니다.",
+          "user": "U02TPMLA17B",
+          "user_name": "Kyunghoon Jung",
+          "timestamp": "1647407343.241289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만들어지는 폴더는 os.makedirs 를 동해서 만들도록 되었는데요, 혹시 코드를 돌리시면서 에러가 발생한 걸까요?",
+          "user": "U02TPMLA17B",
+          "user_name": "Kyunghoon Jung",
+          "timestamp": "1647407380.063419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

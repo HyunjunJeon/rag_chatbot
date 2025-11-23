@@ -1,0 +1,98 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<https://stages.ai/competitions/77/discussion/talk/post/730>\nSparseRetrieval의 `get_relevant_doc_bulk` 메서드의 배치처리를 numpy의 partition을 활용해서 속도 개선을 시도해봤습니다!\nk=1일 경우 14배 빠르며 k=500일 때는 4.5배 빠른 결과를 얻었습니다.\n\np.s. 동점이 있는 경우 (정말정말 드물지만... 저희 wiki로 tf-idf 구축시 \"기영이는 어떤 애니메이션에 나오는가?\" 라는 문장에서 topk=500으로 잡으면 있더라구요) index를 원래 구현체와 다르게 잡긴 하지만... float value라 동점이 나올 가능성이 거의 없기도 하고 score는 동점이기에 무시할 수 있을 것 같아요!",
+        "user": "U029NG58Q84",
+        "user_name": null,
+        "timestamp": "1634141652.040800",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029NG58Q84",
+            "ts": "1634142948.000000"
+          },
+          "reactions": [
+            {
+              "name": "clapping",
+              "users": [
+                "U029LKLNE6Q",
+                "U029WV30DMF",
+                "U029J7UCHR8",
+                "U029E9LS8NP",
+                "U029H263PD1",
+                "U0295N1AWLV",
+                "U029F23R56F",
+                "U029B2518S1",
+                "U028323UHE2",
+                "U029F1P9TS7",
+                "U029MU09NLW",
+                "U02AF2JSQP2",
+                "U029DG66W9L",
+                "U0298NLPSRY"
+              ],
+              "count": 14
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U029LKLNE6Q",
+                "U029T92U2F3",
+                "U029H263PD1",
+                "U029X5PRTJ5",
+                "U029B2518S1",
+                "U028323UHE2",
+                "U02AF2JSQP2"
+              ],
+              "count": 7
+            },
+            {
+              "name": "dolphin",
+              "users": [
+                "U0295N1AWLV",
+                "U029B2518S1",
+                "U028323UHE2",
+                "U02AF2JSQP2"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029X5PRTJ5",
+                "U028323UHE2",
+                "U02AF2JSQP2"
+              ],
+              "count": 3
+            },
+            {
+              "name": "party_parrot_icecream",
+              "users": [
+                "U02AF2JSQP2"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오 대박..ㅎㅎ 신기하네요!\nML 속의 선형대수.. 같은 느낌이네요! 여러모로 도움이 많이 될 것 같습니다. 감사합니다!",
+          "user": "U0295N1AWLV",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1634151732.042400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0295N1AWLV",
+              "ts": "1634151742.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

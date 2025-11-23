@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "comparison_date": "2025-11-21",
+    "old_system": "slack_qa",
+    "new_system": "slack_qa_v2_cleaned",
+    "embedding_model": "qwen/qwen3-embedding-4b",
+    "vector_dimension": 2560
+  },
+  "data_statistics": {
+    "old_system": {
+      "total_qa_pairs": 1273,
+      "total_answers": 4581,
+      "documents": 4581
+    },
+    "new_system": {
+      "total_qa_pairs": 1197,
+      "total_answers": 3957,
+      "documents": 3957
+    },
+    "reduction": {
+      "qa_pairs_removed": 76,
+      "answers_removed": 624,
+      "reduction_rate_percent": 13.6
+    }
+  },
+  "index_sizes": {
+    "bm25_old_mb": 9.3,
+    "bm25_new_mb": 8.6,
+    "reduction_mb": 0.7,
+    "reduction_percent": 7.5
+  },
+  "qdrant_collections": {
+    "old_system": {
+      "collection_name": "slack_qa",
+      "points_count": 4581,
+      "indexed_vectors_count": 4200,
+      "vector_size": 2560,
+      "distance": "Cosine"
+    },
+    "new_system": {
+      "collection_name": "slack_qa_v2_cleaned",
+      "points_count": 3957,
+      "indexed_vectors_count": 1000,
+      "vector_size": 2560,
+      "distance": "Cosine"
+    }
+  },
+  "performance_benchmark": {
+    "test_query": "GPU 메모리 부족 해결 방법",
+    "iterations": 5,
+    "old_system": {
+      "avg_seconds": 1.215,
+      "min_seconds": 1.020,
+      "max_seconds": 1.397,
+      "results_count": 11
+    },
+    "new_system": {
+      "avg_seconds": 1.002,
+      "min_seconds": 0.795,
+      "max_seconds": 1.316,
+      "results_count": 11
+    },
+    "improvement": {
+      "avg_speedup_percent": 17.5,
+      "min_speedup_percent": 22.1,
+      "max_speedup_percent": 5.8
+    }
+  },
+  "summary": {
+    "data_cleaned": true,
+    "index_size_reduced": true,
+    "search_speed_improved": true,
+    "avg_speedup_percent": 17.5,
+    "passes_performance_target": true,
+    "target_seconds": 2.0
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "대회 규정 관련하여 질문 드립니다!\n모델의 성능을 향상시키기 위해 언어 데이터셋에서 학습된 pretrained 텍스트 인코더를 사용하는 것이 가능한지 궁금합니다..! (LLM이 아닌 BERT 모델로 실험해보고자 합니다)",
+        "user": "U07EJ5N6136",
+        "user_name": "김예나",
+        "timestamp": "1729150926.840729",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "(언어 데이터셋을 포함하여) 대회 규정상 아래 데이터셋 외에는 pre-trained weight를 사용하실 수 없습니다:smiling_face_with_tear:\n&gt; [사전학습 가중치 사용 규정] 아래 데이터셋으로 학습된 가중치만 허용됩니다. (pretrained weight)\n&gt; • 이미지넷 (<https://www.image-net.org/>)\n&gt; • 코코 데이터셋 (<https://cocodataset.org/>)\n&gt; • 파스칼 VOC 데이터셋 (<http://host.robots.ox.ac.uk/pascal/VOC/index.html>)",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1729159788.762619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "two_hearts",
+                "users": [
+                  "U07EJ5N6136"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 넵 알겠습니다 감사합니다!",
+          "user": "U07EJ5N6136",
+          "user_name": "김예나",
+          "timestamp": "1729163940.266789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "gift_heart",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

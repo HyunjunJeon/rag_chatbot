@@ -1,0 +1,92 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[Movie Rec 퀴즈-Applications of Personalized Machine Learning]\n대소문자를 바꿔봐도 도저히 답을 알 수 없다고 팀내에서 논의 끝에 결론을 내렸는데 답이 제대로 되어있는지 확인해주실 수 있을까요<@U04RG941RM3>",
+        "user": "U04R4LTEM55",
+        "user_name": "조현석_T5205",
+        "timestamp": "1686815153.811079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03KW2M0J07",
+                "U04R4LWE3RV",
+                "U03M7B4JYMR"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "는 해결되었습니다",
+          "user": "U04R4LTEM55",
+          "user_name": "조현석_T5205",
+          "timestamp": "1686815540.899019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03KW2M0J07",
+                  "U03M7B4JYMR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 기회를 다 소진해버렸습니다",
+          "user": "U04RG941RM3",
+          "user_name": "강주형",
+          "timestamp": "1686815733.646439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U04RG90U6H3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의 내용 기준으로 정답 상의 문제는 없는 것으로 확인되었습니다. 말씀주셔서 감사합니다 :)",
+          "user": "U03KW2M0J07",
+          "user_name": "Dave(데이브)",
+          "timestamp": "1686815827.435139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RG941RM3",
+                  "U04R4LTEM55"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

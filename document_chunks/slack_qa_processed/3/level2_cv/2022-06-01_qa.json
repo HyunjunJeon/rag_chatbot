@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "mmdetection 사용하여 mosaic을 적용하는 중에 에러에 부딪혀서.. 해결을 못하고 있습니다ㅠㅠ 어디 부분을 봐야하는 지 아시는분 있을까요?..",
+        "user": "U02TT8WU6J3",
+        "user_name": null,
+        "timestamp": "1654093423.741369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "앗 해결했습니다.. pipeline 중복문제였네요:sweat_smile:",
+          "user": "U02TT8WU6J3",
+          "user_name": "강소망_T3003",
+          "timestamp": "1654094021.447139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

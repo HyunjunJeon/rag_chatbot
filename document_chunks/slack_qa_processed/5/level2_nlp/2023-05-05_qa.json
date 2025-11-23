@@ -1,0 +1,139 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 '2강-실습-1) 자연어의 전처리 - 한국어전처리 실습'에서 이해가 안되는 부분이 있어 질문을 남깁니다.\n\n정확히 말하면 정규 표현식이 이해가 안됩니다. (사진 참고)\n\n제 생각에\n&lt;[^&gt;]+&gt;    -&gt; 이 부분은 &lt;p&gt; 같은 형태의 문자열을 제거하기 위한 것 같은데,\n\n그렇다면 나머지\n\\s+(?=&lt;)|&lt;[^&gt;]+&gt;      -&gt; 이 부분은 무슨 뜻일까요?\n\n질문에 답변 해주시면 감사하겠습니다:relaxed:",
+        "user": "U04RK708CQJ",
+        "user_name": null,
+        "timestamp": "1683340414.893139",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RK708CQJ",
+            "ts": "1683340438.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK3G01EF"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "태그가 공백 뒤에 연속되어 나타나는 경우, 공백까지 함께 지워주는 코드입니다.",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1683343940.569499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "예를들어,\n```\"&lt;p&gt;example text. &lt;br&gt;    &lt;br&gt;    &lt;br&gt;text 2 &lt;/p&gt;\"```\n라는 텍스트가 있을 때, `\"&lt;[^&gt;]+&gt;\"` 만으로 정규식을 걸게 되면 `&lt;br&gt;` 사이의 공백들은 지워지지 않으므로 다음과 같이 나타납니다.\n```\"example text.         text 2 \"```\n하지만 앞부분이 포함될 경우, `&lt;br&gt;` 사이의 공백들도 같이 지워지게 됩니다.\n```\"example text. text 2 \"```\nhtml에서 div와 같은 컨테이너 다음에 child요소를 나타낼 때 들여쓰기를 하게 되는데, 이러한 들여쓰기 부분을 없애주는 효과가 있습니다.\n```&lt;div id=\"dic_area\" class=\"go_trans _article_content\" style=\"-webkit-tap-highlight-color: rgba(0,0,0,0)\"&gt;\n\t\t\t&lt;div style=\"text-align:center\"&gt;&lt;span class=\"end_photo_org\"&gt;&lt;div class=\"nbd_im_w _LAZY_LOADING_WRAP \"&gt;\n\t&lt;div class=\"nbd_a _LAZY_LOADING_ERROR_HIDE\" id=\"img_a1\"&gt;\n\t\t&lt;img id=\"img1\" class=\"_LAZY_LOADING\" src=\"<https://imgnews.pstatic.net/image/374/2023/05/06/0000334607_001_20230506115709261.jpg?type=w647>\"&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;다음 주(8∼12일)에는 전국이 대체로 맑겠습니다.&amp;nbsp;&lt;br&gt;&lt;br&gt;오늘(6일) 기상청에 따르면 화요일인 9일과 수요일인 10일 전국이 대체로 맑겠고, 목요일인 11일과 금요일인 12일은 가끔 구름이 많겠습니다.&amp;nbsp;&lt;br&gt;&lt;br&gt;이번 예보 기간 아침 기온은 8∼16도, 낮 기온은 20∼27도로 평년(최저기온 10∼15도, 최고기온 20∼26도)과 비슷하겠습니다.&lt;br&gt;&lt;br&gt;9일 남해먼바다, 동해남부먼바다, 제주도 해상에서 물결이 2.0∼4.0ｍ로 높게 이는 곳이 있겠습니다.&lt;br&gt;&lt;br&gt;&lt;div style=\"border:1px solid #e6e6e6; padding:10px; font-size:14px !important; color:#404040;\"&gt;&lt;strong style=\"display:block; font-weight:normal; color:#000; margin-bottom:10px; font-size:14px !important;\"&gt;당신의 제보가 뉴스로 만들어집니다.&lt;/strong&gt;&lt;strong style=\"display:block; font-weight:normal; color:#000; margin-bottom:10px; font-size:14px !important;\"&gt;&lt;span data-type=\"ore\" data-lang=\"en\"&gt;SBS&lt;/span&gt; &lt;span data-type=\"ore\" data-lang=\"en\"&gt;Biz&lt;/span&gt;는 여러분의 제보를 기다리고 있습니다.&lt;/strong&gt;&lt;strong style=\"display:block; font-weight:normal; color:#000; margin-bottom:0px; font-size:14px !important;\"&gt;홈페이지 = &lt;span data-type=\"ore\" data-lang=\"en\"&gt;https&lt;/span&gt;:&lt;span data-type=\"ore\" data-lang=\"en\"&gt;&lt;/span&gt;/&lt;span data-type=\"ore\" data-lang=\"en\"&gt;&lt;/span&gt;/&lt;span data-type=\"ore\" data-lang=\"en\"&gt;<http://url.kr|url.kr>&lt;/span&gt;/9pghjn&lt;/strong&gt;&lt;/div&gt;&lt;br&gt;        \n\t\t&lt;/div&gt;```\n`\"&lt;[^&gt;]+&gt;\\s+(?=&lt;)|&lt;[^&gt;]+&gt;\"`를 모두 이용하는 경우\n```다음 주(8∼12일)에는 전국이 대체로 맑겠습니다.&amp;nbsp;오늘(6일) 기상청에 따르면 화요일인 9일과 수요일인 10일 전국이 대체로 맑겠고, 목요일인 11일과 금요일인 12일은 가끔 구름이 많겠습니다.&amp;nbsp;이번 예보 기간 아침 기온은 8∼16도, 낮 기온은 20∼27도로 평년(최저기온 10∼15도, 최고기온 20∼26도)과 비슷하겠습니다.9일 남해먼바다, 동해남부먼바다, 제주도 해상에서 물결이 2.0∼4.0ｍ로 높게 이는 곳이 있겠습니다.당신의 제보가 뉴스로 만들어집니다.SBSBiz는 여러분의 제보를 기다리고 있습니다.홈페이지 = <https://url.kr/9pghjn>```\n`\"&lt;[^&gt;]+&gt;\"`만 이용하는 경우\n```\n\t\t\t\n\t\n\t\t\n\t\n다음 주(8∼12일)에는 전국이 대체로 맑겠습니다.&amp;nbsp;오늘(6일) 기상청에 따르면 화요일인 9일과 수요일인 10일 전국이 대체로 맑겠고, 목요일인 11일과 금요일인 12일은 가끔 구름이 많겠습니다.&amp;nbsp;이번 예보 기간 아침 기온은 8∼16도, 낮 기온은 20∼27도로 평년(최저기온 10∼15도, 최고기온 20∼26도)과 비슷하겠습니다.9일 남해먼바다, 동해남부먼바다, 제주도 해상에서 물결이 2.0∼4.0ｍ로 높게 이는 곳이 있겠습니다.당신의 제보가 뉴스로 만들어집니다.SBS Biz는 여러분의 제보를 기다리고 있습니다.홈페이지 = <https://url.kr/9pghjn>        \n\t\t```\n`(?=)`같은 lookaround기호는 아래 글을 참고해 보시면 좋을 것 같습니다.\n<https://elvanov.com/2388>\n<https://blog.hexabrain.net/205>",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1683344390.859119",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3JEXAP",
+              "ts": "1683344909.000000"
+            },
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04RK3E8L3D"
+                ],
+                "count": 2
+              },
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04RK3E8L3D"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04S8TBCAJC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "민수님이 설명을 잘 해주셨듯이 `&lt;[^&gt;]+&gt;\\s+(?=&lt;)` 패턴 혹은 `&lt;[^&gt;]+&gt;` 패턴을 찾아서 지워주는 기능으로 이해하고 있습니다. 여기에 더해 GPT-4.0 모델 기반 ChatGPT 답변도 첨부해보겠습니다!",
+          "user": "U04S8TBCAJC",
+          "user_name": null,
+          "timestamp": "1683345608.830119",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04S8TBCAJC",
+              "ts": "1683345886.000000"
+            },
+            "reactions": [
+              {
+                "name": "squirtle_wonderfull",
+                "users": [
+                  "U04RK3JEXAP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "gpt 대단하네요..",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1683345664.311759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U04S8TBCAJC",
+                  "U04RK3E8L3D",
+                  "U04RG8ZFADT"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러니까요..",
+          "user": "U04S8TBCAJC",
+          "user_name": "박경택_T5079",
+          "timestamp": "1683345699.443219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

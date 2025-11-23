@@ -1,0 +1,222 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, 김정훈입니다.\n\n오늘 클래스에서 말씀드렸던, 베이스라인 모델 구조를 첨부드립니다.\n\n참고하셔서, 목표 성능 달성에 도움이 되셨으면 좋겠습니다!",
+        "user": "U0295NACBJR",
+        "user_name": null,
+        "timestamp": "1638359389.129100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "bow",
+              "users": [
+                "U029AHPA1GX",
+                "U02A1GMPQ65",
+                "U028ZQU4N07",
+                "U029KSKF90V",
+                "U029TQ9JFR8",
+                "U029C3CSPHB",
+                "U029LN7NMRA",
+                "U029GCDG954",
+                "U029B4MRK8D",
+                "U0290GAJGG7",
+                "U02AK81JACT",
+                "U02920P3X38",
+                "U029F23R56F",
+                "U029UHZ6AHY"
+              ],
+              "count": 14
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029B96RRJA",
+                "U029LN7NMRA",
+                "U02920P3X38",
+                "U029L0WMGUE",
+                "U029BS21VL5"
+              ],
+              "count": 5
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U02AM2MKYG1",
+                "U029U4NB3UZ",
+                "U028ZAA1X1V",
+                "U029PN9SX1R",
+                "U029LN7NMRA",
+                "U02920P3X38"
+              ],
+              "count": 6
+            },
+            {
+              "name": "bow::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V",
+                "U029PN9SX1R",
+                "U02920P3X38"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V",
+                "U029PN9SX1R",
+                "U02920P3X38"
+              ],
+              "count": 3
+            },
+            {
+              "name": "100",
+              "users": [
+                "U029ENX4TDZ",
+                "U02920P3X38"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "학습에 사용했던 data.yaml도 함께 첨부드려요",
+          "user": "U0295NACBJR",
+          "user_name": null,
+          "timestamp": "1638410881.145200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*<!channel>*\n안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n금일 19:00 모델최적화 대회가 마무리 됩니다. 아래 내용 참고하셔서 대회 잘 마무리 하시길 바랍니다.\n• 최종 제출은 “리더” 권한을 가진 캠퍼가 2개의 “final submission” 박스를 체크합니다. \n    ◦ `박스 체크를 하지 않을 경우 최종 리더보드에 팀의 결과물이 반영이 되지 않습니다.`\n• 대회 종료 직전에는 Inference 대회임을 감안하여 반드시 시간 여유를 두고 final submission을 ‘2개’ 선택해주세요. \n    ◦ `대회 종료 후 선택에 실패하여 뒤늦게 요청주실 경우 반영해 드리기 어렵습니다.`\n• Private 리더보드(최종)는 대회 종료 후 한 시간 뒤에 공개됩니다.\n• *AI Stages 서버는 교육 종료일까지 회수되지 않습니다. 동일하게 모델최적화 대회 페이지에서 서버를 사용해주세요.*",
+        "user": "U028323UHE2",
+        "user_name": "Saewon Yang",
+        "timestamp": "1638407295.142600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "박스 체크가 1개만 되고 있는데 2개 체크하는 게 맞나요?",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1638407765.142700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029B96RRJA> 리더보드 제출 횟수 2회 이상 하셨을까요?",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1638407801.142900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵, 그리고 팀 제출 안내문에도 1개라고 나와있어서요",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1638407860.143100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028323UHE2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인해보겠습니다. 잠시만요~",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1638407874.143400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "final submission 2개로 늘렸습니다. 확인 부탁드려요! :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1638409014.143700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 바뀌었습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1638409377.143900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U028323UHE2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

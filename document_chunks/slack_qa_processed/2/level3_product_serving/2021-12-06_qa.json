@@ -1,0 +1,65 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "마스터님 해주신 답변 다 읽어봤는데 , 정말 세심하게 적어주셔서 이해가 잘됫던거같습니다.제가 얼마전에 GCP PDE를 따면서 비슷한 내용들을 공부해서그런지 잘 와닿았던거 같습니다. train-serve skew문제는  추천시스템을예시로 생각해보면서 이해했습니다. 유저의 성향같은 feature들이 같은 레포안에 있으면 training할때 , serving할 때도 같은 feature들을 사용하게 되서 , skew를 줄인다라고 생각이 들었습니다.",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1638844351.091700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1638844366.000000"
+          },
+          "reactions": [
+            {
+              "name": "muscle",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029MCT2RTK"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "오 맞아요~!!! 그렇게 하나씩 체득하시면 되어요 :slightly_smiling_face:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1638849622.096100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

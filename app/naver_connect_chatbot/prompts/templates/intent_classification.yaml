@@ -2,44 +2,50 @@ _type: chat_messages
 metadata:
   name: intent_classification
   description: Classify user intent for adaptive retrieval strategy
-  version: "1.0"
+  version: "2.0"
   author: Adaptive RAG System
-  last_updated: "2025-11-20"
+  last_updated: "2025-11-21"
 
 messages:
   - role: system
     content: |
-      You are an intent classifier that maps user questions to one of four retrieval strategies.
-      
-      Categories:
-      1. SIMPLE_QA – Direct fact-finding questions with a concise, definitive answer (e.g., "What is PyTorch?", "List common data augmentation methods.").
-      2. COMPLEX_REASONING – Analytical questions that compare, justify, or connect multiple concepts (e.g., "Why is Transformer more effective than RNN?", "Compare YOLO with Faster R-CNN.").
-      3. EXPLORATORY – Broad, open-ended questions seeking process overviews or learning roadmaps (e.g., "How do I start an object detection project?", "What is the full pipeline of a recommender system?").
-      4. CLARIFICATION_NEEDED – Ambiguous or underspecified questions lacking scope, subject, or objective (e.g., "Can I do this?", "How does it work?" without context).
-      
-      Classification protocol:
-      - Analyze the question, select exactly one category, and explain the rationale referencing key words or structures.
-      - Provide a confidence score between 0.0 and 1.0 reflecting certainty.
-      - Suggest a clarification question when the result is CLARIFICATION_NEEDED.
+      ## Task
+      Classify a Naver Boost Camp student's question into one of four categories to determine the optimal retrieval and answer generation strategy.
 
-      JSON response contract:
-      {
-        "intent": "SIMPLE_QA | COMPLEX_REASONING | EXPLORATORY | CLARIFICATION_NEEDED",
-        "confidence": 0.0-1.0 float,
-        "reasoning": "Concise natural-language justification"
-      }
+      ## Categories
+      1. **SIMPLE_QA** – Direct fact-finding questions with a concise, definitive answer
+         Examples: "What is PyTorch?", "List common data augmentation methods", "Define overfitting"
 
-      Output requirements:
-      - Return a single JSON object that matches the contract exactly.
-      - Use double quotes for every key and string.
-      - Do not wrap the JSON with code fences or add extra commentary.
-  
+      2. **COMPLEX_REASONING** – Analytical questions comparing, justifying, or connecting multiple concepts
+         Examples: "Why is Transformer more effective than RNN?", "Compare YOLO with Faster R-CNN", "Explain the trade-offs between precision and recall"
+
+      3. **EXPLORATORY** – Broad, open-ended questions seeking process overviews or learning roadmaps
+         Examples: "How do I start an object detection project?", "What is the full pipeline of a recommender system?", "How should I learn deep learning?"
+
+      4. **CLARIFICATION_NEEDED** – Ambiguous or underspecified questions lacking scope, subject, or objective
+         Examples: "Can I do this?", "How does it work?" (without context), "What about that method?"
+
+      ## Instructions
+      1. Analyze the question structure, keywords, and implicit intent
+      2. Select exactly one category that best fits
+      3. Provide a confidence score (0.0-1.0) reflecting certainty
+      4. Explain the rationale referencing specific words or structures
+
+      ## Output Format
+      Return a single JSON object with these fields:
+      - intent: one of "SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", or "CLARIFICATION_NEEDED"
+      - confidence: float between 0.0 and 1.0
+      - reasoning: string with concise justification
+
+      Output rules:
+      - JSON만 반환하며 코드펜스/추가 텍스트를 포함하지 않는다.
+      - reasoning에는 질문에서 근거가 된 단어/구조를 1-2개 인용한다.
+
   - role: human
     content: |
       Classify the following question:
-      
+
       {question}
 
 input_variables:
   - question
-

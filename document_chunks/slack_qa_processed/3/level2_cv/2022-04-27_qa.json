@@ -1,0 +1,176 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "ipynb 파일은 서버에서 돌릴 때 브라우저를 닫아도 돌아가게 하는 방법이 없을까요?",
+        "user": "U02TFK3K0CA",
+        "user_name": "이상윤_T3148",
+        "timestamp": "1651078154.326039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "tmux 와 같은 환경에서 jupyter를 실행하시면 브라우저 종료 후에도 계속 동작합니다~",
+          "user": "U02RZT4J4Q6",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1651078459.808629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SL2E1KCZ",
+                  "U02TFP6V1DY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFP6V1DY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "멘토님 말씀처럼 tmux 쓰는 게 가장 가까운 답인데요, 일반 파이썬 파일로 변환해서 돌리는 방법도 있긴 합니다!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651106625.660939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SL2E1KCZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "tmux랑 <http://daplus.net/python-%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%90%EC%84%9C-ipynb-jupyter-notebook%EC%9D%84-%EC%8B%A4%ED%96%89%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C/|http://daplus.net/python-%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%90%EC%84%9C-ipynb-jupy[…]B%B2%95%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C/>\n여기 있는 내용들 확인해보시면 좋을 것 같네요",
+          "user": "U02S8RJKRRA",
+          "user_name": "이호민_멘토",
+          "timestamp": "1651112333.425589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모두 감사합니다!",
+          "user": "U02TFK3K0CA",
+          "user_name": "이상윤_T3148",
+          "timestamp": "1651116441.224409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 도움이 되실까 블로그 홍보합니다.\n<https://blog.naver.com/ha_junv/222437007315>\ntmux 사용법입니다.",
+          "user": "U02U1RYL99C",
+          "user_name": "김하준",
+          "timestamp": "1651121026.518809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TFK3K0CA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "mmseg 사용 중입니다. 원래 TTA는 전부 되돌려서 inference를 진행하는 것이 맞는데요, 이번 대회에서는 256으로 resize해서 inference를 진행해야 하는데, 이게 TTA로 취급되면서 되돌려지는 것 같습니다. 이미지 자체를 건드리지 않고 online으로 되돌려지지 않는 test time resize를 할 수 있는 방법이 있을까요? 아니면 이미지 자체를 resize해도 별로 정보 손실이 없을까요? 저는 성능이 유의미하게 떨어질 것 같아서요. 답변을 최대한 빨리 받으려고 issue도 올려 놨습니다. 제가 사용한 코드는 여기 issue 링크를 달면 미리보기로 뜰 것 같네요.\n<https://github.com/open-mmlab/mmsegmentation/issues/1530>",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1651120605.761709",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T1HLM9NK",
+            "ts": "1651159742.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02RS1EC6S3",
+                "U02THPL8F0C"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "이건 tta inference 하고 뽑은 결과를 256으로 resize하면 해결되지 않을까요?",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1651122168.899989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. 제가 위와 같은 상황을 처리한다면 `CustomDataset`을 상속한 클래스를 만든 다음에 `pre_eval` 함수만 바꿔서 사용할 것 같습니다.",
+          "user": "U02SL2E1KCZ",
+          "user_name": "Hwigeon Oh",
+          "timestamp": "1651127263.808229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "evaluation 옵션을 pre_eval=True로 주고 302-303 라인의 입력을 바로 넣는 대신에 resize 후에 넣는 방식으로 진행할 것 같습니다.\n\n<https://github.com/open-mmlab/mmsegmentation/blob/master/mmseg/datasets/custom.py#L302>",
+          "user": "U02SL2E1KCZ",
+          "user_name": "Hwigeon Oh",
+          "timestamp": "1651127323.016079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

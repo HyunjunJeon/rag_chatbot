@@ -1,0 +1,53 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 최종 프로젝트 구글 드라이브 관련하여 질문드립니다!\n이전 중간 피드백 영상이 현재 구글 드라이브에 있는데 해당 영상을 저희가 삭제를 하고 최종 영상만 업로드 하는 것이 맞을까요?",
+        "user": "U04RCJPRKM4",
+        "user_name": "임우열",
+        "timestamp": "1690514329.029839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04RCJPRKM4> <@U043YMH0BC0> <@U046RDS8WUS>\n\n임우열 캠퍼님, 안녕하세요!\n삭제하고 새로운 파일로 업로드 부탁드립니다.",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1690519225.513019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U043YMH0BC0",
+                  "U04RCJPRKM4"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다! ㅎㅎ",
+          "user": "U04RCJPRKM4",
+          "user_name": "임우열",
+          "timestamp": "1690519613.327309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

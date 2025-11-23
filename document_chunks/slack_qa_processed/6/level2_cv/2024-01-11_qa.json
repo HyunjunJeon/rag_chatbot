@@ -1,0 +1,59 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "4강 강의의 AugFPN설명 중 Overview에서 FPN의 단점이 1개의 feature map에서 RoI 생성이라고 하셨는데,\n이게 각 feature map에서 정해진 w,h의 RoI생성하는 것이 단점이라고 생각해도 될까요?\nPANet에서는 w,h에 따라서 RoI를 생성하는 stage를 정하는 것이 아닌, 모든 stage에서 여러 RoI를 생성하기 때문에 FPN의 단점을 해결했다고 보면 될까요?",
+        "user": "U063MR541NZ",
+        "user_name": "강승환",
+        "timestamp": "1705028891.211569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "우선 각 feature map에서 정해진 w,h를 사용하지는 않습니다. Conv를 거치며 생성된 다양한 크기의 feature map은 각각 서로 다른 scale의 RoI를 추출하는데 적합한데, FPN은 이 여러 feature map을 동시에 고려하는 것이 아니라 각각의 map에서 개별적으로 prediction을 생성 후 그 안에서 가장 score가 높은 box를 select하게 됩니다. 1개의 feature map에서 RoI가 생성되는 단점은 이 부분에 해당하며, PANet에서는 여러 stage의 feature map을 동시에 고려하여(강의 중 adaptive feature pooling 이미지에 해당) prediction을 생성하기 때문에 이러한 단점을 해결할 수 있습니다.",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1705045645.212039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U063MR541NZ",
+          "user_name": "강승환",
+          "timestamp": "1705046165.800269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "woman-bowing",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dizzy",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 cv-04조 김태욱입니다.\ntrain data labeling을 확인하던 중\ntrapezoid와 triquetrum 클래스가 다른 이미지와 다르게 반대로 되있어 잘못된건지 궁금합니다\n(뼈에 대해 몰라서 크기나 모양에 따라 구분을 하는지, 엄지와 검지에 가까운 쪽으로 구분을 하는지 모르겠습니다)",
+        "user": "U07EFHAFF7V",
+        "user_name": null,
+        "timestamp": "1731911480.542279",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07E921DX9C",
+                "U07E925SZ8W",
+                "U07E14AN7F1"
+              ],
+              "count": 3
+            },
+            {
+              "name": "meow_attention",
+              "users": [
+                "U07F4EDLDUG",
+                "U07E925SZ8W",
+                "U07E14AN7F1"
+              ],
+              "count": 3
+            },
+            {
+              "name": "zzang",
+              "users": [
+                "U07F4EDLDUG",
+                "U07E925SZ8W",
+                "U07E14AN7F1"
+              ],
+              "count": 3
+            },
+            {
+              "name": "cat-dance",
+              "users": [
+                "U07F4EDLDUG",
+                "U07E925SZ8W",
+                "U07E14AN7F1"
+              ],
+              "count": 3
+            },
+            {
+              "name": "멋져",
+              "users": [
+                "U07F4EDLDUG",
+                "U07E925SZ8W",
+                "U07E14AN7F1",
+                "U07EJ5DES5S"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 CV14조 윤남규입니다. 이전에 관련 내용을 찾아보고 알게 된 내용인데, \"어떤 손가락에 연결되는지\"를 기준으로 구분된다고 생각하시면 좋을 것 같습니다.\n\n- *Trapezoid* : 집게손가락과 손등의 연결 부위에 위치하며, *Trapezium*과 연결됩니다.\n- *Triquetrum* : 새끼 손가락과 손등의 연결 부위에 위치하며, *Pisiform*과 연결됩니다.",
+          "user": "U07EFHA4LSX",
+          "user_name": "윤남규",
+          "timestamp": "1731915062.948189",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EFHA4LSX",
+              "ts": "1733226504.000000"
+            },
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U07EFHAFF7V",
+                  "U07EJ5NALQ4",
+                  "U07E925SZ8W",
+                  "U07ECPWEJDT",
+                  "U07E92018AJ",
+                  "U03QFUYQT7W",
+                  "U07G0DA47U1",
+                  "U03L1UMDLUS"
+                ],
+                "count": 8
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03L1UMDLUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

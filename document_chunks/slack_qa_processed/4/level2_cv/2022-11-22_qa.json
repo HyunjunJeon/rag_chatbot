@@ -1,0 +1,381 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "MMDetection의 tools/test.py에서 --eval 옵션을 보면 COCO 데이터셋에 대해서는 mAP와 recall을 지원하지 않는다고 하던데,\n• 왜 지원하지 않는지 궁금하고\n• 그럼에도 mAP와 recall 값을 보고 싶다면 어떻게 해야 하나요?\n&gt; _evaluation metrics, which depends on the dataset, e.g., \"bbox\",' \"segm\", \"proposal\" for COCO, and \"mAP\", \"recall\" for PASCAL VOC_",
+        "user": "U041L94723E",
+        "user_name": "집사",
+        "timestamp": "1669107873.472599",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "왜 지원하지 않는지는 잘 모르겠지만 저희 조는 custom dataset 내부의 mAP를 evaluate 함수를 쓰고 있습니다! :raised_hands:",
+          "user": "U0427G9RVK2",
+          "user_name": "오한별",
+          "timestamp": "1669108964.032789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03R4JQQGHF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 지원하는 걸로 알고 있는데요,,! 지원안된다면\n1. 미션 중에 mAP 계산하는 미션 참고하시면 좋을 것 같습니다.\n2. train 도중에 나오는 validation에 대한 mAP 확인하셔도 좋을 것 같습니다.\n3. mmdetection 코드를 직접 고치거나 직접 mAP metric 작성\n과 같은 방법이 있을 것 같습니다.",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669109083.443939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "[1] 별도로 valid.json을 만들어 EvalHook을 걸어주면, 터미널 창에서 mAP@50, mAP@75 등 Cocodataset에서 평가에 사용되었던 지표를\nlogging해주는 것으로 알고 있습니다! 터미널로 보기만 하는게 아쉽다면, Tensorboard나 wandb로 연동시킬 수 있다고 알고 있습니다.\n\n[2] wandb 관련 hook을 걸어주면 저 지표들에 대해서는 logging이 되었던 것 같습니다.\n=&gt; 이 과정에서 저희 조는 wandb 관련 hook을 걸어둘 때 계속 오류가 떠서 라이브러리의 코드를 고쳤습니다.\n\n[3] Recall의 기능은 별도로 지원하지 않는 것 같아,  추가적인 metric이 필요시 custom하게 구현해야하는 것 같습니다..!",
+          "user": "U041HMZR68K",
+          "user_name": "sangmo gu",
+          "timestamp": "1669109315.698699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E",
+                  "U03R4JQQGHF",
+                  "U03PE2V21L7"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 베이스 코드 학습 중 이해가 안되는 부분이 있어 질문 올립니다.\nFaster RCNN config의 `coco_detection.py` config `문의`입니다.\n① est_pipeline에 RandomFlip이 있는데 혹시 왜 있는지 알 수 있을까요?\n② train_pipeline에는 ImageToTensor가 없는 것 같지만, 오류 없이 잘 트레이닝이 됩니다.\n혹시 먼저 이유를 찾아보신 분 계신가요?\n\n```img_norm_cfg = dict(\n    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)\ntrain_pipeline = [\n    dict(type='LoadImageFromFile'),\n    dict(type='LoadAnnotations', with_bbox=True),\n    dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),\n    dict(type='RandomFlip', flip_ratio=0.5),\n    dict(type='Normalize', **img_norm_cfg),\n    dict(type='Pad', size_divisor=32),\n    dict(type='DefaultFormatBundle'),\n    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels']),\n]\ntest_pipeline = [\n    dict(type='LoadImageFromFile'),\n    dict(\n        type='MultiScaleFlipAug',\n        img_scale=(1333, 800),\n        flip=False,\n        transforms=[\n            dict(type='Resize', keep_ratio=True),\n            dict(type='RandomFlip'),\n            dict(type='Normalize', **img_norm_cfg),\n            dict(type='Pad', size_divisor=32),\n            dict(type='ImageToTensor', keys=['img']),\n            dict(type='Collect', keys=['img']),\n        ])\n]```",
+        "user": "U0427G7HN6L",
+        "user_name": "김형훈",
+        "timestamp": "1669124561.884449",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0427G7HN6L",
+            "ts": "1669124579.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U04138ETVLP"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "DefaultFormatBundle 이 ImageToTensor를 포함하고 있구요,\nTest pipeline의 RandomFlip은 TTA를 위한 것이라고 보시면 돼요~\n```MultiScaleFlipAug```\n을 파이프라인에 포함하고 있죠!\nclassification에서는 정말 다양한 TTA를 사용하는데, detection 에서는 주로 Hflip / Multi scaling 정도를 정석처럼..? 사용하는 편이에요.",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1669124671.119489",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03S1A1PV9T",
+              "ts": "1669124755.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G7HN6L",
+                  "U041HN3C7B5",
+                  "U04138ETVLP",
+                  "U03R4JQQGHF",
+                  "U041L94723E",
+                  "U041HMZ15RR",
+                  "U03PE2V21L7",
+                  "U041WE6EKB3"
+                ],
+                "count": 8
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 TTA군요! 감사합니다! :slightly_smiling_face:",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1669124864.269809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03R4JQQGHF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 질문과 답변 감사합니다! :+1: 지나가다 배워가네요~",
+          "user": "U04138ETVLP",
+          "user_name": "Soonyoung Hwang",
+          "timestamp": "1669127718.672239",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04138ETVLP",
+              "ts": "1669127767.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03R4JQQGHF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "미션 5의 YOLO v1(기본)이나 v3(심화) training부터 inference까지 성공하신 분 계신가요?\n\n1. 코드에 제시된 learning rate와 epoch으로는 training이 정상적이지 않습니다. \n    ◦ v1 정답에 제시된 값 (lr 2e-5, epoch100) 그대로 실행 후, 마지막 epoch의 mAP가 0.0292입니다. (3시간 소요)\n    ◦ v1 정답에서 lr 2e-4, epoch300로 수정 후, 마지막 epoch의 mAP가 0.8459입니다. (10시간 소요)\n2. 제공된 심화 inference코드는 v3이 아닌 v1입니다. 파일이름이 잘못되었거나, 링크가 잘못된 듯 합니다.\n    ◦ 1에서 epoch300으로 train한 모델을 제출하면 mAP가 0.0064입니다. inference 코드의 수정도 필요한 것으로 보입니다.",
+        "user": "U041HMZ7PHR",
+        "user_name": "1",
+        "timestamp": "1669163075.947609",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041HMZ7PHR",
+            "ts": "1669163207.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PE2V21L7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "정호님 안녕하세요~\n1. 네 맞습니다. 제공되는 코드의 경우 tuning 전혀 이루지지 않은 상태이고요. (제공되는 모든 코드는 tuning이 안되어 있습니다.) yolov3 같은 경우에는 1 stage detection으로 학습 epoch도 굉장히 오래 걸립니다. 제공되는 코드의 경우 yolov3를 이런식으로 활용한다~ 정도로 봐주시면 좋을 것 같아요. competition에 직접적으로 활용하고 싶으시다면 어제 진행했던 오피스아워 실습 부분을 참고하면 좋을 것 같아요.\n2. 네 확인해보고 <@U03PE2V21L7> 께서 나중에 답글 달아주신다고 합니다.\n감사합니다",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669164347.164639",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03R4JQQGHF",
+              "ts": "1669164735.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZ7PHR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 유정호 캠퍼님. 파일이 잘못 제공된 것을 확인했습니다. 학습에 불편을 드려 죄송합니다.\nyolo v3 inference 코드의 경우 이번주 중으로 제공할 수 있도록 하겠습니다. : )\n\nyolo v3를 혹시 컴피티션용으로 사용하실 계획이시라면, 주세환 조교님이 어제 오피스 아워에서 말씀하셨던 yolo v7 inference 코드를 첨부하니, 참고하셔서 진행해주시면 좋을 것 같습니다. 감사합니다.\n```import cv2\nimport torch\nimport json\nimport pandas as pd\nfrom PIL import Image\nfrom tqdm import tqdm\nimport os\n\ndef inference(experience_name, iou=0.5):\n    dataset_root = '../dataset/test/'\n\n    model = torch.hub.load('./', 'custom', path_or_model= f'./runs/train/{experience_name}/weights/best.pt', source='local') \n    model.conf = 0.001  # confidence threshold (0-1)\n    model.iou = iou  # NMS IoU threshold (0-1)\n\n    prediction_string = ['']  * 4871 \n    image_id = [f'test/{i:04}.jpg' for i in range(4871)]\n    for i in tqdm(range(4871)):\n        img = Image.open(os.path.join(dataset_root, f'{i:04}.jpg'))\n\n        results = model(img, size=1024, augment=True)\n        for bbox in results.pandas().xyxy[0].values:\n            xmin, ymin, xmax, ymax, confidence, clss, name = bbox\n            prediction_string[i] += f'{clss} {confidence} {xmin} {ymin} {xmax} {ymax} '\n    raw_data ={\n        'PredictionString' : prediction_string,\n        'image_id' : image_id\n    }\n    dataframe = pd.DataFrame(raw_data)\n\n    # output/yolov7/exp_name에 저장됩니다.\n    dataframe.to_csv(f'./runs/train/{experience_name}/submission_{iou}.csv', sep=',', na_rep='NaN', index=None)```",
+          "user": "U03PE2V21L7",
+          "user_name": "남혜린",
+          "timestamp": "1669175373.270749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZ7PHR",
+                  "U041B78LL22",
+                  "U041ES179JR"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<!subteam^S044DBU20SV|@cv> 여러분~ AI Stages 게시판에 들어가면, 조교님께서 꼼꼼하게 제작해주신 토론 콘텐츠가 있습니다!\n\nObject Detection 태스크 자체의 높은 난이도에 어려워하는 분들도 계실 것 같은데요! 데이터 EDA, KFold, 평가 metric, 그리고 앙상블에 대한 내용까지 조교님께서 친절하게 작성해주신 내용이 있으니 꼭 읽어보시길 바랍니다!\n\n여러분들도 게시판에서 공유와 토론의 기회를 적극 활용해보시면 좋겠습니다! :squirtle_cool:\n\n내가 씨름하고 있는 문제가 나만의 문제가 아닐 수 있고, 그랬을 때 내가 그 문제를 해결한 과정을 타인에게 공유하는 과정에서 스스로 정리도 되고, 누군가에게 큰 힘이 될 수 있으니까요! :wobbuffet:",
+        "user": "U03KW2M0J07",
+        "user_name": null,
+        "timestamp": "1669176180.822359",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "grinning",
+              "users": [
+                "U041HMZ7PHR",
+                "U03MDFNTYCE",
+                "U041B76DHAS",
+                "U03R4JQQGHF",
+                "U041HN1JMTM",
+                "U04138AJC7R",
+                "U041L8WPYKW",
+                "U041ERXE485",
+                "U0427G7EG72",
+                "U041L94PRPE",
+                "U041HMZR68K",
+                "U041B78LL22",
+                "U03KW2M0J07",
+                "U041HN0UDEF",
+                "U041WE2NL2D"
+              ],
+              "count": 15
+            },
+            {
+              "name": "jammin_squirtle",
+              "users": [
+                "U03PE2V21L7",
+                "U03R4JQQGHF",
+                "U041B78LL22",
+                "U03KW2M0J07"
+              ],
+              "count": 4
+            },
+            {
+              "name": "dancing_puppy",
+              "users": [
+                "U04138C8PE3",
+                "U03KW2M0J07"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "데이브 따봉 안눌렀네요,,!",
+          "user": "U03R4JQQGHF",
+          "user_name": "주세환_조교",
+          "timestamp": "1669181409.508249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "face_with_peeking_eye",
+                "users": [
+                  "U03PE2V21L7",
+                  "U041ERXE485",
+                  "U041B7AFSUE",
+                  "U041L94PRPE",
+                  "U0427G7HN6L",
+                  "U03KW2M0J07",
+                  "U041B78LL22"
+                ],
+                "count": 7
+              },
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U041L94723E",
+                  "U0427G7HN6L",
+                  "U03KW2M0J07",
+                  "U041B78LL22"
+                ],
+                "count": 4
+              },
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ㅋㅋㅋㅋㅋㅋㄱㄷㅋㅋ 따따봉 어버법..! :업업업:",
+          "user": "U03KW2M0J07",
+          "user_name": "Dave",
+          "timestamp": "1669183478.708639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck",
+                "users": [
+                  "U03PE2V21L7",
+                  "U041B78LL22"
+                ],
+                "count": 2
+              },
+              {
+                "name": "dancing_puppy",
+                "users": [
+                  "U04138C8PE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U03PVSC77HR> top 명령어로 모델이 돌아갈 때 확인해봤는데 100%사용률이 나왔습니다.. GPU로 데이터(이미지)를 넘기면 cpu작업을 벗어난건줄 알았는데 제가 잘못 알고 있던것 같습니다.  혹시 처리율 제한기를 쓰기 위해서는 어떤 키워드로 검색을 해야할지 알려주실 수 있나요?",
+        "user": "U0427G48WAC",
+        "user_name": null,
+        "timestamp": "1675858150.164929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "• Rate Limiter 혹은 처리율 제한장치로 검색해보시면, 대충 어떤 개념인지 감을 잡으실 수 있을겁니다.\n• Python Rate Limiter 나 FastAPI Rate Limiter로 검색해보시면 어떻게 구현해야 하는지 나올겁니다\n    ◦ 근데 사실 컨셉 자체는 간단해서 라이브러리 안쓰고 그냥 naive 하게 구현하기에도 쉬울거라 생각합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675858248.623079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 근데 aistage 서버가 8코어라 100%를 쓰는게 아니 1/8만 쓰는것같습니다... 그러면 cpu자원이 남는 것 같은데 다시 멀티프로세스를 쓰는게 맞나요? VRAM한계가 이미지5개까지라 멀티프로세스를 사용하고 5명 넘으면 큐에 대기시키거나 처리율을 제한하는게 맞을까요?",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675859601.584889",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0427G48WAC",
+              "ts": "1675859753.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵. 말씀하신대로 CPU 800% (max)를 위해 멀티 프로세싱으로 처리하시면 될거 같습니다. 단 이 때 멀티 프로세스 환경에서 큐를 사용하기 때문에 위처럼 단일 쓰레드 환경의 큐가 아닌 <https://docs.python.org/ko/3/library/multiprocessing.html#multiprocessing.SimpleQueue> 이 큐를 사용하셔야할거 같아요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675859861.108749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만약 gunicorn 같은 형태로 서버 자체를 여러 프로세스로 띄우신다면, 위 큐가 아니라, 이전에 이야기가 나왔던 Redis 와 같은 외부의 별도 프로세스를 쓰셔야할거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675859914.039519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다..!",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675860052.728419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로… 이렇게 요청을 받는쪽 (웹서버) + 요청 브로커 + 워커 세개로 나누어 디자인하신다면 celery를 사용하는 것도 하나의 방법입니다.\n\n<https://docs.celeryq.dev/en/stable/>\n\n일단 simple &amp; naive 하게 접근해보신 후, 위 celery를 이용하면 더 득이될 수 있는지 고려해보시면 좋을거 같네요. 화이팅임니당",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675860183.768259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "jerry_very_thx",
+                "users": [
+                  "U0427G48WAC"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조교님 늦은시간에 죄송합니다\n저가 inference 시에 async def를 사용중인데 싱글 프로세스로 실행시 한 요청이 끝나면 다른 요청이 실행되던데 그동안 대기하는 이미지 데이터들은 어디에 머물고 있는지 궁금합니다. 잘 모르겠지만 제 생각에 GPU서버의 램에서 대기상태에 있을 것 같은데 uvicorn 자체적으로 대기 큐가 있는건가요?",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675862719.387629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 그동안 대기하는 이미지 데이터들은 어디에 머물고 있는지 궁금합니다.\n말씀하시는 `이미지 데이터` 가 서버로 들어와서 대기 중인 요청을 말씀하시는건가요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675901296.731249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만약 맞다면, 정확하지는 않지만 제 생각으로는 아마 이벤트 루프가 돌고있는 쓰레드에 요청을 등록해놓을거 같습니다. 아마 정확한건 코드를 까봐야 알거 같긴 하네요. (저도 구글링 했는데 잘 안나오는군요. 알게 되시면 공유 부탁드립니다 ㅋㅋ)",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675901963.668359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 저가 inference 시에 async def를 사용중인데\n`async def`  함수 내에서 `await` 을 사용하시나요? 만약 아니라면 굳이 이렇게 쓰실 필요 없고 `def` 쓰시는게 낫습니다.\n그리고 모델이 추론(inference) 하는건 위에서도 말씀드렸듯 CPU Bound 한 작업일거라 생각이 들어서, `async def` 으로 최적화 가능한 부분이 아닐거란 생각이 듭니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675902057.030529",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다음 문서들을 참고하였습니다.\n\n<https://ysk24ok.github.io/2021/09/02/difference_between_def_and_async_def_in_fastapi.html>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675902079.030799",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1675902118.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G5T6BS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://dev.to/ruarfff/understanding-python-async-with-fastapi-42hn>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675902097.366859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://stackoverflow.com/questions/70123888/using-async-def-vs-def-in-fastapi-and-testing-blocking-calls>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1675902109.986569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 async 안에 파일을 읽어야해서 await을 사용중입니다. 링크 공유 감사합니다! 저도 다시 한번 찾아보겠습니다",
+          "user": "U0427G48WAC",
+          "user_name": "시형",
+          "timestamp": "1675916221.726929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "airflow를 실습하다가 잘 모르겠어서 질문 남깁니다!\naistatge서버에서 airflow webserver를 실행시키고 제 로컬 크롬에서 localhost:8080으로 접속하면 airflow UI가 뜨는데 이 원리가 무엇인지 모르겠습니다 ㅠ\n\n제 상식에선 aistage서버안에서만 localhost로 접근할 수 있다고 생각했는데 제 노트북에서 되는 이유는 무엇일까요?",
+        "user": "U041HR52A3U",
+        "user_name": "김현수A_T4059",
+        "timestamp": "1675921660.773079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://code.visualstudio.com/docs/remote/ssh#_forwarding-a-port-creating-ssh-tunnel|https://code.visualstudio.com/docs/remote/ssh#_forwarding-a-port-creating-ssh-tunnel>\nVS Code SSH Tunneling 으로 추정합니다 ㅎ",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675922334.714599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HR6P5D0",
+                  "U041HRANQ82"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041L92FWCC> 감사합니다!!! VScode에서 뭔가 해주는 의심을 해서 터미널로도 접속해서 실행해봤는데 이건 이미 포트포워딩이 되어 있어서 가능한 현상이라고 봐도 될까요?",
+          "user": "U041HR52A3U",
+          "user_name": "김현수A_T4059",
+          "timestamp": "1675923125.698199",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넹 VS Code 하단 Terminal 탭 있는 근처에 Ports 탭도 있을거예요.. 거기서 보시면 아실 수 있고\n로컬PC (노트북) 에서 열려있는 포트 확인해보시면 더 확실히 아실 수 있으실거예요\n<https://extrememanual.net/12742>\n이건 로컬 포트 확인 관련한 블로그 입니다.",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675923294.573439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "궁금한게 해결되었습니다 ㅠㅠ 감사합니다!",
+          "user": "U041HR52A3U",
+          "user_name": "김현수A_T4059",
+          "timestamp": "1675923765.878919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": ":booduck: 마지막까지 학구열 대단하십니다! 리스펙해요 ㅎㅎ 화이팅 하세요~",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1675923797.365649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[과제 2번 질문]\n과제 2번 수행하다가 오류가 발생해 질문 드립니다!\n오류는 train() 에서 발생했습니다.작업 중 알 수 없는 오류가 발생했습니다!\nalbumentation 폴더에서 발생한 오류라 albumentation 버전도 다시 맞추어 주었는데도\n해결이 되지 않네요. 어떤 오류일까요??\n작업환경 : 코랩",
+        "user": "U07EJ5NALQ4",
+        "user_name": null,
+        "timestamp": "1727766036.660499",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EJ5NALQ4",
+            "ts": "1727766082.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U0616F97Q0K"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "해당 과제에서 Albumentation Transforms를 사용하는데 Transform에서 입력으로 받는 형태가 numpy여야 하는데 Tensor로 들어가고 있어서 발생하는 오류인 것 같습니다 !\n위쪽 TrainCustom 함수에서 labels를 tensor로 형변환 하고 있는 부분을 주석처리하면 통과 될 것 같습니다 !",
+          "user": "U07ECPR5ZUM",
+          "user_name": "방민혁_T7158",
+          "timestamp": "1727766398.719489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0616F97Q0K",
+                  "U07EFHKFKPV",
+                  "U07EUAQ5W2V",
+                  "U07F4EDGSJC",
+                  "U07EJ5MQ204",
+                  "U07E923UKAA"
+                ],
+                "count": 6
+              },
+              {
+                "name": "pray",
+                "users": [
+                  "U0616F97Q0K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U07EJ5NALQ4",
+          "user_name": "김동영",
+          "timestamp": "1727766795.762029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "덕분에 바로 해결 됐습니다! :grinning:",
+          "user": "U07EJ5NALQ4",
+          "user_name": "김동영",
+          "timestamp": "1727766869.566369",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07EJ5NALQ4",
+              "ts": "1727766879.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "과제 4번 질문입니다\n과제 4번 진행중 train 과정에서 오류가 발생해 질문 남깁니다.\nlabels와 target['boxes']의 길이가 일치하지 않아 발생하는 문제가 발생하는 걸로 보이는데, 이를 해결하기 위해 CustomDataset 부분을 수정해도 될까요?\nnum_ojbs를 설정하는 코드를 수정할 예정입니다.\n\n아니면 모델 선언부분에서 코드를 잘못 작성한건지 궁금합니다!",
+        "user": "U07E921DX9C",
+        "user_name": null,
+        "timestamp": "1727805392.731369",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07E921DX9C",
+            "ts": "1727805462.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 과제 4번 파일 재확인해봤는데 문제없이 실행되는 것으로 보입니다:slightly_smiling_face:\n작성하신 코드가 이미지에 보이지는 않지만 잘못된 부분이 없는지 재차 확인해보시고, 코드 작성 방향에 따라 align되지 않을 수 있으니 CustomDataset 일부 수정하는 정도는 작업하셔도 무방합니다",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1727810596.636979",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 확인했습니다! 일부분 수정하니 정상적으로 학습되며 loss 줄어드는것 까지 확인했습니다. 다시한번 코드 작성해보면서 복기해보겠습니다.\n늦은시간에 감사합니다!:감사합니다-thank-you-1:",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1727811259.090099",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E921DX9C",
+              "ts": "1727811266.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

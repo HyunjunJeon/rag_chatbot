@@ -1,0 +1,506 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[Product Serving CV 과제2 질문]\n안녕하세요. 마스터님 !\n\nFastAPI 로 이미지를 서빙하여 추론 결과가 궁금하여 질문드립니다.\n과제에 있는 best.pth 파일을 사용하였고, example_images 를 업로드하여 결과를 추론 했습니다.\nnum_classes=18 인데 0 ~ 18 까지 어떤 이미지인지 궁금합니다.\n제가 샘플로 업로드한 이미지 결과가 정답인지 아닌지 궁금해서 여쭤봅니다!",
+        "user": "U07EFHLP2P5",
+        "user_name": "김대환",
+        "timestamp": "1733991726.175369",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07ECPWEJDT",
+                "U03PVSC77HR"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U03PVSC77HR> 시흠님 요거 답변 한번 해주셔요~~",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733994414.062569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "사람이 마스크를 쓴 사진에 대해 분류하는 모델입니다~",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733994947.757339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마스크를 쓴 사진을 입력으로 주면\n마스크를 썼는지, 성별은 무엇인지, 나이대는 몇인지를 0~17 사이로 분류합니다",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733994993.155789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 제가 샘플로 업로드한 이미지 결과가 정답인지 아닌지 궁금해서 여쭤봅니다!\n결과가 정답인지 아닌지 궁금하실 수 있는데요 ㅎ_ㅎ 일단 여기서는 CV 모델을 서빙해보는 것을 주로 관심을 두고 있긴 합니다!",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1733995043.500709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U07EFHLP2P5",
+          "user_name": "김대환",
+          "timestamp": "1733995745.746079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 마스터님. 과제 1번을 진행하다 막히는 부분이 있어 질문드립니다.\n`04-crawling_weather.py`를 실행시키기 위해서 코드를 작성하고 실행을 시키게 되면 아래 첨부 사진과 동일하게 *`Negsignal.SIGKILL`* 가 발생하면서 Task가 실패하게 됩니다. 해당 시그널이 발생하는 지점은 `response = requests.get(FCST_URL, params=params)` 부분이었습니다. 문제를 해결하기 위해서 코드를 아예 전체 재작성하는 방식으로도 시도하여보았고, ariflow DB의 내용을 지웠다가 다시 시도해보는 등 여러 방법을 시도하여봤지만 여전히 같은 현상이 반복됩니다. 검색을 통해 해당 문제가 메모리 문제와 관련이 있을 수 있다는 정보를 얻었으나, 어떻게 접근해야 할지 모르겠습니다.. 도움을 주시면 감사하겠습니다!",
+        "user": "U07E14GUG1M",
+        "user_name": null,
+        "timestamp": "1733991764.988589",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "huh",
+              "users": [
+                "U07ECPR5ZUM"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 23
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 그쪽 에러가 있었는데 쿼리스트링 방식으로 파라미터를 전달해보세요. 저는 이걸로 해결했습니다.",
+          "user": "U07E14AQQMV",
+          "user_name": "염진봉_T7206",
+          "timestamp": "1733994203.991829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오..!! 바로 시도해보고 공유해보겠습니다!!",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1733994585.500839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "홍석님 코드가 없어서 어떤 형태로 했을지 모르겠지만...! 진봉님이 말씀하신 것처럼 해보시고 되나 말씀해주셔요~!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733995159.762959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "적용해도 동일한 문제가 발생합니다.. ㅠ\n`processing`, `save_file` 함수는 제외하고 첨부하였습니다..!\n```import os\nimport requests\nimport pandas as pd\n\nfrom airflow import DAG\nfrom airflow.operators.python import PythonOperator\nfrom datetime import datetime, timedelta\n\n\nOUTPUT_DIR = os.path.join(os.curdir, \"data\")\nDOC_PATH = os.path.join(OUTPUT_DIR, \"forecasts.csv\")\n\nFCST_URL = \"<http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst>\"\n# TODO: use your secret key\nSERVICE_KEY = \"\"\n\n\ndefault_args = {\n    'owner': 'ohs',\n    'start_date': datetime(2024, 12, 11, 12, 0),\n    'end_date': datetime(2024, 12, 12, 18, 0),  # end_date 추가\n    'retries': 1,\n    'retry_delay': timedelta(minutes=5),\n}\n\n\n# TODO 1. get_forecast 함수를 완성합니다\ndef get_forecast(page_num, lat, lng, base_date, base_time, **kwargs) -> pd.DataFrame:\n    # TODO:\n    #  requests, FCST_URL, SERVICE_KEY 를 활용하여 서울의 초단기 날씨 예보를 수집합니다\n    #  lat, lng 는 좌표 정보이며, Pandas DataFrame 형태로 결과를 반환합니다\n    base_time = datetime.strptime(\"\".join(base_time.split(\n        \"T\")[1].split(\":\")[0:2]), \"%H%M\").strftime(\"%H%M\")\n\n    params = {'serviceKey': SERVICE_KEY,\n              'pageNo': str(page_num),\n              'numOfRows': '100',\n              'dataType': 'JSON',\n              'base_date': base_date,\n              'base_time': base_time,\n              'nx': str(lat),\n              'ny': str(lng)}\n\n    query_string = \"&\".join(\n        [f\"{key}={value}\" for key, value in params.items()])\n    full_url = f\"{FCST_URL}?{query_string}\"\n\n    try:\n        response = requests.get(full_url)\n        data = response.json()\n        df = pd.DataFrame(data['response']['body']['items']['item'])\n\n    except requests.RequestException as error:\n        raise ValueError(f\"Fail .. {error}\")\n\n    return df\n\n# TODO 4. 한 시간에 한번씩 서울 지역의 날씨 데이터를 수집하는 DAG를 완성합니다. 주어진 두 함수를 활용합니다.\nwith DAG(\n    dag_id='04-crawling_weather',\n    default_args=default_args,\n    schedule_interval=timedelta(hours=1),\n    catchup=True,\n    tags=['assignment'],\n) as dag:\n\n    execution_date = \"{{ ds_nodash }}\"\n    execution_time = \"{{ data_interval_start }}\"\n\n    # TODO: get_forecast 함수를 활용해 forecast_task 를 완성합니다.\n    processing_task = PythonOperator(\n        task_id=\"processing_task\",\n        python_callable=processing,\n        op_kwargs={\n            \"base_date\": execution_date,\n            \"base_time\": execution_time\n        }\n    )\n\n    save_task = PythonOperator(\n        task_id=\"save_forecast_task\",\n        python_callable=save_file,\n    )\n\n    processing_task >> save_task```",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1733996119.863599",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E14GUG1M",
+              "ts": "1733996140.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Airflow 몇 버전이에요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733996289.021399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "2.6.3 버전입니다!",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1733996343.175309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "흐움.. 그렇다면 지금 Airflow가 아니라 파이썬 스크립트에 크롤링 코드만 두면 동작할까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733996872.745919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 넵!! 해당 부분도 테스트를 진행하였었는데 정상적으로 실행되는 것을 확인하였습니다. 아래는 테스트 결과입니다!",
+          "user": "U07E14GUG1M",
+          "user_name": null,
+          "timestamp": "1733997610.521669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "터미널 창에서 `Python`을 실행시킨 상태에서도 진행하였었는데 해당 경우에도 정상적으로 동작하였습니다..",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1733997688.059839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러면 requests는 몇 버전일까요?",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733997770.427059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "(그리고 지금 파이썬 버전도..!)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733997830.894929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "requests 버전은 `2.31.0` 이며, python 버전은 `3.9.6` 입니다!!",
+          "user": "U07E14GUG1M",
+          "user_name": null,
+          "timestamp": "1733997904.466139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "후움 지금 Airflow 디펜던시에선 이슈가 없네요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733998338.846489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좀비 잡이 뜰 때 보통 파라미터 수정하는거로 문서들이 나오는데, 저는 그거로 해결된 적은 없고 airflow를 직접 설치할 때 종종 이슈를 겪었네요. 지금 맥에서 자체 설치하신 케이스인거지요?\n아예 틀어서 Docker Compose로 바꿔서 Airflow 띄우고 되나 확인할 것 같아요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733998418.469419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U07E14AQQMV> 진봉님도 위에 홍석님이 보내주신 것처럼 했는데 정상 동작하신거지요?  :thinking_face::thinking_face::thinking_face:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733998443.618849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제 컴퓨터에선 정상 동작하는데 흐음..",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1733998460.730019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "맥에서 자체 설치한 상태가 맞습니다!\nDocker를 사용해서 진행해보지는 않았어서, 한 번 시도해보겠습니다!\n아래는 여러번의 실행 과정에서 발생한 로그 중 하나를 첨부하겠습니다!",
+          "user": "U07E14GUG1M",
+          "user_name": null,
+          "timestamp": "1733998649.288829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PL9GCPFZ> 넵 저도 흡사하게 했었습니다.",
+          "user": "U07E14AQQMV",
+          "user_name": "염진봉_T7206",
+          "timestamp": "1734000569.297719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Docker Compose를 통해서 실행을 시키니 성공적으로 수행되는 것을 확인했습니다!!",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1734002558.241339",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E14GUG1M",
+              "ts": "1734002610.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03PL9GCPFZ> <@U07E14AQQMV> 도움 주셔서 정말 감사합니다!! local에서 Airflow를 띄웠을 때는 왜 오류가 발생했던 것인지 좀 더 알아보겠습니다!",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1734002673.027959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "종종 이유 모를 이슈가 생기는 환경이 있더라구요. 그럴 땐 확실하게 구동되는 도커 컴포즈 파일 구해서 하는게 시간 낭비가 적고 빠르게 해서..! 앞으로도 이렇게 해보셔요 (강의에서 공유드린 이미지는 저희가 수십번 이상 확인한거라 거의 다 실행이 되어요)",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734005210.328089",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PL9GCPFZ",
+              "ts": "1734005237.000000"
+            },
+            "reactions": [
+              {
+                "name": "blob_aww",
+                "users": [
+                  "U07E14GUG1M"
+                ],
+                "count": 1
+              },
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U07E14GUG1M"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "막상 하다보니까.. 오기가 생겨서 포기가 안되더라구요..ㅎㅎ 다음부터는 현명하게 시간 낭비를 최대한 줄일 수 있도록 하겠습니다!! 도움 주셔서 다시 한 번 감사드립니다!!",
+          "user": "U07E14GUG1M",
+          "user_name": "오홍석",
+          "timestamp": "1734005539.058079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U03PL9GCPFZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 저도 보통은 문제를 해결하는 편인데, Airflow에선 이유를 파도 너무 꼬인 경우가 있더라구요. 그럴 땐 이렇게 다른 환경에서 되나? 확인해보셔요! 우리의 시간은 소중하니..!!",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1734007346.572219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "gratitude-gamsahamnida",
+                "users": [
+                  "U07E14GUG1M"
+                ],
+                "count": 1
+              },
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U07E14GUG1M"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

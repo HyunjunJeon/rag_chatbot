@@ -1,0 +1,188 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!! 혹시 저희가 최종적으로 제작완료한 데이터셋 자체도 제출을 해야하는지 궁금합니다!!",
+        "user": "U029EAQ7QQ2",
+        "user_name": "서동건",
+        "timestamp": "1636822595.059900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 1차 산출물로 제출하는 것은 relation set과 가이드라인입니다 ㅎㅎ 데이터셋은 최종적으로 깃허브 등의 레포지터리에 공개하시게 되는 것으로 생각해 주시면 될 것 같습니다",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636850298.060000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 현재 1차 산출물에 대한 피드백을 각 폴더 내에 코멘트 docx 파일로 넣어두었습니다 :slightly_smiling_face: 다들 열심히 discussion하고 스킴을 만들어주신 것을 느낄 수 있어 멘토들도 흥미롭게 피드백 드릴 수 있었습니다. 다들 피드백 확인해 보시고, 궁금한 점이 있으면 채널에 [1차 산출물 피드백 질문] 말머리로 질문 올려주시면 확인 후 답변 드리겠습니다 ㅎㅎ 아직 relation set이나 가이드라인을 업로드하지 않으신 팀은 완성되는 대로 업로드 후 알려주시면 좋을 것 같습니다. 모두 주말에 수고 많으십니다!! :heart:",
+        "user": "U0296J0LP0D",
+        "user_name": "Warnik Chow",
+        "timestamp": "1636863320.060800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U029GGQ456X",
+                "U0284GKL1T4",
+                "U029SLN0S1X",
+                "U029B6PDLFQ",
+                "U028FM07UQ3"
+              ],
+              "count": 7
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U0284GKL1T4",
+                "U029B6PDLFQ",
+                "U028FM07UQ3"
+              ],
+              "count": 5
+            },
+            {
+              "name": "raised_hands::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U02AM2GMN9X",
+                "U029ELPRG8J",
+                "U02AK81JACT",
+                "U029B6PDLFQ",
+                "U028FM07UQ3"
+              ],
+              "count": 7
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U029EM0RQR1",
+                "U029B6PDLFQ"
+              ],
+              "count": 4
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029F62SBPD",
+                "U0284GKL1T4",
+                "U029B6PDLFQ",
+                "U0290B2QXTR",
+                "U028FM07UQ3"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U0296J0LP0D> 안녕하세요 멘토님! 14조 김대웅 캠퍼입니다. 다름이 아니라 14조에 대한 코멘트가 아직 없는데 확인부탁드려도 될까요?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1636868627.063100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 혹시 1차산출물의 14조 폴더에 comment-14 파일 확인가능하실까요? <@U029H263PD1>",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636868910.063300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "반영이 조금 늦었던 것 같네요 방금 확인했습니다. 감사합니다 멘토님! <@U0296J0LP0D>",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1636869014.063500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U0296J0LP0D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U0296J0LP0D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

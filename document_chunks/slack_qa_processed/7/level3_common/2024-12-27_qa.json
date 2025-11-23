@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "iteration 수가 많다고 항상 좋지는 않을수 있습니다 (overfitting과 같은 원리). 본 과제에서 5로 제한한 이유는 스펙 통일성 + 학습에 들어가는 시간을 아끼기 위함이라서 임의로 설정한 숫자입니다..!",
+        "user": "U07HPDH6LGL",
+        "user_name": "설진석_조교",
+        "timestamp": "1735290188.213199",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사합니다~!",
+          "user": "U07E92018AJ",
+          "user_name": "성기훈",
+          "timestamp": "1735301761.495079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

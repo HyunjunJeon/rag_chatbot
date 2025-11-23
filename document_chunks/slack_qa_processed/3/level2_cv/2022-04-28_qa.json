@@ -1,0 +1,233 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "후처리는 2x2 pooling 비슷한 느낌인데 pooling rule이 좀 고민스럽긴 해요. 조교님의 답변은.. 정말 아쉽게도 그 메소드가 <https://github.com/SwinTransformer/Swin-Transformer-Semantic-Segmentation/blob/main/mmseg/datasets/custom.py|제가 쓰고 있는 Swin 공식 코드>에 없네요 ㅠㅜ Swin 코드가 예전 버전의 mmseg을 써가지고.. 하지만 어떤 식으로 접근하면 될 지 알려주셨으니 찾아보도록 하겠습니다! 모두들 감사합니다!",
+        "user": "U02T1HLM9NK",
+        "user_name": "김주영",
+        "timestamp": "1651130162.596029",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T1HLM9NK",
+            "ts": "1651130226.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "pre_eval() 메소드는 test 과정에서 쓰이는 메소드라기보다는 progressive test를 위해 만들어진 메소드라는 생각도 듭니다..!\n<https://github.com/open-mmlab/mmsegmentation/commit/e235c1a824f625a3f4240e751c372a3b3510a30d>",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651130533.012649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "예전 버전을 쓰신다면 `eval_metrics` 함수에 인자를 넘겨주기 전에 results와 gt seg map을 리사이즈 하시면 될 것 같습니다",
+          "user": "U02SL2E1KCZ",
+          "user_name": "Hwigeon Oh",
+          "timestamp": "1651133223.772269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "augmentation을 할때 normalize를 넣으면 왜 validation mIOU가 낮게 나올까요? ㅠㅠ",
+        "user": "U02U79DHFUY",
+        "user_name": "김승현",
+        "timestamp": "1651133924.638689",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "image애 255를 나눈 값으로 Normalize 하셨나요??",
+          "user": "U02THPL8F0C",
+          "user_name": "박성호",
+          "timestamp": "1651133997.922169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "resize &gt; normalize &gt; totensorv2 만 했습니다...",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1651134071.446659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "dataloader의\n```def __getitem__():\n    image /= 255```\n이 부분이 적용 돼 있다면,\nNormalize에서 문제가 생길 수 있습니다.\n<https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.Normalize>\n\ndocument를 참고하면 max_pixel_value가 255 default 라\nimage를 255로 나눠, 0과 1 사이의 값으로 변경해주었을 땐\n```Normalize(mean=~, value=~, max_pixel_value=1)```\n로 설정해 주셔야 합니다.",
+          "user": "U02THPL8F0C",
+          "user_name": "박성호",
+          "timestamp": "1651134744.928109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02U79DHFUY",
+                  "U02UZETMR7A",
+                  "U02UTGUJJD6",
+                  "U02U5MHFUTH",
+                  "U02UK5NNNSV",
+                  "U02TCKUCM1T"
+                ],
+                "count": 6
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02U79DHFUY",
+                  "U02TCHR3LNS",
+                  "U02UEH8U39P",
+                  "U02TCKUCM1T"
+                ],
+                "count": 4
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02U79DHFUY",
+                  "U02TCKUCM1T"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U02T1HLM9NK> 주영님 안녕하세요! 혹시 이 변환 데이터로 모델 돌리셨을떄 validation miou가 잘나오셨을까요?",
+        "user": "U02U79DHFUY",
+        "user_name": "김승현",
+        "timestamp": "1651138876.411719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02U79DHFUY> 처음에 0.6%(0.006) 정도에서 시작하긴 했는데요, 매우 느리지만 올라가긴 하길래 저게 문제가 맞는지 고민하고 있었습니다..!",
+          "user": "U02T1HLM9NK",
+          "user_name": "김주영",
+          "timestamp": "1651138949.966289",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T1HLM9NK",
+              "ts": "1651138962.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T1HLM9NK> 저도 동일한 상황입니다 ㅠㅠ 뭐가 문제일까요...",
+          "user": "U02U79DHFUY",
+          "user_name": "김승현",
+          "timestamp": "1651139256.177589",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 config에서 learning rate type이 poly로 되어 있으신가요? 저는 이게 문제였던 것 같습니다. 그러나 아직 고쳐서 돌려 보지는 못했습니다.",
+          "user": "U02T1HLM9NK",
+          "user_name": null,
+          "timestamp": "1651162261.642749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "위 사진은 'Metal'에 'Plastic' 부분이 있어도 전체를 'Metal'로 분류하고 아래 사진은 'Metal' 따로 'Plastic' 따로 분류되었는데, 어떤 것이 기준에 맞게 annotation 된걸까요?",
+        "user": "U02U65KPEJW",
+        "user_name": null,
+        "timestamp": "1651209398.322879",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02UZETMR7A"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요. 테스트 셋은 조교들이 확인하면서 올려주신 예시의 아래 케이스와 같이 정리했습니다. 다만 이 과정에 한계가 있어 노이즈가 조금 남아있을 수는 있습니다.",
+          "user": "U02SL2E1KCZ",
+          "user_name": "Hwigeon Oh",
+          "timestamp": "1651213798.241399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U02U65KPEJW",
+          "user_name": "박정재",
+          "timestamp": "1651214023.103449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

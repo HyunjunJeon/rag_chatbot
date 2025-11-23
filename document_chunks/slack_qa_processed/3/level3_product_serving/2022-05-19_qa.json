@@ -1,0 +1,893 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "오 되게 잘 나오는거 같네요",
+        "user": "U02TJ253BRA",
+        "user_name": null,
+        "timestamp": "1652944321.255599",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_coding_no_bg",
+              "users": [
+                "U02TRCAQU9J"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02TJ253BRA> 이게 근데 너무 유명한 것들만 나와가지고 아쉬운게 참 많아요. :booduck_cry:",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652944726.649779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "최근 영화 없는것도 아쉬워요…",
+          "user": "U02TJ253BRA",
+          "user_name": "박준형",
+          "timestamp": "1652944771.488849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 기범님 추천 모델 하나 만들어서 해보셨군요..!! 넘 멋지십니다\n\n이제 아쉬운 점이 많다면!! 그걸 개선한 모델을 만들어서 오픈소스로 만든다고 하면, 이력서에 쓸 이야기가 많아질거에요 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652951729.113269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "393b2c5cf48b52c4",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_coding_no_bg",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U02SK9NH0RF> 안녕하세요!~ 오피스아워 강의 알차게 준비해주셔서 너무 감사합니다.\n소개해주신 부분중에 너무 좋은 기능인것 같아 활용법을 알아보고자 질문드렸었는데요~\n혹시 background_task 소개해주신 부분 참고할만한 링크 알려주실 수 있으신지요~?",
+        "user": "U02TS020XJQ",
+        "user_name": "이융희",
+        "timestamp": "1652951043.968879",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 융희님,\n\n우선 FastAPI 공식 사이트에 있는 링크를 참고를 했고요!\n<https://fastapi.tiangolo.com/tutorial/background-tasks/>\n\n그리고 Celery로 구현한 내용은 아래 내용을 참고했습니다!\n<https://medium.com/thelorry-product-tech-data/celery-asynchronous-task-queue-with-fastapi-flower-monitoring-tool-e7135bd0479f>",
+          "user": "U02SK9NH0RF",
+          "user_name": "Jungwon Seo",
+          "timestamp": "1652951147.182469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U02TS020XJQ",
+                  "U02U5P1PZME",
+                  "U02TFFXDWQ2"
+                ],
+                "count": 3
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TFFXDWQ2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵ㅎㅎ 참고하는데 많이 도움될것 같아요 감사합니다",
+          "user": "U02TS020XJQ",
+          "user_name": "이융희",
+          "timestamp": "1652951254.304129",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TS020XJQ",
+              "ts": "1652951299.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Background Task 관련은 FastAPI 강의에도 있답니다..!\n<https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/blob/main/part3/01-fastapi/examples/14_background_tasks.py>",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652951355.257309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "FastAPI 강의는 이제 보기 시작해서 몰랐었는데:sob: 감사합니다 마스터님!",
+          "user": "U02TS020XJQ",
+          "user_name": "이융희",
+          "timestamp": "1652951554.337849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "FastAPI(3)에 나와있답니다! 중원님께서 셀러리 Use Case도 공유해주셨을건데, 셀러리는 간단하게 쓰기 좋은 메세지 큐에요-!\n\n공식 문서 보시면서 하나씩 디벨롭 해보셔용 :muscle:\n\n벌써 FastAPI 보기 시작하셨다니 잘하고 계시네요 :muscle::muscle:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1652951666.116119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U02TS020XJQ",
+                  "U02TFFXDWQ2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "민수님 안녕하세요!\n\n엄청 좋은 고민을 가지고 계시네요! 해당 과정으로 하나씩 시도해보시는 것과 생각하는 부분 너무 좋습니다!\n\n이 부분은 Trailing Slash이란 개념과 연관되어 있습니다!\n\n• ~/  : 폴더입니다\n• ~ : 파일입니다\n이런 상황에 동작하는 원리가 달라집니다!\n\n관련 내용은 아래 블로그에 잘 정리되어 있어서 한번 읽어보시면 좋을 것 같아요 :slightly_smiling_face:\n\n\n\n<https://djkeh.github.io/articles/Why-do-we-put-slash-at-the-end-of-URL-kor/>",
+        "user": "U02U0E794M8",
+        "user_name": null,
+        "timestamp": "1652951526.567959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "감사합니다! 아직 FastAPI 2강을 다 못들어서 마저 듣고 비교하면서 조금 더 이해해보겠습니다!",
+          "user": "U02UDSV3DTK",
+          "user_name": "송민수",
+          "timestamp": "1652954638.480039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "기원님 안녕하세요 :slightly_smiling_face:\n\n크 이런 오류 과정 잘 공유해주셔서 너무 감사합니다!!!!",
+        "user": "U02U0E794M8",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1652951693.415389",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U02U1TBB8GN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "댓글 감사합니다 마스터님~",
+          "user": "U02U1TBB8GN",
+          "user_name": "정기원_T3195",
+          "timestamp": "1652953783.092559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<http://118.67.131.213:30001/>\n\n모델이 엉망이네요 ㅎㅎ",
+        "user": "U02TDB0EJJ1",
+        "user_name": "김기태",
+        "timestamp": "1652958817.257379",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02QJSQ1H1T",
+                "U02U0E794M8"
+              ],
+              "count": 2
+            },
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02QJSQ1H1T"
+              ],
+              "count": 1
+            },
+            {
+              "name": "cool-doge",
+              "users": [
+                "U02QJSQ1H1T"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "이렇게 만드시는게 잘하신거죠 :muscle: 잘하셨어요!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653017207.174659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grin",
+                "users": [
+                  "U02TDB0EJJ1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 여러분, 오늘 오피스아워 시간에 보여드렸던 코드공유합니다. 정리하는데도 오래걸리네요.. 프로젝트 및 공부를 하시는데 도움이 됐으면 좋겠습니다!\n• 모범적인 코드는 아니니:sweat_smile:, 필요한 부분 확인하는 정도로만 봐주세요!\n<https://github.com/thejungwon/Pdf2Quiz>",
+        "user": "U02SK9NH0RF",
+        "user_name": "Jungwon Seo",
+        "timestamp": "1652961984.914279",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U02RUR38GCF",
+                "U02U1KYBQ02",
+                "U02TDB0EJJ1",
+                "U02TG0F5TD1",
+                "U02U5871X96",
+                "U02S6TR6HCJ",
+                "U02THPJ7JVA",
+                "U02TDEENT7F",
+                "U02TNKDBF7D",
+                "U02TJ253BRA",
+                "U02TBLB4RHC",
+                "U02TKEWKS4X",
+                "U02UC9WFMME",
+                "U02TRCAQU9J",
+                "U02U587JMDE",
+                "U02UTH1484E",
+                "U02TS020XJQ",
+                "U02U6FW5A03",
+                "U02U7CWH8RH",
+                "U02TUDVH1BK",
+                "U02TUHB5D7V",
+                "U02TE6BT7AR",
+                "U02TCKUCM1T",
+                "U02T8Q1C48N",
+                "U02TD68SUCD",
+                "U02U5PS0474",
+                "U02U6A7G6FM",
+                "U02UX6QGFUG",
+                "U02TZTQ6T1C",
+                "U02T9050F7Y",
+                "U02TZAV2830",
+                "U02TFP6V1DY",
+                "U02TYM38093",
+                "U02U7059RDX"
+              ],
+              "count": 34
+            },
+            {
+              "name": "star",
+              "users": [
+                "U02TBLB4RHC",
+                "U02U6FW5A03",
+                "U02V73VLM9B"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02TVNVSKML"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "중원님 넘 고생하셨습니다!! :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1653017216.243059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02SK9NH0RF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Product Serving과정에서 발생한 이슈인데 해결 방안이 잘 떠오르지 않아서 질문 남겨봅니다!\n\n현재 상황은 다음과 같습니다.\n• github api를 통해 각 페이지를 병렬로 request를 보내서 데이터를 수집하는 것\n• github token 당 api 호출이 최대 5000번/1시간 가능\n• 현재 token이 4개 있는 상황\n• 전체 page는 약 7만 8천페이지이고 각 수집 데이터 group 별로 나누면 아래 사진과 같은 페이지 구성\n• DB는 MySQL 사용하고 GCP Cloud SQL에 저장되어 있습니다.\n&lt; 원하는 것 &gt;\n• api 호출 횟수가 만료되면 다른 token으로 변경하는 것 까지는 해결 가능하지만 모든 토큰 소요시 더 이상 수집이 불가능\n• 1시간이 지나면 토큰의 제한이 풀리지만 모든 토큰에 제한이 걸리는 순간 호출을 중지하고 지금까지 수집한 내용만 DB에 저장하고 싶습니다.\n• 이후 토큰 제한이 풀리면 수집을 중단한 중단점부터 이어서 다시 수집 후 DB에 저장하고 싶습니다.\n이전에 최현웅 멘토님께서 logger를 구현해서 활용하면 된다고 하셨는데 감이 잘 안와서 *혹시 api 호출 제한과 관련된 경우 어떻게 처리하는지* 궁금해서 질문 남겨봅니다.\n\n좀 추상적이게 질문을 작성한 거 같아서 답글로 궁금하신 내용 남겨주시면 추가로 설명 해드리겠습니다!",
+        "user": "U02TRCAQU9J",
+        "user_name": null,
+        "timestamp": "1652976819.058949",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02TRCAQU9J",
+                "U02TCHR3LNS",
+                "U02TBLB4RHC",
+                "U02TVNVSKML",
+                "U02U0E794M8",
+                "U02TNKDBF7D",
+                "U02U6FW5A03"
+              ],
+              "count": 7
+            },
+            {
+              "name": "muscle",
+              "users": [
+                "U02U0E794M8",
+                "U02TNKDBF7D",
+                "U02U6FW5A03",
+                "U02S8SPLTTN"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 23
+        }
+      },
+      "answers": [
+        {
+          "text": "병렬 request 를 하실 때 global index keeping 과 관련된 문제로 보이는데 제가 맞게 이해했나요?",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652977472.526829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전체 페이지를 인덱스화 하시고 api request 로 얻으신 데이터를 서버에 전송하셔서 캐싱하시고 DB에 batch insert 하시는 방법은 어떠신가요?",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652977639.242289",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T9050F7Y",
+              "ts": "1652977952.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀은 비슷한 방법으로 장소 정보 17,000건 리뷰 데이터 450,000 건을 수집했습니다. 전부 병렬처리가 가능했고 클라이언트가 중복된 데이터를 보내거나 중간에 컴퓨터가 꺼지거나 (윈도우 업데이트) 해도 데이터가 중복 저장되거나 소실되는 일이 없었습니다. 그냥 다시 실행시키면 해결됐어요.",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652977836.333699",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T9050F7Y",
+              "ts": "1652978286.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 궁금하신 사항이 있으시면 말씀해주세요. 많이 부족하지만 성심성의껏 도와드리겠습니다.",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652978150.141479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T9050F7Y> 답변해주셔서 감사합니다!\n전체 페이지를 인덱스화 하신다는 의미가 정확히 어떻게 이해하면 될까요? 현재 제가 불러와야하는 api 형태가 `/repos/{owner}/{name}?per_page=100&amp;page={idx}` 이고 idx 값을 1부터 `max_page`까지 넣어서 확인해야 하는 상황입니다. 말씀해주신 전체 페이지가 제가 불러와야 하는 api 라고 이해하면 될까요?\n\n사실 하나하나 돌리면 되긴하는데 이건 너무 시간적인 문제도 있고 신경 써야할게 많아서요. :booduck_cry:\n\n+ 제가 API랑 데이터를 병렬로 처리하는 게 익숙하지가 않아서 현재는 python으로 request를 처리 중인데 혹시 관련해서 찾아보면 좋은 내용 키워드를 말씀해주실 수 있으실까요?\n\n제가 아직 익숙하지 않아서 설명해주신 방법이 이해가 잘 안되서 공부도 할 겸 찾아보고 싶습니다!",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652978627.885219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한 페이지에 여러 깃헙 레포가 존재하는 구조란 말씀이시죠?",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652978825.140119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전체 깃헙 repo 리스트를 먼저 만드셔서 그 리스트의 인덱스에 대해서 병렬처리 하시는 방법은 어떠세요?",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652978941.958629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T9050F7Y>  엇 제가 api에 실수가 있었네요 `/repos/{owner}/{name}/stargazers?per_page=100&amp;page={idx}` 호출해서 해당 리포지토리를 스타한 유저의 리스트를 저장하려고 하는 것입니다!\n맥락상은 비슷하긴 합니다!",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652979055.342049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇다면 전체 repo 를 리스트화 시켜서 이 리스트를 병렬처리 하는 노드들이 공유하시면 어떠실까요? 어디까지 처리했는지에 대한 기록은 (컴퓨터 이름, 시작 인덱스, 마지막에 처리된 인덱스) 이렇게 Lamport Timestamp 처럼 서버에 저장하시면 클라이언트가 재시작 할 때 훨씬 더 편하지 않을까요?",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652979237.063159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이러면 도중에 부득이하게 컴퓨터를 끄더라도 다시 서버에서 제 (컴퓨터 이름, 시작 인덱스) 로 마지막에 처리된 인덱스를 색인해서 가져오면 깃헙 api 에서 정보를 가져와서 db 에 저장하는 클라이언트가 상태를 가지지 않아도 되니까 괜찮을거라고 생각했습니다. 만약... 제가 잘못 이해하고 있다면 DM 주시면 줌으로 초대드려서 말씀드리면 좋을 것 같습니다.. 제가 한국어 쓰기가 좀 약해서요..",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652979411.627719",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02T9050F7Y",
+              "ts": "1652979450.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아니면 최현웅 멘토님께서 말씀하신것처럼 각자 log 로 기록해도 될 것 같습니다.",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652979639.575119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 설명을 너무 못했네요.. 죄송합니다.",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652979667.147799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T9050F7Y>  아닙니다! 답변 주셔서 감사합니다! 혹시 가능하시면 저희조(recsys 4조) 줌에서 잠깐 얘기해도 괜찮을까요?",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652979703.363069",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TRCAQU9J",
+              "ts": "1652984339.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네, 저는 괜찮습니다.",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652979719.627659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "재밌었습니다. 좋은 하루 되세요 ㅋㅋㅋ",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1652983877.663029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "393b2c5cf48b52c4",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02T9050F7Y> 저도 재밌었습니다! 정말 많이 도움 받아갑니다!",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652984032.578409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U02T9050F7Y"
+                ],
+                "count": 1
+              },
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02T9050F7Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이슈 해결되었습니다!\n혹시 저와 같은 문제로 고민하시는 분들 위해서 미팅내용 요약 해드리면\n• redis 활용해서 api 호출 내용을 메시지 큐에 저장\n• redis 내용 불러와서 DB에 주기적으로 배치단위 저장\n입니다!",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1652984176.767799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02T9050F7Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "보면서 많이 배웠네요! 공유 감사합니다 :+1:",
+          "user": "U02TBLB4RHC",
+          "user_name": "Inseo Lee",
+          "timestamp": "1653004910.902669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TRCAQU9J"
+                ],
+                "count": 1
+              },
+              {
+                "name": "blush",
+                "users": [
+                  "U02U8G6NKEW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 동훈님이 잘 설명해주셔서 문제가 해결되었군요..!\n\n• API 호출 제한의 문제라기보다 구현의 문제라고 볼 수도 있을까요?\n• 단순하게 API 호출 제한의 문제가 있다면 =&gt; API 호출을 우회할 수 있는 방법이 있는지(Key를 더 생성할 수 있을지, 혹시 Key가 없다면 User Agent를 추가하거나 요청하는 IP를 변경해서 처리할 수 있을지)를 고민해볼 것 같아요\n• 또 다른 문제로 중간에 “진행하는 과정까지 된 부분만 반영하고 싶다”\n    ◦ 이 부분은 Database의 Commit이란 개념을 아시면 더욱 도움이 될 것 같아요\n    ◦ Database를 수업 시간에 다루진 않았지만, 꼭 보시면 좋을 개념이라 따로 공부해보셔요\n    ◦ Database에선 Transaction이 발생하는데, 그 과정에서 commit이란 과정이 존재합니다. \n    ◦ Commit이 트랜잭션의 종료를 의미하고, 만약 작업 중 문제가 생기면 Rollback이 진행됩니다\n    ◦ 기범님의 코드에서 토큰 이슈로 호출이 안되는 에러가 발생하면, 그 전까지의 기록(배열에 담고있다거나)를 바로 데이터베이스로 넘기면 되는 것이지요\n    ◦ 그리고 작업이 시작될 때는 데이터베이스의 id를 가지고 가서 작업하면 됩니다\n    ◦ Database의 개념적인 부분을 활용해 구현하는 케이스라고 보셔도 될 것 같아요\n    ◦ <https://wikidocs.net/4096>\n• 혹은 동훈님이 하신 것처럼 메세지 시스템에 던지는 역할과 뒤에서 담는 역할을 나누는 것도 방법입니다\n    ◦ Redis 외에 클라우드 서비스엔 AWS SQS도 있는데 트래픽의 증가에 따라 자동으로 트래픽 대응하도록 할 수도 있습니다!\n• Table의 Key를 잘 만드셔서, 혹시 중복이 들어가더라도 이슈가 없도록 만드는 것도 중요합니다\n\n구체적인 부분은 디테일한 상황에 따라 다를 것 같은데, 저는 토큰을 갱신하지 못한다고 하면.. Selenium을 병렬로 띄워서 크롤링하는 것도 생각했습니다(셀레니움이 느리긴 하지만 수집 못하는 것은 없으니 병렬로 진행했어요)\n\n병렬로 진행하는 과정에서 저는 Ray라는 라이브러리를 주로 사용하고 있습니다. 라이브러리가 약간 불안정하긴 하지만, 간단하게 쓰기엔 괜찮아서 Ray를 사용하고 있어요. 회사에선 순간 엄청 많은 연산량이 필요해서 CPU 224 Core를 선점형 인스턴스(저렴한 인스턴스)에 Ray로 병렬처리해서 10분만에 끝내기! 등을 했던 기억이 있네요\n\n여러가지로 고민해보시고, 같이 의견 나눠주셔서 넘 감사합니당 :slightly_smiling_face: <@U02T9050F7Y> <@U02TRCAQU9J> 모두 넘 멋지십니다! <@U02TBLB4RHC> 인서님도 배웠다고 이야기해주신 점 너무 좋습니다! 이런 부분이 두분에게 긍정적인 시그널을 받게 되었을거에용 :slightly_smiling_face:",
+          "user": "U02U0E794M8",
+          "user_name": null,
+          "timestamp": "1653018293.095649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "393b2c5cf48b52c4",
+                "users": [
+                  "U02TRCAQU9J",
+                  "U02T9050F7Y",
+                  "U02TCHR3LNS",
+                  "U02TN2HQ3A7",
+                  "U02TBLB4RHC",
+                  "U02U7059RDX",
+                  "U02TNKDBF7D",
+                  "U02TVNVSKML"
+                ],
+                "count": 8
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TRCAQU9J",
+                  "U02TN2HQ3A7",
+                  "U02TBLB4RHC",
+                  "U02U7059RDX",
+                  "U02TNKDBF7D"
+                ],
+                "count": 5
+              },
+              {
+                "name": "pray",
+                "users": [
+                  "U02T9050F7Y",
+                  "U02TN2HQ3A7",
+                  "U02TBLB4RHC",
+                  "U02TFFR63FU",
+                  "U02TNKDBF7D",
+                  "U02TRCAQU9J"
+                ],
+                "count": 6
+              },
+              {
+                "name": "meow_party",
+                "users": [
+                  "U02T9050F7Y",
+                  "U02TN2HQ3A7",
+                  "U02TBLB4RHC",
+                  "U02TNKDBF7D",
+                  "U02TRCAQU9J"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02U0E794M8> 대응방법이 케이스별로 다양하게 있군요! 많은 양을 raw data부터 수집하는게 낯설어서 방법 고민을 많이 했는데 이렇게 여러 방법 알려주셔서 감사합니다!\n이번에 이 부분은 미래의 제가 또 헤맬 수가 있으니 해결과정을 블로그에 잘 정리해둬야 겠습니다! :booduck_coding_no_bg:",
+          "user": "U02TRCAQU9J",
+          "user_name": "박기범",
+          "timestamp": "1653018640.542619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "직접 경험하신 부분까지 상세하게 공유해주셔서 감사합니다. 키워드 많이 얻고 가요~",
+          "user": "U02T9050F7Y",
+          "user_name": "Donghoon Lee",
+          "timestamp": "1653019317.910969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우와.. 상황에 따라 어떻게 고민하시는지 사고의 흐름을 보여주신게 정말 도움이 많이 되네요.\n또 추가적으로 좋은 자료 공유까지 감사합니다 !!!",
+          "user": "U02TBLB4RHC",
+          "user_name": "Inseo Lee",
+          "timestamp": "1653020354.000849",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TBLB4RHC",
+              "ts": "1653020993.000000"
+            },
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U02QJSQ1H1T> 죄송합니다! 생성되었는데 연동 부탁 드려도 될까요??",
+        "user": "U02VB6KC3BN",
+        "user_name": "김선재_T3252",
+        "timestamp": "1650851151.477469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 늦었지만 가능할까요? nlp-10 부탁드립니다!",
+          "user": "U02U1TBB8GN",
+          "user_name": "정기원_T3195",
+          "timestamp": "1650863366.452009",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U1TBB8GN",
+              "ts": "1650863657.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "This message was deleted.",
+        "user": "USLACKBOT",
+        "user_name": null,
+        "timestamp": "1650855728.804889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02THE97XT4",
+                "U02RUR38GCF"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "소연님..! 채널 잘못올리신 것 같아요..!",
+          "user": "U02U7N1DGHG",
+          "user_name": "강나경",
+          "timestamp": "1650855876.737599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "소연님 안녕하세요~ ㅎㅎ",
+          "user": "U02RUR38GCF",
+          "user_name": "이종혁",
+          "timestamp": "1650856127.322919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사..ㅎ.. 다들 MRC 화2222222팅:face_with_rolling_eyes:",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1650856175.883569",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TUHB5D7V",
+              "ts": "1650856214.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "MRC 태스크 진행중이시군요 ㅎㅎ 다들 화이팅입니다",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650864051.664609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

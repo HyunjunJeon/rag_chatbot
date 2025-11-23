@@ -1,0 +1,78 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "1강 evaluation 에서 confidence가 의미하는 바가 정확히 뭔가요?",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1668405486.440479",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "검출한 bounding box 내에 해당 class의 객체가 존재할 확률로 알고 있습니다!",
+          "user": "U041B78LL22",
+          "user_name": "김성수",
+          "timestamp": "1668406370.336559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PE2V21L7",
+                  "U041HN1JMTM",
+                  "U0427GAL9KJ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 찾아본 부분이라서 찾아본 내용 공유합니다~\n`먼저 *Confidence Score란*, 특정 바운딩 박스안에 있는 객체가 어떤 물체의 클래스일 확률(4번 목차에서 아키텍처 그림의 Softmax 단계로 도출된 확률값)과 IoU값을 곱한 값`\n<https://techblog-history-younghunjo1.tistory.com/178>",
+          "user": "U0427G7HN6L",
+          "user_name": "김형훈",
+          "timestamp": "1668406658.651279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PE2V21L7",
+                  "U04138ETVLP",
+                  "U041HN1JMTM",
+                  "U0427GAL9KJ",
+                  "U041WE6EKB3"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다.",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1668407783.659459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

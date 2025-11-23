@@ -1,0 +1,128 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 NLP 8조 임동진입니다\n이번 대회에서 만약 답 예측을 \"아더 필립(Arthur Phillip)\"로 했다면, 정답을 채점할 때는 \"아더 필립\"이라는 단어만 있어야 하는 것으로 이해했는데 맞게 이해했는지 궁금합니다\n코드를 보니 구두점에 관련해서만 없애는 것 같아 아더 필립Arthur Phillip처럼 답이 변환될 것 같아 질문드립니다",
+        "user": "U02TT5NTTAT",
+        "user_name": "임동진",
+        "timestamp": "1652167806.817039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "음 문의주신대로 아더 필립Arthur Phillip이 정답으로 처리가될텐데요, extractive다보니 학습을 처음부터 아더 필립(Arthur Phillip)을 지문에서 찾는 방향으로 진행되었다면 크게 문제 없을 것 같습니다. Generative도 ground truth룰 아더 필립(Arthur Phillip)을 생성하도록 배운다면 큰 문제 없을 것 같습니다",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652168748.870799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그럼 대체어의 유무는 점수에 큰 영향을 끼치지 않겠군요 감사합니다!",
+          "user": "U02TT5NTTAT",
+          "user_name": "임동진",
+          "timestamp": "1652172556.406499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02RS1ZJHE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 NLP 3조 임수정입니다.\n다름이 아니라 학습 과정에서 train loss, eval loss, eval EM, eval f1을 wandb로 출력해보고 있는데, EM, f1은 올라가지만 loss는 내려가다가 다시 올라가는 현상이 발생해서 이 부분을 어떻게 해석해야할지 몰라서 여쭤봅니다.\n\n참고로 저 그래프 만들 때 돌린 코드는 베이스라인에 모델만 roberta-large로 변경한 상태에서 weight decay를 0.2로만 수정했습니다.\n\nweight decay 수정한 이유는 수정 전에는 train loss는 내려가고 eval loss는 올라가서 overfitting이 되었다고 생각하고 수정했습니다.\n\nloss가 내려갔다가 다시 올라가는 현상을 해석을 어떻게 해야할지 몰라서 조언을 주시면 감사하겠습니다!!",
+        "user": "U02U7CWH8RH",
+        "user_name": null,
+        "timestamp": "1652234664.207889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "음 제 짧은 경험에서 겪어본 적 없는 상황이라 다른 멘토/조교분들이 비슷한 경험이 있으면 답변해주시면 좋을 것 같아요. 혹은 금요일 마스터클래스 때 질문해보셔도 좋을 것 같습니다.\n\n보통 제가 본 케이스는 validation loss가 늘었는데 accuracy도 같이 늘어나는 경향이 종종 있습니다 (train loss는 계속 줄지만). 이런 경우는 보통 데이터에 borderline 데이터 (클래스가 애매한 데이터)가 많은 경우에 일어나는데, 예측은 잘했지만 logit값이 ground truth class인것과 아닌 class에서 유사하게 나올 때 값이 커지게 됩니다.\n\ntrain loss가 갑자기 튀는 경우는 보통 validation도 같이 터지는데 일단 이 경우에 em/f1이 늘어나네요… train loss 자체는 일단 무슨 일이 있어도 줄어드는 경향이 나타나야하는데 그렇지 않은 거 보면 hyperparameter 조정이 좀 필요할 것 같습니다 (validation loss도 왔다갔다하니까요). 하지만 저 또한 같은 경우를 겪었던 것은 아니라 반드시 학습이 터졌다!라고 진단하기는 어렵긴하네요ㅠㅠ (어쨌든 validation em/f1이 오르고 있으니… 이런 경우가 제일 애매합니다. 어쨌든 원하는 결과는 나온건가? 싶기도하고 ㅋㅋ;) 저도 결과가 궁금해서 그런데 이 파일로 제출했을 때 리더보드 결과도 공유해주시면 감사하겠습니다.",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652246436.754139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 리더보드 점수도 공유드립니다..!! 사실 위 문제가 계속 학습 시 EM/f1 점수와 리더보드 점수가 너무 달라서 분석하다가 찾은 문제라서..ㅜ위에서 학습된 EM/f1 보다 리더보드에서는 많이 떨어지는 것을 보실 수 있습니다. 그래서 뭔가 학습이 잘 안되고 있나 싶긴했는데, 어떤 걸 개선해봐야 할지 감이 안잡혀서 질문을 드려보았습니다..!",
+          "user": "U02U7CWH8RH",
+          "user_name": null,
+          "timestamp": "1652246700.855539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "우선 hyperparameter부터 조정해보겠습니다..!\n감사합니다ㅠㅎㅎ",
+          "user": "U02U7CWH8RH",
+          "user_name": "임수정_T3181",
+          "timestamp": "1652246735.122249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음 사실 어느정도 학습결과랑 리더보드랑 유사한데 갭차이가 많이 심하네요. 훈련이 잘못된게 맞는것같습니다! 일단 대회 제출을 열심히해주시고 대회 후에 랩업하시면서 결과물을 한 번 확인해보는 게 좋을 것 같아요! 모델이 어떤 예측값을 내고 있는지 확인해보는게 제일 정확한 방법입니다!",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652246815.034989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하ㅠㅜ넵넵 감사합니다!!",
+          "user": "U02U7CWH8RH",
+          "user_name": "임수정_T3181",
+          "timestamp": "1652246853.295539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,680 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "test.csv는 수정이 불가합니다 !!",
+        "user": "U04MJBR4H8C",
+        "user_name": "박찬준_마스터",
+        "timestamp": "1684828909.690809",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 정말 감사합니다!\n\n그렇다면 추가로 궁금증이 생기는 부분이 있습니다. 만약 data cleaning &amp; data preprocessing을 진행한 train.csv 데이터를 모델에 학습시킨 후에 data cleaning&amp;preprocessing이 되지 않은 test.csv 파일에 해당 모델을 적용하면 data cleaning과 preprocessing이 의미가 없어지는 것이 아닌지 질문드리고 싶습니다.",
+          "user": "U04RCJQGCA2",
+          "user_name": "서가은_T5101",
+          "timestamp": "1684829330.551959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요. Test.csv는 clean한 상태로 Gold Test data라고 생각해주시면 됩니다. 현재 Train.csv에는 의도적으로 noise를 삽입한 상태이므로, Train.csv에 대한 클리닝과 전처리는 의미가 있다고 이해하시면 될 듯 합니다 !!",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684834978.534079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이해했습니다. 답변 정말 감사합니다! :blush:",
+          "user": "U04RCJQGCA2",
+          "user_name": "서가은_T5101",
+          "timestamp": "1684836722.318399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04MJBR4H8C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 베이스 코드에서 train.csv를 불러오는 과정을, pd.read_csv()를 통해 로컬 파일을 불러오는 방식 대신 Huggingface Datasets repo를 사용하는 방식으로 수정하고 싶은데 이와 관련한 질문이 있습니다.\n1. 해당 과정을 Huggingface Datasets repo를 사용하는 방식으로 수정해도 될까요?\n2. 만약 가능하다면, 베이스 코드에서 `dataset_train, dataset_eval = train_test_split(data, train_size=0.7, random_state=SEED)`로 train set과 valid set을 나누는 과정 대신, 해당 코드를 실행하여 나눠지는대로 train.csv와 valid.csv를 만들어서 Huggingface Datasets repo에 업로드하여 사용해도 될까요?\n감사합니다 !",
+        "user": "U04RK77HJ3U",
+        "user_name": "박지은_T5096",
+        "timestamp": "1684832104.226549",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04LU50651P> <@U04L808UDFG> 확인 후, 답변 부탁드립니다.",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684835004.193059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RK77HJ3U> 베이스 코드에서 나눠지는 `dataset_train`, `dataset_eval` 과 동일하게 샘플이 나눠진다는 전제 하에서 수정 가능합니다.",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684835557.686309",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04LU50651P",
+              "ts": "1684835584.000000"
+            },
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RK77HJ3U"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 답변 감사합니다 !!",
+          "user": "U04RK77HJ3U",
+          "user_name": "박지은_T5096",
+          "timestamp": "1684841974.747609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<@U04L808UDFG> <@U04L0EZH27R> <@U04S26ESDPW> 저도 이 질문에 대해 궁금한데, 확인 부탁드립니다:smiling_face_with_tear: 그리고 위 질문에 추가적으로, 베이스라인 코드와 동일하게 .py 파일로 변환해서 사용하는것도 가능한지 궁금합니다.",
+        "user": "U04RK71CXHQ",
+        "user_name": "박희진_T5098",
+        "timestamp": "1684891344.630629",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "loading",
+              "users": [
+                "U04S26ESDPW"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, <@U04RXRUJ3DX> <@U04RK71CXHQ> 캠퍼님 :slightly_smiling_face:\n<https://boostcampaitech.slack.com/archives/C04S87G3EQ6/p1682490306100229>\n기존 공지드렸던 규칙에 따라 모든 프로젝트에서 베이스라인 코드를 공개할 수 없습니다.",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1684906111.464799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다. 저희는 원본 ipynb 파일을 py 파일로 모듈화 시키면서 베이스라인 코드 +@로 저희의 코드를 구현했는데 *`원본 파일을 제외한 2차 저작물(수정된 베이스라인 코드)는 \"부캠 깃헙 레포 안\"에서만 공개`* 라는 내용 중 2차 저작물에는 해당되지는 않나요?",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1684906868.480159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RXRUJ3DX> 캠퍼님~! 베이스라인 코드에 임의의 수정을 하셔서 성능에 차이가 생겼다면 2차 저작물로 배포하셔도 상관없습니다 :blush:",
+          "user": "U04S26ESDPW",
+          "user_name": "영훈_운영진",
+          "timestamp": "1684907123.665009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RXRUJ3DX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[리더보드 평가 기준 관련 질문]*\n안녕하세요~ 오늘부터 리더보드가 열렸는데 대회 개요에서는 `F1` 점수로 평가 된다고 언급되어 있는데 리더보드상에서는 `acc`가 우선순위가 더 높아서요.\n어떤 평가 지표가 맞는 걸까요?",
+        "user": "U04RXRUJ3DX",
+        "user_name": "김기범_T5021",
+        "timestamp": "1684896165.057619",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U04RK71CXHQ",
+                "U04RXRZ9UQH",
+                "U04RCJQM35L",
+                "U04RK3G01EF",
+                "U04RCJVHM9C"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!! :grinning:\n지난 오피스아워 때 설명 드렸던 것처럼, F1 score를 우선적으로 평가합니다 !",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684897201.695659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RXRUJ3DX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1684897264.997369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[train-eval split 관련 질문]*\n오늘 오전에 팀원들과 대회 이야기 중 train-eval split과 관련하여 질문 사항이 생겨 남기려 합니다.\n\n위 영훈 운영진님께서 올려주신 질의응답에서 `train_test_split` 함수의 `train_size` 등의 조건 변경이 불가한 것으로 확인한 바 있습니다. 혹시 그렇다면 augmentation이나 cleaning 등으로 데이터에 변화가 생기는 경우에도, split 과정의 변경은 불가할까요?\n\n데이터를 조작한 이후에는 동일한 eval 데이터셋으로 검증을 해야 정확한 비교 실험이 될 것 같은데, 그렇다고 eval 세트를 따로 분리한 뒤 train 세트에만 조작을 가하면 `train_size`가 변경되는 것과 마찬가지라는 생각이 들었습니다.\n\n박지은 캠퍼님의 질의응답에서는 _“베이스 코드에서 나눠지는 `dataset_train`, `dataset_eval`과 동일하게 샘플이 나눠진다는 전제 하에 수정 가능“_이라고 하셔서, 이때 말씀하신 _“동일하게 샘플이 나눠진다“_는 기준이 어떤 것인지 궁금합니다.\n\n이와 관련되어 사전 결정된 규정 등이 있는지 여쭤봅니다.",
+        "user": "U04R4LUJ5B9",
+        "user_name": "김세형_T5038",
+        "timestamp": "1684899099.177919",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RK3E8L3D"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 25
+        }
+      },
+      "answers": [
+        {
+          "text": "split을 진행하여 기존 코드에 있는 trian, eval set을 얻은 뒤에 train set에 대해서 데이터를 조작하시면 됩니다 이 조작하는 과정이 train set 내 데이터 개수를 변화시킬 수 있지만 split 이후 조작된 것이기 때문에 이는 괜찮습니다",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684900951.355749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠른 답변 감사드립니다. 추가 질문이 있어 여쭤봅니다.\n\n그러면 eval set은 noise가 포함된 기존 데이터에서 split하여 사용해야 할까요?\n제가 알기로는 test set에는 noise가 포함되어있지 않은데, eval set은 기존 train.csv를 split한 것만 사용이 가능한 것인지도 여쭤보고 싶습니다.",
+          "user": "U04R4LUJ5B9",
+          "user_name": "김세형_T5038",
+          "timestamp": "1684901118.725299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 기존 split만 사용 가능합니다.",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684901268.506209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 답변 감사드립니다!",
+          "user": "U04R4LUJ5B9",
+          "user_name": "김세형_T5038",
+          "timestamp": "1684901416.225539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가적인 질문을 드리고 싶습니다. label error detection이나 맞춤법 교정 등을 train.csv에 적용하면 `train_test_split`에서 eval_set에도 변화가 생기게 될 텐데, 위 답변은 train.csv를 직접 바꿀 수 없고 train, eval 데이터를 나눈 이후 실제 훈련데이터만 조작이 가능하다는 의미일까요?",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1684902014.142939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "augmentation (데이터 수가 늘어나는 기법들) 과 관련된 처리는 train set에 대해서만 가능하고 말씀하신 종류의 처리들은 eval set에 대해서도 가능합니다 다만 label error가 eval set에서 발견될 경우 해당 샘플을 삭제하는 것이 아니라 해당 샘플의 labeling을 수정하는 방식으로 진행해주세요",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684902223.452769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 감사드립니다.",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1684902267.424319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가 질의응답 보고 한 번 더 질문 남깁니다. 그러면 맞춤법 교정 등의 조작의 경우도 마찬가지로 eval 데이터의 개수에는 영향을 미치지 않게 하라는 말씀이신걸까요?\n\n전체 train.csv 데이터의 15%가 노이즈 데이터이고, 노이즈 데이터는 해당 파일 내에 noising 되지 않은 원본이 그대로 존재하는 것으로 확인하였습니다.\n\n이걸 cleaning만 진행하고 삭제하지 않는다면 eval 세트 내에도 중복 데이터가 꽤 존재하게 될 가능성이 있는데, 그냥 split만 해서 진행하는 것이 맞는지 다시 한 번 여쭤봅니다.",
+          "user": "U04R4LUJ5B9",
+          "user_name": "김세형_T5038",
+          "timestamp": "1684902734.663889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684902765.628829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 감사합니다!",
+          "user": "U04R4LUJ5B9",
+          "user_name": "김세형_T5038",
+          "timestamp": "1684903109.577419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04LU50651P> 대회에서 제공한 데이터셋을 `A`라고 했을 때 데이터 정제는 `A` 전체에 적용 가능하지만, 데이터 수를 늘리는 행위를 하기 위해  split을 먼저 수행해 `A`를 `train_A`와 `val_A`로 나눠 `train_A`에만 적용 가능하다고 이해했습니다.\n여기서부터 질문인데 공개된 외부 데이터셋 `B`를 추가해 최종 데이터셋 `C`를(`C = A + B`) 사용한다고 했을 때 `train_C`와 `val_C`를 만들기 위해 `C`에 split을 적용해야 하나요? 아니면 `train_C = train_A + train_B`, `val_C = val_A + val_B`처럼 데이터셋마다 split을 수행한 후에 합쳐야 하나요?",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1684904005.565069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RK3JEXAP> <@U04R4LUJ5B9> <@U04MJBR4H8C>\n캠퍼님들 안녕하세요!\n마스터님과 의논 후 남겨주신 질문들의 답변을 다시 한 번 정리해보았습니다.\n\n• \"`train_test_split`을 조작할 수 없다\"는 말의 의미는, \"random seed나, split rate(e.g. train:dev = 8:2) 을 변경할 수 없음\"을 의미합니다.\n• data-centric nlp라는 취지에 맞게, 당연히 train data는 변경될 수 밖에 없습니다. 이렇게 변경된 train data를, baseline code에서의 random seed와 split rate을 적용하여 train과 dev dataset으로 분류 후 사용하시면 됩니다!\n• 단, test data는 변경하실 수 없습니다.",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684905225.481799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RXRUJ3DX",
+                  "U04RK71CXHQ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그럼 기존 답변과 다르게 데이터 증강, 정제, 외부 데이터 사용 모두 train.csv에 전체 적용한 뒤 코드에 그대로 적용할 수 있다는 말씀이실까요?",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1684905325.682159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RK3JEXAP> 네 맞습니다! `train_test_split` 함수의 다른 부분을 조작하지 않는 선에서 가능합니다",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684905363.163469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 조교님 두 분이서 말씀해주신 세 번의 답변이 모두 결론이 달라 다소 혼란스럽습니다.\n\n심미단 조교님의 답변이 최종 결론이라고 생각하면 될까요?",
+          "user": "U04R4LUJ5B9",
+          "user_name": "김세형_T5038",
+          "timestamp": "1684905394.653479",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04R4LUJ5B9>  네 맞습니다 !!! 마스터님과 통화 후 결정한 최종 결론입니다. 혼동을 드려 죄송합니다 :smiling_face_with_tear:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684905449.154849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04R4LUJ5B9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "데이터를 먼저 증강한 이후 train, eval데이터를 나누면 두 데이터셋에 비슷한 데이터가 포함되어 eval 데이터의 일반화 성능이 떨어질 수 있을 것 같은데, 증강 기법만 split 이후 적용이 가능할까요?",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1684905530.916009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "*[제가 다시 정리드릴게요!]*\n• 데이터 증강, 데이터 필터링 등의 행위는 Train 과 Val 데이터에서만 허용합니다. 단 Train은 Train 내에서, Val은 Val 내에서 증강을 진행해주세요. \n• 외부 데이터 사용의 경우는 허용하나, 가능한 train에만 적용하는 걸 추천합니다. 물론 val에도 외부 데이터를 사용하는 것을 막지는 않습니다.\n• 이외 각종 모델 seed 변경, train, val, test 분포 변경, 모델 코드 수정 등은 허용하지 않습니다.\n*[예시로 설명]*\n• Val에 noise가 있다면 에러 수정, 클리닝 작업 마음껏 진행해주세요.\n• 외부 데이터를 사용하고 싶다면 가능한 val을 건드리기보다는 Train에 데이터를 추가해주세요. val을 증강 시키는 것도 허용은 하나, 그렇게 추천을 하지는 않습니다.\n• 데이터에 노이즈 삽입을 위해서 (Robustness를 위해), 여러 함수를 가져다 쓰신다면 train data는 train data 내에서, val data는 val data 내에서 진행해주세요.",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684906034.341129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RK3JEXAP",
+                  "U04RXRUJ3DX",
+                  "U04R4LUJ5B9",
+                  "U04S8T6DCNL",
+                  "U04RK77HJ3U",
+                  "U04RK3E8L3D"
+                ],
+                "count": 6
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04L808UDFG",
+                  "U04R4LUJ5B9",
+                  "U04S8T6DCNL",
+                  "U04RCJQGCA2"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 이해했습니다 답변 감사드립니다.",
+          "user": "U04RK3JEXAP",
+          "user_name": "전민수_T5183",
+          "timestamp": "1684906075.023989",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04MJBR4H8C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 !! 고생이 많으셔요 다들 ㅎㅎ",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684906082.665419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 감사드립니다.",
+          "user": "U04R4LUJ5B9",
+          "user_name": "김세형_T5038",
+          "timestamp": "1684906188.748919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04MJBR4H8C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가적으로 궁금한 점이 생겨 질문드립니다.\n데이터를 수정하게 된다면 어떤 식으로든 base line 코드도 달라질 수밖에 없다고 생각합니다. 왜냐하면 csv파일만을 바꿔서 넣어주게 되면 원본 csv와는 달라지기 때문에 split이 진행될 때에도 결과 데이터가 달라질 수 있기 때문입니다.\n따라서 이를 해결하기 위해 다음과 같이 두 가지 방식이 가능하다고 생각합니다.\n1. 개선한 csv를 입력으로 넣어주고 원본 csv의 split의 결과처럼 되도록 만들어주는 과정 \n2. 원본 csv를 넣고 split을 한 결과를 받아서 데이터 증강이나 클리닝을 진행하는 방식\n위 두 경우 모두 baseline을 바꾸게 됩니다.\n이러한 경우에 대해서는 규정이 어떻게 될지 궁금합니다.",
+          "user": "U04S8TC1PDE",
+          "user_name": "이동호",
+          "timestamp": "1684907907.489029",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04S8TC1PDE",
+              "ts": "1684907981.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U04RCJQM35L"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04MJBR4H8C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04S8TC1PDE> [대회 개요] - [룰]에서 `*[코드 작성/변경에 대한 규칙]* 데이터를 구성하고 활용하는 방법에 집중해보는 것을 장려하는 취지에서, 제공되는 베이스 코드 중 모델과 관련한 부분을 변경하는 것이 금지되어 있습니다.` 부분에 의해 베이스라인 코드 중 데이터 만드는 과정을 변경해도 상관 없지 않나 싶습니다.",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1684908482.941489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04S8TC1PDE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04S8TC1PDE> <@U04RXRUJ3DX> 데이터 파트는 변경하셔도 됩니다 ! 모델 변경 혹은 세팅 부분만 건드리시지 않는다면 괜찮아요 :slightly_smiling_face: 단 스플릿 비율이나, 저희가 사전에 말씀드린 부분에 취지에 어긋나는 변경은 불허합니다.",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684908533.282089",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04MJBR4H8C",
+              "ts": "1684908581.000000"
+            },
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04S8TC1PDE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다",
+          "user": "U04S8TC1PDE",
+          "user_name": "이동호",
+          "timestamp": "1684909122.468969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04MJBR4H8C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

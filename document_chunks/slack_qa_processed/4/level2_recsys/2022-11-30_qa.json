@@ -1,0 +1,181 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! Baseline으로 주어진 LightGCN 코드를 활용하다가 해결이 어려운 부분이 있어 질문 남깁니다.\nBaseline을 Train하는 과정에서는 AUC가 올라가며 정상적으로 학습이 되는 것을 확인했습니다.\n하지만 모델을 inference 하는 과정에서, 모델이 아래 출력 분포 그림과 같이 확률값을 무조건 0.5 근처로 예측하는 현상이 있었습니다.\n오피스아워를 듣고 config 파일에서 여러 파라미터를 조정해봤는데도 매번 비슷한 결과가 나와서요ㅠㅠ\n이러한 결과를 어떻게 해석해야할지 잘 모르겠어서 문의드립니다.\n\n혹시 lightGCN을 이용해서 아래와 다른 결과(정상적으로 학습된 확률값 출력..)을 얻으신 분이 있을까요? :pleading_face:\n아직 대회중이라 공유가 힘드실 수도 있으니, 대회가 끝나고라도 어떻게 해결하셨는지 스레드 남겨주시면 정말 감사하겠습니다!!\n왜 결과가 안나오는지 너무 궁금..해요.. :sob:",
+        "user": "U0427G54D8Q",
+        "user_name": null,
+        "timestamp": "1669859744.655459",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041ERZUPA9",
+                "U041HN270SX",
+                "U03QKNSJVCY"
+              ],
+              "count": 3
+            },
+            {
+              "name": "smiling_face_with_tear",
+              "users": [
+                "U041ERZUPA9",
+                "U03QKNSJVCY"
+              ],
+              "count": 2
+            },
+            {
+              "name": "face_exhaling",
+              "users": [
+                "U041ERZUPA9",
+                "U03QKNSJVCY"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "learning rate를 잘 조정하면 됩니다!",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1669860511.228299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 0.5로 몰리는 현상이 궁금해서 멘토님께 질문 드렸었는데 머신러닝이라는게 결국 확률을 근사하는 도구라 학습하는 과정에서 예측값이 평균으로 값이 모인다음 분산에 맞게 펼쳐지는 과정이 있다고 이해했습니다.\n\n 0과 1을 예측하는 문제인 만큼 평균인 0.5에 몰리게 되고 그 다음 분산에 맞게 펼쳐지는 과정이 진행이 덜 되었다고 판단됩니다. 그래서 성연님 말씀처럼 lr을 조정하면 해결됩니다!",
+          "user": "U041WE0BG81",
+          "user_name": "김보성_T4034",
+          "timestamp": "1669860741.740659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U03QKNSJVCY"
+                ],
+                "count": 2
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERYLS6R> <@U041WE0BG81> 도움 주셔서 정말 감사합니다! :star-struck: 덕분에 거의 해결했어요!\n현재 코드에는 validation set이 없는데, 혹시 파라미터 조정에 따른 성능을 확인하기 위해 validation set을 따로 만들어주셨나요?",
+          "user": "U0427G54D8Q",
+          "user_name": "Yujin Kim",
+          "timestamp": "1669862928.708929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 valid를 조금 다르게 정의했던 것 같아요!",
+          "user": "U041ERYLS6R",
+          "user_name": "김성연",
+          "timestamp": "1669862984.948359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERYLS6R> 감사합니다! 저도 validation set을 만들어야겠어요!! :smiling_face_with_3_hearts: 즐거운 점심 되세요~~",
+          "user": "U0427G54D8Q",
+          "user_name": "Yujin Kim",
+          "timestamp": "1669863399.282779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERYLS6R",
+                  "U041WE0BG81",
+                  "U041FE8FKBN",
+                  "U03QKNSJVCY",
+                  "U0427G5T6BS"
+                ],
+                "count": 5
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY",
+                  "U0427G5T6BS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이전에는 pipeline method에 model 변수를 받지 않아도 실행되었기 때문에, 학습된 모델을 사용하지 않았을 때 / 사용했을 때의 차이를 보기 위해 다음의 실습 코드를 작성했었는데요.",
+        "user": "U0419FLPZPX",
+        "user_name": "이녕우_조교",
+        "timestamp": "1683477357.116569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "찾아보니까 이제는 pipeline method에 새로 학습한 tokenizer를 입력으로 주는 경우에, 호환성 오류를 방지하기 위해 학습한 tokenizer와 호환이되는 model을 같이 입력으로 주도록 로직이 변경된 것 같네요.",
+          "user": "U0419FLPZPX",
+          "user_name": "이녕우_조교",
+          "timestamp": "1683477413.208359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "성훈님 덕분에 오류 확인할 수 있었어요. 감사합니다! 마찬가지로 실습 코드에 반영해두겠습니다!",
+          "user": "U0419FLPZPX",
+          "user_name": "이녕우_조교",
+          "timestamp": "1683477436.029249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RXRS2789"
+                ],
+                "count": 1
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RXRS2789"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다~!!!",
+          "user": "U04RXRS2789",
+          "user_name": "변성훈_T5100",
+          "timestamp": "1683506686.365809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

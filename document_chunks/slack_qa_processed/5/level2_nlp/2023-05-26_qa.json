@@ -1,0 +1,242 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! Data Centric 대회 ai stages 게시판 자료와 관련하여 질문 드립니다.\n박찬준 마스터님께서 말씀하신 대로 리더보드가 닫혀있는 기간 동안 데이터에 더욱 집중해서 노이즈 필터링, 데이터 증강 등을 해보려고 합니다!\n이것을 더 잘 수행하기 위해서 ai stages 대회 게시판 자료들을 참고하고 싶습니다. 혹시 해당 자료를 따로 제공해 주실 수 있으신지 문의 드립니다.\n감사합니다. :slightly_smiling_face:",
+        "user": "U04RK3G01EF",
+        "user_name": "문지혜",
+        "timestamp": "1685091422.632959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U04RK77HJ3U",
+                "U04S8T6086L",
+                "U04RXRZ9UQH",
+                "U04R4LX4FMM",
+                "U04RK3E8L3D",
+                "U04RCJQK2BY"
+              ],
+              "count": 6
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK77HJ3U",
+                "U04S8TBCAJC",
+                "U04R4LX4FMM",
+                "U04S8T6086L",
+                "U04RXRZ9UQH",
+                "U04RK3E8L3D"
+              ],
+              "count": 6
+            },
+            {
+              "name": "rocket",
+              "users": [
+                "U04S8T6086L",
+                "U04RK77HJ3U",
+                "U04RXRZ9UQH",
+                "U04R4LX4FMM",
+                "U04RK3E8L3D"
+              ],
+              "count": 5
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U04RK77HJ3U",
+                "U04S8T6086L",
+                "U04RXRZ9UQH",
+                "U04R4LX4FMM",
+                "U04RK3E8L3D"
+              ],
+              "count": 5
+            },
+            {
+              "name": "fire",
+              "users": [
+                "U04RK77HJ3U",
+                "U04S8T6086L",
+                "U04RXRZ9UQH",
+                "U04R4LX4FMM",
+                "U04RK3E8L3D"
+              ],
+              "count": 5
+            },
+            {
+              "name": "짱지혜",
+              "users": [
+                "U04R4LX4FMM",
+                "U04RK77HJ3U",
+                "U04S8T6086L",
+                "U04S8TBCAJC",
+                "U04RXRT4YNM",
+                "U04RXRZ9UQH",
+                "U04RK3E8L3D"
+              ],
+              "count": 7
+            },
+            {
+              "name": "thinking_spin",
+              "users": [
+                "U04R4LX4FMM",
+                "U04RK77HJ3U",
+                "U04S8T6086L",
+                "U04S8TBCAJC",
+                "U04RXRZ9UQH",
+                "U04RK3E8L3D"
+              ],
+              "count": 6
+            },
+            {
+              "name": "minion-twerk",
+              "users": [
+                "U04RXRS2789",
+                "U04R4LX4FMM"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U03MDFNTYCE> 확인 부탁드립니다",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685091708.998699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "토론 컨텐츠 4건에 대해서 공유드립니다 :slightly_smiling_face: <!subteam^S044E14B109|@nlp>\n읽어보시면서, 많은 인사이트 얻어가셨으면 좋겠습니다 !!",
+          "user": "U04MJBR4H8C",
+          "user_name": null,
+          "timestamp": "1685092446.421589",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04MJBR4H8C",
+              "ts": "1685092515.000000"
+            },
+            "reactions": [
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04R4LUFL9M",
+                  "U04R4LX4FMM",
+                  "U04RXRZ9UQH",
+                  "U04S8T6086L",
+                  "U04RXRS2789",
+                  "U04R4LRRK5M",
+                  "U04S26ESDPW",
+                  "U04RXRTG4GZ",
+                  "U04RK77HJ3U"
+                ],
+                "count": 10
+              },
+              {
+                "name": "thank",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04R4LUFL9M",
+                  "U04R4LX4FMM",
+                  "U04S8T6086L",
+                  "U04RXRZ9UQH",
+                  "U04RXRS2789",
+                  "U04S8TBCAJC",
+                  "U04R4LRRK5M",
+                  "U04S8T6DCNL"
+                ],
+                "count": 9
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04R4LUFL9M",
+                  "U04R4LX4FMM",
+                  "U04RXRZ9UQH",
+                  "U04S8T6086L",
+                  "U04RXRS2789",
+                  "U04R4LRRK5M"
+                ],
+                "count": 7
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U04RK77HJ3U"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 10강에 최대한 최신 동향들 정리해서 강의 찍어놓았사오니, 해당 부분도 참고하시어 대회 준비해보시면 좋을 거 같습니다 !!",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1685092716.573789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04S8T6086L",
+                  "U04RK3G01EF",
+                  "U04R4LX4FMM",
+                  "U04RXRZ9UQH",
+                  "U04RMLU78LU"
+                ],
+                "count": 5
+              },
+              {
+                "name": "nep",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04S8TBCAJC",
+                  "U04R4LX4FMM",
+                  "U04RXRZ9UQH"
+                ],
+                "count": 4
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK3G01EF",
+                  "U04R4LX4FMM",
+                  "U04RXRZ9UQH"
+                ],
+                "count": 3
+              },
+              {
+                "name": "thank",
+                "users": [
+                  "U04R4LX4FMM",
+                  "U04RXRZ9UQH",
+                  "U04S8T6DCNL"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

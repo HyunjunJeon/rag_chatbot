@@ -1,0 +1,79 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "테스트해보려고 github에서 repo 만들고, detectron2와 mmdetection clone해서 editable 모드로 설치하고, mmdetection 안에 __trash__ 만들기도 하고 coco classes를 변경하기도 했는데, status를 보니까 아래와 같은 상황이 발생합니다.\n\n```Changes not staged for commit:\n  (use \"git add &lt;file&gt;...\" to update what will be committed)\n  (use \"git restore &lt;file&gt;...\" to discard changes in working directory)\n  (commit or discard the untracked or modified content in submodules)\n        modified:   mmdetection (untracked content)```\n찾아보니 mmdetection과 detectron2의 .git 폴더를 지우고 cache를 지우면 된다는 글도 찾았지만, 이렇게 되면 mmdetection과 detectron2의 어떤 버전인지에 대한 정보를 잃어버리기도 하고, 결국 추후 mmdetection와 detectron2 버전을 업데이트할 때 git의 도움을 못 받는다는 것인데 다른 방법이 없을까요?",
+        "user": "U041L94723E",
+        "user_name": "집사",
+        "timestamp": "1668851381.386749",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "클론해서 하시면, submodule로 넣으셔야 할 듯 한데요. 어떤 상황인지 정확하게는 모르겠지만,\nmy_project\n-- .git (my_project에 대한 git)\n-- mmdetection\n    -- .git\n    -- ..\n\n이런 구조의 경우에는 mmdetection 내의 .git을 지워 my_project에 포함시키거나, mmdetection을 개인 레포에 fork하고, my_project에 submodule로 넣으셔야 관리하기가 편합니다.",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1668854635.340119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "또한, mmdetection은 보통 코어한 라이브러리 중 하나이므로 프로젝트 내에서는 버전을 고정하고 씁니다.\n다른 프로젝트가 생긴다면 다른 경로에 다시 mmdetection을 클론하여 새 버전을 사용하셔야 합니다.",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1668854716.469289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L94723E"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "fork해서 submodule로 넣는 방법도 생각해봤었는데, 테스트해봐야겠네요. 답변 감사합니다!",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1668857129.046329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

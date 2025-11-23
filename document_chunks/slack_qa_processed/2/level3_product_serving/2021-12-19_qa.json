@@ -1,0 +1,110 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "1. 네 모델이 예측한 결과를 데이터라고 표현하였습니다.\n2. Object Tracking으로 객체를 tracking하며 이를 토대로 프론트단을 구현하려합니다.(신호등, OT 결과)\n3. 깃이 프라이빗이라 스샷으로 보내드리는 점 양해부탁드립니다!\n1번째 사진인 home.html에서 video_feed request하고 2번째 사진인 server.py로 부터 streamingresponse를 response 받습니다. 3번째 사진은 get_stream_cam의 yield 부분입니다.\n\n\n<@U029MCT2RTK> <@U029MCHFVEV> 감사합니다!",
+        "user": "U029HMBUFT8",
+        "user_name": null,
+        "timestamp": "1639912467.415400",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029HMBUFT8",
+            "ts": "1639912569.000000"
+          },
+          "reactions": [
+            {
+              "name": "pleading_face",
+              "users": [
+                "U029E8JH0BV",
+                "U029BP86UBX"
+              ],
+              "count": 2
+            },
+            {
+              "name": "sob",
+              "users": [
+                "U028ZQU4N07",
+                "U029BP86UBX"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "어제 일찍 잠들어서 이제 답변 드리네요\n\n&gt; form에 값은 실시간으로 변하지만 이를 실시간으로 이미지로 출력 할 수 없어서\n위의 파트와 주영님께서 올려주신 html 파트의 코드로 보아, html에서 fastapi로 부터 데이터를 받아서 실시간으로 바뀌는 걸 보여주고 싶으신걸로 이해했습니다.\n\n아마 별다른 라이브러리나 프레임워크를 사용하지 않으셨다면, html만으로 stream response를 표현하는 건 생각보다 어렵습니다. html은 정적이고 stream response는 계속해서 바뀌니까요. 아마 원하시는 기능을 하려면 javascript로 제어를 해주셔야할 걸로 보입니다.\n\n궁금한 점은 mustache 문법을 사용한 걸로 보이는데, 프론트 쪽 환경을 더 알려주시면 더 도움이 될 수 있을 거 같습니다.\n\n관련해서 Streaming은 아니지만 FastAPI로부터 Server Sent Event를 프론트에서 실시간으로 보여주는 예제를 설명한 글 하나 공유드리겠습니다.\n<https://medium.com/analytics-vidhya/real-time-log-streaming-with-fastapi-and-server-sent-events-54c31cfe78c5>",
+          "user": "U029MCHFVEV",
+          "user_name": "Humphrey Ahn",
+          "timestamp": "1639954797.417300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "dancing_pikachu",
+                "users": [
+                  "U029E8JH0BV",
+                  "U028ZQU4N07",
+                  "U029HMBUFT8"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 HTML만으로는 어려울 것 같고, 혹은 WebRTC 개념을 아시면 좋지 않을까 싶어요..!\n\n<https://github.com/whitphx/streamlit-webrtc>\n\n<https://github.com/aiortc/aiortc>\n\nWebRTC는 실시간으로 웹에서 데이터를 교환할수 있는 방법이에요. 다만 처음엔 알아야 하는 개념이 많아서 어려울 수도 있을 것 같아 다른 방법을 고려하시는게 좋을 수도 있을 것 같아요\n\n참고차 설명 글 공유드릴게요!\n<https://wormwlrm.github.io/2021/01/24/Introducing-WebRTC.html>\n\n\n그리고 아래 글도 도움이 될 것 같네요 :pray:\n<https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos>",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639964191.420500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U028ZQU4N07",
+                  "U029E8JH0BV"
+                ],
+                "count": 2
+              },
+              {
+                "name": "metamong",
+                "users": [
+                  "U029HMBUFT8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! 제가 관련 지식이 없어서 공유해주신 내용 꼼꼼히 보고 시도해보고 오겠습니다!!",
+          "user": "U029HMBUFT8",
+          "user_name": "황주영",
+          "timestamp": "1639969879.422100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

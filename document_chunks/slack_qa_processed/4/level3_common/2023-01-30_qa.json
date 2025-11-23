@@ -1,0 +1,80 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "Firebase의 어떤걸 사용하려고 하시나요? Github에서 무슨 권한을 줘야하는걸지.. 이건 운영진분들과 이야기해야할 것 같긴하네요",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1675068092.066659",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "github action을 사용하려고 하는데 지금 travis로  하고 있어서 괜찮을 것 같습니다..",
+          "user": "U0427GAP4UQ",
+          "user_name": "신재영",
+          "timestamp": "1675068141.571549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하.. 질문에 firebase라고 되어있어서 무엇을 의미하신거지?라는 생각이 들었었는데 CI/CD 관련 이야기였군요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1675068167.763099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U044SL01LDD> travis에서도 *`Skipping a deployment with the firebase provider because this branch is not permitted: feature/FISH-39-react-web-app-`* 이라고 뜨네요 혹시 허용해 주실 수 있나요?",
+          "user": "U0427GAP4UQ",
+          "user_name": "신재영",
+          "timestamp": "1675071159.843339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0427GAP4UQ> 안녕하세요 신재영 캠퍼님 위의 오류에 대해 혹시 <https://github.com/travis-ci/travis-ci/issues/8289>  이 정보가 도움이 될까요? 그리고 특이사항 없으면 firebase도 다른 앱과 동일하게  github apps 등록 가능할 것으로 보입니다.",
+          "user": "U044SL01LDD",
+          "user_name": "전욱표",
+          "timestamp": "1675071612.186719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```skip_cleanup: true\n      on:\n        repo: \"boostcampaitech4lv23cv2/final-project-level3-cv-13\"\n        all_branches: true```\n이렇게 하니까 되었네요 감사합니다!",
+          "user": "U0427GAP4UQ",
+          "user_name": "신재영",
+          "timestamp": "1675072878.658519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

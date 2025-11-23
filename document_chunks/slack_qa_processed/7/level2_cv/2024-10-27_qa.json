@@ -1,0 +1,52 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "*(퀴즈) Data-Centric AI의 개요*\n안녕하세요 좋은점심입니다.\n퀴즈2번에서 순서가 바뀌어도 정답이어야 되지 않을까요?",
+        "user": "U07EJ5N8GVA",
+        "user_name": null,
+        "timestamp": "1730094265.356269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "\"모델 및 알고리즘으로 이루어진\"이란 설명이 A에 해당하는거니까 코드가 들어가는게 맞는거 같아요",
+          "user": "U07E145T5AT",
+          "user_name": "김동욱_T7108",
+          "timestamp": "1730096109.513429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이해했습니다 감사합니다!",
+          "user": "U07EJ5N8GVA",
+          "user_name": "김보현",
+          "timestamp": "1730096151.342069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

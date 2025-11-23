@@ -1,0 +1,873 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, CV 이론 강의 멘토 최동민입니다!\n\nCV 강의를 수강하시면서 강의의 전반적인 흐름이나 큰 틀을 직관적으로 이해하시면 좋을 것 같아 강의 구성을 정리한 자료를 공유 드립니다. 참고로 해당 자료는 *부스트캠프 1기 캠퍼로 참여하셨던 이현규 캠퍼님께서 직접 제작해주신 자료*이며 2기 캠퍼분들을 위하여 흔쾌히 공유를 허락해주셨습니다 :slightly_smiling_face:\n\n혹시 해당 자료가 도움이 되셨다면 스레드의 댓글로 감사 인사를 짧게 남겨주시면 제가 수합하여 이현규 캠퍼님에게 전달드리도록 하겠습니다!",
+        "user": "U029YDHQ9EU",
+        "user_name": null,
+        "timestamp": "1630919361.034400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U028ZAA1X1V",
+                "U029E1P5Z5G",
+                "U029LA9EQCU",
+                "U029KPSLN1K",
+                "U029ULW2X8A",
+                "U0295N0FL5T",
+                "U029Y19TXRP",
+                "U028ZQU4N07",
+                "U028ZG5R31V",
+                "U029X8XP189",
+                "U0297P884ES",
+                "U029DCPSW3Z",
+                "U02A7MXP5A4",
+                "U029BS21VL5",
+                "U0290GAJGG7",
+                "U02905YS8J3",
+                "U029UHZ6AHY",
+                "U0298BT8SNA",
+                "U029ST041PU",
+                "U029BQYGRFX",
+                "U02A3RWDVPS",
+                "U029MTWGTJS",
+                "U029M37U7S8",
+                "U029E8T7199"
+              ],
+              "count": 24
+            },
+            {
+              "name": "blob_thumbs_up",
+              "users": [
+                "U029L86M9JQ",
+                "U029TQ9JFR8",
+                "U029T4XRUCR",
+                "U028ZAA1X1V",
+                "U029DCPSW3Z",
+                "U029BS21VL5"
+              ],
+              "count": 6
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029J0QCBDY",
+                "U029MTWGTJS",
+                "U029EUN529J",
+                "U028ZAA1X1V",
+                "U029EUXTG7N"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "이런 치트시트 느낌의 자료 너무 좋습니다 :)",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1630919410.035400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전체적인 흐름을 빠르게 파악할 수 있네요!! 정보 감사합니다 :slightly_smiling_face:",
+          "user": "U028ZQU4N07",
+          "user_name": "김현수",
+          "timestamp": "1630920494.036800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "진짜 이현규 캠퍼님 큰 그림 잘 정리해주셔서 너무 감사합니다!!",
+          "user": "U029EUXTG7N",
+          "user_name": "오태현 (포스텍)",
+          "timestamp": "1630942702.051400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EUXTG7N> 헉... 존경하는 오태현 마스터님... 강의 너무 재미있게 보고 있습니다 :)",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1630945153.052500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028ZAA1X1V> 강의력이 달려서 부끄럽습니다. 열심히 하고 있으니 부디 도움이 되시길 바랍니다!",
+          "user": "U029EUXTG7N",
+          "user_name": "오태현 (포스텍)",
+          "timestamp": "1630946166.053000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EUXTG7N> 교수님은 저에게 희망 같은 분입니다. 단순한 통찰을 넘어서 강한 동기부여가 되는 분이십니다. 오늘 잠 못 자겠습니다 ㅎ.ㅎ",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1630946718.053300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029YDHQ9EU"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "<https://quickdraw.withgoogle.com/?locale=ko#>\n\nquickdraw를 그려보는 건데 심심할 때 해보시면 재밌을 것 같아요:):blue_hand:",
+        "user": "U02905YS8J3",
+        "user_name": "최민서",
+        "timestamp": "1630942523.051000",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02905YS8J3",
+            "ts": "1630942595.000000"
+          },
+          "reactions": [
+            {
+              "name": "cool-doge",
+              "users": [
+                "U029X2SMQRJ",
+                "U029L86M9JQ",
+                "U028ZAA1X1V",
+                "U029T519KUH",
+                "U029YDHQ9EU",
+                "U029E1P5Z5G",
+                "U0297UZK86S",
+                "U029V25N58U"
+              ],
+              "count": 8
+            },
+            {
+              "name": "dancing_penguin",
+              "users": [
+                "U029X8XP189",
+                "U028ZRPRJ5V",
+                "U028ZAA1X1V",
+                "U029YDHQ9EU"
+              ],
+              "count": 4
+            },
+            {
+              "name": "laughing",
+              "users": [
+                "U029UHZ6AHY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "오 내일 조원들이랑 사다리 타기 대신 이걸로 해야겠어요",
+          "user": "U029X2SMQRJ",
+          "user_name": "나캐리",
+          "timestamp": "1630942769.051600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "bananadance",
+                "users": [
+                  "U02905YS8J3"
+                ],
+                "count": 1
+              },
+              {
+                "name": "smile",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와 이거 재밌네요",
+          "user": "U029X8XP189",
+          "user_name": "조성욱",
+          "timestamp": "1630942802.052100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U02905YS8J3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이런 것도 있군요 :slightly_smiling_face:",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1630946786.053800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "wink",
+                "users": [
+                  "U02905YS8J3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://www.kaggle.com/c/quickdraw-doodle-recognition|Quick, Draw! Doodle Recognition Challenge | Kaggle> 여기에서 수집된 데이터로 열린 캐글 대회도 있었습니다",
+          "user": "U0298UP0U75",
+          "user_name": "강천성",
+          "timestamp": "1630978789.062100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02905YS8J3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "재밌어요ㅋㅋㅋ",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1630985075.067500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "laughing",
+                "users": [
+                  "U02905YS8J3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "이번 과제1을 서버에서 돌리다 보면, 다음 같은 error가 발생합니다!\n```TypeError: img should be PIL Image. Got &lt;class 'torch.Tensor'&gt;; (Conversion from Torch Tensor to PIL Image)```\nPytorch의 버전을 변경해주거나,\n```transform = transforms.Compose([\n    transforms.ToPILImage(),\n    transforms.Resize((224,224)),\n    transforms.ToTensor(),\n    transforms.Normalize(mean=[0.485, 0.456, 0.406],\n                          std=[0.229, 0.224, 0.225])\n])```\n다음과 같이 transform을 변경하면 해결할 수 있는데 error의 이유가 무엇일까요!?\n```for class_name in class_list:\n  qdgroup = QuickDrawDataGroup(class_name, max_drawings=num_img_per_class)\n  for i, img in enumerate(qdgroup.drawings):\n    if i &lt; int(0.9 * num_img_per_class):\n      train_data.append(np.asarray(img.get_image()))\n      train_label.append(class_dict[class_name])\n    else:\n      val_data.append(np.asarray(img.get_image()))\n      val_label.append(class_dict[class_name])```\n저는 이미지를 dir에 저장했다가 불러오는 것이 아닌, array로 불러와서 사용하는데 서버에서 사용하는 torch 버전에서는 호환이 안 된다고 생각합니다.\n피어세션에 팀원과 error를 해결하다가, 명확한 이유를 알 수 없어서 글 남겨봅니다!",
+        "user": "U029L86M9JQ",
+        "user_name": "박성진",
+        "timestamp": "1630977500.059500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029E1P5Z5G",
+                "U028ZQU4N07",
+                "U029L86M9JQ",
+                "U02AHSJ2T9N"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 18
+        }
+      },
+      "answers": [
+        {
+          "text": "서버가 stage 말하시는거면 저는 잘됐는데 대회하시면서 버전 바꾸신게 있는걸까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1630978041.059800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02A3GWB4RX",
+              "ts": "1630978052.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "서버 PyTorch 버전(되는 경우, 안되는 경우)도 알려주시면 상황 재현에 도움이 될 것 같습니다 ㅎㅎ",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630978077.060100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그리고 에러 메시지가 Image가 들어와야하는데 torch.Tensor가 들어왔다고 나오는걸 보니 jupyter notebook runtime을 초기화하고 돌려보시면 해결이 될 것같기도 합니다 (jupyter notebook을 뒷부분을 실행하고 다시 앞으로 돌아와서 코드를 실행할 수 있다 보니 이미 메모리상에 train_data라는 이름의 텐서들이 남아있을 수 있어서요)",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630978163.060300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "torch를 따로 버전을 바꾼 적은 없고! 현재 1.6.0 버전입니다. 팀원분이 1.9.0으로 버전업 할때 해결되었다고 합니다!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1630978216.060500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UMQQ75> 한번 테스트 해보겠습니다!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1630978234.060700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네넵 제 생각에는 이미 메모리상에 저 이름을 가진 변수가 있는데 실행해서 그런 것 같고, torch 버전을 바꾸고 하다보면 런타임이 초기화돼서 side-effect로 문제가 해결되지 않았나 싶긴 하네요 ㅎㅎ 한번 확인해주시면 감사하겠습니다",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630978304.060900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MTWGTJS",
+                  "U029EUXTG7N"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그리고 다음에는 에러 메시지랑 같이 에러가 나는 정확한 line도 올려주시면 더 빨리 문제를 파악 할 수 있을 것 같습니다",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630978345.061100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 torch 버전을 1.9.0으로 바꾸는 것만으로는 해결이 안되고 torchvision도 0.6.0에서 0.10.0으로 변경하니까 해결됐습니다 !",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1630978504.061400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L86M9JQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시 앞부터 실행해 본 결과, 같은 에러가 발생합니다. ㅠㅠ transform resize에 tensor로 입력되어 오류가 발생하는 것 같습니다.(resize와 totensor의 순서를 변경해도 같은 상황입니다!)",
+          "user": "U029L86M9JQ",
+          "user_name": null,
+          "timestamp": "1630978556.061600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 지금 사용하시는 jupyter notebook에 이런 kernel 초기화 관련 메뉴가 있나요?",
+          "user": "U0298UMQQ75",
+          "user_name": null,
+          "timestamp": "1630978808.062400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "torchvision의 resize가 버전 0.8 부터 PIL image 또는 Tensor 입력을 지원하고, 그 아래 버젼에서는 PIL image만 입력으로 가능하기 때문에 발생하는 에러인 것 같습니다.",
+          "user": "U029CBN352B",
+          "user_name": "Wonsang Hwang",
+          "timestamp": "1630978850.062800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029L86M9JQ",
+                  "U029M37U7S8",
+                  "U029BP86UBX"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://github.com/pytorch/vision/blob/release/0.7/torchvision/transforms/functional.py>\n에서 보았습니다.",
+          "user": "U029CBN352B",
+          "user_name": "Wonsang Hwang",
+          "timestamp": "1630978917.063000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "vscode에서 사용하고 있습니다! 해당 메뉴는 없지만 restart kernel 버튼은 따로 있습니다!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1630979043.063200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "torchvision 확인 결과 0.7.0 버전으로 확인됩니다! 해당 문제일 것 같습니다!:eyes:",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1630979078.063400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전 메모리에 같은 이름 변수가 쌓여서 kernel restart로 해결될 줄 알았는데, 원상님 말씀대로 버전 문제일 수도 있겠네요 감사합니다 ㅎㅎ 테스트 환경에서는 torchvision 버전이 높아서 해당 문제가 발생하지 않아서 찾지 못했네요",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630979182.063800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그럼 _torchvision 0.8 이하에서 Tensor에 대한 Resize()가 불가능해서 생기는 에러_로 생각하시면 될 것 같아요 관련해서 다른 캠퍼분들도 참고하실 수 있게 전달하겠습니다",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630979250.064000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U029L86M9JQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UMQQ75> <@U029CBN352B> 같이 찾아 봐주셔서 감사합니다!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1630979296.064200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298UMQQ75",
+                  "U029EUXTG7N"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 에러는\n_*torchvision 0.8 이하에서 Tensor에 대한 transforms.Resize()가 불가능*_\n해서 생기는 문제로, 다른 캠퍼분들도 비슷한 에러가 생긴다면 서버의 torchvision 버전을 업그레이드 해주시길 바랍니다 ㅎㅎ",
+          "user": "U0298UMQQ75",
+          "user_name": null,
+          "timestamp": "1630979759.065000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MTWGTJS",
+                  "U029L86M9JQ",
+                  "U02A7MXP5A4",
+                  "U029DCPSW3Z",
+                  "U0298RU576J",
+                  "U028ZQU4N07",
+                  "U029YDHQ9EU",
+                  "U029V7QJNFN",
+                  "U029E1P5Z5G",
+                  "U029EUNPFFW",
+                  "U029R4NBACU",
+                  "U029EUXTG7N"
+                ],
+                "count": 12
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 다른게 아니라 VGG 논문을 읽어보다가 궁금한 점이 생겨 이렇게 글을 올리게 되었습니다!\n<https://arxiv.org/pdf/1409.1556.pdf>\n위 논문 4페이지 3-1에 나와있기로는 vggNet을 학습시킬 때 얕은 모델을 먼저 학습시켜 해당 weight로 초기화해주었다고 언급하면서 굳이 이렇게 할 필요없이 xavier initialization으로도 가능하다고 나와있습니다.\n그런데 제가 알기로는 xavier initialization은 sigmoid나 tanh와 같은 활성화 함수에서만 분산을 일정하게 유지시켜주는 효과가 있고 ReLU에서는 효과가 없어 kaiming initialization을 사용하는 것으로 알고있는데, vggNet같은 경우 활성화 함수를 ReLU로 사용한다고 언급되어 있습니다. 혹시 위의 이유 외에 ReLU에서 xavier initialization을 하는 다른 이유가 있을까요? 아니면 제가 잘못 알고 있었던 걸까요!?\n+ weight initialization에 대한 또 다른 질문으로 요즘 SOTA model을 보면 SiLU 활성화 함수를 사용하는 경우가 종종 있는 것 같습니다. 그런데 구현해보니 SiLU에서 kaiming initialization이나 xavier initialization이 효과가 없는 것처럼 보입니다.. SiLU에서 사용하는 weight initialization이나 다른 기법이 있을까요??",
+        "user": "U029BS21VL5",
+        "user_name": "임문경",
+        "timestamp": "1630979636.064900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 알기로는 VGG 논문이 He initialization 논문보다 일찍 나와서 논문에서 xavier를 사용한게 아닌가 싶네요 ㅎㅎ",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630980012.065700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029BS21VL5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UMQQ75> 김종하 멘토님 답변감사합니다! 그런데 저도 처음에는 그렇게 생각했는데, xavier initialization이랑 단순히 분산을 정규화해줬을 때 값을 비교해보니 거의 성능 차이가 없는 것 같아서요.. 혹시 제가 뭔가 잘못 구현한 걸까요..?",
+          "user": "U029BS21VL5",
+          "user_name": "임문경",
+          "timestamp": "1630981362.066000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```def xavier(indim,outdim,uniform=True):\n  if uniform:\n    return torch.Tensor(indim,outdim).uniform_(-1,1)*np.sqrt(6./(indim+outdim))\n  return torch.randn(indim,outdim)*np.sqrt(2./(indim+outdim))\n\nn = 18\n\nprint(\"=\"*100)\nx = torch.randn(224,1)\nfor _ in range(n):\n  w = xavier(224,224,uniform=False)\n  x = torch.nn.ReLU()(w@x)\n\nprint(f'xavier normal initialization : mean : [{x.mean()}], std : [{x.std()}]')\n\nprint(\"=\"*100)\nx = torch.randn(224,1)\nfor _ in range(n):\n  w = xavier(224,224,uniform=True)\n  x = torch.nn.SiLU()(w@x)\nprint(f'xavier uniform initialization : mean : [{x.mean()}], std : [{x.std()}]')\n\nprint(\"=\"*100)\nx = torch.randn(224,1)\nfor _ in range(n):\n  w = torch.randn(224,224)*np.sqrt(1./224)\n  x = torch.nn.ReLU()(w@x)\nprint(f'noraml initalization : mean : [{x.mean()}], std : [{x.std()}]')```",
+          "user": "U029BS21VL5",
+          "user_name": "임문경",
+          "timestamp": "1630981376.066200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다음 코드 실행시켰을 때\nxavier normal initialization : mean : [0.0010713970987126231], std : [0.001557924784719944]\n\nxavier uniform initialization : mean : [1.5453649382379808e-07], std : [4.396646090754075e-06]\n\nnoraml initalization : mean : [0.0007978235953487456], std : [0.0011886676074936986]\n와 같이 나옵니다!!",
+          "user": "U029BS21VL5",
+          "user_name": "임문경",
+          "timestamp": "1630981462.066400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정의한 함수로 여러번 반복적으로 initialize한 값들 만들어서 n이 커지면 weight값들에 대해 mean, std를 확인해보거나 plot을 그려서 원하는 분포를 잘 생성하고 있는지 확인해보시면 좋을 것 같아요",
+          "user": "U0298UMQQ75",
+          "user_name": "김종하",
+          "timestamp": "1630981971.066800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fire",
+                "users": [
+                  "U029BS21VL5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UMQQ75> 아아 알겠습니다! 답변 감사합니다!",
+          "user": "U029BS21VL5",
+          "user_name": "임문경",
+          "timestamp": "1630982272.067100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "캠퍼님들 멘토님들, 질문이 있습니다!\n 이미지를 어떻게 normalize 할 것이냐는 항상 잠깐씩 고민해보는 주제 같습니다. 소리의 경우는 일반적으로 uint16의 범위를 [-1, 1]로 변환해서 사용하는데요 이미지의 경우는 uint8의 범위를 [0,1]로 변환해서 사용한다고 알고 있습니다. 제 생각에는 음의 실수까지 확장해서 모델에 넣어주는 것이 더 표현력에 있어서 이점이 있지 않을까 하는 생각을 늘 했습니다.\n 이번 VGG 과제에서 예시 코드는 noramlize factor를 각 채널 별로 조금씩 다른 값으로 지정하였습니다. 각 값의 큰 의미는 없어 보이는데 혹시 왜 이런 값들이 채널 별로 선정되었는지 알 수 있을까요?\n 또 어떤 이미지 생성 AAE 모델의 경우는 normalize 한 이미지를 그대로 reconstruction 하도록 학습하던데 그럴 경우 원본 이미지와 동일한 색감으로 복원이 가능할까요?\n 일반적으로 이미지에서 사용하는 normalize에 대해 좋은 intuition을 가지신 분들 조언 부탁드립니다!",
+        "user": "U029FSCQAKX",
+        "user_name": null,
+        "timestamp": "1630993934.077100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029T4XRUCR",
+                "U029LPYKUR2"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 11
+        }
+      },
+      "answers": [
+        {
+          "text": "이미지넷 데이터의 각 채널별 평균과 표준편차가 저 값인걸로 알고 있습니다.",
+          "user": "U02A67WF7S4",
+          "user_name": "정승균_T2203",
+          "timestamp": "1630994142.077600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정승균 캠퍼님께서 말씀해주신대로 ImageNet 데이터의 채널별 mean과 std 값입니다! 참고 링크 공유드립니다 :slightly_smiling_face:\n\n<https://stackoverflow.com/questions/58151507/why-pytorch-officially-use-mean-0-485-0-456-0-406-and-std-0-229-0-224-0-2>",
+          "user": "U029YDHQ9EU",
+          "user_name": "최동민",
+          "timestamp": "1630994269.077800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029YDHQ9EU> <@U02A67WF7S4> 감사합니다. pre-train된 데이터에 대해서 맞춰주는 작업으로 이해하면 되겠네요.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1630994345.078500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298RU576J"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러면 이미지넷으로 훈련할때는 [0,1]로 맞추는 작업 이외에 아무런 normalize 작업이 안들어갔다고 보고 저런 값으로 normalize 하는 것일까요?",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1630994393.078700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ResNet 같은 논문에서는 mean subtraction이 사용되었다고 읽었는데 이런 경우는 평균은 0으로 하고 분산만 맞춰주면 되는 것인지 궁금하네요",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1630994476.078900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위 링크의 내용을 발췌하면 만약 우리가 학습할 데이터가 ImageNet의 Data인 \"natural scenes\"와 비슷하면 ImageNet의  mean과 std값을 사용하는 것을 추천하지만 만약 필터를 씌웠거나 \"special\" (아마 평균적인 이미지의 내용이 ImageNet과 많이 다르다면) 학습할 Dataset을 Feed하기 전에 먼저 normalizing 하는 것을 추천한다고 합니다.\n저도 궁금했었는데 감사합니다",
+          "user": "U0298RU576J",
+          "user_name": "최한준",
+          "timestamp": "1630994744.079300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029BP86UBX",
+                  "U029FSCQAKX",
+                  "U029YDHQ9EU",
+                  "U029T4XRUCR"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

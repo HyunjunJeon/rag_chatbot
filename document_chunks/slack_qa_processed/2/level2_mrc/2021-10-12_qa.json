@@ -1,0 +1,224 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "정말 별거 아니지만 MRC 강의 2강의 실습코드 `MRC Practice 2 - Extraction-based MRC.ipynb`\n에서 Fine-tuning하기 아래 첫 셀에서 실행이 안되시는 분은 Requirement 아래 두 번째 셀  `sys.path.append()` 부분을 이렇게 바꿔주시면 실행됩니다.\n-----\n정정합니다. 위처럼 해도 아래 evaluate()에서 에러가 나서 이렇게 해주시면 완전히 실행됩니다. git clone한 transformers를 v4.4.2 버전으로 checkout하는 코드를 추가했습니다. (바뀐 코드는 해당 스레드 댓글에 추가했습니다)",
+        "user": "U029H263PD1",
+        "user_name": null,
+        "timestamp": "1634033781.029300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029H263PD1",
+            "ts": "1634035257.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029EM0RQR1",
+                "U0298NLPSRY",
+                "U029F62SBPD",
+                "U0295N1AWLV",
+                "U027SHXU18R",
+                "U0297LELCQ6",
+                "U029LKLNE6Q",
+                "U029F23R56F",
+                "U02A3MC2UFJ",
+                "U0298AUH17H",
+                "U029RJGJRPX",
+                "U02E375H869",
+                "U029C3CSPHB",
+                "U029PUDR7PF"
+              ],
+              "count": 14
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U0298UN562F",
+                "U029TD91F09"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1::skin-tone-3",
+              "users": [
+                "U029WV30DMF"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "ㅎㅎ 대웅님 감사합니다 !",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1634033819.029700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U029H263PD1",
+                  "U0298NLPSRY",
+                  "U029TD91F09"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1",
+                  "U029TD91F09"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLPSRY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U0297LELCQ6",
+          "user_name": "이대희",
+          "timestamp": "1634034679.030900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정정합니다. 위에처럼 해도 아래 evaluate()에서 에러가 나서 이렇게 해주시면 완전히 실행됩니다. git clone한 transformers를 v4.4.2 버전으로 checkout하는 코드를 추가했습니다.",
+          "user": "U029H263PD1",
+          "user_name": null,
+          "timestamp": "1634035170.031500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1> 대웅님 지금 파일 사용하시는 공간이 로컬이신가요 ?",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1634035199.031900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UN562F> 아니요 colab입니다!",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1634035218.032100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1> 지금 올려주신 코드를 보면 transformers에서 utils.py 파일을 가져오시는건가요 ?",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1634035404.032400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298UN562F",
+              "ts": "1634035416.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오….",
+          "user": "U0297LELCQ6",
+          "user_name": "이대희",
+          "timestamp": "1634035454.032700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UN562F> 아래 캡쳐한 셀의 코드에서  <https://github.com/huggingface/transformers/tree/v4.4.2-release/examples/question-answering|v4.4.2에서의 예시코드>의 모듈을 가져와서 사용하길래 해당 버전으로 checkout해주었습니다.",
+          "user": "U029H263PD1",
+          "user_name": null,
+          "timestamp": "1634035665.032900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1> 아 제가 대웅님 메세지를 잘못보고 해당 에러가 과제에서 발생한 에러로 이해해서 깜짝 놀랐네요 ! ! ㅎㅎ 감사합니다 대웅님",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1634035760.033300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party_corgi",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UN562F> 확인해주셔서 감사합니다!:smile:",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1634035889.033600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blue_hand",
+                "users": [
+                  "U0298UN562F",
+                  "U029TD91F09"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<https://youtu.be/spkAFx9aGe8>\n\n당근마켓의 머신러닝 인프라 관련한 영상이 있어 공유드려요-!\n대부분 GCP로 운영하고 있어서 프러덕트 서빙에서 나온 키워드와 겹치는 것들이 보일거에요-!",
+        "user": "U03PL9GCPFZ",
+        "user_name": "변성윤 마스터",
+        "timestamp": "1689416561.039109",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "ditto_dance",
+              "users": [
+                "U04RMLZD9FW",
+                "U04RK3E9M99",
+                "U04R4LWE3RV",
+                "U04RCJS7M8E",
+                "U04RCJQK2BY",
+                "U04RMLTG284",
+                "U04RK3HU5RR",
+                "U04RG8ZQ4A1",
+                "U04RK761KC2",
+                "U04S8T5TT0Q",
+                "U04RXRU7AFK",
+                "U04RMLUABA8",
+                "U03KW2M0J07",
+                "U04RK3E8L3D",
+                "U04RXRVK3T3",
+                "U04RK73L7NE",
+                "U04S8TD7KB2",
+                "U04R4LY95ST",
+                "U04R4LVMWP9",
+                "U04R4LUUNS3",
+                "U04S38FR69J",
+                "U04RMLSU0DS"
+              ],
+              "count": 22
+            },
+            {
+              "name": "thank",
+              "users": [
+                "U04RMLZD9FW",
+                "U04RK3E9M99",
+                "U04R4LWE3RV",
+                "U04RCJS7M8E",
+                "U04RCJQK2BY",
+                "U04RMLTG284",
+                "U04RG8ZQ4A1",
+                "U04RXRU7AFK",
+                "U03KW2M0J07",
+                "U04R4LY95ST",
+                "U04R4LVMWP9",
+                "U04RMLSU0DS"
+              ],
+              "count": 12
+            },
+            {
+              "name": "02_cheer",
+              "users": [
+                "U04RMLZD9FW",
+                "U04RK3E9M99",
+                "U04R4LWE3RV",
+                "U04RCJS7M8E",
+                "U04RG8ZQ4A1",
+                "U04RXRU7AFK",
+                "U03KW2M0J07",
+                "U04R4LY95ST"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "영상 정독 했는데 내용 넘 좋은 것 같습니다:+1:\nGCP로 서빙할 생각에 막막했는데 요거 보니 갈길은 멀지만 도움이 많이 됐습니다",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1689429741.897239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03KW2M0J07",
+                  "U04R4LTEM55",
+                  "U03PL9GCPFZ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "강의 이번에 휴일동안 열리나요??",
+        "user": "U07EUAPHBPB",
+        "user_name": "신승훈",
+        "timestamp": "1727684392.919829",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "본 질의응답 채널을 학습과 관련된 내용을 올려주시기 바랍니다!\n\n예시) 어떤 강의의 어떤 내용이 이해되지 않는다, 과제에서 어떤 부분이 오류가 있어서 진행되지 않는다 등",
+          "user": "U03SAGX725R",
+          "user_name": null,
+          "timestamp": "1727684948.243949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵! 알겠습니다",
+          "user": "U07EUAPHBPB",
+          "user_name": "신승훈",
+          "timestamp": "1727684992.094119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "현재 외부데이터 사용금지로 알고있는데\n지역정보(광명시, 강남구, 서울역 등)는 라이브러리에서\n가져와지는 것으로 알고 있습니다.\n이 정보들을 외부데이터로 보고 활용하면 안되는지,\n아니면 활용해도 되는지 궁금합니다.",
+        "user": "U07F4EH0BMW",
+        "user_name": "김건율_T7505",
+        "timestamp": "1727746661.543899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07ECPJ7XE1",
+                "U07EFLLV0MQ",
+                "U07EFLK9BDG",
+                "U07EUAWDWL9",
+                "U07ECPJR28M",
+                "U07E9200JTY",
+                "U07F4EE0QD6"
+              ],
+              "count": 7
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "강의에서 주어진 강남역 좌표 이외에 사용하기 어렵습니다. 강의에서 주어진 자료로만 모델링하시어 대회에 참여하셔야 합니다. 양해해 주시기 바랍니다.",
+          "user": "U076A0ENQGY",
+          "user_name": "김정훈조교",
+          "timestamp": "1727759120.959739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U076A0ENQGY>  1강 보니 강남역과의 거리 분포가 있던데, 그럼 강남역 위치정보 제외하고는 지리정보는 다 사용금지 맞나요?",
+          "user": "U07F4EH0BMW",
+          "user_name": "김건율_T7505",
+          "timestamp": "1727759396.934949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵넵 강의나 저희가 제공하는 대회 데이터셋에서 주어진 지리 정보는 괜찮으며, 그 이외에는 사용하시면 안됩니다.",
+          "user": "U076A0ENQGY",
+          "user_name": "김정훈조교",
+          "timestamp": "1727759950.594059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U076A0ENQGY> 넵 감사합니다!!",
+          "user": "U07F4EH0BMW",
+          "user_name": "김건율_T7505",
+          "timestamp": "1727759979.174239",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. project2와 관련하여 문의사항 있어 남깁니다.\n현재 평가 데이터 개요 페이지를 참고하면 테스트 데이터가 2024년 1월 1일 이후의 데이터를 지역 고려 랜덤하게 샘플링되었다는 내용이 있는데요.\n혹시 train dataset은 해당 시기에 발생한 수도권의 모든 거래를 담고 있는 실제 데이터인지 궁금합니다.",
+        "user": "U07F4EE0QD6",
+        "user_name": "이제준_T7542",
+        "timestamp": "1727758019.987289",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07ECPJ7XE1"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "train dataset은 2024년 데이터를 포함하고 있지 않습니다.",
+          "user": "U076A0ENQGY",
+          "user_name": "김정훈조교",
+          "timestamp": "1727759151.301949",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조교님 답변 감사합니다. 추가 질문이 있습니다. train dataset이 2019년 04월부터 2023년 12월의 데이터로 확인되는데, 해당 기간 내 수도권에서 발생한 모든 계약 체결 건일까요? 아니면 실거래 데이터에서 샘플링된 일부 데이터일까요?",
+          "user": "U07F4EE0QD6",
+          "user_name": "이제준_T7542",
+          "timestamp": "1727759744.787869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

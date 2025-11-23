@@ -1,0 +1,1131 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[기본과제 2 문제6 관련 질문]\n안녕하세요, 문제 6을 풀다가 `detach()`와 `.data` 사용 차이에서 궁금증이 생겨 질문드립니다.\n예제 코드 중에서,\n[32]번 코드블록에서는\n```print(f\"intercept: {b0.cpu().data.numpy()}, other coef: {b1.cpu().data.numpy()}\")```\n처럼 `.data`를 사용했고,\n[38]번 코드블록에서는\n```((lm.intercept_ - b0.cpu().detach().numpy())**2).sum()```\n처럼 `detach()`를 사용했습니다.\n검색 결과 `.data` 의 경우 gradient 추적을 강제로 무시하여 `detach()` 를 권장한다고 보았는데, 또 다른 차이가 있는지 궁금합니다.",
+        "user": "U09CH8141SP",
+        "user_name": "신지수T8110",
+        "timestamp": "1756969437.550549",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH8141SP",
+            "ts": "1756969714.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7TN9A7"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "`.data`는 사실상 권장되지 않는 방법이긴 합니다. :scream_cat: `1.0.0`보다 먼 과거로 돌아가보자면..\nPyTorch `0.4.0`이 release 될때 `.data`는 `autograd` 관련 사이드 이팩트가 발생할 수 있기 때문에, `.detach()`를 권장하고 있어요. 해당 부분은 `Tensors`와 `Variables`가 하나로 합쳐져서 그렇습니다..!\n&gt; What about `.data`?\n&gt; `.data` was the primary way to get the underlying `Tensor` from a `Variable`. After this merge, calling `y = x.data` still has similar semantics. So `y` will be a `Tensor` that shares the same data with `x`, is unrelated with the computation history of `x`, and has `requires_grad=False`.\n&gt; However, `.data` can be unsafe in some cases. Any changes on `x.data` wouldn't be tracked by `autograd`, and the computed gradients would be incorrect if `x` is needed in a backward pass. A safer alternative is to use `x.detach()`, which also returns a `Tensor` that shares data with `requires_grad=False`, but will have its in-place changes reported by `autograd` if `x` is needed in backward.\n• 레퍼런스: <https://github.com/pytorch/pytorch/releases/tag/v0.4.0>",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1756985760.574959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8141SP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "*[관련 추가 자료]*\n• <https://www.youtube.com/watch?v=MswxJw-8PvE&amp;t=53s|[Youtubue] PyTorch Autograd Explained - In-depth Tutorial>\n• <https://docs.pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html|[PyTorch Docs] A Gentle Introduction to torch.autograd>\n• <https://docs.pytorch.org/docs/stable/autograd.html#torch.Tensor.detach|[PyTorch Docs] Automatic differentiation package - torch.autograd>",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1756986140.491149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U09CH7U429H"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U09CH8141SP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 신지수 캠퍼님.\n\n캠퍼님 말씀대로 두가지 모두 계산 그래프로부터 분리하는 방법이며, 김민준 멘토님 말씀대로 최신 PyTorch에서는 detach() 사용을 권장합니다. (실제로 공식 문서 상으로도 detach ()만을 설명해줍니다).\n\n해당 코드에서는 단순히 안전하게 CPU로 가져오기 위한 목적으로 가져온 것이기에 어떤 방법을 사용하셔도 괜찮습니다.\n\n추가적으로, <https://github.com/pytorch/pytorch/blob/main/torch/csrc/autograd/VariableTypeManual.cpp|소스 코드>를 보시면, detach()함수는 원 데이터의 storage는 공유하되, gradient 관련 정보를 없애는 동작임을 확인하실 수 있습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756986741.016879",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH8141SP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "김민준 멘토님 감사합니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756986756.062939",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U09CD83AUTF"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U09CD83AUTF",
+                  "U09CH8141SP"
+                ],
+                "count": 2
+              },
+              {
+                "name": "wink",
+                "users": [
+                  "U09CD83AUTF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오! 잘 이해되었습니다. 답변 감사합니다!",
+          "user": "U09CH8141SP",
+          "user_name": "신지수T8110",
+          "timestamp": "1756992478.156079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[기본과제3 문제 7 관련 질문]\n안녕하세요, 문제 7번 test 함수에서 궁금한 부분이 생겨서 질문남깁니다.\ntest 함수의 인자로 받는 건 dataloader인데, 밑에 for문에서는 test_loader로 돌리는 특별한 이유가 있을까요?\n이 부분이 test_loader가 아니라 dataloader여야하는 거 아닌지 생각이 듭니다",
+        "user": "U09CH7XF0R1",
+        "user_name": "박신지_T8078",
+        "timestamp": "1756972536.190899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7TFUKV",
+                "U09CH892EF5"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "네 dataloader로 되는게 원래 코드 작성 의도에 맞는 것 같습니다",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756977823.045469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 박신지 캠퍼님.\n\n말씀대로, test함수의 인자는 dataloader이기에 함수 내에서 dataloader를 사용하셔야 의도에 맞습니다.\n\n우연히 해당 코드에서는 함수를 정의하기 전에 testloader를 정의했기에 정상적으로 동작할 수 있었고, 엄밀하게는 고쳐야야 하는 코드입니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756987052.769539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[과제] 과제에서 아래와 같이 되어있는 경우, 코드 작성 안하고 넘어가면 되나요?\n```    def __len__(self):\n        # [CODE START]\n        pass\n        # [CODE END]\n\n    def __getitem__(self, idx):\n        # [CODE START]\n        pass\n        # [CODE END]```",
+        "user": "U09CH7T7TBM",
+        "user_name": "황연하",
+        "timestamp": "1756974965.796419",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "pass가 적힌 부분에 조건에 맞는 코드를 작성하면 됩니다!",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1756975211.313359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pass 라고 적혀있기 때문에 작성 안하는거 아닌가요? 그래서 질문한거에요.",
+          "user": "U09CH7T7TBM",
+          "user_name": "황연하",
+          "timestamp": "1756975374.422789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pass는 해당 ipynb 셀을 실행할 때 오류나지 않게 하려고 넣어두신 거라 `[CODE START]`와 `[CODE END]` 사이 지시대로 코드를 작성하시면 될 것 같아요..!!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756975469.444849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88UXFV",
+                  "U09CH7T7TBM"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH88UXFV> <@U09CH7U429H> 코드 돌려보니까 있어야 하네요~ 감사합니다.",
+          "user": "U09CH7T7TBM",
+          "user_name": "황연하",
+          "timestamp": "1756975920.333959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[심화과제 질문]\nsklearn.datasets.load_iris() 함수를 사용하던데 그냥 iris 데이터셋이 되게 많이 쓰여서 굳이 kaggle에서 불러오지 않고 쓸 수 있도록 내장으로 만들어둔 건가요?\n아니면 다른 이유가 있을까요?? 이런 경우는 잘 못본 것 같아서 궁금해서 질문드립니당",
+        "user": "U09CH7SLK5H",
+        "user_name": "김세현",
+        "timestamp": "1756974972.824349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "sklearn 안에 들어있는건 처음봐서 저도 신기했어요. 그런데 torchvision 패키지가 특정한 데이터셋을 받아오는 기능을 갖고있는 건 본 적 있습니다.\n<https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html>\n의 예시 코드에서는 FashionMNIST 데이터셋을 다운받는 기능이 torchvision.datasets에 들어있는 걸 볼 수 있습니다. 프리코스에서 언급됐던 ImageNet 데이터셋도 받을 수 있는 걸로 알고 있습니다. 중요하거나 대표적인 것들이 들어있는 게 맞는 것 같아요.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1756975515.582599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://scikit-learn.org/stable/api/sklearn.datasets.html|공식 docs> 확인해보시면 많이 쓰는 데이터셋의 경우 sklearn에서 그냥 불러올 수 있도록 만들어놓았습니다!\n'Utilities to load popular datasets and artificial data generators.' 라고 설명되어 있어요!!",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756975587.907339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI쪽으로 많이 쓰이다 보니 패키지 자체에서 훈련용 데이터셋을 넣어놓는 모양이군용. 다들 감사합니다!",
+          "user": "U09CH7SLK5H",
+          "user_name": "김세현",
+          "timestamp": "1756975615.629599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 김세현 캠퍼님.\n\n다른 캠퍼분께서도 말씀주신대로, 오랫동안 대표적인 데이터셋으로 자리매김하였고, 라이센스 문제도 없는 데이터에 대해서는 공식적으로 지원하는 경우가 종종 있었습니다.\n\nAI, 머신러닝, 딥러닝의 커뮤니티가 커지면서 제작자의 페이지에서 일일이 다운로드 해야 하는 불편함을 덜고, 더 다양한 데이터셋을 일관된 형식으로 가져올 수 있어서 좋은 것 같습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756987659.920869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(9~10강) 실습 코드의 `test_loader` 관련 질문]\n```train_dataset = IrisDataset(x_train, t_train)\ntest_dataset = IrisDataset(x_test, t_test)\n\nbatch_size = 4  # 배치 크기를 4로 설정\ntrain_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)\ntest_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)```\n9~10강의 실습 코드를 보면, data set을 batch 단위로 나누어 다루기 위해 `train_loader`와 `test_loader` 를 정의해주고 있습니다. 이 때, `train_loader`의 경우는 10강 실습 코드의 학습 과정에서 batch 단위로 학습하는 데에 사용되고 있으나,\n`test_loader`의 경우에는 사용되지 않고 있는 것으로 보입니다.\n\n즉, test set을 가지고 evaluation을 하는 과정에서 batch 단위로 나눈 `test_loader`이 아닌, *전체 test set을 한꺼번에 사용*하고 있는 것으로 보입니다.\n\n다음은 10강의 evaluation 부분 코드입니다:\n```model.eval()\nwith torch.no_grad():\n    predictions = model(x_test) # x_test를 그대로 사용 중\n    predicted_labels = (predictions &gt; 0.5).float()```\n이에 관해,\n1. 10강 코드에서는 결국 현 상황에선 test_loader은 사용하고 있지 않으니, test_loader을 정의하는 부분은 없어져도 괜찮은 걸까요?\n2. 10강 코드에서 test_loader을 사용하지 않은 이유가 있나요? test set은 20%밖에 안되다 보니 training set보다 크기가 작아, batch 단위로 학습을 돌리지 않고 한 번에 다 학습을 돌려도 충분하기 때문인가요?",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1756979382.896319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "1. 그렇다고 생각합니다..! \n2. 네네! 그렇게 생각하셔도 될 것 같습니다...!\n실제로 train, test 데이터의 shape를 봤을 때 다음과 같이 나타납니다!\n```print(x_train.shape)  ## (80, 1)\nprint(x_test.shape)  ## (20, 1)```\n학습 때는 `batch_size = 4`로 하고 학습을 진행하는데, test 때는 test 데이터도 20개로 양이 그다지 많지 않기 때문에 한 번에 test 데이터를 넣고 돌린 것 같습니다.",
+          "user": "U09CH7U429H",
+          "user_name": "김차미_T8054",
+          "timestamp": "1756986552.136039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 주상우 캠퍼님.\n\n캠퍼님과 김차미 캠퍼님 모두 맞습니다. 평가 데이터가 많은 경우, 모델에 데이터를 한 번에 태우는 것이 VRAM 혹은 메모리 문제로 어려울 수 있으나 본 상황에서는 그렇지 않습니다. 따라서 test_loader 사용 없이 한번에 계산하여 평가를 진행하였습니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756987891.155429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Intel GPU를 사용해보고 싶으시면, `'xpu'`를 사용해보시면 좋을 거 같아요! :man-gesturing-ok:\n• 레퍼런스: <https://docs.pytorch.org/docs/stable/notes/get_start_xpu.html|PyTorch > Getting Started on Intel GPU&gt;\n• 설치 방법: `pip3 install torch torchvision torchaudio --index-url <https://download.pytorch.org/whl/xpu>`\n• 확인 및 실행 방법:\n```import torch\nprint(torch.xpu.is_available())\ntensor = torch.tensor([1.0, 2.0]).to(\"xpu\")```",
+        "user": "U09CD83AUTF",
+        "user_name": "Minjun Kim",
+        "timestamp": "1756980702.610399",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "Apple Silicon은 `'mpu'`라는 키워드를 사용해주시면 됩니다. :relaxed:",
+          "user": "U09CD83AUTF",
+          "user_name": "Minjun Kim",
+          "timestamp": "1756980755.263899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "나중에 등장하겠지만, `Dropout`과 `BatchNorm`과 같은 친구들은 학습 과정일때와 학습 과정이 아닐때에 실행 구조가 조금 다릅니다!\n`model.eval()`은 사실상 `model.train(False)`와 동일하고, 이렇게 하면 '학습 과정이 아닐때의 설정으로 변경하고 실행하고 싶어!' 라는 의미입니다!\n\n• 레퍼런스: <https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.eval>\n• `model.train()`은 `model.train(True)`",
+        "user": "U09CD83AUTF",
+        "user_name": "Minjun Kim",
+        "timestamp": "1756981784.667079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands::skin-tone-2",
+              "users": [
+                "U09CH7U429H"
+              ],
+              "count": 1
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U09CH7YCBFV",
+                "U05QLGVQBUN"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 최영진 캠퍼님.\n\n이 부분은 저 역시 잘못 알고 있던 부분이네요. model.train()함수가 가지는 의미는 학습/평가 과정에서 다르게 동작해야 하는 Layer에게 전달되는 Flag성 정보입니다.\n\n김민준 멘토님께서 언급주셨는데, 예를 들어 학습 Flag일 때는 Dropout Layer(일정 확률로 입력 텐서의 특정 값이 0으로 변환)이 활성화되고, BatchNorm Layer에서 정규화하기 위한 평균/분산 값들이 업데이트됩니다.\n\n반대로 평가 Flag일 때는 Dropout Layer는 비활성화되고, BatchNorm Layer에서는 학습 당시에 계산된 통계량들을 바탕으로 정규화를 진행합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756987424.979929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1756992526.738669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(8강) 실습 코드의 SGD 학습 부분 질문]\n```optimizer = optim.SGD(model.parameters(), lr = 0.01)\nnum_epochs = 1000  # 에폭 수를 증가\n...\nor epoch in range(num_epochs):\n    y = model(x_tensor)  # 예측 변수 계산 # nn.Module.__call__() 내부적으로 forward() 호출함,\n    loss = loss_function(y, t_tensor)  # 손실 값 계산\n\n    # 확률적 경사하강법 작동원리의 코드 표현 실습\n\n    optimizer.zero_grad()  # 이전 단계에서 계산된 경사(기울기)를 0으로 초기화\n    loss.backward()  # 현재 손실(loss)에 대한 경사(기울기)를 계산 (역전파 수행)\n    optimizer.step()  # 계산된 경사(기울기)를 사용하여 가중치를 업데이트\n...(생략)```\n8강 실습 코드의 해당 부분을 보면, SGD를 수행한다고 설명되어 있으나,\n실제로는 SGD가 아닌 BGD를 수행하고 있는 것이 아닌지 혼동되어 질문드립니다.\n\n제가 생각하는 SGD대로면, 1번의 epoch 당 입력 변수의 개수(여기서는 30) 번 만큼의 가중치 update가 되어야 할 것 같은데,\n위 코드대로면 1번의 epoch 당 1번의 가중치 update(=optimizer.step() 호출)만이 수행되고 있는 것처럼 생각됩니다.\n\n제가 SGD에 대해 잘못 이해하고 있을 수 있어, 혹시 제가 잘못 이해한 부분이 있다면 알려주시면 감사합니다.",
+        "user": "U09CH85PLV9",
+        "user_name": "주상우_T8199",
+        "timestamp": "1756984620.962709",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1756870543872399>\n<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1756893977474169>\n\n이전에 김정원 조교님께서 조현수 캠퍼님과 정무영 캠퍼님 질문에 답변 남겨주신 내용과 동일한 부분인 것 같아 인용합니다. 생각하신 내용과 같이 해당 코드는 GD라고 이해하셔도 될 것 같습니다.",
+          "user": "U09CH8C0PUK",
+          "user_name": "양성호A_T8117",
+          "timestamp": "1756986859.649099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "양성호 캠퍼님 안내해주셔서 감사합니다!\n\n주상우 캠퍼님, 해당 슬랙 답변 참고해주시면 감사드리겠습니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756987935.512549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[(9강) 시그모이드 함수의 결과 해석 관련]\n강의 자료(50p)에서 시그모이드 함수의 결괏값이 0과 1 사이이므로 확률로 해석할 수 있다고 배웠습니다. 이에 대한 구체적인 근거가 궁금합니다.\n시그모이드 함수의 출력이 *현실 세계 사건의 실제 발생 빈도를 반영한다는 수학적 증명이 있는지*, 아니면 단순히 함수의 결괏값이 확률처럼 0과 1 사이라는 *수학적 형태의 유사성* 때문에 그렇게 설명하는 것인지 명확히 알고 싶습니다.",
+        "user": "U09CH7U1SP5",
+        "user_name": "박제혁",
+        "timestamp": "1757003389.052939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7WV1PV",
+                "U09CH7TQGP5",
+                "U09CH83VDDZ"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 조교 김정원입니다.\n\n9강에서 Binary classification model로 사용하고 있는 로지스틱 회귀 모형에서 sigmoid(ax+b)는 이론적으로도 확률을 의미합니다. 로지스틱 회귀모형 자체가 log(p(x)/(1-p(x))=ax+b 의 가정으로 시작하고, 이를 정리하면 p(x)=sigmoid(ax+b)가 되기 때문입니다.\n\n이렇게 특징변수 x가 주어졌을 때, 목표 변수의 기댓값에 대한 임의의 변환을 선형적으로 모델링하는 것을 generalized linear model (glm)이라 하고, 선형 회귀(linear regression), 로지스틱 회귀(logistic regression) 모델 모두 glm의 종류들입니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1757027719.233009",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 이 부분이 헷갈려서 질문 남기고 싶었는데,\n\n이론적으로 sigmoid 곡선은 확률분포의 CDF 형태이므로 따라서 sigmoid의 함수값 = 확률이라는 것은 이해가 명확히 되는데,\n\n시그모이드 함수의 출력값이 0.8이 나왔다는 게, 정말로 현실 세계에서 \"이러한 조건의 사람들이 100명 모이면 그 중 80명은 암일 것이다\"와 같이 *현실 세계 사건의 실제 발생 빈도를 반영*하는 건지는 모르겠더라고요.\n\n이에 관해 ai에게 물어보거나 인터넷을 찾아봐도, 명확한 대답은 없어 보이고요.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1757033854.563239",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH85PLV9",
+              "ts": "1757034005.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션1] y값을 score를 통해 이진 분류로 변환한 후 덮어 쓰게 되면, 이후에 레이블이 0, 3, 8인 데이터만 train data로 사용하는 과정이 불가능하지 않나요? 기존의 가이드라인 코드를 수정해서 값을 따로 저장한 후 진행하는 것이 맞는지 궁금합니다.",
+        "user": "U09CH8B6H35",
+        "user_name": "최정빈_T8206",
+        "timestamp": "1757037455.504319",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CMENFY8J",
+                "U09CH88UXFV",
+                "U09CH8AJLTV",
+                "U09CH89RBT5",
+                "U09CH868GM9",
+                "U09CH8C0PUK"
+              ],
+              "count": 6
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U09CH8A1B6X",
+                "U05QLGVQBUN"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "비슷한 질문 있어 남깁니다. 문항5에서  조건대로 데이터를  레이블 0,3,8 그리고 1로 학습, 훈련데이터를 나눈다 하더라고 테스트코드에서 제시한 데이터가 수가 맞지 않습니다.  문항5의 조건에 대해 조금 더 설명을 들을 수 있을가요?",
+          "user": "U09CH89NYSF",
+          "user_name": "정회성",
+          "timestamp": "1757038109.472549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1의 개수와 8의 개수를 더했을 때 14372가 나오는 것 같습니다..",
+          "user": "U09CH8393DH",
+          "user_name": "도담록",
+          "timestamp": "1757038141.691399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 최정빈 캠퍼님 및 모든 캠퍼 여러분,\n\n```score_criterion = score.median()\ny = (score < score_criterion).long()```\n해당 블록을\n\n```score_criterion = score.median()\nscore_y = (score < score_criterion).long()```\n와 같이 score_y 변수에 따로 저장해서 진행해주시면 감사하겠습니다. *데이터의 개수와 관련된 테스트 코드의 결과는 지금 무시하고 진행해주셔도 무방합니다.* 혼란을 드려 죄송합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": null,
+          "timestamp": "1757038298.555419",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U05QLGVQBUN",
+              "ts": "1757038385.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CD83AUTF",
+                  "U09CH86HP4K",
+                  "U09CH7XTTNX"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션1] 문항 5의 테스트 코드가 실제 데이터 수와 다른데 이 부분은 어떻게 해야하는 지 궁금합니다. 테스트 코드 에서는 1 데이터가 14372개라고 되어있지만, 실제로는 1이 7877개로 나옵니다.",
+        "user": "U09CH83S70B",
+        "user_name": "CinaDor",
+        "timestamp": "1757038126.258349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7ZR8JX",
+                "U09CMEXCE4S",
+                "U09CH87EU2F",
+                "U09CH8AJLTV",
+                "U09CH7XTTNX",
+                "U09CMER5PQA",
+                "U09CH89RBT5",
+                "U09CH868GM9",
+                "U09CH8C0PUK",
+                "U09CH7U429H",
+                "U09CH7UQGR1",
+                "U09CH86HP4K"
+              ],
+              "count": 12
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U05QLGVQBUN",
+                "U09CH7VK4PM",
+                "U09CH86B2F5"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://boostcampaitech.slack.com/archives/C09D84Y9SQG/p1757038298555419?thread_ts=1757037455.504319&amp;cid=C09D84Y9SQG>\n\n채널에도 올렸는데, 데이터 개수에 대한 테스트 코드 결과는 무시하고 진행해주셔도 무방합니다! 혼란을 드려 죄송합니다.",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1757038416.020329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션1] 제출시 code가 포함된 링크로 제출하라고 되어있는데 이경우 ipynb 파일 제출이 아닌 공유링크로 제출해야하나요?",
+        "user": "U09CH8BUP51",
+        "user_name": "양지훈",
+        "timestamp": "1757038937.652089",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "제출은 ipynb 파일로 해주시면 됩니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": null,
+          "timestamp": "1757039621.804909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH8BUP51",
+                  "U09CMF1TQ1Y",
+                  "U09CH879951",
+                  "U09CH7D7P4K",
+                  "U09CH89NYSF",
+                  "U09CH7ZHVJP",
+                  "U09CH7F0PPV",
+                  "U09CH7XTTNX",
+                  "U09CH83GXPD",
+                  "U09CH7UQGR1",
+                  "U09CH88D69H",
+                  "U09CH7YMY59",
+                  "U09CH7Z54N7",
+                  "U09CH7U429H",
+                  "U09CH873RDZ",
+                  "U09CH8A1B6X",
+                  "U09CH8ABJRZ",
+                  "U09CH89HZM1",
+                  "U09CH8B49R9",
+                  "U09CH81LTHR",
+                  "U09CH7TN9A7",
+                  "U09CH8C0PUK",
+                  "U09CH80KQFM",
+                  "U09CH83CMBM",
+                  "U09CH8B18RZ",
+                  "U09CMF1D8KC",
+                  "U09CH81NW2X"
+                ],
+                "count": 27
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션1]  dataset을 transform을 따로 해주지 않아도 되는 건가요? 가이드 라인대로면 transform을 안해주는 것 같습니다.",
+        "user": "U09CH7WV1PV",
+        "user_name": "성승우",
+        "timestamp": "1757039611.063879",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 성승우 캠퍼님.\n\n데이터 전처리는 선택 사항입니다. 관련된 제약 사항은 없습니다!",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1757039715.698139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[심화과제 정답 링크] 심화 과제 정답 링크로 접속하면 정답이 아닌 문제 화면이 나옵니다. 링크 확인 부탁드립니다!",
+        "user": "U09CH88UXFV",
+        "user_name": "조예원_T8194",
+        "timestamp": "1757040730.886429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH7Y6HEX",
+                "U09CH7Y9JKV",
+                "U09CH7ZHVJP",
+                "U09CH8BPMKM"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U05QLGVQBUN> <@U03MDFNTYCE> 확인부탁드립니다~",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1757041748.749119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH88UXFV> 링크 수정 되었습니다~~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1757042705.261299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH88UXFV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션1] 문항 4에서 분류 기준을 직접 정의했는데, 그 기준을 문항 5의 target_y와 test_y에 적용해서 0과 1로 이루어진 tensor로 만들어야 하지 않나요? 문항 5의 조건대로 '레이블만' 추출하면 학습할 때 이진 분류가 아니라 다항 분류가 되어서 오류가 납니다. 혹시 제가 못 보고 놓치거나 잘못 이해하고 있는 점이 있을까요?",
+        "user": "U09CH7YCBFV",
+        "user_name": "최영진_T8204",
+        "timestamp": "1757042904.434099",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "```score_y = (score &lt; score_criterion).long()```\n위 코드에서, 우리의 기준보다 낮으면 1, 높으면 0으로 이루어진 이진 레이블을 만들고 있어서, 이 score_y가 나중에 결국 y_batch에 들어가서 이진 분류가 이루어지고 있다고 생각합니다.\n즉 문항 4에서 이미 이진 레이블이 되어있다고 생각합니다.",
+          "user": "U09CH85PLV9",
+          "user_name": "주상우_T8199",
+          "timestamp": "1757043297.462399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 문항4에서 이미 이진 레이블을 생성하는 함수를 만들었는데, 그걸 문항5의 target y와 test y에 적용하는게 맞지 않나 궁금해서 한 질문이었습니다 ㅎㅎ",
+          "user": "U09CH7YCBFV",
+          "user_name": "최영진_T8204",
+          "timestamp": "1757044994.027629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "말씀하신 내용이 맞는 것 같아요. 문항 5에서 score_y를 label로 사용하면 되는 것 같습니다.",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1757045481.439079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7YCBFV",
+                  "U09CH85PLV9"
+                ],
+                "count": 2
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH85PLV9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[심화과제] withouNNMLP에서 층을 쌓을때 linear1 , relu1, linear2, relu2 이렇게 쌓았는데 학습이 잘 안되고 relu2를 빼야 학습이 되더라구요 혹시 그이유가 왜인지 알 수 있을까요?",
+        "user": "U09CH89HZM1",
+        "user_name": "여지호",
+        "timestamp": "1757046342.927279",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "ReLU는 비선형 함수로 함수에 비선형성을 추가하기 위해 넣는 것이라 은닉층에만 있어야 합니다.\n\n마지막 층에 있으면 결과를 도출할 때 이상하게 나올 수가 있어요\n예를 들어 linear2 출력이 모두 음수라면 ReLU 결과로 나온 값이 모두 0이 되어버릴 것이고 시그모이드를 통과하면 0.5가 되어버리겠죠.. 이건 아무래도 저희가 기대하는 바가 아니게 됩니다",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1757046916.663869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH7S61DZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음수인 부분을 0으로 처리해버리니 이후 softmax로 들어가도 전부 0이면 예측 확률을 1/클래스개수 로 출력햐서 그냥 랜덤이랑 다를바가 없어지는 거죠?",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1757047147.228459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네 음수로 나오는 부분들도 원래라면 '확률이 낮다'라고 판단이 되어야 하는데 0으로 올려치기가 되어버리니 모델이 정확한 판단을 하는데에 방해가 되게 될 것 같네요\n모두 음수라면 랜덤이 될 것이구요",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1757047444.108189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1757047470.636139",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH820HNF> 설명 잘 들었습니다. ReLU 활성 함수 결과가 모두 0이 되어버리면 문제가 될 수 있다는 설명은 이해가 되는데, layer 출력이 모두 0이면 문제가 될 수 있는 건 꼭 출력 layer만이 아니라 은닉 layer도 마찬가지이지인 것은 아닌가요? 은닉 layer에서는 출력이 모두 0이더라도 문제가 되지 않는 이유가 있는지 혹시 설명해주실 수 있나요?",
+          "user": "U09CH7S61DZ",
+          "user_name": "Park Corey",
+          "timestamp": "1757047923.832469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7S61DZ> 저도 그 점은 비슷하게 생각해서 조금 찾아봤는데, 만약 MLP 은닉층 내부에서 음수가 필요하다면 Linear층의 가중치가 음수로 학습이 될 것이기 때문에 렐루가 출력값을 무조건 0 이상으로 만들어도 출력층에서는 결과가 음수로 나올 수 있습니다.\n\ny = ax - 3에 0을 넣으면 -3이 나오는 것처럼요.\n\n렐루가 필요없는 정보를 가진 뉴런을 꺼버리는 Dropout과 비슷한? 역할을 하는 것입니다\n\n혹시 렐루가 기울기를 0으로 만들어버리는 것이 문제가 된다면 Leaky ReLU 같은 활성화 함수도 있다고 합니다.\n\n(저도 완벽하게 이해한 것은 아니어서 조금 부족한 설명일 수도 있습니다 ㅎㅎ)",
+          "user": "U09CH820HNF",
+          "user_name": "Kim jimin",
+          "timestamp": "1757048837.376169",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH820HNF",
+              "ts": "1757048858.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7S61DZ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "은닉 layer의 출력이 0이더라도 다음 층의 각 뉴런으로 갈때 각 bias를 더하게되니까 예측이 될 수 있지 않을까요?",
+          "user": "U09CH89HZM1",
+          "user_name": "여지호",
+          "timestamp": "1757048960.890539",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH89HZM1",
+              "ts": "1757049009.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH820HNF> 설명 감사합니다! 덕분에 하나 배웠습니다.",
+          "user": "U09CH7S61DZ",
+          "user_name": "Park Corey",
+          "timestamp": "1757050230.504289",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[미션1] 학습 중에 pytorch에서 내적되는 텐서끼리 타입이 맞지 않는다는 오류가 나왔는데 한쪽이 byte 타입이라고 합니다. byte 타입이 어디서 나왔는지 어떻게 찾을 수 있을까요?\n\n```epochs = 10\nfor epoch in range(epochs):\n    model.train()\n    total_loss = 0\n    for x_batch, y_batch in train_loader:\n        optimizer.zero_grad()\n        output = model(x_batch).squeeze()\n        loss = criterion(output, y_batch.float())\n        loss.backward()\n        optimizer.step()\n        total_loss += loss.item()\n\n    val_loss, val_acc = evaluate(val_loader)\n    train_losses.append(total_loss / len(train_loader))\n    val_losses.append(val_loss)\n    print(f\"Epoch {epoch+1}: Train Loss={train_losses[-1]:.4f}, Val Loss={val_loss:.4f}, Val Acc={val_acc:.4f}\")\n---------------------------------------------------------------------------\nRuntimeError                              Traceback (most recent call last)\n/tmp/ipython-input-217802264.py in <cell line: 0>()\n      5     for x_batch, y_batch in train_loader:\n      6         optimizer.zero_grad()\n----> 7         output = model(x_batch).squeeze()\n      8         loss = criterion(output, y_batch.float())\n      9         loss.backward()\n\n5 frames\n/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py in forward(self, input)\n    123 \n    124     def forward(self, input: Tensor) -> Tensor:\n--> 125         return F.linear(input, self.weight, self.bias)\n    126 \n    127     def extra_repr(self) -> str:\n\nRuntimeError: mat1 and mat2 must have the same dtype, but got Byte and Float```",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1757053856.301389",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1757054052.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "모델 내부에서 쌓은 linear()를 수행하는 과정에서 발생한 것 같은데, train_loader에서 가져오는 x_batch가 Byte 타입인 것 같아요.\n\ntrain_loader에 들어가는 train_set이 어떤 dtype을 가지고 있는지 확인해보면 되지 않을까 싶어요",
+          "user": "U09CH83CMBM",
+          "user_name": "김성호",
+          "timestamp": "1757054998.415399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아마 처음에 Byte(또는 torch.uint8)로 불러오고 계속 진행해서 그런 것일 가능성이 있는 듯해요.\n처음에 만든 X의 dtype을 확인해보는 것도 방법이 될 수 있을 것 같습니다.",
+          "user": "U09CH82T5V1",
+          "user_name": "김인서",
+          "timestamp": "1757055291.539279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

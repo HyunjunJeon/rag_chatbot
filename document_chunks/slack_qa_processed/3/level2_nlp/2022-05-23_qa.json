@@ -1,0 +1,64 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 nlp 9조 한나연입니다 :slightly_smiling_face:\n저희 조는 최종 프로젝트가 QA task라서 데이터 수집 후 Haystack 툴을 사용해 라벨링했습니다.\n엄청난 자료는 아니지만 저희 팀 외에도 QA를 주제로 하는 팀이 있기도 하고, 조금이라도 도움이 될까 싶어 사용한 방법을 공유해 봅니다~!",
+        "user": "U02UTH1484E",
+        "user_name": null,
+        "timestamp": "1653321071.512819",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TUHB5D7V",
+                "U02U1TBB8GN",
+                "U02TZTQ6T1C",
+                "U02U0MRSVPX",
+                "U02RUR38GCF",
+                "U02RS1AM43H",
+                "U02TTC9RBFZ",
+                "U02TCHR3LNS",
+                "U02TFFR63FU",
+                "U02U5PS0474",
+                "U02TVNVSKML",
+                "U02TDNW0YBZ",
+                "U02T6SH1BKR"
+              ],
+              "count": 13
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "again....",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1653321657.176629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "dejavu....",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1653325812.723649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

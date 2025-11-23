@@ -1,0 +1,218 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:seedling:2차 데이터제작 NLP 오피스아워:seedling:가 *오늘 (11/17 수요일) 18:00 ~ 19:30*에 진행됩니다.\n\n김재인, 조원익 멘토님께서 *&lt;중국 딥러닝 엔지니어들의 삶 + 중국 기업의 데이터 이야기&amp;다양한 (한국어) 데이터 구축 과정에서의 findings&gt;*에 대해 설명해주실 예정입니다.\n\n많은 참여 부탁드립니다!\n&gt;  <https://zoom.us/j/92827134193?pwd=M2g1c1Jhc3ZKSDJuYnNwZXh0R3lLUT09|데이터 제작 NLP 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1637137800.076100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 발표 자료 공유드립니다! :slightly_smiling_face: 6시에 만나요!",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1637138813.076800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "_*tagtog의 result로 json파일을 받으면 , json파일 relation 키 안에 entities 의 offset 값의 start index, end index 전체  문서 기준인데  문장 기준으로 하는 tip이 있을까요?  nltk의 sent_tokenizer를 사용해볼까 했는데, 생각보다 잘 되지 않았습니다.*_\n\ntagtog에서 document입력으로 txt 파일 그대로 입력을 주는데 , stard index, end index가 전체 문서 기준이라  일일이 idx를 manually 하게 기입을 해야 하는 상황이 발생했습니다. 그럴거면  , 차라리 원하는 문장을 일일이 copy paste해서 넣는게 추출하는데 더 편하겟다 생각이 들었습니다. 혹시 더 좋은 방법이 있을까요?",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637153661.080900",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1637153689.000000"
+          },
+          "reactions": null,
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02AF2JSQP2> 혹시 위키문서 하나를 통째로 txt파일로 올린 다음 파일럿태깅 작업하셨나요?",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637153700.081100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U028ZAA1X1V",
+              "ts": "1637153846.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637153867.081500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "json파일안에 다 잘 들어있지 않을까 싶어서..",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637153909.081700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 저흰 그 문제 때문에... 처음부터 문장단위로 txt를 잘라서 작업했습니다.. 혹시 for문으로 어떻게 처리할 순 없을까요?",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154004.081900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "문장단위를 끊는 로직을 못짜서 , 수동으로 보고 있습니다.\n\n예를들어, 저는 블랙홀.txt 라는 파일이 있었는데, 그안에 latex 수식이 들어가 있는지 글자가중간에 깨져있어서 ,",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637154099.082100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "coolcry",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 근데 어차피 entity_text 자체는 제대로 뽑히니까 subject_entity, object_entity, subject_entity만 제대로 토큰화해서 학습하고 검증해도 문제 없지 않을까 싶습니다",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154099.082300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> idx 자체를 넣지 말고 학습시켜보는 건 어떨까 싶습니다.",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154130.082500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "idx는 일단 보류하고 있습니다",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637154160.082800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 entity  만 처리하고 , idx는 좋은 생각이 나면 나중에 다시 추가 해볼려 합니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637154190.083000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 그게 최선일 거 같습니다 ... 일단은",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154393.083200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 웅준님.\n문장을 나눌 때 nltk는 한글을 잘 지원해주지 않기 때문에, 한글에 최적화 되어 있는 패키지를 사용하는 것이 방법일 것 같습니다.\n• kss: <https://github.com/hyunwoongko/kss>",
+          "user": "U02920P28QN",
+          "user_name": "전종섭",
+          "timestamp": "1637155220.083400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029B6PDLFQ",
+                  "U029EUNLHV2",
+                  "U028ZAA1X1V",
+                  "U0296J0LP0D",
+                  "U02AF2JSQP2"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920P28QN>  감사합니다. 한번 시도 해보겠습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637158340.084400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

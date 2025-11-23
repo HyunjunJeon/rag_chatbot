@@ -1,0 +1,94 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[YOLOv8 submission 형태 관련]\n안녕하세요. 지난 화요일에 오피스아워 때 다뤘던 yolov8의 inference.py를 돌려서 나온 submission.csv 파일은\n저희 최종 제출 형태인 COCO 포맷으로 되어있는 건가요\n아니면 여전히 YOLO 포맷으로 되어있어서 따로 COCO 포맷으로 다시 변환하는 작업을 추가로 진행해야 하는 건가요?\n계속 보는데도 헤깔려서 질문드립니다:smiling_face_with_tear:",
+        "user": "U04RCJTBG5U",
+        "user_name": "이강민_T5135",
+        "timestamp": "1683880284.340449",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RCJTBG5U",
+            "ts": "1683880306.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "coco, voc, yolo 포맷 다 지원합니다!\nref : <https://docs.ultralytics.com/modes/predict/#boxes>\n```results = model(img)\nboxes = results[0].boxes\nbox = boxes[0]  # returns one box\nbox.xyxy\nboxes.xywh  \nboxes.xyxyn\nboxes.xywhn\nboxes.conf \nboxes.cls \nboxes.data ```",
+          "user": "U04S8T7EHGQ",
+          "user_name": "강나훈_T5002",
+          "timestamp": "1683882159.631909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여러 포맷 다 지원하는군요! 알려주셔서 감사합니다 나훈님!:blush:",
+          "user": "U04RCJTBG5U",
+          "user_name": "이강민_T5135",
+          "timestamp": "1683882537.385219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "나훈님 공유해주셔서 감사합니다! 시간 관계상 길게 설명드리지 못했었는데요~ yolo, voc 포맷을 제공하고 있습니다! 코드를 확인해보시면 voc 포맷인 .xyxy를 가져오는 것을 확인하실 수 있을거에요! 설명드렸던 디버깅 툴을 활용해서 직접 결과값을 dir()을 통해 확인해보시면 더 좋은 공부 되실거라 생각합니다 :)",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683887322.590519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 답변 감사합니다 조교님!:smile:",
+          "user": "U04RCJTBG5U",
+          "user_name": "이강민_T5135",
+          "timestamp": "1683887524.122389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              },
+              {
+                "name": "pray",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

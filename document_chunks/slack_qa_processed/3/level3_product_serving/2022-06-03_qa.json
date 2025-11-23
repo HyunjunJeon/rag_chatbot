@@ -1,0 +1,70 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "~안녕하세요 aistages 서버에서 파일을 저장하고 다른 서버에서 url로 파일 접근을 하려면 어떻게 해야 할까요??~\n\n~현재 이미지 url을~\n~<http://101.101.211.225:2225/opt/ml/app/static/images/original/8a855cf3376c4b379860277e08cda03b.png>~\n~형태로 주고 있고~\n\n~/etc/host.allow 에~\n~ALL: 127.0.0.1~\n~ALL: 211.186.198.24~\n~ALL: 218.235.174.132~\n~httpd: ALL~\n\n~를 추가 해보았습니다.~\n\n해결 했습니다!! base64로 파일 보내니 되네요!!",
+        "user": "U02VB6KC3BN",
+        "user_name": "김선재_T3252",
+        "timestamp": "1654254207.653459",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02VB6KC3BN",
+            "ts": "1654270028.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U0E794M8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "선재님 안녕하세요! 오 base64로 하셨군요..! 잘하셨네요 :muscle:\n현재 IP로 접근하도록 되어있나요? 보안의 이슈가 있어서 실제 회사라면 Object Storage에 저장하고 권한을 제어하기도 해요. 현재 특정 서버의 IP에서만 접근하도록 해주신게 맞을까요?\n\n모든 포트에 개방할 경우엔 항상 보안의 이슈가 커서, 이 부분만 유의하시면 좋을 것 같아요-!",
+          "user": "U02U0E794M8",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1654276303.614449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 마스터님!! 원래는 접근하려는 서버 IP 주소에 모든 권한을 주려 했는데 지금은 권한 모두 삭제하고 이미지를 가지고 있는 서버에서 base64로 변환 후 다른 서버에 str형태로 보내고 있습니다!\n\n원래는 몽고디비에 gridfs로 이미지 저장하고 접근하려 했는데 이미지 크기가 모두 16MB 이하라 URL 접근 방법을 선택했습니다.\n\n지금껏 관계형 데이터베이스만 사용하다 NoSQL 사용하니 너무 재밌으면서도 어려워요.. 왜 AUTO_INCREMENT가 없을까요,,",
+          "user": "U02VB6KC3BN",
+          "user_name": "김선재_T3252",
+          "timestamp": "1654279011.513409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U0E794M8"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U02TMB2QBCP"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

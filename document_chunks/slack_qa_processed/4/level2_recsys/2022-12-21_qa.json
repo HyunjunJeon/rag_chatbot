@@ -1,0 +1,40 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "베이스라인 데이터 셋 구성하는 함수 중 __getitem__ 내 neg_sample 함수에 대해 질문합니다.\n__getitem__ 함수를 호출할 때 마다 neg_sample(네거티브 샘플링) 값이 달라지는데요.\n실제 에폭을 돌 때 마다 데이터 로더에서 매번 __getitem__ 함수를 실행하는 것 일까요??\n그렇다면 에폭마다 같은 유저라도 neg_sample된 item이 달라지나요?\n감사합니다.",
+        "user": "U041ERYLS6R",
+        "user_name": "김성연",
+        "timestamp": "1671692293.015059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03M7B4JYMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 여기서 관련 질문을 남기면, 모든 item에 대해서 neg_sample을 하는게 아닌, 확률로 neg_sample을 하는 이유가 있을까요? 왜 그렇게 하는지 궁금합니다….",
+          "user": "U041ERUG8VB",
+          "user_name": "강민수",
+          "timestamp": "1671694424.161909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

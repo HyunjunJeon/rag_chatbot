@@ -1,0 +1,978 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 공유해주신 실습 파일을 확인해보니, 구글 드라이브에서는 깨져 보이고 Colab에서도 파일이 열리지 않습니다.\n확인해보니 다운로드 권한이 없어 Colab에서 불러올 수 없는 것 같습니다.\n\n혹시 다운로드 가능한 상태로 다시 공유해주실 수 있을까요?",
+        "user": "U09CMF1TQ1Y",
+        "user_name": "김광영",
+        "timestamp": "1756694213.513149",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH81SQAX",
+                "U09CH8054G3"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 22
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U09CMF1TQ1Y> 몇 강인지 말씀주시면 더 빠르게 볼 수 있을 것 같아요~!\n\n<@U03MDFNTYCE> <@U05QLGVQBUN> 확인 부탁드립니다 ! :slightly_smiling_face:",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756694463.576269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 확인해본 강의 파일들이 다 같은 상태 입니다.\n1강부터 심화 퀴즈까지 코랩에서 열려고 시도하면 이런 화면과 함께 열리지 않습니다.",
+          "user": "U09CMF1TQ1Y",
+          "user_name": null,
+          "timestamp": "1756694594.602099",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "loading",
+                "users": [
+                  "U046RDS8WUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 업로드된 모든 .ipynb 파일에 다운로드가 가능하도록 파일 권한을 조정해주셔야 할 것 같습니다. 코랩에서 안열립니다..",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1756694831.499029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "loading",
+                "users": [
+                  "U046RDS8WUS"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heavy_plus_sign",
+                "users": [
+                  "U09CH86HP4K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```This file cannot be downloaded by the authenticated user.\nCustomError: This file cannot be downloaded by the authenticated user.\n    at Xgb.dF [as constructor] (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:1742:732>)\n    at new Xgb (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:2666:560>)\n    at qa.program_ (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:2716:481>)\n    at ra (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:17:57>)\n    at qa.next_ (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:15:196>)\n    at qaa.next (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:18:48>)\n    at b (<https://ssl.gstatic.com/colaboratory-static/common/3005b7156ea0973628525c71bbe1ce9d/external_binary_l10n__ko.js:18:309>)```\n오류 로그입니다!",
+          "user": "U09CH8BAWH1",
+          "user_name": "홍민준",
+          "timestamp": "1756695073.536429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH8BAWH1> <@U09CH88UXFV> <@U09CMF1TQ1Y> 안녕하세요, 현재 권한 변경해드렸는데 확인 가능하실까요?",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1756696683.537369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 1강 실습코드를 다운받으려고 하니 똑같이 뜹니다",
+          "user": "U09CH7XF0R1",
+          "user_name": "박신지_T8078",
+          "timestamp": "1756696789.656739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03MDFNTYCE>  현재도 다운로드는 불가능하네요..",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1756696842.102669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 똑같이 권한 문제로 안열려요",
+          "user": "U09CMEZS32N",
+          "user_name": "김형준_T8060",
+          "timestamp": "1756697056.200049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아직 같은 증상으로 안열립니다 ㅠㅠ",
+          "user": "U09CH8BAWH1",
+          "user_name": "홍민준",
+          "timestamp": "1756697229.690729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 같은 증상입니다",
+          "user": "U09CH86JZSP",
+          "user_name": "박동수",
+          "timestamp": "1756699563.999279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 같은 증상입니다",
+          "user": "U09CMETRNFL",
+          "user_name": "윤종욱_T8131",
+          "timestamp": "1756699758.543109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 권한문제 해결되었을까요?? 저는 아직 열리지 않습니다",
+          "user": "U09CH873RDZ",
+          "user_name": "최평화",
+          "timestamp": "1756701296.409029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 같은 이유로 열리지 않습니다",
+          "user": "U09CMF1D8KC",
+          "user_name": "신현지_T8112",
+          "timestamp": "1756701938.080259",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 아직 안 열립니다",
+          "user": "U09CH7XL69Z",
+          "user_name": "장태겸_T8176",
+          "timestamp": "1756702171.673929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 아직 안되네요",
+          "user": "U09CH87U8HZ",
+          "user_name": "장종현",
+          "timestamp": "1756702339.906539",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 아직 안 열립니다",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756703039.537899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "모든 파일이 안열리네요",
+          "user": "U09CH89CYCT",
+          "user_name": "김지은_T8050",
+          "timestamp": "1756703108.888609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여러분! 혹시 다시 접속해 보시겠어요?",
+          "user": "U046RDS8WUS",
+          "user_name": "Yeojin(오여진)",
+          "timestamp": "1756703674.766659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이제 됩니다! 감사합니다",
+          "user": "U09CH88UXFV",
+          "user_name": "조예원_T8194",
+          "timestamp": "1756703714.867929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U046RDS8WUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잘 열립니다.\n감사합니다.",
+          "user": "U09CH86JZSP",
+          "user_name": "박동수",
+          "timestamp": "1756703765.201119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U046RDS8WUS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "열리는거 확인 했습니다. 감사합니다!",
+          "user": "U09CMF1TQ1Y",
+          "user_name": "김광영",
+          "timestamp": "1756704104.995619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[Pytorch] Overview의\n(퀴즈) Pythorch 진단하기 페이지에 아무것도 뜨지 않습니다.\n아래 다른 퀴즈 관련 페이지들도 마찬가지입니다.",
+        "user": "U09CMF138HG",
+        "user_name": "이소민",
+        "timestamp": "1756695881.023669",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "팝업차단 문제였습니다. 해결했습니다!",
+          "user": "U09CMF138HG",
+          "user_name": "이소민",
+          "timestamp": "1756695971.274429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03U4UPMM3L"
+                ],
+                "count": 1
+              },
+              {
+                "name": "ok",
+                "users": [
+                  "U03U4UPMM3L"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "성적조회 부분에서 강좌를 수료하려면 점수 910점 이상이라고 나와있는데 이 경우 모든 퀴즈의 정답을 다 맞추지 못하는 경우 수료가 불가능한가요? 아니면 단순 제출로 점수가 판단되는건가요? + 퀴즈 점수가 수료에 영향을 끼치나요?",
+        "user": "U09CH8BUP51",
+        "user_name": "양지훈",
+        "timestamp": "1756696964.667039",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "퀴즈 점수는 수료에 영향을 끼치지 않습니다~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756697183.073229",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03U4UPMM3L> 답변 감사합니다!! 그렇다면 퀴즈는 단순 학습이해도 확인용인건가요??",
+          "user": "U09CH8BUP51",
+          "user_name": "양지훈",
+          "timestamp": "1756697546.622299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "퀴즈 점수는 수료에 영향을 끼치지 않지만, 제출 여부는 성실도에 반영됩니다~!\n퀴즈는 강의를 들은 후 바로 풀 수 있는 정도의 난이도로 구성되어 있으며, 필수로 풀고 제출해야 하는 콘텐츠 입니다~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756697853.654669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH8BUP51"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[과제파일 관련 질문] (기본-1) Tensor의 생성, 조작, 연산 과제링크를 열어봤는데 아무것도 보이지 않고 다운로드도 불가능합니다. 과제 지시사항을 확인하려면 어떻게 해야 할까요?",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756701288.380849",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1756705281.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 다시 접속해 보시겠어요? (cc. <@U03MDFNTYCE> <@U046RDS8WUS>)",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756705854.216089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "열리는 것 확인했습니다!",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756706753.385569",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U03U4UPMM3L"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요. 강의를 듣던 중 질문이 있어 메시지를 남깁니다.\n[01. PyTorch 기초]의 [(2강) Data Types &amp; Basic Function]의 4:45초에서\n-12를 signed int8 타입으로 1000 1100으로 표현하셨는데 (맨 앞의 1은 부호 비트, 그 뒤에 있는 1은 각각 8, 4)\ntorch에서는 음수를 표현할 때 2의 보수 개념을 사용하지 않는 건가요??\n인터넷 상에 명쾌한 답을 찾지 못해 질문을 남겨봅니다..",
+        "user": "U09CH8AU8P5",
+        "user_name": "Lee Jo Eun",
+        "timestamp": "1756701621.790349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CH7WV1PV",
+                "U05QLGVQBUN",
+                "U09CH8A1B6X",
+                "U09CH7T8Z8T",
+                "U09CH8141SP"
+              ],
+              "count": 6
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U09CH81SQAX"
+              ],
+              "count": 1
+            },
+            {
+              "name": "surprise2",
+              "users": [
+                "U09CH86HP4K"
+              ],
+              "count": 1
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "같은 영상 11:21초에서 torch.tensor(-1, dtype=torch.uint8) 값이 255로 출력되는 걸 보면 2의 보수를 사용하고 있는 것처럼 보이기도 합니다..",
+          "user": "U09CH8AU8P5",
+          "user_name": "Lee Jo Eun",
+          "timestamp": "1756702072.953379",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH8AU8P5",
+              "ts": "1756702222.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH7Z7ZC3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요, 이조은 캠퍼님. 조교 김정원입니다.\n\n`import torch`\n`x = torch.tensor(-12, dtype=torch.int8)`\n`print(bin(x.item() &amp; 0xFF))`\n\n조은님 말씀대로 위 코드를 실행하시면 실제로는 2의 보수 표현을 사용하는 것을 알 수 있습니다.\n\n마스터님께서는 캠퍼 분들의 쉬운 이해를 위해 보수의 개념을 생략하고, 음수의 비트 구조에 대한 기초적인 직관을 돕기  위한 부호 비트 + 절댓값 설명으로 진행해주셨습니다 :grinning:",
+          "user": "U05QLGVQBUN",
+          "user_name": "김정원",
+          "timestamp": "1756702565.066429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U05QLE6RKSS",
+                  "U09CH7Z7ZC3",
+                  "U09CH8AU8P5",
+                  "U09CH7WV1PV",
+                  "U05QLGVQBUN",
+                  "U09CH7YMY59",
+                  "U09CH8A1B6X"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 역시 쉬운 설명을 위한 장치였군요 강의 중 여러 모로 배려해주시고 있으시다는 게 느껴져서 일부러 그러신 것 같다는 생각이 방금 저도 들었습니다.\n친절한 답변에 감사드립니다. 좋은 하루 되시길 바랍니다!",
+          "user": "U09CH8AU8P5",
+          "user_name": "Lee Jo Eun",
+          "timestamp": "1756703002.579729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U05QLE6RKSS",
+                  "U05QLGVQBUN"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "같은 의문이 있었는데 감사합니다!",
+          "user": "U09CH8A1B6X",
+          "user_name": "황은배",
+          "timestamp": "1756705778.529869",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "slightly_smiling_face",
+                "users": [
+                  "U09CH8AU8P5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[[PyTorch] 02. Tensor 생성과 조작][(3강) Creating Tensors] 4:32에서 메모리 주소가 변하지 않는다고 하셨는데요. 이 말의 뜻이 잘 이해가 안가서 질문을 남깁니다.\n\ng = torch.zeros_like(e)에서 e의 메모리 주소가 변하지 않고 g라는 변수에 메모리를 할당해서 새로운 텐서가 생긴다는 의미인가요?",
+        "user": "U09CH894W3D",
+        "user_name": "정대현_T8179",
+        "timestamp": "1756703272.371459",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH894W3D",
+            "ts": "1756703390.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U09CH879951",
+                "U09CH8665UK",
+                "U09CH81SQAX",
+                "U09CH89RBT5",
+                "U09CH7Z7ZC3",
+                "U09CH7Y6HEX",
+                "U09CMF1G7HQ",
+                "U09CH8141SP"
+              ],
+              "count": 8
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CMF138HG",
+                "U09CH7TN9A7"
+              ],
+              "count": 3
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "그러게요... id로 메모리 주소 확인해보니 서로 다른데 어떤 맥락에서 말씀하신건지 저도 궁금합니다.",
+          "user": "U09CH7ZHVJP",
+          "user_name": null,
+          "timestamp": "1756703845.946759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH7ZHVJP> 오오 id라는 함수로 메모리 주소도 확인할 수 있군요. 덕분에 새로운 거 배워갑니다. 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1756704074.844299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 궁금하네요",
+          "user": "U09CH7TFUKV",
+          "user_name": "이호준",
+          "timestamp": "1756705870.830169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "메모리를 새로 할당하지 않고, 기존 메모리를 재활용하기 때문에 AI 모델처럼 크기가 매우 큰 텐서를 다룰 때 효율적이라는 의미인 것 같습니다. 그런데 찾아보니 torch.zeros_like(e)는 새로운 메모리 공간을 만든다고 합니다..",
+          "user": "U09CH8665UK",
+          "user_name": "김상엽_T8032",
+          "timestamp": "1756706796.876719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[콘텐츠 이용 및 보호 수칙 질문] 학습 정리를 위해 외부 공유없이 개인 노션에 콘텐츠의 일부를 포함하는 것이 가능한 지 궁금합니다. 또한 해당 내용을 매주 금요일 학습 정리를 제출할 때 사용이 가능한 지의 여부도 궁금합니다!",
+        "user": "U09CH7W6ZS7",
+        "user_name": "이형석_T8164",
+        "timestamp": "1756703493.598779",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "부스트캠프에 대한 개인 블로그에서의 회고는 학습 활동의 일부로서 권장하나, 그 내용에 *교육 콘텐츠 내용을 그대로 캡처/복사*하는 등 일부 또는 전체가 포함될 경우 콘텐츠 유출에 해당됩니다! 형석님께서 이해하신 내용으로 표현하여 학습정리를 작성해 주세요~~\n\n 회고글은 학습정리에 제출하셔도 됩니다~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756706285.587499",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03U4UPMM3L",
+              "ts": "1756706303.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH7W6ZS7"
+                ],
+                "count": 1
+              },
+              {
+                "name": "pray",
+                "users": [
+                  "U03SAGX725R"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U03SAGX725R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의 pdf를 개인 아이패드로 에어드롭하는 것이 가능한지도 확인 부탁드립니다. 강의 들으면서 혼자 필기하는 목적입니다.",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756706648.087809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "콘텐츠에 나온 이미지나 코드를 그대로 사용하지않되, 그로부터 자신이 이해한대로 정리하여 올리는 것은 가능하다는 말씀이신가요?",
+          "user": "U09CH7TQGP5",
+          "user_name": "김지호_T8051",
+          "timestamp": "1756706788.278779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH86HP4K> 넵 가능합니다~!\n<@U09CH7TQGP5> 넵 맞습니다~!",
+          "user": "U03U4UPMM3L",
+          "user_name": "이지현_운영진",
+          "timestamp": "1756706852.129329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네",
+          "user": "U09CH86HP4K",
+          "user_name": "이서현",
+          "timestamp": "1756706984.448779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[01. PyTorch 기초]의 [(2강) Data Types & Basic Function]에서 실수 타입을 메모리에 저장할 때 지수부와 가수부로 나눠 저장한다고 하셨는데, 소수인 지수부 (예: 1.25)를 메모리로 어떻게 저장하는지 좀더 자세히 알고 싶습니다",
+        "user": "U09CH86HP4K",
+        "user_name": "이서현",
+        "timestamp": "1756706941.608039",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U09CH86HP4K",
+            "ts": "1756706957.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U09CH7WV1PV",
+                "U09CH8A1B6X",
+                "U05QLE6RKSS"
+              ],
+              "count": 3
+            },
+            {
+              "name": "thinking_face",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH85JCFM"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "대부분 프로그래밍 언어에서 부동소수점은 IEEE 754 표준을 구현한 것으로 알고 있습니다.\n<https://ko.wikipedia.org/wiki/IEEE_754>",
+          "user": "U09CH87N3PV",
+          "user_name": "손병국",
+          "timestamp": "1756707609.472599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://youtu.be/g25be2HJD9c?t=228>",
+          "user": "U09CH87N3PV",
+          "user_name": "손병국",
+          "timestamp": "1756707843.485729",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH87N3PV",
+              "ts": "1756708040.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[3강 Creating Tensors] - 난수 텐서 관련 질문 입니다.\n\n연속균등분포-표준정규분포 간 전환하는 경우가 실무에서 있나요?\n```torch.rand_like() # 표준정규분포 → 연속균등분포\ntorch.randn_like() # 연속균등분포 → 표준정규분포```\n왜 굳이 새로 만드는 게 아니라 변환해서 쓰는 건지\n쓰임새와 함께 이해하고 싶어서 질문 드립니다\n\n간단한 예시라도 들어 주시면 감사하겠습니다",
+        "user": "U09CH879951",
+        "user_name": "이소진",
+        "timestamp": "1756707706.587389",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U09CH8A1B6X",
+                "U09CH86HP4K",
+                "U09CH7WRGAX",
+                "U09CH7Z7ZC3"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U05QLE6RKSS",
+                "U09CH7TN9A7"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U05QLGVQBUN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "아마 텐서간 차원을 혼동하지 않기 위함이 아닐까요?",
+          "user": "U09CH7ZHVJP",
+          "user_name": "송현우",
+          "timestamp": "1756707796.383999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U09CH8665UK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

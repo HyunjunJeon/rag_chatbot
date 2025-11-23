@@ -1,0 +1,180 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요, Model Parallelism과 RAM을 활용한 Weight 로딩 방식에 대해서 질문해 주셨는데요, 좋은 질문을 해 주셨습니다.\n동진님께서 말씀해 주신 두 가지 방식은 장단점이 있으나, *GPU 메모리 대 RAM의 데이터 전송 속도 차이가 핵심*입니다.\n\n우선 두 가지 방식에 대해서 정리해 보겠습니다.\n[1] GPU 분산 방식\n• 각 GPU는 모델의 weight를 저장하고, 필요한 경우 GPU 간에 데이터를 주고 받습니다.\n• 이 때 *GPU 간 통신은 비교적 빠르기* 때문에 parallelism 연산을 최대한 활용할 수 있다고 봅니다.\n[2] RAM 활용 방식\n• weight를 GPU 메모리가 아닌 RAM에 저장하고, 필요한 weight만 GPU로 불러옵니다.\n• 이 때 *RAM-GPU 간 데이터 전송 속도는 GPU 간 통신에 비해 훨씬 느립니다.* 이로 인해 매 연산마다 weight를 로드하는 과정에서 overhead(bottleneck)가 발생해서 GPU의 연산 능력이 낭비되기 때문에, 비효율적이라고 보는 것입니다.\n결론은, [1] 방식이 [2] 방식보다 효율적이기 때문에 더욱 널리 사용될 것이라는 동진님의 생각이 맞습니다! [1] 방식은 GPU의 연산 속도를 최대한 활용할 수 있는 반면, [2] 방식은 데이터 전송 overhead 때문에 실시간 연산이 어려워 효율적이지 않습니다. 따라서 대규모 모델에서 GPU 메모리를 분산하여 사용하는 [1] 방식이 널리 사용됩니다.\n\n추가적인 질문이 있다면 말씀해 주세요! 감사합니다.",
+        "user": "U07HQ7N0M52",
+        "user_name": "Seoyeong Hwang",
+        "timestamp": "1735200750.765639",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "참고로 구체적인 속도를 한 번 비교해 보겠습니다.\n• GPU 간 데이터 전송 속도 : 최대 600GB/s\n• RAM-GPU 간 데이터 전송 속도 (밑의 글에서 PCIe로 표현) : 최대 64GB/s\n<https://m.blog.naver.com/infracube/223463625493?utm_source=chatgpt.com|GPU마다 세부적으로 비교한 글>을 보시면 차이의 경향성에 대해서 더욱 감을 잡으실 수 있을 것 같습니다.",
+          "user": "U07HQ7N0M52",
+          "user_name": "Seoyeong Hwang",
+          "timestamp": "1735200986.912639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "자세한 답변 감사합니다! 많은 도움이 되었습니다.",
+          "user": "U07F4EGLCHW",
+          "user_name": "이동진",
+          "timestamp": "1735206004.855369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U07HQ7N0M52"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 현욱님! 김정현 조교입니다. 해당 부분에 대해 설명드리겠습니다.\n\n비대칭적 양자화의 특징 중 하나는 0을 명확히 표현할 수 있다는 점입니다. 대칭적으로 양자화를 진행하면 0을 정확히 표현하지 못하는 경우가 발생할 수 있습니다.\n\n예를 들어, 값의 범위가 *[-1, 1]일 때 대칭적으로 네 개의 값으로 양자화를 진행하면, 결과값은 [-1, -0.5, 0.5, 1]가 됩니다.* 이 경우 양자화된 값에 0이 포함되지 않습니다.\n\n대부분의 텐서 값은 0으로 구성되어있는데(예: [0.9, 0, 0, 0, 0, -0.3])를 대칭적으로 양자화하면, 양자화된 결과는 [1, 0.5, 0.5, 0.5, 0.5, -0.5]와 같이 크게 왜곡될 수 있습니다.\n\n반면, *비대칭적으로 양자화를 진행하면 0을 포함하도록 양자화된 값(예: [-1, -0.6, 0, 1])을 설계할 수 있습니다.* 이렇게 하면 텐서의 대부분을 차지하는 0을 0 그 자체로 표현할 수 있어 데이터에 대한 정보 왜곡을 줄일 수 있습니다.\n\n따라서, 대부분의 값이 0인 텐서에 대한 양자화를 진행할 때는 0이 양자화 과정에서 본래의 값인 0으로 유지되도록 비대칭적 양자화를 사용하게됩니다.\n\n결론적으로 *0을 정확히 표현한다는 것은 기존의 텐서를 구성하는 0값을 양자화 후에도 그대로 0으로 표현할 수 있는지를 의미하는 것*이고, 이 부분에서의 왜곡이 최대한 일어나지 않도록 하기위해 QLoRA의 NF4에서는 비대칭적 표현 방식을 채택하고 있습니다!\n\n이해되지 않는 부분이 있으시면 추가적으로 질문 주시면 최대한 빨리 답변드리도록 하겠습니다. 감사합니다:blush:",
+        "user": "U04RG8YTUP7",
+        "user_name": "김정현_조교",
+        "timestamp": "1735201522.522699",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RG8YTUP7",
+            "ts": "1735201640.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "친절한 답변 감사합니다!! 그런데 아직도 이해가 안가는 점이 ㅜㅜ\n양자화 공식에 따르면 변환된 값 X_quant = round(x/s + z)이고 대칭적 양자화는 zero point z가 항상 0이므로 (제가 이해한 게 맞다면) 부동소수점 0.0값을 그대로 0으로 양자화 하여 0을 정확히 표현하는 것은 대칭적 양자화 아닌가요...?? 비대칭적 양자화의 zero point는 보통 0이 아니기에 0을 양자화 하면 zero point 값으로 간다고 생각했습니다.\n\n그리고 강의에서도 absmax qauntization의 주 용도가 0이 중요한 경우라고 정리해주셔서 더 헷갈리는 것 같습니다 ㅠ",
+          "user": "U07EFLQ130A",
+          "user_name": "김현욱",
+          "timestamp": "1735204114.101279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "6강의 absmax quantization의 개념과 함께 이해하시는 과정에서 혼란스러워하시는 것 같습니다ㅜㅜ\n\n• 6강의 absmax quantization: 0을 항상 0으로 보내는 것이 효과적인 경우 활용한다고 설명하고 있습니다. 해당 부분에 대해서 수식을 통해 양자 값을 계산하고 있는데 이는 주어진 데이터가 0을 기준으로 symmetric할 때 주로 사용합니다. *(symmetric, assymetric 여부는 주어진 데이터와 관련되어있습니다.)*\n• QLoRA에서 사용되는 4-bit Normal float의 경우 4bit 양자화이므로 16개의 양자 후보가 필요합니다.  *여기서의 symmetric, assymetric은 이 양자 후보와 관련있습니다.* NF4의 경우에는 양자 값에 대한 mapping 시 계산 식을 적용하는 것이 아닌, 16개의 양자 후보 중 가까운 값으로 mapping합니다. (말씀하신 양자화 공식을 사용하여 양자화 값을 결정하는 것이 아닙니다.)\n따라서 두 개의 양자화 방법은 다른 것으로 구분해서 생각해주시면 이해에 도움이 될 것 같습니다.\n\n첨부드린 첫번째 이미지는 NF4에 대한 동작 방식으로 0을 표현하기 어려운 대칭적인 분위수의 구성에서 0을 포함하는 비대칭적인 분위수로의 변화를 확인하시기 좋을 것 같습니다. 두 번째 이미지는 이러한 과정을 걸쳐 결정된 16개의 분위수로 논문에서 NF4를 적용하는 데에 사용되고 있는 값입니다.\n\n추가적인 궁금한 부분이 있으시면 편하게 질문해주세요! 감사합니다.",
+          "user": "U04RG8YTUP7",
+          "user_name": null,
+          "timestamp": "1735206117.458999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "quantization 강의에서 배운 두 방법(absmax, zero-point)은 양자화하려는 tensor의 최댓값을 이용해 양자화 범위를 제한하고 각 값을 공식에 의해 mapping\n\nNF4는 가운데가 0인 2^4개의 양자화 포인트를 정하여 원래의 값에서 가장 가까운 포인트의 값으로 양자화 (마치 신호처리에서 아날로그 신호를 디지털 신호로 변환할 때 사용하는 양자화처럼)\n\n이렇게 이해하면 될까요??\n\n친절한 설명 감사합니다 조교님!!!",
+          "user": "U07EFLQ130A",
+          "user_name": "김현욱",
+          "timestamp": "1735215362.656819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RG8YTUP7"
+                ],
+                "count": 1
+              },
+              {
+                "name": "ditto_dance",
+                "users": [
+                  "U04RG8YTUP7"
+                ],
+                "count": 1
+              },
+              {
+                "name": "blush",
+                "users": [
+                  "U04RG8YTUP7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 준성님께서 Data Parallelism에서의 Master GPU의 역할에 대해서 질문해 주셨는데, 좋은 질문입니다!\n결론을 우선 이야기하자면, Master GPU가 최종적으로 Loss를 취합하는 이유는, 지환님께서 말씀하신 것과 유사하게도 *일관된 gradient 계산을 보장하기 위해서*입니다.\n• 각 GPU가 독립적으로 loss를 계산한 후 gradient를 구하는 경우\n    ◦ 준성님께서 말씀하신 것처럼 각 GPU는 독립적으로 자신에게 할당된 데이터 배치에 대해 loss를 계산하고, gradient를 구할 수 있습니다.\n    ◦ 그러나 *각 GPU에게 할당된 데이터 배치는 다르기 때문*에, 각 GPU가 계산한 loss는 서로 다를 가능성이 높습니다.\n    ◦ 이렇게 다르게 계산된 loss로 gradient를 *각자 구하게 되면 gradient 방향이 일관되지 않을 수 있습니다.*\n    ◦ 결과적으로 *모델 업데이트가 서로 다른 방향으로 이루어질 가능성이 큽니다.* (그렇게 된다면 data parallelism을 하여 모델을 학습시키는 의미가 퇴색되는 것이죠. 왜냐하면 데이터를 쪼개어서 하나의 학습된 모델을 만들고자 하는 것인데, 각 GPU당 서로 다르게 학습된 모델이 만들어지게 되니까요.)\n• Master GPU가 loss를 취합한 후 gradient를 구하는 경우\n    ◦ 반면 이 경우는 master GPU가 여러 GPU들의 (intermediate) loss들을 통합하여 일관된 loss를 생성합니다.\n    ◦ *일관된 loss를 기준으로 모든 GPU가 동일한 방향성의 gradient를 계산하게 됩니다.*\n    ◦ 즉 모든 GPU가 동일한 목표를 향해 gradient descent를 수행하도록 하는 것이죠.\n    ◦ Master GPU가 모든 loss를 관할하므로, 더욱 효율적이고 안정적이라고 할 수 있습니다.\nloss는 gradient를 계산하는 핵심 기준입니다. 결론적으로 모델 학습의 일관성과 안정성을 보장하기 위해서 master GPU가 loss를 취합하여 분배하는 것입니다.\n\n추가적인 질문이 있다면 언제든지 말씀해 주세요! 감사합니다.",
+        "user": "U07HQ7N0M52",
+        "user_name": "Seoyeong Hwang",
+        "timestamp": "1735201925.244349",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07HQ7N0M52",
+            "ts": "1735203188.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 조교님 답변에서 수정이 필요한 부분이 있는 것 같아 답글 남깁니다.\n\n\"즉 모든 GPU가 동일한 목표를 향해 gradient descent를 수행(backpropagation)하게 됩니다.\" 이 부분을\n\n모든 GPU가 동일한 목표를 향해 [gradient descent를 수행하도록 필요한 gradient를 계산(backpropagation) 한다]\n\n이렇게 바꾸는 것이 더 정확한 답변이 될 것 같습니다.\n\nBackpropagation 은 [기울기를 계산하는 과정]이고\nGradient Descent는 [계산된 기울기를 바탕으로 가중치를 업데이트하는 최적화 과정]이라\n\n두 부분은 명확히 구분할 필요가 있어보입니다.",
+          "user": "U07EUAT6U01",
+          "user_name": "유지환",
+          "timestamp": "1735202683.093839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U07EUAPHBPB"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다. 말씀하신 대로 수정하는 것이 더욱 좋아 보이네요. 피드백 감사합니다!",
+          "user": "U07HQ7N0M52",
+          "user_name": "Seoyeong Hwang",
+          "timestamp": "1735202801.867829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

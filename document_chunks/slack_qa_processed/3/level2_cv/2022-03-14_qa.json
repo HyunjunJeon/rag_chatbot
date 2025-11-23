@@ -1,0 +1,89 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "저가 특정 분야의 최신 논문들을 찾을 때 자주 이용하는 github repo 공유합니다\ngithub에서 Awesome 키워드로 검색하시면 찾기 쉬워집니다\nObject Detection : <https://github.com/amusi/awesome-object-detection>\nObject Tracking : <https://github.com/luanshiyinyang/awesome-multiple-object-tracking>\nSemantic Segmentation : <https://github.com/mrgloom/awesome-semantic-segmentation>",
+        "user": "U02TCHR3LNS",
+        "user_name": "신규범",
+        "timestamp": "1647271520.782529",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U7U6V4MQ",
+                "U02T1HLM9NK",
+                "U02U00T1T8B",
+                "U02T8QB2YDC",
+                "U02SJMA8PJS",
+                "U02TLRA5SCF",
+                "U02UHQQ2S2U",
+                "U02TCKUCM1T",
+                "U02UY7J3XC0",
+                "U02U1RYL99C",
+                "U02TFG8AQ02",
+                "U02U78DCAC8",
+                "U02RBNNL7LG",
+                "U02THPL8F0C",
+                "U02U26ECDKL",
+                "U02U56K2848",
+                "U02VB8HRD28",
+                "U02TZ9HPZAS"
+              ],
+              "count": 18
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U02T1HLM9NK",
+                "U02T8QB2YDC",
+                "U02TLRA5SCF",
+                "U02U8G6NKEW",
+                "U02RBNNL7LG",
+                "U02VB8HRD28"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "아... 규범님 너무 좋은 깃헙이네요 공유감사해요\n공유한 제가 초라해질정도로 더 상위레벨을 공유해주셨네요",
+          "user": "U02T8QB2YDC",
+          "user_name": "허석",
+          "timestamp": "1647273015.089129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "허석님이 공유 해주신거 보고 제가 쓰던 것도 공유해야겠다 생각해서 올려보았습니다. 공유하는 정보가 작던 크던 지식을 공유 하는거 자체가 더 중요하다고 생각해요!",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1647273656.906649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02VB8HRD28"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

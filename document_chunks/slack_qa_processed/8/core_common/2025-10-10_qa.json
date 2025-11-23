@@ -1,0 +1,98 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[5주차 NLP 이론 / 2강. Word Embedding]\nTransformer의 attention 메커니즘이나 word2vec 알고리즘에서 단어끼리 혹은 문맥상 단어의 연관성을 내적이란 연산을 이용해서 학습시키는 것처럼 내적 이외의 연산(가령, 내적 이외의 겹선형사상)을 준다면 유사도 이외의 다양한 연관성을 학습시킬 수 있나요?",
+        "user": "U09CH894W3D",
+        "user_name": "정대현_T8179",
+        "timestamp": "1760094655.596719",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!\n\n'겹선형사상'이 bilinear form을 가리키신 거라고 생각할게요.\n\n임의의 bilinear form on R^n은 n×n 행렬로 표현할 수 있어요. 어떤 bilinear form B가 주어지든, 거기에 임의의 두 n차원 열벡터 x, y를 집어넣은 결과가 B(x, y) = x^t @ A @ y 가 되도록 하는 행렬 A를 항상 찾을 수 있습니다. (사실 이 A는 i행 j열 성분이 B(e_i, e_j)로 되어있습니다 - e_i는 i번째 성분만 1인 one-hot vector)\n\nA가 항등행렬 I랑 같은 경우, 주어진 bilinear form은 표준내적이 됩니다. A를 A @ I 나 I @ A 로 쪼개서 생각하면 어떤 얘기가 되냐면, 두 벡터에 표준내적을 취하기 전에 두 벡터 중 하나에 원하는 선형사상을 작용시키는 게 허락된다면, 이걸로 모든 bilinear form을 다 표현할 수 있다는 말이 됩니다.\n\nattention은 이미 내적 이전에 행렬의 작용을 취하죠? 위의 A 자리에다가 ( <https://arxiv.org/pdf/1706.03762> 의 5페이지에 있는 행렬 기호를 따라 쓸게요) (W^Q_i)^T @ (W^K_i) 를 갖다놓은 게 attention입니다.(여기서의 i는 head를 가리키는 index로, 윗윗문단에서 사용된 i하고는 다릅니다)\n\n그러니 우리는 질문에서 언급하신 자유도를 이미 이용하고 있습니다.",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1760103352.515869",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U09CH842TRR",
+              "ts": "1760104006.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U09CH894W3D",
+                  "U097N652BQW",
+                  "U09CD83AUTF",
+                  "U09CD7Y1FPX"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U09CH842TRR> 오..! 감사합니다!\n네, 말씀해주신 것처럼 제가 언급한 겹선형사상은 bilinear form를 의미합니다!\n\n이미 attention은 표준 내적 이외의 새로운 연산을 부여했던 거였군요. attention is all you need 논문 제목 진짜 잘지었네요...ㅎㅎ\n\n이해하기 쉽게 설명해주셔서 감사합니다!",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1760105159.223599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U09CH842TRR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 논문이 대뜸 \"너한테 필요한 건 관심이야\" 하길래 '헉 어떻게 알았지' 생각했던 기억이 나네요",
+          "user": "U09CH842TRR",
+          "user_name": "조성해_T8192",
+          "timestamp": "1760105854.829779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smile",
+                "users": [
+                  "U09CH8605TM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앜ㅋㅋㅋㅋㅋㅋㅋ 저도 관심을 좀 가져봐야겠네요",
+          "user": "U09CH894W3D",
+          "user_name": "정대현_T8179",
+          "timestamp": "1760106356.316039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

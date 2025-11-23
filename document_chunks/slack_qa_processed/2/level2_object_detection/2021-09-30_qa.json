@@ -1,0 +1,250 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U029ULW2X8A> <@U029PN9SX1R> 안녕하세요 캠퍼님! 위의 전경재 캠퍼님께서 말씀해주신 방법을 시도해보시고도 여전히 지나치게 느리면 저 태그해서 한 번 말씀 부탁드립니다!",
+        "user": "U028FM07UQ3",
+        "user_name": "최유정",
+        "timestamp": "1632996609.047100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "넵",
+              "users": [
+                "U029PN9SX1R",
+                "U029ULW2X8A"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U028FM07UQ3> 저는 아직도 서버가 너무 느려서 말씀드립니다!",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1633049555.056500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028FM07UQ3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029ULW2X8A> 문의드린 후 답변드리겠습니다 :slightly_smiling_face:",
+          "user": "U028FM07UQ3",
+          "user_name": "최유정",
+          "timestamp": "1633051056.056800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ps -ef",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1633051085.057000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "찍어서 보여주시면 좋을것같습니다",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1633051104.057200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇습니다",
+          "user": "U029ULW2X8A",
+          "user_name": null,
+          "timestamp": "1633052734.057400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요!\n임성민 캠퍼님의 질문을 보고 공부하다가 SSD에서 default box의 수와 크기를 어떻게 계산하는지 구체적으로 공부하면서 내용을 정리해봤습니다. 성민님이 그냥 보고 지나칠 수 있었던 내용을 질문해 주셔서 많은 공부가 되었습니다! 감사합니다~\n\n• 임성민 캠퍼님의 질문\n<https://www.boostcourse.org/boostcampaitech2/forum/102850>\n\n• 정리 내용\n<https://bagineer.notion.site/SSD-Default-Box-7459cf2a5554440c96b61e96ae6e04c8>\n\n조언해주시면 감사하겠습니다~",
+        "user": "U029UHZ6AHY",
+        "user_name": "백인혁_T2101",
+        "timestamp": "1633002810.050400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029TQ9JFR8",
+                "U0298NLUNBC",
+                "U028U1DJ0SK",
+                "U029DCPSW3Z",
+                "U029BP86UBX",
+                "U02920Y3AH4",
+                "U02A1E57D17",
+                "U028ZE3KH6K",
+                "U029KSKF90V"
+              ],
+              "count": 9
+            },
+            {
+              "name": "blob_thumbs_up",
+              "users": [
+                "U029BP86UBX",
+                "U02920Y3AH4",
+                "U02A1E57D17"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 멘토 주세환입니다.\n정리 너무 깔끔하게 잘해주신 것 같아요 :+1: 관련해서 <@U0298NLUNBC> 님께서 부스트코스에 답변 달아 두었습니다.",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633009205.052100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "grinning",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요\npretrained모델을 mmdetection에서 finetuning해보다 다음과 같은 warning이 발생했습니다\n```2021-10-01 01:34:45,032 - mmdet - INFO - load checkpoint from /opt/ml/detection/mmdetection/pretrained/detr_r50_8x2_150e_coco_20201130_194835-2c4b8974.pth\n2021-10-01 01:34:45,033 - mmdet - INFO - Use load_from_local loader\n2021-10-01 01:34:45,201 - mmdet - WARNING - The model and loaded state dict do not match exactly\n\nsize mismatch for bbox_head.fc_cls.weight: copying a param with shape torch.Size([81, 256]) from checkpoint, the shape in current model is torch.Size([11, 256]).\nsize mismatch for bbox_head.fc_cls.bias: copying a param with shape torch.Size([81]) from checkpoint, the shape in current model is torch.Size([11]).```\n이 경우 checkpoint가 어떻게 적용되는 걸까요?",
+        "user": "U02913JMXKR",
+        "user_name": "이준혁",
+        "timestamp": "1633055880.059600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 이 warning 밑에 \"신경 안써도된다. class 수가 달라서 뜨는 warning이다. 나머지 weight는 다 잘 불러졌다.\" 이런 log가 찍혀 있지 않나요?",
+          "user": "U029EFY0XD1",
+          "user_name": "김인재",
+          "timestamp": "1633056022.059700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요~ 해당 warning같은 경우에는 기존의 pretrained weight가 coco dataset으로 학습된 weight인것 같은데 그러면 head부분의 class수가 다르기 때문에 head 부분의 weight를 가져오지 못했다~ 라는 의미입니다",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633056105.059900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028U1DJ0SK> 그러면 이 외의 weight는 다 잘 불러왔다고 해석해도 될까요??",
+          "user": "U02913JMXKR",
+          "user_name": "이준혁",
+          "timestamp": "1633056295.060100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EFY0XD1> 나머지 웨이트가 다 잘 불러졌다는 로그는 없네요 ㅠ",
+          "user": "U02913JMXKR",
+          "user_name": "이준혁",
+          "timestamp": "1633056388.060300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02913JMXKR> \n네 맞습니다 나머지는 다 잘 불러옵니다 :)",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633057007.060500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLUNBC",
+                  "U02913JMXKR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

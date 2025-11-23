@@ -1,0 +1,352 @@
+{
+  "GPU 메모리 부족 해결 방법": {
+    "total_results": 11,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "안녕하세요 *과제1* 관련 질문사항 입니다.\n현재 구글 코랩으로 과제1 진행을 하다가 memory 문제로 학습 진행이 어렵습니다.\n\n1. 다른 부분을 컨트롤해서 진행할 수 있는 건가요?\n2. V100 서버로 가져가서 진행하는 것이 맞는 건가요?",
+        "answer": "저는 V100 서버에서 돌렸어요 속도면에서도 훨씬빨라서 수월합니다",
+        "course": "level2_cv",
+        "generation": "3",
+        "date": "2022-03-08",
+        "score": 0.65758204
+      },
+      {
+        "rank": 2,
+        "question": "안녕하세요! 하둡을 적용해보려고 하는데 시작부터 막혀서 많이 부족한 질문 드립니다.\n자바를 설치하고 싶은데 캐쉬 메모리가 부족해서 설치가 안되는 것 같아요..\n혹시 아시는 분 답변 주시면 감사하겠습니다!",
+        "answer": "메모리... 보다는 스토리지 용량 이 더 보편적인 단어일것 같습니다. 메모리는 보통 RAM 용량을 말할때 더 많이 쓰이는것 같아요",
+        "course": "level3_common",
+        "generation": "4",
+        "date": "2023-01-12",
+        "score": 0.15367948472714374
+      },
+      {
+        "rank": 3,
+        "question": "안녕하세요! 하둡을 적용해보려고 하는데 시작부터 막혀서 많이 부족한 질문 드립니다.\n자바를 설치하고 싶은데 캐쉬 메모리가 부족해서 설치가 안되는 것 같아요..\n혹시 아시는 분 답변 주시면 감사하겠습니다!",
+        "answer": "용량을 많이 차지하는 파일을 지워 메모리를 확보해야겠군요??\n꼭 공부를 해보겠습니다. 정말 감사합니다.",
+        "course": "level3_common",
+        "generation": "4",
+        "date": "2023-01-12",
+        "score": 0.11827065273770518
+      },
+      {
+        "rank": 4,
+        "question": "안녕하세요, Model Parallelism과 RAM을 활용한 Weight 로딩 방식에 대해서 질문해 주셨는데요, 좋은 질문을 해 주셨습니다.\n동진님께서 말씀해 주신 두 가지 방식은 장단점이 있으나, *GPU 메모리 대 RAM의 데이터 전송 속도 차이가 핵심*입니다.\n\n우선 두 가지 방식에 대해서 정리해 보겠습니다.\n[1] GPU 분산 방식\n• 각 GPU는 모델의 weight를 저장하고, 필요한 경우 GPU 간에 데이터를 주고 받습니다.\n• 이 때 *GPU 간 통신은 비교적 빠르기* 때문에 parallelism 연산을 최대한 활용할 수 있다고 봅니다.\n[2] RAM 활용 방식\n• weight를 GPU 메모리가 아닌 RAM에 저장하고, 필요한 weight만 GPU로 불러옵니다.\n• 이 때 *RAM-GPU 간 데이터 전송 속도는 GPU 간 통신에 비해 훨씬 느립니다.* 이로 인해 매 연산마다 weight를 로드하는 과정에서 overhead(bottleneck)가 발생해서 GPU의 연산 능력이 낭비되기 때문에, 비효율적이라고 보는 것입니다.\n결론은, [1] 방식이 [2] 방식보다 효율적이기 때문에 더욱 널리 사용될 것이라는 동진님의 생각이 맞습니다! [1] 방식은 GPU의 연산 속도를 최대한 활용할 수 있는 반면, [2] 방식은 데이터 전송 overhead 때문에 실시간 연산이 어려워 효율적이지 않습니다. 따라서 대규모 모델에서 GPU 메모리를 분산하여 사용하는 [1] 방식이 널리 사용됩니다.\n\n추가적인 질문이 있다면 말씀해 주세요! 감사합니다.",
+        "answer": "자세한 답변 감사합니다! 많은 도움이 되었습니다.",
+        "course": "level3_common",
+        "generation": "7",
+        "date": "2024-12-26",
+        "score": 0.06845783323170399
+      },
+      {
+        "rank": 5,
+        "question": "안녕하세요, Model Parallelism과 RAM을 활용한 Weight 로딩 방식에 대해서 질문해 주셨는데요, 좋은 질문을 해 주셨습니다.\n동진님께서 말씀해 주신 두 가지 방식은 장단점이 있으나, *GPU 메모리 대 RAM의 데이터 전송 속도 차이가 핵심*입니다.\n\n우선 두 가지 방식에 대해서 정리해 보겠습니다.\n[1] GPU 분산 방식\n• 각 GPU는 모델의 weight를 저장하고, 필요한 경우 GPU 간에 데이터를 주고 받습니다.\n• 이 때 *GPU 간 통신은 비교적 빠르기* 때문에 parallelism 연산을 최대한 활용할 수 있다고 봅니다.\n[2] RAM 활용 방식\n• weight를 GPU 메모리가 아닌 RAM에 저장하고, 필요한 weight만 GPU로 불러옵니다.\n• 이 때 *RAM-GPU 간 데이터 전송 속도는 GPU 간 통신에 비해 훨씬 느립니다.* 이로 인해 매 연산마다 weight를 로드하는 과정에서 overhead(bottleneck)가 발생해서 GPU의 연산 능력이 낭비되기 때문에, 비효율적이라고 보는 것입니다.\n결론은, [1] 방식이 [2] 방식보다 효율적이기 때문에 더욱 널리 사용될 것이라는 동진님의 생각이 맞습니다! [1] 방식은 GPU의 연산 속도를 최대한 활용할 수 있는 반면, [2] 방식은 데이터 전송 overhead 때문에 실시간 연산이 어려워 효율적이지 않습니다. 따라서 대규모 모델에서 GPU 메모리를 분산하여 사용하는 [1] 방식이 널리 사용됩니다.\n\n추가적인 질문이 있다면 말씀해 주세요! 감사합니다.",
+        "answer": "참고로 구체적인 속도를 한 번 비교해 보겠습니다.\n• GPU 간 데이터 전송 속도 : 최대 600GB/s\n• RAM-GPU 간 데이터 전송 속도 (밑의 글에서 PCIe로 표현) : 최대 64GB/s\n<https://m.blog.naver.com/infracube/223463625493?utm_source=chatgpt.com|GPU마다 세부적으로 비교한 글>을 보시면 차이의 경향성에 대해서 더욱 감을 잡으실 수 있을 것 같습니다.",
+        "course": "level3_common",
+        "generation": "7",
+        "date": "2024-12-26",
+        "score": 0.0499164452954349
+      }
+    ]
+  },
+  "데이터 증강 기법 추천": {
+    "total_results": 13,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "안녕하세요 <@U07ECPL3SG5> 님!\n\n1. _LLM을 활용하여 데이터 증강을 할 때,  직접 주제를 지정하여 증강하는 방법은 금지되었다고 알고 있습니다. 혹시 이번 대회의 label 7개의 주제를 던져주고 기사 제목을 생성하도록 한 뒤 baseline 모델을 통해 라벨링 하는 것도 금지될까요?_\n기사 제목 생성은 가능하지만, *7개의 주제를 직접 입력하는 것은 불가능*합니다.\n*7개의 주제가 무엇인지 알 수 없다고 가정*하시면 됩니다.\n즉, 7개의 주제를 입력할 때, 매핑된 한국어 정보로 입력이 불가능하고 *정수 정보로만 전달이 가능*하다고 생각하시면 됩니다.\n저희는 7개의 주제가 무엇인지 알고 있지 않는 상황이라고 생각하시면 됩니다!\n\n _2.  baseline 코드의 구조를 바꾸지 않고 편의성을 위해 class로 모듈화 시켜도 괜찮나요 ?_\nclass로 모듈화가 필수적인 상황인가요? 추후 제출물 검토에서 베이스라인 코드가 변경되어 있는지를 파악합니다.\n코드가 변경되면 기존과 동일하게 작동하는지 추가적인 검토를 해야합니다.\n만약 필수적인 상황이라면, 협의하여 추가적으로 검토해보도록 하겠습니다!",
+        "answer": "조교님 친절한 답변 감사드립니다!\n1. 정수 정보라는 말씀이 ('한국 경제 위기' , 1) 이런식으로 프롬프트를 줘 생성하는것만 허용된다는 말씀이실까요?\n2. 강의에서 제공된 cleanlab을 사용하기 위해서는 모델이 추론한 결과를 logit으로 알아야 하는데요, baseline 코드에서 다른 코드로 train 하고 logit부분을 불러오고자 하고 있는데, 이게 잘못된 방법인지 궁금해서 질문 드렸습니다 !",
+        "course": "level2_nlp",
+        "generation": "7",
+        "date": "2024-11-01",
+        "score": 0.6524554
+      },
+      {
+        "rank": 2,
+        "question": "안녕하세요 오늘 베이스라인 코드 해설 진행한 김재인 조교입니다:) 마지막에 주신 질문 간단히 답변 드립니다 (아래 이미지 속 질문).\n우선 “피쳐 엔지니어링“이 data augmentation을 말하고자 하신건지 확인이 필요할 것 같은데요,\n데이터셋 구성을 보시면, 장르, 감독, 이름 등 다양한 side information을 담고 있는 데이터 파일들이 있는데, S^3-Rec에서는 장르만 활용하여 pre-training 과정을 추가적으로 진행했습니다.\n그래서 주어진 데이터로도 더 많은 self-supervised learning을 다양하게 시도해보실 수 있는데, 예를 들어 masking한 위치에 attribute가 아닌 다른 related information을 예측한다거나, segment masking 전략을 수정한다거나 하는 방법 등이 있을 것 같습니다.\n언제든 편히 추가질문 남겨주시면 감사하겠습니다:)",
+        "answer": "지금 데이터에 뭔가 파생되는 데이터를 만들기에는 어려움도 있을것 같은데, 직접 보시면서 필요성을 느껴보시면 좋겠습니다!\n보충자료에 있는 EDA에서 사용하는 데이터가 대회 데이터랑 동일한데요 보시면 금방 감 잡으실수 있을겁니다:) ㅎㅎ",
+        "course": "level2_recsys",
+        "generation": "7",
+        "date": "2024-11-12",
+        "score": 0.6650518
+      },
+      {
+        "rank": 3,
+        "question": "data augmentation 과제를 하던 도중 `albumentations` 을 써보려다가 삽질을 해버려서 시간이 이렇게 되어 버렸는데요! :smiling_face_with_tear:\n혹시 `albumentations` 를 사용해보고 싶은 분들을 위한 간단한 가이드를 작성하였습니다!\n다른분들은 삽질하질 않길 바라며 얼른 과제를 마무리 하러 가겠습니다..:rocket:\n<https://spot-chill-154.notion.site/Albumentations-from-scratch-f3fff6a0944e4efb9709257f62896426>",
+        "answer": "저도 오늘 albumentation으로 삽질모드였는데:smiling_face_with_tear: 정리를 너무 깔끔하게 잘 해주셨네요!!! 복잡한 머릿속이 정리되는 느낌입니다..ㅎㅎㅎ 공유 감사합니다!! :raised_hands::raised_hands::raised_hands:",
+        "course": "level2_cv",
+        "generation": "2",
+        "date": "2021-09-08",
+        "score": 0.6449028
+      },
+      {
+        "rank": 4,
+        "question": "<@U098C3KRB8U> Data imbalance 문제를 해결하는 Resampling 기법(소수 레이블의 데이터를 단순히 duplicate)은 Data leak 문제를 야기하지 않을까?",
+        "answer": "<@U09CH7UDBCK> 네, LLM 증강과 같은 고급 upsampling 기법을 사용하더라도, **데이터 분할(Data split)과의 순서에 따라 데이터 유출(Data Leakage) 문제가 발생할 수 있습니다.**\n\n핵심은 **언제 증강을 수행하느냐**입니다.\n\n1.  **데이터 유출 발생 가능성:**\n    *   만약 전체 데이터셋에 먼저 LLM 증강을 적용하여 새로운 샘플을 생성한 후, 이를 train/validation 세트로 분할한다면, 데이터 유출이 발생할 수 있습니다.\n    *   LLM이 원본 데이터의 특성을 기반으로 새로운 샘플을 생성하기 때문에, 검증 세트에 포함될 원본 데이터의 정보가 훈련 세트의 증강된 샘플을 통해 간접적으로 학습될 수 있기 때문입니다. 이는 모델이 '보지 말았어야 할' 정보를 보게 되는 결과로 이어집니다.\n\n2.  **데이터 유출 방지 방법:**\n    *   데이터 유출을 방지하려면, 반드시 **원본 데이터를 먼저 train/validation/test 세트로 분할**해야 합니다.\n    *   이후 **훈련 세트에만 LLM 증강을 적용**하여 소수 클래스 샘플을 생성해야 합니다.\n    *   이렇게 하면 검증 세트는 증강 과정에 전혀 노출되지 않아 모델의 일반화 성능을 객관적으로 평가할 수 있습니다.\n\n결론적으로, 증강 기법의 정교함과 상관없이 데이터 분할 전에 전체 데이터에 적용하면 유출 문제가 생길 수 있으므로, **분할 후 훈련 세트에만 적용하는 원칙**을 지켜야 합니다.",
+        "course": "bot_common",
+        "generation": "8",
+        "date": "2025-10-19",
+        "score": 0.71194668235127
+      },
+      {
+        "rank": 5,
+        "question": "<@U098C3KRB8U> 데이터 불균형을 맞추려고 다양한 샘플링 기법들을 사용하잖아. 근데, 그러면 원래 데이터의 분포에서 확률적으로 나온 데이터를 건드리게 되는 거니까 안 좋은 거 아니야? 차라리 소수의 클래스에 대해서 큰 벌칙을 주도록 설계하는 게 옳은 거 같은데 나는.",
+        "answer": "<@U09CH894W3D> 아닙니다. 번역 모델과 같은 모델도 데이터 분포와 무관하지 않으며, 데이터 증강(오버샘플링)을 '마음대로' 사용해도 항상 장점만 있는 것은 아닙니다.\n\n번역 모델은 단어, 구문, 문법 구조, 문맥 등 언어적 패턴의 분포를 학습합니다. 데이터 증강은 이러한 분포에 새로운 데이터를 추가하여 변경하는 행위입니다.\n\n**장점:**\n*   **데이터 다양성 증가:** 학습 데이터의 부족으로 인한 과적합을 줄이고 모델의 일반화 성능을 향상시킵니다.\n*   **낮은 자원 언어 지원:** 데이터가 부족한 언어 쌍의 번역 품질을 개선하는 데 매우 효과적입니다.\n*   **견고성 향상:** 다양한 문장 변형에 모델이 더 강건하게 반응하도록 돕습니다.\n\n**단점/위험성:**\n*   **노이즈 및 오류 유입:** 역번역(Back-translation) 등 증강 기법 자체의 오류나 부자연스러운 번역으로 인해 잘못된 학습이 이루어질 수 있습니다.\n*   **원래 분포 왜곡:** 증강된 데이터의 품질이 낮거나 특정 패턴에 편향될 경우, 원본 데이터의 자연스러운 언어적 분포를 왜곡하여 모델의 성능을 저해할 수 있습니다.\n*   **계산 비용 증가:** 데이터 양이 늘어남에 따라 모델 학습 시간이 길어집니다.\n*   **정보 손실 또는 중복:** 단순히 유사한 데이터를 대량 생성하여 실제 새로운 정보 학습 없이 계산만 늘릴 수 있습니다.\n\n따라서 번역 모델에서 데이터 증강은 매우 강력하고 유용한 기법이지만, 생성된 데이터의 품질을 검증하고 원래 데이터의 언어적 특성을 해치지 않는 범위 내에서 신중하게 적용해야 합니다.",
+        "course": "bot_common",
+        "generation": "8",
+        "date": "2025-10-20",
+        "score": 0.18718913636854298
+      }
+    ]
+  },
+  "optimizer 선택 기준": {
+    "total_results": 14,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "상준님 질문듣고 seed 탐색에 대해 처음 생각해보게 되었는데,\n처음엔 짧게 짧게 실험을 돌려가며 초반 성능이 좋은 seed를 찾으면 될 것 이라고 막연하게만 생각했습니다. 근데 그래프를 보다 보니 .... loss만으로 seed의 우월성을 판별할 수 있을까? 라는 생각도 드네요. 초반에 local minimum 근처에서 학습이 진행되서 빨리 수렴하는거 일수도 있을 것 같아요. 흠.. 상준님 실험 결과대로 분명 좋은 seed는 존재하는데 이걸 찾는다는 건 정말 어려운 문제네요!!!!",
+        "answer": "저도 그 세계가 약간 궁금해지네요ㅋㅋㅋㅋㅋㅋㅋㅋ 알게 되는 것들이 있으면 공유해드리겠습니다 ㅎㅎ",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-12-08",
+        "score": 0.5289613
+      },
+      {
+        "rank": 2,
+        "question": "```trainer.train(train_loader, hyperparams[\"EPOCHS\"], val_dataloader=val_loader)\nloss, f1_score, acc_percent = trainer.test(model, test_dataloader=val_loader)\nparams_nums = count_model_params(model)\n\nmodel_info(model, verbose=True)\n\nreturn f1_score, params_nums, mean_time```\ntune.py의 objective에서 학습이 끝나면 `trainer.test` 를 통해서 얻은 f1_score를 반환하는데요. 이 때 얻는 f1_score는 마지막 epoch의 모델의 점수인데, 마지막 모델의 성능이 최고는 아니기 때문에 사실상 `trainer.train` 을 통해 얻은 best_f1 을 반환해야 맞지 않나 생각이 들어서요. 혹시 다른분들은 어떻게 생각하시나요?",
+        "answer": "좋은 아이디어네요! 저도 충분히 고민해 봐야겠습니다\n\n AutoML을 돌리는 경우는 한정된 자원에서 최고의 성능을 얻을 수 있는 hyper parameter를 찾는 과정이기 때문에 주로 모델의 information capacity를 낮추는 방향으로 진행이 됩니다. 원하는 문제를 풀어내는데 집중하도록 하는 것이라고 생각하는데요 그래서 학습 과정을 나타내는 지표들의 커브를 보면 크고 넉넉한 모델들의 커브보다 훨씬 noisy한 것을 볼 수 있었습니다.\n 이 말은 결국 valid data에 대해서 성능이 높은 모델을 뽑아도 test되는 상황에서의 성능은 여전히 (충분히 좁은 범위에서)불확실하다는 것으로 보여집니다. 특히나 validation이 최고 점수를 보인 특정 지점을 인위적으로 골라낸다면 모델이 validation에 대해서 overfitting되어있거나 약하게 bias되어 있을 가능성도 무시할 수 없을 것 같습니다.\n 따라서 어느 정도 학습이 진행되고 train data에 overfitting 되지 않은 상태에서는 무작위로 선택된 모델들이 model size - metric score평면에서 어떤 군집을 이루는지 관찰하는 관점으로 접근하는게 맞지 않을까 생각이 되네요. 이런 관점으로는 반드시 best score 기준으로 search를 진행할 필요는 없어 보입니다. early terminate 기법들도 역시 이런 관점에서 진행이 된다고 이해하고 있습니다.",
+        "course": "level3_model_optimization",
+        "generation": "2",
+        "date": "2021-11-30",
+        "score": 0.54369783
+      },
+      {
+        "rank": 3,
+        "question": "급하게 질문 드립니다. 오늘 컴피티션 마감은 제출 시각 기준인가요? 인퍼런스 완료 시각 기준인가요?",
+        "answer": "근데, 최종점수 2개 선택은 7시 이후에 가능한가요? 채점은 되나 최종 제출로 선택은 안되는 건가요?",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-12-15",
+        "score": 0.4853268490007886
+      },
+      {
+        "rank": 4,
+        "question": "급하게 질문 드립니다. 오늘 컴피티션 마감은 제출 시각 기준인가요? 인퍼런스 완료 시각 기준인가요?",
+        "answer": "<@U041HMZ7PHR> 7시 이후 선택은 어렵습니다 :smiling_face_with_tear:",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-12-15",
+        "score": 0.191924782364517
+      },
+      {
+        "rank": 5,
+        "question": "선택한 부분에서 PATH_SUFFIXES 수정해서 맞춰주시면 해결될거예요",
+        "answer": "mmdeploy@v1.0.0rc1 기준인데, 아마 다른 버전도 같은 증상이 있을겁니당..",
+        "course": "level3_common",
+        "generation": "4",
+        "date": "2023-02-04",
+        "score": 0.11413896625571499
+      }
+    ]
+  },
+  "학습률 설정 방법": {
+    "total_results": 13,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "혹시 lr_config에 'CosineAnnealing'과 같은 다른 scheudler 사용해보신 분 계실까요? 튜토리얼 그대로 해봤는데 적용이 안되네요...?",
+        "answer": "사진과 같이 튜토리얼에 써있는 그대로 시도해보는 중인데 잘 안되서요..! 말씀해부분을 제가 잘 이해를 못해서 그런데 혹시 조금 더 자세히 설명해주실수 있나요?",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-11-28",
+        "score": 0.6710175
+      },
+      {
+        "rank": 2,
+        "question": "[기본과제 2 문제5 관련 질문]\n다중선형회귀 모형을 학습하는 코드에서 model.train()의 설명이 '학습을 위해 모델이 gradient를 저장하도록 설정' 이라고 되어 있습니다.\n그런데 좀 더 찾아보니, model.train()의 역할이 '학습 모드를 설정하여 정규화 기법들이 동작되게 하고 gradient 계산을 가능하게 하는 역할'이라고 설명되어 있었습니다. 그럼 model.train()이 모델이 gradient를 저장하도록 설정한다는 말을 'gradient를 계산하기 위해 gradient를 저장한다'라고 이해해도 될까요?",
+        "answer": "저도 '학습을 위해 모델이 gradient를 저장하도록 설정'이라는 설명은 잘못된 것 같습니다.\n찾아봤을 때 gradient 계산과는 무관한 메소드 같습니다.",
+        "course": "core_common",
+        "generation": "8",
+        "date": "2025-09-03",
+        "score": 0.036288214927991065
+      },
+      {
+        "rank": 3,
+        "question": "[5주차 미션]\n 학습 코드 내에서는 forget_bias가 forget gate에 더해지는 bias인 b_f에 일정한 숫자를 곱하는 방식으로 작성되고 있습니다. 그래서 학습 코드에서는 b_f에 5를 곱하는 방식으로 설정되어있음을 추가로 확인했습니다.\n 이는 forget bias를 1로 설정한다는 것이 forget gate 내의 sigmoid를 거친 값이 1에 가까워지도록 설정한다는 의미로 받아들여도 될까요?",
+        "answer": "print에서는 forget_bias 설정 따라가는것 같아요!\n\n의도는 forget gate를 1에 가깝게 만든다는 것 같은데 bias로 쓰여있어서 오타로 이해했습니다. 실제로 1로 학습하면 0과 비슷하네요.",
+        "course": "core_common",
+        "generation": "8",
+        "date": "2025-10-09",
+        "score": 0.02784945441020258
+      },
+      {
+        "rank": 4,
+        "question": "안녕하세요 NLP 9조 MnM의 이재학입니다.\nlearning rate scheduler 관련하여 질문드립니다!\n현재 베이스라인코드의 learning rate는 epoch에 따라 감소세가 다릅니다! 밑의 왼쪽 완디비 그래프를 보시면 참고가 가능하고, 저는 이를 해결하고 싶어서  lr_scheduler를 조정하고 있습니다. 제가 해본 방법은\n• base lr과 epoch에 따른 기울기를 구한 후 직접 대입하여 polynomial_decay의 lr_end를 조정하여 하는 방법\n• num_training_steps를 실제 epoch보다 작게 준 후, epoch3까지는 동일하게 하고 epoch 4~5에서는 lr_end의 값으로 학습 시키는 방법\n을 사용했습니다. 동일실험의 결과 재현 및 파라미터 튜닝을 목적으로 하고 있지만, 부족한 실력으로 궁금증이 해결되지 않아서, 혹시 저와 같은 고민을 하고 계신 캠퍼분들이 계실까 해서 질문드립니다!",
+        "answer": "안녕하세용 재학님! 제 생각에 재학님처럼 수정하시는 것도 충분히 맞는 방법인 것 같아요. 아마 이미 보셧을 것 같긴한데,  <https://github.com/huggingface/transformers/blob/31ec2cb2badfbdd4c1ac9c6c9b8a74e974984206/src/transformers/optimization.py#L173|huggingface에서 정의>한 `get_polynomial_decay_schedule_with_warmup` 함수를 원하시는 값으로 작동 가능하게 새로 수정하셔서 사용하셔도 될 것 같아요. 해당 함수에서 실제로 LR을 컨트롤 하는 클래스 <https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.LambdaLR.html|LambdaLR>를 반환하는데요.\n기울기가 달라지는 이유가 위 함수의 인자값(optimizer, num_warmup_steps, num_training_steps, lr_end, power, last_epoch) 에 따라서, <https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.LambdaLR.html|LambdaLR>에 인자로 들어가는 lr_lambda 함수(현재 step과 end step을 이용해서 매번 얼만큼 decaying 할지 정의하는 함수)와 last_epoch 이 달라지기 때문이라서 kwargs로 넘겨주실 때 3*len(train_dataset)//8, 1e-20처럼 하드 코딩하셔도 될 것 같아요! (근데 하드코딩하면 나중에 여러개 실험돌리다가 그거 수정한걸 까먹기도 하더라구요..ㅠㅠ)\n\n전 epoch 다르게 줄 때마다 lr 바뀌긴 하지만.. lr이 심지어 중요하지만.. 약간 귀찮아서..그걸 건드리려곤 안했는데, 덕분에 한번 더 찾아보게됐네용 :slightly_smiling_face: 감사합니당",
+        "course": "level2_nlp",
+        "generation": "3",
+        "date": "2022-05-05",
+        "score": 0.65915483
+      },
+      {
+        "rank": 5,
+        "question": "[5주차 미션]\n 학습 코드 내에서는 forget_bias가 forget gate에 더해지는 bias인 b_f에 일정한 숫자를 곱하는 방식으로 작성되고 있습니다. 그래서 학습 코드에서는 b_f에 5를 곱하는 방식으로 설정되어있음을 추가로 확인했습니다.\n 이는 forget bias를 1로 설정한다는 것이 forget gate 내의 sigmoid를 거친 값이 1에 가까워지도록 설정한다는 의미로 받아들여도 될까요?",
+        "answer": "그러게요 default는 1로 되어있는데 학습은 5로 하네요",
+        "course": "core_common",
+        "generation": "8",
+        "date": "2025-10-09",
+        "score": 0.02726060393595657
+      }
+    ]
+  },
+  "PyTorch 설치 오류 해결": {
+    "total_results": 13,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "```ModuleNotFoundError: No module named \"torch.fx\"```\n혹시 제출하고 에로로그에 위의 에러 뜨신분있나요...?",
+        "answer": "동일한 에러 발생해서, 서버 다시 만들었습니다",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-12-14",
+        "score": 0.6852685
+      },
+      {
+        "rank": 2,
+        "question": "detection 가상환경에서 계속 오류가 발생합니다..\nalbumentations  업데이트도 해보고\nfrom albumentations.pytorch.trasforms import ToTensorV2로 변경을 해보았는데도\n동일한 오류가 계속 발생하는데 혹시 해결 방법 아시는 분 계신가요?",
+        "answer": "pip install -U albumentations 로 설치해서 해결했습니다. (U : 최신버젼으로 설치)",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-11-18",
+        "score": 0.3604074570641809
+      },
+      {
+        "rank": 3,
+        "question": "저희 조도 같은 문제를 겪고 있습니다. mmcv-full==1.7.0 설치 중에 EnvironmentError('CUDA_HOME environment variable is not set. ' 오류가 납니다.\nstackoverflow보고 cudatoolkit-dev 설치를 시도했는데 서버가 종료되었습니다. (<https://stackoverflow.com/questions/52731782/get-cuda-home-environment-path-pytorch>)",
+        "answer": "네 그래서 쿠다 설치 없이 해결하는 방법을 알아봐야할 것 같습니다...저희 팀도 라이트닝 설치를 해야하는 상황인데 쿠다가 같이 깔려서 문제네요",
+        "course": "level2_cv",
+        "generation": "7",
+        "date": "2024-09-30",
+        "score": 0.13365715604241626
+      },
+      {
+        "rank": 4,
+        "question": "[Pytorch] Overview의\n(퀴즈) Pythorch 진단하기 페이지에 아무것도 뜨지 않습니다.\n아래 다른 퀴즈 관련 페이지들도 마찬가지입니다.",
+        "answer": "팝업차단 문제였습니다. 해결했습니다!",
+        "course": "core_common",
+        "generation": "8",
+        "date": "2025-08-31",
+        "score": 0.6680581
+      },
+      {
+        "rank": 5,
+        "question": "혹시 cannot import name 'ToTensorV2' from 'albumentations.pytorch' 에러 겪으신 분 계신가요? 인퍼런스에서는 오류안뜨는데 트레인에선 뜨네요(이부준도 왜그런지 궁금하네요..)\n\n구글링해서 나오는 !pip install albumentations==0.4.6 답변은 해봤는데 해결이 안됩니다 ㅜ.ㅜ\n혹시 이 이슈를 겪고 해결하신 캠퍼분이 계실까요?",
+        "answer": "혹시 설치후 커널 restart 해보셨을까요?",
+        "course": "level2_cv",
+        "generation": "3",
+        "date": "2022-03-24",
+        "score": 0.0352771540321734
+      }
+    ]
+  },
+  "배치 크기 튜닝 팁": {
+    "total_results": 13,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "EAST 논문에서 다음과 같은 구절이 있는데, 학습할 때, 512x512로 crop 한다는게 이해가 가지 않아서 제가 잘못 이해하고있나 궁금해서 글 올립니다… ㅠㅠ\n1. 속력을 올리기위해 512 512로 crop해서 24를 minibatch 사이즈로 만들었다고 하는데, 기존 이미지를 1024x1024로 가정한다면 crop하지 않고 minibatch 사이즈를 6으로 해도 같은 성능을 내지 않을까 싶은데 굳이 crop하는 이유가 궁금합니다.\n2. crop 과정에서 중간에 글자 손실이 생길수도 있으니 크리티컬한 문제라고 보는데 crop한다는게 논문에 training 부분에서만 언급이 되어있어서, (이런부분이 문제가 없을지) 잘 갈피를 못 잡겠네요",
+        "answer": "아하~ 감사합니다!! :man-gesturing-ok::+1:",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-12-08",
+        "score": 0.5901838
+      },
+      {
+        "rank": 2,
+        "question": "안녕하세요 NLP 1조 홍성균입니다.\n지금 베이스라인 코드에 예측을 배치단위로 하지 않고 있는데 코드를 좀 바꿔서 배치단위로 예측하게 하는 정도로는 수정해도 될까요?\n예측이 좀 오래걸려서요..!",
+        "answer": "안녕하세요 <@U07EFHB86HZ> 님!\n베이스라인 코드를 변경하되, 이전과 동일한 결과를 나타내야 합니다.\n즉, 제출 시 기존 baseline 코드를 제출하고, 사용 시에 동일한 결과를 나타내도록 코드를 변경하면 됩니다.",
+        "course": "level2_nlp",
+        "generation": "7",
+        "date": "2024-11-05",
+        "score": 0.57850575
+      },
+      {
+        "rank": 3,
+        "question": "<@U098C3KRB8U> 미니배치 경사하강법이 배치 경사하강법보다 빠르다고 배워왔는데, 실제 코드를 실행해보니 미니배치가 훨씬 더 많은 시간이 걸렸어. 5000개의 데이터를 가진 데이터셋에서 10개의 사이즈를 가진 미니배치를 사용하니 500번의 학습을 진행해야 해서 에포크마다 학습을 하는 시간이 훨씬 많이 걸리는데 이게 정상인건가?",
+        "answer": "<@U09CH820HNF> 네, 겪으신 현상은 정상입니다.\n\n미니배치 경사하강법이 배치 경사하강법보다 일반적으로 빠르다고 하는 것은 전체 학습 과정(여러 에포크)에서 더 빠르게 수렴하거나, 대규모 데이터셋 처리 시 메모리/연산 효율성이 좋기 때문입니다. 즉, 전체 학습을 완료하는 데 필요한 에포크 수가 적거나, 대용량 데이터셋 처리 가능성 측면에서 우위에 있다는 의미입니다.\n\n하지만 단일 에포크 기준으로 보면, 배치 경사하강법은 전체 데이터를 한 번에 처리하므로 업데이트 및 관련 오버헤드(데이터 로딩, GPU/CPU 통신 등)가 한 번만 발생합니다. 반면, 미니배치 경사하강법은 각 미니배치마다 모델 업데이트와 오버헤드가 반복됩니다. 5000개 데이터셋에서 10개 배치 사이즈면 500번의 업데이트와 오버헤드가 발생하므로, 단일 에포크의 총 소요 시간은 배치 경사하강법보다 길어질 수 있습니다.\n\n특히 데이터셋 크기가 5000개처럼 비교적 작을 때는 배치 경사하강법이 메모리에 효율적으로 적재되어 한 번에 빠르게 처리되므로, 미니배치의 반복적인 오버헤드가 상대적으로 더 크게 느껴질 수 있습니다. 미니배치의 진정한 이점은 데이터셋이 매우 커서 배치 경사하강법으로는 메모리에 올릴 수 없거나, 지역 최저점에서 벗어나 더 나은 최적점을 찾는 능력 등에서 두드러집니다.",
+        "course": "bot_common",
+        "generation": "8",
+        "date": "2025-09-09",
+        "score": 0.11299652785496563
+      },
+      {
+        "rank": 4,
+        "question": "[AI Math 7강 &amp; 8강]\n여기서 1/n은 어떻게 나오는 건가요? 뒤에 mini-batch SGD에서도 1/b로 나누는게 나오는데 L2 norm이나 경사하강법을 계산할때 필요한 것도 아닌것 같아서요. 학습률을 조정하기 위해서인가요?",
+        "answer": "노찬민 캠퍼님 안녕하세요 !\n\n캠퍼님께서 질문 주신대로 수학적으로 최적점의 위치를 바꾸지는 않지만 손실함수의 일반화와, 안정적인 학습을 위해서 1/n (또는 mini-batch의 1/b)는 반드시 필요합니다 :)\n\n사진상의 식에서 1/n 항을 제외하게 되면 SSE(오차제곱합)의 식이 됩니다. 만약 1/n 없이 SSE를 사용하면, loss 값은 데이터 개수 n에 정비례하여 커지는데요, 다음의 예시를 들어보겠습니다.\n• 데이터 100개일 때 SSE = 50\n• 데이터 1,000,000개일 때 SSE = 500,000\n이렇게 되면 데이터셋의 크기가 달라질 때마다 손실 값의 스케일이 크게 달라져 모델의 성능을 객관적으로 비교하기가 어렵습니다.\n하지만 1/n으로 나누어 MSE를 사용하면 '데이터 1개당 평균적인 오차'를 계산하게 되므로, 데이터셋의 크기에 상관없이 일관된 기준으로 모델의 성능을 평가하고 비교할 수 있습니다.\n\n이런 점은 캠퍼님께서 언급해주신 학습률과도 연관이 됩니다 !\nSSE를 미분하면 위에서 언급했던것처럼 그래디언트의 값이 점점 커져서 업데이트 폭이 너무 커지고, 결국 학습이 발산(diverge)해버릴 수 있습니다. 1/n으로 나눠줌으로써 그래디언트의 크기를 데이터 개수와 무관하게 만들어주기 때문에, 데이터셋 크기가 바뀌더라도 비교적 일관된 학습률을 사용할 수 있습니다!\n\nMini-batch SGD에서 배치 크기 b로 나누는 것도 같은 원리로 이해해주시면 됩니다! 배치마다 데이터 개수가 b개이므로, 그 배치의 '평균' 오차를 구하기 위해 1/b를 곱해주는 것입니다!\n\n질문주셔서 감사합니다 :relaxed:",
+        "course": "core_common",
+        "generation": "8",
+        "date": "2025-09-08",
+        "score": 0.07655755116568519
+      },
+      {
+        "rank": 5,
+        "question": "<#C07PLBCCUUA|level2_nlp질의응답>\n*[대회 관련 공지]*\n\n안녕하세요. NLP 캠퍼 여러분! Data-Centric NLP 주제분류 대회 관련 오피스아워에서 받은 질문들 중 일부 질문에 대해 명확히 하기위해서 다시한번 공지를 드립니다!!\n\n• *혹시 learning-rate는 batch size에 따라 조절이 가능한걸까요?*\n*=&gt; 이부분은 지난 기수에는 불가능하다고 공지가 나갔으며 이번 오피스 아워때도 동일하게 말씀드렸습니다. 조교분들과 상의해본 결과, learning rate 인자의 변경은 가능하다고 판단을 내렸습니다.*\n실제로 여러 논문들과 특히 데이터 증강과 관련된 문헌들을 보면, 배치 사이즈가 증가 혹은 데이터의 증가에 learning rate의 변화는 필수적으로 여겨집니다. 따라서 learning rate의 변경은 제한을 해제하도록하겠습니다!! 혼선을 드려 죄송합니다.\n\n\n• *외부 데이터셋 사용이 전체 과정에서 금지인지 질문드립니다.  라벨 교정/텍스트 복구 등의 도구로써 중간 전처리 파이프라인에서 오픈소스 LLM을 파인튜닝하려 할 때에도 외부 데이터셋을 사용할 수 없나요?*\n*=&gt; 외부 데이터셋의 사용은 어떤 경우에도 금지합니다. 따라서 중간 파이프라인에서의 사용 또한 금합니다. LLM을 튜닝하시는 경우에도 마찬가지로 기존에 제공된 학습 데이터를 사용하시거나, 혹은 증강하실 경우 해당 학습데이터를 기반으로 증강해서 학습이 이루어져야합니다.*\n\n이외에도 대회 룰관련해서 다른 질문이 있으시면 질의응답 채널에 남겨주시면 빠르게 답변드리도록 하겠습니다!!!:))",
+        "answer": "그렇다면 실제로 데이터를 크롤링해서 데이터를 만들어서 학습하는 것도 안되는 건가요?",
+        "course": "level2_nlp",
+        "generation": "7",
+        "date": "2024-10-28",
+        "score": 0.07491943940084395
+      }
+    ]
+  },
+  "모델 overfitting 방지": {
+    "total_results": 15,
+    "top5": [
+      {
+        "rank": 1,
+        "question": "[기본과제-2 마지막 코드 관련]\n코드 맨 마지막에서 여전히 \"전처리 중에 누수가 있습니다.\"가 출력되서 고민이신 분들에게 이 글이 도움이 되면 좋겠습니다. 저도 아직 모르는 게 많아서.. 혹시 다른 방법으로 해결하신 분이 계시다면 피드백 해주면 감사하겠습니다.\n\n우선 다운받은 기본과제-2 코드에선 맨 마지막 코드의 출력물이 이렇게 나와있습니다.\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 없습니다.\n0.9839```\n하지만 저는 위처럼 나오지 않더군요.. 아래처럼 나왔습니다.\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 있습니다. (<- 이 부분이 달라요)\n0.9839```\n누수를 탐지하고 해당 누수를 고치는 게 해당 과제의 목적이라고 생각했는데, 맨 마지막 코드(train_eval_pipeline 함수)에선 누수만 탐지하고 이를 수정하는 코드가 없는 것 같았습니다. 그래서 저는 아래 코드를 train_eval_pipeline 함수 안에 추가해줬습니다.\n\n```for feature in leaky_features:\n    num_cols.remove(feature)```\nleaky_features는 누수가 의심되는 피쳐고, num_cols는 학습 피쳐입니다. 한마디로 학습 피쳐에서 누수가 의심되는 피쳐를 제거해줬어요. 그리고 다시 학습을 수행해 아래와 같은 결과를 얻었습니다.\n\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 없습니다.\n0.8941```\nAUC-ROC 점수는 떨어졌지만 (누수가 되는 피쳐를 제거했으니 당연한 결과일까요..?) 원하던 대로 '전처리 중 누수가 없습니다.' 라는 결과를 얻을 수 있었습니다. 혹시 맨마지막 코드의 출력이 생각대로 나오지 않아 고민이신 분들께 이 글이 도움이 되었으면 좋겠습니다. 이상입니다.\n\n*추가)* 아 그리고..!! 코드에서 pandas.DataFrame.var 메소드를 사용하신다면 ddof=0로 설정하는 게 좋으실 것 같습니다. 분산을 계산할 때 N으로 나누는 경우하고 N-1로 나누는 경우가 있는데, StandardScaler는 N으로 나누는 것 같더라고요. 그래서 pandas.DataFrame.var 메소드가 N으로 나눈 분산을 내놓도록 ddof 옵션을 0으로 설정하면 좋을 것 같습니다.\n\nQ. ddof=0로 설정 안하면 어떻게 되나요?\nA. 아래처럼 출력되실 거에요\n```중복된 샘플이 존재해 누수가 있습니다.\n누수가 의심되는 피처가 존재합니다: ['total_coupon_usage_count']\n전처리 중에 누수가 있습니다. (<- 여전히 누수가 있다고 떠요)\n0.8941```\nN으로 나눠서 얻은 분산과 N-1로 나눠서 얻은 분산 사이에 값 차이가 생각보다 있고, 이 오차(대략 1e-3~1e-4)가 np.allclose에서 허용하는 절대오차(1e-08)을 넘어설 정도라서.. check_scaler_fitted_on_train_only 함수가 False를 반환할 거에요. 그래서 \"전처리 중에 누수가 있습니다.\"가 뜨는 것 같습니다. 그러니 ddof=0으로 설정하시는 거 잊지 마세요..!",
+        "answer": "<@U09CH7U429H> 아..! 누수 의심 피처를 삭제하지 않고 학습을 진행하면 '전처리 중에 누수가 없습니다.'랑 'AUC=0.9839' 라는 출력이 같이 나올 수가 있네요..?? 이건 생각 못했습니다.. 덕분에 저도 다운 받은 코드와 같은 출력을 얻을 수 있었습니다. 또한 다시 생각해보니.. 누수 의심 피처를 삭제하는 건 그저 제 개인적인 생각이었던 것 같습니다. 누수 의심 피처를 삭제하는 게 올바른 방식인지 다시 한번 검토해보겠습니다. 알려주셔서 감사합니다!!",
+        "course": "core_common",
+        "generation": "8",
+        "date": "2025-10-21",
+        "score": 0.571627
+      },
+      {
+        "rank": 2,
+        "question": "안녕하세요! 2조 오한별입니다.:cool-doge:\n오늘 6시 디스커션에서 다들 실패한 경험:smiling_face_with_tear:도 올려도 된다고 하셔서..\n용기를 얻고 이번 대회 때 제가 해봤던 모든 실패한 경험들 여기에 한번 올려봅니다!\n실패경험!!!이기 때문에 모두 쓰이지 않은 방법들입니다..ㅎㅎ\n왜 쓰게 되었는지 + 결과 + 실패 이유(:brain:뇌피셜)를 써봤습니다.\n\n*1. Grayscale* \n- 색깔 정보도 활용해서 분류하는 것 같았는데, 오히려 색깔 때문에 헷갈려하는 경우도 있었음\n(ex. 종이박스 - 마른 풀, 쓰레기 봉투 - 파란 물체)\n- 따라서 grayscale augmentation probability = 0.5를 주어서 색깔이 없는 사진도 보여준다면 물체의 모양만으로도 물체를 구별할 수 있게되어 색깔 때문에 헷갈리지 않을 것이라고 생각\n&gt;&gt;&gt; YOLOv7, 40 epoch, mAP 0.297\n&gt;&gt;&gt; 색 정보를 물체 분류에 많이 사용하기 때문에 성능이 많이 떨어진 것이라 판단\n\n*2. Sharpening/Sobel filtering/CLAHE* \n- general trash와 background를 헷갈려함\n- 대조를 높여주거나, 테두리를 더 선명하게 해주면 Background와 쓰레기를 더 잘 구분할 수 있을 것이라고 생각\n- Pre-processing으로 모든 사진을 sharpening/sobel filtering/CLAHE 적용\n&gt;&gt;&gt; YOLOv7, 40 epoch, mAP 0.133/0.408/0.559\n&gt;&gt;&gt; filtering으로 인해 물체와 background와의 구분 뿐만이 아니라, background에 있는 물체와 texture도 함께 도드라지기 때문에 오히려 background 물체와 더 헷갈려서 성능이 떨어지거나 큰 성능 변화는 없던 것으로 보임\n\n*3. Affirmative ensemble* \n- Ensemble하는 모든 모델의 box들을 다 합치고, 나중에 NMS를 진행하는 방식\n- WBF에서 skip box threshold로 인해 없어지는 box로 놓칠 수 있는 bbox를 affirmative ensemble에서 잡을 수도 있다고 생각해서 시도\n&gt;&gt;&gt; Swin Large K-Fold 5개, IoU 0.5, mAP 0.6679\n&gt;&gt;&gt; WBF ensemble보다 mAP score가 낮아짐. Skip box threshold가 없어진만큼 False Positive가 많아졌기 때문인 것 같음.\n\n*4. Best AP score ensemble* (제가 지은 이름입니다)\n- 여러 모델을 훈련 시키면 훈련 이후 class별 AP score가 출력됨. 각 모델을 inference를 시키고, 각 class별로 AP score가 최대인 모델의 inference를 모아서 하나의 inference file을 ensemble 시키는 방식\n- 각 class별로 가장 잘 분류하는 모델의 inference를 모은 것이기 때문에 mAP 점수가 높을 것이라고 생각\n&gt;&gt;&gt; Swin Large K-Fold 5개, IoU 0.5, mAP 0.6268\n&gt;&gt;&gt; WBF ensemble보다 mAP score가 낮아짐. Train 단에서의 AP score일 뿐이기 때문에 test에서의 inference와는 관련이 없던 것 같음.\n\n*5. Specific label training ensemble* \n- 각각의 label을 한 개 혹은 몇 개씩만 집중하여 훈련시키고 10개를 모두 훈련시킨 모델과 합친다면 mAP가 오를 것이라고 생각\n- general trash &amp; paper pack &amp; styrofoam &amp; clothing only -&gt; YOLOv7 epoch 300 mAP 0.771\n&gt;&gt;&gt; 10개 label YOLOv7 mAP 0.6686과 WBF ensemble, mAP 0.6418\n&gt;&gt;&gt; label 몇 개만 훈련 시키면 그 label들은 잘 알지언정 다른 label들과는 구별을 못해서 전체적인 성능이 떨어지는 것 같았음\n\n*6. Data Augmentation* \n- 대부분의 deep learning 문제에서 dataset의 수를 늘리면 성능이 올라가기 때문에, object detection에서도 data 수가 문제일 수 있겠다고 생각.\n- random한 사진 A의 bbox를 잘라내서 random한 사진 B에 붙여 새로운 사진 C 4000장을 만들었음\n- 또한 general trash인데 background라고 판단하는 경우가 매우 많았기 때문에 background 사진을 따로 augment할 필요를 느꼈음\n- bbox가 있는 부분을 잘라내고 사진의 평균 값으로 채워 넣어 label이 없는 배경 사진 dataset 1000장을 만들었음\n&gt;&gt;&gt; YOLOv7, 70 epoch, mAP 0.5677\n&gt;&gt;&gt; 새로운 물체나 배경이 아니기 때문에 성능 향상이 없던 것으로 생각됨\n\n\n긴 글 읽어주셔서 감사합니다.....\n혹시 이랬으면 성공했을 것 같다!! 의견 주시면 감사하겠습니다!\n대회 3주 달리시느라 다들 수고 하셨습니당\n오늘 축구:soccer: 재밌게 보시고 주말 따뜻하게 보내세요~!:wobbuffet:",
+        "answer": "와, 내용 공유해주셔서 감사합니다!\n6시에 참석하시진 못해서 아쉽네요.\n그리고 저는 실패에서 더 많이 배울 수 있다고 생각합니다!",
+        "course": "level2_cv",
+        "generation": "4",
+        "date": "2022-12-02",
+        "score": 0.56516045
+      },
+      {
+        "rank": 3,
+        "question": "VGG과제에서 model.train()을 dataloader for loop안으로 넣어야 뒤에서 model.eval() 한 후에 되돌아갈 수 있을 것 같습니다! model.eval, model.train을 지정하는 이유는 dropout, batchnorm이 train, inference시에 각각 다르게 적용되어야하기 때문인데, 모델에 dropout이 있습니다. 혹시 둘 사이에 acc차이가 있을까하여 찍어봤더니 model.train을 정상적으로 해준 경우 val_acc가 초기부터 잘나오는 것이 보입니다! 근데 최종 acc는 model.train()을 잘못한 경우가 더 높네요..ㅎㅎ 1에폭이라 운이 좋아그런걸까요..?ㅎㅎ (아래 사진은 20 iteration마다의 val_acc입니다. 1번사진: 정상적, 2번사진:잘못한것)",
+        "answer": "저는 if 문이 끝나는 부분에서 해주었는데 이것도 하나의 방법일 것 같습니다.\n 그리고 dropout의 경우 임의로 subsample된 모델을 train하고 test phase 에서는 모든 노드를 사용해서 inference 하기 때문에 작은 모델들의 앙상블의 효과를 가져온다고 이해하고 있습니다. 이렇게 작은 모델들을 훈련하여 앙상블을 했을 때는 모델의 복잡도가 데이터의 복잡도 보다 높아 overfitting되는 것을 방지할 수 있게 되지만 반드시 최고의 성능을 보장할 수는 없는 것으로 알고 있습니다. subsample된 모델의 성능이 더 좋은 것은 이런 이유가 아닐까 합니다.",
+        "course": "level2_cv",
+        "generation": "2",
+        "date": "2021-09-07",
+        "score": 0.79209307861675
+      },
+      {
+        "rank": 4,
+        "question": "<@U063QNXGZFU> <@U064DNPTK16> <@U063QNW2PU2> 궁금하신거 여기에 남겨볼까요?",
+        "answer": "오류 발생하지 않도록, train_model 선언시 False로 지정해두었습니다",
+        "course": "level3_common",
+        "generation": "6",
+        "date": "2024-02-28",
+        "score": 0.62829626
+      },
+      {
+        "rank": 5,
+        "question": "<@U098C3KRB8U> model의 test 과정에서 사용하는 model.eval() 과 with <http://torch.no|torch.no>_grad() 에 대해, 그 차이점을 중심으로 알려줘",
+        "answer": "<@U09CH83CMBM> `model.eval()`과 `with torch.no_grad()`는 모델의 테스트 과정에서 사용되지만, 목적과 기능이 다릅니다.\n\n1.  **`model.eval()`**:\n    *   **목적**: 모델을 평가(evaluation) 모드로 전환합니다.\n    *   **작동 방식**: `Dropout` 레이어는 비활성화(확률을 0으로 설정)되어 드롭아웃이 적용되지 않고, `BatchNorm` 레이어는 훈련 시 축적된 running mean과 running variance를 사용하여 통계치를 계산합니다. 이는 훈련 시와 다른 배치 통계로 인해 성능이 저하되는 것을 방지합니다.\n\n2.  **`with torch.no_grad()`**:\n    *   **목적**: 컨텍스트 내부에서 기울기(gradient) 계산을 비활성화합니다.\n    *   **작동 방식**: 이 블록 내에서 수행되는 모든 연산은 기울기를 추적하지 않습니다. 이는 메모리 사용량을 줄이고, 연산 속도를 높이며, 테스트 중에 모델의 가중치가 실수로 업데이트되는 것을 방지합니다.\n\n**차이점**:\n\n*   **영향 대상**:\n    *   `model.eval()`: **모델의 특정 레이어(Dropout, BatchNorm 등)의 동작 방식**을 변경합니다.\n    *   `torch.no_grad()`: **PyTorch의 자동 미분(Autograd) 엔진의 기울기 추적 기능**을 제어합니다.\n\n*   **핵심 기능**:\n    *   `model.eval()`: **정확한 추론 결과**를 얻기 위해 레이어의 동작을 표준화합니다.\n    *   `torch.no_grad()`: **리소스 효율성(메모리, 속도)과 안전성(가중치 업데이트 방지)**을 위해 기울기 계산을 중단합니다.\n\n테스트 시에는 이 두 기능을 함께 사용하는 것이 일반적입니다. `model.eval()`로 모델 동작을 평가 모드에 맞추고, `torch.no_grad()`로 불필요한 기울기 계산을 막아 효율성을 높입니다.",
+        "course": "bot_common",
+        "generation": "8",
+        "date": "2025-09-04",
+        "score": 0.038298202041513636
+      }
+    ]
+  }
+}

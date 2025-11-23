@@ -1,0 +1,227 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "&gt; 이미지 송수신 간격이 짧아지면\n이미지 송수신 간격이 어느 수준으로 짧아지지 않으면, 문제가 없다는 말씀이시죠~?",
+        "user": "U03PVSC77HR",
+        "user_name": "전시흠",
+        "timestamp": "1690270030.259889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "이렇게만 봐서는 뭐가 원인인지 모르겠네요.\n관련 코드를 볼 수 있을까요~?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690270051.010489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이미지 송수신 간격이 짧아지면 반드시 발생했었고, 충분히 긴 상태에서도 간혹 발생하는 것 같습니다.\n관련 코드는 안드로이드의 MainActivity.kt와 server의 python 파일을 모두 보내드리면 될까요?",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1690270353.492309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "GitHub Repo에 코드를 따로 저장하지는 않으시나요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690270399.146739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "최종프로젝트 github는 아직 private 상태라 조교님들이 보지 못하는 상태로 알고 있는데, 혹시 열람 가능하신가요?",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1690270446.400649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위 현상이 AIStage 서버에서만 발생하는지, 다른 데에서도 발생하는지 한번 확인해보시면 좋을거 같습니다.\n서버를 로컬에서 실행시킬 수 있나요? (Docker container로 빌드 후..) 로컬에서 실행시킨 뒤 ngrok으로 외부에 노출시켜서 동일하게 발생하는지 한번 확인해볼 수도 있을거 같습니다",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690270474.852789",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 혹시 열람 가능하신가요?\n아뇨 ㅎㅎ 따로 초대해주시지 않으면 저희가 보지 못합니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690270490.644319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "로컬에서 실행하는 경우와 서버에서 실행하는 경우 두 가지로 모두 실험해보았는데, 로컬과 서버에서 저런 문제가 모두 간혹 발생합니다.",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1690270550.428269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Private Repo에 저를 초대해주실 수 있나요~? 계정은 <mailto:heumsi@gmail.com|heumsi@gmail.com> 로 검색하면 나옵니다 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690270616.872899",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1690270625.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "github repo 초대를 settings에서 manage access에서 한다고 나오는데, github에서 settings 탭이 안 보이는데 혹시 다른 초대 방법이 있을까요?",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1690270879.541179",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; github에서 settings 탭이 안 보이는데\n아하.. 이거는 본인 계정이 Repo Admin 권한이 아니라서 그렇습니다…",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690272297.345379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 코드를 보기 어렵겠네요.\n제 개인적인 추정 및 의견만 드리고 가봅니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690272323.587109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아니면 python 코드랑 MainActivity.kt 파일만 압축해서 DM으로 드려도 될까요?",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1690272593.390889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. 정확히 어디가 Stuck인지 로그 찍어서 한번 확인해보면 좋을거 같습니다. \n    a. `buf = client_sock.recv(1024)` 바로 다음 라인에 로그를 찍어서, 받는 것 자체는 잘 되는지 확인해볼 수 있을거 같습니다.\n    b. 이 쪽이 문제 없다면, 다른 코드 라인에도 로그를 찍어서, 정확히 어느 코드 부분에서 stuck이 발생하는지 범위를 좁혀보세요.\n2. 만약 어느 부분인지 발견했다면, 관련하여 튜닝할 수 있는 파라미터가 있는지 확인해보세요.\n    a. 만약 `buf = client_sock.recv(1024)` 쪽에서 문제가 발생했다면, 내가 놓치고 있는 파라미터는 없는지, python socket library에서 설정해줘야 할 부분은 있는지 확인해보시길 바랍니다.\n    b. 구글링 키워드는 문제 부분 관련 라이브러리 + hang, stuck 위주로 해보시면 될거 같습니다.\n3. 하다가 정 안되겠고, 빨리 동작하게 만들어야한다면, Python socket 라이브러리 쓰지마시고 다른 라이브러리를 시도해보세요.\n    a. FastAPI도 좋고, 실시간 성 속도가 중요하다면, FastAPI Async나 웹소켓 관련 Library를 살펴보셔도 좋습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690272741.565439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 위에서 알려드린 걸 한번 시도해보시고, 안되면 말씀 부탁드립니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1690272832.035859",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U04RCJNA2HL"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 시도해보겠습니다! 답변 감사합니다!",
+          "user": "U04RCJNA2HL",
+          "user_name": "서지훈_T5108",
+          "timestamp": "1690273239.970339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

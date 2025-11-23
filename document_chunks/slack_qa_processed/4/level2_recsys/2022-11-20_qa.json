@@ -1,0 +1,231 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 궁금한게 있어서 질문드립니다.\nDKT 베이스라인 코드를 보면 train.py 에서 setseed로 시드 고정이 42로 들어갑니다.\n그런데 dataloader.py에서도 preprocess class 안의 split_data에서 random seed를 또다시 0으로 고정하고 있습니다.\n이렇게 시드를 다른 값으로 고정해도 되는건가요?ˀ 그리고 시드를 train.py에서 고정했음에도 불구하고 dataloader에서 또다시 시드를 고정하는 이유가 궁금합니다.\n감사합니다.",
+        "user": "U041HMYB8SX",
+        "user_name": "이수경",
+        "timestamp": "1668997472.849249",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U03QKNSJVCY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "음 해당 코드는 cross-validate를 고려하지 않고 고정된 train/valid를 나눠주기 위함이라서 의도대로 시드를 고정하는 건 맞습니다. 만약 seed에 따라 train/valid를 다르게 나누고 싶다면, 해당 부분을 args.seed로 고정해주는 것이 맞습니다. 우려되는 부분이 있다면, 여기서 random의 seed를 0으로 강제 할당하면서 나머지 코드에 영향이 없는지는 확인이 필요하네요. 큰 영향은 없을 것으로 보입니다.\n\n`random` 라이브러리나 `numpy`에서 사용되는 shuffle은 seed를 메소드에서 고정하지 못하고 별도로 고정한 후에 사용됩니다. 여기서 강제할당하기 때문에 재현성에는 큰 문제가 없지만, 혹시 우려가 된다면 `sklearn.utils.shuffle`을 활용하는 것을 추천드립니다 (<https://scikit-learn.org/stable/modules/generated/sklearn.utils.shuffle.html>)",
+          "user": "U03QKNSJVCY",
+          "user_name": null,
+          "timestamp": "1669002770.485039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "DKT 베이스라인 질문입니다.\nself.embedding_interaction 이 부분이 이전 문제를 맞혔는지 틀렸는지에 대한 여부의 feature인것 같은데,\n이 부분을 빼고 학습해보니 성능이 크게 저하됐습니다. (0.7 -&gt; 0.6)\n이 feature가 단순히 이전 문제를 맞았냐 틀렸냐의 여부 말고 혹시 다른 의미를 가지고 있을까요??\n없다면 이 feature가 왜 이렇게 큰 영향을 끼치는지 궁금합니다.\n감사합니다.",
+        "user": "U041HR4UCR0",
+        "user_name": "박경준_T4076",
+        "timestamp": "1669007054.071469",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U03QKNSJVCY",
+                "U041ES2UBHB"
+              ],
+              "count": 2
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U03QKNSJVCY",
+                "U0427G35E4Q",
+                "U041HN1MERH",
+                "U041ES2UBHB"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "논리적인 근거를 대기는 어려울 것 같고, 좋은 feature를 EDA를 통해 ~(운좋게)~ 잘 찾았다고 보는 것이 맞을 것 같습니다. 아직 딥러닝이 feature에 대해서 “어떤 걸 추가했을 때 어떻게 잘 나오는가“라는 일반적인 이론 없이 실험의 영역이기 때문에, 많은 실험을 통해 최적값을 찾아가는 과정이 필요합니다.\n여기에 더불어 바로 직전문제가 아닌 두 개의 문제 히스토리를 제공했을 때 더 좋은 성능이 나오는지도 한 번 확인해보면 좋겠네요 :slightly_smiling_face:",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1669008071.326739",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03QKNSJVCY",
+              "ts": "1669008164.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U041HR4UCR0"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사드립니다.\n두 개의 직전 문제 부분도 테스트 해보겠습니다.~\n:smiley:",
+          "user": "U041HR4UCR0",
+          "user_name": "박경준_T4076",
+          "timestamp": "1669011666.764719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "DKT baseline의 학습 부분에서 input으로 test, question, tag, correct, mask, interaction 이렇게 6개의 feature가 들어가는 것으로 보이는데 correct는 왜 interaction이라는 feature가 있음에도 input으로 함께 들어가는지 이해가 잘 되지 않습니다.",
+        "user": "U0427G35E4Q",
+        "user_name": "민복기",
+        "timestamp": "1669007714.092889",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "두 feature는 다른 feature로 correct는 정답 라벨로 활용됩니다. interaction은 이전문제의 정답을 feature로 활용됩니다. 오피스아워 자료를 참고해보시면 좋을 것 같습니다! 쉽게 설명드리면 n번째 sequence에 대해 correction은 n번째 문제를 맞췄는지에 대한 여부이고, interaction은 n-1번째 문제를 맞췄는가에 대한 여부입니다. 전자는 ground truth, 후자는 학습/추론에 같이 활용되는 feature입니다",
+          "user": "U03QKNSJVCY",
+          "user_name": "조대현",
+          "timestamp": "1669008148.642699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041FE8FKBN",
+                  "U0427G35E4Q"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 설명해주셔서 감사합니다!\n\n설명해 주신 부분은 잘 이해가 되지만 제가 궁금한 부분은 correct는 GT로 사용되기 때문에 input이라는 변수에서 제거되고 5개의 피처만을 사용해서 model의 인풋값으로 들어가야 하는게 아닌가 하는 부분입니다. \n\n하지만 baseline의 코드상에서는 correct라는 피처도 model의 인풋값으로 함께 들어가는 것으로 보여 잘 이해가 되지 않습니다:cry:",
+          "user": "U0427G35E4Q",
+          "user_name": "민복기",
+          "timestamp": "1669009111.742899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "베이스라인으로 제공드린 모델 내부에서는 dummy로 받아서 별도로 활용되지 않습니다!",
+          "user": "U03QKNSJVCY",
+          "user_name": null,
+          "timestamp": "1669009250.718929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0427G35E4Q",
+                  "U041ERYLS6R"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 제가 trainer파일만 보고 forward 부분을 잘 보지 못했네요!\n설명 감사드립니다!!:+1::+1:",
+          "user": "U0427G35E4Q",
+          "user_name": "민복기",
+          "timestamp": "1669009382.693729",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U03QKNSJVCY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

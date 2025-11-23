@@ -1,0 +1,139 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 NLP 13 캠퍼 이준범입니다. 최종 프로젝트를 위해서 전에 주셨던 ncloud 스튜디오 크레딧을 방금 신청했습니다.\n혹시 크레딧은 어떻게, 언제 들어오는 건지 궁금합니다!\n아래는 저번에 공지에 쓰셨던 내용 일부를 참고삼아 가져온 것입니다.\n\n[*클로바 스튜디오 사용을 위한 크레딧 제공]*\n• 엔진 : 무관 (LK-D, LK-D2 제외)\n• 사용한도 : 팀 당 1,000,000토큰\n• 클로바 스튜디오를 사용하기 위해서는 NCloud(<https://www.ncloud.com/>)회원 가입과 ‘서비스 이용하기’ 신청이 필요합니다. (팀 공용으로 사용할 수 있는 계정으로 신청 부탁드립니다.)\n• 신청 폼 : <https://naver.me/FzmriAmb>",
+        "user": "U04RK708CQJ",
+        "user_name": "이준범",
+        "timestamp": "1688618822.194459",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK3E8L3D",
+                "U04R4LUFL9M"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04RK708CQJ>\n이준범 캠퍼님, 안녕하세요!\n해당 내용 마무리 중에 있으며 곧 안내드릴 예정입니다 :slightly_smiling_face:\n\n(참고사항 : 클라우드 스튜디오 관련 내용은 NLP 이슈로 인한 것이며 NLP 트랙 캠퍼에게만 제공될 예정입니다.)",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1688619547.841629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!",
+          "user": "U04RK708CQJ",
+          "user_name": "이준범",
+          "timestamp": "1688619621.164409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[FastAPI 실습 관련 질의]\n안녕하세요. 서버에서 FastAPI 실습을 진행하다가 궁금증이 생겨 문의드립니다!\n제 로컬 환경(Mac OS)에서 서버로 ssh 연결을 한 상황에서 서버에서 8000번 포트로 fastapi를 실행시켰는데 제 로컬 환경에서 <http://localhost:8000/docs에> 접속하니 fastapi의 swagger 문서를 확인할 수 있었습니다. 제 로컬은 서버와 ssh 연결만 되어 있는 상태인데 어떻게 로컬의 8000번 포트와 컨테이너(서버)의 8000번 포트가 매핑되어 있는지 궁금합니다!",
+        "user": "U04S8TC2XS4",
+        "user_name": "윤상원_T5131",
+        "timestamp": "1688623843.852749",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "psyduck_confused",
+              "users": [
+                "U04RMLUN9E0",
+                "U04RK74PNRY",
+                "U04RMLX5HRA",
+                "U04RK72GZT4",
+                "U04RXRT6QGZ"
+              ],
+              "count": 5
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK71PF7C",
+                "U03PVSC77HR"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "해결했습니다! VSCode의 Remote-SSH 익스텐션을 쓰고 있었는데 해당 익스텐션이 포트 포워딩을 해준다고 하네요 <https://stackoverflow.com/questions/70070697/localhost-on-vs-code-ssh-remote-is-accessible-on-local-machine>",
+          "user": "U04S8TC2XS4",
+          "user_name": "윤상원_T5131",
+          "timestamp": "1688626249.303639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RXRZ9UQH",
+                  "U04RMLUN9E0",
+                  "U04R4LY95ST",
+                  "U04R4LX4FMM",
+                  "U04RXRT6QGZ",
+                  "U04R4LWE3RV"
+                ],
+                "count": 6
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U04RXRZ9UQH"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04R4LY95ST",
+                  "U03PVSC77HR",
+                  "U04RXRT6QGZ",
+                  "U04R4LWE3RV",
+                  "U04RK71PF7C"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

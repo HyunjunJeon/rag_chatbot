@@ -1,0 +1,219 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "과제 제출 끝난 김에 궁금해서 글 올립니다!\n혹시 1번 과제 ResNet34 구현에서 직접 만든 scratch 모델이랑 pretrained 모델 성능 비교 하셨을 때 다들 어떻게 나왔나요?\n저는 scratch 쪽이 더 잘나왔었습니다!\n스레드로 남겨주셔도 좋고 이모지로 표현해주셔도 좋습니다!\n:meow_party: : scratch 모델이 좋았다\n:boostcamp-parrot: : Pretrained 모델이 좋았다\n추가적으로 서로 어떻게 구현했는지도 의견 나누어 보고 싶네요!",
+        "user": "U02TCHR3LNS",
+        "user_name": null,
+        "timestamp": "1646926637.567209",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "meow_party",
+              "users": [
+                "U02TCHR3LNS",
+                "U02U7U6V4MQ",
+                "U02TU92GURF",
+                "U02TYM38093",
+                "U02U65KPEJW",
+                "U02TUJV3GBT",
+                "U02TL7LK78F",
+                "U02TG6SPG1H",
+                "U02U2ELNU9Z",
+                "U02TJ0CKVLJ",
+                "U02SJMA8PJS"
+              ],
+              "count": 11
+            },
+            {
+              "name": "boostcamp-parrot",
+              "users": [
+                "U02TCHR3LNS",
+                "U02U00T1T8B",
+                "U02U8G6NKEW",
+                "U02T0SYSCG7",
+                "U02TU536QGZ",
+                "U02THPL8F0C",
+                "U02U56K2848",
+                "U02TLAHPWNB",
+                "U02U26ECDKL",
+                "U02TULKAU65"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "제껀 비슷합니다 ㅎㅎ",
+          "user": "U02TDB0EJJ1",
+          "user_name": null,
+          "timestamp": "1646933750.995809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저가 구현한 Resnet 경우에는 논문 그대로 구현을 해서 Maxpooling을 따로 사용 안하고 1x1 Convolution Layer를 이용한 Downsampling 방법을 사용했었고 Skip Connection 연산을 더해준 다음에 ReLU를 취했었습니다.",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1646959744.012799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TL7LK78F",
+                  "U02TBLB4RHC"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저만 그런 것이 아니었군요 ㅠㅠ 다행(?)인가..",
+          "user": "U02TL7LK78F",
+          "user_name": null,
+          "timestamp": "1646959745.195189",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "구현체에 따라서 조금씩 성능 차이가 있는 듯 하네요",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1646959773.677309",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 규범님 글처럼 구현한 것 같고, batch를 4로 물렸을 땐 scratch모델이 버그(?)인지 처음부터 성능이 좋았어서 위에처럼 batch 128로 바꿔서 돌렸습니다.",
+          "user": "U02TL7LK78F",
+          "user_name": null,
+          "timestamp": "1646959856.362989",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TL7LK78F",
+              "ts": "1646959861.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "전 pretrained가 압도적으로 좋았습니다..ㅎㅎ",
+          "user": "U02TTV8MDJB",
+          "user_name": null,
+          "timestamp": "1646964021.526399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TTV8MDJB> 완전 반대인데요.....? 그런데 정확도를 보면 scratch모델은 트레이닝이 아예 안 되는 것처럼 보여요.",
+          "user": "U02TL7LK78F",
+          "user_name": "김태하",
+          "timestamp": "1646964105.880729",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TL7LK78F",
+              "ts": "1646964370.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TL7LK78F> 아 그쵸??좀 이상하다했는데 방금 전에 이유를 찾았습니당ㅎㅎ감사해요!",
+          "user": "U02TTV8MDJB",
+          "user_name": "김주연",
+          "timestamp": "1646964890.088349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TTV8MDJB> 그래프에서 뭔가.. 모델이 자꾸 초기화되는 듯한 현상이 보였는데, 문제가 있는 것이 맞았나 보군요. 발견하셔서 다행입니다. ㅎㅎ",
+          "user": "U02TL7LK78F",
+          "user_name": "김태하",
+          "timestamp": "1646964952.913119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02TTV8MDJB"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 Scratch model의 성능이 더 좋게 나왔습니다.\n\n추가로 \"왜 scratch model의 성능이 더 좋을까?\" 에 대해서 저희 팀원과 이야기 해봤는데요,\nresnet34를  사전 학습 시킬 때 사용한 ImageNet(ImageNet으로 사전학습 시킨 게 맞나요?)이 저희가 사용한 quickdraw 데이터와는 성격이 좀 달라서 convlayer가 적절한 특징을 추출해내지 못한 게 아닐까 생각을 했습니다. 반면에 scratch model은 convlayer 조차도 처음부터 quickdraw 데이터셋에 맞게 학습이 되기 때문에 더 나은 성능을 보인 게 아닐까!.. 생각을 해봤습니다.\n\n다른 캠퍼분들의 생각은 어떤지 궁금합니다!:meow_party:",
+          "user": "U02TJ0CKVLJ",
+          "user_name": "손정균_T3111",
+          "timestamp": "1646973106.188359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TL7LK78F",
+                  "U02TRDETMM0",
+                  "U02TJ0CKVLJ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오..다른 분들은 scratch가 더 성능이 좋게나오시는군요",
+          "user": "U02TTV8MDJB",
+          "user_name": null,
+          "timestamp": "1646977452.977359",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

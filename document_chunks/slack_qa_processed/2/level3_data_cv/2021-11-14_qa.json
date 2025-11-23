@@ -1,0 +1,69 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이 부분에서 if문이 word가 없는 이미지에대한 예외처리인건가요?\n\n이 부분에서 특정 경우에 터지는데 한 배치에 정답영역이 아예 없는 경우에 터지는 것 같습니다.\n제가 가진 이미지에는 정답영역이 없는 이미지는 없지만 주어진 데이터셋 코드상에서 크롭을 하는 과정 중 이런 상황이 발생하는 것 같네요..\n\n배치사이즈를 높일수록 터질확률이 줄어들지만 저희 seed에서는 배치사이즈 12에서도 터지는 경우가 나옵니다..\nloss.py 파일은 수정불가라고 규칙이 정해져있어서 문의드립니다. 해결방법이 있을까요?",
+        "user": "U029B96RRJA",
+        "user_name": null,
+        "timestamp": "1636880015.085200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "mario_question",
+              "users": [
+                "U029EFY0XD1",
+                "U02A3RWDVPS"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0297UZK86S",
+                "U029UND0U1Y"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "배치 사이즈를 낮출수록 일찍 터집니다.",
+          "user": "U029B96RRJA",
+          "user_name": null,
+          "timestamp": "1636880045.085500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02LZPTP596>",
+          "user": "U0298UX7GN7",
+          "user_name": "Hwalsuk Lee",
+          "timestamp": "1636893515.086000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U028323UHE2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "mmdetection wandbhook 설정 중에 질문이 있었는데 해결못하고 넘어갔던거라.. 질문드립니다ㅋㅋㅋㅋ\nwandb  table에 보이는 실험 Name은 hook config에서 수정하면서 사용했는데 artifacts 에서는  `run_33lzqh1z_model` 등과 같이 표시가 되더라구요ㅠㅠ  wandbhook에서 self.wandb.run.id 를 수정하면 될 것 같긴 한데...  config에서 설정한 name을 받은 self를 못 찾아서요ㅠㅠ  혹시 해결해보신 분이나 더 쉬운 방법이 있을까요?",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1669981161.815019",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0427G48WAC",
+                "U041HMZR68K"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "id도 수정가능한데, name과 다르게 중복될 수 없다보니 잘 다루셔야 합니다\n\n```        dict(type='MMDetWandbHook',\n            init_kwargs={\n                'project': 'object-detection',\n                'entity': 'boostcamp-ai-tech-4-cv-17',\n                'name': 'name',\n                'id': 'unique_id'\n            },```",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669988532.188279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "train.py의 arguments로 넘기신 이후 반영하시려면 아래와 같이 하시면 됩니다.\n```cfg.log_config.hooks[wandb_hook_index].init_kwargs.name = args.wandb_name\ncfg.log_config.hooks[wandb_hook_index].init_kwargs.id = args.wandb_id```",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669988629.994859",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1669988642.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 제가 더 확인했던 내용 공유합니다.\n\nwandb 웹에서 변경 가능\n• name\n• notes\n• tags\nwandb 웹에서 변경 불가\n• id\n• group\n• job type",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669988703.313089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U041HMZR68K"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오 상세한 설명 감사합니다!!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1669996911.286279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! 2조 오한별입니다.:cool-doge:\n오늘 6시 디스커션에서 다들 실패한 경험:smiling_face_with_tear:도 올려도 된다고 하셔서..\n용기를 얻고 이번 대회 때 제가 해봤던 모든 실패한 경험들 여기에 한번 올려봅니다!\n실패경험!!!이기 때문에 모두 쓰이지 않은 방법들입니다..ㅎㅎ\n왜 쓰게 되었는지 + 결과 + 실패 이유(:brain:뇌피셜)를 써봤습니다.\n\n*1. Grayscale* \n- 색깔 정보도 활용해서 분류하는 것 같았는데, 오히려 색깔 때문에 헷갈려하는 경우도 있었음\n(ex. 종이박스 - 마른 풀, 쓰레기 봉투 - 파란 물체)\n- 따라서 grayscale augmentation probability = 0.5를 주어서 색깔이 없는 사진도 보여준다면 물체의 모양만으로도 물체를 구별할 수 있게되어 색깔 때문에 헷갈리지 않을 것이라고 생각\n&gt;&gt;&gt; YOLOv7, 40 epoch, mAP 0.297\n&gt;&gt;&gt; 색 정보를 물체 분류에 많이 사용하기 때문에 성능이 많이 떨어진 것이라 판단\n\n*2. Sharpening/Sobel filtering/CLAHE* \n- general trash와 background를 헷갈려함\n- 대조를 높여주거나, 테두리를 더 선명하게 해주면 Background와 쓰레기를 더 잘 구분할 수 있을 것이라고 생각\n- Pre-processing으로 모든 사진을 sharpening/sobel filtering/CLAHE 적용\n&gt;&gt;&gt; YOLOv7, 40 epoch, mAP 0.133/0.408/0.559\n&gt;&gt;&gt; filtering으로 인해 물체와 background와의 구분 뿐만이 아니라, background에 있는 물체와 texture도 함께 도드라지기 때문에 오히려 background 물체와 더 헷갈려서 성능이 떨어지거나 큰 성능 변화는 없던 것으로 보임\n\n*3. Affirmative ensemble* \n- Ensemble하는 모든 모델의 box들을 다 합치고, 나중에 NMS를 진행하는 방식\n- WBF에서 skip box threshold로 인해 없어지는 box로 놓칠 수 있는 bbox를 affirmative ensemble에서 잡을 수도 있다고 생각해서 시도\n&gt;&gt;&gt; Swin Large K-Fold 5개, IoU 0.5, mAP 0.6679\n&gt;&gt;&gt; WBF ensemble보다 mAP score가 낮아짐. Skip box threshold가 없어진만큼 False Positive가 많아졌기 때문인 것 같음.\n\n*4. Best AP score ensemble* (제가 지은 이름입니다)\n- 여러 모델을 훈련 시키면 훈련 이후 class별 AP score가 출력됨. 각 모델을 inference를 시키고, 각 class별로 AP score가 최대인 모델의 inference를 모아서 하나의 inference file을 ensemble 시키는 방식\n- 각 class별로 가장 잘 분류하는 모델의 inference를 모은 것이기 때문에 mAP 점수가 높을 것이라고 생각\n&gt;&gt;&gt; Swin Large K-Fold 5개, IoU 0.5, mAP 0.6268\n&gt;&gt;&gt; WBF ensemble보다 mAP score가 낮아짐. Train 단에서의 AP score일 뿐이기 때문에 test에서의 inference와는 관련이 없던 것 같음.\n\n*5. Specific label training ensemble* \n- 각각의 label을 한 개 혹은 몇 개씩만 집중하여 훈련시키고 10개를 모두 훈련시킨 모델과 합친다면 mAP가 오를 것이라고 생각\n- general trash &amp; paper pack &amp; styrofoam &amp; clothing only -&gt; YOLOv7 epoch 300 mAP 0.771\n&gt;&gt;&gt; 10개 label YOLOv7 mAP 0.6686과 WBF ensemble, mAP 0.6418\n&gt;&gt;&gt; label 몇 개만 훈련 시키면 그 label들은 잘 알지언정 다른 label들과는 구별을 못해서 전체적인 성능이 떨어지는 것 같았음\n\n*6. Data Augmentation* \n- 대부분의 deep learning 문제에서 dataset의 수를 늘리면 성능이 올라가기 때문에, object detection에서도 data 수가 문제일 수 있겠다고 생각.\n- random한 사진 A의 bbox를 잘라내서 random한 사진 B에 붙여 새로운 사진 C 4000장을 만들었음\n- 또한 general trash인데 background라고 판단하는 경우가 매우 많았기 때문에 background 사진을 따로 augment할 필요를 느꼈음\n- bbox가 있는 부분을 잘라내고 사진의 평균 값으로 채워 넣어 label이 없는 배경 사진 dataset 1000장을 만들었음\n&gt;&gt;&gt; YOLOv7, 70 epoch, mAP 0.5677\n&gt;&gt;&gt; 새로운 물체나 배경이 아니기 때문에 성능 향상이 없던 것으로 생각됨\n\n\n긴 글 읽어주셔서 감사합니다.....\n혹시 이랬으면 성공했을 것 같다!! 의견 주시면 감사하겠습니다!\n대회 3주 달리시느라 다들 수고 하셨습니당\n오늘 축구:soccer: 재밌게 보시고 주말 따뜻하게 보내세요~!:wobbuffet:",
+        "user": "U0427G9RVK2",
+        "user_name": "오한별",
+        "timestamp": "1669983078.320929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "wa",
+              "users": [
+                "U0427G5BJQG",
+                "U041ERX27TP",
+                "U041HMZR68K",
+                "U041L8ZANQL",
+                "U041ERZ3BKP",
+                "U03V5CK9YJ0",
+                "U041HN3C7B5",
+                "U041B7AFSUE",
+                "U041HN1JMTM",
+                "U041L94723E",
+                "U041HRARKDY",
+                "U041B7D2FLN",
+                "U041L92FWCC",
+                "U0427G7EG72",
+                "U0427G7HN6L",
+                "U041B78LL22",
+                "U041B7AA63G",
+                "U041HMZ15RR"
+              ],
+              "count": 18
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U041ERX27TP",
+                "U041HMZR68K",
+                "U0427G5BJQG",
+                "U0427G6QV08",
+                "U041ERX3Q8M",
+                "U03V5CK9YJ0",
+                "U041L94723E",
+                "U041HR6RWAE",
+                "U0427G9UU56",
+                "U0427G7HN6L",
+                "U041L92D136",
+                "U0427G6LY3A"
+              ],
+              "count": 12
+            },
+            {
+              "name": "booduck_coding",
+              "users": [
+                "U041ERX27TP",
+                "U041HMZR68K",
+                "U041ES3K9LM",
+                "U03V5CK9YJ0",
+                "U041L92FWCC"
+              ],
+              "count": 5
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U041HMZR68K",
+                "U03V5CK9YJ0",
+                "U041L92FWCC"
+              ],
+              "count": 3
+            },
+            {
+              "name": "laughing",
+              "users": [
+                "U041HMZR68K",
+                "U03V5CK9YJ0",
+                "U041L92FWCC"
+              ],
+              "count": 3
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U041HMZR68K",
+                "U03V5CK9YJ0",
+                "U041L92FWCC"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U041L92FWCC"
+              ],
+              "count": 1
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U041L92FWCC",
+                "U041HMZR68K"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "다 주옥같은 아이디어였는데 아쉽네요ㅜㅜ",
+          "user": "U0427G5BJQG",
+          "user_name": "권규보",
+          "timestamp": "1669983412.627559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pensive",
+                "users": [
+                  "U0427G9RVK2",
+                  "U041HMZR68K"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "와, 내용 공유해주셔서 감사합니다!\n6시에 참석하시진 못해서 아쉽네요.\n그리고 저는 실패에서 더 많이 배울 수 있다고 생각합니다!",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1669988736.736999",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041L94723E",
+              "ts": "1669988824.000000"
+            },
+            "reactions": [
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U0427G9RVK2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이 다양한 실험을 모두 아이디어 내고 구현하고 실험하고 측정하고 결과를 분석한 모든것들로부터 많이 배우게 되셨으리라 생각합니다.\n열심히 노력한 만큼 많은 결실을 얻으신것 같아 멋지십니다 :+1::skin-tone-2:\n그리고 또 실패라고 하셨지만 구현과 결과 분석을 하셨기에 이 역시 *성공적인 결과*라고 생각합니다.\n또 다른 태스크에서는 지금 하신 기법들이 유효하게 작용할 수도 있을것이고 또 다른 새로운 아이디어가 떠오를 밑거름이 되었을거니까요..\n\n저 또한 공유해주신 노하우와 지식을 통해 간접 경험을 많이 얻어갑니다. 감사합니다!! :booduck:",
+          "user": "U041L92FWCC",
+          "user_name": "Sangjoon Han",
+          "timestamp": "1669997598.645389",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "face_holding_back_tears",
+                "users": [
+                  "U0427G9RVK2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

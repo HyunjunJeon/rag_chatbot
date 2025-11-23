@@ -1,0 +1,307 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<#C02R4KAPA7Q|level2_nlp> 현재 업로드 후 진행중이신 팀도 있고 그렇지 못한 팀도 있는 것 같습니다.\n\n1. 업로드를 먼저 진행하신 팀은 가이드라인 업데이트 및 논의 후 원래 계획대로 tagtog에서 진행해 주시면 되고, \n2. 아직 업로드를 진행하지 않은 팀 중 가이드라인 업데이트를 하지 않으셨다면 가이드라인 업데이트/논의를 먼저 진행한 후 상황을 다시 확인해 주시고 (업데이트 후에도 tagtog 해결이 되지 않았다면 3으로)\n3. 업로드를 진행하지 않았지만 가이드라인 업데이트 및 논의가 완료되었다면 아까 말씀드린 <https://abera87.github.io/annotate/> 을 먼저 활용하여 진행하다가 나중에 서버가 복구되면 tagtog 상에 데이터 태깅을 다시 진행하는 것으로 부탁드리겠습니다. entity 및 relation 태깅이 이미 된 상태라면 생각보다 금방 옮기게 될 거예요! \n각 팀에서 한 분씩만, 1-3중 현재 어떤 상태인지 쓰레드로 달아 주시면 좋을 것 같습니다 (예시: 1조-1)",
+        "user": "U02T6SH1BKR",
+        "user_name": "조원익_조교",
+        "timestamp": "1650266288.746129",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02T6SH1BKR",
+            "ts": "1650266311.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02U7N1DGHG"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "5조-3",
+          "user": "U02U7N1DGHG",
+          "user_name": "강나경",
+          "timestamp": "1650266490.419839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "4조-3",
+          "user": "U02U1UWCVNE",
+          "user_name": "정시현",
+          "timestamp": "1650267075.312299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "6조-1",
+          "user": "U02VB6KC3BN",
+          "user_name": "김선재_T3252",
+          "timestamp": "1650267752.355909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "11조-1",
+          "user": "U02U0GDFTUH",
+          "user_name": "조혁준",
+          "timestamp": "1650268150.658499",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "10조-1",
+          "user": "U02TU6HBDG9",
+          "user_name": "전태양",
+          "timestamp": "1650268472.405459",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "9조-1",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1650270222.588649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "tagtog output파일을 json, entityTSV등으로 내보내서 코드를 개별적으로 짜서 excel파일로 만드는 것이 맞을까요?",
+        "user": "U02VB6KC3BN",
+        "user_name": "김선재_T3252",
+        "timestamp": "1650267824.318279",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 맞습니다 그 부분은 직접 짜 주시면 됩니다!",
+          "user": "U02T6SH1BKR",
+          "user_name": "조원익_조교",
+          "timestamp": "1650267962.111599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thumbsup_all",
+                "users": [
+                  "U02UHFZQ6V6",
+                  "U02VB6KC3BN",
+                  "U02TKEWKS4X"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 주셔서 감사합니다!!",
+          "user": "U02VB6KC3BN",
+          "user_name": "김선재_T3252",
+          "timestamp": "1650268045.876219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, nlp 9조 이재학입니다.\n다들 tagtog 접속 되시나요?",
+        "user": "U02U1APCEBC",
+        "user_name": "이재학",
+        "timestamp": "1650280621.188899",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_confuse",
+              "users": [
+                "U02U5H18SP7",
+                "U02TE6BT7AR"
+              ],
+              "count": 2
+            },
+            {
+              "name": "booduck_cry",
+              "users": [
+                "U02U5H18SP7",
+                "U02TMMJDC14"
+              ],
+              "count": 2
+            },
+            {
+              "name": "sob",
+              "users": [
+                "U02U7CPMXM0"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "아니요 …:smiling_face_with_tear:",
+          "user": "U02U5H18SP7",
+          "user_name": "정유리_T3242",
+          "timestamp": "1650281687.007579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시나 서버가 나가버린 것은 아닌지 하는 생각이 드네요... :booduck_happy: 저희가 트래픽을 많이 ..? ㅠㅠ\n\n<https://abera87.github.io/annotate/> 작업하던 내용들이 각자 배분되어 있었을 텐데 일단은 여기서 빠르게 진행하고 나중에 되더라도 합치는 것이 안전할 것으로 보입니다 ㅠ_ㅠ\n\n사용법은 매우 직관적이긴 한데 혹시 애매한 부분이 있다면 여기 이야기해주세요!\n\n1. relation set들을 정의한다\n2. sentence에 .txt파일의 문장들을 넣는다\n3. 각 sentence당 entity 두개를 고른다\n4. relation을 태그한다\n5. output으로 json을 받는다\n6. sentence id를 적절하게 수정한다",
+          "user": "U02T6SH1BKR",
+          "user_name": null,
+          "timestamp": "1650281919.109129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "사이트에 있는 데모 영상을 참고하시면 바로 할 수 있을테니, 일단은 팀에서 별도로 해법이 제시되지 않았다면 위의 방법으로 진행해주세요! 물론 manual하게 추출 후 태깅하셔도 괜찮긴 하지만, 여러 모로 손이 많이 가니까요\n\n예상치 못하게 서버 문제가 생겨 저희도 당황스럽긴 하지만, 목적은 tagtog 사용을 하는 것이 아니라 개별로 entity-relation 태그된 데이터셋을 만드는 것이니, 번외의 툴킷에 익숙해진다는 생각으로 진행해 주시면 감사드리겠습니다 :slightly_smiling_face: 빠르게 안내드리지 못해 죄송합니다!",
+          "user": "U02T6SH1BKR",
+          "user_name": null,
+          "timestamp": "1650282241.444849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "woman-gesturing-ok",
+                "users": [
+                  "U02TMMJDC14"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, NLP3조 김소연입니다.\n*no_relation도 관계에 설정하고 태깅중이신 팀분들의 의견이 궁금합니다..!*\nno_relation 경우에 subject나 object의 엔티티가 무엇이던 상관이 없는데요 (`e.g, (*, *)` )\n그럴 경우 tagtog에서 subj, obj의 entity 기입은 어떤식으로 하셨나요? subj-all-no_relation, obj-all-no_relation 이런식으로 하게될 경우 subj와 obj의 entity 정보 라벨링이 정확히 되지 않아(단순히 all로만 되어 있기 때문) 학습에 사용할 수 없지않나란 생각이 들어서 질문드려요!",
+        "user": "U02TUHB5D7V",
+        "user_name": "Soyeon Kim",
+        "timestamp": "1650339657.217269",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 저는 NLP 9조 한나연입니다. 우선 저희 조 주제는 '러시아-우크라이나 전젱'입니다.\nno_relation에 모든 엔티티 타입이 올 수 있지만, 주제와 관련이 없는 엔티티를 태깅해 학습에 사용하는건 안 좋을 것 같아서\nsubject에 올 수 있는 entity type 3가지 `PER, ORG, EVE`와 object에 올 수 있는 `PER, ORG, POH` 3가지만 한정적으로 no_relation 태깅을 진행하고 있습니다.\n(EVE는 저희 조에서 추가적로 정의한 사건/event type입니다)",
+          "user": "U02UTH1484E",
+          "user_name": null,
+          "timestamp": "1650343402.344809",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02U1APCEBC",
+                  "U02T6SH1BKR",
+                  "U02UMKZGNN8",
+                  "U02TVNVSKML"
+                ],
+                "count": 4
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02TUHB5D7V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02UTH1484E> 오오 감사합니다. 예를 들어 총 entity type은 PER,ORG,EVE, POH 인데 그 중에서 1) klue처럼 subj에 올 수 있는 것 정하고, 2) obj에 올 수 있는 것도 정한다음 9개의 조합(3x3) 을 한정적으로 no_relation 을 위해 사용하고 있다! 로 이해하면 될까요?",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1650344146.449169",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TUHB5D7V> 네네 정확히 이해하셨어요!\n총 9개의 조합에 대해서만 `no_relation` 으로 태깅하고 있습니다.",
+          "user": "U02UTH1484E",
+          "user_name": "한나연_T3250",
+          "timestamp": "1650344286.566699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

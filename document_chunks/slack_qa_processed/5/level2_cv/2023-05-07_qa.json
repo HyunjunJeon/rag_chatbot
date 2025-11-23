@@ -1,0 +1,182 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "혹시 맥북 쓰시는 분 중에서 vscode에서 ssh로 연결할때 비밀번호 계속 입력하라는 오류 해결하신분 계실까요? config 파일에 key 위치 잘 입력 했는데도 비밀번호를 입력하라는 오류가 뜨네요ㅜㅜㅜ",
+        "user": "U04RG8ZQ4A1",
+        "user_name": "박승희_T5086",
+        "timestamp": "1683468056.190009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 터미널에서 “chmod 0600 key” 를 입력해서 권한을 변경해보셨나요?",
+          "user": "U04RK3EU3UK",
+          "user_name": "최지욱_T5219",
+          "timestamp": "1683469283.172279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA",
+                  "U04LEMHC78S",
+                  "U04RXRRLR5F",
+                  "U04RK70P61G"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 위에 지욱님 말씀대로 해결했어요 예전에 재민님이 올려주신 자료 참고해서 했습니다",
+          "user": "U04R4LXE0KH",
+          "user_name": "김영한_T5043",
+          "timestamp": "1683469885.769419",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹은 key의 위치를 상대 경로가 아닌 절대 경로로 해보시는 것도 추천드립니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683506739.046929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LLBX64LA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[*재활용 품목 분류를 위한 Object Detection]*\nclass 'Plastic bag'은 다른 class object가 반투명하게 특징으로서 같이 학습 되는데, 이런 조건이 맥락으로서 검출에 도움이 될 지 모르겠네요. 이런 경우가 절대 다수라서 학습에서 배제는 하면 안될 것 같은데, 다른 분들은 어떻게 처리 해서 학습 시키실 건지 idea가 궁금합니다.",
+        "user": "U04RK761KC2",
+        "user_name": "김대희",
+        "timestamp": "1683471554.086929",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04R4LXE0KH"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "Augmentation 기법 중 Mixup과 다를 바 없으니, labeling만 잘 돼있다면 별 문제 없을(?) 것 같기도 하네요.",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683472902.729259",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK761KC2",
+              "ts": "1683473790.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://paperswithcode.com/paper/fakemix-augmentation-improves-transparent|https://paperswithcode.com/paper/fakemix-augmentation-improves-transparent>\n\n관련한 augmentation 논문이 있는데 공부해보시면 좋을 것 같습니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683507429.961439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RK761KC2"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK761KC2",
+                  "U04LLBX64LA"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 대희님! 정답은 수정이 되었다구 하는데요! 초기화는 운영 정책상 어렵다구 합니다 ㅠㅠ :pray:\n문제를 잘못 출제하여 죄송스럽네요..",
+        "user": "U04LEMHC78S",
+        "user_name": "김진용",
+        "timestamp": "1683510661.424989",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 조교님.\n아래 공지 직후 해당 퀴즈 제출을 다시 할 수 있었습니다. 아마 이전 기록에 대한 삭제가 어렵다는 뜻이었던 것 같습니다. 다시 제출 했기 때문에 괜찮습니다!\n<https://boostcampaitech.slack.com/archives/C050CHXG1UG/p1683182140854569>",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683510985.884039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 그러셨군요! 다행이네요 ㅎㅎ",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683513629.865559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

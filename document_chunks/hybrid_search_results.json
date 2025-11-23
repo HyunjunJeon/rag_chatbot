@@ -1,0 +1,223 @@
+{
+  "test_timestamp": "2025-11-20T16:08:35.365836",
+  "model": "qwen/qwen3-embedding-4b",
+  "total_documents": 4581,
+  "queries": [
+    {
+      "query": "GPU 메모리 부족 해결 방법",
+      "course_filter": "level2_cv",
+      "alpha": 0.7,
+      "results": [
+        {
+          "rank": 1,
+          "fusion_score": 0.01639344262295082,
+          "vector_score": 0.6625799,
+          "vector_rank": 1,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "3",
+          "date": "2022-03-08",
+          "question_text": "안녕하세요 *과제1* 관련 질문사항 입니다.\n현재 구글 코랩으로 과제1 진행을 하다가 memory 문제로 학습 진행이 어렵습니다.\n\n1. 다른 부분을 컨트롤해서 진행할 수 있는 건가요?\n2. V100 서버로 가져가서 진행하는 것이 맞는 건가요?",
+          "answer_text": "좋은 솔루션을 주셔서 감사합니다!"
+        },
+        {
+          "rank": 2,
+          "fusion_score": 0.01639344262295082,
+          "vector_score": 0.0,
+          "vector_rank": null,
+          "bm25_score": 9.012313606913782,
+          "bm25_rank": 1,
+          "course": "level2_cv",
+          "generation": "7",
+          "date": "2024-11-14",
+          "question_text": "안녕하세요 cv-12조 이상혁입니다.\n\n저희가 베이스라인 코드를 계속 리팩토링하는 과정 도중 validation 시간이 너무 오래 걸리는 것을 확인했습니다.\n이후 이를 해결하기 위해 디버깅을 진행해본 결과, 배치당 데이터를 불러오는데 걸리는 시간 4초, dice를 계산하는 시간 2.5초가 걸리는 것을 체크했습니다.\n\n현재 dice를 계산하는 과정이 cpu에서 진행되고 있는데, 이를 만약 gpu에서 돌리면 어떨까 하는 생각이 들어 gpu에 할당하여 계산하였더니 0.02초로 단축이 되었습니다.\n\n1. 이렇게 진행하는게 안정성이나, 계산과정에서 문제가 있는지 궁금합니다. cpu에서 계산하는 이유가 있을까요? \n2. 문제가 없다면 수정해서 진행해도 무방할까요?\n감사합니다:typingcat:",
+          "answer_text": "안녕하세요. gpu로 계산하셔도 문제가 없습니다. 계산하실 때 메모리가 부족하지 않으시다면 gpu로 하시면 될 것 같습니다.\n\ndice score의 평균을 만들기 위해서 리스트에 dice score를 저장하고 있는데, 이 부분만 gpu에 있는 tensor가 아닌 numpy array 등으로 바꿔서 저장하시면 안전할 것 같습니다."
+        },
+        {
+          "rank": 3,
+          "fusion_score": 0.016129032258064516,
+          "vector_score": 0.65758204,
+          "vector_rank": 2,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "3",
+          "date": "2022-03-08",
+          "question_text": "안녕하세요 *과제1* 관련 질문사항 입니다.\n현재 구글 코랩으로 과제1 진행을 하다가 memory 문제로 학습 진행이 어렵습니다.\n\n1. 다른 부분을 컨트롤해서 진행할 수 있는 건가요?\n2. V100 서버로 가져가서 진행하는 것이 맞는 건가요?",
+          "answer_text": "저는 V100 서버에서 돌렸어요 속도면에서도 훨씬빨라서 수월합니다"
+        },
+        {
+          "rank": 4,
+          "fusion_score": 0.016129032258064516,
+          "vector_score": 0.0,
+          "vector_rank": null,
+          "bm25_score": 7.517479187524143,
+          "bm25_rank": 2,
+          "course": "level2_cv",
+          "generation": "4",
+          "date": "2022-11-24",
+          "question_text": "yolov7을 돌리던중에 아래와 같이 디스크 공간이 부족해서 에러가 뜨는것같은데 혹시 어떻게 해결하는지 아시는분있나요..? 그냥 삭제하면 안될것같아서 질문 올려봅니다",
+          "answer_text": "서버 용량이 많이 부족해서 그런 것 같아요~ 저는 이럴 경우에 du 명령어로 용량을 확인해서 정리하고 있어요\nex.\n```du ./ -d 1 -h```"
+        },
+        {
+          "rank": 5,
+          "fusion_score": 0.015873015873015872,
+          "vector_score": 0.6562994,
+          "vector_rank": 3,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "5",
+          "date": "2023-05-25",
+          "question_text": "[OOM Error]\n안녕하세요. OCR 대회 관련해서 학습을 진행할 때, 처음 서버를 할당받고 나서 학습을 돌릴 땐 문제가 없는데, 다시 학습시킬 때 OOM이 뜨네요.. 혹시 이런 문제가 똑같이 발생하시거나 해결하신분 계실까요? (디스크 용량도 남아있고, 캐시도 지운상태 입니다..!)",
+          "answer_text": "학습을 안 돌리고 있을 때 nvidia-smi도 확인해보셨을까요?"
+        }
+      ]
+    },
+    {
+      "query": "데이터 증강 기법",
+      "course_filter": "level2_cv",
+      "alpha": 0.6,
+      "results": [
+        {
+          "rank": 1,
+          "fusion_score": 0.01639344262295082,
+          "vector_score": 0.62583613,
+          "vector_rank": 1,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "5",
+          "date": "2023-05-26",
+          "question_text": "안녕하세요! 모델 관련된 부분은 건드리면 안된다고 알고 있는데, test 데이터를 augmentation 하는 것도 안될까요?",
+          "answer_text": "넵 감사합니다!"
+        },
+        {
+          "rank": 2,
+          "fusion_score": 0.01639344262295082,
+          "vector_score": 0.0,
+          "vector_rank": null,
+          "bm25_score": 4.232325624591623,
+          "bm25_rank": 1,
+          "course": "level2_cv",
+          "generation": "4",
+          "date": "2022-12-07",
+          "question_text": "혹시 SEED 탐색에 대해서는 각 팀에서는 어떻게 생각하고 계신가요?\n1. 우리가 지금 다루는 모델이 SEED를 가릴만큼 민감하지 않을테니 국룰 42로 고정하고 무시한다.\n2. 몇가지 숫자를 대입해서 비교해보고 동일 step 에서 Loss가 더 낮은 SEED로 고정한다.\n    a. 이때 궁금한 점이.. 이번 대회는 모델 고정이지만, 모델, 데이터 증강, 옵티마이저 등등 조건이 바꼈을때는 고정했던 SEED가 별로 의미 없는것 아닐까?\n        i. 그렇다고 조건이 바뀔때마다 SEED를 탐색하는... 그러지는 말자..\n    b. 아.. SEED 탐색이 무의미하니 그냥 다시 국룰 42로 고정?..\n    c. 모델과 파라미터가 픽스된 다음에 SEED 탐색을 하자?...\n그래서 질문의 요지는.. SEED 어떻게 정하고 계신가요?",
+          "answer_text": "분명 차이가 있긴 하겠지만, 설정된 random SEED가 결정하는   난수의 dimension이 보통은 충분히 크기 때문에 유의미한 차이는 없을 거라고 생각합니다.(그래서 전 그냥 암거나 씁니다.) 그리고, 전체 학습 관점에서 볼 때 train iteration(epoch이 아닌) 또한 충분히 크기 때문에 초반 몇 iteration에서야 SEED의 영향력이 있겠지만 학습이 끝날 시점에는 데이터의 전체 경향성을 따라가면서 자연스럽게 보정 되어서 그 차이가 거의 무시할 정도가 되지 않을까? 라는 생각입니다.\n그러나 만약 lr의 미세한 차이에 굉장히 예민한 상태의 모델 또는 학습 방법을 사용하고 있다면.. seed 영향력을 완벽히 무시할 수는 없을 것 같아요. Seed에 따른 초반 학습 방향의 variation이 꽤 크다면,  후반 학습에 반드시 영향력을 미칠 수도 있으니까요!  그런데 이런 경우라면, 안정적인 학습 조건을 만들 seed를 탐색하기 보다는 모델 구조/ 학습 방법 상의 안정성을 수정하는게 맞는 선택이라 seed 탐색을 할 필요는 없다고 생각합니다."
+        },
+        {
+          "rank": 3,
+          "fusion_score": 0.016129032258064516,
+          "vector_score": 0.5967097,
+          "vector_rank": 2,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "5",
+          "date": "2023-05-26",
+          "question_text": "안녕하세요! 모델 관련된 부분은 건드리면 안된다고 알고 있는데, test 데이터를 augmentation 하는 것도 안될까요?",
+          "answer_text": "넵 이번 대회는 다양하게 학습 데이터 전처리 해보는게 목적이라 테스트 데이터 수정 없이 대회 진행 해주시면 됩니다! :)"
+        },
+        {
+          "rank": 4,
+          "fusion_score": 0.016129032258064516,
+          "vector_score": 0.0,
+          "vector_rank": null,
+          "bm25_score": 4.140258367103755,
+          "bm25_rank": 2,
+          "course": "level2_cv",
+          "generation": "4",
+          "date": "2022-12-05",
+          "question_text": "이번 대회는 대회 특성 상 /opt/ml/code 폴더 내에서 inference.py 등 모델 실행과 관련한 파일을 디렉토리 구조까지 동일하게 유지해야 하는것으로 알고 있는데 맞을까요?\n이 때문에 pipenv 등 가상환경으로 파이썬 패키지를 설치하더라도, 코드 제출 후 서버에서 추론 시 이러한 부분이 적용되지 못할것으로 판단되는데요..\n물론, 기존 대회에 비해서 pip로 패키지를 설치해야 할 이유도 상당히 적어보이기는 합니다만, 데이터 증강에 관련하여 패키지 설치가 필요한 경우도 있을 수 있어서, 이 경우는 가상환경이 아니라 서버에 로그인 한 그대로의 환경에서 설치해야 하는게 맞을까요?",
+          "answer_text": "안녕하세요 캠퍼님, 확인 후 답변드리겠습니다 :slightly_smiling_face:"
+        },
+        {
+          "rank": 5,
+          "fusion_score": 0.015873015873015872,
+          "vector_score": 0.5932673,
+          "vector_rank": 3,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "2",
+          "date": "2021-09-08",
+          "question_text": "data augmentation 과제를 하던 도중 `albumentations` 을 써보려다가 삽질을 해버려서 시간이 이렇게 되어 버렸는데요! :smiling_face_with_tear:\n혹시 `albumentations` 를 사용해보고 싶은 분들을 위한 간단한 가이드를 작성하였습니다!\n다른분들은 삽질하질 않길 바라며 얼른 과제를 마무리 하러 가겠습니다..:rocket:\n<https://spot-chill-154.notion.site/Albumentations-from-scratch-f3fff6a0944e4efb9709257f62896426>",
+          "answer_text": "저도 오늘 albumentation으로 삽질모드였는데:smiling_face_with_tear: 정리를 너무 깔끔하게 잘 해주셨네요!!! 복잡한 머릿속이 정리되는 느낌입니다..ㅎㅎㅎ 공유 감사합니다!! :raised_hands::raised_hands::raised_hands:"
+        }
+      ]
+    },
+    {
+      "query": "optimizer 선택",
+      "course_filter": null,
+      "alpha": 0.5,
+      "results": [
+        {
+          "rank": 1,
+          "fusion_score": 0.01639344262295082,
+          "vector_score": 0.5716367,
+          "vector_rank": 1,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "4",
+          "date": "2022-11-28",
+          "question_text": "혹시 lr_config에 'CosineAnnealing'과 같은 다른 scheudler 사용해보신 분 계실까요? 튜토리얼 그대로 해봤는데 적용이 안되네요...?",
+          "answer_text": "사진과 같이 튜토리얼에 써있는 그대로 시도해보는 중인데 잘 안되서요..! 말씀해부분을 제가 잘 이해를 못해서 그런데 혹시 조금 더 자세히 설명해주실수 있나요?"
+        },
+        {
+          "rank": 2,
+          "fusion_score": 0.01639344262295082,
+          "vector_score": 0.0,
+          "vector_rank": null,
+          "bm25_score": 6.976227666789626,
+          "bm25_rank": 1,
+          "course": "level2_nlp",
+          "generation": "2",
+          "date": "2021-09-14",
+          "question_text": "선택과제 전부 다뤄주실 예정이시죠?",
+          "answer_text": "넵 필수과제 4번과 선택과제 1-3번 모두 해설 대상입니다!"
+        },
+        {
+          "rank": 3,
+          "fusion_score": 0.016129032258064516,
+          "vector_score": 0.5672524,
+          "vector_rank": 2,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level2_cv",
+          "generation": "4",
+          "date": "2022-11-28",
+          "question_text": "혹시 lr_config에 'CosineAnnealing'과 같은 다른 scheudler 사용해보신 분 계실까요? 튜토리얼 그대로 해봤는데 적용이 안되네요...?",
+          "answer_text": "그쳐 그래서 똑같이 했는데 assertion error인가 떳었어서..ㅠㅠㅠ \n답변 감사합니다ㅎㅎ"
+        },
+        {
+          "rank": 4,
+          "fusion_score": 0.016129032258064516,
+          "vector_score": 0.0,
+          "vector_rank": null,
+          "bm25_score": 5.567351225600113,
+          "bm25_rank": 2,
+          "course": "level3_common",
+          "generation": "7",
+          "date": "2024-12-03",
+          "question_text": "안녕하세요! (퀴즈) Generative AI 완성하기에서 1번 문제에 답안 선택이 잘못되어 있는 것 같습니다. 정답 풀이를 확인하면 '생성형 이미지 모델은 특정 데이터의 분포를 기반으로 새로운 이미지를 생성하는 모델이다' 가 맞는 보기인 것 같은데 틀린 보기로 잘못 채점된 것 같습니다. 감사합니다:)",
+          "answer_text": "오잉 저는 저 보기 선택해서 정답처리 됐는데 신기하군요 :eyes:"
+        },
+        {
+          "rank": 5,
+          "fusion_score": 0.015873015873015872,
+          "vector_score": 0.56079566,
+          "vector_rank": 3,
+          "bm25_score": 0.0,
+          "bm25_rank": null,
+          "course": "level3_model_optimization",
+          "generation": "2",
+          "date": "2021-11-30",
+          "question_text": "DB에서 optuna optimize 돌리다가 objective 함수가 바뀌면 어떻게 처리해주어야 할까요?",
+          "answer_text": "넵 감사합니다"
+        }
+      ]
+    }
+  ]
+}

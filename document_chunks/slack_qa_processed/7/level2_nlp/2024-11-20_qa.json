@@ -1,0 +1,38 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "일절 사용 금지가 모호하다고 생각합니다. 위에 명시하신 Robust한 기준을 계속 따라도 괜찮을까요?",
+        "user": "U07EFLNGH6W",
+        "user_name": "강감찬",
+        "timestamp": "1732164284.901979",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EFLNGH6W",
+            "ts": "1732177067.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "어떤 부분이 모호한지 설명해주실 수 있나요?",
+          "user": "U07B5FRE94J",
+          "user_name": "Kyochul Jang",
+          "timestamp": "1732164676.141309",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07B5FRE94J",
+              "ts": "1732164693.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

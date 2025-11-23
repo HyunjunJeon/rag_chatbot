@@ -1,0 +1,190 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<https://boostcampaitech.slack.com/archives/C045E84U69J/p1671157694388559>\n공지사항 링크의 NLP 링크 1로 합류할 시에 보기와 같이 팀명이 아닌 닉네임으로 레포지토리가 만들어지려고 합니다. 확인 부탁 드립니다.",
+        "user": "U041HMZAA9Z",
+        "user_name": null,
+        "timestamp": "1671411809.018599",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 살펴보니 문제 없이 생성되네요. 감사합니다:)",
+          "user": "U041HMZAA9Z",
+          "user_name": "염성현_T4126",
+          "timestamp": "1671413962.433799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U048A3T16KT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금 제 Github를 확인해봤는데 성현님처럼 저도 제 개인 닉네임으로 레포지토리를 만들거냐고 물어보는 메시지가 뜹니다. 혹시 이 상태로 진행하셨을때 문제 없이 생성되셨나요..?",
+          "user": "U041ERXDSMT",
+          "user_name": "김민준",
+          "timestamp": "1671417389.775369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERXDSMT> 아... 저는 아침에 다시 시도해보니까 팀명으로 뜨더라고요. 그래서 문제가 해결된 줄 알았습니다. 그대로 진행하지는 않았습니다. ㅠ",
+          "user": "U041HMZAA9Z",
+          "user_name": "염성현_T4126",
+          "timestamp": "1671417536.664229",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HMZAA9Z",
+              "ts": "1671417552.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ERXDSMT"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 주셔서 감사합니다 :+1:\n질문 다시 한 번 남겨봐야겠네요..",
+          "user": "U041ERXDSMT",
+          "user_name": "김민준",
+          "timestamp": "1671417576.132839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U041HMZAA9Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "booduck_happy",
+                "users": [
+                  "U041HMZAA9Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "저도 지금 레포지토리를 만들려고 들어갔는데 개인 닉네임으로 레포지토리를 만들거냐는 메시지가 뜹니다. 확인 부탁드리겠습니다..",
+        "user": "U041ERXDSMT",
+        "user_name": "김민준",
+        "timestamp": "1671417726.963299",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U041ERXDSMT",
+            "ts": "1671417766.000000"
+          },
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U041ERXDSMT> <@U043YMH0BC0>\n김민준 캠퍼님, 안녕하세요!\n혹시 지금도 동일한 문제가 있으실까요?",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1671433790.571149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03SAGX725R> <@U043YMH0BC0> 아직도 제 개인 닉네임으로 레퍼지토리가 만들어지려고 하는거 같아요..",
+          "user": "U041ERXDSMT",
+          "user_name": null,
+          "timestamp": "1671433884.047219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERXDSMT> 안녕하세요 민준님! 다시 한번 시도해보시겠어요? identifier는 정상 등록되어 있고, 타 계정으로 test시 문제 없이 진행되는 것으로 파악했습니다.",
+          "user": "U043YMH0BC0",
+          "user_name": "조용주",
+          "timestamp": "1671435650.505409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "지금은 된 거 같아요!",
+          "user": "U041ERXDSMT",
+          "user_name": "김민준",
+          "timestamp": "1671435742.679749",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041ERXDSMT> 네 확인했습니다~!",
+          "user": "U043YMH0BC0",
+          "user_name": "조용주",
+          "timestamp": "1671435770.287429",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03SAGX725R",
+                  "U041ERXDSMT"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

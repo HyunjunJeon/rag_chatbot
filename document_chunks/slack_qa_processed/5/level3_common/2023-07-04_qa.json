@@ -1,0 +1,734 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "이 메시지는 상호작용 요소가 포함되어 있습니다.",
+        "user": "U04RG8ZQ4A1",
+        "user_name": null,
+        "timestamp": "1688457342.762939",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "apt install -y curl",
+          "user": "U04R4LTEM55",
+          "user_name": "조현석_T5205",
+          "timestamp": "1688457408.685129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RG8ZQ4A1",
+                  "U03PVSC77HR",
+                  "U04S8TB1JBS",
+                  "U04RMLU2K52",
+                  "U04RMLZD9FW",
+                  "U04RG937C3F",
+                  "U04R4LT3ZTR"
+                ],
+                "count": 7
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://sumina.notion.site/poetry-199ec1764aec4f23bd62780a26e57082>\n\n전에 poetry 강의 이후에 정리해서 팀원들한테 공유했던 내용인데, 도움이 됐으면 합니다~!",
+          "user": "U04RMLZD9FW",
+          "user_name": "김수민_T5040",
+          "timestamp": "1688457496.863179",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RMLZD9FW",
+              "ts": "1688457509.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK3E9M99",
+                  "U04S8TD7KB2",
+                  "U04RG8ZQ4A1",
+                  "U04R4LTEM55",
+                  "U04R4LWE3RV",
+                  "U03PVSC77HR",
+                  "U04RG937C3F",
+                  "U04RG92GDV3"
+                ],
+                "count": 8
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현석님짱 저거 하니 설치 됩니다 ㅎㅎ",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1688457558.613999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수민님 공유 감사합니다 열심히 읽어보겠습니당",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1688457579.996609",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "cry-cat-thumbs-up",
+                "users": [
+                  "U04RMLZD9FW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RMLZD9FW> 혹시 vi ~/.bashrc 하고 코드 넣은다음에 어떻게 다시 터미널로 나가나요?ㅠㅠㅠㅠ",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1688458269.172599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주신거 보고 따라하고 있는데 쉽지 않네용 ㅠㅠㅠ",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1688458288.445599",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗 :wq로 나가시면 됩니다!",
+          "user": "U04RMLZD9FW",
+          "user_name": "김수민_T5040",
+          "timestamp": "1688458351.697249",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR",
+                  "U04RG8ZQ4A1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주신 거 보고 잘 따라 하고 있습니다 감사합니다:+1:",
+          "user": "U04RG8ZQ4A1",
+          "user_name": "박승희_T5086",
+          "timestamp": "1688459209.401669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "02_cheer",
+                "users": [
+                  "U04RMLZD9FW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "command not found라는 메세지는 대부분 설치가 되어있지 않다라는 오류 메세지라고 기억해주시면 됩니다 =&gt; 그럼 설치하면 되겠지요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1688522615.467339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "~오류 났을 때 생각 안하고 해결 해주는 프로그램이 있긴 합니다~\n~<https://github.com/nvbn/thefuck>~",
+          "user": "U04R4LTEM55",
+          "user_name": "조현석_T5205",
+          "timestamp": "1688523119.780109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "open_mouth",
+                "users": [
+                  "U03PL9GCPFZ",
+                  "U04RG8ZQ4A1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[github action] 2-5강 nohup으로 Background 실행 에러 관련 질의 (강의자료 p.95)\n발생한 오류 : 36:00 분 실습 파트에서 `cat nohup.out` 코드 입력 시 `ModuleNotFoundError: No module named 'altair.vegalite.v4'` 라는 에러가 발생하여 문의드립니다.\n실행한 환경 :  gcp에서 생성한 VM 인스턴스 (ubuntu)\n시도해본 것 :\n• requirements.txt에 altair&lt;5 추가 후 다시 실행\n•  gcp 인스턴스 중지 후 재개한 뒤 다시 실행\n•  altair, streamlit 제거 후 altair==4.1.0 streamlit==1.1.0 다시 설치",
+        "user": "U04RMLSU0DS",
+        "user_name": null,
+        "timestamp": "1688458692.937079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U03PVSC77HR",
+                "U04S8TB1JBS",
+                "U04RK77HJ3U",
+                "U04RMLYTV28"
+              ],
+              "count": 4
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 23
+        }
+      },
+      "answers": [
+        {
+          "text": "사용하신 파이썬 버전이랑, `pip freeze` 결과를 보여주시면 좋을거 같습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688459040.260639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가상환경의 파이썬을 잘 보고 있는 걸까요?",
+          "user": "U03UXQJ8T3Q",
+          "user_name": "안상태_조교",
+          "timestamp": "1688459070.152769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "파이썬 버전은 `Python 3.8.10`   입니다.\n\npip freeze 결과는 아래와 같습니다.\n(venv) sonm8619@boostcamp-product-servning-2-5-ci-cd:~/.ssh/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd$ pip freeze\nalbumentations==1.1.0\naltair==4.1.0\nastor==0.8.1\nattrs==23.1.0\nbackports.zoneinfo==0.2.1\nbase58==2.1.1\nblinker==1.6.2\ncachetools==5.3.1\ncertifi==2023.5.7\ncharset-normalizer==3.1.0\nclick==7.1.2\ndecorator==5.1.1\nefficientnet-pytorch==0.7.1\nentrypoints==0.4\ngitdb==4.0.10\nGitPython==3.1.31\nidna==3.4\nimageio==2.31.1\nimportlib-resources==5.12.0\nJinja2==3.1.2\njoblib==1.3.1\njsonschema==4.17.3\nlazy-loader==0.3\nMarkupSafe==2.1.3\nnetworkx==3.1\nnumpy==1.24.4\nopencv-python-headless==4.8.0.74\npackaging==23.1\npandas==2.0.3\nPillow==10.0.0\npkgutil-resolve-name==1.3.10\nprotobuf==3.20.1\npyarrow==12.0.1\npydeck==0.8.1b0\npyrsistent==0.19.3\npython-dateutil==2.8.2\npytz==2023.3\nPyWavelets==1.4.1\nPyYAML==6.0\nqudida==0.0.4\nrequests==2.31.0\nscikit-image==0.21.0\nscikit-learn==1.3.0\nscipy==1.10.1\nsix==1.16.0\nsmmap==5.0.0\nstreamlit==1.1.0\nthreadpoolctl==3.1.0\ntifffile==2023.4.12\ntoml==0.10.2\ntoolz==0.12.0\ntorch==1.10.0\ntorchvision==0.11.1\ntornado==6.3.2\ntyping-extensions==4.7.1\ntzdata==2023.3\ntzlocal==5.0.1\nurllib3==2.0.3\nvalidators==0.20.0\nwatchdog==3.0.0\nzipp==3.15.0",
+          "user": "U04RMLSU0DS",
+          "user_name": "손무현_T5114",
+          "timestamp": "1688460750.291129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가상환경 삭제 후 다시 생성해보시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688464296.043329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "여전히 트러블 슈팅 중이신가요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688464352.545739",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1688464360.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가상환경 삭제 후 다시 생성해보겠습니다!",
+          "user": "U04RMLSU0DS",
+          "user_name": "손무현_T5114",
+          "timestamp": "1688464580.309069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가상환경 다시 생성하시고 진입 후에, 저 경로에서 `pip install -r requirements.txt` 로 다시 설치해보시겠어요?",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688464628.148849",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 말씀해 주신대로 한 번 해보겠습니다!",
+          "user": "U04RMLSU0DS",
+          "user_name": "손무현_T5114",
+          "timestamp": "1688464825.575669",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시도해보았는데 여전히 같은 에러가 발생합니다ㅠㅠ",
+          "user": "U04RMLSU0DS",
+          "user_name": null,
+          "timestamp": "1688465054.134889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 밥먹고 한번 확인 해보겠습니다… ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688465237.933439",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1688465248.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다! :pray:",
+          "user": "U04RMLSU0DS",
+          "user_name": "손무현_T5114",
+          "timestamp": "1688468760.706839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "말씀대로 동일하게 재현되네요. 문제 파악해보고 다시 말씀드리겠습니다.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688471545.166129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 해결한 방법 공유드릴게요.",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688471869.253019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "먼저, nohup로 띄운 프로세스를 죽여봅시다.\n\n```ps -ef | grep \"streamlit run app.py --server.runOnSave true\"\n\n  501 36220 32998   0  8:55PM ttys011    0:02.96 /Users/user/Desktop/heumsi/repos/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd/.venv/bin/python /Users/user/Desktop/heumsi/repos/Boostcamp-AI-Tech-Product-Serving/part2/04-cicd/.venv/bin/streamlit run app.py --server.runOnSave true```\n저는 pid가 36220 이네요. 다음처럼 프로세스를 죽입니다.\n```kill -9 36220```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688471945.367669",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U03PVSC77HR",
+              "ts": "1688471979.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`requirements.txt` 에 다음을 추가해주세요.\n\n```altair&lt;5```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688472123.320159",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "수정한 `requirements.txt` 로 다시 설치합시다.\n```pip install -r requirements.txt```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688472147.778519",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다시 강의에 나온대로 실행해봅시다.\n```nohup streamlit run app.py --server.runOnSave true &amp;```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688472169.172719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`nohup.out` 파일을 확인해봅시다.\n\n```cat nohup.out\n\n  👋 Welcome to Streamlit!\n\n  If you're one of our development partners or you're interested in getting\n  personal technical support or Streamlit updates, please enter your email\n  address below. Otherwise, you may leave the field blank.\n\n  Email: %```",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688472252.509059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "끝입니다. 해결 안되는 부분 있으면 또 말씀주세요.\n\n해당 GitHub Repository에 업데이트 해두겠습니다.\n제보해주셔서 감사합니다 :man-bowing:\ncc. <@U03PL9GCPFZ>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688472291.497509",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "PR 남겨두었습니다.\n<@U03PL9GCPFZ> <https://github.com/zzsza/Boostcamp-AI-Tech-Product-Serving/pull/155>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688472403.484339",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 `[github action] 2-5강 nohup으로 Background 실행 에러 관련 질의 (강의자료 p.95)` 강의 따라 하시다가 비슷한 문제 겪으시는 분들은 이 쓰레드에 올라온 내용 참고해주시면 되겠습니다.\n\n번거롭게 해드려 죄송해요~",
+          "user": "U03PVSC77HR",
+          "user_name": null,
+          "timestamp": "1688472476.224349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "알려주신대로 실행하였더니 에러가 해결되었습니다! 늦은 시간까지 자세하게 잘 알려주셔서 감사드립니다 :)",
+          "user": "U04RMLSU0DS",
+          "user_name": null,
+          "timestamp": "1688474412.879769",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U03PVSC77HR",
+                  "U04RXRV3T9P"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "pip에 라이브러리 특정 버전이 사라져서 생긴 이슈였습니다 :pray:",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1688522583.072679",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04RMLSU0DS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요! fast-api 실습 도중 마지막에 makefile로 실행하는 과정에서 연결이 안되는데 혹시 해결하는 방법 알 수 있을까요? frontend.py와 main.py는 건드리지 않았고 cat Makefile도 했습니다!",
+        "user": "U04S8T6ENHW",
+        "user_name": null,
+        "timestamp": "1688488210.077569",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03PL9GCPFZ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요~\n\n참고하신 fastapi 실습 강의 이름과 시간대 알려주시면 확인해보겠습니다~",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688520665.232279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cc. <@U03UXQJ8T3Q>",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688520669.645209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI Stage 서버에서 진행하셨는지 환경도 말씀해주시면 좋답니다",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1688522464.212559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 network url로 접근하신거 같은데 external url로 접근해보시면 어떨까 싶어요. 다만 ai stage 서버에 8501 포트가 열렸는지 확인해야 합니다. 열린 포트로 실행하면 가능해요",
+          "user": "U03PL9GCPFZ",
+          "user_name": "변성윤 마스터",
+          "timestamp": "1688522486.513759",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "3-1 강 실습입니다! 시간대는 40분 대 입니다. 서버에서 진행했고 poetry에서 requirements 다운받고 진행했습니다! 포트 한 번 확인해보겠습니다, 감사합니다 :pray::pray:",
+          "user": "U04S8T6ENHW",
+          "user_name": "김동환",
+          "timestamp": "1688525182.417039",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "python3 -m streamlit run app/frontend.py --server.fileWatcherType none\n실행하니 오류가 떠서 Makefile에 이 옵션을 추가했고 포트는 ufw랑 iptables 이용해서 열려고 시도를 해보았는데 저렇게 에러가 뜹니다(함부로 건드리면 문제가 날 수도 있을 것 같아서 일단은 건드리지 않았습니다). 그래도  8501 상태를 확인했었을 때는 open이 된 것 같은데 아직도 잘 연결이 안됩니다 ㅠㅠ",
+          "user": "U04S8T6ENHW",
+          "user_name": null,
+          "timestamp": "1688531112.438659",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U03PVSC77HR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "본 내용은 AI Stage 서버보다, 로컬에서 진행하시는걸 추천드립니다.\nAI Stage 서버에서 하면, 방화벽 포트를 열어줘야 하는데, 이 과정이 조금 복잡할 수도 있어서요 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688536557.319149",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만약 AI Stage 서버에서 한다고 하시면, 스트림릿 서버들의 호스트를 모두 0.0.0.0으로 수정하시고, 백엔드 포트인 8001, 프론트 포트인 8501에 대한 TCP 포트를 방화벽으로 여셔야 합니다. 요거는, AI Stage 운영진 쪽에 문의하셔야 합니다 ㅎㅎ",
+          "user": "U03PVSC77HR",
+          "user_name": "전시흠",
+          "timestamp": "1688536729.088269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04S8T6ENHW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "최초 AI Stage 서버 생성할 때 포트번호를 생성해두셨다면, Makefile 내 Streamlit 명령어의 옵션으로 --server.port [포트번호] 지정해주시면 External URL 로 접속 가능합니다.",
+          "user": "U04RCJPT414",
+          "user_name": null,
+          "timestamp": "1688536855.035059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04R4LS5EFR"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U04S8T6ENHW",
+          "user_name": "김동환",
+          "timestamp": "1688537908.522449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

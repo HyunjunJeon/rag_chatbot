@@ -1,0 +1,472 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! 변성윤 마스터님께 질문이 있어 글 올립니다.\n마스터님의 구글 크롬에서 새 탭 열기하시면 책과 책 문구가 나오는데 플러그인 소개해주실 수 있으신가요?",
+        "user": "U029T4XRUCR",
+        "user_name": "Jia Son",
+        "timestamp": "1639736974.383400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "지아님 안녕하세요~!\n\n<https://chrome.google.com/webstore/detail/crazyones-new-tab/noacokcfnplaajfaajhfcnmniehoddcd?hl=ko>\n\n이 확장프로그램이에요 :slightly_smiling_face:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639742440.383700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029T4XRUCR",
+                  "U027SHXU18R"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U029T4XRUCR",
+          "user_name": "Jia Son",
+          "timestamp": "1639742980.384100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 ! router 실습하다가 강의내용 외에 추가적으로 다른 내용을 적용하다가 궁금한게 생겨서 질문을 드립니다.\n사진과 같이  __all__=[\"user_router\"]     로  read_user_me , read_user_comment  를 제외시키고 import를 했습니다.\n제외를 시켯기에 , get method를 요청해도 error가 날것이라 예상 했습니다. 하지만, 실제로  /me  로 요청을 했을 때  , 정상적으로 작동했습니다.\n APIRouter를 포함시키면 Router 의 모든 get method가 자동적으로 포함이 되는거 같다고 생각합니다.\n_*혹시 ,APIRouter를 포함시키더라도 Router 의 get method 일부만 포함시킬 방법이 있을까요?*_\n_*주석처리를 통해 일부만 포함시킬수도 있지만,   주석처리 이외의 방법으로도 특정 method만 포함 시킬수 있는 방법이 있을까요?*_\n혹시 제 질문과 관련된 링크 및 질문에 대한 답변을  알고계신다면 , 스레드에 공유해주실수 있으실까요?:pleading_face:",
+        "user": "U02AF2JSQP2",
+        "user_name": null,
+        "timestamp": "1639808801.394300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1639808882.000000"
+          },
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U028ZAA1X1V",
+                "U0290GAJGG7"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 20
+        }
+      },
+      "answers": [
+        {
+          "text": "지금 코드를 보면 라우터 내부에 메소드 들은 분리가 되어있지만 라우터는 하나로 합쳐져있어서 발생한 현상으로 보입니다. 라우터를 두개 이상으로 나눠서 main app에 포함시켜보시면 될것같아요!",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1639809038.395500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "웅준님 안녕하세요-!\n\n원하시는 것이 코드 *작성과 별개로 특정 Method만 API로 만들고 싶다*가 맞을까요?\n\n왜 특정 method만 포함하려고 하시는지 궁금하네요",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639809104.395700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`@user_router.get(\"/me\", tags=\"[\"users\"])`\n\n위 데코레이터를 사용하셨다면 FastAPI에게 “이 Method를 연결해줘“라고 한 것과 비슷한데 연결해달라고 했는데 막상 웅준님이 연결하지 말아달라고 하시는 것 같아 질문드려보아요~!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639809190.395900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK> 안녕하세요 마스터님.\n파이썬 패키지를 만들어서 module을 import 하는것에 대해 공부하다가 , `__all__`   로 포함시킬 method 및 변수를 정할 수 있다는 사실을 알게 되었습니다. 이를 , FASTAPI에 응용을 하면 특정 method만 연결을 차단할 수 있지 않을까 라는 생각에서 시도해봤습니다. (왜 했지에 대해서 고민을 해봤는데, 이를 표현하는데 시간이 좀 걸릴거 같아서 아래 댓글에 다시 적었습니다.)\n그래서, 예제 , `12_api_router.py`  의 코드를 패키지화 해서 실습을 해볼려 했습니다. 제가 생각하기론 다른 router는 연결이 되지만 method는 포함되지 않겠다고 생각했습니다. (실제론 그렇게 되지 않았습니다.)",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639810022.396200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1639810806.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "method가 독립적으로 작동한면(각 method가 서로의 동작에 영향을 주지 않는경우) swagger로 충분히 확인할 수 있을거 같습니다.\n method 가 특정한 순서로 작동해야 정상적으로 작동이 되는 시나리오가 있다고 가정하겠습니다(ex. 장바구니에 담겟다고 클릭후 , 장바구니를 확인해야 물품이 들어가있는걸 확인할 수 있습니다.)\n장바구니에 담겠다고 클릭을 하면 db에 그 정보가 기록이 되어야 할거 같은데, 코드를 잘못짜서 db 에 기록이 되지 않아장바구니에서 확인이 되지 않는 경우가 있을수 도 있다고 생각했습니다. db에 영향을 끼치는 메소드가 수없이 많을 경우 어떤 부분이 오류인지 test를 하기 위해선 특정 method를 차단하고 test를 해야 원인을 좀더 빠르게 파악할 수 있을 것이다. 라고 질문 당시 생각했습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639810750.396400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1639811005.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2>\n그렇다면 질문의 의도는\n• Test를 위해서 Method를 차단하려고 한다가 맞을까요?\n웅준님의 예시에서 결국 서비스에서 Method는 모두 필요한 것 같은데, Test를 위해 잠시 사용하지 않고 싶다인건지 서비스에 아예 노출을 안하고 싶다인지에 따라 다를 것 같네요!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639812050.397200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK>\n답변 감사합니다. 마스터님\n네 Test를 위해서 Method를 차단하는게 질문의 의도가 맞습니다. 마스터님 답변에서 서비스에 현재 노출은 안하지만, 추후 노출을 할 수 있는 방향도 좋은 의견인거 같습니다.!\nTest를 위해 잠시 사용하지 않고 싶다 , 서비스에 아예 노출을 안하고 싶다에 따라 적용할 수 있는 방법이 달라질까요?",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639812195.397400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1639812266.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Router에 연결했는데 연결하고 싶지 않다고 하는 것은 논리적으로 성립될 수 없는 것 같아 의도가 무엇인지 계속 질문했다고 보셔도 좋을 것 같아요. Method를 차단한다는 개념이 제가 알던 차단과 다른 것 같았어요!\n\n(차단의 정의는 무엇일까요? 차단하면 모든 요청에서 불가능한걸까요?)\n\n웅준님이 의문을 가지신 케이스에선 Method를 차단한다?라는 개념보단 e2e test를 통해 해결하는 방향이 괜찮지 않을까 싶어요",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639812664.398200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639812807.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹은 특정 도메인의 프론트에서만 사용하게 만들고 싶다는 목적이였다면 CORS를 알려드리면 될까? 생각하고 있던 찰나에 계속 질문드렸습니다!\n\n<https://fastapi.tiangolo.com/tutorial/cors/>",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639812734.398400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 아는 메소드 차단은 요런 것이였어요!\n<https://offbyone.tistory.com/179>",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639812905.399000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCT2RTK>  세심한 답변 감사합니다. 마스터님!!:smile:\n\n제가 Router , Method 차단에 대한 지식이 부족해서 마스터님께서  질문을 계속 하게 만들었네요. 죄송합니다. ㅠㅠ\n마스터님 께서 , 공유해주신 링크(및 e2e테스트) 잘 읽어보고 공부해보겠습니다.\n\n다시 한번 답변해주셔서 감사합니다.:dancing_penguin:",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639813063.399900",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1639813216.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요.\n\n&gt; _*혹시 ,APIRouter를 포함시키더라도 Router 의 get method 일부만 포함시킬 방법이 있을까요?*_\n&gt; _*주석처리를 통해 일부만 포함시킬수도 있지만,   주석처리 이외의 방법으로도 특정 method만 포함 시킬수 있는 방법이 있을까요?*_\n노출시키지 않을 API 엔드포인트는 라우터에 안 붙이는게 일반적입니다. 즉 말씀하신대로, 주석처리하거나 코드를 아예 지우는게 일반적입니다.",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813510.400200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0296UZ7TJA>  멘토님 답변 감사합니다. 노출시키지 않을려면 다음부턴 decorator 부분만 주석하거나 코드를 아예지워야겠군요.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1639813599.400400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "&gt; 네 Test를 위해서 Method를 차단하는게 질문의 의도가 맞습니다.\n의도하시는게, 어떤 특정 API 엔드포인트를 테스트하는데, 이 엔드포인트가 다른 엔드포인트에 의존성이 있는경우\n(예를 들어 `/order` 라는 엔드포인트를 호출하면 서버 내부적으로 `/addItem` 이라는 엔드포인트를 호출한다든가)\n나는 `/addItem` 에 대한 의존성 없이 테스트하고 싶다는 것으로 이해했는데요.",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813654.400600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "애플리케이션 테스트에는 크게 다음처럼 있습니다.\n\n• e2e (엔드투엔드)\n• integration (통합)\n• unit (단위)",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813700.400800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029FSCQAKX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇게 의존성이 있는 로직의 일부를 테스트하지 않으면서(이를 차단이라고 표현하신거 같습니다) 전체적으로 이 기능에 대한 테스트하는 것은 “단위 테스트“라고 하는데요.",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813766.401000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "테스트하지 않고자 하는 이 일부의 로직을 “대체” 해야하는 어떤 것들이 있는데, 이를 “테스트 더블” 이라고 합니다.",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813843.401200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "관련 내용은 아래 내용을 보시면 좋을거 같습니다.\n\n<https://brunch.co.kr/@tilltue/55>",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813857.401400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "테스트라는게 생각보다 복잡하고 어려운 내용이라… :disappointed:",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639813876.401700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 성민님.\n\n• 글로벌 변수로 두고 싶지 않다.\n• Depends와 같은 것에 의존하고 싶지 않다.\n보통 이런 경우에 Container 패턴을 쓰게 됩니다. (실제로 많이 쓰는 패턴입니다)",
+        "user": "U0296UZ7TJA",
+        "user_name": "전시흠",
+        "timestamp": "1639812519.397700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "IoC Container 이라고도 부르는데, 꽤 중요하고 많이 쓰는 패턴이므로.. 한번 읽어보시길 추천드립니다.\n\n<https://medium.com/@jang.wangsu/di-inversion-of-control-container-%EB%9E%80-12ecd70ac7ea>",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639812568.397900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029BP86UBX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "현재 말씀주신 내용에서 적용해본다면 다음처럼 해볼 수 있을거 같아요.\n\n```# container.py\n\nclass Container:\n  def __init__(self):\n    model = m.get_model(...)```\n```# main.py\n\ncontainer = Container()\napp = FastAPI()\n\nclass PredictRequest(BaseModel):\n  ...\n\nclass PredictResponse(BaseModel):\n  ...\n\n@app.get(\"/predict\")\ndef predict(req: PredictRequest):\n  model = container.model\n  res = model.predict(req)\n  return res\n\nif __name__ == \"__main__\":\n  uvicorn.run(app)```",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639812824.398800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "party_parrot_icecream",
+                "users": [
+                  "U029J2FKWLS",
+                  "U029T4XRUCR",
+                  "U029QPQQVUJ",
+                  "U029BP86UBX"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "위처럼하면 Container를 초기화할 때 모델이 로드되고,\n이 이후에 FastAPI 앱이 기동됩니다.",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639812906.399200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Container 패턴을 좀 더 리치하게 쓰기 위해 저희 팀원분들은 보통 아래 라이브러리를 씁니다. 시간 되실때 한번 써보셔도 좋을거 같습니다!\n\n <https://python-dependency-injector.ets-labs.org/>",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639812988.399500",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0296UZ7TJA",
+              "ts": "1639812995.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029T4XRUCR",
+                  "U029BP86UBX"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

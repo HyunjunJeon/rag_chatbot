@@ -1,0 +1,108 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요!\nfastapi에서 비디오 혹은 웹캠을 frame단위로 잘라서 inference 결과를 계속해서 yield해주고  streamingresponse를 통해 결과 이미지를 스트리밍 중입니다.\nimg를 스트리밍하면서 데이터도 보여주고 싶은데 혹시 방법이 있을까요?\n현재는 &lt;img src= &gt;에 담아주고 있는데\n&lt;form&gt;으로 바꿔서 여기에 데이터를 담으려하니 이러면 form에 값은 실시간으로 변하지만 이를 실시간으로 이미지로 출력 할 수 없어서 ajax를 사용하려 했더니 ajax는 Streamingresponse를 받지 못하는거 같습니다.\najax를 사용해서 Streamingresponse를 받으려하면 무한 정지에 빠져서 error도 success도 나오지 않습니다.\n\n&gt;&gt; 스트리밍을 하면서 결과값도 출력하는 방법",
+        "user": "U029HMBUFT8",
+        "user_name": "황주영",
+        "timestamp": "1639858077.411500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "blob_thumbs_up",
+              "users": [
+                "U029E8JH0BV",
+                "U028ZAA1X1V",
+                "U028ZQU4N07",
+                "U029KG3T7L3"
+              ],
+              "count": 4
+            },
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U029E8JH0BV",
+                "U028ZAA1X1V",
+                "U028ZQU4N07"
+              ],
+              "count": 3
+            },
+            {
+              "name": "dancing_penguin",
+              "users": [
+                "U029E8JH0BV",
+                "U028ZAA1X1V",
+                "U028ZQU4N07"
+              ],
+              "count": 3
+            },
+            {
+              "name": "kirby_dance",
+              "users": [
+                "U029E8JH0BV",
+                "U028ZAA1X1V",
+                "U028ZQU4N07"
+              ],
+              "count": 3
+            },
+            {
+              "name": "pleading_face",
+              "users": [
+                "U029BGDTLJH",
+                "U028ZAA1X1V",
+                "U028ZQU4N07",
+                "U029BP86UBX"
+              ],
+              "count": 4
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U029BGDTLJH",
+                "U029W8R96KW",
+                "U028ZAA1X1V",
+                "U028ZQU4N07",
+                "U029E1P5Z5G"
+              ],
+              "count": 5
+            },
+            {
+              "name": "thinking_face",
+              "users": [
+                "U029BGDTLJH",
+                "U028ZAA1X1V",
+                "U028ZQU4N07"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "주영님 안녕하세요~!\n4~5시에 프로젝트 하다가 메세지 보내주셨군요 ㅠ_ㅠ 고생하셨네요\n\n일단 좋은 답을 찾기 위해 질문을 드려봅니다\n• 현재 streamingresponse로 웹캠을 보여주는 기능은 구현 완료\n• img를 스트리밍하면서 데이터도 보여주고 싶은데 혹시 방법이 있을까요?\n    ◦ 이 부분에서 데이터는 어떤 데이터인가요?  모델이 예측한 결과를 데이터라고 표현하신걸까요?\n    ◦ 어떤 Task를 하고 계신지 말씀해주시면 더 좋을 것 같아요!(어떤 비전 프로젝트다, NLP 프로젝트다 등)\n    ◦ 코드를 볼 수 있는 곳이 있다면 코드도 보여주시면 더 좋을 것 같네요!\n\ncc <@U029MCHFVEV> 상태님 요거 같이 답변해보시죵!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639875476.413600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "metamong",
+                "users": [
+                  "U029HMBUFT8"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

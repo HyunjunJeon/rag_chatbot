@@ -1,0 +1,388 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "(퀴즈) Advanced Object Detection Q2\n주어진 Weight matrix에서 파란색으로 표시 된 cell에 대응 하는 R matrix의 cell의 값은 '0, -1'입니다.\n강의의 내용에 따라서, input feature map에서 p_0의 왼쪽 한 칸 만큼 이동 한 위치의 cell의 값인 '4'가 곱해진다고 이해가 됩니다.\n그런데 답을 '4'로 제출 하니 오답이라고 합니다. 제가 이해를 잘 못 한 부분이 있는지 문의 드립니다.",
+        "user": "U04RK761KC2",
+        "user_name": "김대희",
+        "timestamp": "1683112553.184369",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U04RK761KC2",
+            "ts": "1683113318.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04S8TB1JBS"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 대희님 :slightly_smiling_face:\nDCN에서 R 매트릭스는 offset을 의미한다고 볼 수 있습니다.\n\n임의의 위치인 p_0를 기준으로 R 매트릭스의 원소인 p_n을 iteration하면서 w와 곱할 input feature map을 찾게 됩니다.\n\n대희님께서는 p_n의 위치에서 offset을 구한 것으로 추측되는데요! 힌트를 드리자면 p_0 위치에서 구하시면 답변이 될 수 있을 것 같습니다~",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683117995.811409",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "강의를 보기 전에 수식으로만 봤을 때에는 설명 해주신 것처럼 이해 해서 문제에서 w(p_n) = '2'(파란색 cell)일 떄, p_n = '1, 1'인 것이고, 그렇다면 R('0, 0') = '1, 1'이 되는 위치인 input feature map('0, 0')의 '5'가 답이 될 텐데 답이 아니었습니다.. 그리고 강의 내용과도 상이한 것 같습니다. 그리고 이렇게 해석 하면 수식과도 맞지 않습니다.",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683119486.661699",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK761KC2",
+              "ts": "1683120058.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇다면 온전히 수식 만을 따랐을 때, w(p_n) = '2'(파란색 cell)일 때, p_n = '1, 1'이므로 input feature map(p_0 + p_n) = '9'가 되는데 이것은 기본 convolution 연산과 다른 게 없어 R의 존재 의미가 없어집니다. 또한, '9'도 답이 아닙니다.",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683120017.279639",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 수식에 'Δp'가 빠져있어서 수식으로만 이해 하는 데에 오류가 발생 하는 것일까요?",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683120297.664209",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "w(p_n) = '2'(파란색 cell)일 때, p_n = '0, -1'로 나와있습니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683120379.853889",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러면 처음에 질문 드린 대로가 맞는데 input feature map(p_0 + p_n) = '4'로 귀결이 됩니다..",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683120606.209649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "대희님 말씀이 맞네요! 답이 잘못되어 있었습니다. 해당 사항 수정해두도록 하겠습니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683120980.634329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U04RK761KC2",
+                  "U04S8TB1JBS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이미 세 번 제출 해서 틀린 상태로 남았습니다. 조금 억울한 면이 있는데 혹시 초기화 해주실 수 있을지요? ㅋㅋ",
+          "user": "U04RK761KC2",
+          "user_name": "김대희",
+          "timestamp": "1683121016.200959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U04S8TB1JBS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그러셨군요 ㅠㅠ 운영진님께 문의 드려보겠습니다!",
+          "user": "U04LEMHC78S",
+          "user_name": "김진용",
+          "timestamp": "1683121220.387019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK761KC2",
+                  "U04S8TB1JBS"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[2강 2 Stage Detectors] Fast R-CNN의 Hierarchical sampling의 개념이 잘 이해가 가지 않아 질문드립니다\n한 배치당 N개 이미지에서 총 R개의 RoI를 뽑아 사용하면 같은 이미지에서 뽑은 RoI들은 연산과 메모리를 공유한다고 하셨고 찾아보니까 그래서 학습이 빠르다는 내용이 있었습니다\n그런데 어떻게 연산과 메모리를 공유하는건지, 그게 어떻게 학습을 빠르게 만들어준다는건지 잘 이해가 안돼서 질문을 드려봅니다\n1. N개 R개를 작게 정했기 때문에 연산량과 메모리가 공유되는건지 아니면 한번에 모든 부분을 학습 가능한 모델이기 때문에 연산량과 메모리가 공유되는건지 궁금합니다\n2. Hierarchical sampling이 연산량과 메모리가 공유되는 것 때문에 빠른건지 N과 R을 작게 해서 한번에 계산해야 하는 연산량을 줄였기 때문에 빠른건지 궁금합니다",
+        "user": "U04RK3HU5RR",
+        "user_name": "박재민_T5089",
+        "timestamp": "1683156600.642289",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "제가 기억하는 바에 의하면, rcnn은 image에서 roi를 바로 추출하여 해당 roi 영역에 대해 cnn을 적용하고, fast-rcnn의 경우 image에 cnn을 적용해서 나온 feature map의 공간에 roi를 projection합니다.\n이 과정에서 roi 단위로 cnn을 적용하는 것이 아니기에 말씀해주신 효과들이 발생하는 걸로 알고 있습니다.",
+          "user": "U03S1A1PV9T",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1683162495.605839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RK74QUD8",
+                  "U04LLBX64LA",
+                  "U04LEMHC78S"
+                ],
+                "count": 3
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04RK3HU5RR",
+                  "U04LLBX64LA",
+                  "U04LEMHC78S"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "RoI에 해당하는 공간에 CNN을 적용하는게 아니라 CNN을 적용한 공간에 RoI를 사영시켜 사용했기 때문이라고 생각하면 되는군요\n답변 감사합니다!",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1683169755.468639",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RK3HU5RR",
+              "ts": "1683169785.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U03S1A1PV9T> 혹시 질문 하나만 더 드려도 될까요?\nfeature map에 RoI를 사영시켜 사용했기 때문에 속도가  빠르다는건 이해했는데 아직 그 부분이 어떻게 Hierarchical sampling과 연결되는건지 감이 잡히지 않아서 어떻게 이해하면 좋을지 질문드려요",
+          "user": "U04RK3HU5RR",
+          "user_name": "박재민_T5089",
+          "timestamp": "1683175241.819919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[5강 YOLO pipeline 질문]\n안녕하세요 YOLO v1 강의를 듣다가 이해가 잘 가지 않아 질문드립니다!\n강의에서 input image에 대해 SxS (S=7)의 grid로 이미지를 나눠준다고 하는데\n1. 최종 output이 7x7x30 형태가 input image를 7x7 grid로 나눈 것과 같다는게 무슨 뜻인가요?(강의 8:10 부분)\n2. 사진에서 input image에 있는 7x7 상자는 무슨 역할인가요?",
+        "user": "U04R4LXE0KH",
+        "user_name": null,
+        "timestamp": "1683163217.070539",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04S8TAESG0",
+                "U04RMLS59HA"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "Yolo v1에서는 input image를 S*S의 grid cell로 나누고 각각의 grid cell에 대한 예측을 합니다. input image size가 448*448*3고 S=7이라면 각 grid cell은 이미지의 64*64*3부분을 보게 됩니다.\n• 총 S*S개의 grid cell 각각에 대한 prediction(output)이 필요하기 때문에 output size가 S*S*30의 형태를 가지게 됩니다 (output을 S*S개로 나눠서, 1*1*30이 각각의 grid cell에 대한 예측 정보를 담고있습니다). output size와 input을 나누는 gird 개수가 동일해야 하기 때문에 언급하신 문장 같습니다. 아래 그림 또는 링크를 참고하시면 이해가 편하실 것 같습니다!\n• architecture figure에서 input image에 있는 7x7은 첫 번째 convolution의 kernel size입니다. 그림에 나와있는것처럼 7*7 convolution과 2*2 max pooling layer를 거쳐서 112*112*192 output(다음 layer)이 나오게 됩니다.\n<https://check-this.tistory.com/120>",
+          "user": "U04LLBX64LA",
+          "user_name": null,
+          "timestamp": "1683170748.839739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04R4LXE0KH",
+                  "U04S8TAESG0"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마지막 feature map인 `7x7x30` 텐서를 이루는 각각의 `1x1x30` 텐서들이 input image의 grid cell 별 예측을 한다는 것은 어떻게 보장되는 건지 궁금합니다.\n마지막 feature map을 구하는 과정을 생각해보면, input image의 전체 영역에 대해 convolution 연산을 여러 번 수행해서 구하게 되는데, 그렇게 구해진 `7x7x30` feature map의 `1x1x30` 텐서들이 input image의 grid cell과 대응된다는 것이 잘 이해되지 않아서요 :smiling_face_with_tear:",
+          "user": "U04RMLS59HA",
+          "user_name": "박수영_T5084",
+          "timestamp": "1683175462.104049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04R4LXE0KH"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[4강 Neck 질문]\n안녕하세요 4강 Neck 강의중 아래 수식에 대해 궁금한게 있어서 질문을 남깁니다!\n\n1. FPN 에서 'High Level feature map에서 나온 ROI일수록 큰 width와 height 를 가진다' 라고 들었는데  그 이유가 궁금합니다.\n2. 또 High Level 로 갈수록 feature map의 사이즈는 작아지는데 그럼에도 각 단계의 feature map에 적용하는 achorbox의 사이즈가 똑같은지 궁금합니다.",
+        "user": "U04RK7380JW",
+        "user_name": null,
+        "timestamp": "1683165638.774209",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RMLT8L9J",
+                "U04RMLSJJ7N",
+                "U04RK76MH26",
+                "U04RK74M4RY",
+                "U04RG92564V",
+                "U04RMLS59HA",
+                "U04RK3GCBQT"
+              ],
+              "count": 7
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U04LLBX64LA"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "High level일수록 feature map의 사이즈가 작기 때문에 크기가 큰 객체에 대한 정보를 담고있고, 때문에 RoI 영역이 크고 low level에 비해 큰 width height를 가집니다.\n같은 이유로 anchor size를 다르게 설정합니다. 논문에서는 {P2, P3, P4, P5, P6} 각각에 대해서 사이즈 비율에 맞게 {32^2, 64^2, 128^2, 256^2, 512^2}로 사용했습니다.",
+          "user": "U04LLBX64LA",
+          "user_name": "이수아",
+          "timestamp": "1683172427.809649",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RK7380JW",
+                  "U04RG8WUAHK"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              },
+              {
+                "name": "zzang",
+                "users": [
+                  "U04LEMHC78S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

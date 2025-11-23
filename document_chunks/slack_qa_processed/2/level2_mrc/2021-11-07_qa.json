@@ -1,0 +1,198 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 대회 끝나고 뒷북이지만 조언을 구하고자 질문을 드립니다.\nt5라는 생성모델을 이용해서 mrc문제를 시도했는데 metric 그래프가 이상하게 나옵니다.\n왜 보아뱀 속에 들어간 코끼리 모양으로 나오는 걸까요???\n(valid acc 60 나왔을 때 생성결과는 정상적으로 나오는 것을 확인했습니다)\n\n모델은 한국어로 pretrain된 T5(KETI-t5)를 사용했고\n옵티마이저는 adamW\n스케줄러는 *`transformers.get_cosine_with_hard_restarts_schedule_with_warmup`을 사용했습니다.*\n\n배치사이즈는 32로 250step마다 1epoch가 돌아간다고 생각하시면 됩니다.\ntrain은 50 step, valid는 200 step 마다 찍었습니다.\nacc는 em 값입니다.",
+        "user": "U029R6PA9HT",
+        "user_name": "hs",
+        "timestamp": "1636285945.070300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029R6PA9HT",
+            "ts": "1636298543.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029B6PDLFQ",
+                "U029W8R96KW",
+                "U029MNM7SE8",
+                "U029Z7YSHEV"
+              ],
+              "count": 4
+            },
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029R6PA9HT> 효석님 안녕하세요 ! 먼저 알려주신 내용만 보고서는 어떤 부분이 의심된다고 말씀드리기가 애매할 것 같습니다. 이럴 때 체크해보면 좋을 몇가지 부분을 말씀드려보자면\n1. 내가 사용한 모델의 깃허브에 들어가서 finetuning에 대한 정보 얻은 후 어떤 부분이 다른지 체크하기 (제가 좀 검색해보니 해당 모델은 finetuning 가이드를 주는 레포가 따로 있네요. finetuning시 train_default.gin이라는 파일에서 파라미터를 정해주고 있는데, 이런 부분을 비슷하게 지켰는지 확인해보면 좋습니다)\n2. 생성된 값과 실제 정답을 따로 추출하여 metric을 구했을 때도 이상한 값이 나오는지 체크해보기\n3. preprocess, postprocess에서 문제는 없는지 체크해보기\n이런 내용을 한번 확인해보는것이 좋습니다. 생성결과가 정답에 가까운지 혹은 자연스럽기만한지 (자연스러운 문장을 만들어냈지만 QA에 적합하지 않은 문장을 생성한것은 아닌지)도 체크해보면 좋을 것 같아요.",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1636341415.073300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298UN562F",
+              "ts": "1636341420.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLPSRY",
+                  "U029R6PA9HT"
+                ],
+                "count": 2
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U0298NLPSRY",
+                  "U029R6PA9HT"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 운영진님들. 매사 캠퍼들의 편의를 신경 써 주셔서 감사합니다.\n이번 MRC 대회의 다른 팀 분들의 코드도 한 번 보면서 공부해보고 싶은데, MRC repo가 언제 공개로 되는지 알고 싶습니다. 확인 부탁 드립니다.\n좋은 하루 되세요.",
+        "user": "U029KFGPJ9H",
+        "user_name": "고창용",
+        "timestamp": "1636344589.077500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029KFGPJ9H> 안녕하세요, 창용님! 이번 MRC 대회의 레포는 이번주 (수)에 공개될 예정입니다~ :slightly_smiling_face:",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1636344619.077600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U029KFGPJ9H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠른 답변 감사합니다!",
+          "user": "U029KFGPJ9H",
+          "user_name": "고창용",
+          "timestamp": "1636344652.077900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U027SHXU18R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 nlp 캠퍼 및 멘토 및 운영진 여러분들.\nnlp관련 궁금한게 하나 있어서 질문합니다.\nnltk 의 punkt tokenizer는 char based, word based, subword based 중에 word based 에 해당하는건가요 ?\n여러분들의 도움을 기다리고 있습니다 ㅠ\n\n※추신 : punkt 가 punct를 의미하는건가요?",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1636347054.079700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1636347390.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://aclanthology.org/J06-4003.pdf>",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1636354574.080300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 웅준님 punkt tokenizer는 하나의 코퍼스가 존재할 때 sentence의 범위를 detect하기 위해 제안된 모델입니다. 즉 nltk에서 사용하는 punkt는 하나의 큰 코퍼스에서 문장을 식별해주는 역할을 수행합니다. sentence tokenizer라고 생각하시면 됩니다. 2006년에 제안된 방법론이며 위의 논문에서 처음 제안되었습니다.",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1636354660.080500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UN562F> 답변 감사합니다.\n추가적으로 모르는 부분 생기면 여기에 질문 달도록하겠습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1636354859.080700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

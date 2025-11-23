@@ -1,0 +1,55 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "조교님이 적어주신 트릭(softmax, nll -&gt; ce)이 더 연산이 빠릅니다!",
+        "user": "U0417FPSGS0",
+        "user_name": "박정호_멘토",
+        "timestamp": "1686485430.670579",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0417FPSGS0",
+            "ts": "1686485581.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04RK70A9KL> \n말씀해주신대로 원래 논문의 근거해 GELU연산 및 nn.Embedding의 weight 불러와서 내적 올바른 방법입니다 (shared 구조).\n하지만 편의상 output을 위한 새로운 Linear Layer을 썼다고 보시면 됩니다.",
+          "user": "U041VLUG4HF",
+          "user_name": "김강민",
+          "timestamp": "1686546174.543469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U041VLUG4HF> <@U0417FPSGS0> \n아항 그렇군요. 실제로 해보니 shared embedding을 안 쓰는게 구조도 간단하고 metric도 더 빠르게 수렴하네요. 감사합니다!",
+          "user": "U04RK70A9KL",
+          "user_name": "이민호_T5140",
+          "timestamp": "1686546331.369349",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041VLUG4HF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

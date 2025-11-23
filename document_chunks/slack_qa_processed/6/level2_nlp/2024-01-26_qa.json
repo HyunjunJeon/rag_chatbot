@@ -1,0 +1,32 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<@U04L808UDFG>\n혹시 왜 안되는건지 여쭤봐도 될까요?\n그렇게되면 데이터 클리닝을 제외하고는 데이터 전처리 시도는 할 필요가 없어지는 것 같아서요...",
+        "user": "U063A77BZDM",
+        "user_name": "김기호",
+        "timestamp": "1706256931.985959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U063A77BZDM> 안녕하세요 캠퍼님!\n테스트 데이터를 수정할 수 있다면 더 많은 전략을 사용할 수 있겠지만, 테스트 데이터 수정 시에, 해당 수정 내역을 모두 확인하여 규칙을 적용하는 것에 무리가 있기에 수정 불가능으로 규칙을 정했습니다.\n\n본 대회의 목적은 *강건한 모델을 학습을 위한 학습 데이터를 구축하는 Data-centric 기반의 대회*로 이해해주시면 될 것 같습니다.",
+          "user": "U0619KW7QRY",
+          "user_name": "JS Lee",
+          "timestamp": "1706263600.215929",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

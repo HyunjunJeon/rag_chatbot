@@ -1,0 +1,204 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "(주) 문자를 officehour에서는 풀어서 전사하라고 하였고, 부스트코스에서는 특수문자로 처리하라고 되어있는데 어느 규칙을 따라야할까요?",
+        "user": "U041L8WPYKW",
+        "user_name": "류건",
+        "timestamp": "1670377136.226769",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041HN2CWMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오피스 아워를 기준으로 (주)라는 글자를 풀어서 전사해주시면 됩니다!",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1670380322.088819",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L8WPYKW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "m^2 같이 특수문자인데 라벨링스페이스의 특수문자 목록에 없는 경우는 어떻게 전사해야할까요?",
+        "user": "U041L8WPYKW",
+        "user_name": "류건",
+        "timestamp": "1670377368.709419",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041HN2CWMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "제곱에 붙는 숫자를 특수 문자로 보지 않고, 일반적인 하나의 문자로 보고 주석해주세요.\n즉, m과 2를 각각 별도의 텍스트 박스로 타이트하게 주석해주시면 됩니다!",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1670380399.576999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041L8WPYKW"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "실제로 음각/양각이 아니지만, 음각/양각 모양으로 프린트된 글자의 경우 관련 태그를 달아야 하나요?",
+        "user": "U041WE6EKB3",
+        "user_name": "홍주영_T4234",
+        "timestamp": "1670379849.457189",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U041HR3M8BU"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "넵, 맞습니다.\n말씀대로 프린트된 경우에도 음각/양각을 확인할 수 있다면 태그를 붙여주세요.",
+          "user": "U04AVBNKNG5",
+          "user_name": "NamHyeok(김남혁)",
+          "timestamp": "1670380425.466959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "알겠습니다! 답변감사합니다 ㅎㅎ",
+          "user": "U041WE6EKB3",
+          "user_name": "홍주영_T4234",
+          "timestamp": "1670380670.405829",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "vscode에 서버 연결된 상태에서 OCR_EDA.ipynb 돌려보려고 하는데요~\npython커널이 연결되지 않고 \"Select Kernel\" 하라고 되어있어서 suggested 설치하라고 해서 해도 변함이 없습니다. 혹시 이러한 문제 해결 해보신 분 계신가요?\naistage jupyterlab에서는 커널이 잘 연결되어있는 상태입니다.",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1670398998.270429",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "한 번 code 폴더를 열어보시겠어요?",
+          "user": "U041L94723E",
+          "user_name": "집사",
+          "timestamp": "1670399760.673709",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "TTA를 적용하려고 하는데 서버의 inference.py 스크립트를 수정해서 제출해도 규칙에 위배되는 것인지 궁금합니다.",
+        "user": "U0427G48WAC",
+        "user_name": "시형",
+        "timestamp": "1670399291.949139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, inference.py 스크립트 수정은 가능합니다. 다만 파일의 위치, 경로 등이 제대로 설정되지 않을 경우 리더보드 제출에 문제가 생길 수 있습니다. :pray:\n\n참고로 아래 파일은 규칙상 수정이 불가합니다. 모델링에 집중하기 보다는 ‘데이터 제작 및 적용’ 관점에서 프로젝트에 참여해 주시면 좋습니다 :slightly_smiling_face:\n• model.py\n• loss.py\n• east_dataset.py\n• detect.py",
+          "user": "U03L1UMDLUS",
+          "user_name": "크리스_운영진",
+          "timestamp": "1670399787.066899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041HN3C7B5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

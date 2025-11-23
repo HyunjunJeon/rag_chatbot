@@ -1,0 +1,742 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "[프로젝트 관련 질문]\n\n안녕하세요! 이미 기존에 올라왔던 질문들이지만, 명확하게 이해가 잘 안된 부분들이 있어서 질문드립니다!\n\n1. <https://boostcampaitech.slack.com/archives/C053VRG2TEE/p1684746737226779> 에서 ipynb 파일을 py 파일로 모듈화시키면서 코드를 재구성하는 경우, 성능에 차이가 생겼다면 괜찮다고 이해했습니다. 저희 팀 역시 ipynb 파일을 py 파일로 모듈화하고 싶은데, 이 때 추가되는 내용이 모델을 수정할 수 없는 대회 규칙상 아마 wandb 추가, f1 score 출력 추가처럼 성능에는 변화를 주지 못하고 기능에 추가를 주는 정도의 내용들일 것 같은데, 이 경우에도 public 공개가 가능할까요?\n\n2. <https://boostcampaitech.slack.com/archives/C053VRG2TEE/p1684896165057619> 에서 리더보드 기준이 F1 score 기준으로 평가된다고 하셨는데 첨부된 캡쳐 화면을 보면 리더보드 순위는 accuracy 기준인 것 같아서 혼동이 옵니다. 혹시 public 리더보드 순위 기준과 private 리더보드 순위 기준이 다른건가요?",
+        "user": "U04RCJQGCA2",
+        "user_name": null,
+        "timestamp": "1684913932.829079",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U04RCJVHM9C",
+                "U04S8T6DCNL",
+                "U04RK3M35CK",
+                "U04R4LW2X7Z",
+                "U04R4LX4FMM",
+                "U04R4LRRK5M"
+              ],
+              "count": 6
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U04RCJVHM9C",
+                "U04S8T6DCNL",
+                "U04RK3M35CK",
+                "U04R4LX4FMM",
+                "U04R4LRRK5M"
+              ],
+              "count": 5
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RK3E8L3D"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 순차적으로 답변 드리겠습니다\n\n1. public 공개가 가능하냐는 질문을 제대로 이해하지 못했습니다...! 혹시 wandb를 추가하거나 f1 score 출력을 추가한 코드를 공개해달라는 말씀이신가요? \n2. 최종 성능 평가에서의 기준 metric은 F1 score입니다. 오피스아워에서 설명 드렸듯, test dataset에서의 일부는 private으로, 나머지는 public으로 평가됩니다. public은 대회 진행중에 리더보드에 표기된 성능이며, private은 대회 종료 후 최종으로 순위를 매길 때 사용됩니다.",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684916420.422219",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04L808UDFG> 가은님의 2번 질문에 대해 추가로 질문 드립니다. F1 score 기준인 건 계속 안내 해주셨기에 모두 인지하고 있으나, 가은님이 첨부하신 사진을 확인하시면 현재 리더보드 순위가 accuracy 기준으로 표기되고 있습니다. 이 때문에 혼동이 오는 상태인데, 혹시 리더보드 순위를 f1 기준으로 정렬하도록 수정해주실 수 없는 건가요?! (밑에 도현님도 언급해 주셨습니다!!)",
+          "user": "U04R4LW2X7Z",
+          "user_name": "이승우_T5143",
+          "timestamp": "1684916935.406019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "grinning",
+                "users": [
+                  "U04R4LRRK5M",
+                  "U04RCJQGCA2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "조교님 답변 정말 감사합니다!\n\n1번의 경우에는 정확히 말씀드리자면 저희가 기능들을 추가한 코드를 github에 올려도 되는지 질문드렸던 거였는데, 이 부분은 운영진님께 여쭤보는게 맞는 것 같습니다. 조교님께 혼동을 드려서 죄송합니다.:smiling_face_with_tear:\n2번의 경우, 위에서 승우님께서  제가 질문드리고 싶었던 점을 말씀해주셔서 확인해주시면 감사할 것 같습니다!:blush:",
+          "user": "U04RCJQGCA2",
+          "user_name": "서가은_T5101",
+          "timestamp": "1684917029.967469",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 !! 리더보드 순서 같은 경우, 시스템상으로 가능한지 아직 확인중입니다 :smiling_face_with_tear:  확인되는 대로 바로 알림 드리겠습니다 !!!!! :face_holding_back_tears: :face_holding_back_tears:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684917114.305069",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04RCJQGCA2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 정말 감사드립니다!! :pray::pray:",
+          "user": "U04R4LW2X7Z",
+          "user_name": "이승우_T5143",
+          "timestamp": "1684917156.451739",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 정말 감사합니다!!ㅎㅎ",
+          "user": "U04RCJQGCA2",
+          "user_name": "서가은_T5101",
+          "timestamp": "1684917211.308109",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, 프로젝트 진행하다가 `BERTDataset` 내에서 사용되는 `nlp.data.BERTSentenceTransform`에 대해 질문 드립니다.\n기존 코드에선 `BERTDataset` 내에서 `nlp.data.BERTSentenceTransform` 가 `self.sentences = [transform(i) for i in texts]` 에서 사용됩니다. 혹시 `self.sentences = [transform([i]) for i in texts]` 가 옳은 코드가 아닌지 질문드립니다. 사진은 `transform(i)` 와 `transform([i])` 의 차이를 비교하기 위한 코드입니다!!\n추가로, 현재 리더보드에서 등수에 대한 우선순위가 f1이 아닌 accuracy로 설정되어있는 것 같은데, f1으로 바꾸어주실 수 있나요? 감사합니다!",
+        "user": "U04R4LRRK5M",
+        "user_name": null,
+        "timestamp": "1684914477.378499",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RCJQM35L",
+                "U04R4LW2X7Z",
+                "U04S8T6QGJU",
+                "U04RCJVHM9C",
+                "U04RCJQGCA2",
+                "U04RK71CXHQ"
+              ],
+              "count": 6
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U04RXRUJ3DX",
+                "U04RK72HTU2",
+                "U04RCJVHM9C",
+                "U04R4LW2X7Z",
+                "U04RCJQGCA2",
+                "U04RK71CXHQ",
+                "U04RXRW0XND"
+              ],
+              "count": 7
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RK3E8L3D"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 10
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04L808UDFG> <@U04LU50651P> 확인 후 답변 부탁드려요~",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684914701.475489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://nlp.gluon.ai/_modules/gluonnlp/data/transforms.html#BERTSentenceTransform.__call__>\n내부적으로 `input_text[0]`에 대해 tokenizing이 일어나도록 코드가 짜여있어서 `input_text`를 iterable object로 감싸주지 않으면 원하는 대로 토크나이징이 되지 않는 것 같습니다! 문장을 list나 튜플에 넣지 않고 그냥 transform에 넘겨주게 되면,  `input_text[0]`는 문장의 첫 글자이므로, 토크나이징 결과 문장의 첫 번째 글자만 토크나이징이 되겠네요!\n위에 링크 독스 코드를 보니깐, `pair=True`로 넘겨주게 되면 예외 처리를 하도록 코딩이 되어 있는데 일어나는데, 저희처럼 `pair=False` 를 해주는 경우에 대해서는 assert를 해주지 않아서 이런 해프닝이 일어나는 것 같습니다..ㅎㅎ",
+          "user": "U04RCJQM35L",
+          "user_name": "천재원_T5213",
+          "timestamp": "1684916107.578589",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04RCJQM35L",
+              "ts": "1684916554.000000"
+            },
+            "reactions": [
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U04R4LRRK5M",
+                  "U04R4LU3CK1",
+                  "U04L808UDFG",
+                  "U04RK3G01EF",
+                  "U04RXRW0XND"
+                ],
+                "count": 5
+              },
+              {
+                "name": "minion-twerk",
+                "users": [
+                  "U04RXRS2789",
+                  "U04RK3G01EF"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "재원님께서 저보다도 더 잘 답변해주신 것 같습니다! 감사합니다 :hugging_face:",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684916452.460449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "감사해줘서-더감사",
+                "users": [
+                  "U04RCJQM35L"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희가 질문을 잘못 드린 것 같네요\n이미 원인은 다 확인한 상태이구요 이게 baseline code를 바꾸는 것이다 보니 이 코드 수정은 허용이 되는지 여쭤본 것입니다",
+          "user": "U04RXRS2789",
+          "user_name": "변성훈_T5100",
+          "timestamp": "1684916570.576049",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U04RCJQM35L",
+                  "U04R4LRRK5M",
+                  "U04R4LW2X7Z"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04R4LW2X7Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U04R4LW2X7Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "slightly_smiling_face",
+                "users": [
+                  "U04R4LW2X7Z"
+                ],
+                "count": 1
+              },
+              {
+                "name": "sob",
+                "users": [
+                  "U04R4LW2X7Z"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U04RXRS2789> 네! 해당 이유로 `pair=False`를 True로 바꿔주는 것은 가능합니다!",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684916722.520319",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "성훈님이 말씀하신 부분은 `trasform(i)`를 `transform([i])`의 꼴로 바꾸어도 되는지 여쭤보는 것 같아요! pair=True는 저희가 pair 형태로 주는 게 아니라서 assert에서 걸릴 것 같습니다...!",
+          "user": "U04RCJQM35L",
+          "user_name": "천재원_T5213",
+          "timestamp": "1684916835.939799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "너무나_감사",
+                "users": [
+                  "U04R4LRRK5M",
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W",
+                  "U04RXRW0XND"
+                ],
+                "count": 4
+              },
+              {
+                "name": "nerd_face",
+                "users": [
+                  "U04R4LRRK5M",
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 3
+              },
+              {
+                "name": "slightly_smiling_face",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 2
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 2
+              },
+              {
+                "name": "verified",
+                "users": [
+                  "U04RXRS2789",
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 3
+              },
+              {
+                "name": "star-struck",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 2
+              },
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 2
+              },
+              {
+                "name": "grin",
+                "users": [
+                  "U04RK71CXHQ",
+                  "U04RK75KY2W"
+                ],
+                "count": 2
+              },
+              {
+                "name": "smiling_face_with_3_hearts",
+                "users": [
+                  "U04RK75KY2W",
+                  "U04RK71CXHQ"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "엇 그렇군요…! 네네 가능합니다 !!!!",
+          "user": "U04L808UDFG",
+          "user_name": "심미단_조교",
+          "timestamp": "1684916885.130839",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thank",
+                "users": [
+                  "U04R4LRRK5M"
+                ],
+                "count": 1
+              },
+              {
+                "name": "borat_thumbs",
+                "users": [
+                  "U04R4LRRK5M"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다",
+          "user": "U04RXRS2789",
+          "user_name": "변성훈_T5100",
+          "timestamp": "1684916894.445449",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04L808UDFG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵",
+          "user": "U04RXRUJ3DX",
+          "user_name": "김기범_T5021",
+          "timestamp": "1684916922.883279",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U04L808UDFG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "핫 감사합니다!! 어쩌다보니 질문을 많이 달아버렸네요..ㅎㅎ 항상 빠르게 답변해주셔서 감사합니다!!",
+          "user": "U04RCJQM35L",
+          "user_name": "천재원_T5213",
+          "timestamp": "1684916928.700999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_3_hearts",
+                "users": [
+                  "U04L808UDFG"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[프로젝트 관련 질문]\n안녕하세요! test.csv에서 label_text와 label 열은 사라졌지만 annotations 열이 그대로 있어서 혹시나 문제가 될까봐 질문 드립니다. 이 열을 참고하면 안 되겠죠? train 데이터 기준으로 단순히 annotations의 first-scope에서 가장 많이 등장한 라벨을 정답으로 하면 정답률이 97%나 나와서요.",
+        "user": "U04RXRT5NTT",
+        "user_name": "김의진",
+        "timestamp": "1684920255.361349",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "test.csv는 변경이 불가하지 않나요?!",
+          "user": "U04RCJQM35L",
+          "user_name": "천재원_T5213",
+          "timestamp": "1684920359.823059",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "변경이 불가능하지만 너무 쉽게 test 데이터의 정답을 유추할 수 있는 것 같아서 문제가 될까봐서요...ㅎㅎ",
+          "user": "U04RXRT5NTT",
+          "user_name": "김의진",
+          "timestamp": "1684920416.229019",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "확인 후 답변 드리겠습니다",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684922475.427089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[프로젝트 관련]\n안녕하세요, 주어진 데이터의 annotations 열이 학습 과정에서만 사용이 금지되는 건지 아니면 프로젝트의 모든 과정에서 사용이 금지되는 건지 궁금해서 질문드립니다.",
+        "user": "U04R4LUFL9M",
+        "user_name": "김주성_T5054",
+        "timestamp": "1684930346.521139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "곧 운영진에서 일괄 답변 드릴 예정이에요 :smiley:",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684932857.789549",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "[프로젝트 관련]\n안녕하세요 test 데이터 셋에 대하여 전처리처럼 일정한 규칙을 가해도 되나요?",
+        "user": "U04S8TCBPCY",
+        "user_name": "김태민_T5067",
+        "timestamp": "1684931615.390059",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "테스트셋은 건드리시면 안됩니다.",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684932831.965079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[프로젝트 관련 질문]*\nannotations 컬럼 사용 제한에 대해서 질문이 있습니다.\n만약 `annotations` 컬럼을 사용할 수 있다고 하더라도 현재는 모델에 정보를 입력할 때, 베이스라인 코드에서는 `input_text` 컬럼만이 들어가기 때문에 베이스라인을 수정하지 않고는 annotations 컬럼을 활용하여 inference가 불가능하다고 생각하는데, 해당 컬럼을 사용하지 않아야 한다는 제한 조건에 대해서 구체적인 설명을 해주셨으면 합니다.\n해당 컬럼을 정답 label로 간주하여 test.csv를 validation set처럼 사용하는 행위에 대해 제한하는 것인지, 아니면 아예 train.csv에서도 해당 컬럼을 없는 것으로 생각해서 EDA와 전처리도 수행할 수 없는 것인지 확인하고 싶습니다.",
+        "user": "U04RMLUN9E0",
+        "user_name": "강민재",
+        "timestamp": "1684979444.736239",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RXRUJ3DX",
+                "U04R4LX4FMM",
+                "U04R4LUFL9M",
+                "U04RK72HTU2",
+                "U04RCJQM35L",
+                "U04RK71CXHQ",
+                "U04RXRZ9UQH",
+                "U04S8TC2XS4",
+                "U04RMLX5HRA"
+              ],
+              "count": 9
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04LU50651P> 답변 부탁드립니다 !",
+          "user": "U04MJBR4H8C",
+          "user_name": "박찬준_마스터",
+          "timestamp": "1684983882.002699",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "train/valid/test 모두에 대해서 annotations 열 사용이 제한됩니다. 즉 train.csv에서도 해당 컬럼을 없는 것으로 생각해서 EDA와 전처리도 수행할 수 없는 것이 맞습니다.",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684985414.438669",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U04LU50651P",
+              "ts": "1684985577.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "*[aistages 내 metric 관련 질문]*\n대회 관련으로 고생 많으십니다!\n다름이 아니라, 리더보드에서 사용되는 metric이 잘 적용되고 있는 것인지 여쭤보고 싶습니다.\n\n어제 토크나이징 오류를 잡은 뒤에 실제로 valid 점수가 많이 올라간 것(f1-0.95)을 확인할 수 있었으나 리더보드 상의 test 점수는 거의 올라가지 않는 것(f1-0.14)을 확인할 수 있었습니다.\n\n물론, valid와 test간의 간극은 항상 있는 일이긴 하나, 그 간극이 너무 커서 valid의 의미가 없을 정도이며, 애초에 첫 글자만 보고 토픽을 맞추도록 훈련된 버전의 모델(test 점수 0.12)과, 전체 글자를 다 보고 훈련된 버전의 모델(test 점수 0.14)이 이렇게 차이가 안 날 수는 없을 것 같다는 생각을 하였습니다.\n\n관련하여, 두 가지 테스트를 해보고 싶은 것이 있습니다. 하지만 두 방법 모두 KLUE-ynat의 test데이터를 직접 받아와서 사용해야 하는 것들이라, 대회 취지에서 벗어나거나  data leakage이라고 판단이 될 시 거절해주셔도 좋습니다!\n1. KLUE-ynat의 test를 받아와서 그대로 리더보드에 제출하면 이론 상 f1, acc 모두 1이 나올 것입니다. 만약 그렇지 않다면, metric에 오류가 있는 것으로 판단할 수 있을 것 같습니다.\n2. KLUE-ynat의 test를 받아와서 제 로컬에서 직접 저희의 output과 비교하여 f1, acc를 측정했을 때, 리더보드의 test 점수와 큰 차이가 있다면, metric에 오류가 있는 것으로 판단할 수 있을 것 같습니다.\n사실, 이런 부분에서까지 이게 맞는지 여쭤 보는 것이 무례하게 보일 수도 있을 것 같아 질문하기를 망설였는데, 그래도 다른 팀들도 똑같은 이유로 고민하고 있을 것 같기도 하고, 오히려 빨리 말씀드리는 것이 낫겠다고 판단하여 질문드립니다. 무례했다면, 미리 죄송하다는 말씀을 드립니다.\n\n항상 질문 잘 받아주셔서 정말 감사합니다 :)",
+        "user": "U04RCJQM35L",
+        "user_name": "천재원_T5213",
+        "timestamp": "1684982246.158139",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U04RK71CXHQ",
+                "U04R4LW2X7Z",
+                "U04R4LUJ5B9",
+                "U04S8TC2XS4",
+                "U04RXRZ9UQH",
+                "U04R4LRRK5M",
+                "U04RK71SHD0",
+                "U04R4LUFL9M",
+                "U04RK72HTU2",
+                "U04RXRW0XND"
+              ],
+              "count": 10
+            },
+            {
+              "name": "blush",
+              "users": [
+                "U04RXRW0XND",
+                "U04RXRZ9UQH"
+              ],
+              "count": 2
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U04RK3E8L3D",
+                "U04RXRZ9UQH"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U04LU50651P> <@U04L808UDFG> 답변 부탁드립니다.",
+          "user": "U03MDFNTYCE",
+          "user_name": "Wanda(김수완)",
+          "timestamp": "1684982635.485779",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 측에서 확인을 해보았으나 metric과 관련된 오류는 없어 말씀하신 테스트는 승인이 어려울 것 같습니다.",
+          "user": "U04LU50651P",
+          "user_name": "김채형_조교",
+          "timestamp": "1684985548.085029",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

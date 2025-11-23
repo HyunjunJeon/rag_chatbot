@@ -1,0 +1,368 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "다들 오피스 아워 참석해주셔서 감사합니다 :slightly_smiling_face:\n오늘 mmdetection 경로 에러 났던것을 살펴보니, faster rcnn이 아니라 fast rcnn file을 들고와서 오류가 났던거라 faster rcnn을 그대로 들고오시면 동작될 것 입니다. 다들 화이팅입니다 :muscle:",
+        "user": "U02SK8MPGN5",
+        "user_name": "주세환_조교",
+        "timestamp": "1648112429.254159",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "booduck_happy",
+              "users": [
+                "U02THPL8F0C",
+                "U02TFP6V1DY",
+                "U02TFH06BV0",
+                "U02U65KPEJW",
+                "U02TBLB4RHC",
+                "U02U26ECDKL",
+                "U02TSQBNTC7",
+                "U02TU92GURF",
+                "U02T8QB2YDC",
+                "U02U2ELNU9Z",
+                "U02TCKUCM1T",
+                "U02U4FZ7PQV",
+                "U02RS1EC6S3",
+                "U02TUJV3GBT",
+                "U02TD6CD5QD",
+                "U02U1RYL99C",
+                "U02U587JMDE",
+                "U02SWA40KUG",
+                "U02T92JB94N",
+                "U02UEVDM01F",
+                "U02TL7LK78F",
+                "U02TYM38093"
+              ],
+              "count": 22
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U02THPL8F0C",
+                "U02TFP6V1DY",
+                "U02TFH06BV0",
+                "U02T8QB2YDC",
+                "U02U2ELNU9Z",
+                "U02U8JVP3QA",
+                "U02THU7BG1Z",
+                "U02SWA40KUG",
+                "U02TU536QGZ"
+              ],
+              "count": 9
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U02SERAL49Y",
+                "U02TFP6V1DY",
+                "U02TFH06BV0",
+                "U02TDB0EJJ1",
+                "U02U2ELNU9Z",
+                "U02U7U6V4MQ"
+              ],
+              "count": 6
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 오피스 아워 감사합니다 조교님 아까 cosine annealing 관련 질문했던 사람인데요 너무 길어질 것 같아서 제대로 질문을 못했습니다. 원래는 ‘한 에폭‘마다 Learning Rate가 높아졌다 낮아졌다 해야하는데 제가 cosineannealingLR을 사용할 때는 ‘전체 에폭’을 기준으로 cosine 그래프를 그리는 모습으로 진행됩니다. 어떻게 사용해야할까요? 웜업은 사용하지 않았습니다",
+          "user": "U02T9B9BZGE",
+          "user_name": "김준_T3054",
+          "timestamp": "1648115122.277119",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02SK8MPGN5>",
+          "user": "U02T9B9BZGE",
+          "user_name": "김준_T3054",
+          "timestamp": "1648115236.812999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가로 제가 cosin annealing을 사용하는 이유는 안장점을 잘 벗어나게 하고 싶어서인데 위의 문제가 해결이 안된다면 mmdetection에서 어떤 lr_scheduler를 사용하는 것이 좋을까요?",
+          "user": "U02T9B9BZGE",
+          "user_name": "김준_T3054",
+          "timestamp": "1648115440.183369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "cyclic이라는 스케쥴러가 있습니다. 해당 스케쥴러는 cyclic_times 를 설정하여 1번만 돌건지 두번만 돌건지 설정 가능합니다. 이용해보시면 좋을 것 같습니다 !",
+          "user": "U02SK8MPGN5",
+          "user_name": "주세환_조교",
+          "timestamp": "1648116022.324619",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다!!",
+          "user": "U02T9B9BZGE",
+          "user_name": "김준_T3054",
+          "timestamp": "1648118977.408129",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02SK8MPGN5> faster rcnn을 들고오라는게 정확히 무슨 뜻이죠?\n강의에서는 faster_rcnn_r50-fpn_1x_coco.py 파일을 가져와서 오류가 났는데,\nbasecode로 준 faster_rcnn_train.ipynb 파일을 의미하시는 건가요?",
+          "user": "U02U5LY17J4",
+          "user_name": "백경륜",
+          "timestamp": "1648177762.897099",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02U5LY17J4",
+              "ts": "1648178051.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 faster_rcnn_train.ipybn 파일을 .py 로 바꿨습니다. 그 파일을 부르면 되는걸까요?",
+          "user": "U02U5LY17J4",
+          "user_name": "백경륜",
+          "timestamp": "1648178040.061919",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "주세환 조교님 이번 오피스 아워 정말 잘 들었습니다. 듣고나서 문득 궁금한점이 생겨서 질문드립니다. mmdetection의 dataset에서 pipeline에 TTA가 적용되어 있다고 하셨는데 train에서 tta가 적용되는건 정말 편한 기능이지만 baseline 코드를 보면 testpipeline에도 transform이 적용되어 있습니다. 이때 tta가 testset에도 적용되면 에러가 발생할것 같은데(test셋의 데이터가 증가되어버리는?) 상관없는 부분인지 궁금합니다",
+        "user": "U02TZ9HPZAS",
+        "user_name": null,
+        "timestamp": "1648116233.293069",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TZ9HPZAS",
+            "ts": "1648116252.000000"
+          },
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "두가지 측면에서 답변드리겠습니다.\n1. 여기서 aug는 flip만 있는데 flip=false로 TTA가 적용되지 않습니다.\n2. mmdetection에서 tta를 적용하면 자동으로 nms를 통해서 앙상블 시켜주며, flip으로 돌아간 이미지라한더라도 원래 박스위치를 찾아서 output을 추출합니다.\n베이스라인에 대해서 면밀히 관찰한 질문 감사드립니다",
+          "user": "U02SK8MPGN5",
+          "user_name": "주세환_조교",
+          "timestamp": "1648116387.163399",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02T1HLM9NK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U02RZT4J4Q6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "만약 testpipeline의 flip이 참값이어서 test셋이 불어난다고 하더라도 나중에 nms로 앙상블을 시켜준다는 뜻이군요 감사합니다",
+          "user": "U02TZ9HPZAS",
+          "user_name": "신형환",
+          "timestamp": "1648116802.769479",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TZ9HPZAS",
+              "ts": "1648116830.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02SK8MPGN5"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 coco annotation 수정 툴 중에서 쓰기 좋은 tool 아시는 분 계신가요....",
+        "user": "U02TCHR3LNS",
+        "user_name": "신규범",
+        "timestamp": "1648176464.493209",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02TBLB4RHC",
+                "U02TFP6V1DY",
+                "U02U65KPEJW",
+                "U02U1RYL99C",
+                "U02T92JB94N"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "coco annotator(<https://github.com/jsbroks/coco-annotator|링크>)가 괜찮은 것 같습니다.\n다만 어노테이션 정보가 segmentation을 포함해야 동작합니다. segmentation=[[x, y, x+w, y, x+w, y+h, x, y+h]] 같이 bbox의 네 꼭지점을 넣어주시면됩니다.",
+          "user": "U02TYM38093",
+          "user_name": null,
+          "timestamp": "1648181667.284629",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그거 쓰다가 ㅋㅋ..... id 지옥이라 다른거 찾아보고 있었는데... 자동 생성으로 id를 만들다보니 매칭시키기가 힘들더라구요",
+          "user": "U02TCHR3LNS",
+          "user_name": "신규범",
+          "timestamp": "1648182010.219589",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TCHR3LNS",
+              "ts": "1648182030.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 좀 그래서 다른 툴 찾아보는데 대부분 임포트 지원을 안하더라구요. 어노테이션을 coco에서 다른 포멧으로 변경해서 다른 툴 사용해야되나 고민 중입니다",
+          "user": "U02TYM38093",
+          "user_name": "Jinwoo Song",
+          "timestamp": "1648182477.447369",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 cannot import name 'ToTensorV2' from 'albumentations.pytorch' 에러 겪으신 분 계신가요? 인퍼런스에서는 오류안뜨는데 트레인에선 뜨네요(이부준도 왜그런지 궁금하네요..)\n\n구글링해서 나오는 !pip install albumentations==0.4.6 답변은 해봤는데 해결이 안됩니다 ㅜ.ㅜ\n혹시 이 이슈를 겪고 해결하신 캠퍼분이 계실까요?",
+        "user": "U02TL4Y5HJB",
+        "user_name": "김창현_T3062",
+        "timestamp": "1648178728.564009",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TTV8MDJB"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 설치후 커널 restart 해보셨을까요?",
+          "user": "U02U1RYL99C",
+          "user_name": "김하준",
+          "timestamp": "1648179429.392799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TU92GURF",
+                  "U02UM6FUR33",
+                  "U02UAT2SVQU"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "헉, 해결됐습니다 감사합니다 ㅜㅜ",
+          "user": "U02TL4Y5HJB",
+          "user_name": "김창현_T3062",
+          "timestamp": "1648180114.576439",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "눈-사람-",
+                "users": [
+                  "U02U1RYL99C",
+                  "U02UAT2SVQU",
+                  "U02U2ELNU9Z",
+                  "U02TTV8MDJB"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

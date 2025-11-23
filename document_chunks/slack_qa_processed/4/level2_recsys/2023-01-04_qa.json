@@ -1,0 +1,80 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "baseline 부분에서..\nsequence의 output과 item embedding의 matmul을 구하는 방법이 diversity(다양한 추천)를 가질수 있나요?\nsequence의 output이 하나의 영화만 가르키고 있다고 생각이 들어서 질문드립니다.",
+        "user": "U041HR4UCR0",
+        "user_name": "박경준_T4076",
+        "timestamp": "1672895861.062959",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U03M7B4JYMR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "sequence의 output이 하나의 영화만 가르키고 있다라는 내용에 대해 조금만 더 구체적으로 알려주시겠나요?\n\n또한 말씀해주시는 다양성 이라는 건 추천 결과의 diversity를 말씀해주시는 게 맞을까요?",
+          "user": "U041VLUG4HF",
+          "user_name": "김강민",
+          "timestamp": "1672896668.292629",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041VLUG4HF",
+              "ts": "1672896689.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "1. target이 바로 다음 sequence의 영화 이니까 바로 다음 영화를 맞추도록 학습하고 있다고 이해 했습니다. 그러면 마지막 sequence의 output도 그 다음 영화 하나를 가르키는 output 이라고 이해했습니당.\n2. 넵 추천 결과의 diversity가 맞습니다.",
+          "user": "U041HR4UCR0",
+          "user_name": "박경준_T4076",
+          "timestamp": "1672898163.750029",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U041HR4UCR0",
+              "ts": "1672898251.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "베이스라인 모델은 sequence output과 가장 비슷한 영화 top-n개를 추천해줍니다. 즉 사용자의 취향과 가장 비슷한 영화들을 파악해서 sequential한 추천 결과를 내는 것이 목적이기 때문에 다양성을 고려했다고 보기는 어렵습니다. 다양한 추천 결과를 보여주려면 10개의 영화에서 일부는 다른 diversity를 기반으로 추천해주는 모델이나 랜덤 샘플링 등 여러 방법을 통해 뽑아서 추천 결과에 포함시켜 주는 방법을 생각해 볼 수 있을 것 같습니다. 그러나 사용자의 취향과 너무 무관한 영화라면 diversity는 높은 대신 recall 점수를 잘 받기는 어려울 것이라는 점도 고려할 점이 되겠습니다:)",
+          "user": "U03M7B4JYMR",
+          "user_name": "Jaein Kim",
+          "timestamp": "1672902414.416959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041VLUG4HF",
+                  "U041HR4UCR0",
+                  "U0427G5T6BS"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

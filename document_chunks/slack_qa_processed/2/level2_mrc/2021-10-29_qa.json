@@ -1,0 +1,93 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n3차 :seedling:MRC 오피스아워:seedling:가 오늘 *10/29(금) 18:00 ~ 19:00*에 진행됩니다. 늦지 않게 들어와주세요!\n*성예닮 멘토님께서 &lt;NLP with RL, Vision&gt;*를 설명해주실 예정입니다. 발표자료를 미리 공유드리니 참고해주세요 :)\n&gt; <https://zoom.us/j/92827134193?pwd=M2g1c1Jhc3ZKSDJuYnNwZXh0R3lLUT09|MRC 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": null,
+        "timestamp": "1635496637.028100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "fire",
+              "users": [
+                "U0298UN562F",
+                "U029T92U2F3",
+                "U0298NLPSRY",
+                "U02E375H869",
+                "U029AHPA1GX",
+                "U0295N1AWLV",
+                "U029F62SBPD",
+                "U029H263PD1",
+                "U029F23R56F",
+                "U029XA5SWTE"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "와 ! 정 ! 말 ! 기 ! 대 ! 된 ! 다 ! <@U0295N1AWLV> <@U0298NLPSRY>",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1635496666.028600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fire",
+                "users": [
+                  "U0298NLPSRY",
+                  "U02E375H869"
+                ],
+                "count": 2
+              },
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "설렌다 설레",
+          "user": "U0298NLPSRY",
+          "user_name": "조대현_멘토",
+          "timestamp": "1635496686.029200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fire",
+                "users": [
+                  "U0298UN562F",
+                  "U02E375H869"
+                ],
+                "count": 2
+              },
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

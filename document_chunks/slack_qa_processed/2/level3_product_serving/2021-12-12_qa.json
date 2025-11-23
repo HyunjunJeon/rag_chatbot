@@ -1,0 +1,491 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "경재님 안녕하세요~!\n\n<https://stackoverflow.com/questions/55491046/how-to-set-the-running-file-path-of-jupyter-in-vscode/55500191>\n\n이 글이 도움이 될 수도 있을 것 같네요!",
+        "user": "U029MCT2RTK",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1639297360.225500",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029MCT2RTK",
+            "ts": "1639297387.000000"
+          },
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "```By default we follow the VSCode pattern of working directory as opposed to the Jupyter pattern. Meaning that we use the root of the currently open workspace folder as the current working directory for starting jupyter notebooks. That might be what is confusing you here.```",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639297405.225900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "검색어 : `vs code interactive notebook get pwd`\n\n이렇게 해봤어요~!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639297420.226100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "역시 검색도 실력...",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639299388.227000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정말 감사합니다 해볼게요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639299394.227200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "하다보니 늘어났던 것 같아요~! 점점 여러 키워드로 해보시면 될 것 같아요 :slightly_smiling_face:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639299433.227700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "Docker를 사용해서 환경을 최대한 같게 처리하고, 테스트나 검증은 Test Code를 작성해서 진행해요\n\n본 강의에선 시간상 Test Code를 다루지 않아서 멘토이신 상태님께서 Test Code를 사용하는 방법을 보여주실 예정이에요-!",
+        "user": "U029MCT2RTK",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1639297450.226300",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "넵 감사합니다",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639299411.227400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "지유님 안녕하세요!\n\n네 맞아요! 해당 방식으로 진행하곤 합니다\n\n혹은 cuda에 있는 도커 이미지가 아니라 직접 도커 레지스트리에 올려서 그 이미지를 다운 받아 쓸 수도 있어요\n\n여기서 cuda에서 제공하는 이미지가 지유님이 필요하지 않은 라이브러리도 설치한다 하면 아예 베이스 이미지(=가벼운 이미지)를 사용해서 커스텀하는 것도 방법입니다!",
+        "user": "U029MCT2RTK",
+        "user_name": "변성윤_마스터",
+        "timestamp": "1639297518.226500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "답변 감사드립니다 변성윤 마스터님! ㅎㅎ\n1. 혹은 cuda에 있는 도커 이미지가 아니라 직접 도커 레지스트리에 올려서 그 이미지를 다운 받아 쓸 수도 있어요\n죄송한데 이 부분에 대한 레퍼런스를 찾을 때 키워드를 어떻게 주어야할지 알 수 있을까요?",
+          "user": "U029Z48KYCC",
+          "user_name": "서지유_T2109",
+          "timestamp": "1639357131.234400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029Z48KYCC>\n해당 내용을 강의에서 다루었어요!\n\nDockerfile을 만들어서 =&gt; GCP의 GCR에 Image Push한 부분이 제가 말씀드린 직접 도커 레지스트리에 올린 방법입니다\n그리고 해당 URL을 docker image pull해서 사용하는거지요!\n\n\nGCR을 사용하나 도커 허브를 사용하나 사용 방법은 비슷합니다\n\nDocker 강의 자료 58쪽부터 Registry에 Docker Image Push를 다루고 있습니다!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639357532.234600",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639357928.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아아 이해됐습니다. 강의를 완벽히 이해했다고 생각했는데, 아니였었네요.. 다시 한번 공부해보겠습니다. 감사합니다 ㅎㅎ",
+          "user": "U029Z48KYCC",
+          "user_name": "서지유_T2109",
+          "timestamp": "1639357609.234800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "blush",
+                "users": [
+                  "U029MCT2RTK"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "계속 반복하시면 더 이해되실거에요! :slightly_smiling_face:\n강의에서 다룬 키워드를 머리속에 입력해주세요~! (Image, Container, Registry 등)",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639357950.235300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네! 감사드립니다 !",
+          "user": "U029Z48KYCC",
+          "user_name": "서지유_T2109",
+          "timestamp": "1639359017.235800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "```root/\n -main.py\n -main_config.json\n -module/\n   -module1.py\n   -module1_config.json```\n이 형태의 프로젝트 구성에서 main 에서 module1을 임포트 해서 사용한다고하면\nconfig를 어떻게 불러와야될까요?\n\n상대경로 기준이 프로그램위치인 `root` 를 기준으로 잡아주는것 같아서\nmodule1 내부에서\n`with open(\"./module1_config.yaml\") as f:`\n형태로 오픈하면 파일을 찾질 못하네요...\n\n`with open(os.path.split(__file__)[0]+\"/module1_config.yaml\") as f:`\n이런 형태로 하면 어거지로 가능은한데 아래 사용되는 모든 상대경로마다 저런 처리를해줘야되서요\n\n```current_path = os.path.dirname(__file__)\nos.chdir(current_path)```\n이런형태로 현재 디렉토리를 바꿔볼까도 생각했는데\n이러면 다른 모든 모듈마다 이런처리를 해줘야되고 main에서 이상없을지도 고민이고...\n\n깔끔한방법이 없을까요",
+        "user": "U02A3GWB4RX",
+        "user_name": "sight Over",
+        "timestamp": "1639299731.231400",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02A3GWB4RX",
+            "ts": "1639302190.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 경재님!\n\n1. 간단하게는 프로젝트 최상단에 `constant.py` 를 만들고 이 안에 상수형 값들을 다 넣어놓고 사용하는게 좋고 편리하다고 생각합니다.\n예를 들면\n\n```# constant.py\n\nfrom pathlib import Path\n\nPROJECT_ROOT = Path(__file__).parent.absolute()\nCONFIG_PATH = f\"{PROJECT_ROOT}/main_config.yaml\"```\n와 같이 정의해두고, 하위 모듈에선 이 `constant.py` 에 정의해놓은 값들을 가져가는 식이죠. 예를 들면 다음처럼요.\n```# module/module1.py\n\nfrom constant import CONFIG_PATH\n\nwith open(CONFIG_PATH) as f:\n   ...```\n2. 그런데 사실 설정에 대한 값을 `.json` 파일로 빼둘 필요가 있을까요? 그냥 다음처럼 클래스로 처리해도 괜찮을거 같습니다!\n\n```# config.py\n\nfrom dataclasses import dataclass\n\n@dataclass\nclass Config:\n  project_root: str = Path(__file__).parent.absolute()\n  model_weight: str = f\"{PROJECT_ROOT}/main_config.yaml\"```\n3. 그런데 간혹 운영(prod)과 개발(dev) 환경에 따라 설정 값을 다르게 해야할 때가 있습니다. 그럼 다음처럼 되겠죠!\n\n```# config.py\n\nfrom dataclasses import dataclasses\n\n@dataclass\nclass Config:\n  # 공통으로 필요한 값들\n  project_root: str = Path(__file__).parent.absolute()\n\n@dataclass\nclass DevConfig(Config):\n  train_epoch: int = 10\n\n@dataclass\nclass ProdConfig(Config):\n  train_epoch: int = 100```\n이렇게 두개로 클래스를 두개로 나누고, 실제로 `main` 에서 프로그램 시작 시에는 경우에 따라 두 설정 값을 주입해줘야 합니다. 예를 들면 다음처럼요!\n```# main.py\n\nimport argparse\n\nargs = argparse.ArgumentParser()\nargs.add_argument('--mode', type=str)\n\nif __name__ == \"__main__\":\n  if args.mode == \"dev\":\n     config = DevConfig()\n  else:\n     config = ProdConfig() ```\n4. 실제로 현업에서는 조금 더 정교하게 다룰 수 있도록 다음과 같은 것들을 사용합니다.\n\n• Pydantic BaseSettings (<https://pydantic-docs.helpmanual.io/usage/settings/>)\n• Dependency Injector 의 Config  (<https://python-dependency-injector.ets-labs.org/providers/configuration.html>)\n궁금하신 분들은 한번 찾아보시면 위 내용 직접 찬찬히 보시면 좋을거 같습니다.\n\n\n이 외에 설정 값 관련하여 다음 내용들 참고해보시면 좋을거 같아요!\n• <https://mingrammer.com/ways-to-manage-the-configuration-in-python/>\n• <https://emilkwak.github.io/python-setting-file-ext>",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639317140.232500",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0296UZ7TJA",
+              "ts": "1639318093.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "프로젝트 초기 구성중이라 폴더 구조가 수시로 변할 것 같아서 모듈 독립성을 최대한 살린 저런 구성을 생각해봤는데 하나로쓰는 방향으로 해야겠네요...\n친절한 팁 감사합니다!",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639320150.233400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02A3GWB4RX",
+              "ts": "1639320183.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "FastAPI의 Pydantic 강의 부분에 나온 내용을 시흠님이 더 자세히 작성해주셨다고 보시면 되어요:grin:",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639320512.233800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "그리고 강릉 사진도 공유드려요!! (좋아해주셔서..!) :pray::skin-tone-2:",
+        "user": "U029MCT2RTK",
+        "user_name": null,
+        "timestamp": "1639360925.245400",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029MCT2RTK",
+            "ts": "1639360945.000000"
+          },
+          "reactions": [
+            {
+              "name": "birthday_party_parrot",
+              "users": [
+                "U027DTMUY3C",
+                "U029WFW8H25",
+                "U029H263PD1",
+                "U029T92U2F3",
+                "U0297P884ES",
+                "U02AEP8281G",
+                "U029E8T7199",
+                "U028323UHE2",
+                "U029F9U3MMH",
+                "U028ZQU4N07",
+                "U029C3CSPHB",
+                "U029Z7DE676",
+                "U02AF2JSQP2",
+                "U0290GAJGG7",
+                "U029MCHN1BK",
+                "U029SLN0S1X",
+                "U029LN7NMRA",
+                "U029WV30DMF",
+                "U028ZAA1X1V",
+                "U029B6PDLFQ",
+                "U029MKLUYFN",
+                "U029ST041PU",
+                "U029Z48KYCC",
+                "U029ULW2X8A",
+                "U029KG3T7L3",
+                "U029J7UCHR8"
+              ],
+              "count": 26
+            },
+            {
+              "name": "panda-dance",
+              "users": [
+                "U027DTMUY3C",
+                "U0297P884ES",
+                "U028323UHE2",
+                "U029F1JK1RB",
+                "U02AF2JSQP2",
+                "U029EM0RQR1",
+                "U029MCHN1BK",
+                "U029LN7NMRA",
+                "U029WV30DMF",
+                "U028ZAA1X1V",
+                "U02905YS8J3",
+                "U029VLER4AD",
+                "U028ZQU4N07",
+                "U029QUNTRFX"
+              ],
+              "count": 14
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U027SHXU18R",
+                "U02939WM57H",
+                "U0297P884ES",
+                "U028323UHE2",
+                "U029MCHN1BK",
+                "U029LN7NMRA",
+                "U028ZE3KH6K",
+                "U029WV30DMF",
+                "U029MTWGTJS",
+                "U029KP9P1CN",
+                "U02AHSJ2T9N",
+                "U027ASZ59KP",
+                "U028ZQU4N07"
+              ],
+              "count": 13
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0297P884ES",
+                "U028323UHE2",
+                "U0297T6KRDL",
+                "U029MCHN1BK",
+                "U029LN7NMRA",
+                "U028ZQU4N07"
+              ],
+              "count": 6
+            },
+            {
+              "name": "star2",
+              "users": [
+                "U029LPYKUR2",
+                "U028323UHE2",
+                "U029F1JK1RB",
+                "U029MCHN1BK",
+                "U029LN7NMRA",
+                "U029WV30DMF",
+                "U0297RF9E78"
+              ],
+              "count": 7
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029BGDTLJH",
+                "U029WV30DMF",
+                "U029UHZ6AHY"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-3",
+              "users": [
+                "U029WV30DMF"
+              ],
+              "count": 1
+            },
+            {
+              "name": "dancing_penguin",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "metamong",
+              "users": [
+                "U029UHZ6AHY"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저 별들 리얼로 다 보이나요?",
+          "user": "U0296UZ7TJA",
+          "user_name": "전시흠",
+          "timestamp": "1639360959.248100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0296UZ7TJA>\n\n살짝 보정한거라(밝기 조절) 실제론 조금은 어둡긴해요!! 세로샷에서 밝기만 더 어두운 느낌이라고 보시면~!!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639361025.248300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCT2RTK",
+              "ts": "1639361032.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "눈으로 보는게 더 경외로웠어요ㅋㅋㅋ",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639361052.248600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오.. 숙소 정보 나중에 여쭤봐도 될까요 ㅋㅋㅋ",
+          "user": "U028U1D5P0X",
+          "user_name": "문영기_멘토",
+          "timestamp": "1639361142.248800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028U1D5P0X> 숙소는 아비오호텔에서 지냈어요!! 바다 앞이라 좋았어요 (파도 소리 들으면서 잘 수 있어요) 방음이 약간 안된다는 평도 있던데 저는 괜찮았어요..!",
+          "user": "U029MCT2RTK",
+          "user_name": "변성윤_마스터",
+          "timestamp": "1639361810.252300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0290GAJGG7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

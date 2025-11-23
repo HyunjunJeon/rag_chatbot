@@ -1,0 +1,51 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "vscode server 연결해봤는데요~ 혹시 jupyter file kernel 잘 잡히시나요...? windows에서만 그런건지..  혹시 해결해보신분 계신가요?",
+        "user": "U041HN1JMTM",
+        "user_name": "후니",
+        "timestamp": "1671434438.758839",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U041HN1JMTM",
+                "U0427G7HN6L"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "아 extensions 에서 python하고 jupyter을 깔면 해결이 되네요 ..!",
+          "user": "U041HN1JMTM",
+          "user_name": "후니",
+          "timestamp": "1671434602.653579",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U041ES3K9LM",
+                  "U0427G7HN6L",
+                  "U04138ETVLP"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

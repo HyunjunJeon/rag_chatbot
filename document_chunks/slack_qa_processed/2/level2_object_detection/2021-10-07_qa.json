@@ -1,0 +1,238 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 데이터 관련 질문이 있어서 글 남겨요\n1. 학습 데이터간 합성을 통해 학습 데이터 양을 늘려도 괜찮나요?\n2. 수도라벨링의 방법이 아닌 컴퓨터 프로그램을 이용해서 testdata에 labeling을 해서 학습해도 괜찮나요?",
+        "user": "U0298BT8SNA",
+        "user_name": "김성민",
+        "timestamp": "1633594684.078000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02E375H869",
+                "U02AJA6R02C"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 성민님! 데이터 어그멘테이션 관련해서 질의에 대한 답변 드리겠습니다.\n\n1. 학습 데이터 즉, 대회의 training data만을 사용해 합성을 하는 방향으로 학습데이터를 늘리시는 것은 허용됩니다!\n2. test data에 툴을 이용해 labeling하는 방법은 금지됩니다!\n감사합니다.",
+          "user": "U02920Y3AH4",
+          "user_name": "Wonho SONG",
+          "timestamp": "1633595731.078800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLUNBC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U0298BT8SNA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920Y3AH4> 넵 확인했습니다!! 감사합니다!!",
+          "user": "U0298BT8SNA",
+          "user_name": "김성민",
+          "timestamp": "1633596053.079000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "컴피티션 파이팅입니다! :+1:",
+          "user": "U02920Y3AH4",
+          "user_name": "Wonho SONG",
+          "timestamp": "1633596091.079400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "혹시 efficientdet이 일반쓰레기 (class 0번)를 *전혀* 분류하지 못하는 문제가 있는데 해결하신 분 계실까요.. 오랫동안 해결하지 못하고 있습니다 ㅠㅠ",
+        "user": "U02A3RBTDPB",
+        "user_name": "오현세_T2136",
+        "timestamp": "1633658369.083900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029Z48KYCC"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 같은 이슈를 겪고있습니다…ㅜㅜ\n모델의 output을 보시면 예측한 label이 1~10까지 labeling 되어있는것을 확인하실 수 있습니다\n혹시 class 0을 제외한 다른 class는 ap가 잘 나오나요…??\n모델 내부에서 암시적으로 background를 0으로 하는지 조심스럽게 추측하고있긴 합니다만…\n혹시 해결 되신다면 솔루션 공유해주시면 감사하겠습니다..!",
+          "user": "U02A5JQ2GPK",
+          "user_name": "오주영",
+          "timestamp": "1633667685.085300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 ㅜㅜ",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633668168.085600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 직접 구현하신게 아니라면 어떤 소스를 참고하셨는지 여쭤봐도 될까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1633669507.085800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "베이스라인 코드 그대로 썼습니다",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633669521.086000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주영님과 논의 하여 해결했습니다",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633672623.086200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "데이터셋에서 뽑을 때 일괄적으로 label에 1씩 더하고",
+          "user": "U02A3RBTDPB",
+          "user_name": null,
+          "timestamp": "1633672635.086400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추론할때만 1씩 빼는 방법으로 해결했습니다",
+          "user": "U02A3RBTDPB",
+          "user_name": null,
+          "timestamp": "1633672657.086800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "b0로 빠르게 확인해봤어요",
+          "user": "U02A3RBTDPB",
+          "user_name": null,
+          "timestamp": "1633672678.087200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "현세님과 이어지는 질문인 것 같은데 이것에 대한 명쾌한 insight가 없어서 질문드립니다.\n현재 dataset class 구성이 여러 class의 쓰레기 + 그 외 general trash 로 느껴지는데요.\n실제로 validation set으로 클래스 별 ap 를 비교해본 결과 general trash 의 ap 가 다른 class 에 비해 낮더라고요.\ngeneral trash class 자체는 여러 종류의 큰 공통점 없는 etc class를 나타내는데 이런 class를 잘 가려내기 위한 어떤 방법이 있을까요?",
+        "user": "U029KP9P1CN",
+        "user_name": "유형진",
+        "timestamp": "1633666979.085200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029PN9SX1R",
+                "U02A3RBTDPB",
+                "U029Z48KYCC"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "갑자기 든 생각인데 원래 box regressor랑 클래스 분류를 따로 해서 합치잖아요\n그렇다면 일반 쓰레기만 예외적으로 객체인지 아닌지만 판별하고 클래스 분류는 안하는건 어떨까요?\n일반쓰레기 데이터를 확인해보면 feature가 아주 다른 경우가 많아서요 (휴지조각, 담배 등)",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633675029.087700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

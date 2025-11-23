@@ -1,0 +1,276 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요 NLP 9조 MnM의 문찬국입니다.\nckeckpoint load 모델 사용 시 성능이 달라지는 문제에 대해서  질문드립니다.\n\n현재 실험을 끊었다 진행한 모델과 그냥 처음부터 끝까지 돌린 모델의 성능이 차이가 나는 현상이 생겼습니다.\n아래 그래프를 보시면 분홍색과 파란색 그래프 모두 동일한 모델, 동일한 파라미터 세팅값을 가지고 있습니다.\n하지만 분홍색 그래프의 경우 200step에서 실수로 종료했다가 다시 파일을 로드했다는 차이만 있는데도 불구하고 성능의 차이가 좀 크게 나타났습니다.\n\n보통 체크포인트 파일을 로드했을 때, scheduler나 optimizer, train_state 등 동일하게 이전  (끊어졌던) 학습을 그대로 받아오기 때문에 성능에서 차이가 없을 것이라고 생각했습니다,\n하지만 현재 결과가 그렇지 않게 나왔기 때문에, 혹시 이와 관련해서 왜 그런지에 대해 아시는 분이 계실까 해서 질문올립니다.\n감사합니다.\n\n(추가적으로 train 단계의 그래프는 lr세팅값이나 epoch 등이 나와 혹시 다른 분들의 프로젝트에 영향을 드릴 수도 있을 것 같아 제외했습니다.\n현재 trainig에 사용된 learning_rate이나 epoch는 동일하고, Random Seed값도 동일하게 설정되어 있습니다.)",
+        "user": "U02TVNVSKML",
+        "user_name": null,
+        "timestamp": "1652056364.200539",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02TVNVSKML",
+            "ts": "1652056807.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02U1APCEBC",
+                "U02U1TBB8GN"
+              ],
+              "count": 2
+            },
+            {
+              "name": "smiling_face_with_tear",
+              "users": [
+                "U02UTH1484E",
+                "U02U1TBB8GN"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 7
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 reader 모델만 학습시켰을 때 그런걸까요? 아니면 retrieval도 같이 붙어있는걸까요?\n제 예전 기억에 seed 선언 부분에 따라 훈련 데이터 순서가 좀 달랐던 것 같습니당. reader, retreival 두개 같이 붙인 그래프가 저러하다면 retrieval가 받아오는 문서나 score, 순서도 같이 확인해볼 것 같아요!\n그나저나 <@U02U7CWH8RH> 수정님도 얼마전에 seed 셋팅 함수가 선언되어도 성능값이 다르게 나오는 것 같다했던 것 같네요",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1652057155.167999",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02TUHB5D7V> 두 개 붙인 그래프 아닌 reader모델에만 해당됩니다!!!",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1652058046.138559",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 훈련을 재개하는 경우에는 <https://discuss.huggingface.co/t/fixing-the-random-seed-in-the-trainer-does-not-produce-the-same-results-across-runs/3442|링크>에서 답변 나온 것처럼 `model_init` 부분을 Trainer에 넣어주는 것이 해결된다고 하네요. 혹은 Huggingface `set_seed`에서 고정해주는 부분은 소스코드를 확인해보면\n```def set_seed(seed: int):\n    \"\"\"\n    Helper function for reproducible behavior to set the seed in ``random``, ``numpy``, ``torch`` and/or ``tf`` (if\n    installed).\n    Args:\n        seed (:obj:`int`): The seed to set.\n    \"\"\"\n    random.seed(seed)\n    np.random.seed(seed)\n    if is_torch_available():\n        torch.manual_seed(seed)\n        torch.cuda.manual_seed_all(seed)\n        # ^^ safe to call this function even if cuda is not available\n    if is_tf_available():\n        tf.random.set_seed(seed)```\n와 같습니다. 그래서 numpy, random, torch 이외에 stochasticity가 들어가는 라이브러리가 있는지 확인해주시면 감사하겠습니다. 현재 보여주신 그래프는 확실히 같은 seed에서 재현된 거라 보기 어렵긴합니다.\n\n원인은 모르겠지만 아래와 같은 이슈처럼 loss에서 from_logits가 재현성에 영향이 있는 경우도 있네요\n<https://github.com/NVIDIA/framework-determinism/issues/19>",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652061458.955129",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02RS1ZJHE3",
+              "ts": "1652061532.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02RS1ZJHE3> 답변 감사합니다 조교님!! 우선 set_seed문제는 아닐 수도 있다고 생각하는 게 현재 두 그래프 모두 재현이 가능합니다.\n\n그래서 혹시 `numpy, random, torch 이외에 stochasticity가 들어가는 라이브러리가 있는지 확인`해달라고 하셨는데, 어떤 의미에서, 어떻게 찾아야하는지 추가적으로 말씀해주시면 감사하겠습니다. 현재 stochasticity가 추가된 부분은 없는 것 같습니다.",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1652064568.288379",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02RS1ZJHE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "어느정도 무작위성이 들어갈 수 밖에 없는 부분들을 말합니다. 사실 파이토치 유저라면 허깅페이스에서 고정한 3개의 라이브러리만 고정해도 충분합니다!\n예를 들어 sklearn에서 랜덤포레스트나 train_test_split 같이 seed별로 다른 결과가 나올 수 있는 함수들에 대해서는 재현성을 위해 시드고정을 해야합니다. 하지만 제가 알기론 sklearn도 결국 numpy random 두개 라이브러리를 통해서만 무작위성을 조절하기 때문에 numpy random만 고정하면 자연스럽게 고정이 됩니다! 대다수의 라이브러리가 numpy random으로 충분합니다. 캠퍼분들이 추가한 코드 중에 위 3개로 조절이안되는 라이브러리가 있는지 확인을 해보면 좋을 것 같다는 뜻이었습니다 :)",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652064845.084149",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02RS1ZJHE3",
+              "ts": "1652064889.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02TVNVSKML"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02RS1ZJHE3> 감사합니다!! 현재 베이스라인에서 크게 변화한 부분이 없기 떄문에 '추가된 부분 중 3개로 조절이 안되는 라이브러리는 없는 것 같다'고 말씀드릴 수 있을 것 같습니다:slightly_smiling_face:",
+          "user": "U02TVNVSKML",
+          "user_name": "문찬국_T3076",
+          "timestamp": "1652065232.068959",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U02RS1ZJHE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "마지막까지 화이팅입니다 :fire:",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652065268.187489",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02TVNVSKML"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요, nlp3조 김소연입니다.\n다들 대회 진행이 잘 되어 가시나요?ㅎㅎㅎodqa 특성상 retrieval랑 Reader를 같이 이해해야 전체 그림을 볼 수 있다란 생각때문인지 저는 이번 대회가 생각보다 진척이 잘 안되네요:smiling_face_with_tear:\n뮤튼 odqa가 갖는 어려움이 어떤게 있는지 좀 찾아보다가 *Challenges in Generalization in Open Domain Question Answering(2021)* 논문을 리뷰해보았습니당! 구체적으로 접목시킬 수 있는 방안이 제시되어 있찐 않지만, 참고가 되실까하여 공유해봅니다! 팀내에서 재밌게 진행하고 계신 방법이 있다면.. 대회 끝나구.. 공유도 부탁드려요..헤헿ㅎ:booduck_happy:\n<https://maylilyo.notion.site/Challenges-in-Generalization-in-Open-Domain-Question-Answering-2021-dabb749b0bf84bd6a9448d15f84ceb3c>",
+        "user": "U02TUHB5D7V",
+        "user_name": "Soyeon Kim",
+        "timestamp": "1652068470.761559",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U02TCL8CQGM",
+                "U02U7SPJU5S",
+                "U02TKEWKS4X",
+                "U02TTC9RBFZ",
+                "U02RUR38GCF",
+                "U02U0GDFTUH",
+                "U02THRRHU3W",
+                "U02RS1ZJHE3",
+                "U02U0KX9P7D",
+                "U02TVNVSKML",
+                "U02T25M7BE3",
+                "U02U1TBB8GN"
+              ],
+              "count": 12
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "ㅠㅠ 어려워요…..",
+          "user": "U02TZ6B7G3G",
+          "user_name": "김준석_T3055",
+          "timestamp": "1652069383.408719",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "한 분야의 동향을 파악하고 싶을 때 저는 Survey/Review 논문을 흝어봅니다. 막막할 때 한 번 읽어보시면 좋을 것 같아요 (더 막막해질 수 있긴합니다)\n• <https://arxiv.org/pdf/2101.00774.pdf>",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652073281.703909",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저 리뷰을 먼저..찾았는데......너무..정보량이..많아서..잠시....고장나서... 닫고... 짧은걸로..읽게됏..네..요..ㅎㅎㅎ...ㅎㅎㅎㅎㅎ감사합니다ㅠ.ㅠ",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1652073831.429809",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02TUHB5D7V",
+              "ts": "1652073856.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 리뷰 논문 어디까지나 리뷰이기 때문에 자세히 볼 필요는 절대 없고 어떤 게 있구나 정도만 가져가시면 좋습니다 ㅎㅎ 저도 끝까지 읽지는 않습니다. 그리고 소개해주신 논문 내용 너무 좋네요!",
+          "user": "U02RS1ZJHE3",
+          "user_name": "조대현",
+          "timestamp": "1652073890.604899",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02RS0AQ8K1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵넵! 다시 용기내서ㅋㅋㅋ리뷰논문 봐야겠습니다ㅠ_ㅠ감사해요!!!",
+          "user": "U02TUHB5D7V",
+          "user_name": "Soyeon Kim",
+          "timestamp": "1652074985.157079",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "fire",
+                "users": [
+                  "U02RS1ZJHE3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}

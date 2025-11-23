@@ -1,0 +1,111 @@
+{
+  "qa_pairs": [
+    {
+      "question": {
+        "text": "안녕하세요! \"weight space 상에서 ensemble하신다는 말씀이실까요?\" 부분에서 추가적인 질문사항이 있습니다. weight space상 ensemble이 가능하다는 것은 Cross Validation 후 ensemble하는 것은 불가능하다는 것인가요? 또한 NMS나 WBF같은 후처리 앙상블도 적용이 블가능한 것인지 궁금합니다!",
+        "user": "U07E92DU3GE",
+        "user_name": "김기수",
+        "timestamp": "1730708728.267099",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "어떤 앙상블 기법이던 EAST 데이터셋을 포함해서 모델을 학습시켰다면 (그 모델을 포함시켰다면) 허용된다 보시면 될 것 같습니다",
+          "user": "U076G8QN5GS",
+          "user_name": "Jaekyun Park",
+          "timestamp": "1730708973.673329",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U07E92DU3GE",
+          "user_name": "김기수",
+          "timestamp": "1730709010.056969",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ]
+    },
+    {
+      "question": {
+        "text": "안녕하세요 CV 3조 한승윤니다. 대회 룰 관련 궁금한게 생겨 문의를 남깁니다.\n위 질의응답 중 답변에서 대회의 취지가 data centric CV이니 만큼, training set의 bbox를 클리닝하는 것은 허용되나, 모델의 출력을 바꾸는 것은 다소 취지에서 벗어난다고 말씀하셨는데, 앙상블도 같은 맥락으로 안되는 것인지 궁금합니다.",
+        "user": "U07EUAQTV6V",
+        "user_name": "한승윤",
+        "timestamp": "1730770357.337969",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U075VV2KDTR"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "윗 질문 스레드에 나와있듯이 EAST dataset으로 학습시킨 후의 모델 앙상블은 허용한다고 하셨습니다!",
+          "user": "U07E921DX9C",
+          "user_name": "이상혁",
+          "timestamp": "1730770625.533319",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U07E921DX9C",
+              "ts": "1730770663.000000"
+            },
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U076G8QN5GS"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다 상혁님!",
+          "user": "U07EUAQTV6V",
+          "user_name": "한승윤",
+          "timestamp": "1730770666.712299",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "누렁충성",
+                "users": [
+                  "U07E921DX9C"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ]
+    }
+  ]
+}
