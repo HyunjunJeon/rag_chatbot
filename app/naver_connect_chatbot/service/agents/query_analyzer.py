@@ -4,6 +4,7 @@ Adaptive RAG용 질의 분석 에이전트 구현.
 질의 품질을 평가하고 개선 방향을 제안합니다.
 """
 
+import json
 from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
@@ -121,11 +122,19 @@ def create_query_analyzer(llm: Runnable) -> Any:
         system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
         # 시스템 프롬프트에 도구 사용 가이드 추가
+        schema_text = json.dumps(
+            QueryAnalysis.model_json_schema(),
+            ensure_ascii=False,
+            indent=2,
+        )
+
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             "IMPORTANT: After analyzing the query, you MUST call the emit_query_analysis tool "
             "with all required parameters (clarity_score, specificity_score, searchability_score, "
             "improved_queries, issues, recommendations) to return your structured analysis."
+            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
+            f"{schema_text}"
         )
         
         agent = create_agent(
@@ -263,4 +272,3 @@ def analyze_query(
         issues=["Unable to analyze query"],
         recommendations=["Use the original query"]
     )
-

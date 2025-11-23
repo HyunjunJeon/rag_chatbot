@@ -4,6 +4,7 @@ Adaptive RAG용 교정 에이전트 구현.
 검증 실패 원인을 분석하여 적절한 교정 전략을 제안합니다.
 """
 
+import json
 from typing import Annotated, Any, Dict
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
@@ -93,10 +94,18 @@ def create_corrector(llm: Runnable) -> Any:
         prompt_template = get_prompt("correction")
         system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
+        schema_text = json.dumps(
+            CorrectionStrategy.model_json_schema(),
+            ensure_ascii=False,
+            indent=2,
+        )
+
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             "IMPORTANT: After analyzing the validation failure, you MUST call the emit_correction_strategy tool "
             "with all required parameters to return your correction recommendation."
+            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
+            f"{schema_text}"
         )
         
         agent = create_agent(
@@ -183,4 +192,3 @@ def determine_correction_strategy(
             feedback="Unable to analyze correction strategy properly",
             priority=priority
         )
-

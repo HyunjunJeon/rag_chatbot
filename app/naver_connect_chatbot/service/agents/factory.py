@@ -5,6 +5,7 @@ Agent 생성 팩토리 함수.
 일관성을 보장하고 유지보수를 용이하게 합니다.
 """
 
+import json
 from typing import Type, Callable
 from pydantic import BaseModel
 from langchain_core.runnables import Runnable
@@ -99,15 +100,25 @@ def create_structured_agent(
         logger.debug(f"Created tool: {tool_name}")
 
         # 3. System prompt 구성
+        schema_text = json.dumps(
+            output_model.model_json_schema(),
+            ensure_ascii=False,
+            indent=2,
+        )
         tool_usage_instruction = (
             f"\n\nIMPORTANT: After completing your task, you MUST call the '{tool_name}' tool "
             f"with all required parameters to return your structured result."
+        )
+        schema_instruction = (
+            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
+            f"{schema_text}"
         )
 
         enhanced_prompt = system_prompt
         if additional_instructions:
             enhanced_prompt += f"\n\n{additional_instructions}"
         enhanced_prompt += tool_usage_instruction
+        enhanced_prompt += schema_instruction
 
         # 4. Agent 생성
         logger.debug(f"Creating agent: {agent_name}")

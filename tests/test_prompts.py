@@ -36,7 +36,8 @@ class TestPromptLoading:
         result = prompt.format(question="What is AI?", context="AI is artificial intelligence")
         assert "What is AI?" in result
         assert "AI is artificial intelligence" in result
-        assert "assistant" in result.lower()  # 어시스턴트 지시가 포함되어야 함
+        # 컨텍스트 기반 답변 요구사항이 포함되어야 함
+        assert "context" in result.lower()
 
     def test_load_document_grading_prompt(self):
         """문서 평가 프롬프트를 로드할 수 있는지 확인합니다."""
@@ -47,7 +48,9 @@ class TestPromptLoading:
         result = prompt.format(question="Test question?", context="Test context")
         assert "Test question?" in result
         assert "Test context" in result
-        assert "grader" in result.lower()  # 채점자 역할이 나타나야 함
+        # 관련성/점수/근거 필드 안내가 포함되어야 함
+        assert "relevant" in result.lower()
+        assert "score" in result.lower()
 
     def test_load_query_transformation_prompt(self):
         """질의 변환 프롬프트를 로드할 수 있는지 확인합니다."""

@@ -4,6 +4,7 @@ Adaptive RAG용 문서 평가 에이전트 구현.
 검색된 문서의 관련성과 충분성을 판별합니다.
 """
 
+import json
 from typing import Annotated, Any
 from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
@@ -13,6 +14,20 @@ from langchain.agents import create_agent
 
 from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
+
+
+class DocumentScore(BaseModel):
+    """단일 문서의 관련성 점수와 근거를 나타내는 모델입니다."""
+
+    doc_id: int = Field(description="1-based index of the document", ge=1)
+    relevance_score: float = Field(
+        description="Document relevance: 1.0 (high), 0.5 (medium), 0.0 (low)",
+        ge=0.0,
+        le=1.0,
+    )
+    evidence: str = Field(
+        description="Decisive evidence snippet supporting the score", default=""
+    )
 
 
 class DocumentEvaluation(BaseModel):
@@ -25,6 +40,7 @@ class DocumentEvaluation(BaseModel):
         sufficient: 문서가 답변에 충분한지 여부
         confidence: 평가 신뢰도 (0.0 ~ 1.0)
         improvement_suggestions: 검색 개선 제안
+        doc_scores: 문서별 점수 및 근거 목록
     """
     relevant_count: int = Field(
         description="Number of relevant documents",
@@ -46,6 +62,10 @@ class DocumentEvaluation(BaseModel):
         description="Suggestions for improving retrieval",
         default_factory=list
     )
+    doc_scores: list[DocumentScore] = Field(
+        description="Per-document scores and evidence",
+        default_factory=list,
+    )
 
 
 @tool(args_schema=DocumentEvaluation)
@@ -55,6 +75,7 @@ def emit_document_evaluation(
     sufficient: Annotated[bool, Field(description="Whether documents are sufficient to answer the question")],
     confidence: Annotated[float, Field(description="Confidence in the evaluation (0.0 ~ 1.0)", ge=0.0, le=1.0)],
     improvement_suggestions: Annotated[list[str], Field(description="Suggestions for improving retrieval")],
+    doc_scores: Annotated[list[DocumentScore], Field(description="Per-document scores and evidence")],
 ) -> DocumentEvaluation:
     """
     Emit structured document evaluation results.
@@ -71,6 +92,7 @@ def emit_document_evaluation(
         sufficient=sufficient,
         confidence=confidence,
         improvement_suggestions=improvement_suggestions,
+        doc_scores=doc_scores,
     )
 
 
@@ -106,11 +128,19 @@ def create_document_evaluator(llm: Runnable) -> Any:
         system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
         
         # 도구 사용 가이드 추가
+        schema_text = json.dumps(
+            DocumentEvaluation.model_json_schema(),
+            ensure_ascii=False,
+            indent=2,
+        )
+
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             "IMPORTANT: After evaluating the documents, you MUST call the emit_document_evaluation tool "
             "with all required parameters (relevant_count, irrelevant_count, sufficient, confidence, "
-            "improvement_suggestions) to return your evaluation."
+            "improvement_suggestions, doc_scores) to return your evaluation."
+            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
+            f"{schema_text}"
         )
         
         agent = create_agent(
@@ -239,4 +269,3 @@ def evaluate_documents(
         confidence=0.5,
         improvement_suggestions=["Unable to evaluate documents properly"]
     )
-
