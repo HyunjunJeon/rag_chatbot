@@ -1,7 +1,7 @@
 """
-Adaptive RAG용 질의 분석 에이전트 구현.
+Adaptive RAG용 질의 분석 및 다중 쿼리 생성 에이전트 구현.
 
-질의 품질을 평가하고 개선 방향을 제안합니다.
+질의 품질을 평가하고 검색 최적화를 위한 다중 쿼리를 생성합니다.
 """
 
 import json
@@ -17,13 +17,13 @@ from naver_connect_chatbot.config import logger
 
 class QueryAnalysis(BaseModel):
     """
-    질의 품질 평가 및 개선 제안을 담는 모델입니다.
+    질의 품질 평가 및 다중 검색 쿼리 생성 결과를 담는 통합 모델입니다.
     
     속성:
         clarity_score: 질의의 명확도 (0.0 ~ 1.0)
         specificity_score: 질의의 구체성 (0.0 ~ 1.0)
         searchability_score: 검색 친화도 (0.0 ~ 1.0)
-        improved_queries: 개선된 질의 후보 목록
+        improved_queries: 다양한 관점의 검색 쿼리 목록 (Multi-Query)
         issues: 원본 질의의 문제점
         recommendations: 개선 권장 사항
     """
@@ -43,7 +43,7 @@ class QueryAnalysis(BaseModel):
         le=1.0
     )
     improved_queries: list[str] = Field(
-        description="List of improved query variations",
+        description="List of diverse search queries for comprehensive retrieval (Multi-Query)",
         default_factory=list
     )
     issues: list[str] = Field(

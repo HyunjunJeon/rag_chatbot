@@ -8,37 +8,43 @@ LangChain 0.1.x의 DocumentCompressor 패턴:
     - 메타데이터에 score/relevance 정보 추가
     
 Clova Studio Reranker API 사양:
-    - 엔드포인트: https://clovastudio.apigw.ntruss.com/testapp/v1/api-tools/reranker/{reranker-id}
+    - 엔드포인트: https://clovastudio.stream.ntruss.com/v1/api-tools/reranker
     - 실제 API 문서: https://api.ncloud-docs.com/docs/clovastudio-reranker
     - 인증 헤더:
-        * X-NCP-CLOVASTUDIO-API-KEY: Clova Studio API 키
-        * X-NCP-APIGW-API-KEY: API Gateway 키 (선택적)
-        * X-NCP-CLOVASTUDIO-REQUEST-ID: 요청 추적용 UUID (선택적)
+        * Content-Type: application/json (필수)
+        * Authorization: Bearer <api-key> (필수)
     - 요청 페이로드:
         {
-            "query": str,           # 질문 텍스트
-            "documents": [str, ...] # 재정렬할 문서 텍스트 리스트
+            "query": str,
+            "documents": [
+                {"id": str, "doc": str},
+                ...
+            ],
+            "maxTokens": int  # 선택사항, 기본값: 1024
         }
     - 응답 스키마:
         {
+            "status": {
+                "code": str,
+                "message": str
+            },
             "result": {
-                "topN": int,  # 반환된 문서 수 (최대 100)
-                "documents": [
-                    {
-                        "index": int,        # 원본 문서의 인덱스 (0-based)
-                        "score": float,      # 관련도 점수 (높을수록 관련성 높음)
-                        "document": {
-                            "text": str      # 원본 문서 텍스트
-                        }
-                    },
+                "result": str,  # RAG 생성 답변
+                "citedDocuments": [
+                    {"id": str, "doc": str},
                     ...
-                ]
+                ],
+                "usage": {
+                    "promptTokens": int,
+                    "completionTokens": int,
+                    "totalTokens": int
+                }
             }
         }
     - 특징:
-        * 문서는 score 내림차순으로 정렬되어 반환
+        * citedDocuments 배열의 순서가 관련도 순서를 나타냄
         * 최대 100개의 문서까지 처리 가능
-        * 빈 query나 documents는 400 Bad Request 반환
+        * RAG 기반으로 동작하며, 관련 문서를 재정렬하여 반환
 
 사용 예:
     from naver_connect_chatbot.rag.rerank import ClovaStudioReranker
@@ -127,20 +133,36 @@ def _generate_document_id(doc: Document, id_key: str | None = None) -> str:
 
 def _serialize_documents_for_api(
     documents: Sequence[Document],
-) -> list[str]:
+) -> list[dict[str, str]]:
     """
-    LangChain Document 리스트를 API 호출용 텍스트 리스트로 변환합니다.
+    LangChain Document 리스트를 Clova Studio Reranker API 형식으로 변환합니다.
+    
+    새로운 API 스펙:
+        각 문서를 {"id": "문서ID", "doc": "문서내용"} 형식으로 변환합니다.
+        - id: 문서의 고유 식별자 (인덱스 기반으로 생성)
+        - doc: 문서의 실제 텍스트 내용
     
     매개변수:
         documents: LangChain Document 시퀀스
         
     반환값:
-        문서 텍스트 리스트
+        {"id": str, "doc": str} 형식의 딕셔너리 리스트
         
     Time Complexity:
         O(n), n은 문서 수
+        
+    예시:
+        >>> docs = [Document(page_content="Hello"), Document(page_content="World")]
+        >>> _serialize_documents_for_api(docs)
+        [{"id": "doc_0", "doc": "Hello"}, {"id": "doc_1", "doc": "World"}]
     """
-    return [doc.page_content for doc in documents]
+    return [
+        {
+            "id": f"doc_{idx}",
+            "doc": doc.page_content,
+        }
+        for idx, doc in enumerate(documents)
+    ]
 
 
 def _merge_rerank_metadata(
@@ -282,18 +304,16 @@ class ClovaStudioReranker(BaseReranker):
     
     속성:
         endpoint: Clova Studio Reranker API 엔드포인트 URL
-        api_key: X-NCP-CLOVASTUDIO-API-KEY 헤더 값
-        api_gateway_key: X-NCP-APIGW-API-KEY 헤더 값 (선택적)
+        api_key: CLOVASTUDIO_API_KEY (Authorization Bearer 토큰)
+        max_tokens: 최대 생성 토큰 수
         request_timeout: HTTP 요청 타임아웃 (초)
-        default_top_k: top_k 미지정 시 기본 반환 문서 수
-        id_key: 문서 고유 ID로 사용할 메타데이터 키
         client: HTTPX Client 인스턴스 (재사용)
     
     예시:
         >>> reranker = ClovaStudioReranker(
-        ...     endpoint="https://clovastudio.apigw.ntruss.com/.../reranker/...",
+        ...     endpoint="https://clovastudio.stream.ntruss.com/v1/api-tools/reranker",
         ...     api_key="your-api-key",
-        ...     default_top_k=5,
+        ...     max_tokens=1024,
         ... )
         >>> docs = [Document(page_content="AI is ..."), ...]
         >>> reranked = reranker.rerank("What is AI?", docs)
@@ -303,21 +323,17 @@ class ClovaStudioReranker(BaseReranker):
         self,
         endpoint: str,
         api_key: str,
-        api_gateway_key: str | None = None,
-        request_timeout: float = 30.0,
-        default_top_k: int = 10,
-        id_key: str | None = None,
+        max_tokens: int = 1024,
+        request_timeout: float = 60.0,
     ) -> None:
         """
         ClovaStudioReranker를 초기화합니다.
         
         매개변수:
             endpoint: Clova Studio Reranker API 엔드포인트
-            api_key: Clova Studio API 키
-            api_gateway_key: API Gateway 키 (선택적)
-            request_timeout: 요청 타임아웃 (초)
-            default_top_k: 기본 반환 문서 수
-            id_key: 문서 ID로 사용할 메타데이터 키 (None이면 해시 사용)
+            api_key: Clova Studio API 키 (CLOVASTUDIO_API_KEY)
+            max_tokens: 최대 생성 토큰 수 (기본값: 1024, 최대: 4096)
+            request_timeout: 요청 타임아웃 (초, 기본값: 60초)
         
         예외:
             ValueError: endpoint나 api_key가 비어있는 경우
@@ -331,10 +347,8 @@ class ClovaStudioReranker(BaseReranker):
         
         self.endpoint = endpoint
         self.api_key = api_key
-        self.api_gateway_key = api_gateway_key
+        self.max_tokens = max_tokens
         self.request_timeout = request_timeout
-        self.default_top_k = default_top_k
-        self.id_key = id_key
         
         # HTTPX Client 초기화 (세션 재사용)
         self._client: httpx.Client | None = None
@@ -346,7 +360,7 @@ class ClovaStudioReranker(BaseReranker):
         Settings 객체로부터 ClovaStudioReranker를 생성합니다.
         
         매개변수:
-            settings: NaverCloudRerankerSettings 또는 호환 객체
+            settings: ClovaStudioRerankerSettings 또는 호환 객체
         
         반환값:
             초기화된 ClovaStudioReranker 인스턴스
@@ -357,11 +371,9 @@ class ClovaStudioReranker(BaseReranker):
         """
         return cls(
             endpoint=settings.endpoint,
-            api_key=settings.api_key,
-            api_gateway_key=getattr(settings, "api_gateway_key", None),
-            request_timeout=getattr(settings, "request_timeout", 30.0),
-            default_top_k=getattr(settings, "default_top_k", 10),
-            id_key=getattr(settings, "id_key", None),
+            api_key=settings.api_key.get_secret_value() if settings.api_key else None,
+            max_tokens=getattr(settings, "max_tokens", 1024),
+            request_timeout=getattr(settings, "request_timeout", 60.0),
         )
     
     @property
@@ -378,30 +390,21 @@ class ClovaStudioReranker(BaseReranker):
             self._async_client = httpx.AsyncClient(timeout=self.request_timeout)
         return self._async_client
     
-    def _build_headers(self, request_id: str | None = None) -> dict[str, str]:
+    def _build_headers(self) -> dict[str, str]:
         """
         API 요청 헤더를 생성합니다.
         
-        매개변수:
-            request_id: 요청 추적용 UUID (None이면 자동 생성)
+        새로운 Clova Studio API는 표준 Bearer 토큰 방식을 사용합니다:
+        - Content-Type: application/json (필수)
+        - Authorization: Bearer <api-key> (필수)
         
         반환값:
             HTTP 헤더 딕셔너리
         """
-        headers = {
+        return {
             "Content-Type": "application/json",
-            "X-NCP-CLOVASTUDIO-API-KEY": self.api_key,
+            "Authorization": f"Bearer {self.api_key}",
         }
-        
-        if self.api_gateway_key:
-            headers["X-NCP-APIGW-API-KEY"] = self.api_gateway_key
-        
-        if request_id:
-            headers["X-NCP-CLOVASTUDIO-REQUEST-ID"] = request_id
-        else:
-            headers["X-NCP-CLOVASTUDIO-REQUEST-ID"] = str(uuid.uuid4())
-        
-        return headers
     
     def _validate_inputs(
         self,
@@ -434,15 +437,28 @@ class ClovaStudioReranker(BaseReranker):
         self,
         response_data: dict[str, Any],
         original_documents: Sequence[Document],
-        top_k: int | None,
     ) -> list[Document]:
         """
-        API 응답을 파싱하여 LangChain Document 리스트로 변환합니다.
+        Clova Studio Reranker API 응답을 파싱하여 LangChain Document 리스트로 변환합니다.
+        
+        API 응답 구조:
+        {
+            "status": {"code": "20000", "message": "OK"},
+            "result": {
+                "result": "답변 텍스트",
+                "citedDocuments": [
+                    {"id": "doc_0", "doc": "문서내용..."},
+                    {"id": "doc_1", "doc": "문서내용..."}
+                ],
+                "usage": {...}
+            }
+        }
+        
+        citedDocuments 배열의 순서가 관련도 순서를 나타냅니다.
         
         매개변수:
             response_data: API 응답 JSON 데이터
-            original_documents: 원본 Document 시퀀스
-            top_k: 반환할 상위 문서 수
+            original_documents: 원본 Document 시퀀스    
         
         반환값:
             재정렬된 Document 리스트
@@ -452,21 +468,41 @@ class ClovaStudioReranker(BaseReranker):
         """
         try:
             result = response_data["result"]
-            reranked_items = result["documents"]
+            cited_documents = result["citedDocuments"]
+            usage = result.get("usage", {})  # 토큰 사용량 (선택적)
         except KeyError as e:
             msg = f"API 응답 스키마가 올바르지 않습니다: {e}"
             raise ValueError(msg) from e
         
+        # 사용량 정보 로깅 (디버그 레벨)
+        if usage:
+            logger.debug(
+                "Reranker API 토큰 사용량",
+                prompt_tokens=usage.get("promptTokens", 0),
+                completion_tokens=usage.get("completionTokens", 0),
+                total_tokens=usage.get("totalTokens", 0),
+            )
+        
         # 재정렬된 문서 리스트 생성
         reranked_docs: list[Document] = []
         
-        for rank, item in enumerate(reranked_items, start=1):
+        for rank, item in enumerate(cited_documents, start=1):
             try:
-                index = item["index"]
-                score = item["score"]
-            except KeyError as e:
-                msg = f"문서 항목의 스키마가 올바르지 않습니다: {e}"
-                raise ValueError(msg) from e
+                doc_id = item["id"]
+                # doc_id는 "doc_{idx}" 형식이므로 인덱스 추출
+                if not doc_id.startswith("doc_"):
+                    logger.warning(
+                        f"예상치 못한 문서 ID 형식: {doc_id}",
+                        doc_id=doc_id,
+                        rank=rank,
+                    )
+                    continue
+                    
+                index = int(doc_id.split("_")[1])
+            except (KeyError, ValueError, IndexError) as e:
+                msg = f"문서 항목의 ID 파싱 실패: {e}"
+                logger.error(msg, item=item, rank=rank)
+                continue
             
             # 원본 문서 가져오기
             if index < 0 or index >= len(original_documents):
@@ -476,13 +512,11 @@ class ClovaStudioReranker(BaseReranker):
             
             original_doc = original_documents[index]
             
-            # 메타데이터 병합
+            # 메타데이터 병합 (score는 없으므로 순위 기반으로 점수 생성)
+            # 1등: 1.0, 2등: 0.9, 3등: 0.8, ...
+            score = max(0.0, 1.0 - (rank - 1) * 0.1)
             reranked_doc = _merge_rerank_metadata(original_doc, score, rank)
             reranked_docs.append(reranked_doc)
-            
-            # top_k 도달 시 중단
-            if top_k and len(reranked_docs) >= top_k:
-                break
         
         return reranked_docs
 
@@ -558,8 +592,6 @@ class ClovaStudioReranker(BaseReranker):
         self,
         query: str,
         documents: Sequence[Document],
-        *,
-        top_k: int | None = None,
     ) -> list[Document]:
         """
         Clova Studio API를 호출하여 문서를 재정렬합니다.
@@ -567,7 +599,6 @@ class ClovaStudioReranker(BaseReranker):
         매개변수:
             query: 사용자 질문
             documents: 재정렬할 문서 시퀀스
-            top_k: 반환할 상위 문서 수 (None이면 default_top_k 사용)
         
         반환값:
             관련도 내림차순으로 정렬된 Document 리스트
@@ -586,21 +617,18 @@ class ClovaStudioReranker(BaseReranker):
         if len(documents) == 0:
             return []
         
-        # top_k 기본값 설정
-        if top_k is None:
-            top_k = self.default_top_k
-        
-        # 요청 ID 생성
-        request_id = str(uuid.uuid4())
-        
         # API 요청 페이로드 구성
         payload = {
             "query": query,
             "documents": _serialize_documents_for_api(documents),
+            "maxTokens": self.max_tokens,
         }
         
         # 헤더 구성
-        headers = self._build_headers(request_id)
+        headers = self._build_headers()
+        
+        # 요청 ID 생성 (로깅용)
+        request_id = str(uuid.uuid4())
         
         # API 호출 (retry 로직 포함)
         logger.debug(
@@ -608,7 +636,7 @@ class ClovaStudioReranker(BaseReranker):
             request_id=request_id,
             query_length=len(query),
             document_count=len(documents),
-            top_k=top_k,
+            max_tokens=self.max_tokens,
         )
 
         try:
@@ -636,7 +664,7 @@ class ClovaStudioReranker(BaseReranker):
             raise RuntimeError(msg) from e
         
         # Document 리스트로 변환
-        reranked_docs = self._parse_response(response_data, documents, top_k)
+        reranked_docs = self._parse_response(response_data, documents)
         
         logger.info(
             "문서 재정렬 완료",
@@ -676,21 +704,18 @@ class ClovaStudioReranker(BaseReranker):
         if len(documents) == 0:
             return []
         
-        # top_k 기본값 설정
-        if top_k is None:
-            top_k = self.default_top_k
-        
-        # 요청 ID 생성
-        request_id = str(uuid.uuid4())
-        
         # API 요청 페이로드 구성
         payload = {
             "query": query,
             "documents": _serialize_documents_for_api(documents),
+            "maxTokens": self.max_tokens,
         }
         
         # 헤더 구성
-        headers = self._build_headers(request_id)
+        headers = self._build_headers()
+        
+        # 요청 ID 생성 (로깅용)
+        request_id = str(uuid.uuid4())
         
         # 비동기 API 호출 (retry 로직 포함)
         logger.debug(
@@ -698,7 +723,7 @@ class ClovaStudioReranker(BaseReranker):
             request_id=request_id,
             query_length=len(query),
             document_count=len(documents),
-            top_k=top_k,
+            max_tokens=self.max_tokens,
         )
 
         try:

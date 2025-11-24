@@ -13,6 +13,8 @@ Environment Variables:
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from .base import PROJECT_ROOT
+
 
 class SlackSettings(BaseSettings):
     """
@@ -29,7 +31,9 @@ class SlackSettings(BaseSettings):
     
     model_config = SettingsConfigDict(
         env_prefix="SLACK_",
+        env_file=str(PROJECT_ROOT / ".env"),
         case_sensitive=False,
+        extra="ignore",
     )
     
     bot_token: SecretStr = Field(

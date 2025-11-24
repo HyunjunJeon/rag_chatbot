@@ -56,26 +56,6 @@ class AnswerUpdate(TypedDict, total=False):
     answer_metadata: dict
 
 
-class ValidationUpdate(TypedDict, total=False):
-    """validate_answer_node 반환 타입.
-
-    답변 검증 결과를 state에 업데이트합니다.
-    """
-    is_valid: bool
-    validation_score: float
-    validation_issues: list[str]
-    answer_validation: dict
-
-
-class CorrectionUpdate(TypedDict, total=False):
-    """correct_node 반환 타입.
-
-    교정 전략 및 메타데이터를 state에 업데이트합니다.
-    """
-    correction_strategy: str
-    correction_metadata: dict
-
-
 class ErrorUpdate(TypedDict, total=False):
     """에러 발생 시 공통 반환 타입.
 

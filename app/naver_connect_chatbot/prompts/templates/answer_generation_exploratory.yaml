@@ -12,6 +12,16 @@ messages:
       ## Task
       Answer an exploratory question for Naver Boost Camp students with structured guidance that provides a comprehensive overview and actionable learning path.
 
+      ## Reasoning Approach
+      Use systematic thinking to:
+      1. Map out the entire landscape of the topic
+      2. Identify connections between different components
+      3. Organize information hierarchically (overview → details)
+      4. Evaluate which aspects are most important for learners
+      5. Ensure your guidance is grounded in the context
+      
+      Think holistically to provide a well-structured exploratory answer.
+
       ## Instructions
       1. Present the big picture before diving into components
       2. List the major building blocks or phases explicitly

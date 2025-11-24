@@ -183,7 +183,7 @@ def build_advanced_hybrid_retriever(
     method: HybridMethod = HybridMethod.RRF,
     rrf_c: int | None = None,
     bm25_kwargs: dict[str, Any] | None = None,
-    enable_multi_query: bool = True,
+    enable_multi_query: bool = True,  # 기본값 True로 변경 (항상 Multi-Query 사용)
     num_queries: int | None = None,
     multi_query_strategy: str | None = None,
     multi_query_rrf_k: int | None = None,
@@ -195,10 +195,11 @@ def build_advanced_hybrid_retriever(
     
     구성 계층:
     1. Base Hybrid: Dense(Qdrant) + Sparse(Kiwi BM25)
-    2. MultiQuery: LLM으로 쿼리 확장
+    2. MultiQuery: LLM으로 쿼리 확장 (기본값: 활성화)
     3. Final Hybrid: Base + MultiQuery 결과 융합 (선택적)
     
-    MultiQuery가 비활성화되면 Base Hybrid만 반환합니다.
+    **중요**: 이 함수는 기본적으로 MultiQuery를 활성화합니다 (enable_multi_query=True).
+    MultiQuery를 비활성화하려면 명시적으로 enable_multi_query=False를 전달하세요.
 
     매개변수:
         documents: 문서 리스트
@@ -212,7 +213,7 @@ def build_advanced_hybrid_retriever(
         method: Base Hybrid의 병합 방식
         rrf_c: Base Hybrid의 RRF 상수
         bm25_kwargs: KiwiBM25Retriever 추가 파라미터
-        enable_multi_query: MultiQuery 활성화 여부
+        enable_multi_query: MultiQuery 활성화 여부 (기본값: True)
         num_queries: 생성할 쿼리 개수
         multi_query_strategy: MultiQuery 병합 전략
         multi_query_rrf_k: MultiQuery RRF 상수

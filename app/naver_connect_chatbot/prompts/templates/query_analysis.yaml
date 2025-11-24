@@ -1,46 +1,51 @@
 _type: chat_messages
 metadata:
   name: query_analysis
-  description: Analyze query quality and suggest improvements
-  version: "2.0"
+  description: Analyze query quality and generate multiple search queries
+  version: "3.0"
   author: Adaptive RAG System
-  last_updated: "2025-11-21"
+  last_updated: "2025-11-24"
 
 messages:
   - role: system
     content: |
       ## Task
-      Analyze a Naver Boost Camp student's question quality and rewrite it for optimal retrieval from an AI/ML knowledge base.
+      Analyze a Naver Boost Camp student's question quality and generate multiple diverse search queries for comprehensive retrieval from an AI/ML knowledge base.
 
-      ## Analysis Dimensions
+      ## Step 1: Quality Analysis
+      Evaluate the original query across these dimensions:
       1. **Clarity** – Identify ambiguous phrasing or missing subjects
       2. **Specificity** – Check whether scope, entities, and constraints are explicit enough
       3. **Retrievability** – Ensure wording maps cleanly to searchable terms and entities
       4. **Context completeness** – Verify necessary details (domain, constraints, context) are included
 
-      ## Improvement Tactics
-      - Replace vague references ("it", "this", "that") with precise terminology
-      - Split overly broad requests into tightly scoped sub-queries
-      - Reorder terms into retrieval-friendly sequences (entity → action → qualifier)
-      - Inject required context (dataset names, metrics, technologies, time frames)
+      ## Step 2: Multi-Query Generation
+      Generate 3-5 diverse search queries that:
+      - Cover complementary viewpoints (definitions, implementations, troubleshooting, comparisons, use cases)
+      - Are mutually distinct yet collectively exhaustive
+      - Use concrete terminology without invented datasets/tools/metrics
+      - Replace vague references with precise terms
+      - Are self-contained and retrieval-optimized
 
-      ## Intent-Specific Handling
-      - **SIMPLE_QA**: One refined fact-finding query emphasizing key entities
-      - **COMPLEX_REASONING**: Multiple sub-queries covering each reasoning step
-      - **EXPLORATORY**: Expand into complementary angles mapping the topic landscape
-      - **CLARIFICATION_NEEDED**: Propose clarifying follow-up questions
+      ## Intent-Specific Strategy
+      - **SIMPLE_QA**: Generate 3 queries focusing on the core concept from different angles
+      - **COMPLEX_REASONING**: Generate 4-5 queries breaking down reasoning steps
+      - **EXPLORATORY**: Generate 5 queries mapping the topic landscape comprehensively
+      - **CLARIFICATION_NEEDED**: Generate 3 clarifying questions to refine intent
 
       ## Output Format
       Return a single JSON object with these fields:
       - clarity_score: float between 0.0 and 1.0
       - specificity_score: float between 0.0 and 1.0
       - searchability_score: float between 0.0 and 1.0
-      - improved_queries: array of strings (must include at least one)
-      - issues: array of strings
-      - recommendations: array of strings
+      - improved_queries: array of 3-5 diverse search queries (한국어)
+      - issues: array of identified issues in the original query
+      - recommendations: array of improvement recommendations
 
       Output rules:
       - JSON만 반환하며 코드펜스/추가 텍스트를 포함하지 않는다.
+      - improved_queries는 반드시 3개 이상 5개 이하여야 한다.
+      - 각 쿼리는 구체적이고 검색에 최적화되어야 한다.
       - 데이터셋/도구/지표를 새로 만들지 말고, 정보가 없으면 일반화된 표현을 유지한다.
 
   - role: human
@@ -48,7 +53,7 @@ messages:
       Question: {question}
       Intent: {intent}
 
-      Analyze this query and propose improved search queries.
+      Analyze this query and generate multiple diverse search queries for comprehensive retrieval.
 
 input_variables:
   - question

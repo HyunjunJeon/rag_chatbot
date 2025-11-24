@@ -59,12 +59,12 @@ class AdaptiveRAGSettings(BaseSettings):
         description="Enable document relevance and sufficiency evaluation"
     )
     enable_answer_validation: bool = Field(
-        default=True,
-        description="Enable answer validation for hallucinations and quality"
+        default=False,  # Reasoning 모델 활용으로 비활성화
+        description="Enable answer validation for hallucinations and quality (deprecated)"
     )
     enable_correction: bool = Field(
-        default=True,
-        description="Enable correction loop for answer improvement"
+        default=False,  # Reasoning 모델 활용으로 비활성화
+        description="Enable correction loop for answer improvement (deprecated)"
     )
     
     # Retry Limits
@@ -103,15 +103,15 @@ class AdaptiveRAGSettings(BaseSettings):
     
     # Model Selection (for cost optimization)
     intent_model: str = Field(
-        default="gpt-4o-mini",
+        default="HCX-007",
         description="Model for intent classification (faster/cheaper)"
     )
     evaluation_model: str = Field(
-        default="gpt-4o-mini",
+        default="HCX-007",
         description="Model for document and answer evaluation"
     )
     main_model: str = Field(
-        default="gpt-4o",
+        default="HCX-007",
         description="Model for answer generation and complex tasks"
     )
     
@@ -131,12 +131,22 @@ class AdaptiveRAGSettings(BaseSettings):
     
     # Feature Flags
     use_multi_query: bool = Field(
-        default=True,
-        description="Enable multi-query retrieval for complex questions"
+        default=True,  # 항상 활성화
+        description="Enable multi-query retrieval for comprehensive search"
     )
     use_reranking: bool = Field(
-        default=True,
-        description="Enable reranking of retrieved documents"
+        default=True,  # 항상 활성화 (Post-Retriever)
+        description="Enable reranking of retrieved documents with Clova Studio"
+    )
+    use_segmentation: bool = Field(
+        default=True,  # 새로 추가
+        description="Enable automatic document segmentation for long documents"
+    )
+    segmentation_threshold: int = Field(
+        default=1000,  # 새로 추가
+        ge=500,
+        le=5000,
+        description="Character threshold for triggering document segmentation"
     )
     use_caching: bool = Field(
         default=False,

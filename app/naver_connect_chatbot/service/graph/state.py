@@ -112,7 +112,7 @@ class AdaptiveRAGState(TypedDict, total=False):
     generation_metadata: Dict[str, Any]
     generation_strategy: str
     
-    # Validation
+    # Validation (deprecated - Reasoning 모델이 자체 처리)
     validation_result: Dict[str, Any]
     has_hallucination: bool
     is_grounded: bool
@@ -120,7 +120,7 @@ class AdaptiveRAGState(TypedDict, total=False):
     quality_score: float
     validation_issues: List[str]
     
-    # Correction
+    # Correction (deprecated - Reasoning 모델이 자체 처리)
     correction_count: int
     correction_feedback: List[str]
     correction_action: str

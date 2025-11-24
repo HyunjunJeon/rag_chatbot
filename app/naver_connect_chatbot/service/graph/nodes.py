@@ -19,8 +19,6 @@ from naver_connect_chatbot.service.graph.types import (
     RetrievalUpdate,
     DocumentEvaluationUpdate,
     AnswerUpdate,
-    ValidationUpdate,
-    CorrectionUpdate,
 )
 from naver_connect_chatbot.service.agents import (
     create_intent_classifier,
@@ -30,10 +28,6 @@ from naver_connect_chatbot.service.agents import (
     create_document_evaluator,
     DocumentEvaluation,
     create_answer_generator,
-    create_answer_validator,
-    create_corrector,
-    CorrectionStrategy,
-    AnswerValidation,
 )
 from naver_connect_chatbot.service.agents.answer_generator import (
     get_generation_strategy,
@@ -41,7 +35,8 @@ from naver_connect_chatbot.service.agents.answer_generator import (
 )
 from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
 from naver_connect_chatbot.service.tool import retrieve_documents_async
-from naver_connect_chatbot.config import logger
+from naver_connect_chatbot.rag import ClovaStudioReranker, ClovaStudioSegmenter
+from naver_connect_chatbot.config import logger, settings
 
 
 def _extract_text_response(response: Any) -> str:
@@ -123,16 +118,20 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
 
 async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAnalysisUpdate:
     """
-    질의 품질을 분석하고 개선안을 작성합니다.
-
+    질의 품질을 분석하고 다중 검색 쿼리를 생성합니다 (Multi-Query Generation 통합).
+    
+    이 노드는 Query Analysis와 Multi-Query Generation을 통합하여:
+    1. 질의의 명확성, 구체성, 검색 가능성을 평가
+    2. 다양한 관점의 검색 쿼리 3-5개 생성 (Multi-Query)
+    
     매개변수:
         state: 현재 워크플로 상태
-        llm: 분석에 사용할 언어 모델
+        llm: 분석 및 쿼리 생성에 사용할 언어 모델
 
     반환값:
-        질의 분석과 개선된 질의를 포함한 상태 업데이트
+        질의 분석과 다중 검색 쿼리를 포함한 상태 업데이트
     """
-    logger.info("---ANALYZE QUERY---")
+    logger.info("---ANALYZE QUERY & GENERATE MULTI-QUERY---")
     question = state["question"]
     intent = state.get("intent", "SIMPLE_QA")
 
@@ -217,88 +216,243 @@ async def retrieve_node(state: AdaptiveRAGState, retriever: BaseRetriever) -> Re
         }
 
 
-async def evaluate_documents_node(state: AdaptiveRAGState, llm: Runnable) -> DocumentEvaluationUpdate:
+async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
     """
-    검색된 문서를 평가합니다.
+    검색된 문서를 Clova Studio Reranker로 재정렬합니다.
+    
+    Post-Retriever 단계로, 검색된 문서의 관련도를 재평가하여
+    가장 관련성 높은 문서를 상위로 정렬합니다.
 
     매개변수:
         state: 현재 워크플로 상태
-        llm: 평가에 사용할 언어 모델
+
+    반환값:
+        재정렬된 문서를 포함한 상태 업데이트
+    """
+    logger.info("---RERANK DOCUMENTS---")
+    
+    question = state["question"]
+    documents = state.get("documents", [])
+    
+    if not documents:
+        logger.warning("No documents to rerank")
+        return {
+            "documents": [],
+            "context": [],
+        }
+    
+    # Reranking 설정 확인
+    use_reranking = settings.adaptive_rag.use_reranking if hasattr(settings, "adaptive_rag") else True
+    
+    if not use_reranking:
+        logger.info("Reranking disabled, skipping")
+        return {
+            "documents": documents,
+            "context": documents,
+        }
+    
+    try:
+        # Clova Studio Reranker 초기화
+        reranker = ClovaStudioReranker(
+            api_key=settings.clova_llm.api_key.get_secret_value() if settings.clova_llm.api_key else "",
+            max_tokens=1024,
+        )
+        
+        # Reranking 수행
+        logger.info(f"Reranking {len(documents)} documents")
+        reranked_docs = await reranker.arerank(
+            query=question,
+            documents=documents,
+            top_k=min(len(documents), 10),  # 최대 10개까지 유지
+        )
+        
+        logger.info(f"Reranked to {len(reranked_docs)} documents")
+        
+        return {
+            "documents": reranked_docs,
+            "context": reranked_docs,
+        }
+        
+    except Exception as e:
+        logger.error(f"Reranking error: {e}, using original documents")
+        return {
+            "documents": documents,
+            "context": documents,
+        }
+
+
+async def segment_documents_node(state: AdaptiveRAGState) -> dict[str, Any]:
+    """
+    긴 문서를 Clova Studio Segmenter로 주제 단위로 분할합니다.
+    
+    1000자 이상의 문서를 자동으로 감지하여 주제별로 분할하고,
+    각 세그먼트를 별도의 Document로 변환합니다.
+
+    매개변수:
+        state: 현재 워크플로 상태
+
+    반환값:
+        분할된 문서를 포함한 상태 업데이트
+    """
+    logger.info("---SEGMENT DOCUMENTS---")
+    
+    documents = state.get("documents", [])
+    
+    if not documents:
+        logger.warning("No documents to segment")
+        return {
+            "documents": [],
+            "context": [],
+        }
+    
+    # Segmentation 설정 확인
+    use_segmentation = settings.adaptive_rag.use_segmentation if hasattr(settings, "adaptive_rag") else True
+    segmentation_threshold = settings.adaptive_rag.segmentation_threshold if hasattr(settings, "adaptive_rag") else 1000
+    
+    if not use_segmentation:
+        logger.info("Segmentation disabled, skipping")
+        return {
+            "documents": documents,
+            "context": documents,
+        }
+    
+    try:
+        # Clova Studio Segmenter 초기화
+        segmenter = ClovaStudioSegmenter(
+            api_key=settings.clova_llm.api_key.get_secret_value() if settings.clova_llm.api_key else "",
+            alpha=-100.0,  # 자동 threshold
+            seg_cnt=-1,  # 자동 문단 수
+            post_process=True,
+            post_process_max_size=1000,
+            post_process_min_size=100,
+        )
+        
+        segmented_docs = []
+        
+        for doc in documents:
+            content_length = len(doc.page_content)
+            
+            # 임계값 이상인 문서만 분할
+            if content_length >= segmentation_threshold:
+                logger.info(f"Segmenting document with {content_length} characters")
+                
+                try:
+                    # Segmentation 수행
+                    result = await segmenter.asegment(text=doc.page_content)
+                    
+                    # 각 토픽 세그먼트를 별도의 Document로 변환
+                    for idx, topic_sentences in enumerate(result.topic_segments):
+                        segment_text = " ".join(topic_sentences)
+                        
+                        # 원본 메타데이터 복사 및 세그먼트 정보 추가
+                        segment_metadata = doc.metadata.copy()
+                        segment_metadata.update({
+                            "segment_index": idx,
+                            "total_segments": len(result.topic_segments),
+                            "original_length": content_length,
+                            "segmented": True,
+                        })
+                        
+                        segmented_docs.append(
+                            Document(
+                                page_content=segment_text,
+                                metadata=segment_metadata
+                            )
+                        )
+                    
+                    logger.info(f"Segmented into {len(result.topic_segments)} parts")
+                    
+                except Exception as seg_error:
+                    logger.warning(f"Failed to segment document: {seg_error}, keeping original")
+                    segmented_docs.append(doc)
+            else:
+                # 임계값 미만인 문서는 그대로 유지
+                segmented_docs.append(doc)
+        
+        logger.info(f"Segmentation complete: {len(documents)} → {len(segmented_docs)} documents")
+        
+        return {
+            "documents": segmented_docs,
+            "context": segmented_docs,
+        }
+        
+    except Exception as e:
+        logger.error(f"Segmentation error: {e}, using original documents")
+        return {
+            "documents": documents,
+            "context": documents,
+        }
+
+
+async def evaluate_documents_node(state: AdaptiveRAGState, llm: Runnable | None = None) -> DocumentEvaluationUpdate:
+    """
+    검색된 문서를 간단히 평가합니다 (간소화 버전).
+    
+    Reasoning 모델이 자체적으로 문서 품질을 판단할 수 있으므로,
+    복잡한 평가 로직 대신 기본적인 체크만 수행합니다:
+    - 문서 존재 여부
+    - 문서 개수
+    - 기본 관련성 휴리스틱
+
+    매개변수:
+        state: 현재 워크플로 상태
+        llm: 사용하지 않음 (하위 호환성 유지)
 
     반환값:
         문서 평가 결과를 포함한 상태 업데이트
     """
-    logger.info("---EVALUATE DOCUMENTS---")
-    question = state["question"]
+    logger.info("---EVALUATE DOCUMENTS (SIMPLIFIED)---")
     documents = state.get("documents", [])
 
     if not documents:
-        logger.warning("No documents to evaluate")
+        logger.warning("No documents found")
         return {
-            "document_evaluation": {"error": "No documents"},
+            "document_evaluation": {
+                "relevant_count": 0,
+                "total_count": 0,
+                "sufficient": False,
+            },
             "sufficient_context": False,
             "relevant_doc_count": 0,
         }
-
-    try:
-        # 문서 평가 에이전트를 생성합니다.
-        evaluator = create_document_evaluator(llm)
-
-        # 평가에 사용할 문서를 포맷합니다.
-        doc_text = "\n\n".join([
-            f"Document {i + 1}:\n{doc.page_content[:500]}..."
-            for i, doc in enumerate(documents[:5])  # 평가 시 상위 5개까지만 사용
-        ])
-
-        # 평가를 수행합니다.
-        response_raw = await evaluator.ainvoke({
-            "messages": [{"role": "user", "content": f"question: {question}\n\ndocuments:\n{doc_text}"}]
-        })
-
-        # Response parser를 사용하여 일관성 있게 파싱합니다.
-        response = parse_agent_response(
-            response_raw,
-            DocumentEvaluation,
-            fallback=DocumentEvaluation(
-                sufficient=len(documents) > 0,
-                relevant_count=len(documents),
-                irrelevant_count=0,
-                confidence=0.5
-            )
-        )
-
-        # 평가 결과를 추출합니다.
-        return {
-            "document_evaluation": {
-                "relevant_count": response.relevant_count,
-                "irrelevant_count": response.irrelevant_count,
-                "confidence": response.confidence,
-            },
-            "sufficient_context": response.sufficient,
-            "relevant_doc_count": response.relevant_count,
-        }
-
-    except Exception as e:
-        logger.error(f"Document evaluation error: {e}")
-        return {
-            "document_evaluation": {"error": str(e)},
-            "sufficient_context": len(documents) > 0,
-            "relevant_doc_count": len(documents),
-        }
+    
+    doc_count = len(documents)
+    logger.info(f"Found {doc_count} documents")
+    
+    # 간단한 휴리스틱: 문서가 3개 이상이면 충분하다고 판단
+    sufficient = doc_count >= 3
+    
+    # 모든 문서를 관련성 있다고 가정 (Reranking이 이미 수행되었으므로)
+    relevant_count = doc_count
+    
+    return {
+        "document_evaluation": {
+            "relevant_count": relevant_count,
+            "total_count": doc_count,
+            "sufficient": sufficient,
+        },
+        "sufficient_context": sufficient,
+        "relevant_doc_count": relevant_count,
+    }
 
 
 async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> AnswerUpdate:
     """
-    문맥을 기반으로 답변을 생성합니다.
+    문맥을 기반으로 답변을 생성합니다 (Reasoning 모드 활용).
+    
+    CLOVA HCX-007 모델의 Reasoning 능력을 활용하여:
+    1. 단계별 추론을 통해 답변 품질 향상
+    2. 자체 검증을 통해 환각 방지
+    3. 복잡한 질문에 대한 논리적 답변 생성
 
     매개변수:
         state: 현재 워크플로 상태
-        llm: 생성에 사용할 언어 모델
+        llm: 생성에 사용할 언어 모델 (Reasoning 지원)
 
     반환값:
         생성된 답변을 포함한 상태 업데이트
     """
-    logger.info("---GENERATE ANSWER---")
+    logger.info("---GENERATE ANSWER (with Reasoning)---")
     question = state["question"]
     documents = state.get("documents", [])
     intent = state.get("intent", "SIMPLE_QA")
@@ -307,7 +461,20 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
         # 사용할 생성 전략을 결정합니다.
         strategy = get_generation_strategy(intent)
 
+        # Reasoning effort 설정 (intent 기반)
+        # COMPLEX_REASONING: high, EXPLORATORY: medium, SIMPLE_QA: low
+        thinking_effort = "medium"  # 기본값
+        if intent == "COMPLEX_REASONING":
+            thinking_effort = "high"
+        elif intent == "SIMPLE_QA":
+            thinking_effort = "low"
+        elif intent == "EXPLORATORY":
+            thinking_effort = "medium"
+        
+        logger.info(f"Using thinking_effort: {thinking_effort} for intent: {intent}")
+
         # 답변 생성 에이전트를 생성합니다.
+        # Note: thinking_effort는 LLM 초기화 시 설정되어야 합니다
         generator: Runnable = create_answer_generator(llm, strategy=strategy)
 
         # 생성에 사용할 문맥을 포맷합니다.
@@ -328,13 +495,15 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
             fallback=AnswerOutput(answer="죄송합니다. 답변을 생성할 수 없습니다.")
         )
         answer = response.answer
-        logger.info(f"Generated answer: {answer[:100]}...")
+        logger.info(f"Generated answer with reasoning: {answer[:100]}...")
 
         return {
             "answer": answer,
             "generation_metadata": {
                 "strategy": strategy,
                 "context_length": len(context_text),
+                "thinking_effort": thinking_effort,
+                "reasoning_enabled": True,
             },
             "generation_strategy": strategy,
         }
@@ -345,133 +514,6 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
             "answer": f"죄송합니다. 답변 생성 중 오류가 발생했습니다: {str(e)}",
             "generation_metadata": {"error": str(e)},
             "generation_strategy": "error",
-        }
-
-
-async def validate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> ValidationUpdate:
-    """
-    생성된 답변을 검증합니다.
-
-    매개변수:
-        state: 현재 워크플로 상태
-        llm: 검증에 사용할 언어 모델
-
-    반환값:
-        검증 결과를 포함한 상태 업데이트
-    """
-    logger.info("---VALIDATE ANSWER---")
-    question = state["question"]
-    answer = state.get("answer", "")
-    documents = state.get("documents", [])
-
-    try:
-        # 답변 검증 에이전트를 생성합니다.
-        validator = create_answer_validator(llm)
-
-        # 검증에 사용할 문맥을 포맷합니다.
-        context_text = "\n\n".join([
-            f"[문서 {i + 1}]\n{doc.page_content[:500]}..." for i, doc in enumerate(documents[:5])
-        ])
-
-        # 검증을 수행합니다.
-        response_raw = await validator.ainvoke({
-            "messages": [
-                {"role": "user", "content": f"question: {question}\n\ncontext:\n{context_text}\n\nanswer:\n{answer}"}
-            ]
-        })
-
-        # Response parser를 사용하여 일관성 있게 파싱합니다.
-        response = parse_agent_response(
-            response_raw,
-            AnswerValidation,
-            fallback=AnswerValidation(
-                has_hallucination=False,
-                is_grounded=True,
-                is_complete=True,
-                quality_score=0.7,
-                issues=[]
-            )
-        )
-
-        # 검증 결과를 추출합니다.
-        return {
-            "validation_result": {
-                "has_hallucination": response.has_hallucination,
-                "is_grounded": response.is_grounded,
-                "is_complete": response.is_complete,
-                "quality_score": response.quality_score,
-                "issues": response.issues,
-            },
-            "has_hallucination": response.has_hallucination,
-            "is_grounded": response.is_grounded,
-            "is_complete": response.is_complete,
-            "quality_score": response.quality_score,
-            "validation_issues": response.issues,
-        }
-
-    except Exception as e:
-        logger.error(f"Answer validation error: {e}")
-        return {
-            "validation_result": {"error": str(e)},
-            "has_hallucination": False,
-            "is_grounded": True,
-            "is_complete": True,
-            "quality_score": 0.7,
-            "validation_issues": [str(e)],
-        }
-
-
-async def correct_node(state: AdaptiveRAGState, llm: Runnable) -> CorrectionUpdate:
-    """
-    교정 전략을 결정합니다.
-
-    매개변수:
-        state: 현재 워크플로 상태
-        llm: 교정 분석에 사용할 언어 모델
-
-    반환값:
-        교정 전략이 포함된 상태 업데이트
-    """
-    logger.info("---CORRECT---")
-    validation_result = state.get("validation_result", {})
-    answer = state.get("answer", "")
-    correction_count = state.get("correction_count", 0)
-
-    try:
-        # 교정 에이전트를 생성합니다.
-        corrector = create_corrector(llm)
-
-        # 검증 결과를 문자열로 정리합니다.
-        validation_text = "\n".join([f"{key}: {value}" for key, value in validation_result.items()])
-
-        # 교정 전략을 판단합니다.
-        response_raw = await corrector.ainvoke({
-            "messages": [{"role": "user", "content": f"validation_result:\n{validation_text}\n\nanswer:\n{answer}"}]
-        })
-
-        # Response parser를 사용하여 일관성 있게 파싱합니다.
-        response = parse_agent_response(
-            response_raw,
-            CorrectionStrategy,
-            fallback=CorrectionStrategy(
-                action="REGENERATE",
-                feedback="Unable to determine correction strategy"
-            )
-        )
-
-        # 교정 결과를 추출합니다.
-        return {
-            "correction_action": response.action,
-            "correction_feedback": state.get("correction_feedback", []) + [response.feedback],
-            "correction_count": correction_count + 1,
-        }
-
-    except Exception as e:
-        logger.error(f"Correction error: {e}")
-        return {
-            "correction_action": "REGENERATE",
-            "correction_feedback": state.get("correction_feedback", []) + [f"Error: {str(e)}"],
-            "correction_count": correction_count + 1,
         }
 
 

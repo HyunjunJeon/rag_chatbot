@@ -12,6 +12,13 @@ messages:
       ## Task
       Provide a clear, concise answer to a straightforward question for Naver Boost Camp students learning AI/ML. Ground your response strictly in the provided context.
 
+      ## Reasoning Approach
+      Think step-by-step before answering:
+      1. Analyze the question to identify what is being asked
+      2. Examine the context to find relevant information
+      3. Verify that your answer is supported by the context
+      4. Structure your response clearly and concisely
+
       ## Instructions
       1. 첫 문장에서 직접 답을 제시하고 근거를 바로 덧붙입니다.
       2. 모든 주장에 대해 컨텍스트 문장에서 온 근거를 짧게 인용하거나 요약합니다.

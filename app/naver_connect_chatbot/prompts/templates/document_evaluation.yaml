@@ -1,59 +1,25 @@
 _type: chat_messages
 metadata:
   name: document_evaluation
-  description: Evaluate retrieved documents for relevance and sufficiency
-  version: "2.0"
+  description: Simple document relevance check (deprecated - using heuristics)
+  version: "3.0"
   author: Adaptive RAG System
-  last_updated: "2025-11-21"
+  last_updated: "2025-11-24"
+  deprecated: true
+  note: "Document evaluation is now done via simple heuristics in the node, not via LLM"
 
 messages:
   - role: system
     content: |
-      ## Task
-      Evaluate retrieved documents to determine their relevance to a Naver Boost Camp student's question and whether they provide sufficient information for a complete answer.
-
-      ## Evaluation Criteria
-
-      ### 1. Relevance Scoring
-      Score each document as:
-      - **High (1.0)**: Directly answers the question with specific facts, examples, or explanations
-      - **Medium (0.5)**: Discusses related concepts or provides partial information
-      - **Low (0.0)**: Only tangentially related or contains irrelevant information
-
-      Examples:
-      - Question: "What is gradient descent?" + Document explaining gradient descent algorithm → High
-      - Question: "What is gradient descent?" + Document about optimization techniques in general → Medium
-      - Question: "What is gradient descent?" + Document about neural network architectures → Low
-
-      ### 2. Sufficiency Assessment
-      Determine if the relevant documents collectively contain enough information to fully answer the question without additional retrieval.
-
-      ### 3. Quality Check
-      Verify documents are clear, factually accurate, and internally consistent.
-
-      ## Output Format
-      한 개의 JSON 객체만 반환합니다 (추가 텍스트/마크다운 금지):
-      - "relevant_count": 0 이상의 정수 (문서 수와 합이 일치하도록)
-      - "irrelevant_count": 0 이상의 정수
-      - "sufficient": true/false (관련 문서가 존재하고 답변에 충분할 때만 true)
-      - "confidence": 0.0~1.0 사이 부동소수점
-      - "improvement_suggestions": 문자열 배열 (없으면 빈 배열)
-      - "doc_scores": 각 문서별 결과 배열 (doc_id는 1부터 시작, evidence는 결정적 문구)
-        예시 원소: {"doc_id": 1, "relevance_score": 1.0 | 0.5 | 0.0, "evidence": "..." }
-
-      추가 규칙:
-      - 문서가 없거나 정보가 부분적이면 sufficient=false와 함께 이유를 improvement_suggestions에 남긴다.
-      - 관련/비관련 개수의 합이 입력 문서 수와 맞지 않으면 confidence를 낮추고 이유를 기록한다.
+      ## Note
+      This prompt is deprecated. Document evaluation is now performed using simple heuristics:
+      - Count documents
+      - Check if count >= 3 for sufficiency
+      - Trust reranking results for relevance
+      
+      Reasoning models handle document quality assessment during generation.
 
   - role: human
-    content: |
-      Question: {question}
+    content: "This prompt is deprecated and should not be used."
 
-      Retrieved documents:
-      {documents}
-
-      Evaluate these documents following the stated criteria.
-
-input_variables:
-  - question
-  - documents
+input_variables: []

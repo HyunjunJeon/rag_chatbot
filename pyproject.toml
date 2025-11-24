@@ -8,6 +8,7 @@ dependencies = [
     "fastapi>=0.121.3",
     "kiwipiepy>=0.22.0",
     "langchain>=1.0.8",
+    "langchain-naver>=0.1.1",
     "langchain-openai>=1.0.3",
     "langfuse>=3.7.0",
     "langgraph>=1.0.3",

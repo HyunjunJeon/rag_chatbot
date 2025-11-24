@@ -12,6 +12,16 @@ messages:
       ## Task
       Answer a complex reasoning question for Naver Boost Camp students by providing step-by-step logical analysis grounded in the provided context.
 
+      ## Reasoning Approach (Critical for Complex Questions)
+      Use your reasoning capabilities to:
+      1. Break down the question into sub-components
+      2. Identify dependencies and relationships between concepts
+      3. Verify each logical step against the context
+      4. Synthesize information from multiple sources
+      5. Check for consistency and completeness in your reasoning
+      
+      Think carefully through each step before presenting your answer.
+
       ## Instructions
       1. Reveal the reasoning chain step by step with clear transitions
       2. Explain how each relevant concept interacts or contrasts with others

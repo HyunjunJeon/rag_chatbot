@@ -441,6 +441,15 @@ http2 = [
 ]
 
 [[package]]
+name = "httpx-sse"
+version = "0.4.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0f/4c/751061ffa58615a32c31b2d82e8482be8dd4a89154f003147acee90f2be9/httpx_sse-0.4.3.tar.gz", hash = "sha256:9b1ed0127459a66014aec3c56bebd93da3c1bc8bb6618c8082039a44889a755d", size = 15943, upload-time = "2025-10-10T21:48:22.271Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d2/fd/6668e5aec43ab844de6fc74927e155a3b37bf40d7c3790e49fc0406b6578/httpx_sse-0.4.3-py3-none-any.whl", hash = "sha256:0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc", size = 8960, upload-time = "2025-10-10T21:48:21.158Z" },
+]
+
+[[package]]
 name = "hyperframe"
 version = "6.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -648,6 +657,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/69/83/dbd09c718ddd547b10b34a9cc69a46ac6bb9db89cc24c4971bc4467f0452/langchain_core-1.0.7.tar.gz", hash = "sha256:6c64399cb0f163a7e45a764cce75d80fd08b82f4e0274ca892cfbcaa2f29200b", size = 781744, upload-time = "2025-11-19T21:23:27.683Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f0/d0/3e7b87b929e95310a219206937f614796d266bfc5e4350c32c5d6502c183/langchain_core-1.0.7-py3-none-any.whl", hash = "sha256:76af258b0e95a7915b8e301706a45ded50c75b80ff35329394d4df964416e32a", size = 472951, upload-time = "2025-11-19T21:23:26.579Z" },
+]
+
+[[package]]
+name = "langchain-naver"
+version = "0.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx-sse" },
+    { name = "langchain-core" },
+    { name = "langchain-openai" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e6/9d/feefc085884d953b4a0dd3133b87e0e516b7b6fbc595ee09cc1b6136959d/langchain_naver-0.1.1.tar.gz", hash = "sha256:ad0fc27f091dc252d046f23e67c6d0412574514358258a0f19235d8b3f47dcad", size = 9344, upload-time = "2025-08-07T11:49:35.247Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/aa/b3/41ac6be6e9ebfc2d147d3d079afa0c7dec3b3c6b4f6bacd3094028d089f0/langchain_naver-0.1.1-py3-none-any.whl", hash = "sha256:914418c7ab01c43aa103e4349393ee080ffa033eab2a8444bf0e98ad8f8e256d", size = 9927, upload-time = "2025-08-07T11:49:34.506Z" },
 ]
 
 [[package]]
@@ -913,6 +936,7 @@ dependencies = [
     { name = "fastapi" },
     { name = "kiwipiepy" },
     { name = "langchain" },
+    { name = "langchain-naver" },
     { name = "langchain-openai" },
     { name = "langfuse" },
     { name = "langgraph" },
@@ -947,6 +971,7 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.121.3" },
     { name = "kiwipiepy", specifier = ">=0.22.0" },
     { name = "langchain", specifier = ">=1.0.8" },
+    { name = "langchain-naver", specifier = ">=0.1.1" },
     { name = "langchain-openai", specifier = ">=1.0.3" },
     { name = "langfuse", specifier = ">=3.7.0" },
     { name = "langgraph", specifier = ">=1.0.3" },

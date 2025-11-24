@@ -12,10 +12,10 @@ from slack_bolt.async_app import AsyncApp
 from naver_connect_chatbot.config.settings.main import settings
 from naver_connect_chatbot.config.log import get_logger
 from naver_connect_chatbot.config.llm import get_chat_model
+from naver_connect_chatbot.config.embedding import get_embeddings
 from naver_connect_chatbot.config.monitoring import get_langfuse_callback
-from naver_connect_chatbot.rag.embeddings import NaverCloudEmbeddings
 from naver_connect_chatbot.rag.retriever_factory import get_hybrid_retriever
-from naver_connect_chatbot.agent.graph.workflow import build_graph
+from naver_connect_chatbot.service.graph.workflow import build_graph
 
 # Logging setup
 logger = get_logger()
@@ -42,13 +42,10 @@ def get_agent_app():
         ValueError: 필수 설정이 누락된 경우
         Exception: 초기화 중 오류 발생 시
     """
-    # 1. Embeddings - Settings 사용
-    embeddings = NaverCloudEmbeddings(
-        model_url=settings.naver_cloud_embeddings.model_url,
-        api_key=settings.naver_cloud_embeddings.api_key.get_secret_value() if settings.naver_cloud_embeddings.api_key else None,
-    )
+    # 1. Embeddings - 팩토리 함수 사용 (langchain_naver.ClovaXEmbeddings)
+    embeddings = get_embeddings()
 
-    # 2. LLM - 팩토리 함수 사용으로 일관성 유지
+    # 2. LLM - 팩토리 함수 사용 (langchain_naver.ChatClovaX)
     llm = get_chat_model()
 
     # 3. Retriever - BM25 인덱스 로드 또는 빈 리스트
