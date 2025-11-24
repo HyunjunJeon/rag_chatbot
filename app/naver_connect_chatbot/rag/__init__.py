@@ -11,7 +11,11 @@ RAG (Retrieval-Augmented Generation) 패키지
 from .rerank import BaseReranker, ClovaStudioReranker
 from .segmentation import BaseSegmenter, ClovaStudioSegmenter, SegmentationResult
 from .summarization import BaseSummarizer, ClovaStudioSummarizer, SummarizationResult
-from .rag_reasoning import ClovaStudioRAGReasoning
+from .rag_reasoning import (
+    ClovaStudioRAGReasoning,
+    convert_langchain_tool_to_rag_reasoning,
+    convert_langchain_tools_to_rag_reasoning,
+)
 
 __all__ = [
     # Reranker
@@ -27,5 +31,7 @@ __all__ = [
     "SummarizationResult",
     # RAG Reasoning
     "ClovaStudioRAGReasoning",
+    "convert_langchain_tool_to_rag_reasoning",
+    "convert_langchain_tools_to_rag_reasoning",
 ]
 

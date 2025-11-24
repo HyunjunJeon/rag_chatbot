@@ -16,15 +16,128 @@ Clova Studio RAG Reasoning API 테스트
 """
 
 import pytest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from naver_connect_chatbot.config.settings.clova import ClovaStudioRAGReasoningSettings
-from naver_connect_chatbot.rag.rag_reasoning import ClovaStudioRAGReasoning
+from naver_connect_chatbot.rag.rag_reasoning import (
+    ClovaStudioRAGReasoning,
+    convert_langchain_tool_to_rag_reasoning,
+    convert_langchain_tools_to_rag_reasoning,
+)
 
 
 # ============================================================================
 # 단위 테스트 (Mock)
 # ============================================================================
+
+
+class TestLangChainToolConversion:
+    """LangChain Tool 변환 테스트"""
+    
+    def test_convert_simple_tool(self):
+        """간단한 LangChain tool 변환 테스트"""
+        try:
+            from langchain_core.tools import tool
+        except ImportError:
+            pytest.skip("langchain_core가 설치되지 않았습니다")
+        
+        @tool
+        def search_documents(query: str) -> str:
+            """문서를 검색합니다.
+            
+            Args:
+                query: 검색할 질의
+            """
+            return f"Search results for: {query}"
+        
+        rag_tool = convert_langchain_tool_to_rag_reasoning(search_documents)
+        
+        assert rag_tool["type"] == "function"
+        assert "function" in rag_tool
+        assert rag_tool["function"]["name"] == "search_documents"
+        assert "문서를 검색합니다" in rag_tool["function"]["description"]
+        assert "parameters" in rag_tool["function"]
+        assert rag_tool["function"]["parameters"]["type"] == "object"
+        assert "query" in rag_tool["function"]["parameters"]["properties"]
+        assert "query" in rag_tool["function"]["parameters"]["required"]
+    
+    def test_convert_complex_tool(self):
+        """복잡한 파라미터를 가진 tool 변환 테스트"""
+        try:
+            from langchain_core.tools import tool
+            from pydantic import BaseModel, Field
+        except ImportError:
+            pytest.skip("langchain_core가 설치되지 않았습니다")
+        
+        class SearchInput(BaseModel):
+            query: str = Field(description="검색할 질의")
+            max_results: int = Field(default=10, description="최대 결과 수")
+            include_metadata: bool = Field(default=False, description="메타데이터 포함 여부")
+        
+        @tool(args_schema=SearchInput)
+        def advanced_search(query: str, max_results: int = 10, include_metadata: bool = False) -> str:
+            """고급 문서 검색을 수행합니다."""
+            return f"Results: {query}"
+        
+        rag_tool = convert_langchain_tool_to_rag_reasoning(advanced_search)
+        
+        assert rag_tool["type"] == "function"
+        assert rag_tool["function"]["name"] == "advanced_search"
+        
+        params = rag_tool["function"]["parameters"]
+        assert "query" in params["properties"]
+        assert "max_results" in params["properties"]
+        assert "include_metadata" in params["properties"]
+        
+        # query는 필수, 나머지는 선택
+        assert "query" in params["required"]
+        assert "max_results" not in params["required"]
+        assert "include_metadata" not in params["required"]
+    
+    def test_convert_multiple_tools(self):
+        """여러 도구 일괄 변환 테스트"""
+        try:
+            from langchain_core.tools import tool
+        except ImportError:
+            pytest.skip("langchain_core가 설치되지 않았습니다")
+        
+        @tool
+        def search_docs(query: str) -> str:
+            """문서 검색"""
+            return f"Results: {query}"
+        
+        @tool
+        def get_weather(city: str) -> str:
+            """날씨 조회"""
+            return f"Weather in {city}"
+        
+        @tool
+        def calculate(expression: str) -> str:
+            """계산 수행"""
+            return f"Result: {expression}"
+        
+        rag_tools = convert_langchain_tools_to_rag_reasoning([search_docs, get_weather, calculate])
+        
+        assert len(rag_tools) == 3
+        assert all(tool["type"] == "function" for tool in rag_tools)
+        
+        tool_names = [tool["function"]["name"] for tool in rag_tools]
+        assert "search_docs" in tool_names
+        assert "get_weather" in tool_names
+        assert "calculate" in tool_names
+    
+    def test_convert_empty_tools_list(self):
+        """빈 도구 리스트 변환 시 예외 발생"""
+        with pytest.raises(ValueError, match="tools는 비어있을 수 없습니다"):
+            convert_langchain_tools_to_rag_reasoning([])
+    
+    def test_convert_without_langchain(self):
+        """langchain_core 없이 변환 시도 시 ImportError"""
+        # langchain_core import를 mock하여 실패하도록 만듦
+        with patch.dict("sys.modules", {"langchain_core.utils.function_calling": None}):
+            with pytest.raises(ImportError, match="langchain_core를 import할 수 없습니다"):
+                # 임의의 객체로 시도
+                convert_langchain_tool_to_rag_reasoning(Mock())
 
 
 class TestClovaStudioRAGReasoningUnit:
@@ -490,6 +603,61 @@ class TestClovaStudioRAGReasoningIntegration:
                     tools=tools,
                     tool_choice="auto"
                 )
+    
+    def test_with_langchain_tools(self, rag_reasoning):
+        """LangChain tool을 변환하여 사용하는 통합 테스트"""
+        try:
+            from langchain_core.tools import tool
+        except ImportError:
+            pytest.skip("langchain_core가 설치되지 않았습니다")
+        
+        # LangChain tool 정의
+        @tool
+        def search_ncloud_docs(query: str) -> str:
+            """NCloud 문서를 검색합니다.
+            
+            Args:
+                query: 검색할 질의
+            """
+            return f"Search results for: {query}"
+        
+        @tool
+        def get_server_info(server_id: str) -> str:
+            """서버 정보를 조회합니다.
+            
+            Args:
+                server_id: 서버 ID
+            """
+            return f"Server info: {server_id}"
+        
+        # LangChain tools를 RAG Reasoning 형식으로 변환
+        rag_tools = convert_langchain_tools_to_rag_reasoning([
+            search_ncloud_docs,
+            get_server_info
+        ])
+        
+        messages = [
+            {"role": "user", "content": "VPC에 대해 알려줘"}
+        ]
+        
+        with rag_reasoning:
+            result = rag_reasoning.invoke(
+                messages=messages,
+                tools=rag_tools,
+                tool_choice="auto"
+            )
+        
+        assert "message" in result
+        assert "usage" in result
+        assert result["message"]["role"] == "assistant"
+        
+        # toolCalls가 있는지 확인 (첫 번째 호출은 검색 요청할 가능성 높음)
+        if "toolCalls" in result["message"]:
+            tool_calls = result["message"]["toolCalls"]
+            if len(tool_calls) > 0:
+                # 호출된 함수 이름이 우리가 정의한 함수 중 하나인지 확인
+                called_function = tool_calls[0]["function"]["name"]
+                assert called_function in ["search_ncloud_docs", "get_server_info"]
 
 
 if __name__ == "__main__":

@@ -146,6 +146,135 @@ def _should_retry_http_error(exception: BaseException) -> bool:
 # ============================================================================
 
 
+def convert_langchain_tool_to_rag_reasoning(tool: Any) -> dict[str, Any]:
+    """
+    LangChain Tool을 RAG Reasoning API 형식으로 변환합니다.
+    
+    LangChain의 BaseTool 또는 @tool 데코레이터로 정의한 함수를
+    Clova Studio RAG Reasoning API에서 사용할 수 있는 형식으로 변환합니다.
+    
+    LangChain Tool 형식:
+        - BaseTool 클래스 상속
+        - @tool 데코레이터 사용
+        - name, description, args_schema 속성
+    
+    RAG Reasoning Tool 형식:
+        {
+            "type": "function",
+            "function": {
+                "name": str,
+                "description": str,
+                "parameters": {
+                    "type": "object",
+                    "properties": {...},
+                    "required": [...]
+                }
+            }
+        }
+    
+    매개변수:
+        tool: LangChain BaseTool 객체 또는 호환 객체
+    
+    반환값:
+        RAG Reasoning API 형식의 tool 딕셔너리
+    
+    예외:
+        ImportError: langchain_core를 import할 수 없는 경우
+        ValueError: tool이 유효하지 않은 경우
+    
+    예시:
+        >>> from langchain_core.tools import tool
+        >>> 
+        >>> @tool
+        >>> def search_documents(query: str) -> str:
+        ...     '''문서를 검색합니다.'''
+        ...     return f"Search results for: {query}"
+        >>> 
+        >>> rag_tool = convert_langchain_tool_to_rag_reasoning(search_documents)
+        >>> print(rag_tool)
+        {
+            "type": "function",
+            "function": {
+                "name": "search_documents",
+                "description": "문서를 검색합니다.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string"}
+                    },
+                    "required": ["query"]
+                }
+            }
+        }
+    """
+    try:
+        from langchain_core.utils.function_calling import convert_to_openai_tool
+    except ImportError as e:
+        msg = (
+            "langchain_core를 import할 수 없습니다. "
+            "langchain 또는 langchain-core를 설치해주세요: "
+            "uv add langchain-core"
+        )
+        raise ImportError(msg) from e
+    
+    # LangChain의 convert_to_openai_tool() 사용
+    # OpenAI tool 형식과 RAG Reasoning 형식이 동일함
+    try:
+        openai_tool = convert_to_openai_tool(tool)
+        return openai_tool
+    except Exception as e:
+        msg = f"LangChain tool을 RAG Reasoning 형식으로 변환하는 중 오류 발생: {e}"
+        raise ValueError(msg) from e
+
+
+def convert_langchain_tools_to_rag_reasoning(tools: list[Any]) -> list[dict[str, Any]]:
+    """
+    여러 LangChain Tool을 RAG Reasoning API 형식으로 일괄 변환합니다.
+    
+    매개변수:
+        tools: LangChain BaseTool 객체 리스트
+    
+    반환값:
+        RAG Reasoning API 형식의 tool 딕셔너리 리스트
+    
+    예외:
+        ImportError: langchain_core를 import할 수 없는 경우
+        ValueError: tools가 빈 리스트이거나 유효하지 않은 경우
+    
+    예시:
+        >>> from langchain_core.tools import tool
+        >>> 
+        >>> @tool
+        >>> def search_docs(query: str) -> str:
+        ...     '''문서 검색'''
+        ...     return f"Results: {query}"
+        >>> 
+        >>> @tool
+        >>> def get_weather(city: str) -> str:
+        ...     '''날씨 조회'''
+        ...     return f"Weather in {city}"
+        >>> 
+        >>> rag_tools = convert_langchain_tools_to_rag_reasoning([search_docs, get_weather])
+        >>> len(rag_tools)
+        2
+    """
+    if not tools:
+        msg = "tools는 비어있을 수 없습니다"
+        raise ValueError(msg)
+    
+    converted_tools = []
+    for idx, tool in enumerate(tools):
+        try:
+            converted = convert_langchain_tool_to_rag_reasoning(tool)
+            converted_tools.append(converted)
+        except Exception as e:
+            msg = f"tools[{idx}] 변환 실패: {e}"
+            logger.error(msg, tool_index=idx, error=str(e))
+            raise ValueError(msg) from e
+    
+    return converted_tools
+
+
 def _validate_messages(messages: list[dict[str, Any]]) -> None:
     """
     Messages 배열의 유효성을 검증합니다.
@@ -844,5 +973,7 @@ class ClovaStudioRAGReasoning:
 
 __all__ = [
     "ClovaStudioRAGReasoning",
+    "convert_langchain_tool_to_rag_reasoning",
+    "convert_langchain_tools_to_rag_reasoning",
 ]
 
