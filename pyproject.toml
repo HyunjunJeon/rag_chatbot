@@ -37,10 +37,13 @@ packages = ["naver_connect_chatbot"]
 [dependency-groups]
 dev = [
     "chonkie>=1.4.2",
+    "langchain-text-splitters>=1.0.0",
+    "openpyxl>=3.1.5",
     "pre-commit>=4.4.0",
     "pymupdf4llm>=0.2.2",
     "pytest>=9.0.1",
     "pytest-asyncio>=0.24.0",
+    "python-docx>=1.2.0",
     "respx>=0.21.0",
     "ruff>=0.14.5",
     "ty>=0.0.1a27",
