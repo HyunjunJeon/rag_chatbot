@@ -36,7 +36,7 @@ from typing import Any
 # 버전 상수
 # =============================================================================
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "2.0.0"
 """
 청크 스키마 버전.
 
@@ -44,9 +44,13 @@ SCHEMA_VERSION = "1.0.0"
 - 메타데이터 필드 추가/제거/변경
 - 청크 ID 형식 변경
 - 콘텐츠 구조 변경
+
+변경 로그:
+- 2.0.0: 라인리지 필드 추가 (corpus_version, pipeline_trace), 요약 필드 추가
+- 1.0.0: 초기 버전
 """
 
-PIPELINE_VERSION = "1.0.0"
+PIPELINE_VERSION = "2.0.0"
 """
 처리 파이프라인 버전.
 
@@ -54,7 +58,27 @@ PIPELINE_VERSION = "1.0.0"
 - 청킹 로직 변경
 - 필터링 규칙 변경
 - 텍스트 정제 로직 변경
+
+변경 로그:
+- 2.0.0: 소스 클린업 규칙 추가, 메타 라우팅 지원
+- 1.0.0: 초기 버전
 """
+
+CORPUS_VERSION = "2025.11.27"
+"""
+코퍼스 전체 버전 (날짜 기반).
+
+변경 시점:
+- 새로운 데이터 소스 추가
+- 대규모 재인제스트
+- 필터링/청킹 로직 변경으로 인한 전체 재처리
+
+형식: YYYY.MM.DD (또는 YYYY.MM.DD.N for 같은 날 여러 버전)
+"""
+
+# 요약 모델 기본값
+DEFAULT_SUMMARY_MODEL = "clova-hcx-003"
+DEFAULT_SUMMARY_MAX_LENGTH = 200
 
 
 # =============================================================================
@@ -104,6 +128,7 @@ def get_current_timestamp() -> str:
 def create_chunk_version_metadata(
     source_file: Path | None = None,
     include_hash: bool = True,
+    pipeline_trace: list[str] | None = None,
 ) -> dict[str, Any]:
     """
     청크에 포함할 버전 메타데이터를 생성합니다.
@@ -111,30 +136,148 @@ def create_chunk_version_metadata(
     Args:
         source_file: 원본 파일 경로 (해시 계산용)
         include_hash: 파일 해시 포함 여부
+        pipeline_trace: 파이프라인 추적 정보 (예: ["loaded", "filtered", "chunked"])
 
     Returns:
         버전 메타데이터 딕셔너리
 
     예시:
-        >>> meta = create_chunk_version_metadata(Path("notebook.ipynb"))
+        >>> meta = create_chunk_version_metadata(
+        ...     Path("notebook.ipynb"),
+        ...     pipeline_trace=["loaded", "filtered_v2", "chunked"]
+        ... )
         >>> meta
         {
-            "schema_version": "1.0.0",
-            "pipeline_version": "1.0.0",
-            "created_at": "2025-11-27T00:00:00Z",
-            "source_hash": "sha256:abc123..."
+            "schema_version": "2.0.0",
+            "pipeline_version": "2.0.0",
+            "corpus_version": "2025.11.27",
+            "processed_at": "2025-11-27T00:00:00Z",
+            "source_hash": "sha256:abc123...",
+            "pipeline_trace": ["loaded", "filtered_v2", "chunked"]
         }
     """
     metadata: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
         "pipeline_version": PIPELINE_VERSION,
-        "created_at": get_current_timestamp(),
+        "corpus_version": CORPUS_VERSION,
+        "processed_at": get_current_timestamp(),
     }
 
     if include_hash and source_file and source_file.exists():
         metadata["source_hash"] = compute_file_hash(source_file)
 
+    if pipeline_trace:
+        metadata["pipeline_trace"] = pipeline_trace
+
     return metadata
+
+
+# =============================================================================
+# 요약 캐시 스키마
+# =============================================================================
+
+
+@dataclass
+class SummaryMetadata:
+    """
+    요약 캐시 메타데이터.
+
+    청크에 요약이 추가될 때 함께 저장되는 메타데이터입니다.
+
+    Attributes:
+        summary: 생성된 요약 텍스트
+        summary_model: 요약 생성에 사용된 모델
+        summary_model_version: 모델 버전
+        summary_created_at: 요약 생성 시간
+        summary_max_length: 요약 최대 길이 제한
+        action_summary: (Slack용) 핵심 조치/해결책 요약
+    """
+
+    summary: str = ""
+    summary_model: str = DEFAULT_SUMMARY_MODEL
+    summary_model_version: str = "1.0"
+    summary_created_at: str = field(default_factory=get_current_timestamp)
+    summary_max_length: int = DEFAULT_SUMMARY_MAX_LENGTH
+    action_summary: str | None = None  # Slack Q&A용
+
+    def to_dict(self) -> dict[str, Any]:
+        """딕셔너리로 변환."""
+        result = {
+            "summary": self.summary,
+            "summary_model": self.summary_model,
+            "summary_model_version": self.summary_model_version,
+            "summary_created_at": self.summary_created_at,
+            "summary_max_length": self.summary_max_length,
+        }
+        if self.action_summary:
+            result["action_summary"] = self.action_summary
+        return result
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "SummaryMetadata":
+        """딕셔너리에서 생성."""
+        return cls(
+            summary=data.get("summary", ""),
+            summary_model=data.get("summary_model", DEFAULT_SUMMARY_MODEL),
+            summary_model_version=data.get("summary_model_version", "1.0"),
+            summary_created_at=data.get("summary_created_at", get_current_timestamp()),
+            summary_max_length=data.get("summary_max_length", DEFAULT_SUMMARY_MAX_LENGTH),
+            action_summary=data.get("action_summary"),
+        )
+
+
+def create_summary_metadata(
+    summary: str,
+    model: str = DEFAULT_SUMMARY_MODEL,
+    action_summary: str | None = None,
+) -> dict[str, Any]:
+    """
+    요약 메타데이터를 생성합니다.
+
+    Args:
+        summary: 생성된 요약 텍스트
+        model: 사용된 모델
+        action_summary: (선택) 핵심 조치 요약 (Slack Q&A용)
+
+    Returns:
+        요약 메타데이터 딕셔너리
+
+    예시:
+        >>> meta = create_summary_metadata(
+        ...     summary="PyTorch 텐서 생성 및 기본 연산 설명",
+        ...     model="clova-hcx-003",
+        ... )
+    """
+    metadata = SummaryMetadata(
+        summary=summary,
+        summary_model=model,
+        action_summary=action_summary,
+    )
+    return metadata.to_dict()
+
+
+def has_valid_summary(chunk_metadata: dict[str, Any]) -> bool:
+    """
+    청크에 유효한 요약이 있는지 확인합니다.
+
+    캐시된 요약이 있고, 현재 스키마 버전과 호환되면 True.
+
+    Args:
+        chunk_metadata: 청크 메타데이터
+
+    Returns:
+        유효한 요약 존재 여부
+    """
+    if not chunk_metadata.get("summary"):
+        return False
+
+    # 스키마 버전 호환성 체크
+    chunk_schema = chunk_metadata.get("schema_version", "1.0.0")
+    major_version = int(chunk_schema.split(".")[0])
+
+    # 현재 메이저 버전과 같으면 호환
+    current_major = int(SCHEMA_VERSION.split(".")[0])
+    return major_version == current_major
 
 
 # =============================================================================

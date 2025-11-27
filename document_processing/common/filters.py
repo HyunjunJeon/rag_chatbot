@@ -22,6 +22,42 @@ COPYRIGHT_PATTERNS = [
     r"본\s+자료는?\s+.*\s+저작물",
 ]
 
+# [NEW] IP(Intellectual Property) 경고 패턴
+IP_WARNING_PATTERNS = [
+    r"본\s*자료는?\s*(내부|교육용)\s*(전용|목적)",
+    r"외부\s*(유출|공유|배포)\s*(금지|불가)",
+    r"(비공개|기밀|Confidential)",
+    r"(교육생|수강생)\s*외\s*열람\s*금지",
+    r"2차\s*(배포|가공|수정)\s*금지",
+    r"무단\s*(복제|전재|배포)",
+]
+
+# [NEW] 이미지 플레이스홀더 패턴
+IMAGE_PLACEHOLDER_PATTERNS = [
+    r"\[이미지\]",
+    r"\[그림\s*\d*\]",
+    r"\[Figure\s*\d*\]",
+    r"\[Image\s*\d*\]",
+    r"\[사진\s*\d*\]",
+    r"\[표\s*\d*\]",
+    r"\[Table\s*\d*\]",
+    r"\[도표\s*\d*\]",
+    r"<image>",
+    r"<그림>",
+    r"\[화면\s*캡처\]",
+    r"\[스크린샷\]",
+]
+
+# [NEW] 슬라이드 메타 정보 패턴 (강의 자료)
+SLIDE_META_PATTERNS = [
+    r"^\s*\d+\s*/\s*\d+\s*$",  # "15 / 30"
+    r"^\s*Slide\s*\d+\s*$",
+    r"^\s*슬라이드\s*\d+\s*$",
+    r"네이버\s*부스트캠프",
+    r"Naver\s*Boost\s*Camp",
+    r"^(Day|Week)\s*\d+",
+]
+
 # 목차 관련 패턴
 TOC_PATTERNS = [
     r"^목\s*차\s*$",
@@ -49,6 +85,45 @@ TRIVIAL_CODE_PATTERNS = [
     r"^\s*pass\s*$",
 ]
 
+# [NEW] 진단/로깅 출력 패턴 (노트북 출력에서 제거)
+DIAGNOSTIC_OUTPUT_PATTERNS = [
+    r"^\s*\d+/\d+\s*\[=*>*\.*\]\s*-",  # Keras/TF progress bar: "1/10 [=====>....] - 2s"
+    r"^Epoch\s+\d+/\d+",  # Epoch progress
+    r"^\s*\d+it\s*\[\d+:\d+",  # tqdm progress
+    r"^(DEBUG|INFO|WARNING|ERROR|CRITICAL)\s*[:\-]",  # Log levels
+    r"^\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}",  # Timestamps
+    r"^(Downloading|Loading|Saving):\s*\d+%",  # Download progress
+    r"^\s*loss:\s*[\d.]+",  # Training metrics
+    r"^Step\s+\d+",  # Training steps
+    r"^Iteration\s+\d+",
+    r"^\s*\[\d+\]\s*loss:",  # LightGBM/XGBoost logs
+    r"^\s*\[I\s+\d{4}",  # IPython/Jupyter internal logs
+]
+
+# [NEW] 불필요한 출력 패턴 (제거 대상)
+UNNECESSARY_OUTPUT_PATTERNS = [
+    r"^<[a-zA-Z_][a-zA-Z0-9_.]*\s+object\s+at\s+0x[0-9a-fA-F]+>$",  # Object repr
+    r"^tensor\(\[[\d\s.,\-e]+\]\)$",  # PyTorch tensor short repr
+    r"^array\(\[[\d\s.,\-e]+\]\)$",  # NumPy array short repr
+    r"^\s*dtype\s*=",  # dtype info
+    r"^<matplotlib\.",  # Matplotlib objects
+    r"^Text\(0,\s*\d+,",  # Matplotlib text objects
+    r"^<AxesSubplot:",  # Matplotlib axes
+    r"^\s*Name:\s*\w+,\s*Length:",  # Pandas series info
+    r"^\s*\.\.\.\s*$",  # Ellipsis only
+]
+
+# [NEW] 코드 셀 품질 평가를 위한 의미 있는 패턴
+MEANINGFUL_CODE_PATTERNS = [
+    r"^\s*def\s+\w+",  # Function definition
+    r"^\s*class\s+\w+",  # Class definition
+    r"^\s*@\w+",  # Decorators
+    r"^\s*(if|for|while|with|try)\s+",  # Control flow
+    r"\.\w+\(",  # Method calls
+    r"=\s*\w+\(",  # Variable assignment with call
+    r"return\s+",  # Return statements
+]
+
 
 # =============================================================================
 # 필터링 함수
@@ -70,6 +145,82 @@ def remove_copyright_notices(text: str) -> str:
         result = re.sub(pattern, "", result, flags=re.IGNORECASE | re.MULTILINE)
     # 연속된 빈 줄 정리
     result = re.sub(r"\n{3,}", "\n\n", result)
+    return result.strip()
+
+
+def remove_ip_warnings(text: str) -> str:
+    """[NEW] IP 경고 문구를 제거합니다."""
+    result = text
+    for pattern in IP_WARNING_PATTERNS:
+        result = re.sub(pattern, "", result, flags=re.IGNORECASE | re.MULTILINE)
+    result = re.sub(r"\n{3,}", "\n\n", result)
+    return result.strip()
+
+
+def remove_image_placeholders(text: str) -> str:
+    """[NEW] 이미지 플레이스홀더를 제거합니다."""
+    result = text
+    for pattern in IMAGE_PLACEHOLDER_PATTERNS:
+        result = re.sub(pattern, "", result, flags=re.IGNORECASE)
+    result = re.sub(r"\n{3,}", "\n\n", result)
+    return result.strip()
+
+
+def remove_slide_meta(text: str) -> str:
+    """[NEW] 슬라이드 메타 정보를 제거합니다."""
+    lines = text.split("\n")
+    filtered_lines = []
+
+    for line in lines:
+        is_slide_meta = False
+        for pattern in SLIDE_META_PATTERNS:
+            if re.match(pattern, line.strip(), re.IGNORECASE):
+                is_slide_meta = True
+                break
+
+        if not is_slide_meta:
+            filtered_lines.append(line)
+
+    return "\n".join(filtered_lines)
+
+
+def clean_pdf_text(text: str) -> str:
+    """
+    [NEW] PDF 텍스트에 대한 통합 클린업을 수행합니다.
+
+    다음 순서로 클린업:
+    1. 저작권 고지 제거
+    2. IP 경고 제거
+    3. 이미지 플레이스홀더 제거
+    4. 슬라이드 메타 정보 제거
+    5. 헤더/푸터 제거
+
+    Args:
+        text: 클린업할 PDF 텍스트
+
+    Returns:
+        클린업된 텍스트
+    """
+    result = text
+
+    # 1. 저작권 고지 제거
+    result = remove_copyright_notices(result)
+
+    # 2. IP 경고 제거
+    result = remove_ip_warnings(result)
+
+    # 3. 이미지 플레이스홀더 제거
+    result = remove_image_placeholders(result)
+
+    # 4. 슬라이드 메타 정보 제거
+    result = remove_slide_meta(result)
+
+    # 5. 헤더/푸터 제거
+    result = remove_headers_footers(result)
+
+    # 연속된 빈 줄 정리
+    result = re.sub(r"\n{3,}", "\n\n", result)
+
     return result.strip()
 
 
@@ -145,6 +296,149 @@ def is_trivial_code(code: str) -> bool:
             return False
 
     return True
+
+
+def is_diagnostic_output(output: str) -> bool:
+    """[NEW] 출력이 진단/로깅 출력인지 확인."""
+    lines = output.strip().split("\n")
+
+    # 모든 줄이 진단 패턴인지 확인
+    diagnostic_lines = 0
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+
+        for pattern in DIAGNOSTIC_OUTPUT_PATTERNS:
+            if re.match(pattern, line):
+                diagnostic_lines += 1
+                break
+
+    # 50% 이상이 진단 출력이면 제거 대상
+    total_lines = len([l for l in lines if l.strip()])
+    return total_lines > 0 and diagnostic_lines / total_lines > 0.5
+
+
+def is_unnecessary_output(output: str) -> bool:
+    """[NEW] 출력이 불필요한 출력인지 확인."""
+    text = output.strip()
+
+    # 단일 줄 불필요 출력 체크
+    for pattern in UNNECESSARY_OUTPUT_PATTERNS:
+        if re.match(pattern, text):
+            return True
+
+    return False
+
+
+def clean_notebook_output(output: str) -> str:
+    """
+    [NEW] 노트북 출력을 클린업합니다.
+
+    진단 로그, 불필요한 객체 표현 등을 제거합니다.
+
+    Args:
+        output: 클린업할 노트북 출력
+
+    Returns:
+        클린업된 출력 (빈 문자열일 수 있음)
+    """
+    if not output or not output.strip():
+        return ""
+
+    # 불필요한 출력이면 빈 문자열 반환
+    if is_unnecessary_output(output):
+        return ""
+
+    # 진단 출력이면 빈 문자열 반환
+    if is_diagnostic_output(output):
+        return ""
+
+    # 줄 단위로 필터링
+    lines = output.split("\n")
+    filtered_lines = []
+
+    for line in lines:
+        # 진단 패턴에 매치되는 줄 제거
+        is_diagnostic = False
+        for pattern in DIAGNOSTIC_OUTPUT_PATTERNS:
+            if re.match(pattern, line.strip()):
+                is_diagnostic = True
+                break
+
+        # 불필요 패턴에 매치되는 줄 제거
+        is_unnecessary = False
+        for pattern in UNNECESSARY_OUTPUT_PATTERNS:
+            if re.match(pattern, line.strip()):
+                is_unnecessary = True
+                break
+
+        if not is_diagnostic and not is_unnecessary:
+            filtered_lines.append(line)
+
+    result = "\n".join(filtered_lines)
+
+    # 연속된 빈 줄 정리
+    result = re.sub(r"\n{3,}", "\n\n", result)
+
+    return result.strip()
+
+
+def has_meaningful_code(code: str) -> bool:
+    """
+    [NEW] 코드에 의미 있는 로직이 포함되어 있는지 확인.
+
+    함수 정의, 클래스 정의, 제어 흐름 등이 있으면 의미 있는 코드로 판단합니다.
+
+    Args:
+        code: 확인할 코드
+
+    Returns:
+        의미 있는 코드 여부
+    """
+    for pattern in MEANINGFUL_CODE_PATTERNS:
+        if re.search(pattern, code, re.MULTILINE):
+            return True
+
+    return False
+
+
+def should_keep_code_cell(code: str, has_output: bool = False) -> tuple[bool, str]:
+    """
+    [NEW] 코드 셀을 유지해야 하는지 판단합니다.
+
+    Args:
+        code: 코드 셀 내용
+        has_output: 의미 있는 출력이 있는지 여부
+
+    Returns:
+        (should_keep: bool, reason: str)
+    """
+    # 빈 코드
+    if not code or not code.strip():
+        return False, "empty_code"
+
+    # import만 있는 코드
+    if is_import_only_code(code):
+        return False, "import_only"
+
+    # trivial 코드
+    if is_trivial_code(code):
+        return False, "trivial_code"
+
+    # 의미 있는 코드가 있으면 유지
+    if has_meaningful_code(code):
+        return True, "meaningful_code"
+
+    # 출력이 있으면 유지 (결과를 보여주는 코드)
+    if has_output:
+        return True, "has_output"
+
+    # 그 외의 경우, 길이가 충분하면 유지
+    if len(code.strip()) > 50:
+        return True, "sufficient_length"
+
+    return False, "low_value"
 
 
 def estimate_content_quality(text: str) -> float:

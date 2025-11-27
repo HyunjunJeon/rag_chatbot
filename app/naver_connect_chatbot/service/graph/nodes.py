@@ -34,7 +34,7 @@ from naver_connect_chatbot.service.agents.answer_generator import (
     AnswerOutput,
 )
 from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
-from naver_connect_chatbot.service.tool import retrieve_documents_async
+from naver_connect_chatbot.service.tool import retrieve_documents_async, RetrievalResult
 from naver_connect_chatbot.rag import ClovaStudioReranker, ClovaStudioSegmenter
 from naver_connect_chatbot.config import logger, settings
 
@@ -118,20 +118,21 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
 
 async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAnalysisUpdate:
     """
-    질의 품질을 분석하고 다중 검색 쿼리를 생성합니다 (Multi-Query Generation 통합).
-    
-    이 노드는 Query Analysis와 Multi-Query Generation을 통합하여:
+    질의 품질을 분석하고 다중 검색 쿼리 및 검색 필터를 생성합니다.
+
+    이 노드는 Query Analysis, Multi-Query Generation, Filter Extraction을 통합하여:
     1. 질의의 명확성, 구체성, 검색 가능성을 평가
     2. 다양한 관점의 검색 쿼리 3-5개 생성 (Multi-Query)
-    
+    3. 질문에서 메타데이터 기반 검색 필터 추출 (doc_type, course, etc.)
+
     매개변수:
         state: 현재 워크플로 상태
         llm: 분석 및 쿼리 생성에 사용할 언어 모델
 
     반환값:
-        질의 분석과 다중 검색 쿼리를 포함한 상태 업데이트
+        질의 분석, 다중 검색 쿼리, 검색 필터를 포함한 상태 업데이트
     """
-    logger.info("---ANALYZE QUERY & GENERATE MULTI-QUERY---")
+    logger.info("---ANALYZE QUERY & GENERATE MULTI-QUERY & EXTRACT FILTERS---")
     question = state["question"]
     intent = state.get("intent", "SIMPLE_QA")
 
@@ -158,6 +159,22 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             )
         )
 
+        # retrieval_filters를 RetrievalFilters TypedDict로 변환
+        filters = {}
+        if response.retrieval_filters:
+            rf = response.retrieval_filters
+            if rf.doc_type:
+                filters["doc_type"] = rf.doc_type
+            if rf.course:
+                filters["course"] = rf.course
+            if rf.course_topic:
+                filters["course_topic"] = rf.course_topic
+            if rf.generation:
+                filters["generation"] = rf.generation
+
+        if filters:
+            logger.info(f"Extracted retrieval filters: {filters}")
+
         # 분석 결과를 추출합니다.
         return {
             "query_analysis": {
@@ -167,6 +184,7 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             },
             "refined_queries": response.improved_queries if response.improved_queries else [question],
             "original_query": question,
+            "retrieval_filters": filters if filters else None,
         }
 
     except Exception as e:
@@ -175,19 +193,20 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             "query_analysis": {"error": str(e)},
             "refined_queries": [question],
             "original_query": question,
+            "retrieval_filters": None,
         }
 
 
 async def retrieve_node(state: AdaptiveRAGState, retriever: BaseRetriever) -> RetrievalUpdate:
     """
-    문서를 검색합니다.
+    문서를 검색하고 메타데이터 기반 필터를 적용합니다.
 
     매개변수:
         state: 현재 워크플로 상태
         retriever: 문서 검색기
 
     반환값:
-        검색된 문서를 포함한 상태 업데이트
+        검색된 문서와 필터링 메타데이터를 포함한 상태 업데이트
     """
     logger.info("---RETRIEVE---")
 
@@ -195,16 +214,39 @@ async def retrieve_node(state: AdaptiveRAGState, retriever: BaseRetriever) -> Re
     queries = state.get("refined_queries", [state["question"]])
     primary_query = queries[0] if queries else state["question"]
 
-    try:
-        # 문서를 검색합니다.
-        documents = await retrieve_documents_async(retriever, primary_query)
+    # 상태에서 필터를 가져옵니다.
+    filters = state.get("retrieval_filters")
+    if filters:
+        logger.info(f"Applying retrieval filters: {filters}")
 
-        logger.info(f"Retrieved {len(documents)} documents")
+    try:
+        # 문서를 검색하고 필터를 적용합니다.
+        result: RetrievalResult = await retrieve_documents_async(
+            retriever,
+            primary_query,
+            filters=filters,
+            fallback_on_empty=True,
+            min_results=1,
+        )
+
+        logger.info(
+            f"Retrieved {result.original_count} docs, "
+            f"filtered to {result.filtered_count}, "
+            f"filters_applied={result.filters_applied}, "
+            f"fallback_used={result.fallback_used}"
+        )
 
         return {
-            "documents": documents,
-            "context": documents,  # 하위 호환성 유지를 위한 필드
+            "documents": result.documents,
+            "context": result.documents,  # 하위 호환성 유지를 위한 필드
             "retrieval_strategy": "hybrid",
+            "retrieval_filters_applied": result.filters_applied,
+            "retrieval_fallback_used": result.fallback_used,
+            "retrieval_metadata": {
+                "original_count": result.original_count,
+                "filtered_count": result.filtered_count,
+                "filters": filters,
+            },
         }
 
     except Exception as e:
@@ -213,6 +255,8 @@ async def retrieve_node(state: AdaptiveRAGState, retriever: BaseRetriever) -> Re
             "documents": [],
             "context": [],
             "retrieval_strategy": "hybrid",
+            "retrieval_filters_applied": False,
+            "retrieval_fallback_used": False,
         }
 
 

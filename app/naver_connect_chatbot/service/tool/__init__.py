@@ -9,6 +9,8 @@ from naver_connect_chatbot.service.tool.retrieval_tool import (
     create_multi_query_retrieval_tool,
     retrieve_documents_async,
     retrieve_multi_query_async,
+    filter_documents_by_metadata,
+    RetrievalResult,
 )
 
 __all__ = [
@@ -16,5 +18,7 @@ __all__ = [
     "create_multi_query_retrieval_tool",
     "retrieve_documents_async",
     "retrieve_multi_query_async",
+    "filter_documents_by_metadata",
+    "RetrievalResult",
 ]
 

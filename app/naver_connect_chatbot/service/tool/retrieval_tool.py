@@ -10,6 +10,49 @@ from langchain_core.tools import tool
 from langchain_core.retrievers import BaseRetriever
 
 from naver_connect_chatbot.config import logger
+from naver_connect_chatbot.service.graph.types import RetrievalFilters
+
+
+def filter_documents_by_metadata(
+    documents: list[Document],
+    filters: RetrievalFilters,
+) -> list[Document]:
+    """
+    메타데이터 기반으로 문서를 필터링합니다.
+
+    매개변수:
+        documents: 필터링할 문서 목록
+        filters: 적용할 필터 조건
+
+    반환값:
+        필터 조건을 만족하는 문서 목록
+    """
+    if not filters:
+        return documents
+
+    filtered = []
+    for doc in documents:
+        metadata = doc.metadata or {}
+        match = True
+
+        # doc_type 필터 (리스트, OR 조건)
+        if "doc_type" in filters and filters["doc_type"]:
+            doc_type = metadata.get("doc_type")
+            if doc_type not in filters["doc_type"]:
+                match = False
+
+        # 문자열 필터들 (정확히 일치)
+        string_filters = ["course", "course_level", "course_topic", "generation", "year", "year_month"]
+        for key in string_filters:
+            if key in filters and filters[key]:
+                if metadata.get(key) != filters[key]:
+                    match = False
+                    break
+
+        if match:
+            filtered.append(doc)
+
+    return filtered
 
 
 def create_retrieval_tool(retriever: BaseRetriever) -> Any:
@@ -109,40 +152,112 @@ def create_multi_query_retrieval_tool(
     return retrieve_multi_query_tool
 
 
+class RetrievalResult:
+    """검색 결과와 메타데이터를 담는 클래스."""
+
+    def __init__(
+        self,
+        documents: list[Document],
+        filters_applied: bool = False,
+        fallback_used: bool = False,
+        original_count: int = 0,
+        filtered_count: int = 0,
+    ):
+        self.documents = documents
+        self.filters_applied = filters_applied
+        self.fallback_used = fallback_used
+        self.original_count = original_count
+        self.filtered_count = filtered_count
+
+
 async def retrieve_documents_async(
     retriever: BaseRetriever,
-    query: str
-) -> list[Document]:
+    query: str,
+    filters: RetrievalFilters | None = None,
+    fallback_on_empty: bool = True,
+    min_results: int = 1,
+) -> RetrievalResult:
     """
-    문서 검색을 비동기로 실행하는 보조 함수입니다.
-    
+    문서 검색을 비동기로 실행하고 메타데이터 기반 필터링을 적용합니다.
+
     매개변수:
         retriever: 사용할 리트리버
         query: 검색 질의 문자열
-    
+        filters: 메타데이터 필터 (선택적)
+        fallback_on_empty: 필터 적용 후 0건일 때 필터 없이 재시도할지 여부
+        min_results: 폴백을 트리거하는 최소 결과 수
+
     반환값:
-        관련 문서 목록
-        
+        RetrievalResult: 검색 결과와 메타데이터
+
     예시:
         >>> retriever = build_dense_sparse_hybrid(...)
-        >>> docs = await retrieve_documents_async(retriever, "What is PyTorch?")
+        >>> result = await retrieve_documents_async(
+        ...     retriever,
+        ...     "What is PyTorch?",
+        ...     filters={"doc_type": ["slack_qa"]}
+        ... )
+        >>> print(f"Found {len(result.documents)} docs, fallback: {result.fallback_used}")
     """
     try:
         logger.debug(f"Async retrieving documents for query: {query[:100]}...")
-        
+
         # 리트리버가 비동기를 지원하는지 확인합니다.
         if hasattr(retriever, "ainvoke"):
             documents = await retriever.ainvoke(query)
         else:
             # 지원하지 않으면 동기 호출을 사용합니다.
             documents = retriever.invoke(query)
-        
-        logger.debug(f"Retrieved {len(documents)} documents")
-        return documents
-        
+
+        original_count = len(documents)
+        logger.debug(f"Retrieved {original_count} documents (before filtering)")
+
+        # 필터가 없으면 바로 반환
+        if not filters:
+            return RetrievalResult(
+                documents=documents,
+                filters_applied=False,
+                fallback_used=False,
+                original_count=original_count,
+                filtered_count=original_count,
+            )
+
+        # 필터 적용
+        filtered_documents = filter_documents_by_metadata(documents, filters)
+        filtered_count = len(filtered_documents)
+        logger.info(f"Filtered {original_count} → {filtered_count} documents with filters: {filters}")
+
+        # 폴백 로직: 결과가 min_results 미만이면 필터 없이 반환
+        if filtered_count < min_results and fallback_on_empty:
+            logger.warning(
+                f"Filter resulted in {filtered_count} docs (< {min_results}), "
+                f"falling back to unfiltered results ({original_count} docs)"
+            )
+            return RetrievalResult(
+                documents=documents,
+                filters_applied=False,
+                fallback_used=True,
+                original_count=original_count,
+                filtered_count=filtered_count,
+            )
+
+        return RetrievalResult(
+            documents=filtered_documents,
+            filters_applied=True,
+            fallback_used=False,
+            original_count=original_count,
+            filtered_count=filtered_count,
+        )
+
     except Exception as e:
         logger.error(f"Async retrieval error: {e}")
-        return []
+        return RetrievalResult(
+            documents=[],
+            filters_applied=False,
+            fallback_used=False,
+            original_count=0,
+            filtered_count=0,
+        )
 
 
 async def retrieve_multi_query_async(

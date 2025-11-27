@@ -34,7 +34,7 @@ class QdrantVectorStoreSettings(BaseSettings):
         description="Qdrant API 키 (선택적)"
     )
     collection_name: str = Field(
-        default="default",
+        default="naver_connect_docs",
         description="사용할 컬렉션 이름"
     )
     embedding_dimensions: int = Field(

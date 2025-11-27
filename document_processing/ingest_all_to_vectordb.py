@@ -34,6 +34,14 @@ from tqdm import tqdm
 PROJECT_ROOT = Path(__file__).parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
 
+# 버전 관리 모듈 로드
+from document_processing.common.versioning import (
+    SCHEMA_VERSION,
+    PIPELINE_VERSION,
+    CORPUS_VERSION,
+    get_current_timestamp,
+)
+
 sys.path.insert(0, str(PROJECT_ROOT / "app"))
 
 try:
@@ -808,7 +816,7 @@ class UnifiedVectorDBIngestion:
         return hashlib.md5(doc.page_content[:500].encode()).hexdigest()
 
     def _create_payload(self, doc: Document) -> dict[str, Any]:
-        """Document에서 payload 생성."""
+        """Document에서 payload 생성 (라인리지 필드 포함)."""
         payload = doc.metadata.copy()
 
         # keywords가 리스트면 문자열로 변환 (Qdrant 호환)
@@ -818,6 +826,22 @@ class UnifiedVectorDBIngestion:
 
         # content 저장 (검색 결과에서 바로 접근)
         payload["content"] = doc.page_content
+
+        # 라인리지 필드 추가 (버전 추적용)
+        payload["schema_version"] = SCHEMA_VERSION
+        payload["pipeline_version"] = PIPELINE_VERSION
+        payload["corpus_version"] = CORPUS_VERSION
+        payload["ingested_at"] = get_current_timestamp()
+
+        # pipeline_trace가 없으면 기본값 추가
+        if "pipeline_trace" not in payload:
+            doc_type = payload.get("doc_type", "unknown")
+            payload["pipeline_trace"] = [
+                f"{doc_type}_loaded",
+                "filtered_v2",
+                "chunked",
+                "ingested",
+            ]
 
         return payload
 
@@ -907,7 +931,7 @@ def main() -> None:
     parser.add_argument(
         "--bm25-dir",
         type=str,
-        default=None,
+        default="./sparse_index/unified_bm25",
         help="BM25 인덱스 저장 경로",
     )
 
@@ -954,7 +978,7 @@ def main() -> None:
     print("\n생성된 인덱스:")
     print(f"   📦 VectorDB: {args.collection} (Qdrant)")
     if not args.no_bm25:
-        bm25_path = args.bm25_dir or "sparse_index/unified_bm25"
+        bm25_path = args.bm25_dir or "./sparse_index/unified_bm25"
         print(f"   🔍 BM25: {bm25_path} (Kiwi)")
 
 

@@ -52,7 +52,7 @@ class RetrieverSettings(BaseSettings):
         description="RRF(Reciprocal Rank Fusion) 상수"
     )
     bm25_index_path: str = Field(
-        default="sparse_index/bm25_slack_qa.pkl",
+        default="sparse_index/unified_bm25",
         description="저장된 BM25 인덱스 경로 (프로젝트 루트 기준)"
     )
 

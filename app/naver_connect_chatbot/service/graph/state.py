@@ -9,6 +9,8 @@ from langchain_core.messages import BaseMessage
 from langchain_core.documents import Document
 import operator
 
+from naver_connect_chatbot.service.graph.types import RetrievalFilters
+
 
 # 하위 호환성을 위한 기본 AgentState
 class AgentState(TypedDict):
@@ -101,6 +103,9 @@ class AdaptiveRAGState(TypedDict, total=False):
     context: List[Document]  # 하위 호환성 유지용 필드
     documents: List[Document]
     retrieval_strategy: str
+    retrieval_filters: RetrievalFilters  # 메타 기반 검색 필터
+    retrieval_filters_applied: bool  # 필터가 실제 적용되었는지 여부
+    retrieval_fallback_used: bool  # 0건으로 인한 폴백 사용 여부
     
     # Document Evaluation
     document_evaluation: Dict[str, Any]

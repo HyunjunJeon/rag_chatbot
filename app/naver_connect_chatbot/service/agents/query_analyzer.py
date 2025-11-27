@@ -15,10 +15,35 @@ from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
 
 
+class QueryRetrievalFilters(BaseModel):
+    """
+    질문에서 추출한 검색 필터입니다.
+
+    질문 내용에서 명시적으로 언급된 도메인 힌트만 추출합니다.
+    언급되지 않은 필드는 null로 남겨 전체 검색을 허용합니다.
+    """
+    doc_type: list[str] | None = Field(
+        default=None,
+        description="Document types to search: 'slack_qa', 'pdf', 'notebook', 'mission'. Extract only if explicitly mentioned (e.g., 'Slack에서', '강의자료에서', '미션에서')."
+    )
+    course: str | None = Field(
+        default=None,
+        description="Course name filter if explicitly mentioned (e.g., '데이터분석', 'CV', 'NLP')."
+    )
+    course_topic: str | None = Field(
+        default=None,
+        description="Specific topic within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN')."
+    )
+    generation: str | None = Field(
+        default=None,
+        description="Bootcamp generation if mentioned (e.g., '1기', '2기', '3기')."
+    )
+
+
 class QueryAnalysis(BaseModel):
     """
     질의 품질 평가 및 다중 검색 쿼리 생성 결과를 담는 통합 모델입니다.
-    
+
     속성:
         clarity_score: 질의의 명확도 (0.0 ~ 1.0)
         specificity_score: 질의의 구체성 (0.0 ~ 1.0)
@@ -26,6 +51,7 @@ class QueryAnalysis(BaseModel):
         improved_queries: 다양한 관점의 검색 쿼리 목록 (Multi-Query)
         issues: 원본 질의의 문제점
         recommendations: 개선 권장 사항
+        retrieval_filters: 질문에서 추출한 메타데이터 기반 검색 필터
     """
     clarity_score: float = Field(
         description="Clarity score (0.0 ~ 1.0)",
@@ -54,6 +80,10 @@ class QueryAnalysis(BaseModel):
         description="Recommendations for improvement",
         default_factory=list
     )
+    retrieval_filters: QueryRetrievalFilters = Field(
+        default_factory=QueryRetrievalFilters,
+        description="Metadata-based retrieval filters extracted from the question"
+    )
 
 
 @tool(args_schema=QueryAnalysis)
@@ -64,13 +94,14 @@ def emit_query_analysis_result(
     improved_queries: Annotated[list[str], Field(description="List of improved query variations")],
     issues: Annotated[list[str], Field(description="Identified issues")],
     recommendations: Annotated[list[str], Field(description="Recommendations for improvement")],
+    retrieval_filters: Annotated[dict | None, Field(description="Metadata filters extracted from the question")] = None,
 ) -> QueryAnalysis:
     """
     Emit structured query analysis results.
-    
+
     Call this tool after analyzing a query to return the final results as a QueryAnalysis model.
     This ensures consistent structured output via ToolMessage.
-    
+
     Args:
         clarity_score: Query clarity score (0.0 ~ 1.0)
         specificity_score: Query specificity score (0.0 ~ 1.0)
@@ -78,10 +109,16 @@ def emit_query_analysis_result(
         improved_queries: List of improved query variations
         issues: List of identified issues in the original query
         recommendations: List of recommendations for query improvement
-    
+        retrieval_filters: Optional metadata filters (doc_type, course, course_topic, generation)
+
     Returns:
         QueryAnalysis instance with all analysis results
     """
+    # retrieval_filters가 dict인 경우 QueryRetrievalFilters로 변환
+    filters = QueryRetrievalFilters()
+    if retrieval_filters and isinstance(retrieval_filters, dict):
+        filters = QueryRetrievalFilters(**retrieval_filters)
+
     return QueryAnalysis(
         clarity_score=clarity_score,
         specificity_score=specificity_score,
@@ -89,6 +126,7 @@ def emit_query_analysis_result(
         improved_queries=improved_queries,
         issues=issues,
         recommendations=recommendations,
+        retrieval_filters=filters,
     )
 
 

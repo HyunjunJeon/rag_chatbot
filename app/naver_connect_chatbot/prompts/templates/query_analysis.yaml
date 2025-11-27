@@ -1,16 +1,16 @@
 _type: chat_messages
 metadata:
   name: query_analysis
-  description: Analyze query quality and generate multiple search queries
-  version: "3.0"
+  description: Analyze query quality, generate multiple search queries, and extract retrieval filters
+  version: "4.0"
   author: Adaptive RAG System
-  last_updated: "2025-11-24"
+  last_updated: "2025-11-27"
 
 messages:
   - role: system
     content: |
       ## Task
-      Analyze a Naver Boost Camp student's question quality and generate multiple diverse search queries for comprehensive retrieval from an AI/ML knowledge base.
+      Analyze a Naver Boost Camp student's question quality, generate multiple diverse search queries, and extract metadata-based retrieval filters for targeted search.
 
       ## Step 1: Quality Analysis
       Evaluate the original query across these dimensions:
@@ -27,6 +27,26 @@ messages:
       - Replace vague references with precise terms
       - Are self-contained and retrieval-optimized
 
+      ## Step 3: Retrieval Filter Extraction (NEW)
+      Extract metadata filters from the question to narrow the search scope. Only extract filters when **explicitly mentioned** in the question.
+
+      ### Filter Fields:
+      - **doc_type**: Document source type. Valid values: "slack_qa", "pdf", "notebook", "mission"
+        - "Slack에서", "슬랙에서" → ["slack_qa"]
+        - "강의자료에서", "PDF에서", "슬라이드에서" → ["pdf"]
+        - "노트북에서", "실습 코드에서" → ["notebook"]
+        - "미션에서", "과제에서" → ["mission"]
+        - Multiple sources can be combined: ["slack_qa", "pdf"]
+      - **course**: Course name if mentioned (e.g., "데이터분석", "CV", "NLP", "RecSys")
+      - **course_topic**: Specific topic within a course (e.g., "PyTorch", "Transformer", "CNN", "BERT")
+      - **generation**: Bootcamp generation if mentioned (e.g., "1기", "2기", "3기")
+
+      ### Filter Extraction Rules:
+      - Extract ONLY when explicitly mentioned in the question
+      - Do NOT infer filters from topic keywords alone
+      - If uncertain, leave the field as null
+      - Prefer broader filters over overly specific ones
+
       ## Intent-Specific Strategy
       - **SIMPLE_QA**: Generate 3 queries focusing on the core concept from different angles
       - **COMPLEX_REASONING**: Generate 4-5 queries breaking down reasoning steps
@@ -41,19 +61,35 @@ messages:
       - improved_queries: array of 3-5 diverse search queries (한국어)
       - issues: array of identified issues in the original query
       - recommendations: array of improvement recommendations
+      - retrieval_filters: object with optional fields (doc_type, course, course_topic, generation)
 
       Output rules:
       - JSON만 반환하며 코드펜스/추가 텍스트를 포함하지 않는다.
       - improved_queries는 반드시 3개 이상 5개 이하여야 한다.
       - 각 쿼리는 구체적이고 검색에 최적화되어야 한다.
       - 데이터셋/도구/지표를 새로 만들지 말고, 정보가 없으면 일반화된 표현을 유지한다.
+      - retrieval_filters는 명시적으로 언급된 필드만 포함하고, 나머지는 null로 둔다.
+
+      ## Examples
+
+      ### Example 1: Slack 질문
+      Question: "Slack에서 PyTorch 관련 질문 중에 learning rate 설정에 대해 답변 받은 게 있나요?"
+      retrieval_filters: {"doc_type": ["slack_qa"], "course_topic": "PyTorch"}
+
+      ### Example 2: 강의자료 질문
+      Question: "CV 강의자료에서 CNN 아키텍처 설명 부분 찾아주세요"
+      retrieval_filters: {"doc_type": ["pdf"], "course": "CV", "course_topic": "CNN"}
+
+      ### Example 3: 필터 없는 일반 질문
+      Question: "Transformer의 attention mechanism이 어떻게 작동하나요?"
+      retrieval_filters: {}
 
   - role: human
     content: |
       Question: {question}
       Intent: {intent}
 
-      Analyze this query and generate multiple diverse search queries for comprehensive retrieval.
+      Analyze this query, generate multiple diverse search queries, and extract retrieval filters.
 
 input_variables:
   - question
