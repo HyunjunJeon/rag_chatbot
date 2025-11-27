@@ -33,6 +33,8 @@ logs/
 # RAG Docs - Not used in Production
 # document_chunks/
 # document_processing/
+document_processing/pdf/images/
+
 original_documents/
 
 # Sparse Retriever Index
