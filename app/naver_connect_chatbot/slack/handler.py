@@ -23,7 +23,7 @@ logger = get_logger()
 # Initialize Slack App
 app = AsyncApp(
     token=settings.slack.bot_token.get_secret_value(),
-    signing_secret=settings.slack.signing_secret.get_secret_value()
+    signing_secret=settings.slack.signing_secret.get_secret_value(),
 )
 
 # Initialize RAG Components (Global for now, or could be dependency injected)
@@ -34,10 +34,10 @@ app = AsyncApp(
 def get_agent_app():
     """
     LangGraph 애플리케이션을 초기화하고 반환합니다.
-    
+
     반환값:
         Compiled LangGraph application
-        
+
     예외:
         ValueError: 필수 설정이 누락된 경우
         Exception: 초기화 중 오류 발생 시
@@ -58,7 +58,9 @@ def get_agent_app():
         embedding_model=embeddings,
         qdrant_url=settings.qdrant_vector_store.url,
         collection_name=settings.qdrant_vector_store.collection_name,
-        qdrant_api_key=settings.qdrant_vector_store.api_key.get_secret_value() if settings.qdrant_vector_store.api_key else None,
+        qdrant_api_key=settings.qdrant_vector_store.api_key.get_secret_value()
+        if settings.qdrant_vector_store.api_key
+        else None,
         k=settings.retriever.default_k,
     )
 
@@ -145,10 +147,7 @@ async def handle_app_mention(event, say):
 
     # Create LangFuse callback with Slack metadata
     langfuse_handler = get_langfuse_callback(
-        user_id=user_id,
-        channel_id=channel_id,
-        thread_ts=thread_ts,
-        event_type="slack_mention"
+        user_id=user_id, channel_id=channel_id, thread_ts=thread_ts, event_type="slack_mention"
     )
 
     # Prepare callbacks list (empty if LangFuse disabled)
@@ -162,7 +161,7 @@ async def handle_app_mention(event, say):
             "user_id": user_id,
             "channel_id": channel_id,
             "thread_ts": thread_ts,
-        }
+        },
     }
 
     inputs = {"question": user_input}
@@ -195,7 +194,7 @@ async def handle_message(message, say):
     Handle direct messages or messages where the bot is mentioned (if configured).
     Usually app_mention is preferred for bots in channels.
     This handler might catch all messages if not careful.
-    
+
     매개변수:
         message: Slack message payload
         say: Slack response function

@@ -30,26 +30,11 @@ class LangfuseSettings(BaseSettings):
         extra="ignore",
     )
 
-    host: str = Field(
-        default="http://langfuse-web:3000",
-        description="LangFuse server URL"
-    )
-    public_key: str = Field(
-        default="",
-        description="LangFuse API public key"
-    )
-    secret_key: str = Field(
-        default="",
-        description="LangFuse API secret key"
-    )
-    enabled: bool = Field(
-        default=True,
-        description="Enable/disable LangFuse monitoring"
-    )
-    health_check_timeout: float = Field(
-        default=2.0,
-        description="Health check timeout in seconds"
-    )
+    host: str = Field(default="http://langfuse-web:3000", description="LangFuse server URL")
+    public_key: str = Field(default="", description="LangFuse API public key")
+    secret_key: str = Field(default="", description="LangFuse API secret key")
+    enabled: bool = Field(default=True, description="Enable/disable LangFuse monitoring")
+    health_check_timeout: float = Field(default=2.0, description="Health check timeout in seconds")
 
 
 async def check_langfuse_health(settings: LangfuseSettings) -> bool:
@@ -77,8 +62,7 @@ async def check_langfuse_health(settings: LangfuseSettings) -> bool:
                 logger.debug(f"LangFuse health check passed: {settings.host}")
             else:
                 logger.warning(
-                    f"LangFuse health check failed: {settings.host} "
-                    f"(status={response.status_code})"
+                    f"LangFuse health check failed: {settings.host} (status={response.status_code})"
                 )
 
             return is_healthy
@@ -141,6 +125,7 @@ def get_langfuse_callback(
         # explicitly, the SDK internally reads SECRET_KEY and HOST from env vars
         # for authentication and connection configuration.
         import os
+
         os.environ["LANGFUSE_PUBLIC_KEY"] = langfuse_settings.public_key
         os.environ["LANGFUSE_SECRET_KEY"] = langfuse_settings.secret_key
         os.environ["LANGFUSE_HOST"] = langfuse_settings.host
@@ -163,8 +148,7 @@ def get_langfuse_callback(
             handler.set_trace_params(metadata=trace_metadata)
 
         logger.debug(
-            f"LangFuse callback created successfully "
-            f"(user_id={user_id}, channel_id={channel_id})"
+            f"LangFuse callback created successfully (user_id={user_id}, channel_id={channel_id})"
         )
         return handler
 

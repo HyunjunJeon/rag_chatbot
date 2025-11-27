@@ -14,10 +14,11 @@ from .base import PROJECT_ROOT
 class QdrantVectorStoreSettings(BaseSettings):
     """
     Qdrant 벡터 저장소 설정
-    
+
     환경변수 prefix: QDRANT_
     예: QDRANT_URL=http://localhost:6333
     """
+
     model_config = SettingsConfigDict(
         env_prefix="QDRANT_",
         env_file=str(PROJECT_ROOT / ".env"),
@@ -25,25 +26,12 @@ class QdrantVectorStoreSettings(BaseSettings):
         validate_default=False,
     )
 
-    url: str | None = Field(
-        default=None,
-        description="Qdrant 인스턴스 URL"
-    )
-    api_key: SecretStr | None = Field(
-        default=None,
-        description="Qdrant API 키 (선택적)"
-    )
-    collection_name: str = Field(
-        default="naver_connect_docs",
-        description="사용할 컬렉션 이름"
-    )
-    embedding_dimensions: int = Field(
-        default=1024,
-        description="임베딩 차원 수"
-    )
+    url: str | None = Field(default=None, description="Qdrant 인스턴스 URL")
+    api_key: SecretStr | None = Field(default=None, description="Qdrant API 키 (선택적)")
+    collection_name: str = Field(default="naver_connect_docs", description="사용할 컬렉션 이름")
+    embedding_dimensions: int = Field(default=1024, description="임베딩 차원 수")
 
 
 __all__ = [
     "QdrantVectorStoreSettings",
 ]
-

@@ -217,10 +217,7 @@ def min_max_normalize(scores: list[float]) -> list[float]:
     if max_score == min_score:
         return [1.0] * len(scores)
 
-    return [
-        (score - min_score) / (max_score - min_score)
-        for score in scores
-    ]
+    return [(score - min_score) / (max_score - min_score) for score in scores]
 
 
 def z_score_normalize(scores: list[float]) -> list[float]:
@@ -253,7 +250,7 @@ def z_score_normalize(scores: list[float]) -> list[float]:
 
     mean = sum(scores) / len(scores)
     variance = sum((x - mean) ** 2 for x in scores) / len(scores)
-    std = variance ** 0.5
+    std = variance**0.5
 
     # 표준편차가 0이면 모든 점수가 같음
     if std == 0:

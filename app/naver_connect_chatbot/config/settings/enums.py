@@ -11,9 +11,10 @@ from enum import Enum
 class RetrieverStrategy(str, Enum):
     """
     검색 전략 타입
-    
+
     RAG 시스템에서 사용할 검색 전략을 정의합니다.
     """
+
     SPARSE_ONLY = "sparse_only"  # BM25만 사용
     DENSE_ONLY = "dense_only"  # 벡터 검색만 사용
     HYBRID = "hybrid"  # Dense + Sparse
@@ -24,9 +25,10 @@ class RetrieverStrategy(str, Enum):
 class HybridMethodType(str, Enum):
     """
     하이브리드 병합 방식
-    
+
     Sparse와 Dense 검색 결과를 병합하는 방법을 정의합니다.
     """
+
     RRF = "rrf"  # Reciprocal Rank Fusion
     CC = "cc"  # Convex Combination
 
@@ -35,4 +37,3 @@ __all__ = [
     "RetrieverStrategy",
     "HybridMethodType",
 ]
-

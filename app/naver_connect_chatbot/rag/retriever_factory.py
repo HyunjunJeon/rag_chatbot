@@ -46,7 +46,7 @@ def build_dense_sparse_hybrid(
 ) -> HybridRetriever:
     """
     Dense(Qdrant) + Sparse(Kiwi BM25) 하이브리드 검색기를 생성합니다.
-    
+
     이 함수는 기본 하이브리드 검색기를 구성하며, MultiQuery 래핑의 기반이 됩니다.
 
     매개변수:
@@ -63,7 +63,7 @@ def build_dense_sparse_hybrid(
 
     반환값:
         BaseRetriever: Dense + Sparse 하이브리드 검색기
-        
+
     예시:
         >>> base_hybrid = build_dense_sparse_hybrid(
         ...     documents=docs,
@@ -79,13 +79,13 @@ def build_dense_sparse_hybrid(
             settings.retriever.default_sparse_weight,
             settings.retriever.default_dense_weight,
         ]
-    
+
     if k is None:
         k = settings.retriever.default_k
-    
+
     if rrf_c is None:
         rrf_c = settings.retriever.default_rrf_c
-    
+
     if bm25_kwargs is None:
         bm25_kwargs = {}
 
@@ -126,7 +126,7 @@ def build_multi_query_retriever(
 ) -> MultiQueryRetriever:
     """
     기본 검색기를 MultiQuery로 래핑합니다.
-    
+
     LLM을 사용해 원본 쿼리를 여러 관점으로 확장하고,
     각 쿼리의 검색 결과를 융합하여 더 풍부한 검색 결과를 제공합니다.
 
@@ -140,7 +140,7 @@ def build_multi_query_retriever(
 
     반환값:
         MultiQueryRetriever: LLM 기반 다중 쿼리 검색기
-        
+
     예시:
         >>> from langchain_openai import ChatOpenAI
         >>> llm = ChatOpenAI(model="gpt-4", temperature=0)
@@ -160,7 +160,7 @@ def build_multi_query_retriever(
         rrf_k = settings.multi_query.rrf_k
     if include_original is None:
         include_original = settings.multi_query.include_original
-    
+
     return MultiQueryRetriever(
         base_retriever=base_retriever,
         llm=llm,
@@ -192,12 +192,12 @@ def build_advanced_hybrid_retriever(
 ) -> BaseRetriever:
     """
     모든 검색 전략을 결합한 고급 하이브리드 검색기를 생성합니다.
-    
+
     구성 계층:
     1. Base Hybrid: Dense(Qdrant) + Sparse(Kiwi BM25)
     2. MultiQuery: LLM으로 쿼리 확장 (기본값: 활성화)
     3. Final Hybrid: Base + MultiQuery 결과 융합 (선택적)
-    
+
     **중요**: 이 함수는 기본적으로 MultiQuery를 활성화합니다 (enable_multi_query=True).
     MultiQuery를 비활성화하려면 명시적으로 enable_multi_query=False를 전달하세요.
 
@@ -222,7 +222,7 @@ def build_advanced_hybrid_retriever(
 
     반환값:
         BaseRetriever: 구성된 고급 검색기
-        
+
     예시:
         >>> # MultiQuery 없이 Base Hybrid만 사용
         >>> retriever = build_advanced_hybrid_retriever(
@@ -232,7 +232,7 @@ def build_advanced_hybrid_retriever(
         ...     collection_name="my_collection",
         ...     enable_multi_query=False,
         ... )
-        
+
         >>> # MultiQuery 포함 (단일 계층)
         >>> from langchain_openai import ChatOpenAI
         >>> retriever = build_advanced_hybrid_retriever(
@@ -243,7 +243,7 @@ def build_advanced_hybrid_retriever(
         ...     llm=ChatOpenAI(model="gpt-4"),
         ...     enable_multi_query=True,
         ... )
-        
+
         >>> # MultiQuery + Final Hybrid (이중 계층)
         >>> retriever = build_advanced_hybrid_retriever(
         ...     documents=docs,
@@ -317,10 +317,10 @@ def build_dense_sparse_hybrid_from_saved(
 ) -> HybridRetriever:
     """
     저장된 KiwiBM25Retriever 인덱스를 로드하여 Dense+Sparse 하이브리드 검색기를 생성합니다.
-    
+
     이 함수는 이미 저장된 BM25 인덱스를 로드하므로 문서 재처리 없이
     빠르게 Hybrid Retriever를 초기화할 수 있습니다.
-    
+
     매개변수:
         bm25_index_path: 저장된 KiwiBM25Retriever 인덱스 디렉토리 경로 (bm25_index.pkl이 포함됨)
         embedding_model: Dense 검색에 사용할 임베딩 모델
@@ -331,14 +331,14 @@ def build_dense_sparse_hybrid_from_saved(
         k: 반환할 문서 수
         method: 하이브리드 방식 (RRF 또는 CC)
         rrf_c: RRF 상수 (기본값: 60)
-    
+
     반환값:
         HybridRetriever: Dense + Sparse 하이브리드 검색기
-    
+
     예시:
         >>> from naver_connect_chatbot.config.embedding import OpenRouterEmbeddings
         >>> embeddings = OpenRouterEmbeddings(model="qwen/qwen3-embedding-4b")
-        >>> 
+        >>>
         >>> retriever = build_dense_sparse_hybrid_from_saved(
         ...     bm25_index_path="sparse_index/kiwi_bm25_slack_qa",
         ...     embedding_model=embeddings,
@@ -347,7 +347,7 @@ def build_dense_sparse_hybrid_from_saved(
         ...     weights=[0.5, 0.5],  # Sparse 50%, Dense 50%
         ...     k=10,
         ... )
-        >>> 
+        >>>
         >>> # 검색 수행
         >>> results = retriever.invoke("GPU 메모리 부족 해결 방법")
     """
@@ -357,13 +357,13 @@ def build_dense_sparse_hybrid_from_saved(
             settings.retriever.default_sparse_weight,
             settings.retriever.default_dense_weight,
         ]
-    
+
     if k is None:
         k = settings.retriever.default_k
-    
+
     if rrf_c is None:
         rrf_c = settings.retriever.default_rrf_c
-    
+
     # 1. Sparse Retriever (저장된 KiwiBM25Retriever 인덱스 로드)
     bm25_path = Path(bm25_index_path)
     if not bm25_path.exists():
@@ -371,16 +371,16 @@ def build_dense_sparse_hybrid_from_saved(
             f"BM25 인덱스 디렉토리를 찾을 수 없습니다: {bm25_path}\n"
             f"document_processing/rebuild_bm25_for_chatbot.py를 실행하여 인덱스를 생성하세요."
         )
-    
+
     # KiwiBM25Retriever.load()로 저장된 인덱스 로드
     sparse_retriever = KiwiBM25Retriever.load(
         path=bm25_path,
         load_user_dict=True,
     )
-    
+
     # k 값 업데이트 (필요한 경우)
     sparse_retriever.k = k
-    
+
     # 2. Dense Retriever (Qdrant)
     qdrant_client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
     dense_retriever = QdrantVDBRetriever(
@@ -389,7 +389,7 @@ def build_dense_sparse_hybrid_from_saved(
         collection_name=collection_name,
         default_k=k,
     )
-    
+
     # 3. Hybrid Retriever (Sparse + Dense)
     hybrid_retriever = HybridRetriever(
         retrievers=[sparse_retriever, dense_retriever],
@@ -397,7 +397,7 @@ def build_dense_sparse_hybrid_from_saved(
         method=method,
         c=rrf_c,
     )
-    
+
     return hybrid_retriever
 
 
@@ -412,7 +412,7 @@ def get_hybrid_retriever(
 ) -> HybridRetriever:
     """
     Dense + Sparse 하이브리드 리트리버를 생성하는 레거시 팩토리입니다.
-    
+
     하위 호환성을 위해 유지되며 내부적으로 build_dense_sparse_hybrid를 호출합니다.
 
     매개변수:

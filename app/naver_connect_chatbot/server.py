@@ -84,7 +84,7 @@ slack_handler = AsyncSlackRequestHandler(slack_app)
 async def root():
     """
     루트 엔드포인트 - 서버 상태 확인
-    
+
     반환값:
         dict: 서버 상태 정보
     """
@@ -99,7 +99,7 @@ async def root():
 async def health():
     """
     헬스체크 엔드포인트
-    
+
     반환값:
         dict: 헬스체크 결과
     """
@@ -110,16 +110,16 @@ async def health():
 async def slack_events(req: Request):
     """
     Slack Events API 엔드포인트
-    
+
     Slack으로부터 이벤트를 수신하고 처리합니다.
     URL Verification과 Event Callback을 처리합니다.
-    
+
     매개변수:
         req: FastAPI Request 객체
-        
+
     반환값:
         Slack API 응답
-        
+
     예외:
         HTTPException: Slack 요청 검증 실패 시
     """
@@ -130,7 +130,7 @@ async def slack_events(req: Request):
 # 서버 실행
 if __name__ == "__main__":
     import uvicorn
-    
+
     uvicorn.run(
         "naver_connect_chatbot.server:api",
         host="0.0.0.0",

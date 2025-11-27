@@ -6,11 +6,11 @@ Configuration module for the Naver Connect Chatbot.
 
 사용 예:
     from naver_connect_chatbot.config import settings, logger, get_chat_model, get_embeddings
-    
+
     logger.info("Application started")
     print(settings.clova_llm.model)
     print(settings.qdrant_vector_store.url)
-    
+
     # LLM 및 Embeddings 사용 (langchain_naver)
     llm = get_chat_model()
     embeddings = get_embeddings()

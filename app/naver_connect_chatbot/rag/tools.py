@@ -158,6 +158,7 @@ def create_reranked_retriever_tool(
         이 방식은 retrieval recall을 유지하면서
         precision을 크게 향상시킵니다.
     """
+
     class RerankedRetrieverWrapper(BaseRetriever):
         """
         Retrieval + Reranking을 결합한 wrapper retriever.

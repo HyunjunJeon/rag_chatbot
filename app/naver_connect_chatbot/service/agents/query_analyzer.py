@@ -22,21 +22,21 @@ class QueryRetrievalFilters(BaseModel):
     질문 내용에서 명시적으로 언급된 도메인 힌트만 추출합니다.
     언급되지 않은 필드는 null로 남겨 전체 검색을 허용합니다.
     """
+
     doc_type: list[str] | None = Field(
         default=None,
-        description="Document types to search: 'slack_qa', 'pdf', 'notebook', 'mission'. Extract only if explicitly mentioned (e.g., 'Slack에서', '강의자료에서', '미션에서')."
+        description="Document types to search: 'slack_qa', 'pdf', 'notebook', 'mission'. Extract only if explicitly mentioned (e.g., 'Slack에서', '강의자료에서', '미션에서').",
     )
     course: str | None = Field(
         default=None,
-        description="Course name filter if explicitly mentioned (e.g., '데이터분석', 'CV', 'NLP')."
+        description="Course name filter if explicitly mentioned (e.g., '데이터분석', 'CV', 'NLP').",
     )
     course_topic: str | None = Field(
         default=None,
-        description="Specific topic within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN')."
+        description="Specific topic within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN').",
     )
     generation: str | None = Field(
-        default=None,
-        description="Bootcamp generation if mentioned (e.g., '1기', '2기', '3기')."
+        default=None, description="Bootcamp generation if mentioned (e.g., '1기', '2기', '3기')."
     )
 
 
@@ -53,48 +53,41 @@ class QueryAnalysis(BaseModel):
         recommendations: 개선 권장 사항
         retrieval_filters: 질문에서 추출한 메타데이터 기반 검색 필터
     """
-    clarity_score: float = Field(
-        description="Clarity score (0.0 ~ 1.0)",
-        ge=0.0,
-        le=1.0
-    )
-    specificity_score: float = Field(
-        description="Specificity score (0.0 ~ 1.0)",
-        ge=0.0,
-        le=1.0
-    )
+
+    clarity_score: float = Field(description="Clarity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
+    specificity_score: float = Field(description="Specificity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
     searchability_score: float = Field(
-        description="Searchability score (0.0 ~ 1.0)",
-        ge=0.0,
-        le=1.0
+        description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0
     )
     improved_queries: list[str] = Field(
         description="List of diverse search queries for comprehensive retrieval (Multi-Query)",
-        default_factory=list
+        default_factory=list,
     )
-    issues: list[str] = Field(
-        description="Identified issues",
-        default_factory=list
-    )
+    issues: list[str] = Field(description="Identified issues", default_factory=list)
     recommendations: list[str] = Field(
-        description="Recommendations for improvement",
-        default_factory=list
+        description="Recommendations for improvement", default_factory=list
     )
     retrieval_filters: QueryRetrievalFilters = Field(
         default_factory=QueryRetrievalFilters,
-        description="Metadata-based retrieval filters extracted from the question"
+        description="Metadata-based retrieval filters extracted from the question",
     )
 
 
 @tool(args_schema=QueryAnalysis)
 def emit_query_analysis_result(
     clarity_score: Annotated[float, Field(description="Clarity score (0.0 ~ 1.0)", ge=0.0, le=1.0)],
-    specificity_score: Annotated[float, Field(description="Specificity score (0.0 ~ 1.0)", ge=0.0, le=1.0)],
-    searchability_score: Annotated[float, Field(description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0)],
+    specificity_score: Annotated[
+        float, Field(description="Specificity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
+    ],
+    searchability_score: Annotated[
+        float, Field(description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0)
+    ],
     improved_queries: Annotated[list[str], Field(description="List of improved query variations")],
     issues: Annotated[list[str], Field(description="Identified issues")],
     recommendations: Annotated[list[str], Field(description="Recommendations for improvement")],
-    retrieval_filters: Annotated[dict | None, Field(description="Metadata filters extracted from the question")] = None,
+    retrieval_filters: Annotated[
+        dict | None, Field(description="Metadata filters extracted from the question")
+    ] = None,
 ) -> QueryAnalysis:
     """
     Emit structured query analysis results.
@@ -133,17 +126,17 @@ def emit_query_analysis_result(
 def create_query_analyzer(llm: Runnable) -> Any:
     """
     질의 분석 에이전트를 생성합니다.
-    
+
     명확성, 구체성, 검색 친화도를 평가하고 개선 방향을 제안합니다.
     에이전트는 emit_query_analysis 도구를 사용하여 구조화된 결과를
     ToolMessage 형태로 반환합니다.
-    
+
     매개변수:
         llm: 분석에 사용할 언어 모델
-    
+
     반환값:
         질의를 분석하는 에이전트
-        
+
     예시:
         >>> from langchain_openai import ChatOpenAI
         >>> llm = ChatOpenAI(model="gpt-4o")
@@ -155,10 +148,12 @@ def create_query_analyzer(llm: Runnable) -> Any:
         ...     }]
         ... })
     """
-    try:        
+    try:
         prompt_template = get_prompt("query_analysis")
-        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        
+        system_prompt = (
+            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
+        )
+
         # 시스템 프롬프트에 도구 사용 가이드 추가
         schema_text = json.dumps(
             QueryAnalysis.model_json_schema(),
@@ -174,41 +169,37 @@ def create_query_analyzer(llm: Runnable) -> Any:
             "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
             f"{schema_text}"
         )
-        
+
         agent = create_agent(
             model=llm,
             tools=[emit_query_analysis_result],
             system_prompt=enhanced_prompt,
             name="query_analyzer",
         )
-        
+
         logger.debug("Query analyzer agent created successfully with emit_query_analysis tool")
         return agent
-        
+
     except Exception as e:
         logger.error(f"Failed to create query analyzer: {e}")
         raise
 
 
-def analyze_query(
-    question: str,
-    intent: str,
-    llm: Runnable
-) -> QueryAnalysis:
+def analyze_query(question: str, intent: str, llm: Runnable) -> QueryAnalysis:
     """
     단일 질의를 분석하는 편의 함수입니다.
-    
+
     에이전트가 emit_query_analysis 도구를 호출하면 ToolMessage로
     결과가 반환되며, 이를 파싱하여 QueryAnalysis 객체를 추출합니다.
-    
+
     매개변수:
         question: 분석 대상 사용자 질문
         intent: 분류된 질문 의도
         llm: 사용할 언어 모델
-    
+
     반환값:
         QueryAnalysis 결과
-        
+
     예시:
         >>> from langchain_openai import ChatOpenAI
         >>> llm = ChatOpenAI(model="gpt-4o")
@@ -217,13 +208,10 @@ def analyze_query(
         ['What is PyTorch?', 'What is the concept being discussed?']
     """
     analyzer = create_query_analyzer(llm)
-    response = analyzer.invoke({
-        "messages": [{
-            "role": "user",
-            "content": f"question: {question}\nintent: {intent}"
-        }]
-    })
-    
+    response = analyzer.invoke(
+        {"messages": [{"role": "user", "content": f"question: {question}\nintent: {intent}"}]}
+    )
+
     # 에이전트 응답에서 ToolMessage를 찾아 QueryAnalysis를 추출합니다.
     try:
         # response가 dict이고 messages가 있는 경우
@@ -231,11 +219,10 @@ def analyze_query(
             messages = response["messages"]
             for msg in reversed(messages):  # 마지막 메시지부터 확인
                 # ToolMessage 타입 확인 (클래스명 또는 type 속성으로)
-                is_tool_msg = (
-                    msg.__class__.__name__ == "ToolMessage" or
-                    (hasattr(msg, "type") and msg.type == "tool")
+                is_tool_msg = msg.__class__.__name__ == "ToolMessage" or (
+                    hasattr(msg, "type") and msg.type == "tool"
                 )
-                
+
                 if is_tool_msg:
                     tool_content = msg.content
                     # content가 이미 QueryAnalysis 인스턴스인 경우
@@ -253,36 +240,44 @@ def analyze_query(
                             logger.debug("Attempting to parse string content as QueryAnalysis")
                             import re
                             import ast
-                            
+
                             # 문자열에서 각 필드 추출
                             data = {}
-                            
+
                             # clarity_score, specificity_score, searchability_score 추출
-                            for score_name in ['clarity_score', 'specificity_score', 'searchability_score']:
-                                match = re.search(rf'{score_name}=([\d.]+)', tool_content)
+                            for score_name in [
+                                "clarity_score",
+                                "specificity_score",
+                                "searchability_score",
+                            ]:
+                                match = re.search(rf"{score_name}=([\d.]+)", tool_content)
                                 if match:
                                     data[score_name] = float(match.group(1))
-                            
+
                             # improved_queries, issues, recommendations 추출 (리스트 형식)
-                            for list_name in ['improved_queries', 'issues', 'recommendations']:
-                                match = re.search(rf'{list_name}=(\[.*?\](?=\s+\w+=|$))', tool_content, re.DOTALL)
+                            for list_name in ["improved_queries", "issues", "recommendations"]:
+                                match = re.search(
+                                    rf"{list_name}=(\[.*?\](?=\s+\w+=|$))", tool_content, re.DOTALL
+                                )
                                 if match:
                                     try:
                                         data[list_name] = ast.literal_eval(match.group(1))
                                     except Exception:
                                         # 복잡한 리스트 파싱 실패 시 빈 리스트
                                         data[list_name] = []
-                            
+
                             if data:
-                                logger.debug(f"Successfully parsed QueryAnalysis from string: {data}")
+                                logger.debug(
+                                    f"Successfully parsed QueryAnalysis from string: {data}"
+                                )
                                 return QueryAnalysis(**data)
                         except Exception as e:
                             logger.warning(f"Failed to parse string content: {e}")
-        
+
         # 직접 QueryAnalysis가 반환된 경우
         if isinstance(response, QueryAnalysis):
             return response
-        
+
         # dict에 output 키가 있는 경우
         if isinstance(response, dict) and "output" in response:
             output = response["output"]
@@ -290,17 +285,17 @@ def analyze_query(
                 return output
             elif isinstance(output, dict):
                 return QueryAnalysis(**output)
-        
+
         # 폴백: 기본 분석 결과를 반환합니다.
         logger.warning(
             f"Unable to extract QueryAnalysis from response. "
             f"Response type: {type(response)}, "
             f"Has messages: {isinstance(response, dict) and 'messages' in response}"
         )
-        
+
     except Exception as e:
         logger.error(f"Error extracting QueryAnalysis from response: {e}")
-    
+
     # 최종 폴백
     return QueryAnalysis(
         clarity_score=0.5,
@@ -308,5 +303,5 @@ def analyze_query(
         searchability_score=0.5,
         improved_queries=[question],
         issues=["Unable to analyze query"],
-        recommendations=["Use the original query"]
+        recommendations=["Use the original query"],
     )

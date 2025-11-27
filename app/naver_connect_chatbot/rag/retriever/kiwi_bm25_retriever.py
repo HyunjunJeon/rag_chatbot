@@ -1,6 +1,7 @@
 """Kiwi 형태소 분석기 기반 BM25 Retriever.
 References: https://github.com/bab2min/kiwipiepy
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -829,7 +830,9 @@ class KiwiBM25Retriever(BaseRetriever):
 
         # 문서 생성
         metadatas = metadatas or [{} for _ in texts]
-        instance.docs = [Document(page_content=t, metadata=m) for t, m in zip(texts, metadatas, strict=True)]
+        instance.docs = [
+            Document(page_content=t, metadata=m) for t, m in zip(texts, metadatas, strict=True)
+        ]
 
         # 자동 저장
         if auto_save:
@@ -904,7 +907,9 @@ class KiwiBM25Retriever(BaseRetriever):
                 **kwargs,
             )
 
-        raise TypeError("documents must be list[Document], list[str], or a path (str|Path) to a saved index")
+        raise TypeError(
+            "documents must be list[Document], list[str], or a path (str|Path) to a saved index"
+        )
 
     def _get_relevant_documents(
         self,
@@ -933,13 +938,13 @@ class KiwiBM25Retriever(BaseRetriever):
 
         # BM25 점수 계산
         scores = self.vectorizer.get_scores(processed_query)
-        
+
         # Softmax 정규화
         normalized_scores = self._softmax(scores)
-        
+
         # 점수 내림차순 정렬
-        score_indices = self._argsort(normalized_scores, reverse=True)[:self.k]
-        
+        score_indices = self._argsort(normalized_scores, reverse=True)[: self.k]
+
         # 문서에 점수 추가
         docs_with_scores = []
         for idx in score_indices:
@@ -947,7 +952,7 @@ class KiwiBM25Retriever(BaseRetriever):
             metadata = doc.metadata.copy()
             metadata["score"] = float(normalized_scores[idx])
             docs_with_scores.append(Document(page_content=doc.page_content, metadata=metadata))
-        
+
         return docs_with_scores
 
     async def _aget_relevant_documents(

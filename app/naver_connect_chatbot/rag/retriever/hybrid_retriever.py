@@ -93,9 +93,13 @@ class HybridRetriever(BaseRetriever):
     @property
     def config_specs(self) -> list[ConfigurableFieldSpec]:
         """이 Runnable이 제공하는 설정 가능한 필드 목록을 반환합니다."""
-        return get_unique_config_specs(spec for retriever in self.retrievers for spec in retriever.config_specs)
+        return get_unique_config_specs(
+            spec for retriever in self.retrievers for spec in retriever.config_specs
+        )
 
-    def invoke(self, input: str, config: RunnableConfig | None = None, **kwargs: Any) -> list[Document]:
+    def invoke(
+        self, input: str, config: RunnableConfig | None = None, **kwargs: Any
+    ) -> list[Document]:
         from langchain_core.callbacks import CallbackManager
 
         config = ensure_config(config)
@@ -126,7 +130,9 @@ class HybridRetriever(BaseRetriever):
             )
             return result
 
-    async def ainvoke(self, input: str, config: RunnableConfig | None = None, **kwargs: Any) -> list[Document]:
+    async def ainvoke(
+        self, input: str, config: RunnableConfig | None = None, **kwargs: Any
+    ) -> list[Document]:
         from langchain_core.callbacks import AsyncCallbackManager
 
         config = ensure_config(config)
@@ -233,9 +239,13 @@ class HybridRetriever(BaseRetriever):
         sorted_docs = sorted(
             unique_by_key(
                 all_docs,
-                lambda doc: (doc.page_content if self.id_key is None else doc.metadata[self.id_key]),
+                lambda doc: (
+                    doc.page_content if self.id_key is None else doc.metadata[self.id_key]
+                ),
             ),
-            key=lambda doc: rrf_score[doc.page_content if self.id_key is None else doc.metadata[self.id_key]],
+            key=lambda doc: rrf_score[
+                doc.page_content if self.id_key is None else doc.metadata[self.id_key]
+            ],
             reverse=True,
         )
         return sorted_docs
@@ -256,13 +266,17 @@ class HybridRetriever(BaseRetriever):
         all_docs = list(
             unique_by_key(
                 chain.from_iterable(doc_lists),
-                lambda doc: (doc.page_content if self.id_key is None else doc.metadata[self.id_key]),
+                lambda doc: (
+                    doc.page_content if self.id_key is None else doc.metadata[self.id_key]
+                ),
             )
         )
 
         sorted_docs = sorted(
             all_docs,
-            key=lambda doc: cc_scores[doc.page_content if self.id_key is None else doc.metadata[self.id_key]],
+            key=lambda doc: cc_scores[
+                doc.page_content if self.id_key is None else doc.metadata[self.id_key]
+            ],
             reverse=True,
         )
 
@@ -287,7 +301,8 @@ class HybridRetriever(BaseRetriever):
         # 각 리스트의 항목을 Document 인스턴스로 통일합니다.
         for i in range(len(retriever_docs)):
             retriever_docs[i] = [
-                Document(page_content=cast(str, doc)) if isinstance(doc, str) else doc for doc in retriever_docs[i]
+                Document(page_content=cast(str, doc)) if isinstance(doc, str) else doc
+                for doc in retriever_docs[i]
             ]
 
         # 앙상블 방식을 적용해 결과를 결합합니다.
@@ -303,13 +318,15 @@ class HybridRetriever(BaseRetriever):
         config: RunnableConfig | None = None,
     ) -> list[Document]:
         # 모든 리트리버의 비동기 검색 결과를 수집합니다.
-        retriever_docs = await asyncio.gather(*[
-            retriever.ainvoke(
-                query,
-                patch_config(config, callbacks=run_manager.get_child(tag=f"retriever_{i + 1}")),
-            )
-            for i, retriever in enumerate(self.retrievers)
-        ])
+        retriever_docs = await asyncio.gather(
+            *[
+                retriever.ainvoke(
+                    query,
+                    patch_config(config, callbacks=run_manager.get_child(tag=f"retriever_{i + 1}")),
+                )
+                for i, retriever in enumerate(self.retrievers)
+            ]
+        )
 
         # 각 리스트의 항목을 Document 인스턴스로 통일합니다.
         for i in range(len(retriever_docs)):

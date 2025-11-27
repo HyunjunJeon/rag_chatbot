@@ -17,15 +17,13 @@ class AnswerOutput(BaseModel):
     This model wraps the answer text to enable validation and maintain
     consistency with other agents in the Adaptive RAG workflow.
     """
+
     answer: str = Field(
         description="The generated answer to the user's question based on retrieved context"
     )
 
 
-def create_answer_generator(
-    llm: Runnable,
-    strategy: str = "simple"
-) -> Runnable:
+def create_answer_generator(llm: Runnable, strategy: str = "simple") -> Runnable:
     """
     답변 생성 에이전트를 초기화합니다 (구조화된 출력 패턴 사용).
 
@@ -60,28 +58,23 @@ def create_answer_generator(
         prompt_key=f"answer_generation_{strategy}",
         output_model=AnswerOutput,
         tool_name=f"emit_answer_{strategy}",
-        tool_description="Emit your generated answer after analyzing the context and question"
+        tool_description="Emit your generated answer after analyzing the context and question",
     )
 
 
-def generate_answer(
-    question: str,
-    context: list[Document],
-    intent: str,
-    llm: Runnable
-) -> str:
+def generate_answer(question: str, context: list[Document], intent: str, llm: Runnable) -> str:
     """
     단일 질문에 대한 답변을 생성하는 편의 함수입니다.
-    
+
     매개변수:
         question: 사용자 질문
         context: 검색된 문서 컨텍스트
         intent: 전략 결정을 위한 질문 의도
         llm: 사용할 언어 모델
-    
+
     반환값:
         생성된 답변 문자열
-        
+
     예시:
         >>> from langchain_openai import ChatOpenAI
         >>> from langchain_core.documents import Document
@@ -99,21 +92,21 @@ def generate_answer(
         "CLARIFICATION_NEEDED": "simple",  # Fallback to simple
     }
     strategy = strategy_map.get(intent, "simple")
-    
-    generator = create_answer_generator(llm, strategy=strategy)
-    
-    # 생성에 사용할 문맥을 포맷합니다.
-    context_text = "\n\n".join([
-        f"[문서 {i+1}]\n{doc.page_content}"
-        for i, doc in enumerate(context)
-    ])
 
-    response_raw = generator.invoke({
-        "messages": [{
-            "role": "user",
-            "content": f"question: {question}\n\ncontext:\n{context_text}"
-        }]
-    })
+    generator = create_answer_generator(llm, strategy=strategy)
+
+    # 생성에 사용할 문맥을 포맷합니다.
+    context_text = "\n\n".join(
+        [f"[문서 {i + 1}]\n{doc.page_content}" for i, doc in enumerate(context)]
+    )
+
+    response_raw = generator.invoke(
+        {
+            "messages": [
+                {"role": "user", "content": f"question: {question}\n\ncontext:\n{context_text}"}
+            ]
+        }
+    )
 
     # Use response parser for structured extraction
     from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
@@ -122,7 +115,7 @@ def generate_answer(
         response = parse_agent_response(
             response_raw,
             model_type=AnswerOutput,
-            fallback=AnswerOutput(answer="죄송합니다. 답변을 생성하는 데 문제가 발생했습니다.")
+            fallback=AnswerOutput(answer="죄송합니다. 답변을 생성하는 데 문제가 발생했습니다."),
         )
         return response.answer
     except Exception as e:
@@ -133,13 +126,13 @@ def generate_answer(
 def get_generation_strategy(intent: str) -> str:
     """
     주어진 의도에 대응하는 생성 전략을 반환합니다.
-    
+
     매개변수:
         intent: 질문 의도 코드
-    
+
     반환값:
         생성 전략 이름
-        
+
     예시:
         >>> get_generation_strategy("COMPLEX_REASONING")
         'complex'
@@ -151,4 +144,3 @@ def get_generation_strategy(intent: str) -> str:
         "CLARIFICATION_NEEDED": "simple",
     }
     return strategy_map.get(intent, "simple")
-

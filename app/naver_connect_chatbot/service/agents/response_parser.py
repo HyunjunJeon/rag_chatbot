@@ -120,17 +120,13 @@ def parse_agent_response(
 
     except Exception as e:
         if fallback is not None:
-            logger.warning(
-                f"Error parsing response: {e}. Using fallback value",
-                exc_info=True
-            )
+            logger.warning(f"Error parsing response: {e}. Using fallback value", exc_info=True)
             return fallback
         raise
 
 
 def _extract_from_messages(
-    messages: List[BaseMessage],
-    model_type: Type[_ModelT]
+    messages: List[BaseMessage], model_type: Type[_ModelT]
 ) -> Optional[_ModelT]:
     """
     메시지 리스트에서 ToolMessage를 찾아 모델로 파싱합니다.

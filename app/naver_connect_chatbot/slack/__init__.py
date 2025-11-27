@@ -20,4 +20,3 @@ __all__ = [
     "app",
     "get_agent_app",
 ]
-

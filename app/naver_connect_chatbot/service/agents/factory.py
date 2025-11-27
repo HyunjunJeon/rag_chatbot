@@ -133,11 +133,7 @@ def create_structured_agent(
         return agent
 
     except Exception as e:
-        logger.error(
-            f"Failed to create {agent_name} agent",
-            error=str(e),
-            exc_info=True
-        )
+        logger.error(f"Failed to create {agent_name} agent", error=str(e), exc_info=True)
         raise
 
 

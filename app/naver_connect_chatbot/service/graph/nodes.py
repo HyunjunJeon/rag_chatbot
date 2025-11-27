@@ -87,17 +87,17 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
         classifier = create_intent_classifier(llm)
 
         # 의도를 분류합니다.
-        response_raw = await classifier.ainvoke({"messages": [{"role": "user", "content": question}]})
+        response_raw = await classifier.ainvoke(
+            {"messages": [{"role": "user", "content": question}]}
+        )
 
         # Response parser를 사용하여 일관성 있게 파싱합니다.
         response = parse_agent_response(
             response_raw,
             IntentClassification,
             fallback=IntentClassification(
-                intent="SIMPLE_QA",
-                confidence=0.5,
-                reasoning="Unable to classify intent"
-            )
+                intent="SIMPLE_QA", confidence=0.5, reasoning="Unable to classify intent"
+            ),
         )
 
         # 분류 결과를 추출합니다.
@@ -141,9 +141,9 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
         analyzer = create_query_analyzer(llm)
 
         # 질의를 분석합니다.
-        response_raw = await analyzer.ainvoke({
-            "messages": [{"role": "user", "content": f"question: {question}\nintent: {intent}"}]
-        })
+        response_raw = await analyzer.ainvoke(
+            {"messages": [{"role": "user", "content": f"question: {question}\nintent: {intent}"}]}
+        )
 
         # Response parser를 사용하여 일관성 있게 파싱합니다.
         response = parse_agent_response(
@@ -155,8 +155,8 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
                 searchability_score=0.5,
                 improved_queries=[question],
                 issues=["Unable to analyze query"],
-                recommendations=["Use the original query"]
-            )
+                recommendations=["Use the original query"],
+            ),
         )
 
         # retrieval_filters를 RetrievalFilters TypedDict로 변환
@@ -182,7 +182,9 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
                 "specificity_score": response.specificity_score,
                 "searchability_score": response.searchability_score,
             },
-            "refined_queries": response.improved_queries if response.improved_queries else [question],
+            "refined_queries": response.improved_queries
+            if response.improved_queries
+            else [question],
             "original_query": question,
             "retrieval_filters": filters if filters else None,
         }
@@ -263,7 +265,7 @@ async def retrieve_node(state: AdaptiveRAGState, retriever: BaseRetriever) -> Re
 async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
     """
     검색된 문서를 Clova Studio Reranker로 재정렬합니다.
-    
+
     Post-Retriever 단계로, 검색된 문서의 관련도를 재평가하여
     가장 관련성 높은 문서를 상위로 정렬합니다.
 
@@ -274,34 +276,38 @@ async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
         재정렬된 문서를 포함한 상태 업데이트
     """
     logger.info("---RERANK DOCUMENTS---")
-    
+
     question = state["question"]
     documents = state.get("documents", [])
-    
+
     if not documents:
         logger.warning("No documents to rerank")
         return {
             "documents": [],
             "context": [],
         }
-    
+
     # Reranking 설정 확인
-    use_reranking = settings.adaptive_rag.use_reranking if hasattr(settings, "adaptive_rag") else True
-    
+    use_reranking = (
+        settings.adaptive_rag.use_reranking if hasattr(settings, "adaptive_rag") else True
+    )
+
     if not use_reranking:
         logger.info("Reranking disabled, skipping")
         return {
             "documents": documents,
             "context": documents,
         }
-    
+
     try:
         # Clova Studio Reranker 초기화
         reranker = ClovaStudioReranker(
-            api_key=settings.clova_llm.api_key.get_secret_value() if settings.clova_llm.api_key else "",
+            api_key=settings.clova_llm.api_key.get_secret_value()
+            if settings.clova_llm.api_key
+            else "",
             max_tokens=1024,
         )
-        
+
         # Reranking 수행
         logger.info(f"Reranking {len(documents)} documents")
         reranked_docs = await reranker.arerank(
@@ -309,14 +315,14 @@ async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
             documents=documents,
             top_k=min(len(documents), 10),  # 최대 10개까지 유지
         )
-        
+
         logger.info(f"Reranked to {len(reranked_docs)} documents")
-        
+
         return {
             "documents": reranked_docs,
             "context": reranked_docs,
         }
-        
+
     except Exception as e:
         logger.error(f"Reranking error: {e}, using original documents")
         return {
@@ -328,7 +334,7 @@ async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
 async def segment_documents_node(state: AdaptiveRAGState) -> dict[str, Any]:
     """
     긴 문서를 Clova Studio Segmenter로 주제 단위로 분할합니다.
-    
+
     1000자 이상의 문서를 자동으로 감지하여 주제별로 분할하고,
     각 세그먼트를 별도의 Document로 변환합니다.
 
@@ -339,87 +345,92 @@ async def segment_documents_node(state: AdaptiveRAGState) -> dict[str, Any]:
         분할된 문서를 포함한 상태 업데이트
     """
     logger.info("---SEGMENT DOCUMENTS---")
-    
+
     documents = state.get("documents", [])
-    
+
     if not documents:
         logger.warning("No documents to segment")
         return {
             "documents": [],
             "context": [],
         }
-    
+
     # Segmentation 설정 확인
-    use_segmentation = settings.adaptive_rag.use_segmentation if hasattr(settings, "adaptive_rag") else True
-    segmentation_threshold = settings.adaptive_rag.segmentation_threshold if hasattr(settings, "adaptive_rag") else 1000
-    
+    use_segmentation = (
+        settings.adaptive_rag.use_segmentation if hasattr(settings, "adaptive_rag") else True
+    )
+    segmentation_threshold = (
+        settings.adaptive_rag.segmentation_threshold if hasattr(settings, "adaptive_rag") else 1000
+    )
+
     if not use_segmentation:
         logger.info("Segmentation disabled, skipping")
         return {
             "documents": documents,
             "context": documents,
         }
-    
+
     try:
         # Clova Studio Segmenter 초기화
         segmenter = ClovaStudioSegmenter(
-            api_key=settings.clova_llm.api_key.get_secret_value() if settings.clova_llm.api_key else "",
+            api_key=settings.clova_llm.api_key.get_secret_value()
+            if settings.clova_llm.api_key
+            else "",
             alpha=-100.0,  # 자동 threshold
             seg_cnt=-1,  # 자동 문단 수
             post_process=True,
             post_process_max_size=1000,
             post_process_min_size=100,
         )
-        
+
         segmented_docs = []
-        
+
         for doc in documents:
             content_length = len(doc.page_content)
-            
+
             # 임계값 이상인 문서만 분할
             if content_length >= segmentation_threshold:
                 logger.info(f"Segmenting document with {content_length} characters")
-                
+
                 try:
                     # Segmentation 수행
                     result = await segmenter.asegment(text=doc.page_content)
-                    
+
                     # 각 토픽 세그먼트를 별도의 Document로 변환
                     for idx, topic_sentences in enumerate(result.topic_segments):
                         segment_text = " ".join(topic_sentences)
-                        
+
                         # 원본 메타데이터 복사 및 세그먼트 정보 추가
                         segment_metadata = doc.metadata.copy()
-                        segment_metadata.update({
-                            "segment_index": idx,
-                            "total_segments": len(result.topic_segments),
-                            "original_length": content_length,
-                            "segmented": True,
-                        })
-                        
-                        segmented_docs.append(
-                            Document(
-                                page_content=segment_text,
-                                metadata=segment_metadata
-                            )
+                        segment_metadata.update(
+                            {
+                                "segment_index": idx,
+                                "total_segments": len(result.topic_segments),
+                                "original_length": content_length,
+                                "segmented": True,
+                            }
                         )
-                    
+
+                        segmented_docs.append(
+                            Document(page_content=segment_text, metadata=segment_metadata)
+                        )
+
                     logger.info(f"Segmented into {len(result.topic_segments)} parts")
-                    
+
                 except Exception as seg_error:
                     logger.warning(f"Failed to segment document: {seg_error}, keeping original")
                     segmented_docs.append(doc)
             else:
                 # 임계값 미만인 문서는 그대로 유지
                 segmented_docs.append(doc)
-        
+
         logger.info(f"Segmentation complete: {len(documents)} → {len(segmented_docs)} documents")
-        
+
         return {
             "documents": segmented_docs,
             "context": segmented_docs,
         }
-        
+
     except Exception as e:
         logger.error(f"Segmentation error: {e}, using original documents")
         return {
@@ -428,10 +439,12 @@ async def segment_documents_node(state: AdaptiveRAGState) -> dict[str, Any]:
         }
 
 
-async def evaluate_documents_node(state: AdaptiveRAGState, llm: Runnable | None = None) -> DocumentEvaluationUpdate:
+async def evaluate_documents_node(
+    state: AdaptiveRAGState, llm: Runnable | None = None
+) -> DocumentEvaluationUpdate:
     """
     검색된 문서를 간단히 평가합니다 (간소화 버전).
-    
+
     Reasoning 모델이 자체적으로 문서 품질을 판단할 수 있으므로,
     복잡한 평가 로직 대신 기본적인 체크만 수행합니다:
     - 문서 존재 여부
@@ -459,16 +472,16 @@ async def evaluate_documents_node(state: AdaptiveRAGState, llm: Runnable | None 
             "sufficient_context": False,
             "relevant_doc_count": 0,
         }
-    
+
     doc_count = len(documents)
     logger.info(f"Found {doc_count} documents")
-    
+
     # 간단한 휴리스틱: 문서가 3개 이상이면 충분하다고 판단
     sufficient = doc_count >= 3
-    
+
     # 모든 문서를 관련성 있다고 가정 (Reranking이 이미 수행되었으므로)
     relevant_count = doc_count
-    
+
     return {
         "document_evaluation": {
             "relevant_count": relevant_count,
@@ -483,7 +496,7 @@ async def evaluate_documents_node(state: AdaptiveRAGState, llm: Runnable | None 
 async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> AnswerUpdate:
     """
     문맥을 기반으로 답변을 생성합니다 (Reasoning 모드 활용).
-    
+
     CLOVA HCX-007 모델의 Reasoning 능력을 활용하여:
     1. 단계별 추론을 통해 답변 품질 향상
     2. 자체 검증을 통해 환각 방지
@@ -514,7 +527,7 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
             thinking_effort = "low"
         elif intent == "EXPLORATORY":
             thinking_effort = "medium"
-        
+
         logger.info(f"Using thinking_effort: {thinking_effort} for intent: {intent}")
 
         # 답변 생성 에이전트를 생성합니다.
@@ -522,21 +535,27 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
         generator: Runnable = create_answer_generator(llm, strategy=strategy)
 
         # 생성에 사용할 문맥을 포맷합니다.
-        context_text = "\n\n".join([f"[문서 {i + 1}]\n{doc.page_content}" for i, doc in enumerate(documents)])
+        context_text = "\n\n".join(
+            [f"[문서 {i + 1}]\n{doc.page_content}" for i, doc in enumerate(documents)]
+        )
 
         if not context_text:
             context_text = "참고할 수 있는 문서가 없습니다."
 
         # 답변을 생성합니다.
-        response_raw = await generator.ainvoke({
-            "messages": [{"role": "user", "content": f"question: {question}\n\ncontext:\n{context_text}"}]
-        })
+        response_raw = await generator.ainvoke(
+            {
+                "messages": [
+                    {"role": "user", "content": f"question: {question}\n\ncontext:\n{context_text}"}
+                ]
+            }
+        )
 
         # 생성된 답변을 구조화된 출력에서 추출합니다.
         response = parse_agent_response(
             response_raw,
             AnswerOutput,
-            fallback=AnswerOutput(answer="죄송합니다. 답변을 생성할 수 없습니다.")
+            fallback=AnswerOutput(answer="죄송합니다. 답변을 생성할 수 없습니다."),
         )
         answer = response.answer
         logger.info(f"Generated answer with reasoning: {answer[:100]}...")

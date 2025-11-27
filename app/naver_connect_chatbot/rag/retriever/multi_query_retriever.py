@@ -24,6 +24,7 @@ from naver_connect_chatbot.prompts import get_prompt
 DocumentList = list[Document]
 DocumentMatrix = list[DocumentList]
 
+
 class MultiQueryRetriever(BaseRetriever):
     """
     LLM으로 다각도의 검색 쿼리를 생성하고, 기본 검색기의 결과를 결합해
@@ -54,11 +55,7 @@ class MultiQueryRetriever(BaseRetriever):
             print(f"쿼리 생성 실패: {exc}")
             return [query]
 
-        queries = [
-            candidate.strip()
-            for candidate in result.split("\n")
-            if candidate.strip()
-        ]
+        queries = [candidate.strip() for candidate in result.split("\n") if candidate.strip()]
         trimmed = queries[: self.num_queries]
         ordered = [query, *trimmed] if self.include_original else trimmed
         return self._deduplicate_queries(ordered)
@@ -163,10 +160,7 @@ class MultiQueryRetriever(BaseRetriever):
         동기 환경에서 다중 쿼리 검색 파이프라인을 실행합니다.
         """
         queries = self._generate_queries(query)
-        results_list = [
-            self._invoke_base_retriever(candidate)
-            for candidate in queries
-        ]
+        results_list = [self._invoke_base_retriever(candidate) for candidate in queries]
         merged = self._merge_results(results_list)
         if run_manager is not None:
             run_manager.on_retriever_end(merged)
@@ -180,10 +174,7 @@ class MultiQueryRetriever(BaseRetriever):
     ) -> DocumentList:
         """비동기 환경에서 다중 쿼리 검색 파이프라인을 실행합니다."""
         queries = self._generate_queries(query)
-        tasks = [
-            self._ainvoke_base_retriever(candidate)
-            for candidate in queries
-        ]
+        tasks = [self._ainvoke_base_retriever(candidate) for candidate in queries]
         results_list = await asyncio.gather(*tasks)
         merged = self._merge_results(results_list)
         if run_manager is not None:

@@ -13,6 +13,7 @@ from langchain_core.documents import Document
 # 필터 타입 (다른 타입들이 참조하므로 먼저 정의)
 # ============================================================================
 
+
 class RetrievalFilters(TypedDict, total=False):
     """메타 기반 검색 필터.
 
@@ -28,6 +29,7 @@ class RetrievalFilters(TypedDict, total=False):
         year: 연도 필터 (예: "2024")
         year_month: 연월 필터 (예: "2024-01")
     """
+
     doc_type: list[str]
     course: str
     course_level: str
@@ -41,11 +43,13 @@ class RetrievalFilters(TypedDict, total=False):
 # Node 반환 타입
 # ============================================================================
 
+
 class IntentUpdate(TypedDict, total=False):
     """classify_intent_node 반환 타입.
 
     Intent 분류 결과를 state에 업데이트합니다.
     """
+
     intent: Literal["SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", "CLARIFICATION_NEEDED"]
     intent_confidence: float
     intent_reasoning: str
@@ -56,6 +60,7 @@ class QueryAnalysisUpdate(TypedDict, total=False):
 
     Query 분석 결과를 state에 업데이트합니다.
     """
+
     refined_query: str
     refined_queries: list[str]
     original_query: str
@@ -68,6 +73,7 @@ class RetrievalUpdate(TypedDict, total=False):
 
     검색된 문서와 메타데이터를 state에 업데이트합니다.
     """
+
     documents: list[Document]
     context: list[Document]  # 하위 호환성
     retrieval_strategy: str
@@ -81,6 +87,7 @@ class DocumentEvaluationUpdate(TypedDict, total=False):
 
     문서 평가 결과를 state에 업데이트합니다.
     """
+
     sufficient_context: bool
     relevant_doc_count: int
     document_evaluation: dict
@@ -91,6 +98,7 @@ class AnswerUpdate(TypedDict, total=False):
 
     생성된 답변과 메타데이터를 state에 업데이트합니다.
     """
+
     answer: str
     answer_metadata: dict
 
@@ -100,6 +108,7 @@ class ErrorUpdate(TypedDict, total=False):
 
     에러 정보와 폴백 사용 여부를 state에 업데이트합니다.
     """
+
     error: str
     error_node: str
     fallback_used: bool
