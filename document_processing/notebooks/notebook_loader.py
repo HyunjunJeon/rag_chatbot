@@ -419,10 +419,13 @@ def main() -> None:
 
     loader = NotebookLoader()
 
-    # 테스트 경로 (실제 환경에서는 수정 필요)
+    # PROJECT_ROOT 기준 상대 경로 사용
+    project_root = Path(__file__).parent.parent.parent
+
+    # 테스트 경로
     test_dirs = [
-        Path("/Users/jhj/Desktop/personal/naver_connect_chatbot/original_documents/practice"),
-        Path("/Users/jhj/Desktop/personal/naver_connect_chatbot/original_documents/home_work"),
+        project_root / "original_documents" / "practice",
+        project_root / "original_documents" / "home_work",
     ]
 
     for test_dir in test_dirs:

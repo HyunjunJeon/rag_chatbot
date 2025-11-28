@@ -309,7 +309,44 @@ for expected_type, query in test_cases.items():
 | 로드 시간 | < 5초 | Lazy loading, 분리 인덱스 |
 | 검색 시간 | < 100ms/query | BM25 파라미터 튜닝 (k1, b) |
 
-## 6. 리스크 및 대응
+## 6. 설정 및 코드 업데이트 (필수)
+
+### 6.1 Step 6: Retriever 설정 업데이트
+
+`config/settings/retriever.py`의 `bm25_index_path` 기본값을 변경합니다.
+
+```python
+# config/settings/retriever.py
+
+class RetrieverSettings(BaseSettings):
+    # ...
+    bm25_index_path: str = Field(
+        default="sparse_index/unified_bm25/bm25_index.pkl",  # 변경됨
+        description="저장된 BM25 인덱스 경로 (프로젝트 루트 기준)"
+    )
+```
+
+### 6.2 Step 7: Server 자동 복구 로직 업데이트
+
+`server.py`의 `lifespan` 함수에서 실행하는 스크립트 경로를 변경합니다.
+
+```python
+# server.py
+
+# ...
+        try:
+            # Run the rebuild script as a subprocess
+            subprocess.run(
+                [sys.executable, "document_processing/rebuild_unified_bm25.py"],  # 변경됨
+                cwd=PROJECT_ROOT,
+                check=True,
+                capture_output=False
+            )
+# ...
+```
+
+## 7. 리스크 및 대응
+
 
 ### 6.1 잠재적 위험
 

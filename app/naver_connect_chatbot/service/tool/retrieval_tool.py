@@ -4,25 +4,13 @@ Adaptive RAG에서 사용하는 검색 도구 모음.
 검색 기능을 LangChain 도구 형태로 감싸 에이전트나 워크플로에서 재사용합니다.
 """
 
-from typing import Any, TypedDict
+from typing import Any
 from langchain_core.documents import Document
 from langchain_core.tools import tool
 from langchain_core.retrievers import BaseRetriever
 
 from naver_connect_chatbot.config import logger
-
-
-# 순환 참조 방지를 위해 RetrievalFilters를 여기서 정의
-# (원본은 naver_connect_chatbot.service.graph.types에 있음)
-class RetrievalFilters(TypedDict, total=False):
-    """메타 기반 검색 필터 (순환 참조 방지용 복사본)."""
-    doc_type: list[str]
-    course: str
-    course_level: str
-    course_topic: str
-    generation: str
-    year: str
-    year_month: str
+from naver_connect_chatbot.service.graph.types import RetrievalFilters
 
 
 def filter_documents_by_metadata(

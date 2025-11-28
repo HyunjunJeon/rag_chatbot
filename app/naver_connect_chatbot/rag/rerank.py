@@ -72,30 +72,7 @@ from tenacity import (
 )
 
 from naver_connect_chatbot.config import logger
-
-
-# ============================================================================
-# Retry 조건 함수
-# ============================================================================
-
-
-def _should_retry_http_error(exception: BaseException) -> bool:
-    """
-    HTTP 오류가 재시도 가능한지 판단합니다.
-
-    5xx 서버 오류만 재시도하고, 4xx 클라이언트 오류는 즉시 실패시킵니다.
-
-    매개변수:
-        exception: 발생한 예외
-
-    반환값:
-        재시도 가능 여부 (True: 재시도, False: 즉시 실패)
-    """
-    if isinstance(exception, httpx.HTTPStatusError):
-        # 5xx 서버 오류만 재시도
-        return 500 <= exception.response.status_code < 600
-    # httpx.TimeoutException, httpx.NetworkError 등은 재시도
-    return isinstance(exception, (httpx.TimeoutException, httpx.NetworkError))
+from naver_connect_chatbot.rag.utils import should_retry_http_error
 
 
 # ============================================================================
@@ -525,7 +502,7 @@ class ClovaStudioReranker(BaseReranker):
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception(_should_retry_http_error),
+        retry=retry_if_exception(should_retry_http_error),
         before_sleep=before_sleep_log(logger.bind(), logging.WARNING),
         reraise=True,
     )
@@ -561,7 +538,7 @@ class ClovaStudioReranker(BaseReranker):
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception(_should_retry_http_error),
+        retry=retry_if_exception(should_retry_http_error),
         before_sleep=before_sleep_log(logger.bind(), logging.WARNING),
         reraise=True,
     )
@@ -598,6 +575,8 @@ class ClovaStudioReranker(BaseReranker):
         self,
         query: str,
         documents: Sequence[Document],
+        *,
+        top_k: int | None = None,
     ) -> list[Document]:
         """
         Clova Studio API를 호출하여 문서를 재정렬합니다.
@@ -672,11 +651,16 @@ class ClovaStudioReranker(BaseReranker):
         # Document 리스트로 변환
         reranked_docs = self._parse_response(response_data, documents)
 
+        # top_k 적용 (지정된 경우)
+        if top_k is not None and top_k > 0:
+            reranked_docs = reranked_docs[:top_k]
+
         logger.info(
             "문서 재정렬 완료",
             request_id=request_id,
             original_count=len(documents),
             reranked_count=len(reranked_docs),
+            top_k=top_k,
         )
 
         return reranked_docs
@@ -757,13 +741,18 @@ class ClovaStudioReranker(BaseReranker):
             raise RuntimeError(msg) from e
 
         # Document 리스트로 변환
-        reranked_docs = self._parse_response(response_data, documents, top_k)
+        reranked_docs = self._parse_response(response_data, documents)
+
+        # top_k 적용 (지정된 경우)
+        if top_k is not None and top_k > 0:
+            reranked_docs = reranked_docs[:top_k]
 
         logger.info(
             "비동기 문서 재정렬 완료",
             request_id=request_id,
             original_count=len(documents),
             reranked_count=len(reranked_docs),
+            top_k=top_k,
         )
 
         return reranked_docs

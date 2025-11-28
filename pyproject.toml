@@ -38,6 +38,7 @@ packages = ["naver_connect_chatbot"]
 dev = [
     "chonkie>=1.4.2",
     "langchain-text-splitters>=1.0.0",
+    "mypy>=1.18.2",
     "openpyxl>=3.1.5",
     "pre-commit>=4.4.0",
     "pymupdf4llm>=0.2.2",

@@ -7,6 +7,7 @@ RAG 컴포넌트를 위한 공유 유틸리티 모듈.
 - 문서/문자열 중복 제거
 - 점수 정규화 (softmax, min-max, z-score)
 - 문서 병합 전략
+- HTTP 재시도 로직
 """
 
 from __future__ import annotations
@@ -14,6 +15,7 @@ from __future__ import annotations
 from collections.abc import Callable, Hashable, Iterable, Iterator
 from typing import TypeVar
 
+import httpx
 import numpy as np
 from langchain_core.documents import Document
 
@@ -25,11 +27,46 @@ __all__ = [
     "min_max_normalize",
     "z_score_normalize",
     "merge_document_metadata",
+    "should_retry_http_error",
 ]
 
 # Type variables
 T = TypeVar("T")
 H = TypeVar("H", bound=Hashable)
+
+
+# ============================================================================
+# HTTP 재시도 유틸리티
+# ============================================================================
+
+
+def should_retry_http_error(exception: BaseException) -> bool:
+    """
+    HTTP 오류가 재시도 가능한지 판단합니다.
+
+    5xx 서버 오류만 재시도하고, 4xx 클라이언트 오류는 즉시 실패시킵니다.
+
+    매개변수:
+        exception: 발생한 예외
+
+    반환값:
+        재시도 가능 여부 (True: 재시도, False: 즉시 실패)
+
+    예시:
+        >>> import httpx
+        >>> from tenacity import retry, retry_if_exception
+        >>> from naver_connect_chatbot.rag.utils import should_retry_http_error
+        >>>
+        >>> @retry(retry=retry_if_exception(should_retry_http_error))
+        ... def call_api():
+        ...     # API 호출 로직
+        ...     pass
+    """
+    if isinstance(exception, httpx.HTTPStatusError):
+        # 5xx 서버 오류만 재시도
+        return 500 <= exception.response.status_code < 600
+    # httpx.TimeoutException, httpx.NetworkError 등은 재시도
+    return isinstance(exception, (httpx.TimeoutException, httpx.NetworkError))
 
 
 # ============================================================================

@@ -105,13 +105,12 @@ def process_all_slack_data(
 
 def main() -> None:
     """메인 함수."""
+    # PROJECT_ROOT 기준 상대 경로 사용
+    project_root = Path(__file__).parent.parent
+
     # 기본 경로 설정
-    input_dir = Path(
-        "/Users/jhj/Desktop/personal/naver_connect_chatbot/target_documents/qa_dataset_from_slack"
-    )
-    output_dir = Path(
-        "/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/slack_qa_processed"
-    )
+    input_dir = project_root / "original_documents" / "qa_dataset_from_slack"
+    output_dir = project_root / "document_chunks" / "slack_qa_processed"
 
     # 명령행 인자 처리
     exclude_bot = False

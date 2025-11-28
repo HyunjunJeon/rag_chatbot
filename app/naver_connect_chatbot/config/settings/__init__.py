@@ -8,8 +8,7 @@ Settings 패키지
 구조:
 - base.py: 공통 상수 (PROJECT_ROOT)
 - enums.py: Enum 타입 정의
-- clova.py: Clova X LLM/Embeddings 설정 (langchain_naver)
-- naver_cloud.py: Naver Cloud Reranker 설정
+- clova.py: Clova X LLM/Embeddings/Reranker/Segmentation/Summarization/RAG Reasoning 설정
 - vector_store.py: 벡터 저장소 설정
 - retriever.py: Retriever 관련 설정 (3개 클래스)
 - logging.py: 로깅 설정

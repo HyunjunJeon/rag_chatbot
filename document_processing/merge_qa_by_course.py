@@ -289,13 +289,12 @@ def generate_summary(stats: dict[str, int], output_dir: Path) -> None:
 
 def main() -> None:
     """메인 함수."""
+    # PROJECT_ROOT 기준 상대 경로 사용
+    project_root = Path(__file__).parent.parent
+
     # 경로 설정
-    processed_dir = Path(
-        "/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/slack_qa_processed"
-    )
-    output_dir = Path(
-        "/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/slack_qa_merged"
-    )
+    processed_dir = project_root / "document_chunks" / "slack_qa_processed"
+    output_dir = project_root / "document_chunks" / "slack_qa_merged"
 
     print("\n🚀 과정별 Q&A 병합 시작\n")
     print(f"입력: {processed_dir}")

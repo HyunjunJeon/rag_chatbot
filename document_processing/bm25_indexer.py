@@ -317,17 +317,20 @@ def main() -> None:
     import argparse
 
     parser = argparse.ArgumentParser(description="BM25 인덱스 생성")
+    # PROJECT_ROOT 기준 상대 경로 사용
+    project_root = Path(__file__).parent.parent
+
     parser.add_argument(
         "--input-dir",
         type=str,
-        default="/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/slack_qa_merged",
-        help="입력 디렉토리",
+        default=str(project_root / "document_chunks" / "slack_qa_merged"),
+        help="입력 디렉토리 (기본값: document_chunks/slack_qa_merged)",
     )
     parser.add_argument(
         "--output",
         type=str,
-        default="/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/bm25_index.pkl",
-        help="출력 파일",
+        default=str(project_root / "document_chunks" / "bm25_index.pkl"),
+        help="출력 파일 (기본값: document_chunks/bm25_index.pkl)",
     )
     parser.add_argument("--test", action="store_true", help="테스트 검색 수행")
 

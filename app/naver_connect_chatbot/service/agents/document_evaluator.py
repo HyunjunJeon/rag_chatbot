@@ -181,6 +181,8 @@ def evaluate_documents(
         >>> print(result.sufficient)
         True
     """
+    from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
+
     evaluator = create_document_evaluator(llm)
 
     # 평가에 사용할 문서를 포맷합니다.
@@ -199,82 +201,15 @@ def evaluate_documents(
         }
     )
 
-    # 에이전트 응답에서 ToolMessage를 찾아 DocumentEvaluation을 추출합니다.
-    try:
-        if isinstance(response, dict) and "messages" in response:
-            messages = response["messages"]
-            for msg in reversed(messages):
-                is_tool_msg = msg.__class__.__name__ == "ToolMessage" or (
-                    hasattr(msg, "type") and msg.type == "tool"
-                )
-
-                if is_tool_msg:
-                    tool_content = msg.content
-                    if isinstance(tool_content, DocumentEvaluation):
-                        logger.debug("Successfully extracted DocumentEvaluation from ToolMessage")
-                        return tool_content
-                    elif isinstance(tool_content, dict):
-                        logger.debug("Converting dict content to DocumentEvaluation")
-                        return DocumentEvaluation(**tool_content)
-                    elif isinstance(tool_content, str):
-                        try:
-                            logger.debug("Attempting to parse string content as DocumentEvaluation")
-                            import re
-                            import ast
-
-                            data = {}
-
-                            # 숫자 필드 추출
-                            for field in ["relevant_count", "irrelevant_count"]:
-                                match = re.search(rf"{field}=(\d+)", tool_content)
-                                if match:
-                                    data[field] = int(match.group(1))
-
-                            # confidence 추출
-                            conf_match = re.search(r"confidence=([\d.]+)", tool_content)
-                            if conf_match:
-                                data["confidence"] = float(conf_match.group(1))
-
-                            # sufficient 추출
-                            suff_match = re.search(r"sufficient=(True|False)", tool_content)
-                            if suff_match:
-                                data["sufficient"] = suff_match.group(1) == "True"
-
-                            # improvement_suggestions 추출
-                            sugg_match = re.search(
-                                r"improvement_suggestions=(\[.*?\](?=\s+\w+=|$))",
-                                tool_content,
-                                re.DOTALL,
-                            )
-                            if sugg_match:
-                                try:
-                                    data["improvement_suggestions"] = ast.literal_eval(
-                                        sugg_match.group(1)
-                                    )
-                                except Exception:
-                                    data["improvement_suggestions"] = []
-
-                            if data:
-                                logger.debug(
-                                    f"Successfully parsed DocumentEvaluation from string: {data}"
-                                )
-                                return DocumentEvaluation(**data)
-                        except Exception as e:
-                            logger.warning(f"Failed to parse string content: {e}")
-
-        if isinstance(response, DocumentEvaluation):
-            return response
-
-        logger.warning(f"Unable to extract DocumentEvaluation from response: {type(response)}")
-
-    except Exception as e:
-        logger.error(f"Error extracting DocumentEvaluation from response: {e}")
-
-    # 최종 폴백
-    return DocumentEvaluation(
-        relevant_count=len(documents),
-        irrelevant_count=0,
-        sufficient=len(documents) > 0,
-        confidence=0.5,
-        improvement_suggestions=["Unable to evaluate documents properly"],
+    # Use centralized response parser with fallback
+    return parse_agent_response(
+        response,
+        model_type=DocumentEvaluation,
+        fallback=DocumentEvaluation(
+            relevant_count=len(documents),
+            irrelevant_count=0,
+            sufficient=len(documents) > 0,
+            confidence=0.5,
+            improvement_suggestions=["Unable to evaluate documents properly"],
+        ),
     )

@@ -142,72 +142,18 @@ def classify_intent(question: str, llm: Runnable) -> IntentClassification:
         >>> print(result.intent)
         SIMPLE_QA
     """
+    from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
+
     classifier = create_intent_classifier(llm)
     response = classifier.invoke({"messages": [{"role": "user", "content": question}]})
 
-    # 에이전트 응답에서 ToolMessage를 찾아 IntentClassification을 추출합니다.
-    try:
-        if isinstance(response, dict) and "messages" in response:
-            messages = response["messages"]
-            for msg in reversed(messages):
-                is_tool_msg = msg.__class__.__name__ == "ToolMessage" or (
-                    hasattr(msg, "type") and msg.type == "tool"
-                )
-
-                if is_tool_msg:
-                    tool_content = msg.content
-                    if isinstance(tool_content, IntentClassification):
-                        logger.debug("Successfully extracted IntentClassification from ToolMessage")
-                        return tool_content
-                    elif isinstance(tool_content, dict):
-                        logger.debug("Converting dict content to IntentClassification")
-                        return IntentClassification(**tool_content)
-                    elif isinstance(tool_content, str):
-                        try:
-                            logger.debug(
-                                "Attempting to parse string content as IntentClassification"
-                            )
-                            import re
-
-                            data = {}
-
-                            # intent 추출
-                            intent_match = re.search(r"intent='?\"?([^'\"]+)'?\"?", tool_content)
-                            if intent_match:
-                                data["intent"] = intent_match.group(1)
-
-                            # confidence 추출
-                            conf_match = re.search(r"confidence=([\d.]+)", tool_content)
-                            if conf_match:
-                                data["confidence"] = float(conf_match.group(1))
-
-                            # reasoning 추출
-                            reasoning_match = re.search(
-                                r"reasoning='?\"?([^'\"]+(?:[^'\"]*[^'\"]+)?)'?\"?", tool_content
-                            )
-                            if reasoning_match:
-                                data["reasoning"] = reasoning_match.group(1)
-
-                            if data:
-                                logger.debug(
-                                    f"Successfully parsed IntentClassification from string: {data}"
-                                )
-                                return IntentClassification(**data)
-                        except Exception as e:
-                            logger.warning(f"Failed to parse string content: {e}")
-
-        # 직접 반환된 경우
-        if isinstance(response, IntentClassification):
-            return response
-
-        logger.warning(f"Unable to extract IntentClassification from response: {type(response)}")
-
-    except Exception as e:
-        logger.error(f"Error extracting IntentClassification from response: {e}")
-
-    # 최종 폴백
-    return IntentClassification(
-        intent="CLARIFICATION_NEEDED",
-        confidence=0.5,
-        reasoning="Unable to classify intent properly",
+    # Use centralized response parser with fallback
+    return parse_agent_response(
+        response,
+        model_type=IntentClassification,
+        fallback=IntentClassification(
+            intent="CLARIFICATION_NEEDED",
+            confidence=0.5,
+            reasoning="Unable to classify intent properly",
+        ),
     )

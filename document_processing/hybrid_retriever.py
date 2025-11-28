@@ -382,12 +382,15 @@ def main() -> None:
     print("🚀 Hybrid Retriever 테스트")
     print("=" * 80)
 
+    # PROJECT_ROOT 기준 상대 경로 사용
+    project_root = Path(__file__).parent.parent
+
     try:
         # Retriever 초기화
         retriever = HybridRetriever(
             qdrant_url="http://localhost:6333",
             collection_name="slack_qa",
-            bm25_index_path="/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/bm25_index.pkl",
+            bm25_index_path=str(project_root / "document_chunks" / "bm25_index.pkl"),
         )
 
         # 테스트 검색
@@ -450,7 +453,7 @@ def main() -> None:
             all_test_results["queries"].append(query_result)
 
         # JSON 파일로 저장
-        output_path = Path("/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/hybrid_search_results.json")
+        output_path = project_root / "document_chunks" / "hybrid_search_results.json"
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(all_test_results, f, indent=2, ensure_ascii=False)
 

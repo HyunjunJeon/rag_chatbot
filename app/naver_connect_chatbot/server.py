@@ -100,10 +100,58 @@ async def health():
     """
     헬스체크 엔드포인트
 
+    실제 컴포넌트 상태를 확인하여 반환합니다:
+    - agent: RAG 에이전트 초기화 상태
+    - qdrant: 벡터 DB 연결 상태 (선택적)
+
     반환값:
-        dict: 헬스체크 결과
+        dict: 헬스체크 결과 (status, checks, details)
     """
-    return {"status": "healthy"}
+    from naver_connect_chatbot.slack.handler import _agent_app, _agent_init_failed
+
+    checks = {}
+    details = {}
+    overall_healthy = True
+
+    # 1. Agent 상태 확인
+    if _agent_init_failed:
+        checks["agent"] = "failed"
+        details["agent"] = "Agent 초기화 실패. 서버 재시작 필요."
+        overall_healthy = False
+    elif _agent_app is not None:
+        checks["agent"] = "ready"
+    else:
+        checks["agent"] = "not_initialized"
+        details["agent"] = "아직 초기화되지 않음 (첫 요청 시 초기화)"
+
+    # 2. Qdrant 연결 확인 (선택적 - 비용 절감을 위해 비활성화 가능)
+    try:
+        from qdrant_client import QdrantClient
+
+        qdrant_url = settings.qdrant_vector_store.url
+        qdrant_api_key = (
+            settings.qdrant_vector_store.api_key.get_secret_value()
+            if settings.qdrant_vector_store.api_key
+            else None
+        )
+        client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key, timeout=5.0)
+        collections = client.get_collections()
+        checks["qdrant"] = "connected"
+        details["qdrant"] = f"{len(collections.collections)}개 컬렉션"
+    except Exception as e:
+        checks["qdrant"] = "unreachable"
+        details["qdrant"] = str(e)
+        # Qdrant 연결 실패는 warning으로 처리 (agent가 실패하지 않았다면)
+        if overall_healthy:
+            overall_healthy = False
+
+    status = "healthy" if overall_healthy else "unhealthy"
+
+    return {
+        "status": status,
+        "checks": checks,
+        "details": details if details else None,
+    }
 
 
 @api.post("/slack/events")

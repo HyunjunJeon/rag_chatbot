@@ -438,12 +438,15 @@ def main() -> None:
     """메인 함수."""
     import argparse
 
+    # PROJECT_ROOT 기준 상대 경로 사용
+    project_root = Path(__file__).parent.parent
+
     parser = argparse.ArgumentParser(description="Slack Q&A를 VectorDB에 저장")
     parser.add_argument(
         "--input-dir",
         type=str,
-        default="/Users/jhj/Desktop/personal/naver_connect_chatbot/document_chunks/slack_qa_merged",
-        help="입력 디렉토리",
+        default=str(project_root / "document_chunks" / "slack_qa_merged"),
+        help="입력 디렉토리 (기본값: document_chunks/slack_qa_merged)",
     )
     parser.add_argument("--qdrant-url", type=str, default="http://localhost:6333", help="Qdrant URL")
     parser.add_argument(
