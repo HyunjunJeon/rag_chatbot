@@ -311,7 +311,7 @@ for expected_type, query in test_cases.items():
 
 ## 6. 설정 및 코드 업데이트 (필수)
 
-### 6.1 Step 6: Retriever 설정 업데이트
+### 6.1 Retriever 설정 업데이트
 
 `config/settings/retriever.py`의 `bm25_index_path` 기본값을 변경합니다.
 
@@ -326,7 +326,7 @@ class RetrieverSettings(BaseSettings):
     )
 ```
 
-### 6.2 Step 7: Server 자동 복구 로직 업데이트
+### 6.2 Server 자동 복구 로직 업데이트
 
 `server.py`의 `lifespan` 함수에서 실행하는 스크립트 경로를 변경합니다.
 
@@ -348,7 +348,7 @@ class RetrieverSettings(BaseSettings):
 ## 7. 리스크 및 대응
 
 
-### 6.1 잠재적 위험
+### 잠재적 위험
 
 | 위험 | 영향 | 대응 |
 |------|------|------|
@@ -356,15 +356,15 @@ class RetrieverSettings(BaseSettings):
 | 메모리 사용량 | OOM 가능 | batch 단위 scroll, `with_vectors=False` |
 | 빈 content 문서 | 검색 품질 저하 | content 필터링 추가 |
 
-### 6.2 롤백 계획
+### 롤백 계획
 
 실패 시 기존 인덱스로 롤백 불가 (삭제됨). 대신:
 1. Qdrant 데이터는 그대로 유지되므로 언제든 재생성 가능
 2. 문제 발생 시 이 문서의 Step 2-4 재실행
 
-## 7. 후속 작업
+## 후속 작업
 
-### 7.1 필수
+### 필수
 - [ ] 테스트 파일 경로 업데이트 (`tests/test_adaptive_rag_integration.py`)
 - [ ] 통합 테스트 실행
 
