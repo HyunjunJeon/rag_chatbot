@@ -340,10 +340,10 @@ def build_dense_sparse_hybrid_from_saved(
         >>> embeddings = OpenRouterEmbeddings(model="qwen/qwen3-embedding-4b")
         >>>
         >>> retriever = build_dense_sparse_hybrid_from_saved(
-        ...     bm25_index_path="sparse_index/kiwi_bm25_slack_qa",
+        ...     bm25_index_path="sparse_index/unified_bm25",
         ...     embedding_model=embeddings,
         ...     qdrant_url="http://localhost:6333",
-        ...     collection_name="slack_qa",
+        ...     collection_name="naver_connect_docs",
         ...     weights=[0.5, 0.5],  # Sparse 50%, Dense 50%
         ...     k=10,
         ... )
@@ -369,7 +369,7 @@ def build_dense_sparse_hybrid_from_saved(
     if not bm25_path.exists():
         raise FileNotFoundError(
             f"BM25 인덱스 디렉토리를 찾을 수 없습니다: {bm25_path}\n"
-            f"document_processing/rebuild_bm25_for_chatbot.py를 실행하여 인덱스를 생성하세요."
+            f"document_processing/rebuild_unified_bm25.py를 실행하여 인덱스를 생성하세요."
         )
 
     # KiwiBM25Retriever.load()로 저장된 인덱스 로드

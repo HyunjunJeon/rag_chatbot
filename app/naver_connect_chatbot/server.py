@@ -9,6 +9,8 @@ Slack Events API 엔드포인트와 헬스체크 엔드포인트를 포함합니
     - https://api.slack.com/apis/connections/events-api
 """
 
+import subprocess
+import sys
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -16,6 +18,7 @@ from slack_bolt.adapter.fastapi.async_handler import AsyncSlackRequestHandler
 
 from naver_connect_chatbot.config.log import get_logger
 from naver_connect_chatbot.config.settings.main import settings
+from naver_connect_chatbot.config.settings.base import PROJECT_ROOT
 from naver_connect_chatbot.slack import app as slack_app
 
 # Logging setup
@@ -38,6 +41,28 @@ async def lifespan(app: FastAPI):
     logger.info(f"포트: {settings.slack.port}")
     logger.info(f"로그 레벨: {settings.logging.level}")
     logger.info("=" * 80)
+
+    # BM25 인덱스 자동 복구
+    bm25_index_path = PROJECT_ROOT / settings.retriever.bm25_index_path
+    if not bm25_index_path.exists():
+        logger.warning(f"BM25 인덱스가 없습니다: {bm25_index_path}")
+        logger.info("BM25 통합 인덱스 재생성을 시도합니다...")
+        try:
+            subprocess.run(
+                [sys.executable, "document_processing/rebuild_unified_bm25.py"],
+                cwd=PROJECT_ROOT,
+                check=True,
+                capture_output=False,
+            )
+            logger.info("BM25 통합 인덱스 재생성 완료")
+        except subprocess.CalledProcessError as e:
+            logger.error(f"BM25 인덱스 재생성 실패: {e}")
+            logger.warning("Qdrant Dense 검색만 사용합니다.")
+        except FileNotFoundError:
+            logger.error("rebuild_unified_bm25.py 스크립트를 찾을 수 없습니다.")
+            logger.warning("Qdrant Dense 검색만 사용합니다.")
+    else:
+        logger.info(f"BM25 인덱스 확인: {bm25_index_path}")
 
     yield
 

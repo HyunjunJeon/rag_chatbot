@@ -6,16 +6,11 @@ PyMuPDF4LLM을 사용하여 PDF를 마크다운 형식으로 변환하고,
 """
 
 import re
-import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-# 프로젝트 루트 추가
-PROJECT_ROOT = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(PROJECT_ROOT / "document_processing"))
-
-from base import parse_pdf
+from .base import parse_pdf
 
 
 @dataclass

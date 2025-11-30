@@ -76,7 +76,7 @@ def get_agent_app():
         logger.warning(
             f"BM25 인덱스를 찾을 수 없습니다: {bm25_index_path}. "
             "Qdrant Dense 검색만 사용합니다. "
-            "Sparse 검색을 활성화하려면 document_processing/rebuild_bm25_for_chatbot.py를 실행하세요."
+            "Sparse 검색을 활성화하려면 document_processing/rebuild_unified_bm25.py를 실행하세요."
         )
         retriever = get_hybrid_retriever(
             documents=[],  # 빈 BM25 (Qdrant만 사용)

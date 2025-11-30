@@ -41,9 +41,9 @@ def hybrid_retriever(embeddings):
     from naver_connect_chatbot.rag.retriever_factory import build_dense_sparse_hybrid_from_saved
     from naver_connect_chatbot.rag.retriever.hybrid_retriever import HybridMethod
     
-    bm25_path = PROJECT_ROOT / "sparse_index" / "kiwi_bm25_slack_qa"
+    bm25_path = PROJECT_ROOT / "sparse_index" / "unified_bm25"
     qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
-    collection_name = os.getenv("QDRANT_COLLECTION_NAME", "slack_qa")
+    collection_name = os.getenv("QDRANT_COLLECTION_NAME", "naver_connect_docs")
     
     return build_dense_sparse_hybrid_from_saved(
         bm25_index_path=str(bm25_path),
