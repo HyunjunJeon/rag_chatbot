@@ -82,3 +82,53 @@ class TestEvaluationInput:
         )
         result = input_data.to_prompt_format()
         assert "## 답변들" in result
+
+
+class TestExtractForEvaluation:
+    """extract_for_evaluation 함수 테스트."""
+
+    def test_extract_from_qa_pair(self):
+        """표준 Q&A 쌍에서 추출."""
+        qa_pair = {
+            "question": {
+                "text": "PyTorch에서 GPU 사용법은?",
+                "user": "U123",
+                "timestamp": "1699123456.789",
+                "is_bot": False,
+                "metadata": {"reactions": []},
+            },
+            "answers": [
+                {
+                    "text": "torch.cuda.is_available()로 확인하세요.",
+                    "user": "U456",
+                    "timestamp": "1699123457.000",
+                },
+                {
+                    "text": "model.to('cuda')로 이동합니다.",
+                    "user": "U789",
+                    "timestamp": "1699123458.000",
+                },
+            ],
+        }
+
+        result = extract_for_evaluation(qa_pair, source_file="test.json")
+
+        assert result.question == "PyTorch에서 GPU 사용법은?"
+        assert len(result.answers) == 2
+        assert result.original_id == "1699123456.789"
+        assert result.source_file == "test.json"
+
+    def test_extract_filters_empty_answers(self):
+        """빈 텍스트 답변 필터링."""
+        qa_pair = {
+            "question": {"text": "Question?", "timestamp": "123"},
+            "answers": [
+                {"text": "Valid answer"},
+                {"text": "   "},  # 공백만
+                {"text": ""},  # 빈 문자열
+            ],
+        }
+
+        result = extract_for_evaluation(qa_pair)
+        assert len(result.answers) == 1
+        assert result.answers[0] == "Valid answer"

@@ -79,3 +79,36 @@ class EvaluationInput:
 
 ## 답변들
 {answers_formatted}"""
+
+
+def extract_for_evaluation(
+    qa_pair: dict,
+    source_file: str = "",
+) -> EvaluationInput:
+    """
+    원본 QA 데이터에서 평가에 필요한 부분만 추출.
+
+    Args:
+        qa_pair: 원본 Q&A 쌍 딕셔너리
+        source_file: 원본 파일명
+
+    Returns:
+        EvaluationInput: 평가용 입력 데이터
+    """
+    question_data = qa_pair.get("question", {})
+    question_text = question_data.get("text", "").strip()
+    original_id = question_data.get("timestamp", "")
+
+    answers_data = qa_pair.get("answers", [])
+    answer_texts = [
+        answer.get("text", "").strip()
+        for answer in answers_data
+        if answer.get("text", "").strip()
+    ]
+
+    return EvaluationInput(
+        question=question_text,
+        answers=answer_texts,
+        original_id=original_id,
+        source_file=source_file,
+    )
