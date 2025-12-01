@@ -35,10 +35,10 @@ class TestQualityEvaluator:
 
 
 class TestEmitQualityEvaluation:
-    """emit_quality_evaluation Tool 함수 테스트."""
+    """emit_quality_evaluation 함수 테스트."""
 
     def test_emit_creates_valid_model(self):
-        """Tool 함수가 QualityEvaluation 모델 생성."""
+        """함수가 QualityEvaluation 모델 생성."""
         result = emit_quality_evaluation(
             completeness_score=4,
             completeness_reasoning="Complete answer",
@@ -70,34 +70,47 @@ class TestQualityEvaluatorEvaluate:
     async def test_evaluate_returns_quality_evaluation(self, sample_input):
         """evaluate가 QualityEvaluation을 반환."""
         mock_llm = MagicMock()
-        mock_agent = MagicMock()
+        mock_chain = MagicMock()
 
-        mock_result = QualityEvaluation(
-            completeness=DimensionScore(score=4, reasoning="Good"),
-            context_independence=DimensionScore(score=3, reasoning="OK"),
-            technical_accuracy=DimensionScore(score=5, reasoning="Accurate"),
-            overall_quality="high",
-        )
-        mock_agent.ainvoke = AsyncMock(return_value={"messages": []})
+        # Chain은 이제 JSON 문자열을 반환
+        mock_json_response = '''{
+            "completeness": {"score": 4, "reasoning": "Good"},
+            "context_independence": {"score": 3, "reasoning": "OK"},
+            "technical_accuracy": {"score": 5, "reasoning": "Accurate"},
+            "overall_quality": "high"
+        }'''
+        mock_chain.ainvoke = AsyncMock(return_value=mock_json_response)
 
-        with patch("document_processing.slack_qa.quality_evaluator.create_agent", return_value=mock_agent):
-            with patch("document_processing.slack_qa.quality_evaluator.parse_agent_response", return_value=mock_result):
-                evaluator = QualityEvaluator(llm=mock_llm)
-                result = await evaluator.evaluate(sample_input)
+        with patch("document_processing.slack_qa.quality_evaluator._create_evaluation_chain", return_value=mock_chain):
+            evaluator = QualityEvaluator(llm=mock_llm)
+            result = await evaluator.evaluate(sample_input)
 
-                assert isinstance(result, QualityEvaluation)
-                assert result.overall_quality == "high"
+            assert isinstance(result, QualityEvaluation)
+            assert result.overall_quality == "high"
 
     async def test_evaluate_uses_fallback_on_error(self, sample_input):
         """오류 발생 시 fallback 사용."""
         mock_llm = MagicMock()
-        mock_agent = MagicMock()
-        mock_agent.ainvoke = AsyncMock(side_effect=Exception("API Error"))
+        mock_chain = MagicMock()
+        mock_chain.ainvoke = AsyncMock(side_effect=Exception("API Error"))
 
-        with patch("document_processing.slack_qa.quality_evaluator.create_agent", return_value=mock_agent):
+        with patch("document_processing.slack_qa.quality_evaluator._create_evaluation_chain", return_value=mock_chain):
             evaluator = QualityEvaluator(llm=mock_llm)
             result = await evaluator.evaluate(sample_input)
 
             # 기본 fallback 반환
+            assert isinstance(result, QualityEvaluation)
+            assert result.overall_quality == "remove"
+
+    async def test_evaluate_uses_fallback_on_invalid_json(self, sample_input):
+        """잘못된 JSON 반환 시 fallback 사용."""
+        mock_llm = MagicMock()
+        mock_chain = MagicMock()
+        mock_chain.ainvoke = AsyncMock(return_value="This is not valid JSON")
+
+        with patch("document_processing.slack_qa.quality_evaluator._create_evaluation_chain", return_value=mock_chain):
+            evaluator = QualityEvaluator(llm=mock_llm)
+            result = await evaluator.evaluate(sample_input)
+
             assert isinstance(result, QualityEvaluation)
             assert result.overall_quality == "remove"

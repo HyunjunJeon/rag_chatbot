@@ -1,71 +1,80 @@
 """
 LLM 기반 Q&A 품질 평가기.
 
-Clova X HCX-007 모델과 Tool 기반 structured output을 사용합니다.
-프로젝트의 표준 패턴(create_agent, parse_agent_response)을 따릅니다.
+Clova X HCX-007 모델을 사용합니다.
+프롬프트 기반 JSON 응답을 파싱하는 방식으로 동작합니다.
 """
 
-from typing import Literal
+import asyncio
+import json
 
 from langchain_core.runnables import Runnable
-from langchain_core.tools import StructuredTool
-from langchain.agents import create_agent
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
 from naver_connect_chatbot.config import get_chat_model, logger
-from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
 
 from .quality_schemas import EvaluationInput, QualityEvaluation, DimensionScore
 
-SYSTEM_PROMPT = '''# 역할
-당신은 교육용 Q&A 데이터의 품질을 평가하는 전문가입니다.
-네이버 부스트캠프 AI 교육 과정의 Slack Q&A 데이터를 평가합니다.
+SYSTEM_PROMPT = """# Role
+You are an expert evaluator for educational Q&A data quality.
+Evaluate Slack Q&A data from Naver Boostcamp AI training course.
 
-# 평가 목적
-RAG 시스템에서 사용할 고품질 Q&A를 선별합니다.
-좋은 Q&A: 비슷한 질문을 하는 학생에게 유용한 답변을 제공할 수 있어야 합니다.
+# Purpose
+Select high-quality Q&A pairs for RAG system.
+Good Q&A: Should provide useful answers to students with similar questions.
 
-# 평가 기준 (3가지)
+# Evaluation Criteria (3 dimensions)
 
-## 1. 답변 완전성 (completeness)
-| 점수 | 기준 |
-|-----|------|
-| 5 | 모든 부분에 완벽히 답변 + 추가 유용한 정보 |
-| 4 | 모든 부분에 충분히 답변 |
-| 3 | 핵심에는 답변, 일부 세부사항 누락 |
-| 2 | 부분적으로만 답변, 중요 내용 누락 |
-| 1 | 거의 답변 없거나 질문과 무관 |
+## 1. completeness
+| Score | Criteria |
+|-------|----------|
+| 5 | Perfect answer + useful extra info |
+| 4 | Fully answers all parts |
+| 3 | Answers core, some details missing |
+| 2 | Partial answer, important parts missing |
+| 1 | No real answer or irrelevant |
 
-## 2. 맥락 독립성 (context_independence)
-| 점수 | 기준 |
-|-----|------|
-| 5 | 완전히 독립적, 배경 설명 포함 |
-| 4 | 대부분 이해 가능 |
-| 3 | 일부 외부 맥락 필요 |
-| 2 | 상당한 외부 맥락 필요 ("그거", "아까") |
-| 1 | 맥락 없이 이해 불가 |
+## 2. context_independence
+| Score | Criteria |
+|-------|----------|
+| 5 | Fully standalone with background |
+| 4 | Mostly understandable |
+| 3 | Some external context needed |
+| 2 | Significant context needed ("that", "earlier") |
+| 1 | Cannot understand without context |
 
-## 3. 기술적 정확성 (technical_accuracy)
-| 점수 | 기준 |
-|-----|------|
-| 5 | 완벽히 정확 + 모범 사례 |
-| 4 | 정확함, 작동하는 솔루션 |
-| 3 | 대체로 정확, 사소한 오류 가능 |
-| 2 | 부분적으로 부정확 |
-| 1 | 심각하게 부정확 |
+## 3. technical_accuracy
+| Score | Criteria |
+|-------|----------|
+| 5 | Perfectly accurate + best practices |
+| 4 | Accurate, working solution |
+| 3 | Mostly accurate, minor errors possible |
+| 2 | Partially inaccurate |
+| 1 | Seriously inaccurate |
 
-# 종합 등급 (overall_quality)
-- high: 평균 ≥ 4.0 AND 최저점 ≥ 3
-- medium: 평균 ≥ 3.0 AND 최저점 ≥ 2
-- low: 평균 ≥ 2.0 OR 최저점=1이지만 가치 있음
-- remove: 평균 < 2.0 OR 2개 이상 차원이 1점
+# overall_quality
+- high: avg >= 4.0 AND min >= 3
+- medium: avg >= 3.0 AND min >= 2
+- low: avg >= 2.0 OR min=1 but valuable
+- remove: avg < 2.0 OR 2+ dimensions scored 1
 
-# 중요
-1. 엄격하게 평가하세요
-2. reasoning은 구체적으로 (1-2문장)
-3. 한국어 비격식체는 감점 아님
+# Important
+1. Be strict
+2. reasoning: MAX 5 words in English
+3. Korean informal style is NOT a penalty
 
-IMPORTANT: 평가 완료 후 반드시 emit_quality_evaluation 도구를 호출하세요.
-'''
+# Output Format
+Respond with ONLY valid JSON. No other text.
+reasoning must be MAX 5 words:
+```json
+{{
+  "completeness": {{"score": 3, "reasoning": "core answer only"}},
+  "context_independence": {{"score": 4, "reasoning": "mostly clear"}},
+  "technical_accuracy": {{"score": 5, "reasoning": "accurate"}},
+  "overall_quality": "high"
+}}
+```"""
 
 
 def emit_quality_evaluation(
@@ -75,14 +84,11 @@ def emit_quality_evaluation(
     context_independence_reasoning: str,
     technical_accuracy_score: int,
     technical_accuracy_reasoning: str,
-    overall_quality: Literal["high", "medium", "low", "remove"],
+    overall_quality: str,
     improvement_suggestion: str | None = None,
 ) -> QualityEvaluation:
     """
     Q&A 품질 평가 결과를 구조화된 형식으로 반환합니다.
-
-    이 도구는 Q&A 평가 완료 후 반드시 호출해야 합니다.
-    모든 파라미터를 정확히 채워서 호출하세요.
 
     Args:
         completeness_score: 답변 완전성 점수 (1-5)
@@ -110,34 +116,64 @@ def emit_quality_evaluation(
             score=technical_accuracy_score,
             reasoning=technical_accuracy_reasoning,
         ),
-        overall_quality=overall_quality,
+        overall_quality=overall_quality,  # type: ignore
         improvement_suggestion=improvement_suggestion,
     )
 
 
-def _create_evaluation_agent(llm: Runnable) -> Runnable:
-    """품질 평가 Agent 생성."""
-    emit_tool = StructuredTool.from_function(
-        func=emit_quality_evaluation,
-        name="emit_quality_evaluation",
-        description="Q&A 품질 평가 결과를 구조화된 형식으로 반환",
-    )
+def _parse_json_response(response: str) -> dict | None:
+    """LLM 응답에서 JSON 추출."""
+    # JSON 블록 추출 시도
+    if "```json" in response:
+        start = response.find("```json") + 7
+        end = response.find("```", start)
+        if end > start:
+            response = response[start:end].strip()
+    elif "```" in response:
+        start = response.find("```") + 3
+        end = response.find("```", start)
+        if end > start:
+            response = response[start:end].strip()
 
-    agent = create_agent(
-        model=llm,
-        tools=[emit_tool],
-        system_prompt=SYSTEM_PROMPT,
-        name="qa_quality_evaluator",
-    )
+    # JSON 파싱
+    try:
+        data = json.loads(response)
+    except json.JSONDecodeError:
+        # 중괄호로 시작하는 부분 찾기
+        start = response.find("{")
+        end = response.rfind("}") + 1
+        if start >= 0 and end > start:
+            try:
+                data = json.loads(response[start:end])
+            except json.JSONDecodeError:
+                return None
+        else:
+            return None
 
-    return agent
+    # score 값을 정수로 변환 (LLM이 소수점을 반환할 수 있음)
+    for key in ["completeness", "context_independence", "technical_accuracy"]:
+        if key in data and isinstance(data[key], dict) and "score" in data[key]:
+            data[key]["score"] = int(round(data[key]["score"]))
+
+    return data
+
+
+def _create_evaluation_chain(llm: Runnable) -> Runnable:
+    """품질 평가 Chain 생성 (프롬프트 기반 JSON 응답)."""
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", SYSTEM_PROMPT),
+        ("human", "다음 Q&A를 평가해주세요.\n\n{qa_content}"),
+    ])
+
+    # Clova X는 structured output을 지원하지 않으므로 문자열로 받아서 파싱
+    return prompt | llm | StrOutputParser()
 
 
 class QualityEvaluator:
     """
     LLM 기반 Q&A 품질 평가기.
 
-    Clova X HCX-007 모델을 사용하며, Tool 기반 structured output 패턴을 따릅니다.
+    Clova X HCX-007 모델을 사용하며, with_structured_output 패턴을 따릅니다.
 
     사용 예시:
         evaluator = QualityEvaluator()
@@ -145,11 +181,11 @@ class QualityEvaluator:
     """
 
     DEFAULT_FALLBACK = QualityEvaluation(
-        completeness=DimensionScore(score=1, reasoning="평가 실패"),
-        context_independence=DimensionScore(score=1, reasoning="평가 실패"),
-        technical_accuracy=DimensionScore(score=1, reasoning="평가 실패"),
+        completeness=DimensionScore(score=1, reasoning="eval failed"),
+        context_independence=DimensionScore(score=1, reasoning="eval failed"),
+        technical_accuracy=DimensionScore(score=1, reasoning="eval failed"),
         overall_quality="remove",
-        improvement_suggestion="LLM 평가 중 오류 발생",
+        improvement_suggestion="LLM evaluation error",
     )
 
     def __init__(
@@ -165,31 +201,35 @@ class QualityEvaluator:
             temperature: 생성 온도 (일관성을 위해 0 권장)
         """
         if llm is None:
-            self.llm = get_chat_model(temperature=temperature)
+            # max_tokens를 충분히 설정하여 JSON 응답이 잘리지 않도록 함
+            # 한국어는 영어보다 더 많은 토큰을 사용하므로 2000으로 넉넉히 설정
+            self.llm = get_chat_model(temperature=temperature, max_tokens=4000)
         else:
             self.llm = llm
 
-        self._agent = None
+        self._chain = None
         logger.info("QualityEvaluator initialized")
 
     @property
-    def agent(self) -> Runnable:
-        """평가 Agent (lazy initialization)."""
-        if self._agent is None:
-            self._agent = _create_evaluation_agent(self.llm)
-        return self._agent
+    def chain(self) -> Runnable:
+        """평가 Chain (lazy initialization)."""
+        if self._chain is None:
+            self._chain = _create_evaluation_chain(self.llm)
+        return self._chain
 
     async def evaluate(
         self,
         input_data: EvaluationInput,
         fallback: QualityEvaluation | None = None,
+        max_retries: int = 3,
     ) -> QualityEvaluation:
         """
-        단일 Q&A 쌍 평가.
+        단일 Q&A 쌍 평가 (빈 응답 시 자동 재시도).
 
         Args:
             input_data: 평가할 Q&A 입력
             fallback: 평가 실패 시 반환할 기본값 (None이면 DEFAULT_FALLBACK)
+            max_retries: 빈 응답 시 최대 재시도 횟수 (기본 3)
 
         Returns:
             QualityEvaluation: 평가 결과
@@ -197,28 +237,45 @@ class QualityEvaluator:
         if fallback is None:
             fallback = self.DEFAULT_FALLBACK
 
-        try:
-            qa_content = input_data.to_prompt_format()
-            user_message = f"다음 Q&A를 평가해주세요.\n\n{qa_content}"
+        qa_content = input_data.to_prompt_format()
 
-            response = await self.agent.ainvoke({
-                "messages": [{"role": "user", "content": user_message}]
-            })
+        for attempt in range(max_retries):
+            try:
+                response = await self.chain.ainvoke({"qa_content": qa_content})
 
-            result = parse_agent_response(
-                response,
-                QualityEvaluation,
-                fallback=fallback,
-            )
+                # 문자열 응답에서 JSON 파싱
+                parsed = _parse_json_response(response)
 
-            logger.debug(
-                f"Evaluated Q&A {input_data.original_id}: {result.overall_quality}"
-            )
-            return result
+                if parsed is not None:
+                    # QualityEvaluation 모델로 변환
+                    result = QualityEvaluation.model_validate(parsed)
+                    logger.debug(f"Evaluated Q&A {input_data.original_id}: {result.overall_quality}")
+                    return result
 
-        except Exception as e:
-            logger.error(f"Evaluation failed for {input_data.original_id}: {e}")
-            return fallback
+                # 파싱 실패 - 재시도 또는 fallback
+                if attempt < max_retries - 1:
+                    wait_time = 2.0 * (attempt + 1)
+                    logger.warning(
+                        f"Empty/invalid response for {input_data.original_id}, "
+                        f"retry {attempt + 1}/{max_retries} in {wait_time}s"
+                    )
+                    await asyncio.sleep(wait_time)
+                else:
+                    logger.warning(
+                        f"Failed to parse JSON after {max_retries} attempts: {response if response else '(empty)'}"
+                    )
+
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    wait_time = 2.0 * (attempt + 1)
+                    logger.warning(
+                        f"Error for {input_data.original_id}: {e}, retry {attempt + 1}/{max_retries} in {wait_time}s"
+                    )
+                    await asyncio.sleep(wait_time)
+                else:
+                    logger.error(f"Evaluation failed for {input_data.original_id} after {max_retries} attempts: {e}")
+
+        return fallback
 
     def evaluate_sync(
         self,
@@ -240,17 +297,16 @@ class QualityEvaluator:
 
         try:
             qa_content = input_data.to_prompt_format()
-            user_message = f"다음 Q&A를 평가해주세요.\n\n{qa_content}"
 
-            response = self.agent.invoke({
-                "messages": [{"role": "user", "content": user_message}]
-            })
+            response = self.chain.invoke({"qa_content": qa_content})
 
-            return parse_agent_response(
-                response,
-                QualityEvaluation,
-                fallback=fallback,
-            )
+            # 문자열 응답에서 JSON 파싱
+            parsed = _parse_json_response(response)
+            if parsed is None:
+                logger.warning(f"Failed to parse JSON from response: {response}")
+                return fallback
+
+            return QualityEvaluation.model_validate(parsed)
 
         except Exception as e:
             logger.error(f"Sync evaluation failed: {e}")

@@ -1,0 +1,1608 @@
+{
+  "course": "level3_model_optimization",
+  "metadata": {
+    "total_qa_pairs": 18,
+    "generations": [
+      "2"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "2": 18
+      }
+    },
+    "date_range": {
+      "start": "2021-11-22",
+      "end": "2021-12-05"
+    },
+    "source_files": {
+      "count": 10,
+      "files": [
+        {
+          "generation": "2",
+          "filename": "2021-11-22_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-23_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-24_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-25_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-29_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-30_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-12-01_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-12-02_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-12-03_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-12-05_qa.json",
+          "qa_count": 1
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 8,
+      "medium": 3,
+      "low": 4,
+      "remove": 3,
+      "error": 0
+    },
+    "original_count": 18,
+    "filtered_count": 15
+  },
+  "qa_pairs": [
+    {
+      "generation": "2",
+      "date": "2021-11-22",
+      "source_file": "2021-11-22_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n오늘 :seedling:1차 모델최적화 오피스아워:seedling:가 *(11/22 월요일) 18:00 ~ 19:30*에 진행됩니다.\n*신종선 멘토님*께서 *&lt;Baseline 코드에 모듈 작성하기&gt;*에 대해 설명해주실 예정입니다! 대회 첫 날 진행되는 오피스아워인만큼 대회에 도움이 되는 내용이 가득할테니 늦지 않게 들어와주세요!\n&gt; <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|모델 최적화 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1637569801.040200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 캠퍼 여러분! 어제 진행된 오피스아워 진행자료 공유 드립니다 :slightly_smiling_face:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1637630329.052800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02A20H4QRF",
+                  "U028ZQU4N07",
+                  "U02A7MXP5A4"
+                ],
+                "count": 3
+              },
+              {
+                "name": "grinning",
+                "users": [
+                  "U029CBN352B"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029TD91F09"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 1,
+          "reasoning": "핵심 질문 누락"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "맥락 필수"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "시간 오류 제외 정확"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-22",
+      "source_file": "2021-11-22_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "<@U029F5F344T> 넵, 지훈님! 권한드립니다~ 오늘 오후 4시경까지 부여해드릴 예정입니다 :)",
+        "user": "U027SHXU18R",
+        "user_name": "hj1.hwang",
+        "timestamp": "1637629609.052600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U027SHXU18R> 감사합니다~",
+          "user": "U029F5F344T",
+          "user_name": "허지훈",
+          "timestamp": "1637631222.053600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029F5F344T> 권한 부여 완료했습니다. 확인 부탁드려요 :slightly_smiling_face:",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1637649976.055500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029F5F344T"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "기본적 답변만 있음"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "정보 부족으로 상세 검증 어려움"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-23",
+      "source_file": "2021-11-23_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "안녕하세요. special mission 관해서 질문이 있습니다.\n이번 special mission은 from scratch로 구현하는 건가요??\nfrom scratch로 구현해서 같이 올려주신 solution에 가깝게 작성해야 할지, 아니면 제시된 solution을 수정하여 해결해야 할지 잘 모르겠어서 질문드립니다!",
+        "user": "U029UHZ6AHY",
+        "user_name": "백인혁_T2101",
+        "timestamp": "1637687580.060100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029BP86UBX",
+                "U028ZAA1X1V",
+                "U029AHPA1GX",
+                "U028ZQU4N07"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 인혁님! special mission 1~3에 대해서 질문 주신게 맞을까요?\n\nfrom scratch로 구현하는 것을 의도한 것이 맞습니다.\n하지만, 직접 구현하려면 mission이 꽤 어렵다는 점도 인지하고 있어서 제공되는 solution을 참고하시는 것도 방법일 듯 합니다.\n\n최종 프로젝트와 병행하시다보니 일정이 꽤 빠듯할 듯 합니다. 부담 느끼시지 않는 선에서 구현해보시면 좋을 것 같아요!",
+          "user": "U02920P3X38",
+          "user_name": "임동욱_멘토",
+          "timestamp": "1637721848.064600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U028323UHE2",
+                  "U029UHZ6AHY"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920P3X38> 네 감사합니다 멘토님!",
+          "user": "U029UHZ6AHY",
+          "user_name": "백인혁_T2101",
+          "timestamp": "1637722525.065000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U02920P3X38"
+                ],
+                "count": 1
+              },
+              {
+                "name": "shark",
+                "users": [
+                  "U02920P3X38"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "모든 질문 요소 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "충분한 배경 설명"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보 전달"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-23",
+      "source_file": "2021-11-23_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "서버를 제출하고 평가할 때 submit time 평가에 사용되는 GPU도 v100 인건가요?\n아니면 스펙이 더 제한된 GPU인가요?",
+        "user": "U029B96RRJA",
+        "user_name": "이경민",
+        "timestamp": "1637718359.063700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 채점용 서버가 따로 있습니다. 참고로 스펙은 당연히 V100 보다는 낮습니다. :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1637718643.063800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1637718715.064100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 5,
+          "reasoning": "질문에 대한 모든 부분 답변 및 추가 정보 제공"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "문맥 없이도 대체로 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "정확한 정보이나 세부 설명 부족"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-23",
+      "source_file": "2021-11-23_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "MBConvGenerator에서 코드에서\ncall 함수를 볼때 args[1]이 out_channel에 관한 인자인 것 같은데\noutput_channel에서 args[0]가 아니라 args[1]을 사용해야 할 것 같습니다",
+        "user": "U029B96RRJA",
+        "user_name": null,
+        "timestamp": "1637736623.069300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029B96RRJA",
+            "ts": "1637736736.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029DG66W9L",
+                "U0290GAJGG7",
+                "U029T4XRUCR",
+                "U029UHZ6AHY",
+                "U029X5PRTJ5"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 경민님, 말씀해주신 대로 args[1]을 사용하는게 맞습니다. call 함수에 적힌 주석이 잘못된 것 같은데, self.args 는 expand_ratio, out_channel, stride, kernel_size 가 맞습니다. 확인해주셔서 감사합니다 :pray:",
+          "user": "U029EUNFMRS",
+          "user_name": "신종선",
+          "timestamp": "1637739036.070200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029EUNFMRS",
+              "ts": "1637739114.000000"
+            },
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U02AM2MKYG1",
+                  "U029B96RRJA"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "모든 부분 답변 완료"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-24",
+      "source_file": "2021-11-24_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "혹시 이 부분만 수정해도 잘 돌아가시나요?",
+        "user": "U029FSCQAKX",
+        "user_name": "박상현",
+        "timestamp": "1637781250.071900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "Generator 부분을 위와 같이 수정 해야 할 것 같습니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1637781278.072500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "부분적 답변"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "일반적 조언"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-25",
+      "source_file": "2021-11-25_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "혹시 conv module에서 fuseforward로 동작하게 하고 싶을 땐 어떻게 해야하나요..?",
+        "user": "U029B96RRJA",
+        "user_name": "이경민",
+        "timestamp": "1637830711.073700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029B96RRJA",
+            "ts": "1637830838.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0297UZK86S",
+                "U029T4XRUCR"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요, 경민님.\n\n8강의 58페이지와 함께 사용하셔야하는 함수인데요.\n\n학습이 다 된 모델에 대해서,\n\n1. conv 모듈을 돌면서, batchnorm을 58페이지의 fuse_convbn을 활용하여 conv weight에 반영하신 뒤,\n2. fuseforward로 inference하도록 코드를 수정\n해서 fuse를 수행하는데 사용하는 코드의 일부입니다.",
+          "user": "U0295NACBJR",
+          "user_name": "김정훈_마스터",
+          "timestamp": "1637857993.075900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다! 그런데 아직 8강 강의가 공개안되어서 공개되면 참고해서 해보겠습니다",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1637860585.076200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네, 차주 월요일 공개입니다!\n\n만약 사용하신다면,\n\n```for m in model.modules():\n    if isinstance(m, Conv) and hasattr(m, 'bn'):\n        m.conv = ${58p 함수}(m.conv, m.bn) \n        delattr(m, 'bn') \n        m.forward = m.fuseforward```\n위 snippet 처럼 적용하면 됩니다.",
+          "user": "U0295NACBJR",
+          "user_name": "김정훈_마스터",
+          "timestamp": "1637861234.076400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0295NACBJR",
+              "ts": "1637861511.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA",
+                  "U0297UZK86S"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1637861482.076700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 절차 설명이나 구체적 코드 없음"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "기본 개념 설명 포함"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 기술 설명"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-29",
+      "source_file": "2021-11-29_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n오늘 2차 모델 최적화 오피스아워가 *(11/29 월요일) 18:00 ~ 19:30*에 진행됩니다!\n*임종국 멘토님*께서 *&lt;데이터베이스 연동을 통한 분산 모델 최적화 하기&gt;*에 대해 설명해주실 예정입니다. 6시까지 늦지 않게 참석 부탁드립니다:relaxed:\n&gt; <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|모델 최적화 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1638174600.093100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 오피스아워 자료를 미리 공유 드립니다 :slightly_smiling_face:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1638175130.093300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U0290GAJGG7",
+                  "U029T4XRUCR",
+                  "U029B6PDLFQ"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "incomplete and off-topic"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "context dependency"
+        },
+        "technical_accuracy": {
+          "score": 2,
+          "reasoning": "mixed relevance"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-29",
+      "source_file": "2021-11-29_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "[Knowledge Distillation]\n\n모델 경량화의 방법 중 하나인 Knowledge Distillation, 이전 U-stage 강의에서 배운 내용이었는데 기억나시나요? 당시에는 잘 이해가 안 되는 부분이 많았는데 지금 다시 보니까 새롭네요.\n(새롭고 반갑지만, 지금도 잘 몰라요 :thinking_face:)\n\n반가운 마음에 팀원(<@U029V25N58U>)과 함께 이번 프로젝트에서 사용할 수 있도록 Knowledge Distillation을 구현해 봤습니다. 이전까지는 막연히 어렵다고만 생각했었는데, 다시 보니 오잉? :amaze: 선녀입니다. (Loss만 변경하면 끝!)\n\n미리 학습된 Swin-Base 모델(f1score: 0.85)을 teacher 모델로 사용하여, Knowledge Distillation을 진행하였습니다. 결과적으로 아직 적합한 사용하는 변숫값들과 학습에 사용할 student 모델을 찾지 못하여, 아직은 눈에 띄는 성능 향상을 얻은 것은 아닙니다. :smiling_face_with_tear: (아니면 구현 자체를 잘못 했을 수 있어요...) 그래도 강의에서 언급한 듯이, 경량화된 모델을 다시 학습시키는 용으로 사용하는 등 다양한 곳에 저보다 잘 활용해주실 분들이 있을 것 같아 공유합니다!\n\n<https://re-code-cord.tistory.com/entry/Knowledge-Distillation-1>\n\n구현에 어려움이 있거나 궁금한 부분, 개선할 부분이 있다면 언제든지 알려주세요!",
+        "user": "U029L86M9JQ",
+        "user_name": "박성진",
+        "timestamp": "1638181342.102400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029V25N58U",
+                "U029SLN0S1X",
+                "U029B96RRJA",
+                "U029ENX4TDZ",
+                "U029DCPSW3Z",
+                "U02A67WF7S4",
+                "U0298RU576J",
+                "U0290GAJGG7",
+                "U029QLESP6G",
+                "U029Z7DE676",
+                "U029T4XRUCR",
+                "U029X5PRTJ5",
+                "U028ZRPRJ5V",
+                "U029J2FKWLS",
+                "U029M37U7S8",
+                "U029BS21VL5",
+                "U029KSKF90V",
+                "U029R4NBACU",
+                "U02AJA6R02C",
+                "U0298AUH17H",
+                "U0297P884ES",
+                "U029LKLNE6Q",
+                "U029L0WMGUE",
+                "U029B4MRK8D"
+              ],
+              "count": 24
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029SLN0S1X",
+                "U029WV30DMF",
+                "U029TQ9JFR8",
+                "U029E1P5Z5G",
+                "U029BL7P8KF",
+                "U028ZRPRJ5V",
+                "U02905YS8J3",
+                "U02AHLHF740"
+              ],
+              "count": 8
+            },
+            {
+              "name": "duck",
+              "users": [
+                "U029B96RRJA",
+                "U029WV30DMF"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1::skin-tone-3",
+              "users": [
+                "U029WV30DMF",
+                "U02A7FZP5FA"
+              ],
+              "count": 2
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029M37U7S8"
+              ],
+              "count": 1
+            },
+            {
+              "name": "hedgehog",
+              "users": [
+                "U029M37U7S8",
+                "U029SLN0S1X"
+              ],
+              "count": 2
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029KGD6TJ7"
+              ],
+              "count": 1
+            },
+            {
+              "name": "smiling_face_with_3_hearts",
+              "users": [
+                "U029L0WMGUE"
+              ],
+              "count": 1
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U029L0WMGUE"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 방금 막 구현을 마쳤는데 구현코드에는 큰 문제가 없는것 같아요!! 아마 hyperparameter나 model search을 더 살펴봐야 하지 않을까 하네용 ㅠㅠ",
+          "user": "U029EAQ7QQ2",
+          "user_name": "서동건",
+          "timestamp": "1638182212.104900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "thinking_face",
+                "users": [
+                  "U029L86M9JQ"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U029L86M9JQ",
+                  "U028ZA8TXRD",
+                  "U029EUTJS8K"
+                ],
+                "count": 3
+              },
+              {
+                "name": "bananadance",
+                "users": [
+                  "U028ZA8TXRD",
+                  "U029EUTJS8K"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "teacher모델의 output을 데이터셋으로 미리 저장해두는건 어떨까요? teacher 모델이 차지하는 메모리와 연산량 만큼 배치사이즈와 학습속도가 더 빨라질거 같네요:)",
+          "user": "U029QLESP6G",
+          "user_name": "강석민",
+          "timestamp": "1638185548.108300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029L86M9JQ",
+                  "U029SLN0S1X"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029L86M9JQ",
+                  "U029SLN0S1X"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 미리 저장해둘까 생각해봤는데 augmentation이 적용되고 있다보니 미리 저장해두기엔 너무 양이 많은 것 같아서 못했어요",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1638231315.111100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U029QLESP6G"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "suggests efficient solution"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "clear explanation"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "correct approach"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-29",
+      "source_file": "2021-11-29_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "[Knowledge Distillation] 실험 내용 공유합니다.\n\nTeacher (ResNext: f1 0.8141)\n1. Student: 0.7058 -&gt; 0.7272\n2. Student: 0.7310 -&gt; 0.7396\nTeacher (ViT: f1 0.8755)\n1. Student: 0.7670 -&gt; 0.7574\n2. Student: 0.7310 -&gt; 0.7294 (T=20) -&gt; 0.7326 (T=6)\nResNext의 경우 확실히 성능 향상이 있었습니다. 실험이 몇개 더 있는데 정확한 실험이 아니어서.. 두개씩만 올립니다. ViT는 오히려 성능 하락이 있었는데 원인을 CNN계열의 student모델에 Transformer계열의 Teacher가 들어가서? 아니면 성능이 너무 좋아서? 로 추측하고 있습니다... ViT는 다시 실험해봐야 할 것 같아요..\nStudent 모델은 리더보드 제출 시 58~61초 나오는 모델로 실험 했습니다.\n실험 내용이나 다른 것 궁금하신 부분 있으시면 댓글 남겨주세요!",
+        "user": "U029B96RRJA",
+        "user_name": "이경민",
+        "timestamp": "1638233674.112100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029B96RRJA",
+            "ts": "1638252026.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029EUN529J",
+                "U0297UZK86S",
+                "U02AHLHF740",
+                "U0290GAJGG7",
+                "U029UND0U1Y",
+                "U029E1P5Z5G",
+                "U029U5FGV98",
+                "U029U4NB3UZ",
+                "U02920P3X38",
+                "U02AF2JSQP2",
+                "U029T92U2F3",
+                "U029SLN0S1X",
+                "U028ZRPRJ5V",
+                "U029EFY0XD1",
+                "U029T4XRUCR",
+                "U029LKLNE6Q",
+                "U02905YS8J3",
+                "U029F7P9FD1",
+                "U029L0WMGUE",
+                "U0295NACBJR",
+                "U029KG3T7L3"
+              ],
+              "count": 21
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U029L0WMGUE",
+                "U0295NACBJR"
+              ],
+              "count": 2
+            },
+            {
+              "name": "heart_eyes",
+              "users": [
+                "U029L0WMGUE",
+                "U0295NACBJR"
+              ],
+              "count": 2
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U029L0WMGUE",
+                "U0295NACBJR"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "distillation loss 구할 때, Temperature 값을 어느 정도 두고 사용하시나요?",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1638237024.113900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029L86M9JQ> 20으로 두고 하고 있습니다! 하이퍼 파라미터는 서버에 여유가 없어서 실험을 못해봤네요..",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1638237530.114100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029B96RRJA",
+              "ts": "1638237544.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "값이 클수록 확률 값은 큰 값은 줄어들고, 작은 값은 커진다고 알고 있는데, Resnext와 ViT를 사용할 때 각 teacher에 맞는 T를 사용하는 것도 좋을 것 같네요!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1638237810.114700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그렇겠네요 ViT는 성능이 좋으니까 T를 좀 더 낮춰서 해볼 필요가 있겠네요 감사합니다!\n이미지: <http://cs230.stanford.edu/files_winter_2018/projects/6940224.pdf>",
+          "user": "U029B96RRJA",
+          "user_name": null,
+          "timestamp": "1638238266.115100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029L86M9JQ",
+                  "U029SLN0S1X"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ViT실험 하나 추가했습니다 T를 내렸을 때 조금 더 높게나오긴 하네요!\nwandb 그래프를 볼 때 에폭수를 좀 늘려주면 더 좋을 것 같긴한데.. 우선 보류..",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1638252135.117300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029L86M9JQ",
+                  "U029KG3T7L3"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 5,
+          "reasoning": "answer includes additional info"
+        },
+        "context_independence": {
+          "score": 5,
+          "reasoning": "self-explanatory response"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "uncommon temperature value"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-30",
+      "source_file": "2021-11-30_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "DB에서 optuna optimize 돌리다가 objective 함수가 바뀌면 어떻게 처리해주어야 할까요?",
+        "user": "U029TN5RCQ1",
+        "user_name": "김은란",
+        "timestamp": "1638259778.118600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "objective 함수가 바뀌면 study도 처음부터 돌리는게 일반적이긴 합니다.\n하지만 suggest 값의 범위만 바꾸시는거라면 변경 후 다시 실행 하시면 됩니다. suggest_categorical 은 study 생성 후, 변경할 수 없으니 유의해주세요!",
+          "user": "U029EUP1N84",
+          "user_name": "임종국_멘토",
+          "timestamp": "1638260352.119100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "처음부터 돌리기 위해서 study_name만 바꾸면 될까요? 아니면 DB자체를 초기화해야 될까요?",
+          "user": "U029TN5RCQ1",
+          "user_name": "김은란",
+          "timestamp": "1638260698.119300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "study_name 만 중복되지 않게 변경하시면 됩니다~",
+          "user": "U029EUP1N84",
+          "user_name": "임종국_멘토",
+          "timestamp": "1638260731.119500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 감사합니다",
+          "user": "U029TN5RCQ1",
+          "user_name": "김은란",
+          "timestamp": "1638260737.119700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029EUP1N84"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "핵심 답변 제공 및 추가 정보 포함"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "Optuna 기본 지식 있으면 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "문서 기반 정확한 정보"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-30",
+      "source_file": "2021-11-30_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "```trainer.train(train_loader, hyperparams[\"EPOCHS\"], val_dataloader=val_loader)\nloss, f1_score, acc_percent = trainer.test(model, test_dataloader=val_loader)\nparams_nums = count_model_params(model)\n\nmodel_info(model, verbose=True)\n\nreturn f1_score, params_nums, mean_time```\ntune.py의 objective에서 학습이 끝나면 `trainer.test` 를 통해서 얻은 f1_score를 반환하는데요. 이 때 얻는 f1_score는 마지막 epoch의 모델의 점수인데, 마지막 모델의 성능이 최고는 아니기 때문에 사실상 `trainer.train` 을 통해 얻은 best_f1 을 반환해야 맞지 않나 생각이 들어서요. 혹시 다른분들은 어떻게 생각하시나요?",
+        "user": "U029SN2HG0H",
+        "user_name": "전상민",
+        "timestamp": "1638287766.123500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029B96RRJA",
+                "U029U4NB3UZ",
+                "U029FSCQAKX"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 상민님!\n\n`trainer.train()` 은 train과 val을 둘 다 진행해서, valid score가 최고로 높을 때의 pt 파일을 저장합니다.\n\n그리고 베이스라인의 train.py 코드에는 `train()` 과 `test()`  사이에 `train()`에서 저장한 pt 파일을 불러 읽는 코드가 들어있습니다. 아마 tune.py에는 그 코드가 빠져있는 것 같습니다.",
+          "user": "U029L7Q4FJ8",
+          "user_name": "yongchan Kim",
+          "timestamp": "1638331442.123800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "범찬님 안녕하세요.\n맞아요, 그 부분이 없어서 search space가 완전 달라진 건 아니겠지만 조금 엇나간게 아닐까 싶어요!",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1638331696.124000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 그렇게 생각합니다. 사실 train이나 test나 둘 다 val_loader로 검증하기 때문에 여기서 test는 굳이 없어도 될 거 같아요.\n\n실제로 코드 돌려보면 valid 2번 하더라구요",
+          "user": "U029L7Q4FJ8",
+          "user_name": "yongchan Kim",
+          "timestamp": "1638332776.124200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "좋은 아이디어네요! 저도 충분히 고민해 봐야겠습니다\n\n AutoML을 돌리는 경우는 한정된 자원에서 최고의 성능을 얻을 수 있는 hyper parameter를 찾는 과정이기 때문에 주로 모델의 information capacity를 낮추는 방향으로 진행이 됩니다. 원하는 문제를 풀어내는데 집중하도록 하는 것이라고 생각하는데요 그래서 학습 과정을 나타내는 지표들의 커브를 보면 크고 넉넉한 모델들의 커브보다 훨씬 noisy한 것을 볼 수 있었습니다.\n 이 말은 결국 valid data에 대해서 성능이 높은 모델을 뽑아도 test되는 상황에서의 성능은 여전히 (충분히 좁은 범위에서)불확실하다는 것으로 보여집니다. 특히나 validation이 최고 점수를 보인 특정 지점을 인위적으로 골라낸다면 모델이 validation에 대해서 overfitting되어있거나 약하게 bias되어 있을 가능성도 무시할 수 없을 것 같습니다.\n 따라서 어느 정도 학습이 진행되고 train data에 overfitting 되지 않은 상태에서는 무작위로 선택된 모델들이 model size - metric score평면에서 어떤 군집을 이루는지 관찰하는 관점으로 접근하는게 맞지 않을까 생각이 되네요. 이런 관점으로는 반드시 best score 기준으로 search를 진행할 필요는 없어 보입니다. early terminate 기법들도 역시 이런 관점에서 진행이 된다고 이해하고 있습니다.",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1638338208.125200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA",
+                  "U029SN2HG0H"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "설득력 있는 말씀인 것 같습니다. 굉장히 잘 설명해주셔서 이해가 잘 되었네요. 저도 말씀하신대로 이해해보겠습니다! 다만, 머리로는 \"최적\"의 파라미터를 찾는 과정에서 \"평균적인\" 파라미터를 가져오는 것처럼 보여서 이런게 살짝 찜찜하네요.",
+          "user": "U029SN2HG0H",
+          "user_name": "전상민",
+          "timestamp": "1638341947.127700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "핵심 문제점과 원인 설명"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "배경 정보 충분"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 프로세스 설명"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-12-01",
+      "source_file": "2021-12-01_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "안녕하세요, 김정훈입니다.\n\n오늘 클래스에서 말씀드렸던, 베이스라인 모델 구조를 첨부드립니다.\n\n참고하셔서, 목표 성능 달성에 도움이 되셨으면 좋겠습니다!",
+        "user": "U0295NACBJR",
+        "user_name": null,
+        "timestamp": "1638359389.129100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "bow",
+              "users": [
+                "U029AHPA1GX",
+                "U02A1GMPQ65",
+                "U028ZQU4N07",
+                "U029KSKF90V",
+                "U029TQ9JFR8",
+                "U029C3CSPHB",
+                "U029LN7NMRA",
+                "U029GCDG954",
+                "U029B4MRK8D",
+                "U0290GAJGG7",
+                "U02AK81JACT",
+                "U02920P3X38",
+                "U029F23R56F",
+                "U029UHZ6AHY"
+              ],
+              "count": 14
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029B96RRJA",
+                "U029LN7NMRA",
+                "U02920P3X38",
+                "U029L0WMGUE",
+                "U029BS21VL5"
+              ],
+              "count": 5
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U02AM2MKYG1",
+                "U029U4NB3UZ",
+                "U028ZAA1X1V",
+                "U029PN9SX1R",
+                "U029LN7NMRA",
+                "U02920P3X38"
+              ],
+              "count": 6
+            },
+            {
+              "name": "bow::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V",
+                "U029PN9SX1R",
+                "U02920P3X38"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V",
+                "U029PN9SX1R",
+                "U02920P3X38"
+              ],
+              "count": 3
+            },
+            {
+              "name": "100",
+              "users": [
+                "U029ENX4TDZ",
+                "U02920P3X38"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "학습에 사용했던 data.yaml도 함께 첨부드려요",
+          "user": "U0295NACBJR",
+          "user_name": null,
+          "timestamp": "1638410881.145200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "Partial response, lacks engagement with goal achievement"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "Requires context about prior discussions"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "Correct reference to data.yaml and token limit"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-12-02",
+      "source_file": "2021-12-02_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "<!channel> 내일 18:00 ~ 19:00 에는 *김정훈 마스터님*과 함께 *&lt;대회 랩업 (솔루션 발표, 피드백, 질의응답)&gt;을 주제로 마스터 클래스*가 진행될 예정입니다.\n:sparkles:대회 직후 마스터클래스이기 때문에, 여러분의 참여가 필요합니다! *대회 순위와 무관하게 팀 경험을 공유해 보고 싶으신 캠퍼분은 DM 혹은 댓글*로 말씀주세요! 선착순 한 팀만 가능합니다:wink:\n\n• 상세 컨텐츠 : 대회 Wrap-UP\n    ◦ 토론왕 공유 (대회 종료 시점 vote 수가 가장 많은 캠퍼)\n    ◦ 리더보드 1,2등 팀, 자원 1팀 대회 솔루션 공유 (5분, 최대 10분)\n    ◦ 마스터 피드백\n    ◦ 질의응답 진행 \n:sparkles:대회 솔루션 공유하게 되실 분들에게는 오늘 대회 리더보드 공개 직후 발표 요청을 드리도록 하겠습니다! `*대회 순위와 무관하게 팀 경험을 공유해 보고 싶으신 캠퍼분은 DM 혹은 댓글*로 말씀주세요!`\n\n:sparkles:마스터님께 질문을 남기고 싶은 분들은 아래의 링크에서 남겨주세요!\n&gt; <https://forms.gle/PGbMxW9ENiWcRomV7|마스터클래스 질문 Link>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1638432008.159800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U02A7FZP5FA"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "NLP 15조 팀 공유하고 싶습니다 ㅎㅎ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1638432042.159900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U029F62SBPD",
+                  "U0284GKL1T4",
+                  "U02A7FZP5FA",
+                  "U028323UHE2",
+                  "U029W8R96KW",
+                  "U029B6PDLFQ",
+                  "U0298AUH17H",
+                  "U029BP86UBX",
+                  "U02A20H4QRF",
+                  "U02E375H869",
+                  "U029KSKF90V",
+                  "U029B96RRJA",
+                  "U029C3CSPHB"
+                ],
+                "count": 13
+              },
+              {
+                "name": "amaze",
+                "users": [
+                  "U0284GKL1T4",
+                  "U028323UHE2",
+                  "U029W8R96KW",
+                  "U029B6PDLFQ",
+                  "U029FSCQAKX",
+                  "U02A20H4QRF",
+                  "U029MTWGTJS"
+                ],
+                "count": 7
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "참여 의사 표현했으나 구체적 방법 누락"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "기본 정보는 포함되나 일부 맥킹 필요"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 의도 전달"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-12-05",
+      "source_file": "2021-12-05_qa.json",
+      "course": "level3_model_optimization",
+      "question": {
+        "text": "<!channel> 안녕하세요, 캠퍼 여러분! 12/3(금)에 진행되었던 <https://www.boostcourse.org/boostcampaitech2/lecture/1293944|마스터클래스>를 부스트코스에 업로드해두었어요~ 확인 부탁드려요 :)",
+        "user": "U027SHXU18R",
+        "user_name": "hj1.hwang",
+        "timestamp": "1638766801.171000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "황현정 운영진님 안녕하세요 12/1 진행되었던 마스터클래스(김정훈 마스터님의 client-side ML)가 12/12 자정까지 공개 예정으로 적혀있었는데, 금일 비공개 처리되었습니다. 혹시 확인 부탁드려도 될까요?",
+          "user": "U029E28RUPL",
+          "user_name": "Seungwoo Lee",
+          "timestamp": "1638772592.171200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029E28RUPL> 앗, 승우님! 말씀주신 내용 확인했습니다. 제가 날짜를 착각해서 실수로 닫아버렸네요 ㅎㅎ;; 현재 ‘공개’ 처리 되었습니다~",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1638775527.171600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠르게 처리해주셔서 감사합니다! 원활한 학습을 위해 늘 애써주시는 운영진님들께 감사드려요:blob_thumbs_up:",
+          "user": "U029E28RUPL",
+          "user_name": "Seungwoo Lee",
+          "timestamp": "1638776170.171800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U027SHXU18R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "질문과 무관한 답변"
+        },
+        "context_independence": {
+          "score": 1,
+          "reasoning": "질문 맥락과 전혀 관계 없음"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "상황별 조치는 올바르지만 질문과 관련 없음"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.0
+      }
+    }
+  ]
+}

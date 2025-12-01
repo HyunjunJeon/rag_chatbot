@@ -1,0 +1,1017 @@
+{
+  "course": "level3_data_nlp",
+  "metadata": {
+    "total_qa_pairs": 11,
+    "generations": [
+      "2"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "2": 11
+      }
+    },
+    "date_range": {
+      "start": "2021-11-10",
+      "end": "2021-11-19"
+    },
+    "source_files": {
+      "count": 8,
+      "files": [
+        {
+          "generation": "2",
+          "filename": "2021-11-10_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-12_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-13_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-14_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-16_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-17_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-18_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-19_qa.json",
+          "qa_count": 2
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 6,
+      "medium": 1,
+      "low": 1,
+      "remove": 3,
+      "error": 0
+    },
+    "original_count": 11,
+    "filtered_count": 8
+  },
+  "qa_pairs": [
+    {
+      "generation": "2",
+      "date": "2021-11-12",
+      "source_file": "2021-11-12_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "안녕하세요 tagtog 사용 중 질문이 있어서 문의드립니다.\n\n1) 문서를 입력할 때 1문장씩 입력하는건지, 아니면 문서 전체를 입력해야 하는건지\n\n2) 저희가 수동으로 entity들을 넣어줘서 관계를 지정을 하는데,\n이때 tagtog에 어느정도 이를 자동화 해주는 옵션 같은 것들이 있는지 궁금합니다!",
+        "user": "U028ZA8TXRD",
+        "user_name": "Minji Jung",
+        "timestamp": "1636709243.042700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "pray::skin-tone-2",
+              "users": [
+                "U029MNM7SE8"
+              ],
+              "count": 1
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U029MNM7SE8",
+                "U029PN9SX1R",
+                "U029L0WMGUE",
+                "U029Z7YSHEV"
+              ],
+              "count": 4
+            },
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U029MNM7SE8",
+                "U02E375H869"
+              ],
+              "count": 2
+            },
+            {
+              "name": "pray::skin-tone-6",
+              "users": [
+                "U029PN9SX1R"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 8
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요!\n\n1. tagtog에 submit하는 각 instance는 문장 하나 혹은, 저번에 말씀드린 것처럼 (entity pair을 확보하기 위해 연결된) 두세 개의 문장 정도이고, 문서 전체를 입력하는 것은 아닙니다! 지난번 말씀드린 것처럼, entity pair / relation 이 다르다면, 몇 번 정도 문장을 중복해서 사용하는 것은 큰 상관 없습니다 :slightly_smiling_face: \n2. 일단 현재 subj-entity-relation과 obj-entity-relation을 relation마다 별도로 매칭해 주어야 하는 인터페이스인데, 이렇게 해서 maximum 스무 개 정도를 pre-define해 두고 나면 그 이후는 1) drag해서 entity pair 선택하기, 2) relation을 배정하는 형식으로 되는 것이라, 따로 자동화가 가능한 부분은 없는 것 같습니다. 혹시 제가 질문을 잘못 이해했을 수 있어, 예시와 함께 어떤 자동화를 의미하시는지 알려주시면 좋을 것 같습니다 ㅎㅎ 그러면 조금 더 tagtog에 익숙한 종섭님이 추가적으로 답변을 달아 주실 수 있을 것 같습니다",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636710393.043800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!\n\n가이드라인 문서에서 이와 같은 사진이 있는 것을 확인했는데, tagtog에서도 사진과 같은 기능들을 제공해주는지 (선택지에 대한 추천을 자동으로 해주는지) 궁금합니다!!",
+          "user": "U028ZA8TXRD",
+          "user_name": null,
+          "timestamp": "1636710842.044000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "가이드라인 문서는 당시 소싱업체에서 태깅을 위해 별도로 개발했던 툴킷이라ㅜㅡㅜ 오픈소스 레이블러로 그 부분까지 구현하기는 어려울 것 같아 entity type을 활용해 태깅 후 나중에 파싱하는 방법을 권장드렸습니다 ㅎㅎ\n저희가 tagtog의 relation이라는 기능을 활용하려고 시도를 해 보았는데, 원하는 대로 동작하지는 않더라구요. 그치만 태깅 프로세스는 저희가 권장을 드린것이고 더 편한 방식을 택하는것은 항상 자유이므로, tagtog에서 더 좋은 기능을 찾게 되면 공유해 주시면 감사드리겠습니다 :)",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636711235.044700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "선택지에 대한 추천은 당시 방대한 raw corpus에서 entity pair과 relation을 추출하는 과정에서 사용한 알고리즘 때문에 삽입된 것인데, 본 프로젝트에서는 그런 distant supervision 같은 절차를 거쳐 문장을 고르는 것이 아니라서, 별도로 추천 relation이 들어가게 되지는 않을 것 같습니다 ㅎㅎ",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636711383.046200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요!\n제가 찾아본 바로는 relation 늘 자동으로 추가해주는 기능은 없었습니다 :sob:\n자동화 기능은 entity에는 있었지만 성능은 확인해보지 못했습니다..",
+          "user": "U02920P28QN",
+          "user_name": "전종섭",
+          "timestamp": "1636714014.051000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02920P28QN",
+              "ts": "1636714075.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0296J0LP0D> `저희가 tagtog의 relation이라는 기능을 활용하려고 시도를 해 보았는데, 원하는 대로 동작하지는 않더라구요.` 라고 하셨는데\n그러면 tagtog에서는 relation 지정할 필요 없이 entity type만 marking을 하고, 추후 엑셀에서 relation을 지정해주면 되는 것으로 해하면 될까요??",
+          "user": "U028ZA8TXRD",
+          "user_name": "Minji Jung",
+          "timestamp": "1636715760.051400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네 맞습니다! <@U028ZA8TXRD>\n더 정확히는, tagtog에서는 entity type에 relation이 붙은 형태를 추천드렸습니다 (obj-per-title) 그렇게 하면 relation을 나중에 파싱해낼 수 있으니까요!\n추후 엑셀에서는 위의 형태로 추출된 relation을 하나의 어노테이션으로 보고, 이후 dropdown 형태로 여러 사람이 태깅한 결과를 합산해주면 됩니다 ㅎㅎ",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636717201.051600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 답변 감사드립니다!!!",
+          "user": "U028ZA8TXRD",
+          "user_name": "Minji Jung",
+          "timestamp": "1636719906.051800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U0296J0LP0D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "두 질문 모두 답변 완료"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-13",
+      "source_file": "2021-11-13_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "안녕하세요!! 혹시 저희가 최종적으로 제작완료한 데이터셋 자체도 제출을 해야하는지 궁금합니다!!",
+        "user": "U029EAQ7QQ2",
+        "user_name": "서동건",
+        "timestamp": "1636822595.059900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 1차 산출물로 제출하는 것은 relation set과 가이드라인입니다 ㅎㅎ 데이터셋은 최종적으로 깃허브 등의 레포지터리에 공개하시게 되는 것으로 생각해 주시면 될 것 같습니다",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636850298.060000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "covers all aspects of the question"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "clear explanation with minimal context needed"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "correct procedural guidance"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-13",
+      "source_file": "2021-11-13_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "안녕하세요! 현재 1차 산출물에 대한 피드백을 각 폴더 내에 코멘트 docx 파일로 넣어두었습니다 :slightly_smiling_face: 다들 열심히 discussion하고 스킴을 만들어주신 것을 느낄 수 있어 멘토들도 흥미롭게 피드백 드릴 수 있었습니다. 다들 피드백 확인해 보시고, 궁금한 점이 있으면 채널에 [1차 산출물 피드백 질문] 말머리로 질문 올려주시면 확인 후 답변 드리겠습니다 ㅎㅎ 아직 relation set이나 가이드라인을 업로드하지 않으신 팀은 완성되는 대로 업로드 후 알려주시면 좋을 것 같습니다. 모두 주말에 수고 많으십니다!! :heart:",
+        "user": "U0296J0LP0D",
+        "user_name": "Warnik Chow",
+        "timestamp": "1636863320.060800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U029GGQ456X",
+                "U0284GKL1T4",
+                "U029SLN0S1X",
+                "U029B6PDLFQ",
+                "U028FM07UQ3"
+              ],
+              "count": 7
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U0284GKL1T4",
+                "U029B6PDLFQ",
+                "U028FM07UQ3"
+              ],
+              "count": 5
+            },
+            {
+              "name": "raised_hands::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "heart",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U02AM2GMN9X",
+                "U029ELPRG8J",
+                "U02AK81JACT",
+                "U029B6PDLFQ",
+                "U028FM07UQ3"
+              ],
+              "count": 7
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U028ZAA1X1V",
+                "U029F62SBPD",
+                "U029EM0RQR1",
+                "U029B6PDLFQ"
+              ],
+              "count": 4
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029F62SBPD",
+                "U0284GKL1T4",
+                "U029B6PDLFQ",
+                "U0290B2QXTR",
+                "U028FM07UQ3"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U0296J0LP0D> 안녕하세요 멘토님! 14조 김대웅 캠퍼입니다. 다름이 아니라 14조에 대한 코멘트가 아직 없는데 확인부탁드려도 될까요?",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1636868627.063100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! 혹시 1차산출물의 14조 폴더에 comment-14 파일 확인가능하실까요? <@U029H263PD1>",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1636868910.063300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart_eyes",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "반영이 조금 늦었던 것 같네요 방금 확인했습니다. 감사합니다 멘토님! <@U0296J0LP0D>",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1636869014.063500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-gesturing-ok",
+                "users": [
+                  "U0296J0LP0D"
+                ],
+                "count": 1
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U0296J0LP0D"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 답변 포함"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "약간 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "정확한 정보"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-16",
+      "source_file": "2021-11-16_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "안녕하세요!\n요새 tagtog로 열심히 데이터를 제작하고 있는데 labeling tool에 대해서 궁금점이 생겼습니다.\n예전에, tesla aiday 유튜브에서 테슬라는 자율주행 데이터를 만들기 위해서 자작 레이블링 툴을 사용한다고 말했는데,\n국내/외 다른 기업들은 labeling tool을 돈을 주고 사서 쓰는지, 오픈소스를 활용하는지, 아니면 직접 제작하는지 궁금합니다. ㅎㅎ",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637050578.073100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U028ZAA1X1V",
+                "U02AF2JSQP2"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "큰 기업에서는 직접 레이블링 툴을 만들거나 아니면 자회사를 두어 데이터를 관리하고, 규모가 작은 곳에서는 (개발력이 된다면 직접 툴을 만들지만) 오픈소스를 활용하거나 소싱 업체에 맡기는 경우도 종종 있는 것 같습니다 ㅎㅎ\n<@U02920P28QN> 혹시 현업에서 어떻게 진행하는지 간단히 덧붙여주실 수 있으실까용 ㅎㅎ",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1637050959.073200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028FM07UQ3",
+                  "U028ZAA1X1V",
+                  "U029EUNLHV2"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 잘은 모르지만.. 제가 아는선에서 답을 해보자면\n\n아직 데이터 제작 영역에서 확실한 업계 표준이 없어서 필요성에 따라서 다른 것 같습니다.\n다면 몇 가지 기업 사례를 볼 수 있을 것 같은데요.\n\n1. 큰 규모의 이미지, 영상, NLP의 데이터 제작이 필요한 경우 외주를 전문으로 하는 회사들이 있습니다. 데이터 제작이 주 업무인 만큼 자사 툴이 존재할 것 같습니다. 국내에는 셀렉트 스타, Superb AI 등이 있는 것 같습니다. 외국 기업으로는 GCP가 잘 되어 있다고 알고 있습니다.\n2. 다음으로 자사 제품에 모델을 학습하기 위해 필요한 데이터가 필요한 경우 자체 제작툴을 제공합니다. 국내에는 코그닉스와 같은 회사들이 대표적인 것 같습니다. 외국에는 캠퍼분이 말씀해 주신 테슬라가 있습니다.\n3. 그 외 파일럿 형식으로 PoC를 진행할 경우 오픈소스들을 활용하는 것 같습니다. Tagtog, Label Studio와 같은 툴들이 있습니다.",
+          "user": "U02920P28QN",
+          "user_name": "전종섭",
+          "timestamp": "1637052456.073400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U0296J0LP0D",
+                  "U028FM07UQ3",
+                  "U028ZAA1X1V",
+                  "U029EUNLHV2",
+                  "U02AF2JSQP2"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920P28QN>  <@U0296J0LP0D> 답변 감사합니다. 저라면 해야 한다면 GCP나 다른 클라우드 플랫폼을 이용해서 할거 같네요.\ngcp 다른 용도로 써봣는데 좋은거 같습니다. gcp로  labeling은 안해봤는데 좋을거 같은 느낌이 듭니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637061076.074800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02AF2JSQP2",
+              "ts": "1637061194.000000"
+            },
+            "reactions": [
+              {
+                "name": "party-blob",
+                "users": [
+                  "U02920P28QN",
+                  "U02AF2JSQP2",
+                  "U0296J0LP0D"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 5,
+          "reasoning": "세부 사례 포함 완전 답변"
+        },
+        "context_independence": {
+          "score": 5,
+          "reasoning": "독립적 설명 충분"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 5.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-17",
+      "source_file": "2021-11-17_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:seedling:2차 데이터제작 NLP 오피스아워:seedling:가 *오늘 (11/17 수요일) 18:00 ~ 19:30*에 진행됩니다.\n\n김재인, 조원익 멘토님께서 *&lt;중국 딥러닝 엔지니어들의 삶 + 중국 기업의 데이터 이야기&amp;다양한 (한국어) 데이터 구축 과정에서의 findings&gt;*에 대해 설명해주실 예정입니다.\n\n많은 참여 부탁드립니다!\n&gt;  <https://zoom.us/j/92827134193?pwd=M2g1c1Jhc3ZKSDJuYnNwZXh0R3lLUT09|데이터 제작 NLP 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1637137800.076100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 발표 자료 공유드립니다! :slightly_smiling_face: 6시에 만나요!",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1637138813.076800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 정보만 언급"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 명확함"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-17",
+      "source_file": "2021-11-17_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "_*tagtog의 result로 json파일을 받으면 , json파일 relation 키 안에 entities 의 offset 값의 start index, end index 전체  문서 기준인데  문장 기준으로 하는 tip이 있을까요?  nltk의 sent_tokenizer를 사용해볼까 했는데, 생각보다 잘 되지 않았습니다.*_\n\ntagtog에서 document입력으로 txt 파일 그대로 입력을 주는데 , stard index, end index가 전체 문서 기준이라  일일이 idx를 manually 하게 기입을 해야 하는 상황이 발생했습니다. 그럴거면  , 차라리 원하는 문장을 일일이 copy paste해서 넣는게 추출하는데 더 편하겟다 생각이 들었습니다. 혹시 더 좋은 방법이 있을까요?",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637153661.080900",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1637153689.000000"
+          },
+          "reactions": null,
+          "reply_count": 12
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02AF2JSQP2> 혹시 위키문서 하나를 통째로 txt파일로 올린 다음 파일럿태깅 작업하셨나요?",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637153700.081100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U028ZAA1X1V",
+              "ts": "1637153846.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637153867.081500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "json파일안에 다 잘 들어있지 않을까 싶어서..",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637153909.081700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 저흰 그 문제 때문에... 처음부터 문장단위로 txt를 잘라서 작업했습니다.. 혹시 for문으로 어떻게 처리할 순 없을까요?",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154004.081900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "문장단위를 끊는 로직을 못짜서 , 수동으로 보고 있습니다.\n\n예를들어, 저는 블랙홀.txt 라는 파일이 있었는데, 그안에 latex 수식이 들어가 있는지 글자가중간에 깨져있어서 ,",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637154099.082100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "coolcry",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 근데 어차피 entity_text 자체는 제대로 뽑히니까 subject_entity, object_entity, subject_entity만 제대로 토큰화해서 학습하고 검증해도 문제 없지 않을까 싶습니다",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154099.082300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> idx 자체를 넣지 말고 학습시켜보는 건 어떨까 싶습니다.",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154130.082500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "idx는 일단 보류하고 있습니다",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637154160.082800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "일단 entity  만 처리하고 , idx는 좋은 생각이 나면 나중에 다시 추가 해볼려 합니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637154190.083000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02AF2JSQP2> 그게 최선일 거 같습니다 ... 일단은",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637154393.083200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 웅준님.\n문장을 나눌 때 nltk는 한글을 잘 지원해주지 않기 때문에, 한글에 최적화 되어 있는 패키지를 사용하는 것이 방법일 것 같습니다.\n• kss: <https://github.com/hyunwoongko/kss>",
+          "user": "U02920P28QN",
+          "user_name": "전종섭",
+          "timestamp": "1637155220.083400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "amaze",
+                "users": [
+                  "U029B6PDLFQ",
+                  "U029EUNLHV2",
+                  "U028ZAA1X1V",
+                  "U0296J0LP0D",
+                  "U02AF2JSQP2"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920P28QN>  감사합니다. 한번 시도 해보겠습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637158340.084400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "부분적 답변"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "추가 질문"
+        },
+        "technical_accuracy": {
+          "score": 2,
+          "reasoning": "해결책 미포함"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-19",
+      "source_file": "2021-11-19_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "<!channel> 안녕하세요, 캠퍼님들! 오늘 18:00~19:00에 진행될 마스터클래스 리마인드 드립니다 :) *한지윤 마스터님*과 함께 데이터 제작 대회 랩업이 진행될 예정입니다.\n• 주제: 대회 Wrap up 및 매력적인 자소서 쓰기 &amp; 커리어 탐색하기\n• 진행 내용\n    ◦ 선정 캠퍼 발표\n    ◦ 대회 랩업 및 마스터님 코멘트\n    ◦ 마스터님 강연\n캠퍼 분들의 발표가 예정되어 있으니 늦지 않게 접속해주세요!\n&gt; <https://zoom.us/j/92356314868?pwd=THNxVTF0UWlBVHFrdWdOT21hR3J5UT09|마스터클래스 데이터 제작 NLP Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1637310821.093700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 발표하실 캠퍼분들의 발표 자료와 마스터님 발표 자료를 먼저 공유 드립니다 :slightly_smiling_face: 6시에 뵈어요, 여러분!",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1637310963.093800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029F2PUHBM"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 정보만 언급"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "배경 정보 충분"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정보 일치"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-19",
+      "source_file": "2021-11-19_qa.json",
+      "course": "level3_data_nlp",
+      "question": {
+        "text": "<@U0296J0LP0D> 2이 원인인지 분석(판별)을 하기 위한 방법이 있을까요? 그냥 단순히 데이터를 더 모으고 실험을 해봐야 알 수 있는 것일까요?",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637334534.096900",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1637364612.000000"
+          },
+          "reactions": [
+            {
+              "name": "heart",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02AF2JSQP2> 좋은 질문이신 거 같네요",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637367032.097300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028ZAA1X1V> 모델이 dev set을 잘 학습하지 못할 때 trainsing set을 좀더 모은고 ,  training set에서 잘 학습이 되지 않으면 , network 를 더 큰것을 쓰거나, optimizer를 바꾸는등의 여러 시도를 하는 것으로 알고있는데 , 홍규님은 train data에 fitting이 잘 안되신건가요?",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637368797.097600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹은 사용한 PLM을 pretrain한 코퍼스가 주어진 데이터 내의 언어현상을 학습하기에 적합하지 않았다? (모델을 교체해본다)라든지, train valid test 를 좀더 균일하게 분포하도록 나눠본다 등이 있을것같습니다 ㅎㅎ 정답은없는것같아요ㅠㅠ <@U028ZAA1X1V>",
+          "user": "U0296J0LP0D",
+          "user_name": "Warnik Chow",
+          "timestamp": "1637380249.097800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "core addressed, analysis methods missing"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "self-explanatory"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "correct practices"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    }
+  ]
+}

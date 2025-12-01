@@ -1,0 +1,1128 @@
+{
+  "course": "level3_data_cv",
+  "metadata": {
+    "total_qa_pairs": 14,
+    "generations": [
+      "2"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "2": 14
+      }
+    },
+    "date_range": {
+      "start": "2021-11-09",
+      "end": "2021-12-10"
+    },
+    "source_files": {
+      "count": 6,
+      "files": [
+        {
+          "generation": "2",
+          "filename": "2021-11-09_qa.json",
+          "qa_count": 5
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-11_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-14_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-15_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-19_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-12-10_qa.json",
+          "qa_count": 1
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 4,
+      "medium": 7,
+      "low": 1,
+      "remove": 2,
+      "error": 0
+    },
+    "original_count": 14,
+    "filtered_count": 12
+  },
+  "qa_pairs": [
+    {
+      "generation": "2",
+      "date": "2021-11-09",
+      "source_file": "2021-11-09_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "작업 하려고했는데 툴이 아직 많이 미흡하네요. 다른 분들도 작업에 참고하세요.\n이미지 순서대로 문제점입니다.\n1. 복붙 없음(투썸플레이스 타자연습하다 포기)\n2. A랑 ADT 분명 사각형툴로 찍었는데 다른부분 다각형 툴이랑 포인트 변경하는걸로 작업하다보니 밀리고 찌그러져있네요.(그런데 사각형 이동 미지원)\n3. 큰글씨 먼저 작업하고 화면 줌떙겨서 옆에 작은글씨 작업했더니 큰글씨들 위치가 다 변경되었네요\n4. 가이드 pdf, 작업 tool 왔다갔다 탭이동하면서 작업하다가 실수로 탭 껏는데 ctrl+shift+t 키 로 탭복구 했는데 다 날라갔어요(웹 베이스임에도 자동 저장이 안됩니다.)",
+        "user": "U02A3GWB4RX",
+        "user_name": null,
+        "timestamp": "1636453145.030700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02A3GWB4RX",
+            "ts": "1636453323.000000"
+          },
+          "reactions": [
+            {
+              "name": "sob",
+              "users": [
+                "U029UHZ6AHY",
+                "U028ZRPRJ5V",
+                "U029T4XRUCR",
+                "U029Z48KYCC",
+                "U0298BT8SNA",
+                "U028ZQU4N07",
+                "U029MTWGTJS",
+                "U029E8T7199"
+              ],
+              "count": 8
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 3번 줌 땡기고 뭐하고 하다가 다 위치가 바껴서 눈물을 머금고 리셋했습니다… 그래서 지금도 줌할 때 심장이 쫄깃합니다",
+          "user": "U028ZRPRJ5V",
+          "user_name": "이채윤",
+          "timestamp": "1636455026.032000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U028ZQU4N07"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 이거 너무 귀찮아요 ㅠㅠㅠ\n심지어 이거 annotation양도 많은 이미지예요\n복불복 꽝 ㅠ~ㅠ",
+          "user": "U0298BT8SNA",
+          "user_name": null,
+          "timestamp": "1636459987.032700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1636460017.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "첫 이미지에서 쉬운거 줌하다가 날라갔는데.. 요거 하다가 날라갔으면 화날뻔했습니다. 두번째부터는 줌 안하고 합니다.",
+          "user": "U0297TQCPHV",
+          "user_name": null,
+          "timestamp": "1636466240.042100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0297TQCPHV",
+              "ts": "1636466324.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "개인적 경험 언급만 있음"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "질문 맥락으로 충분 이해"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "내용은 사실적"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-09",
+      "source_file": "2021-11-09_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "혹시 illegibility 어디서 하시는 지 아시나요..?\n텍스트 태그에 strikethrough는 뭔가요..?",
+        "user": "U028ZQU4N07",
+        "user_name": null,
+        "timestamp": "1636463870.039600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "illegibility 는 annotations - region 에 있어요..!",
+          "user": "U0297UZK86S",
+          "user_name": null,
+          "timestamp": "1636464966.041400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0297UZK86S",
+              "ts": "1636468370.000000"
+            },
+            "reactions": [
+              {
+                "name": "smiley",
+                "users": [
+                  "U028ZQU4N07",
+                  "U029UND0U1Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "region을 누르고 하는거였군여..! 감사합니다 상혁님!:raised_hands:",
+          "user": "U028ZQU4N07",
+          "user_name": "김현수",
+          "timestamp": "1636465317.041800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0297UZK86S"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "strikethrough는 이번 태깅하실 땐 무시하셔도 됩니다! :slightly_smiling_face:",
+          "user": "U02L749N55K",
+          "user_name": "Juhyun Oh",
+          "timestamp": "1636507488.049300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U028ZQU4N07"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "partially answered"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "some context assumed"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "location correct"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-09",
+      "source_file": "2021-11-09_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "annotation 질문이 있습니다.\n`...`, `^^`, `~~`을 포함을 해야하나요? 학습에 필요한지 아닌지 모르겠습니다. ^^ 이 ㅅㅅ랑 비슷한 것 같아서 어떻게 하는게 좋을까요?",
+        "user": "U029UND0U1Y",
+        "user_name": null,
+        "timestamp": "1636464169.041100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029ULW2X8A"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "`..., ^^, ~~` 등의 기호도 키보드로 입력 가능하니 사람이 인식하는대로 그대로 transcription 해주세요! :slightly_smiling_face:",
+          "user": "U02L749N55K",
+          "user_name": "Juhyun Oh",
+          "timestamp": "1636507031.048900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029UND0U1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "부분적 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "거의 독립적"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "구체성 부족"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-09",
+      "source_file": "2021-11-09_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "1번 상황에서 이어서 다른 다각형을 찍으려고 클릭하면 2번사진의 상황이되고\n컨트롤 Z해서 다시 돌아간 다음에 rectangle을 눌러서 이어서 하려하면 앞서 만들었던 다각형이 사라지는 버그(3번)가 있네요.",
+        "user": "U029B96RRJA",
+        "user_name": null,
+        "timestamp": "1636469321.044300",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "같은 팀원분 중에서도 같은 문제로 처음부터 다시하신 분이 있었는데, 박스들이 갑자기 옆으로 밀린경우에 복구하는 방법이 있을까요?",
+          "user": "U029B96RRJA",
+          "user_name": null,
+          "timestamp": "1636472706.046600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029BP86UBX"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 경민님, 우선 불편을 드려 죄송합니다.\n확인해보니, 이미지 크기를 변경(확대/축소)를 한 이후 실행 취소/복귀 를 실행하면 박스 크기가 맞아떨어지지 않는 문제를 파악하였습니다. 해당 문제 수정 이후 공지드리겠습니다.",
+          "user": "U02L749P42Z",
+          "user_name": "남대현_멘토",
+          "timestamp": "1636510507.049700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "답변 부족"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "일부 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "문제 인식 정확"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-09",
+      "source_file": "2021-11-09_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "혹시 이미 완료한 건 다시 작업 못하는 건가요?? 그리고 문장 부호가 같이 있는 경우엔 1) 문장 부호를 따로 영역 지정해야하는지 2) 같이 지정한다면 언어 구분은 EN으로 두면 될지 가 궁금합니다! 추가로 박스가 너무 작아서 안쳐지는 경우는 그냥 무시하나요 혹은 옆의 단어와 같이 묶어주나요?",
+        "user": "U029ULW2X8A",
+        "user_name": "이유진_T2168",
+        "timestamp": "1636486738.048200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029ULW2X8A",
+            "ts": "1636489508.000000"
+          },
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "현재 툴 상에서는 이미 완료한 이미지는 다시 작업할 수 없습니다.\n1) 문장 부호가 같이 있는 경우도 공백 기준으로 생각해주시면 됩니다. 즉, `안녕^^` 의 경우 \"안녕^^\"로 transcription해주시면 되고, `안녕 ^^` 의 경우 \"안녕\" 과 \"^^\" 두 개의 Points로 분리해주시면 됩니다.\n2) 같이 지정하시면 문장부호는 태그가 따로 없기 때문에 KO, EN 등 언어 한 가지만 선택해주시면 됩니다.\n3) 박스가 너무 작아서 안 쳐지는 경우는 그냥 무시하셔도 됩니다.",
+          "user": "U02L749N55K",
+          "user_name": "Juhyun Oh",
+          "timestamp": "1636507442.049100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "among-us-party",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "모든 질문 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 맥락 불필요"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 내용"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-11",
+      "source_file": "2021-11-11_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:seedling:2차 데이터제작 CV 오피스아워:seedling:가 *오늘 (11/11 목요일) 18:00 ~ 19:00*에 진행됩니다.\n*박종호 멘토님*께서 *&lt;베이스라인 코드&gt;*에 대해 설명해주실 예정입니다.\n늦지 않게 들어와주시기 바랍니다~!\n&gt; <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|데이터 제작 CV 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636619400.066600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘의 오피스아워 자료 미리 공유드립니다! :slightly_smiling_face: *10분 후 시작*이랍니다:fire:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636620603.066700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "질문 불명으로 핵심만 추정"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "배경 정보 충분"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "사실적 오류 없음"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-11",
+      "source_file": "2021-11-11_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "Annotation 실습 결과물에 *illegibility 가 누락*된 관계로 새로 ‘dataset_revised’ 버전을 새로 업로드 했습니다. 학습 진행시 참고 부탁드립니다! :bow:\n• 실습 결과물 다운로드 : *<https://drive.google.com/drive/u/0/folders/17GXc93sx-kieZYTcwXdHYk5OhB9ofeEk|link>*",
+        "user": "U028323UHE2",
+        "user_name": null,
+        "timestamp": "1636678245.074900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "dataset_revised 다운 받았는데 다음 이미지와 같이 annotation이 없습니다",
+          "user": "U0298BT8SNA",
+          "user_name": null,
+          "timestamp": "1636679979.075700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029KP9P1CN",
+                  "U0297T6KRDL",
+                  "U029T519KUH"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298BT8SNA> 확인해보니 안에 annotation.json 파일이 있긴 합니다. :smiling_face_with_tear: 보다 쉽게 찾으실 수 있도록 압축 파일 재업로드 진행했으니 확인해주세요!",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1636684820.076400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네!! 좀 더 꼼꼼히 체크했어야 했네요!! 감사합니다!!",
+          "user": "U0298BT8SNA",
+          "user_name": "김성민",
+          "timestamp": "1636684856.076600",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1636684878.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아닙니다 제가 꼼꼼하게 챙기지 못했네요 언급해주셔서 감사합니다 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1636684898.076900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "confirms annotation availability and guides next steps"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "minor contextual reference (@User) but mostly clear"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "correctly identifies resolution via reupload"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-15",
+      "source_file": "2021-11-15_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n:dizzy:3차 데이터 제작 CV 오피스아워:dizzy:가 *오늘 (11/15 월요일) 18:00 ~ 19:00*에 진행됩니다.\n*박종호 멘토님*께서 *&lt;데이터 샘플링 강화하는 방법&gt;*에 대해 설명해주실 예정입니다!\n많은 참여 부탁드립니다!\n&gt;  <https://zoom.us/j/92835881503?pwd=Skp2QVllU2hlMlpDOVF3cEY5UGRXQT09|데이터 제작 CV 오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636965000.094100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 오피스아워의 자료를 미리 공유드립니다 :slightly_smiling_face: 18시에 뵈어요!:grinning:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636965512.094200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "주최측 입장 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "시간 명시됨"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "사실적 오류 없음"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-15",
+      "source_file": "2021-11-15_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "혹시 다들 CV데이터 제작에서 validation 은 어떻게 구성해서 진행하고 계신가요?\nLoss와 Metric 둘 다 출력을 하려다 보니 Loss에서는 dataloader를 쓰고 Metric 계산시에는 cv2.imread로 불러와서 바로 계산하는데 이를 한 번에 처리하려다 보니 쉽지 않은 문제에 직면해서... 다른 캠퍼님들은 validation Loss나 metric을 어떻게 출력하고 게신지 궁금합니다 !",
+        "user": "U029KSKF90V",
+        "user_name": "dongjin seo",
+        "timestamp": "1636989613.097400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029ULW2X8A",
+                "U029KG3T7L3",
+                "U029B96RRJA",
+                "U029E1P5Z5G",
+                "U029BP86UBX"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "저희팀은 detect함수와 calc_deteval_metrics함수를 이용해서 f1, precision, recall을 계산하고 있습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1636989849.097800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029B96RRJA",
+              "ts": "1636989860.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029KSKF90V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029B96RRJA> 답변 감사합니다.\n아 그러면 Loss는 출력은 안하시는 건가요?\n그리고 혹시 f1, precision, recall 계산시에 illegibility의 경우 어떻게 처리해서 진행하셨나요?\n질문이 많아서 죄송합니다 ㅠㅠ",
+          "user": "U029KSKF90V",
+          "user_name": "dongjin seo",
+          "timestamp": "1636989959.098100",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029KSKF90V",
+              "ts": "1636990094.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "처음에는 그냥 손이 가는대로 코드를 짜다보니 loss를 위한 forward 한번\nmetric을 위한 forward를 한번 하고 있더라고요 그래서 지금은 loss출력은 안하고 있고\nloss랑 metric을 forward한 번에 해결할 수 있도록 코딩하고는 있습니다..\n\nillegibility의 경우는 어떤 걸 물어보시는 지 정확히 모르겠는데 SceneTextDataset코드를 참고했습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1636990598.098500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 저도 2번 forward 하다가 한번에 처리하려다 보니.. 쉽지가 않아서 질문 드렸는데 비슷한 문제를 겪고 계신가 보군요 저는 dataset.py을 건드려야  고민중입니다 :joy:\n다시 한 번 답변 감사합니다~~!",
+          "user": "U029KSKF90V",
+          "user_name": "dongjin seo",
+          "timestamp": "1636990810.098700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029KSKF90V",
+              "ts": "1636990864.000000"
+            },
+            "reactions": [
+              {
+                "name": "joy",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저는 지금 어떻게 forward 한번에 출력은 되는데 input값이 잘못되었는 지\nloss가 계산은 되는데 이상한 값들이 나오더라고요..\n해결 중에 있는데 추가적인 내용있으면 공유하겠습니다!",
+          "user": "U029B96RRJA",
+          "user_name": "이경민",
+          "timestamp": "1636990989.100200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029KSKF90V",
+                  "U029KG3T7L3",
+                  "U029ULW2X8A"
+                ],
+                "count": 3
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029KSKF90V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 부분만 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "기본 정보 제공되나 일부 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "기술적 내용은 일반적이지만 구체성 부족"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-15",
+      "source_file": "2021-11-15_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "convert_mlt.py 를 실행하는 도중 문제가 생겨 질문드립니다! 디버깅을 통해 class MLT17Dataset의 return 값은 제대로 나오는 것을 확인했습니다!\n그런데,\n```mlt_merged = ConcatDataset([mlt_train, mlt_valid])```\n여기서 mlt_merged의 len을 찍어보니 0이 나와 제대로 실행이 되지 않고 있습니다.\n경로도 이상이 없고 중간 중간 디버깅을 해봐도 모든 함수가 제대로 작동하는데 main문에서\n```    mlt_train = MLT17Dataset(osp.join(SRC_DATASET_DIR, 'ch8_training_images'),\n                             osp.join(SRC_DATASET_DIR, 'ch8_training_gt'),\n                             copy_images_to=dst_image_dir)\n    \n    print(len(mlt_train))```\nmlt_train, mlt_valid 변수에 값이 제대로 할당되는 것 같지 않습니다. 혹시 원인을 알 수 있을까요?\n** 경로를 제외하고 다른 코드는 건들지 않았습니다!",
+        "user": "U029TU25PG9",
+        "user_name": "김민준",
+        "timestamp": "1636991499.105000",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029TU25PG9",
+            "ts": "1636991522.000000"
+          },
+          "reactions": null,
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02LZPTP596>",
+          "user": "U0298UX7GN7",
+          "user_name": "Hwalsuk Lee",
+          "timestamp": "1637020423.105500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 김민준님 상황 파악을 위해 몇 가지 확인을 부탁드리겠습니다.\n\n• ConcatDataset을 생성하기 이전에 len(mlt_train), len(mlt_valid)의 값이 모두 0으로 나온다면 경로의 문제일 가능성이 높아 보입니다. `/data/datasets/ICDAR17_MLT/raw` 정확히 이 경로에 MLT17 데이터셋의 이미지들이 위치하고 있는 상황일까요?\n    ◦ 37번 라인 직후에 len(image_paths)를 확인해보시면 좋을 것 같습니다.\n혹시 경로 문제가 아니라면 진단을 위해 조금 더 자세한 정보가 필요할 것 같습니다.\n\n• “class MLT17Dataset의 return 값은 제대로 나온다“라는 것은 혹시 어떤 것을 확인하셨던 것일까요?",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637022338.105700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "`/data/datasets/ICDAR17_MLT/raw`  는 아니고 image와 gt가 있는 `/opt/ml/input/data/ICDAR17_MLT`  로 설정했습니다!\n• 37번 라인직후에 len을 찍어서 image_path와 label_path가 같은 value를 갖는 것은 확인했습니다!\n• `return words_info, dict(languages=languages)`\n이 return 값을 찍어봤는데 값이 제대로 출력됬었습니다!",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637024568.105900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음 MLT17Dataset의 초기화 직후에 self.sample_ids의 길이가 몇으로 나오시나요?",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637029780.106800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "self.sample_ids의 길이는 0으로 찍힙니다ㅠㅠ",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637030491.107000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 그럼 image_paths의 길이는 어떤가요? 이 길이도 0이면 파일 경로들이 제대로 읽히지 않은 것 같고, 0이 아니라면 50번 라인에서 continue 되지 않고 통과하는 샘플이 왜 없는지 값을 살펴봐야할 것 같습니다!",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637030618.107200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!! 그 부분 한번 보겠습니다",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637034955.107400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵, 혹시 베이스코드에 문제 발견되면 말씀 부탁드리겠습니다! 타이트한 일정에 다들 수고 많으시네요! ㅠㅠ",
+          "user": "U02LZPTP596",
+          "user_name": "박종호_멘토",
+          "timestamp": "1637038045.107600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "star-struck",
+                "users": [
+                  "U029TU25PG9",
+                  "U028323UHE2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "해결됬습니다!! 감사드립니당ㅎㅎ",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1637038526.107900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02LZPTP596"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "Fully answers all parts"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "mostly clear"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "accurate, working solution"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-19",
+      "source_file": "2021-11-19_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "<!channel> 안녕하세요, 캠퍼님들! 오늘 18:00~19:00에 진행될 마스터클래스 리마인드 드립니다 :) *이활석 마스터님*과 함께 데이터 제작 대회 랩업이 진행될 예정입니다.\n• 주제: 대회 Wrap up 및 annotation 제작 실습 피드백\n• 진행 내용\n    ◦ 리더보드 1, 2, 3위에 선정된 캠퍼 발표\n    ◦ 마스터님 피드백\n    ◦ Annotation 제작 실습 피드백\n    ◦ 사전 질의 응답 진행\n캠퍼 분들의 발표가 예정되어 있으니 늦지 않게 접속해주세요!\n&gt;  <https://zoom.us/j/94462317951?pwd=K3NrbUFTanVxZTh0cWc1ZzF0WUVsZz09|마스터클래스 데이터 제작 CV Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1637310791.114800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "amaze",
+              "users": [
+                "U029MKLUYFN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오늘 발표하실 캠퍼분들의 발표 자료 먼저 공유드립니다 :slightly_smiling_face:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1637310875.114900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "핵심 정보 누락"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "부분적 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "정보 부족"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-12-10",
+      "source_file": "2021-12-10_qa.json",
+      "course": "level3_data_cv",
+      "question": {
+        "text": "링크가 잘못되있어요",
+        "user": "U02A3GWB4RX",
+        "user_name": "sight Over",
+        "timestamp": "1639125156.118500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02A3GWB4RX> 경재님, 요건 11/19(금)의 마스터클래스가 맞습니다..!",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1639125205.118700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "앗...",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639125299.118900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "잘못봤네요 ㅋㅋ 오늘거인줄알았어요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1639125308.119100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 :smile:",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1639125366.119800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "core issue acknowledged but no resolution steps"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "specifics clarify context but general understanding still holds"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "correctly identifies referenced content"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    }
+  ]
+}

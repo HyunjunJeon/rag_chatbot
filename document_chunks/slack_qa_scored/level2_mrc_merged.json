@@ -1,0 +1,2280 @@
+{
+  "course": "level2_mrc",
+  "metadata": {
+    "total_qa_pairs": 28,
+    "generations": [
+      "2"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "2": 28
+      }
+    },
+    "date_range": {
+      "start": "2021-10-12",
+      "end": "2021-11-16"
+    },
+    "source_files": {
+      "count": 16,
+      "files": [
+        {
+          "generation": "2",
+          "filename": "2021-10-12_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-13_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-14_qa.json",
+          "qa_count": 4
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-18_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-19_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-20_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-22_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-26_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-28_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-29_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-03_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-04_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-05_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-07_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-08_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-16_qa.json",
+          "qa_count": 1
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 8,
+      "medium": 4,
+      "low": 6,
+      "remove": 10,
+      "error": 0
+    },
+    "original_count": 28,
+    "filtered_count": 18
+  },
+  "qa_pairs": [
+    {
+      "generation": "2",
+      "date": "2021-10-13",
+      "source_file": "2021-10-13_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<https://stages.ai/competitions/77/discussion/talk/post/730>\nSparseRetrieval의 `get_relevant_doc_bulk` 메서드의 배치처리를 numpy의 partition을 활용해서 속도 개선을 시도해봤습니다!\nk=1일 경우 14배 빠르며 k=500일 때는 4.5배 빠른 결과를 얻었습니다.\n\np.s. 동점이 있는 경우 (정말정말 드물지만... 저희 wiki로 tf-idf 구축시 \"기영이는 어떤 애니메이션에 나오는가?\" 라는 문장에서 topk=500으로 잡으면 있더라구요) index를 원래 구현체와 다르게 잡긴 하지만... float value라 동점이 나올 가능성이 거의 없기도 하고 score는 동점이기에 무시할 수 있을 것 같아요!",
+        "user": "U029NG58Q84",
+        "user_name": null,
+        "timestamp": "1634141652.040800",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029NG58Q84",
+            "ts": "1634142948.000000"
+          },
+          "reactions": [
+            {
+              "name": "clapping",
+              "users": [
+                "U029LKLNE6Q",
+                "U029WV30DMF",
+                "U029J7UCHR8",
+                "U029E9LS8NP",
+                "U029H263PD1",
+                "U0295N1AWLV",
+                "U029F23R56F",
+                "U029B2518S1",
+                "U028323UHE2",
+                "U029F1P9TS7",
+                "U029MU09NLW",
+                "U02AF2JSQP2",
+                "U029DG66W9L",
+                "U0298NLPSRY"
+              ],
+              "count": 14
+            },
+            {
+              "name": "party-blob",
+              "users": [
+                "U029LKLNE6Q",
+                "U029T92U2F3",
+                "U029H263PD1",
+                "U029X5PRTJ5",
+                "U029B2518S1",
+                "U028323UHE2",
+                "U02AF2JSQP2"
+              ],
+              "count": 7
+            },
+            {
+              "name": "dolphin",
+              "users": [
+                "U0295N1AWLV",
+                "U029B2518S1",
+                "U028323UHE2",
+                "U02AF2JSQP2"
+              ],
+              "count": 4
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029X5PRTJ5",
+                "U028323UHE2",
+                "U02AF2JSQP2"
+              ],
+              "count": 3
+            },
+            {
+              "name": "party_parrot_icecream",
+              "users": [
+                "U02AF2JSQP2"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "오 대박..ㅎㅎ 신기하네요!\nML 속의 선형대수.. 같은 느낌이네요! 여러모로 도움이 많이 될 것 같습니다. 감사합니다!",
+          "user": "U0295N1AWLV",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1634151732.042400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0295N1AWLV",
+              "ts": "1634151742.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 1,
+          "reasoning": "답변 부재"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "질문 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "정보 없음"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-14",
+      "source_file": "2021-10-14_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<!channel>\n안녕하세요 ! 캠퍼여러분, *MRC 대회 그라운드룰 관련하여 추가 사항 안내드립니다.*\n이전에 공지드렸듯이, *기학습 가중치 (pretrained weight) 사용에 제한은 없습니다.*\n*다만 KLUE MRC 데이터로 학습된 기학습 가중치 사용은 금지합니다.*\n• *`추가사항` *KLUE 프로젝트에서 공개된 KLUE MRC 데이터셋의 일부는 현 리더보드 테스트셋을 포함하고 있습니다. 따라서 *KLUE MRC 데이터로 기학습된 가중치를 사용하는 것은* ‘테스트셋을 분석하고 사용(학습)하는 행위이기 때문에 본 대회와 부스트캠프 AI Tech 학습에서는 금지합니다. :man-gesturing-no:\n• 추가적으로 대회 참가자 분들은 사용하는 기학습 가중치를 공지게시판의 ‘기학습 가중치 공지’ 게시글에 댓글로 pretrained weight 정보와 *접근 가능한 링크*(<https://stages.ai/competitions/77/discussion/notice/post/740|link>)를 반드시 공유 부탁드립니다. 이미 공유가 되어 있을 경우 추가로 공유주실 필요는 없습니다.\n• 대회 종료 후 결과 재현성에 대해서 검증 절차가 진행될 수도 있으니 반드시 룰은 유의해서 진행 부탁드립니다.\n\n오피스아워에서 말씀드린 것처럼, 재미있는 앙상블 모델도 만들어 보실 수 있으니 다양한 방법으로 모델링을 해보시는걸 추천드립니다 :pray: :pray:",
+        "user": "U028323UHE2",
+        "user_name": "Saewon Yang",
+        "timestamp": "1634260395.063600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U0298UN562F"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029F62SBPD",
+                "U02E375H869",
+                "U0298RWEPE3",
+                "U0297RF9E78",
+                "U029L559BB7",
+                "U02A5D0RFMF",
+                "U029L0WMGUE",
+                "U029B4MRK8D",
+                "U029GCDG954",
+                "U029F23R56F",
+                "U029DG66W9L"
+              ],
+              "count": 11
+            },
+            {
+              "name": "+1::skin-tone-3",
+              "users": [
+                "U02A7FZP5FA"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "지금 구상중인게 klue의 tc를 이용해서 데이터를 분류해서 모델을 설계할 생각인데 Topic Classification의 경우에는 문제가 없는건가요??",
+          "user": "U02A3MC2UFJ",
+          "user_name": "심현덕",
+          "timestamp": "1634262815.065900",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02A3MC2UFJ",
+              "ts": "1634264072.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A3MC2UFJ> 네 현덕님 안녕하세요. 해당 모델을 사용하실 때 추가적인 외부 데이터를 사용하지 않는다면 문제 없습니다 :slightly_smiling_face:",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1634276208.068400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02A3MC2UFJ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "partially answers"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "references user"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "externals correct"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-18",
+      "source_file": "2021-10-18_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\nMRC 오피스아워가 오늘 *(10/18 월요일) 18:00 ~ 19:00*에 진행됩니다.\n*서중원 멘토님께서 Elastic Search*에 대해 설명해주실 예정이니 많은 참여 부탁드립니다! 멘토님의 진행 자료를 미리 공유해드리니 참고해주세요! :)\n&gt; <https://zoom.us/j/92827134193?pwd=M2g1c1Jhc3ZKSDJuYnNwZXh0R3lLUT09|오피스아워 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": null,
+        "timestamp": "1634545800.076200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "금일 오피스아워에서 진행된 실습 코드입니다 :slightly_smiling_face:\n<https://github.com/thejungwon/search-engine-tutorial>",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1634552325.077200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U0298NLPSRY",
+                  "U029SLN0S1X",
+                  "U029LN7NMRA",
+                  "U02AK81JACT",
+                  "U029T92U2F3",
+                  "U0297CU8JFQ",
+                  "U029F1JK1RB"
+                ],
+                "count": 7
+              },
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U0298UN562F",
+                  "U029H263PD1"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 정보(링크)만 제공"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "배경 설명 부족"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "유효한 링크 추정"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-18",
+      "source_file": "2021-10-18_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "혹시 오늘 실습코드 올려주시나요?",
+        "user": "U029PN9SX1R",
+        "user_name": "신원지_T2120",
+        "timestamp": "1634552263.076600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U0298NLPSRY",
+                "U028ZAA1X1V"
+              ],
+              "count": 2
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029Z7YSHEV"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://github.com/thejungwon/search-engine-tutorial> 입니다~",
+          "user": "U0295N1AWLV",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1634552316.076900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029Z7YSHEV",
+                  "U0298NLPSRY"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "질문에 대한 기본 답변만 있음"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "링크 제공되어 대부분 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "올바른 링크 형식으로 정확"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-18",
+      "source_file": "2021-10-18_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "과제 정답은 어디에 올라오나요?",
+        "user": "U029W76KWJY",
+        "user_name": "안명철_T2126",
+        "timestamp": "1634558229.078900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "[10/18] QA with Phrase Retrieval 10강 강의에 같이 올라가있습니다 ! 확인해주세요 !\n<https://www.boostcourse.org/boostcampaitech2/lecture/1188260?isDesc=false>",
+          "user": "U0298NLPSRY",
+          "user_name": "조대현_멘토",
+          "timestamp": "1634560170.079400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029W76KWJY",
+                  "U028323UHE2"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다. 늦게 확인했습니다.",
+          "user": "U029W76KWJY",
+          "user_name": "안명철_T2126",
+          "timestamp": "1634566182.079700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 5,
+          "reasoning": "complete with extra info"
+        },
+        "context_independence": {
+          "score": 5,
+          "reasoning": "fully independent"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "exact location given"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 5.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-19",
+      "source_file": "2021-10-19_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<@U028323UHE2> 님, 외부 데이터셋 사용이 기본적으로 금지라고 알고 있는데 korquad 같은 데이터셋을 받아서 저희가 따로 학습시키는 것도 불가한 것인지 궁금합니다 기학습된 가중치 모델 중 pubilc 한 것은 사용 가능하다고 들어서요!",
+        "user": "U029C175HAS",
+        "user_name": "박진영_T2096",
+        "timestamp": "1634630373.085400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029SLN0S1X",
+                "U029J7UCHR8",
+                "U029B4MRK8D",
+                "U0297LELCQ6",
+                "U029T0V2267",
+                "U029F2PUHBM",
+                "U028ZAA1X1V"
+              ],
+              "count": 7
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "네 캠퍼님, 답변이 늦었네요. 말씀 주신 것처럼 외부 데이터셋을 탐색하기 보다는 주어진 데이터셋을 활용하여 대회 진행 부탁드립니다.\n대회 관련 룰은 아래 링크에서 확인 가능합니다.\n• AI Stages - <https://stages.ai/competitions/77/discussion/notice/post/700|link>\n• 부스트코스 - <https://www.boostcourse.org/boostcampaitech2/notice/27310|link>",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1634687524.086900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U029C175HAS",
+          "user_name": "박진영_T2096",
+          "timestamp": "1634693901.087300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U028323UHE2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "partially addressed"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "links provided"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "adheres to guidelines"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-20",
+      "source_file": "2021-10-20_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "MRC그라운드룰에 저작권 문제 없는 기학습 가중치는 사용가능하다고 나와있는데, 이 `저작권 문제` 라는 기준을 알고 싶습니다. 예를들어 cc-by-nc-sa 4.0처럼 public이어도 비영리 목적으로만 사용가능하면 사용할 수 없는것인지 궁금합니다.",
+        "user": "U029TDJ305P",
+        "user_name": "이요한",
+        "timestamp": "1634780148.002200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 말씀주신 저작권의 경우 사용이 불가합니다. 영리 목적으로도 활용이 가능해야 합니다 :smiling_face_with_tear:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1634780304.002400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아하 알겠습니다. 빠른답변 정말 감사합니다! :slightly_smiling_face:",
+          "user": "U029TDJ305P",
+          "user_name": "이요한",
+          "timestamp": "1634780341.002600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U028323UHE2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "부분적 답변"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "추가 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 2,
+          "reasoning": "정보 오류"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-20",
+      "source_file": "2021-10-20_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "Dense Retriever 관련된 5강 실습코드와 Speical Mission 코드에 관해 질문드립니다.\n\n첨부된 사진은 encoder를 학습시키는 train 함수의 일부인데요.\n배치가 시작될 때마다 `encoder.train()`을 실행해주는 이유가 궁금합니다.\n\ntrain이 시작되기 전에 `train()`을 실행하지 않고,\n굳이 저렇게 배치가 반복될 때마다 `train()`을 계속해서 실행시켜주는 까닭이 있을까요?",
+        "user": "U029L7Q4FJ8",
+        "user_name": null,
+        "timestamp": "1634798405.005900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "meow_party",
+              "users": [
+                "U0298RWEPE3",
+                "U02A3MC2UFJ",
+                "U029T92U2F3",
+                "U0298NLPSRY"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "Loop 밖에서 선언해도 되고 그게 더 좋습니다! 특별한 의도는 없고 제작 중에 루프를 체크하다가 루프 내부에 train을 다시 선언한 것 같습니다. 다음과 같이 구성할 경우 모델 학습에 문제가 생기는 것은 아니기때문에 걱정하지 않으셔도 됩니다. 물론 배치가 반복될 때 마다 실행시켜줄 필요가 없기 때문에 해당 부분을 루프 밖으로 내보내면 좋을 것 같습니다.\n\n module.train() 메소드는 모델의 \"training\"이라는 클래스속성을 boolean으로 바꿔주는 역할만하기 때문에 속도저하를 크게 일으키진 않을거에요. Mission에 수정해두었습니다 ㅎㅎ;",
+          "user": "U0298NLPSRY",
+          "user_name": "조대현_멘토",
+          "timestamp": "1634799381.006600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U0298UN562F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298NLPSRY> 왜 저럴까 혼자 끙끙대다가 도저히 모르겠어서 질문했는데, 역시 질문하는 게 답이었네요!\n\n친절히 답변해주셔서 감사합니다. 좋은 하루 되시길 바랍니다. :slightly_smiling_face:",
+          "user": "U029L7Q4FJ8",
+          "user_name": "yongchan Kim",
+          "timestamp": "1634799591.007100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "pray",
+                "users": [
+                  "U0298NLPSRY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "clapping",
+                "users": [
+                  "U0298UN562F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 답변 포함, 상세 배경 설명 부족"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "주요 내용 자체 설명됨"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "기술적 설명 정확함"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-26",
+      "source_file": "2021-10-26_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<@U028323UHE2> 님 궁금한 사항이 있어서 문의드립니다.\n<https://github.com/SKT-AI/KoGPT2|https://github.com/SKT-AI/KoGPT2>\nCC-BY-NC-SA 4.0 인 모델로 데이터 Augmentation을 한 후 활용 할 수 있는지 궁금합니다.\n직접적인 제출 모델에는 해당 모델을 활용하지 않습니다.\n이럴 경우 어떻게 되는 걸까요?",
+        "user": "U029LJ0JY05",
+        "user_name": "문하겸_T2076",
+        "timestamp": "1635239290.020500",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029LJ0JY05",
+            "ts": "1635240344.000000"
+          },
+          "reactions": null,
+          "reply_count": 4
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 캠퍼님, 운영진 측에서 저작권 관련해서 한 번 살펴보고 내일 중에 답변 드릴게요!",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1635248736.020800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "알겠습니다!",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1635249054.021000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아래 답변 전달드립니다 :slightly_smiling_face:\n생성된 데이터셋의 경우, 어떻게 생성하느냐가 오히려 더 중요할 것 같습니다. gpt-2의 경우 적절한 prompt를 주어야 할텐데 그 prompt를 직접 만드시거나/저작권 문제가 없는 데이터의 일부를 활용한다면 모델이 생성한 문장은 활용가능한 2차적 저작물로 간주되지 않을까 싶습니다. 따라서 제공된 MRC 데이터셋은 저작권 이슈가 없기 때문에 활용 가능합니다.",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1635298805.021200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "답변 감사합니다!",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1635316613.021400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U028323UHE2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 1,
+          "reasoning": "답변 부재"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "약간 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 2,
+          "reasoning": "부분적 정보 누락"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-28",
+      "source_file": "2021-10-28_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :slightly_smiling_face:\n내일 3차 :seedling:MRC 오피스아워:seedling:가 *내일 10/29(금) 18:00 ~ 19:00*에 진행됩니다.\n*성예닮 멘토님께서 &lt;NLP with RL, Vision&gt;*를 설명해주실 예정입니다.\n사전에 간단한 설문조사를 받고 있습니다! MRC와 멘토님에 대해서 궁금한 점에 대해 자유롭게 남겨주세요 :)\n&gt; <https://forms.gle/pk3h6X5vd14YLtrS8|MRC 오피스아워 사전설문 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1635408270.022100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "fire",
+              "users": [
+                "U0298UN562F",
+                "U0295N1AWLV",
+                "U0298NLPSRY"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02E375H869> 혹시 설문 링크 뷰어 권한 받을 수 있을까요?",
+          "user": "U0295N1AWLV",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1635416397.022200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저 뿐 아니라 MRC레전드 <@U0298UN562F> <@U0298NLPSRY> 두 멘토님들께 질문하셔도 좋아하실거 같아요!",
+          "user": "U0295N1AWLV",
+          "user_name": "Yedarm Seong",
+          "timestamp": "1635416459.022400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U02E375H869"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0295N1AWLV> 네~! 공유드렸습니다!",
+          "user": "U02E375H869",
+          "user_name": "Jisu Kang",
+          "timestamp": "1635416530.022700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 부분만 답변"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "약간의 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "정확함"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-28",
+      "source_file": "2021-10-28_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<@U028323UHE2> 님 궁금한 사항이 있어 문의드립니다!\n현재 대회 데이터 구성이 train 4192개와 test 600개로 나뉘고 train 내에서 또한번 train 3952개, validation 240개로 나뉘는 것으로 알고 있습니다.\nvalidation set 구성에 변화를 주고 싶은데 기존에 validation 폴더에 들어있던 240개 데이터는 학습 결과를 모니터링하는 validation용도로만 사용해야하는지(학습에 직접 사용할 수는 없는지) 궁금합니다!",
+        "user": "U02A1GMPQ65",
+        "user_name": "김다인",
+        "timestamp": "1635473432.026100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02A1GMPQ65",
+            "ts": "1635473504.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029MNM7SE8",
+                "U029Z7DE676",
+                "U029SLN0S1X",
+                "U029KFGPJ9H"
+              ],
+              "count": 4
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U02A1GMPQ65> 안녕하세요 다인님 ! 금일 크리스님이 휴가셔서, 내부 논의 결과를 제가 답변드리겠습니다 :slightly_smiling_face:\n\nvalidation 데이터는 학습에 사용 하실 수 있습니다. 다만 test 데이터를 학습에 사용하는 행위는 금지됩니다.\n\n참고 부탁드려요",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1635485067.026800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298UN562F",
+              "ts": "1635485088.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UN562F> 감사합니다!!",
+          "user": "U02A1GMPQ65",
+          "user_name": "김다인",
+          "timestamp": "1635486978.027600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 답변 제공, 추가 설명 없음"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적"
+        },
+        "technical_accuracy": {
+          "score": 2,
+          "reasoning": "잘못된 학습 권장"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-04",
+      "source_file": "2021-11-04_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "부캠시작하고 가장 긴 기간이었는데 , 4주간 캠퍼 여러분 모두 고생많으셨습니다!!!! 등수를 떠나서 모두 최고십니다!!  :party_parrot_icecream:",
+        "user": "U029B6PDLFQ",
+        "user_name": "조녁",
+        "timestamp": "1636020512.051800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U028ZA8TXRD",
+                "U029T92U2F3",
+                "U0284GKL1T4",
+                "U02A1GMPQ65",
+                "U029W76KWJY",
+                "U029H263PD1",
+                "U029WV30DMF",
+                "U029KFGPJ9H",
+                "U029F9U3MMH",
+                "U027SHXU18R",
+                "U029SLN0S1X",
+                "U029J4FN18T",
+                "U029DG66W9L",
+                "U029WFW8H25",
+                "U029TD91F09"
+              ],
+              "count": 15
+            },
+            {
+              "name": "clapping",
+              "users": [
+                "U029F1JK1RB",
+                "U0284GKL1T4",
+                "U029W76KWJY",
+                "U029H263PD1",
+                "U029WV30DMF",
+                "U029F9U3MMH",
+                "U027SHXU18R",
+                "U029SLN0S1X",
+                "U029TD91F09",
+                "U029XA5SWTE"
+              ],
+              "count": 10
+            }
+          ],
+          "reply_count": 6
+        }
+      },
+      "answers": [
+        {
+          "text": "발표 기대하겠습니다.",
+          "user": "U029W76KWJY",
+          "user_name": "안명철_T2126",
+          "timestamp": "1636020929.052700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "종혁님도 고생 많으셨습니다! 오늘은 푹 쉬세요!",
+          "user": "U029H263PD1",
+          "user_name": "Daeung Kim",
+          "timestamp": "1636021113.054100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "고생 많으셨어요 ㅎㅎ 밥 드셔야죠??",
+          "user": "U029WV30DMF",
+          "user_name": "허진규",
+          "timestamp": "1636021441.054500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U029B6PDLFQ"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029WV30DMF> 넵 저는 이제 먹었습니다!! 진규님도 고생많으셨습니다 ㅋㅋㅋ 맛저하세욥!!!",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636023220.060800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "rolling_on_the_floor_laughing",
+                "users": [
+                  "U029WV30DMF"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029H263PD1> 대웅님도 고생많으셨습니다!! :laughing:",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636023240.061400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029W76KWJY> 크으.. 명철님 발표는 제가 아닙니다 ㅋㅋㅋㅋ 4주 길었는데 고생많으셨습니당ㅎㅎ",
+          "user": "U029B6PDLFQ",
+          "user_name": "조녁",
+          "timestamp": "1636023289.062800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "개인 감사 응답"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "특정 인물 언급"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-04",
+      "source_file": "2021-11-04_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:seedling:MRC 마스터클래스:seedling:가 잠시 후 *(11/5 금요일) 16:00 ~ 17:00*에 진행됩니다.\n서민준 마스터님과 함께 MRC 대회 랩업이 진행될 예정입니다.\n다른 캠퍼분들의 발표가 바로 이루어질 예정이니 16시 전에 입장 부탁드립니다 :)\n&gt; <https://zoom.us/j/92356314868?pwd=THNxVTF0UWlBVHFrdWdOT21hR3J5UT09|마스터클래스 줌 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636094121.066000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "캠퍼님들의 소중한 발표자료도 공유드립니다 :slightly_smiling_face:",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636094261.066100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029B6PDLFQ",
+                  "U029SLN0S1X",
+                  "U029RJGJRPX"
+                ],
+                "count": 3
+              },
+              {
+                "name": "raised_hands::skin-tone-2",
+                "users": [
+                  "U029H263PD1"
+                ],
+                "count": 1
+              },
+              {
+                "name": "raised_hands::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "핵심 요구사항 미충족"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "문맥 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "정보 자체는 정확"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-07",
+      "source_file": "2021-11-07_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "안녕하세요 대회 끝나고 뒷북이지만 조언을 구하고자 질문을 드립니다.\nt5라는 생성모델을 이용해서 mrc문제를 시도했는데 metric 그래프가 이상하게 나옵니다.\n왜 보아뱀 속에 들어간 코끼리 모양으로 나오는 걸까요???\n(valid acc 60 나왔을 때 생성결과는 정상적으로 나오는 것을 확인했습니다)\n\n모델은 한국어로 pretrain된 T5(KETI-t5)를 사용했고\n옵티마이저는 adamW\n스케줄러는 *`transformers.get_cosine_with_hard_restarts_schedule_with_warmup`을 사용했습니다.*\n\n배치사이즈는 32로 250step마다 1epoch가 돌아간다고 생각하시면 됩니다.\ntrain은 50 step, valid는 200 step 마다 찍었습니다.\nacc는 em 값입니다.",
+        "user": "U029R6PA9HT",
+        "user_name": "hs",
+        "timestamp": "1636285945.070300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029R6PA9HT",
+            "ts": "1636298543.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029B6PDLFQ",
+                "U029W8R96KW",
+                "U029MNM7SE8",
+                "U029Z7YSHEV"
+              ],
+              "count": 4
+            },
+            {
+              "name": "dancing_pikachu",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "meow_party",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            },
+            {
+              "name": "amaze",
+              "users": [
+                "U029B6PDLFQ"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029R6PA9HT> 효석님 안녕하세요 ! 먼저 알려주신 내용만 보고서는 어떤 부분이 의심된다고 말씀드리기가 애매할 것 같습니다. 이럴 때 체크해보면 좋을 몇가지 부분을 말씀드려보자면\n1. 내가 사용한 모델의 깃허브에 들어가서 finetuning에 대한 정보 얻은 후 어떤 부분이 다른지 체크하기 (제가 좀 검색해보니 해당 모델은 finetuning 가이드를 주는 레포가 따로 있네요. finetuning시 train_default.gin이라는 파일에서 파라미터를 정해주고 있는데, 이런 부분을 비슷하게 지켰는지 확인해보면 좋습니다)\n2. 생성된 값과 실제 정답을 따로 추출하여 metric을 구했을 때도 이상한 값이 나오는지 체크해보기\n3. preprocess, postprocess에서 문제는 없는지 체크해보기\n이런 내용을 한번 확인해보는것이 좋습니다. 생성결과가 정답에 가까운지 혹은 자연스럽기만한지 (자연스러운 문장을 만들어냈지만 QA에 적합하지 않은 문장을 생성한것은 아닌지)도 체크해보면 좋을 것 같아요.",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1636341415.073300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298UN562F",
+              "ts": "1636341420.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLPSRY",
+                  "U029R6PA9HT"
+                ],
+                "count": 2
+              },
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U0298NLPSRY",
+                  "U029R6PA9HT"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 문제 원인에 대한 구체적 설명 없음"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "주요 정보는 포함되나 일부 전문 용어 설명 필요"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "유효한 디버깅 절차 제안"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-07",
+      "source_file": "2021-11-07_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "안녕하세요 운영진님들. 매사 캠퍼들의 편의를 신경 써 주셔서 감사합니다.\n이번 MRC 대회의 다른 팀 분들의 코드도 한 번 보면서 공부해보고 싶은데, MRC repo가 언제 공개로 되는지 알고 싶습니다. 확인 부탁 드립니다.\n좋은 하루 되세요.",
+        "user": "U029KFGPJ9H",
+        "user_name": "고창용",
+        "timestamp": "1636344589.077500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029KFGPJ9H> 안녕하세요, 창용님! 이번 MRC 대회의 레포는 이번주 (수)에 공개될 예정입니다~ :slightly_smiling_face:",
+          "user": "U027SHXU18R",
+          "user_name": "hj1.hwang",
+          "timestamp": "1636344619.077600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "넵",
+                "users": [
+                  "U029KFGPJ9H"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "빠른 답변 감사합니다!",
+          "user": "U029KFGPJ9H",
+          "user_name": "고창용",
+          "timestamp": "1636344652.077900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U027SHXU18R"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "질문에 대한 직접적 답변 포함"
+        },
+        "context_independence": {
+          "score": 5,
+          "reasoning": "독립적 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보 전달"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-07",
+      "source_file": "2021-11-07_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "안녕하세요 nlp 캠퍼 및 멘토 및 운영진 여러분들.\nnlp관련 궁금한게 하나 있어서 질문합니다.\nnltk 의 punkt tokenizer는 char based, word based, subword based 중에 word based 에 해당하는건가요 ?\n여러분들의 도움을 기다리고 있습니다 ㅠ\n\n※추신 : punkt 가 punct를 의미하는건가요?",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1636347054.079700",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U02AF2JSQP2",
+            "ts": "1636347390.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<https://aclanthology.org/J06-4003.pdf>",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1636354574.080300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요 웅준님 punkt tokenizer는 하나의 코퍼스가 존재할 때 sentence의 범위를 detect하기 위해 제안된 모델입니다. 즉 nltk에서 사용하는 punkt는 하나의 큰 코퍼스에서 문장을 식별해주는 역할을 수행합니다. sentence tokenizer라고 생각하시면 됩니다. 2006년에 제안된 방법론이며 위의 논문에서 처음 제안되었습니다.",
+          "user": "U0298UN562F",
+          "user_name": "이유경_멘토",
+          "timestamp": "1636354660.080500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U0298UN562F> 답변 감사합니다.\n추가적으로 모르는 부분 생기면 여기에 질문 달도록하겠습니다.",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1636354859.080700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 1,
+          "reasoning": "모든 질문 부분 답변 없음"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "기본 설명 포함"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "첫 번째 질문에 대한 답변 정확"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-08",
+      "source_file": "2021-11-08_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "*방금 전에 <https://github.com/monologg/KoBigBird|KoBigBird>가 공개되었습니다* :raised_hands:\n• BigBird를 간단하게 소개하자면, Sparse Attention(Neighboring, Global, Random)을 활용하여서 max_seq_length를 4096까지 늘린 BERT 모델입니다. \n• Long Sequence에 있어서 확실히 성능이 좋은 것 같습니다!\n파이널 프로젝트로 MRC 관련해서 하실 분들은 참고하세용 :hugging_face:",
+        "user": "U029L0WMGUE",
+        "user_name": null,
+        "timestamp": "1636358931.083200",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029L0WMGUE",
+            "ts": "1636359402.000000"
+          },
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U027SHXU18R",
+                "U029Z566G2G",
+                "U029B4MRK8D",
+                "U029DG66W9L",
+                "U029F2PUHBM",
+                "U029BL7P8KF",
+                "U029C175HAS",
+                "U029U43KM8B",
+                "U0290B2QXTR",
+                "U029F23R56F",
+                "U029LKLNE6Q",
+                "U02A4FVKM96",
+                "U029T92U2F3",
+                "U029MU09NLW",
+                "U02A3MC2UFJ",
+                "U029U4VQZ5Z",
+                "U029F62SBPD",
+                "U02A8HS8LP2",
+                "U02988Y6BGF",
+                "U029F1P9TS7",
+                "U029KFGPJ9H",
+                "U029NG58Q84",
+                "U029B6PDLFQ",
+                "U029G3HPQ2X"
+              ],
+              "count": 24
+            },
+            {
+              "name": "among-us-party",
+              "users": [
+                "U02E375H869",
+                "U029LKLNE6Q",
+                "U029H263PD1",
+                "U029F62SBPD",
+                "U029NG58Q84",
+                "U029F9U3MMH",
+                "U029TD91F09",
+                "U029X5PRTJ5"
+              ],
+              "count": 8
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U028ZAA1X1V",
+                "U029LKLNE6Q",
+                "U029F62SBPD",
+                "U0297RF9E78",
+                "U029NG58Q84",
+                "U029TD91F09"
+              ],
+              "count": 6
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U028ZAA1X1V",
+                "U029LKLNE6Q",
+                "U029F62SBPD",
+                "U029NG58Q84",
+                "U029TD91F09"
+              ],
+              "count": 5
+            },
+            {
+              "name": "raised_hands::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "+1::skin-tone-6",
+              "users": [
+                "U028ZAA1X1V"
+              ],
+              "count": 1
+            },
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029LKLNE6Q",
+                "U029F62SBPD",
+                "U029NG58Q84"
+              ],
+              "count": 3
+            },
+            {
+              "name": "+1::skin-tone-2",
+              "users": [
+                "U029H263PD1",
+                "U029TD91F09"
+              ],
+              "count": 2
+            },
+            {
+              "name": "raised_hands::skin-tone-2",
+              "users": [
+                "U029TD91F09"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 22
+        }
+      },
+      "answers": [
+        {
+          "text": "헉 이렇게 좋은 정보를 공유해주시다니 너무 감사합니다 :smile:",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1636359192.085100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://huggingface.co/monologg/kobigbird-bert-base>",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359234.085300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이모델이 맞는지요? 대회 끝나기 일주일 전에 공개되어서 저희 조에서 테스트 해보았습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359252.085600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U0298UN562F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아쉬움을 제가 살짝 덜어드리자면, roberta-large... 강했습니다...",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359286.085900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "meow_party",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "cat_pink",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "coolcry",
+                "users": [
+                  "U029L0WMGUE",
+                  "U028ZA8TXRD"
+                ],
+                "count": 2
+              },
+              {
+                "name": "blob_thumbs_up",
+                "users": [
+                  "U0298UN562F"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오호 그렇군요,,, 저희 팀은 대회 기간에 <@U029E8DLJ4B> 님이 Longformer을 Roberta-large로 만들었는데, 메모리를 많이 잡아먹었다는 것만 저는 알고 있습니다",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636359368.087200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "시간 관계상 더 깊은 실험으로 들어가진 못했지만 개인적인 분석으로는 ODQA 특성상 다른 passage들까지 포함된 Embedding 벡터도 만들어져서(384 보다 길게) 그 부분이 방해가 된 게 아닌지 생각 하고 있습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359529.087700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              },
+              {
+                "name": "100",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다른 학습방법, inference를 실험했으면 더 좋아졌을 가능성....이 있긴 합니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359546.087900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그쵸 ㅎㅎㅎㅎ Inference할 때만 해도 multi-passage, single passage, annotated passage 등 주는 방법은 여러 가지 방법이 있으니까요 :coolcry:",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636359742.088400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "다만 Training dataset의 30% 이상이 512 token 이상이었기 때문에,  BigBird를 꼭 써보고 싶었습니다 ㅠㅠ overflow 맵핑하는 거랑 비교해보는 재미가 있었을텐데… 아쉽네요 ㅠㅠ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636359824.088800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "clapping",
+                "users": [
+                  "U029LJ0JY05"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가적으로 단순히 max_seq_length를 키우는 것만이 정답이 아닐 수도 있었습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359830.089000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "많이 보셨을 것 같은데 384 이상의 max_seq_length를 했을때 mrc-1-00062는 대부분 블랑키 주의라고 나오지 않으셨는지요?",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359867.089600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "max_seq_length를 100, 그러니까 줄여서 학습을 했을 때 모델이 validation set에서 공산주의를 맞추는 것을 보고 신기했던 경험이 있습니다.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636359906.089800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029L0WMGUE",
+                  "U028ZAA1X1V"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<https://arxiv.org/pdf/1908.08167.pdf>\n실험에 참고했던 논문입니다",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636360000.090000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029MU09NLW"
+                ],
+                "count": 1
+              },
+              {
+                "name": "hugging_face",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "“In addition, we find that splitting articles into passages with the length of 100 words by sliding window improves performance by 4%.” 부분 말씀하시는 거군요 ㅎㅎ 처음 알았습니다!",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636360310.091000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저희 팀도 Train할 때는 길게 주는 게 유리한데, Inference/Predict할 때는 max_seq_length는 줄여서 주는 게 낫다는 결론을 얻기는 했습니다. 저희도 결과물 dictionary를 유심히 볼 걸 그랬네요 ㅎㅎ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636360394.091200",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1636362039.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "```[Ground Truth + Elastic Search로 구축한 Negative Passage]```\n를 train dataset으로 Bigbird max length인 4096까지 입력하고, inference는 384 혹은 100으로 실험해도 재밌을 것 같습니다!",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636360409.091400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1636360835.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추가적으로 공유를 드려보자면, sequence length에 대한 실험을 제가 해봤었는데요, 저희 학습데이터 기준 bigbird에서 attention type을 original_full 로 학습한게 오히려 더 성능이 좋았습니다. block sparse attention을 사용해보기 위해 1024, 2048, 4096 등의 Length로도 해봤었는데, train 데이터에서 대부분 passage length가 1024 미만이었기 때문에 padding을 포함하여 max sequence length를 맞춰주었고, padding이 많아진게 오히려 block sparse 의 장점을 못살린 것 같단 결과를 얻게 되었습니다. wiki 데이터에서 title이 같은데 다른 문단인 경우들을 통합하고 학습데이터를 변형한뒤에 해봤으면 조금이라도 좋은 결과가 있었을 것 같습니다. 말씀주신대로 overflow 등 비교하는 재미가 쏠쏠했는데 참고되시라고 적어보았습니다.",
+          "user": "U029TDJ305P",
+          "user_name": "이요한",
+          "timestamp": "1636360788.092300",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029TDJ305P",
+              "ts": "1636361086.000000"
+            },
+            "reactions": [
+              {
+                "name": "muscle",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029NG58Q84"
+                ],
+                "count": 2
+              },
+              {
+                "name": "clapping",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029NG58Q84"
+                ],
+                "count": 2
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U0298UN562F",
+                  "U029NG58Q84"
+                ],
+                "count": 2
+              },
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              },
+              {
+                "name": "eyes",
+                "users": [
+                  "U028ZAA1X1V",
+                  "U029MNM7SE8",
+                  "U029NG58Q84"
+                ],
+                "count": 3
+              },
+              {
+                "name": "raised_hands::skin-tone-6",
+                "users": [
+                  "U028ZAA1X1V"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Dense Retrieval 모델로 사용한 Cross Encoder, Bi-Encoder도 그렇고 Elasticsearch로 negative in-batch sampling을 해서 훈련하니까 성능이 좋더라구요 ㅎㅎ\n\nIn-batch sampling과는 분명히 다른 맥락이지만, 저희는 elasticsearch로 top_k=3로 유사한 sample들을 추출해서 뒤에다가 concat시켜서 훈련시켰습니다. 다만 klue/roberta-large overflow 베이스라인 기법에서는 오히려 성능이 떨어졌습니다 :coolcry:\n\n그래서 저희 실험이었던 `[1 Ground Truth Passage + 3 Negative Passages]` 를 입력시켜서 KoBigBird로 훈련시켰으면 어떨까 했습니다 ㅎㅎ 말씀하신대로 그냥 입력하면, 데이터가 padding으로 넘쳐나기 때문에 성능저하가 있을 수도 있습니다!\n\n좋은 내용 공유해주셔서 감사합니다 :hugging_face:",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636361263.093000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L0WMGUE",
+              "ts": "1636361467.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "정말 재미있는건 1 Ground Truth를 전처리 한 것과 안한 것에도 차이가 있다는 점입니다. 정말 신기하게도 전처리를 *안한* passage를 학습시키니까(negative는 전처리 수행) 성능이 더 좋더라구요. mulit-passage를 이용한 inference때 특수문자를 포함한 노이즈들 덕에 robustic에 도움이 되었다고 판단을 했습니다... 훈련과 inference때 max_seq_len을 다르게 하는 건 새로웠습니다. 공유 감사해요.",
+          "user": "U029LJ0JY05",
+          "user_name": "문하겸_T2076",
+          "timestamp": "1636361678.093600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE",
+                  "U029TDJ305P"
+                ],
+                "count": 2
+              },
+              {
+                "name": "thinking_face",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "topk negative passage를 붙여서 train도 해봤었는데 역시.. roberta large가 너무 강려크하더라구요.. 그래도 bert-base보단 좋게 나왔어서 더 튜닝이 가능했을 것 같기도 하더라구요. 시간이 좀만 더 있었으면! 아쉽네요. 암튼 좋은 공유 감사합니다. ㅎㅎ",
+          "user": "U029TDJ305P",
+          "user_name": "이요한",
+          "timestamp": "1636361847.093800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              },
+              {
+                "name": "clapping",
+                "users": [
+                  "U029L0WMGUE"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "제가 생각한 combination을 벌써 실험하셨다니 :joy::joy::joy: 대단하십니다 :+1: 블로그 글 정리한 거 나오면 공유해주세요! 이번에도 좋아요 누르러 가겠습니다 ㅎㅎㅎㅎ",
+          "user": "U029L0WMGUE",
+          "user_name": "안영진_T2129",
+          "timestamp": "1636361997.094300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029TDJ305P",
+                  "U029LJ0JY05",
+                  "U029B6PDLFQ"
+                ],
+                "count": 3
+              },
+              {
+                "name": "fire",
+                "users": [
+                  "U029TDJ305P",
+                  "U029LJ0JY05"
+                ],
+                "count": 2
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U029TDJ305P",
+                  "U029LJ0JY05"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "resource provided but minimal explanation"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "link accessible without full context"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "assumed correct link"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-16",
+      "source_file": "2021-11-16_qa.json",
+      "course": "level2_mrc",
+      "question": {
+        "text": "<https://huggingface.co/kakaobrain/kogpt>\n<https://if.kakao.com/session/48?fbclid=IwAR1UcsZXuDFTMyFfgmsgoMASMDYVKqa9csu3iOzYVsLoAMC98vFn_Sz0xjM>\n\nkakao brain의 kogpt가 나왔답니다.",
+        "user": "U02AF2JSQP2",
+        "user_name": "최웅준_T2229",
+        "timestamp": "1637050941.099000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029SLN0S1X",
+                "U029F62SBPD",
+                "U028ZAA1X1V",
+                "U02AF2JSQP2",
+                "U029T4XRUCR",
+                "U029Z7DE676",
+                "U029AHPA1GX",
+                "U029E9LS8NP",
+                "U029F23R56F",
+                "U029DG66W9L",
+                "U029G3HPQ2X"
+              ],
+              "count": 11
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "오오오 바로 써바야겠네요",
+          "user": "U028ZAA1X1V",
+          "user_name": "이홍규_T2178",
+          "timestamp": "1637054576.099500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiley",
+                "users": [
+                  "U02AF2JSQP2"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "skt ,ktei goodbye",
+          "user": "U02AF2JSQP2",
+          "user_name": "최웅준_T2229",
+          "timestamp": "1637058190.100200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "acknowledges release"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "mostly clear context"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "neutral, no errors"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.33
+      }
+    }
+  ]
+}

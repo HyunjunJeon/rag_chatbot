@@ -1,0 +1,127 @@
+{
+  "course": "level3_recsys",
+  "metadata": {
+    "total_qa_pairs": 1,
+    "generations": [
+      "7"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "7": 1
+      }
+    },
+    "date_range": {
+      "start": "2025-01-08",
+      "end": "2025-01-08"
+    },
+    "source_files": {
+      "count": 1,
+      "files": [
+        {
+          "generation": "7",
+          "filename": "2025-01-08_qa.json",
+          "qa_count": 1
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 1,
+      "medium": 0,
+      "low": 0,
+      "remove": 0,
+      "error": 0
+    },
+    "original_count": 1,
+    "filtered_count": 1
+  },
+  "qa_pairs": [
+    {
+      "generation": "7",
+      "date": "2025-01-08",
+      "source_file": "2025-01-08_qa.json",
+      "course": "level3_recsys",
+      "question": {
+        "text": "1강, 3강 퀴즈 학습 기간이 기공지된 학습 일정과 상이합니다.\n확인 부탁드립니다.\n감사합니다.",
+        "user": "U07EUAP98JD",
+        "user_name": null,
+        "timestamp": "1736385451.727299",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U07EUAP98JD",
+            "ts": "1736385739.000000"
+          },
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U07ECPJ7XE1",
+                "U07EFLLV0MQ",
+                "U07EFLNSYFL"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U07E2QLB99N>\n소정님, 확인 가능하실까요?",
+          "user": "U03SAGX725R",
+          "user_name": "하종우",
+          "timestamp": "1736387313.734799",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "오후 9시로 설정 변경 되었습니다!",
+          "user": "U046RDS8WUS",
+          "user_name": "Yeojin(오여진)",
+          "timestamp": "1736388764.242269",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다.",
+          "user": "U07EUAP98JD",
+          "user_name": "황진욱",
+          "timestamp": "1736388838.154089",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "Core issue resolved via time adjustment notice."
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "Second answer is self-contained despite minimal reference."
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "Directly addresses reported discrepancy accurately."
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    }
+  ]
+}

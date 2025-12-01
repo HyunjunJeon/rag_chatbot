@@ -1,0 +1,939 @@
+{
+  "course": "level2_segmentation",
+  "metadata": {
+    "total_qa_pairs": 10,
+    "generations": [
+      "2"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "2": 10
+      }
+    },
+    "date_range": {
+      "start": "2021-10-17",
+      "end": "2021-11-05"
+    },
+    "source_files": {
+      "count": 6,
+      "files": [
+        {
+          "generation": "2",
+          "filename": "2021-10-17_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-20_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-21_qa.json",
+          "qa_count": 2
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-22_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-23_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-11-05_qa.json",
+          "qa_count": 1
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 4,
+      "medium": 2,
+      "low": 2,
+      "remove": 2,
+      "error": 0
+    },
+    "original_count": 10,
+    "filtered_count": 8
+  },
+  "qa_pairs": [
+    {
+      "generation": "2",
+      "date": "2021-10-17",
+      "source_file": "2021-10-17_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "<!channel>\n안녕하세요 캠퍼 여러분. 오늘부터 새로운 프로젝트가 시작됩니다! :tada:\n본격적인 대회 시작을 앞두고 궁금한 점이 많으실텐데요, 몇 가지 안내드립니다.\n대회 관련 내용, 꼭 지켜야 할 그라운드룰 등은 아래 공지사항들을 꼭 참고해주세요!\n\n*Segmentation 대회 그라운드 룰*\n• 부스트코스 공지문 : *<https://www.boostcourse.org/boostcampaitech2/notice/27406|link>*\n• AI Stages 공지문 : *<https://stages.ai/competitions/78/discussion/notice/post/748|link>*\n \n\n*대회 참고사항*\n• V100 서버는 *오전 10시부터 할당* 받을 수 있습니다. 반드시 금일 내로 서버 할당 받아주시고, 과정에서 문제 있을 경우 AI Stages 통해서 빠른 문의 부탁드립니다.\n• *오후 2시까지 팀원들과 함께 AI Stages에서 팀 결성을 해주세요!*\n• 리더보드 팀명 컨벤션은 반드시 Segmentation_X조 로 통일 해주세요!\n    ◦ ex) Segmentation_1조, Segmentation_13조\n• *리더보드 제출은 오후 2시부터* 가능합니다.\n• 팀 결성이 마무리되기 전, 개별로 리더보드 제출을 하는 일이 없도록 유의해주세요.",
+        "user": "U028323UHE2",
+        "user_name": "Saewon Yang",
+        "timestamp": "1634518694.017200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "데이터셋 용량으로 인해서 서버 할당에 10~15분 소요될 수 있습니다. 그 이상 시간이 소요되는 경우 AI Stages 통해서 문의 해주세요 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1634519063.020900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "AI Stages 팀 결성 오후 2시까지인 부분 리마인드 드립니다 :pray:\n팀 결성 과정에서 이슈가 있으실 경우 게시판 통해서 문의 부탁드려요~",
+          "user": "U028323UHE2",
+          "user_name": null,
+          "timestamp": "1634534685.033800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "팀 결성 시간 리마인드"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "독립적 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "정확한 정보"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-17",
+      "source_file": "2021-10-17_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "<@U028323UHE2> <@U02E375H869>\n부스트코스 홈페이지 \"[필독!] 공지사항에\"는 Segmentation repo 주소가 pytorch 버젼으로 걸려있는데 \"Semantic Segmentation 대회 안내\"에서는 Tensorflow 기반 repo로 링크가 걸려있습니다",
+        "user": "U02AJ8K3ZR6",
+        "user_name": null,
+        "timestamp": "1634519071.021200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "raised_hands",
+              "users": [
+                "U029MCHA5ED"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "확인 후 답변드리겠습니다 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1634519098.021700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "heart",
+                "users": [
+                  "U02AJ8K3ZR6"
+                ],
+                "count": 1
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02AJ8K3ZR6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요! <@U02AJ8K3ZR6> 캠퍼님,\n\n문의 주신 내용 확인 결과 링크가 Tensorflow 기반으로 잘못 설정되어 Pytorch 기반으로 수정하였습니다.\n\n*반영 내용 :*  \n부스트코스 [P] Semantic Seg 에서의 `Semantic Segmentation 대회 안내`페이지의 `링크 부분` -&gt; 2. 제출 방법 2 - Segmentation Models (<https://github.com/qubvel/segmentation_models.pytorch>)\n\n확인해 주셔서 감사합니다.",
+          "user": "U029MCHA5ED",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1634521506.028600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02AJ8K3ZR6",
+                  "U028323UHE2",
+                  "U029MCHQE5P",
+                  "U029TQ9JFR8",
+                  "U0290GAJGG7"
+                ],
+                "count": 5
+              },
+              {
+                "name": "heart",
+                "users": [
+                  "U02AJ8K3ZR6",
+                  "U028323UHE2"
+                ],
+                "count": 2
+              },
+              {
+                "name": "넵",
+                "users": [
+                  "U02AJ8K3ZR6"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 5,
+          "reasoning": "추가 정보 포함"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "부분적 의존"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "수정 정확"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-20",
+      "source_file": "2021-10-20_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "주어진 baseline 코드에서 GT mask를 생성하는 코드에서 질문이 있습니다.\n  Segmentation annotation은 물체의 boundary 좌표들로만 이루어져있어 Pycocotools에서 annToMask로 이를 변환해서 사용하는 것으로 알고 있습니다. 또한 데이터에 1번 사진과 같이 mask끼리 포함되는 관계가 있는 데이터가 많은 것도 확인하였습니다. 이를 해결하고자 2번 사진의 코드처럼 sort를 하여 큰 물체부터 mask를 그렸다고 코드를 이해했습니다.\n  하지만 sorted=false이면 작은 물체부터 그리게 되어 작은 물체들이 반영이 안되는 것 아닌가라는 생각이 들었는데 혹시 제가 놓치고 있는 부분이 있을까요? 실제로 원래 4번 이미지처럼 그려져야 하는데, baseline 코드를 사용하면 3번 이미지처럼 그려지게 됩니다.\n  추가적으로 sorted=True로 한다고 해도 “Segmentation annotation이 물체의 boundary 좌표들로만 이루어져있는 것” 때문에 저 기준으로 sort를 하면 예외가 있는 것도 발견하였습니다.\n  이러한 데이터 처리 문제를 해결하는 것도 하나의 competition 과정이라고 생각하지만 혹여나 testdataset도 baseline에서 제공된 방식으로 처리된 것 일까 싶어 질문 남깁니다.",
+        "user": "U029EFY0XD1",
+        "user_name": null,
+        "timestamp": "1634726879.043500",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "thinking_face",
+              "users": [
+                "U0297UZK86S",
+                "U029T519KUH",
+                "U029MCHA5ED",
+                "U029BGDTLJH",
+                "U029BN43CDB",
+                "U02AJ8K3ZR6",
+                "U029TQ9JFR8",
+                "U029UND0U1Y",
+                "U0290GAJGG7",
+                "U029E28RUPL"
+              ],
+              "count": 10
+            },
+            {
+              "name": "eyes",
+              "users": [
+                "U029B96RRJA",
+                "U029L86M9JQ",
+                "U029BQYGRFX",
+                "U029BN43CDB",
+                "U029MCHA5ED",
+                "U029UND0U1Y",
+                "U029E1P5Z5G",
+                "U029KP9P1CN",
+                "U02AHLHF740"
+              ],
+              "count": 9
+            },
+            {
+              "name": "white_check_mark",
+              "users": [
+                "U029MCSLLU9",
+                "U029BQYGRFX",
+                "U029BN43CDB",
+                "U029MCHA5ED",
+                "U029UND0U1Y"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 코드 단에서 조금 걸리던 부분이었는데 직접 시각화까지 해주셔서 감사합니다:blob_thumbs_up:",
+          "user": "U029BQYGRFX",
+          "user_name": "서광채",
+          "timestamp": "1634727424.045600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA"
+                ],
+                "count": 1
+              },
+              {
+                "name": "dancing_penguin",
+                "users": [
+                  "U029EFY0XD1"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 아까 오피스아워 시간에 듣고 여러 검증해봤는데 영 아니네요... 어떻게 그려봐도 다 예외가 있어보입니다.\n참고로 조건에 따라 대략 400장 +-a 정도 변동이 있어서 무시할 수준도 아니네요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1634742150.054300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029B96RRJA",
+                  "U0297UZK86S",
+                  "U0297P884ES"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "캠퍼님 확인 후 답변 드리도록 하겠습니다 :slightly_smiling_face:",
+          "user": "U028323UHE2",
+          "user_name": "Saewon Yang",
+          "timestamp": "1634776871.055500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U0297UZK86S",
+                  "U02A7A42WHF",
+                  "U029B96RRJA",
+                  "U02913JMXKR"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "부분적 답변, 중요 부분 누락"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "외부 맥락 약간 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "대부분 정확하지만 세부 사항 오류 가능성"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-20",
+      "source_file": "2021-10-20_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "원본입니다.",
+        "user": "U02A3GWB4RX",
+        "user_name": null,
+        "timestamp": "1634793771.002800",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029TQ9JFR8"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "이 그림과 같은 의미라면 element-wise multiplication인데 같은 의미일지 확신은 못하겠네요..ㅎㅎ",
+          "user": "U029TQ9JFR8",
+          "user_name": null,
+          "timestamp": "1634794409.003800",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029TQ9JFR8",
+              "ts": "1634794452.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요.\n문의 주신 표기는 재환 캠퍼님 답변과 같이 element-wise multiplication을 의미합니다.\n<https://arxiv.org/pdf/1909.11065.pdf|Segmentation Transformer: Object-Contextual Representations for Semantic Segmentation> 의 <https://github.com/HRNet/HRNet-Semantic-Segmentation/blob/HRNet-OCR/lib/models/seg_hrnet_ocr.py|저자 코드> 를 참고하시면 좋을것 같습니다.\n감사합니다.",
+          "user": "U029MCHA5ED",
+          "user_name": "Haejoong Lee",
+          "timestamp": "1634795822.004700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "TMI로 덧붙이면 hadamard product 라고 부를 때도 있습니다",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1634795958.005000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029MCHA5ED",
+                  "U02A3GWB4RX",
+                  "U029T4XRUCR"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "음.....\n논문에 관한부분이 아니라 기호에 관한부분이 궁금한거였는데...\n\n기호 관련해서 정리된것이 있을까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1634795993.005200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029MCHA5ED"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "그림에 저런 기호들 나올때마다 구현코드나 논문 전체를 읽기엔 불편할 것 같아서요...\n몇번 읽다보면 대충 감은 오겠지만요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1634796030.005400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U02A3GWB4RX",
+              "ts": "1634796081.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "core concept explained"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "references included but still clear"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "correct terminology and sources"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-21",
+      "source_file": "2021-10-21_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "이미지를 resize해서 annotation정보랑(segmentation bbox) 같이 resize해서 저장하고싶은데 방법이있을까요??\n데이터를 보니까 같은 이미지에서 같은 카테고리를 하나의 item으로 취급하지않고 여러개의 아이템으로(instance 고려) 분리한것같은데 resize한 annotation값을 얻을 수 있을까요??",
+        "user": "U029F5F344T",
+        "user_name": "허지훈",
+        "timestamp": "1634861922.017600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029MKLUYFN"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "json 파일로 annotation 만드는건 코스트가 좀 귀찮은 작업인 것 같아서 저 같은 경우는 albumentation 패키지나 cv2 이용해서 이미지랑 마스크 모두 256x256으로 변환하면서 폴더에 파일 전부 저장해놓고 사용하는 편입니다. json으로 coco format으로 만들어둬도 되는데, 이렇게 하면 탐색시간이 있어서 로컬 환경은 저장 다 해놨다가 꺼내쓰는게 편하더라구요.\n\n지금 트레인 데이터 어노테이션이 같은 카테고리를 하나의 item으로 취급한 경우도 있고 아닌 경우도 있습니다. (어노테이션 한 사람마다 다르게 한 것 같아요)  근데, 학습시에 마스크 파일은 instance 정보가 고려안된 상황이니 미리 그려놓고 Resize해서 annotation 값 얻는게 편하지 않을까 생각드네요. 지금은 polygon 좌표라 polygon 추출하는 함수로 얻을 수 있을것 같아요.",
+          "user": "U029MCSLLU9",
+          "user_name": "김현우_마스터",
+          "timestamp": "1634862966.017700",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCSLLU9",
+              "ts": "1634863117.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U027SHXU18R",
+                  "U029UND0U1Y"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCSLLU9> 마스터님\n마스크 된 이미지는 얻어냈는데 2개를 다 저장해서 이를 coco로 안바꾸고 dataset 부분에서 바로 이미지 2개를 가져오라는 말씀이신가요???",
+          "user": "U029F5F344T",
+          "user_name": null,
+          "timestamp": "1634866440.019000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "네네 맞습니다. 이렇게 했을때 장점이 Augmentation 시에 Resize 함수가 시간이 오래걸리는 함수인데 이걸 안해도 되고, COCO CustomDataset 부분에서 정보 추출하는 부분을 계산안해도 되서 병목현상이 좀 줄어듭니다 :slightly_smiling_face:\n\n근데, 256x256보다는 512x512가 성능은 더 좋을거라 초중반의 실험은 256x256으로 빠르게 실험하고 최후에 512x512로 키워서 제출하는게, 좋을 것 같아요",
+          "user": "U029MCSLLU9",
+          "user_name": "김현우_마스터",
+          "timestamp": "1634866534.019400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029MCSLLU9",
+              "ts": "1634866585.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCSLLU9> 마스터님 감사합니다!",
+          "user": "U029F5F344T",
+          "user_name": "허지훈",
+          "timestamp": "1634867210.019700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MCSLLU9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029MCSLLU9> 마스터님 데이터 저장을 다 했는데 load할 때 mask는 어떻게 class를 알 수 있나요??\n\ntrain에서\n``` for batch_idx, (data, target) in enumerate(self.data_loader):\n   data = torch.stack(data)\n   target = torch.stack(target).long()\n\n   data, target = <http://data.to|data.to>(self.device), <http://target.to|target.to>(self.device)\n\n            # inference\n   output = self.model(data)\n\n\n   target = target.squeeze(1)\n   print(output.shape)\n   print(target.shape)  \n\n   #여기서 에러생김\n   loss = self.criterion(output, target)\n---\noutput\ntorch.Size([1, 11, 256, 256])\ntorch.Size([1, 256, 256, 3])\n\nRuntimeError: 1only batches of spatial targets supported (3D tensors) but got targets of size: : [1, 256, 256, 3]```\n이런 상황인데 mask를 불러올때 채널수가아니라 class수로 어떻게 맵핑해서 불러와야하는건가요??",
+          "user": "U029F5F344T",
+          "user_name": "허지훈",
+          "timestamp": "1634874185.021500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MCSLLU9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "Cross Entropy Loss를 사용할 경우에 target size가 (B, H, W) 이렇게 구성되어야합니다. 그래서, 픽셀값이 0, 1이 아니라 클래스의 수만큼 0~10까지 총 11개의 값을 가져서 이를 통해서 클래스를 알 수 있습니다.\n\n보시면, target하고 output shape가 일단 맞지 않은데, target이 [1, 256, 256]이 되어야 할 것 같습니다. 아마 jpg인가 png 저장하면서 자동으로 3채널 되어서 발생하는 문제 같아요. 만일, 값을 0~10까지로 제대로 하셨다면 Transpose 적용하시고 인덱싱으로 한채널만 추출하도록 하면 해결될 것 같습니다 :slightly_smiling_face:",
+          "user": "U029MCSLLU9",
+          "user_name": "김현우_마스터",
+          "timestamp": "1634876280.021700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다",
+          "user": "U029F5F344T",
+          "user_name": "허지훈",
+          "timestamp": "1634879420.023300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029MCSLLU9"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "부분적 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "올바른 방법"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-22",
+      "source_file": "2021-10-22_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "[ Battery 학습에 관하여... 왜 계속 0일까? ]\n\n학습을 진행하다 보면, 제가 학습했던 모델들은 대부분 Battery와 Clothing은 몇 Epoch 동안은 IoU, Acc가 0에 있다가 한참 학습이 진행되고 나중에 올라가기 시작합니다. 일부 모델은 아예 못 잡는 경우도 있습니다.\n이런 현상은 학습에 오랜 시간이 걸리는 모델의 경우 더 심하게 나타납니다. Battery와 Clothing와 같이 심하게 불균형한 Class뿐 아니라 4개의 Class를 제외하고는 다른 Class들이 모두 IoU, Acc가 0에 있다가 한참 뒤에 올라가던 모델도 있었습니다.\n\n그 이유가 무엇일까요? 역시 Class 불균형 때문에 발생한 문제일까요?\nStratified Set으로 나누고 실험해도 동일한 현상은 발생했습니다. (일단, 저의 경우는요)\n이에 대해서, 저는 결국 데이터 수의 문제라고 생각하는데요. 특히, Battery의 경우 너무 데이터가 적어서 늦게 학습하면서 생기는 현상이라고 생각합니다.\n그래도 아무리 못해도 0.XX 라도 찍혀야 할 것 같다고 생각하는데, 한참 뒤에 학습되는 이유를 명확히 잘 모르겠더라고요.\n\n여러분들은 어떻게 생각하시나요??",
+        "user": "U029L86M9JQ",
+        "user_name": null,
+        "timestamp": "1634908628.035200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "man-gesturing-ok",
+              "users": [
+                "U029BP86UBX",
+                "U029T4XRUCR",
+                "U02A3RBTDPB",
+                "U028ZQU4N07",
+                "U028323UHE2"
+              ],
+              "count": 5
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U029UND0U1Y",
+                "U028323UHE2",
+                "U029MCHA5ED",
+                "U0298BT8SNA"
+              ],
+              "count": 4
+            },
+            {
+              "name": "thinking_face",
+              "users": [
+                "U029B96RRJA",
+                "U028323UHE2",
+                "U029BN43CDB"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "참고로 저희 데이터에는 귀한 건전지가 이렇게 한 사진에 몰려 있기도 합니다. (무려 12개의 annotation)",
+          "user": "U029L86M9JQ",
+          "user_name": null,
+          "timestamp": "1634908835.035500",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029L86M9JQ",
+              "ts": "1634908854.000000"
+            },
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U0290GAJGG7"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 비슷한 현상이 나요 (몇가지 모델 실험한 것 모두)\n하지만 저는 확인해보면 0.2 0.7 이런식으로 급격하게 뛰긴 하지만 거치는 경향성이 있는 경우도 있었습니다.\n\n제가 개인적으로 생각하기엔\n1. 학습을 할 배터리가 너무 없어서 초반엔 학습을 아예 못한다.\n2. 배터리가 특성이 다소 명확한 성질이 있어서 금방 학습이 될 수 있다. (배터리 1~2개 맞추면 나머지는 껌이다)\n3. 워낙 라벨 수가 적어서 1개씩 맞출 때마다 mIoU가 많이 뛴다.\n이게 이유가 되지 않을까 싶습니다",
+          "user": "U0298BT8SNA",
+          "user_name": "김성민",
+          "timestamp": "1634910829.036000",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U0298BT8SNA",
+              "ts": "1634976975.000000"
+            },
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029BN43CDB",
+                  "U02A3RBTDPB",
+                  "U0290GAJGG7",
+                  "U029DCPSW3Z",
+                  "U029L86M9JQ"
+                ],
+                "count": 5
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "explains multiple plausible causes"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "clear without heavy reliance on context"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "valid explanations aligned with common ML issues"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-23",
+      "source_file": "2021-10-23_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "사실 한 개 글에 몽창 쓰려고 했으나...\nshift+enter을 잘못 눌렀는 데 편집시 사진 추가 안되는 것을 보고 ㅋㅋㅋ\n방법 아시는 분 알려주세요\n\nwandb 미세팁 2번째\n\n지표를 1개씩만 띄워놓고 보는 것이 너무 번거롭다\n몇 개 지표를 한번에 띄워놓고 비교를 하면서 보고 싶다!\nor 나의 x축은 step이나 iter가 아니라 다른 것이 되고 싶은데!!\n라는 분께 유용한 팁입니다.\n\n• 사진1 : 먼저 아까와 동일하게 패널에 마우스를 가져다 줍니다. edit을 눌러주세요(연필모양)\n• 사진2 : 눌러주시게 되면 다음과 같은 화면이 나오게 되는데 여기서 x축, y축에 대한 정보가 나오게 됩니다.\n(여기서 어? 나는 mmdet, seg쓸 때 epoch안되는데 하시는 분은 팀원 분이 해주신 부분이라서 댓글 남겨주시면 허락받고 올리도록 하겠습니다.)\n• 사진3 : 그러면 나는 앞으로 x축을 바꿀 때마다 일일히 edit에 들어가서 봐주는 노동을 해야하냐? 라는 분에게 드리는 사진 팁입니다.\n저처럼 모든 사진에 공통적으로 적용하고 싶으신 x축이 있다면 3번 째 사진의 X축 설정을 바꾸어 주시면 됩니다.\n\n이 외에도 더욱 좋은 wandb지표 관련 꿀팁 있으신 분들은 댓글로 이런 좋은 기능도 있다\n라고 말씀 주시면 환영합니다!!!!",
+        "user": "U0298BT8SNA",
+        "user_name": null,
+        "timestamp": "1634981638.050100",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U0298BT8SNA",
+            "ts": "1634992179.000000"
+          },
+          "reactions": [
+            {
+              "name": "clapping",
+              "users": [
+                "U029BN43CDB",
+                "U029UND0U1Y",
+                "U029MCHA5ED",
+                "U029T4XRUCR",
+                "U0290GAJGG7",
+                "U029EFY0XD1",
+                "U029DCPSW3Z"
+              ],
+              "count": 7
+            },
+            {
+              "name": "+1",
+              "users": [
+                "U0298RU576J",
+                "U029MCHA5ED",
+                "U029B96RRJA",
+                "U029KSKF90V",
+                "U029DCPSW3Z"
+              ],
+              "count": 5
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "알고 계시겠지만 .. 협업에서도 Wandb가 정말 좋은것 같습니다. Wandb에는 자신의 workspace가 있고 타인의 workspace를 들어가면 타인이 설정한 그래프를 볼 수 있어서 각자 실험하고 있는 것에 맞춰서 그래프를 설정하고 다른 사람은 굳이 새로 설정할 필요 없이 workspace를 구경해보면 되는 좋은 팁이 있습니다!!! 혹시 아직 workspace를 적극적으로 활용하지 않으신분들 참고!!",
+          "user": "U029L86M9JQ",
+          "user_name": "박성진",
+          "timestamp": "1634990662.052700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U0298BT8SNA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 1,
+          "reasoning": "질문의 구체적 문제 미해결"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "부분적 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 2,
+          "reasoning": "관련 없는 정보"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-11-05",
+      "source_file": "2021-11-05_qa.json",
+      "course": "level2_segmentation",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분 :)\n:sparkles:Seg 마스터클래스:sparkles:가 잠시 후 *(11/5 금요일) 18:00 ~ 19:00*에 진행됩니다.\n김현우 마스터님과 함께 Segmentation 대회 랩업이 진행될 예정입니다!\n다른 캠퍼분들의 발표가 바로 이루어질 예정이니 18시 전에 입장 부탁드립니다 :)\n&gt; <https://zoom.us/j/94462317951?pwd=K3NrbUFTanVxZTh0cWc1ZzF0WUVsZz09|마스터클래스 줌 링크>",
+        "user": "U02E375H869",
+        "user_name": "Jisu Kang",
+        "timestamp": "1636101432.089600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "발표해주실 캠퍼분들의 자료도 미리 공유드립니다! 18시에 만나요!",
+          "user": "U02E375H869",
+          "user_name": null,
+          "timestamp": "1636101509.089700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "공지 내용에 대한 직접적 답변이 아닌 부가 정보 제공"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적이지만 일부 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정확한 정보 전달"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    }
+  ]
+}

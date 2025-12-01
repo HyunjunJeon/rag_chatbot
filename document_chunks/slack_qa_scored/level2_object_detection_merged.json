@@ -1,0 +1,1187 @@
+{
+  "course": "level2_object_detection",
+  "metadata": {
+    "total_qa_pairs": 12,
+    "generations": [
+      "2"
+    ],
+    "generation_count": 1,
+    "statistics": {
+      "by_generation": {
+        "2": 12
+      }
+    },
+    "date_range": {
+      "start": "2021-09-29",
+      "end": "2021-10-13"
+    },
+    "source_files": {
+      "count": 8,
+      "files": [
+        {
+          "generation": "2",
+          "filename": "2021-09-29_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-09-30_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-01_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-04_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-07_qa.json",
+          "qa_count": 3
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-08_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-09_qa.json",
+          "qa_count": 1
+        },
+        {
+          "generation": "2",
+          "filename": "2021-10-13_qa.json",
+          "qa_count": 1
+        }
+      ]
+    },
+    "quality_filtered": true,
+    "quality_stats": {
+      "high": 6,
+      "medium": 5,
+      "low": 1,
+      "remove": 0,
+      "error": 0
+    },
+    "original_count": 12,
+    "filtered_count": 12
+  },
+  "qa_pairs": [
+    {
+      "generation": "2",
+      "date": "2021-09-29",
+      "source_file": "2021-09-29_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "혹시 서버가 지나치게 느리신 분 있으신가요?.. 주피터 노트북 간단한 코드 한 셀 실행하는데에도 10초씩 걸려서 속터져 죽겠는데 서버 새로 받는 거밖에 방법이 없을까요..",
+        "user": "U029ULW2X8A",
+        "user_name": "이유진_T2168",
+        "timestamp": "1632978093.044000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 16
+        }
+      },
+      "answers": [
+        {
+          "text": "죽지 않고 살아있는 notebook kernel이 있는지 확인해 보세요",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1632978805.044200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "eyes",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 이미지나 플롯들 많이그리다보면 해당 증상이 발생하지 않나요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1632980370.044400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A3GWB4RX> 헉 네 맞습니다...저번 마스크 때는 안 그랬는데 이번에 유독 이러네요ㅠㅠ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1632980526.044600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "아 환경을 안물어봤네요 주피터노트북이시면 주피터랩을 말하시는걸까요? vs_code를 말하시는걸까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1632980654.044900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "vs code 입니다. 제가 안 적어뒀네요ㅠㅠ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1632980933.045100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "저도 검색해서 찾은건아니라 경험으로 추측한건데...\n조금 느려진다 싶을때마다 `출력 지우기` 하고 저장해보시겠어요?\n아예 안느려지진 않는데 참을만은 해집니다.\n\n이미지 백개씩 그리면 캐싱같은거하느라 느려지는거 같아요",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1632981123.045300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "코랩보다 느린 느낌...",
+          "user": "U029PN9SX1R",
+          "user_name": "신원지_T2120",
+          "timestamp": "1632984263.045500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "smiling_face_with_tear",
+                "users": [
+                  "U029ULW2X8A"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02A3GWB4RX> 감사합니다. ㅎㅎ",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1632984623.045900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "커널 점검만 언급"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "기본적 이해 가능"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "유효한 체크포인트"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-09-30",
+      "source_file": "2021-09-30_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "<@U029ULW2X8A> <@U029PN9SX1R> 안녕하세요 캠퍼님! 위의 전경재 캠퍼님께서 말씀해주신 방법을 시도해보시고도 여전히 지나치게 느리면 저 태그해서 한 번 말씀 부탁드립니다!",
+        "user": "U028FM07UQ3",
+        "user_name": "최유정",
+        "timestamp": "1632996609.047100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "넵",
+              "users": [
+                "U029PN9SX1R",
+                "U029ULW2X8A"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U028FM07UQ3> 저는 아직도 서버가 너무 느려서 말씀드립니다!",
+          "user": "U029ULW2X8A",
+          "user_name": "이유진_T2168",
+          "timestamp": "1633049555.056500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028FM07UQ3"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029ULW2X8A> 문의드린 후 답변드리겠습니다 :slightly_smiling_face:",
+          "user": "U028FM07UQ3",
+          "user_name": "최유정",
+          "timestamp": "1633051056.056800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "ps -ef",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1633051085.057000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "찍어서 보여주시면 좋을것같습니다",
+          "user": "U029FSCQAKX",
+          "user_name": "박상현",
+          "timestamp": "1633051104.057200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "이렇습니다",
+          "user": "U029ULW2X8A",
+          "user_name": null,
+          "timestamp": "1633052734.057400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 문제 인식만 언급됨"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "기본 맥락 이해되나 상세 배경 부족"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "문제 상황 정확히 전달"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-09-30",
+      "source_file": "2021-09-30_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "안녕하세요!\n임성민 캠퍼님의 질문을 보고 공부하다가 SSD에서 default box의 수와 크기를 어떻게 계산하는지 구체적으로 공부하면서 내용을 정리해봤습니다. 성민님이 그냥 보고 지나칠 수 있었던 내용을 질문해 주셔서 많은 공부가 되었습니다! 감사합니다~\n\n• 임성민 캠퍼님의 질문\n<https://www.boostcourse.org/boostcampaitech2/forum/102850>\n\n• 정리 내용\n<https://bagineer.notion.site/SSD-Default-Box-7459cf2a5554440c96b61e96ae6e04c8>\n\n조언해주시면 감사하겠습니다~",
+        "user": "U029UHZ6AHY",
+        "user_name": "백인혁_T2101",
+        "timestamp": "1633002810.050400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "+1",
+              "users": [
+                "U029TQ9JFR8",
+                "U0298NLUNBC",
+                "U028U1DJ0SK",
+                "U029DCPSW3Z",
+                "U029BP86UBX",
+                "U02920Y3AH4",
+                "U02A1E57D17",
+                "U028ZE3KH6K",
+                "U029KSKF90V"
+              ],
+              "count": 9
+            },
+            {
+              "name": "blob_thumbs_up",
+              "users": [
+                "U029BP86UBX",
+                "U02920Y3AH4",
+                "U02A1E57D17"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요! 멘토 주세환입니다.\n정리 너무 깔끔하게 잘해주신 것 같아요 :+1: 관련해서 <@U0298NLUNBC> 님께서 부스트코스에 답변 달아 두었습니다.",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633009205.052100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "raised_hands",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              },
+              {
+                "name": "grinning",
+                "users": [
+                  "U029UHZ6AHY"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 답변 포함, 상세 조언 없음"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "외부 참조 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "정보 부족"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-09-30",
+      "source_file": "2021-09-30_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "안녕하세요\npretrained모델을 mmdetection에서 finetuning해보다 다음과 같은 warning이 발생했습니다\n```2021-10-01 01:34:45,032 - mmdet - INFO - load checkpoint from /opt/ml/detection/mmdetection/pretrained/detr_r50_8x2_150e_coco_20201130_194835-2c4b8974.pth\n2021-10-01 01:34:45,033 - mmdet - INFO - Use load_from_local loader\n2021-10-01 01:34:45,201 - mmdet - WARNING - The model and loaded state dict do not match exactly\n\nsize mismatch for bbox_head.fc_cls.weight: copying a param with shape torch.Size([81, 256]) from checkpoint, the shape in current model is torch.Size([11, 256]).\nsize mismatch for bbox_head.fc_cls.bias: copying a param with shape torch.Size([81]) from checkpoint, the shape in current model is torch.Size([11]).```\n이 경우 checkpoint가 어떻게 적용되는 걸까요?",
+        "user": "U02913JMXKR",
+        "user_name": "이준혁",
+        "timestamp": "1633055880.059600",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 5
+        }
+      },
+      "answers": [
+        {
+          "text": "혹시 이 warning 밑에 \"신경 안써도된다. class 수가 달라서 뜨는 warning이다. 나머지 weight는 다 잘 불러졌다.\" 이런 log가 찍혀 있지 않나요?",
+          "user": "U029EFY0XD1",
+          "user_name": "김인재",
+          "timestamp": "1633056022.059700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "안녕하세요~ 해당 warning같은 경우에는 기존의 pretrained weight가 coco dataset으로 학습된 weight인것 같은데 그러면 head부분의 class수가 다르기 때문에 head 부분의 weight를 가져오지 못했다~ 라는 의미입니다",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633056105.059900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028U1DJ0SK> 그러면 이 외의 weight는 다 잘 불러왔다고 해석해도 될까요??",
+          "user": "U02913JMXKR",
+          "user_name": "이준혁",
+          "timestamp": "1633056295.060100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U029EFY0XD1> 나머지 웨이트가 다 잘 불러졌다는 로그는 없네요 ㅠ",
+          "user": "U02913JMXKR",
+          "user_name": "이준혁",
+          "timestamp": "1633056388.060300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02913JMXKR> \n네 맞습니다 나머지는 다 잘 불러옵니다 :)",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633057007.060500",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLUNBC",
+                  "U02913JMXKR"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "Explains class mismatch causing warning"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "Background on COCO dataset included"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "Correctly identifies class count issue"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.33
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-01",
+      "source_file": "2021-10-01_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "<!channel> 안녕하세요 캠퍼 여러분!\n금일 마스터클래스는 18:00~19:00, *&lt; 대회에 대한 프리뷰 및 캐글 대회 참가 경험 소개 &gt;*를 주제로 *송원호 마스터님*께서 진행해 주십니다. 마스터 클래스 자료도 함께 공유해드립니다 :pray:\n잠시 뒤 링크에서 봬요! :slightly_smiling_face:\n&gt; <https://zoom.us/j/94462317951?pwd=K3NrbUFTanVxZTh0cWc1ZzF0WUVsZz09|마스터클래스 Zoom 링크>",
+        "user": "U02E375H869",
+        "user_name": null,
+        "timestamp": "1633077000.062700",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "blob_thumbs_up",
+              "users": [
+                "U029BP86UBX"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "마스터클래스 관련해서 질문있으시면 편하게 디엠주셔도 됩니다! :slightly_smiling_face:",
+          "user": "U02920Y3AH4",
+          "user_name": "Wonho SONG",
+          "timestamp": "1633082831.064000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02E375H869",
+                  "U029BP86UBX"
+                ],
+                "count": 2
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "추가 문의 유도"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "약간 맥락 필요"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "정보 정확"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-04",
+      "source_file": "2021-10-04_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "안녕하세요! 모델을 찾던중 universenet을 활용해보고자 하는데요! 다만 pre-trained된 dataset이 다음과 같아 혹시 대회에서 사용이 가능한지 궁금합니다!\n<https://arxiv.org/abs/2103.14027>",
+        "user": "U029TU25PG9",
+        "user_name": "김민준",
+        "timestamp": "1633394894.068900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 2
+        }
+      },
+      "answers": [
+        {
+          "text": "experiment 부분을 보니 coco, wod, m109s dataset에 대해 실험을 하였는데, coco에 대해 학습한 universal object detection은 사용이 가능합니다 :slightly_smiling_face:",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633395905.069100",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "감사합니다!!",
+          "user": "U029TU25PG9",
+          "user_name": "김민준",
+          "timestamp": "1633396280.069300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "white_check_mark",
+                "users": [
+                  "U028U1DJ0SK"
+                ],
+                "count": 1
+              },
+              {
+                "name": "+1",
+                "users": [
+                  "U028U1DJ0SK",
+                  "U0298NLUNBC",
+                  "U029E28RUPL"
+                ],
+                "count": 3
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심만 답변"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "충분한 배경 설명"
+        },
+        "technical_accuracy": {
+          "score": 5,
+          "reasoning": "정보 정확"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-07",
+      "source_file": "2021-10-07_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "안녕하세요 데이터 관련 질문이 있어서 글 남겨요\n1. 학습 데이터간 합성을 통해 학습 데이터 양을 늘려도 괜찮나요?\n2. 수도라벨링의 방법이 아닌 컴퓨터 프로그램을 이용해서 testdata에 labeling을 해서 학습해도 괜찮나요?",
+        "user": "U0298BT8SNA",
+        "user_name": "김성민",
+        "timestamp": "1633594684.078000",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U02E375H869",
+                "U02AJA6R02C"
+              ],
+              "count": 2
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "안녕하세요 성민님! 데이터 어그멘테이션 관련해서 질의에 대한 답변 드리겠습니다.\n\n1. 학습 데이터 즉, 대회의 training data만을 사용해 합성을 하는 방향으로 학습데이터를 늘리시는 것은 허용됩니다!\n2. test data에 툴을 이용해 labeling하는 방법은 금지됩니다!\n감사합니다.",
+          "user": "U02920Y3AH4",
+          "user_name": "Wonho SONG",
+          "timestamp": "1633595731.078800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U0298NLUNBC"
+                ],
+                "count": 1
+              },
+              {
+                "name": "man-bowing",
+                "users": [
+                  "U0298BT8SNA"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U02920Y3AH4> 넵 확인했습니다!! 감사합니다!!",
+          "user": "U0298BT8SNA",
+          "user_name": "김성민",
+          "timestamp": "1633596053.079000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "컴피티션 파이팅입니다! :+1:",
+          "user": "U02920Y3AH4",
+          "user_name": "Wonho SONG",
+          "timestamp": "1633596091.079400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "all parts answered"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "minor context needed"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "correct guidelines"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-07",
+      "source_file": "2021-10-07_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "혹시 efficientdet이 일반쓰레기 (class 0번)를 *전혀* 분류하지 못하는 문제가 있는데 해결하신 분 계실까요.. 오랫동안 해결하지 못하고 있습니다 ㅠㅠ",
+        "user": "U02A3RBTDPB",
+        "user_name": "오현세_T2136",
+        "timestamp": "1633658369.083900",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029Z48KYCC"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 9
+        }
+      },
+      "answers": [
+        {
+          "text": "저도 같은 이슈를 겪고있습니다…ㅜㅜ\n모델의 output을 보시면 예측한 label이 1~10까지 labeling 되어있는것을 확인하실 수 있습니다\n혹시 class 0을 제외한 다른 class는 ap가 잘 나오나요…??\n모델 내부에서 암시적으로 background를 0으로 하는지 조심스럽게 추측하고있긴 합니다만…\n혹시 해결 되신다면 솔루션 공유해주시면 감사하겠습니다..!",
+          "user": "U02A5JQ2GPK",
+          "user_name": "오주영",
+          "timestamp": "1633667685.085300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "넵 ㅜㅜ",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633668168.085600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "혹시 직접 구현하신게 아니라면 어떤 소스를 참고하셨는지 여쭤봐도 될까요?",
+          "user": "U02A3GWB4RX",
+          "user_name": "sight Over",
+          "timestamp": "1633669507.085800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "베이스라인 코드 그대로 썼습니다",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633669521.086000",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "주영님과 논의 하여 해결했습니다",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633672623.086200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "데이터셋에서 뽑을 때 일괄적으로 label에 1씩 더하고",
+          "user": "U02A3RBTDPB",
+          "user_name": null,
+          "timestamp": "1633672635.086400",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "추론할때만 1씩 빼는 방법으로 해결했습니다",
+          "user": "U02A3RBTDPB",
+          "user_name": null,
+          "timestamp": "1633672657.086800",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "b0로 빠르게 확인해봤어요",
+          "user": "U02A3RBTDPB",
+          "user_name": null,
+          "timestamp": "1633672678.087200",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "Core issue discussed, no solution."
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "Self-contained explanation."
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "Plausible analysis."
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-07",
+      "source_file": "2021-10-07_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "현세님과 이어지는 질문인 것 같은데 이것에 대한 명쾌한 insight가 없어서 질문드립니다.\n현재 dataset class 구성이 여러 class의 쓰레기 + 그 외 general trash 로 느껴지는데요.\n실제로 validation set으로 클래스 별 ap 를 비교해본 결과 general trash 의 ap 가 다른 class 에 비해 낮더라고요.\ngeneral trash class 자체는 여러 종류의 큰 공통점 없는 etc class를 나타내는데 이런 class를 잘 가려내기 위한 어떤 방법이 있을까요?",
+        "user": "U029KP9P1CN",
+        "user_name": "유형진",
+        "timestamp": "1633666979.085200",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029PN9SX1R",
+                "U02A3RBTDPB",
+                "U029Z48KYCC"
+              ],
+              "count": 3
+            }
+          ],
+          "reply_count": 1
+        }
+      },
+      "answers": [
+        {
+          "text": "갑자기 든 생각인데 원래 box regressor랑 클래스 분류를 따로 해서 합치잖아요\n그렇다면 일반 쓰레기만 예외적으로 객체인지 아닌지만 판별하고 클래스 분류는 안하는건 어떨까요?\n일반쓰레기 데이터를 확인해보면 feature가 아주 다른 경우가 많아서요 (휴지조각, 담배 등)",
+          "user": "U02A3RBTDPB",
+          "user_name": "오현세_T2136",
+          "timestamp": "1633675029.087700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 3,
+          "reasoning": "핵심 아이디어만 있고 세부사항 부족"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "대부분 독립적이나 약간의 배경 지식 필요"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "기술적으로 타당한 제안"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 3.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-08",
+      "source_file": "2021-10-08_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "제가 이것저것하다가 mmdetection을 사용하려고 import를 했더니 다음과 같은 에러가 발생합니다.....어떻게 해결해야할까요..\nmmcv, mmdet 삭제하고 다시 설치해보았습니다... pycocotools도 삭제하고 다시 설치해보았습니다...",
+        "user": "U029T519KUH",
+        "user_name": null,
+        "timestamp": "1633689071.090300",
+        "is_bot": false,
+        "metadata": {
+          "edited": {
+            "user": "U029T519KUH",
+            "ts": "1633689172.000000"
+          },
+          "reactions": null,
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "저는 mmcv mmdet pycocotools 다 지우고 mmcv  mmdet만 설치 후 실행 하면 고쳐졌습니다",
+          "user": "U028U1DJ0SK",
+          "user_name": "주세환_멘토",
+          "timestamp": "1633689745.090700",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "<@U028U1DJ0SK> 다 지우고 mmcv, mmdet만 설치했는데도 똑같은 에러가 뜹니다.... 경로도 제대로 확인했고 껐다가 다시 켜서 재실행도 해보았습니다...",
+          "user": "U029T519KUH",
+          "user_name": null,
+          "timestamp": "1633691121.090900",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": null,
+            "reply_count": 0
+          }
+        },
+        {
+          "text": "numpy를 upgrade 설치를 해주었더니 해결되었습니다\n```pip install --upgrade numpy```",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1633693239.091300",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U02A3RBTDPB",
+                  "U028U1DJ0SK",
+                  "U029MKLUYFN",
+                  "U029ULW2X8A"
+                ],
+                "count": 4
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 4,
+          "reasoning": "Fulfills core request with actionable steps"
+        },
+        "context_independence": {
+          "score": 4,
+          "reasoning": "Stands alone with minimal assumptions"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "Valid troubleshooting sequence"
+        },
+        "overall_quality": "high",
+        "improvement_suggestion": null,
+        "avg_score": 4.0
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-09",
+      "source_file": "2021-10-09_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "mmdetection의 faster_rcnn_inference에서 다음과 같이 single_gpu_test를 실행했을때 아무런 값도 안나옵니다... 몇 시간째 원인을 찾고있는데 모르겠습니다....\n```output = single_gpu_test(model, data_loader, show_score_thr=0.05) # output 계산```",
+        "user": "U029T519KUH",
+        "user_name": null,
+        "timestamp": "1633791957.093100",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": [
+            {
+              "name": "eyes",
+              "users": [
+                "U029KG3T7L3"
+              ],
+              "count": 1
+            }
+          ],
+          "reply_count": 3
+        }
+      },
+      "answers": [
+        {
+          "text": "single_gpu_test에서 result 값이 비어서 나옵니다\n```def single_gpu_test(model,\n                    data_loader,\n                    show=False,\n                    out_dir=None,\n                    show_score_thr=0.3):\n    (...)\n    for i, data in enumerate(data_loader):\n        with torch.no_grad():\n            result = model(return_loss=False, rescale=True, **data)\n    (...)\n    return results```",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1633796861.093400",
+          "is_bot": false,
+          "metadata": {
+            "edited": {
+              "user": "U029T519KUH",
+              "ts": "1633796900.000000"
+            },
+            "reactions": null,
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "문제 상황 설명만 있고 해결책 없음"
+        },
+        "context_independence": {
+          "score": 3,
+          "reasoning": "코드 조각 포함되나 추가 설명 필요"
+        },
+        "technical_accuracy": {
+          "score": 3,
+          "reasoning": "기본 구조 설명은 맞으나 구체적 오류 원인 미포함"
+        },
+        "overall_quality": "medium",
+        "improvement_suggestion": null,
+        "avg_score": 2.67
+      }
+    },
+    {
+      "generation": "2",
+      "date": "2021-10-13",
+      "source_file": "2021-10-13_qa.json",
+      "course": "level2_object_detection",
+      "question": {
+        "text": "cfg.data.test.test_mode = True\n혹시 이 옵션 때문은 아닌가요?",
+        "user": "U029UND0U1Y",
+        "user_name": "Yongbeom Kwon",
+        "timestamp": "1634120134.096400",
+        "is_bot": false,
+        "metadata": {
+          "edited": null,
+          "reactions": null,
+          "reply_count": 0
+        }
+      },
+      "answers": [
+        {
+          "text": "<@U029UND0U1Y> 아 지금은 새로 서버 할당 받아서 처음부터 다시해서 해결했어요. 모델에 관련된 파일들이 잘못된 것 같더라구요 ㅎㅎ 답변 감사합니다",
+          "user": "U029T519KUH",
+          "user_name": "김주영_T2055",
+          "timestamp": "1634120348.096600",
+          "is_bot": false,
+          "metadata": {
+            "edited": null,
+            "reactions": [
+              {
+                "name": "+1",
+                "users": [
+                  "U029UND0U1Y"
+                ],
+                "count": 1
+              }
+            ],
+            "reply_count": 0
+          }
+        }
+      ],
+      "quality_score": {
+        "completeness": {
+          "score": 2,
+          "reasoning": "Doesn't address test_mode impact"
+        },
+        "context_independence": {
+          "score": 2,
+          "reasoning": "Relies heavily on prior context"
+        },
+        "technical_accuracy": {
+          "score": 4,
+          "reasoning": "Fix described is plausible"
+        },
+        "overall_quality": "low",
+        "improvement_suggestion": null,
+        "avg_score": 2.67
+      }
+    }
+  ]
+}
