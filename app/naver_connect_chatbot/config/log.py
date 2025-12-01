@@ -3,14 +3,6 @@
 
 Loguru를 활용하여 애플리케이션 전역에서 사용 가능한 로거를 설정합니다.
 JSON 형식의 구조화된 로그를 Console 및 File에 출력할 수 있습니다.
-
-사용 예:
-    from naver_connect_chatbot.config.log import logger
-
-    logger.info("일반 정보 로그")
-    logger.debug("디버그 로그", extra_data={"key": "value"})
-    logger.error("에러 로그", error=str(e))
-    logger.success("성공 로그")
 """
 
 import json

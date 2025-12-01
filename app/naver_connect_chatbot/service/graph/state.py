@@ -34,9 +34,9 @@ class AgentState(TypedDict):
 
 class AdaptiveRAGState(TypedDict, total=False):
     """
-    의도 분류와 검증 단계를 포함한 Adaptive RAG 확장 상태입니다.
+    의도 분류, 질의 분석, 검색, 답변 생성을 포함한 Adaptive RAG 확장 상태입니다.
 
-    의도 분류부터 질의 분석, 검색, 생성, 검증, 교정까지 전체 워크플로를 추적합니다.
+    의도 분류부터 질의 분석, 검색, 답변 생성까지의 전체 워크플로를 추적합니다.
 
     속성:
         # Input
@@ -58,28 +58,10 @@ class AdaptiveRAGState(TypedDict, total=False):
         documents: 검색된 문서
         retrieval_strategy: 사용된 검색 전략
 
-        # Document Evaluation
-        document_evaluation: 문서 평가 결과
-        sufficient_context: 문맥이 충분한지 여부
-        relevant_doc_count: 관련 문서 수
-
         # Answer Generation
         answer: 생성된 답변
         generation_metadata: 답변 생성 관련 메타데이터
         generation_strategy: 사용된 생성 전략
-
-        # Validation
-        validation_result: 상세 검증 결과
-        has_hallucination: 환각 여부
-        is_grounded: 답변이 문맥에 근거했는지 여부
-        is_complete: 답변이 완전한지 여부
-        quality_score: 전반적 품질 점수 (0.0 ~ 1.0)
-        validation_issues: 발견된 문제 목록
-
-        # Correction
-        correction_count: 교정 반복 횟수
-        correction_feedback: 교정 피드백 메시지 목록
-        correction_action: 권장 교정 액션
 
         # Control Flow
         retry_count: 검색 재시도 횟수
@@ -109,28 +91,10 @@ class AdaptiveRAGState(TypedDict, total=False):
     retrieval_filters_applied: bool  # 필터가 실제 적용되었는지 여부
     retrieval_fallback_used: bool  # 0건으로 인한 폴백 사용 여부
 
-    # Document Evaluation
-    document_evaluation: Dict[str, Any]
-    sufficient_context: bool
-    relevant_doc_count: int
-
     # Answer Generation
     answer: str
     generation_metadata: Dict[str, Any]
     generation_strategy: str
-
-    # Validation (deprecated - Reasoning 모델이 자체 처리)
-    validation_result: Dict[str, Any]
-    has_hallucination: bool
-    is_grounded: bool
-    is_complete: bool
-    quality_score: float
-    validation_issues: List[str]
-
-    # Correction (deprecated - Reasoning 모델이 자체 처리)
-    correction_count: int
-    correction_feedback: List[str]
-    correction_action: str
 
     # Control Flow
     retry_count: int

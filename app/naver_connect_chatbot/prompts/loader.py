@@ -59,8 +59,7 @@ DEFAULT_ANSWER_GENERATION_FALLBACK = PromptFallback(
         {
             "role": "system",
             "content": (
-                "You are a helpful assistant. Answer the question based on the "
-                "provided context."
+                "You are a helpful assistant. Answer the question based on the provided context."
             ),
         },
         {
@@ -71,55 +70,6 @@ DEFAULT_ANSWER_GENERATION_FALLBACK = PromptFallback(
 )
 
 PROMPT_FALLBACKS: Dict[str, PromptFallback] = {
-    "rag_generation": PromptFallback(
-        prompt_type="simple",
-        template=(
-            "You are an assistant for question-answering tasks. Use the "
-            "following pieces of retrieved context to answer the question. "
-            "If you don't know the answer, just say that you don't know. Use "
-            "three sentences maximum and keep the answer concise.\n\n"
-            "Question: {question}\nContext: {context}\nAnswer:"
-        ),
-    ),
-    "document_grading": PromptFallback(
-        prompt_type="chat_messages",
-        messages=(
-            {
-                "role": "system",
-                "content": (
-                    "You are a grader assessing relevance of a retrieved "
-                    "document to a user question.\nHere is the retrieved "
-                    "document:\n\n{context}\n\nHere is the user "
-                    "question: {question}\nIf the document contains "
-                    "keyword(s) or semantic meaning related to the user "
-                    "question, grade it as relevant.\nGive a binary score "
-                    "'yes' or 'no' score to indicate whether the document is "
-                    "relevant to the question."
-                ),
-            },
-            {"role": "human", "content": "{question}"},
-        ),
-    ),
-    "query_transformation": PromptFallback(
-        prompt_type="chat_messages",
-        messages=(
-            {
-                "role": "system",
-                "content": (
-                    "You are generating a question that is well optimized for "
-                    "retrieval. Look at the input and try to reason about the "
-                    "underlying semantic intent / meaning."
-                ),
-            },
-            {
-                "role": "human",
-                "content": (
-                    "Here is the initial question:\n\n {question} \n Formulate "
-                    "an improved question."
-                ),
-            },
-        ),
-    ),
     "multi_query_generation": PromptFallback(
         prompt_type="chat_messages",
         messages=(
@@ -170,67 +120,15 @@ PROMPT_FALLBACKS: Dict[str, PromptFallback] = {
             {
                 "role": "system",
                 "content": (
-                    "Analyze the query quality and suggest improvements for "
-                    "better retrieval."
+                    "Analyze the query quality and suggest improvements for better retrieval."
                 ),
             },
             {"role": "human", "content": "Question: {question}\nIntent: {intent}"},
         ),
     ),
-    "document_evaluation": PromptFallback(
-        prompt_type="chat_messages",
-        messages=(
-            {
-                "role": "system",
-                "content": (
-                    "Evaluate the relevance and sufficiency of retrieved "
-                    "documents."
-                ),
-            },
-            {
-                "role": "human",
-                "content": "Question: {question}\n\nDocuments:\n{documents}",
-            },
-        ),
-    ),
     "answer_generation_simple": DEFAULT_ANSWER_GENERATION_FALLBACK,
     "answer_generation_complex": DEFAULT_ANSWER_GENERATION_FALLBACK,
     "answer_generation_exploratory": DEFAULT_ANSWER_GENERATION_FALLBACK,
-    "answer_validation": PromptFallback(
-        prompt_type="chat_messages",
-        messages=(
-            {
-                "role": "system",
-                "content": (
-                    "Validate the answer for hallucinations and quality issues."
-                ),
-            },
-            {
-                "role": "human",
-                "content": (
-                    "Question: {question}\n\nContext:\n{context}\n\nAnswer:\n{answer}"
-                ),
-            },
-        ),
-    ),
-    "correction": PromptFallback(
-        prompt_type="chat_messages",
-        messages=(
-            {
-                "role": "system",
-                "content": (
-                    "Analyze the validation result and suggest a correction "
-                    "strategy."
-                ),
-            },
-            {
-                "role": "human",
-                "content": (
-                    "Validation Result: {validation_result}\n\nAnswer: {answer}"
-                ),
-            },
-        ),
-    ),
 }
 
 
@@ -261,6 +159,7 @@ class PromptLoadError(Exception):
     """프롬프트 로딩 실패 시 발생하는 예외."""
 
     pass
+
 
 @lru_cache(maxsize=None)
 def load_prompt_config(prompt_name: str) -> PromptConfig:

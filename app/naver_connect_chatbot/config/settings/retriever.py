@@ -57,6 +57,10 @@ class MultiQuerySettings(BaseSettings):
         extra="ignore",
     )
 
+    enabled: bool = Field(
+        default=True,
+        description="MultiQuery 활성화 여부 (전역 설정)",
+    )
     num_queries: int = Field(default=4, ge=1, le=10, description="LLM으로 생성할 쿼리 개수")
     default_strategy: Literal["rrf", "max", "sum"] = Field(
         default="rrf", description="결과 병합 전략"

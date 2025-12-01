@@ -183,7 +183,7 @@ def build_advanced_hybrid_retriever(
     method: HybridMethod = HybridMethod.RRF,
     rrf_c: int | None = None,
     bm25_kwargs: dict[str, Any] | None = None,
-    enable_multi_query: bool = True,  # 기본값 True로 변경 (항상 Multi-Query 사용)
+    enable_multi_query: bool = True,
     num_queries: int | None = None,
     multi_query_strategy: str | None = None,
     multi_query_rrf_k: int | None = None,
@@ -213,7 +213,7 @@ def build_advanced_hybrid_retriever(
         method: Base Hybrid의 병합 방식
         rrf_c: Base Hybrid의 RRF 상수
         bm25_kwargs: KiwiBM25Retriever 추가 파라미터
-        enable_multi_query: MultiQuery 활성화 여부 (기본값: True)
+        enable_multi_query: MultiQuery 활성화 여부 (기본값: None)
         num_queries: 생성할 쿼리 개수
         multi_query_strategy: MultiQuery 병합 전략
         multi_query_rrf_k: MultiQuery RRF 상수

@@ -6,6 +6,8 @@ LLM을 활용해 다양한 변형 질의를 생성하고, 각 검색 결과를 �
 from __future__ import annotations
 
 import asyncio
+import difflib
+
 from collections.abc import Iterable
 from typing import Final
 
@@ -17,12 +19,17 @@ from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import Runnable
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 
+from naver_connect_chatbot.config import logger
 from naver_connect_chatbot.prompts import get_prompt
 
 DocumentList = list[Document]
 DocumentMatrix = list[DocumentList]
+
+
+class MultiQueryOutput(BaseModel):
+    queries: list[str]
 
 
 class MultiQueryRetriever(BaseRetriever):
@@ -44,18 +51,65 @@ class MultiQueryRetriever(BaseRetriever):
 
     def _generate_queries(self, query: str) -> list[str]:
         """LLM으로 생성한 다양한 질의를 중복 없이 수집합니다."""
-        # YAML에서 다중 질의 생성 프롬프트를 불러옵니다.
+        return self._generate_queries_sync(query)
+
+    def _generate_queries_sync(self, query: str) -> list[str]:
         _prompt = get_prompt("multi_query_generation")
 
-        chain: Runnable = _prompt | self.llm | StrOutputParser()
+        try:
+            with_structured = getattr(self.llm, "with_structured_output", None)
+            if callable(with_structured):
+                structured_llm = with_structured(MultiQueryOutput)
+                prompt_value = _prompt.format_prompt(query=query, num=self.num_queries)
+                input_text = prompt_value.to_string()
+                result = structured_llm.invoke(input_text)
+                queries = result.queries
+            else:
+                raise AttributeError("with_structured_output not supported")
+        except Exception as exc:  # pragma: no cover
+            logger.warning(
+                "MultiQuery structured generation failed, falling back to legacy pipeline",
+                error=str(exc),
+            )
+            chain: Runnable = _prompt | self.llm | StrOutputParser()
+            try:
+                legacy_result = chain.invoke({"query": query, "num": self.num_queries})
+                queries = [
+                    candidate.strip()
+                    for candidate in legacy_result.split("\n")
+                    if candidate.strip()
+                ]
+            except Exception as legacy_exc:  # pragma: no cover
+                logger.error(
+                    "MultiQuery generation failed, using original query only",
+                    error=str(legacy_exc),
+                )
+                return [query]
+
+        trimmed = queries[: self.num_queries]
+        ordered = [query, *trimmed] if self.include_original else trimmed
+        return self._deduplicate_queries(ordered)
+
+    async def _agenerate_queries(self, query: str) -> list[str]:
+        _prompt = get_prompt("multi_query_generation")
 
         try:
-            result = chain.invoke({"query": query, "num": self.num_queries})
+            with_structured = getattr(self.llm, "with_structured_output", None)
+            if callable(with_structured):
+                structured_llm = with_structured(MultiQueryOutput)
+                prompt_value = _prompt.format_prompt(query=query, num=self.num_queries)
+                input_text = prompt_value.to_string()
+                result = await structured_llm.ainvoke(input_text)
+                queries = result.queries
+            else:
+                raise AttributeError("with_structured_output not supported")
         except Exception as exc:  # pragma: no cover
-            print(f"쿼리 생성 실패: {exc}")
-            return [query]
+            logger.warning(
+                "Async MultiQuery structured generation failed, falling back to sync path",
+                error=str(exc),
+            )
+            return await asyncio.to_thread(self._generate_queries_sync, query)
 
-        queries = [candidate.strip() for candidate in result.split("\n") if candidate.strip()]
         trimmed = queries[: self.num_queries]
         ordered = [query, *trimmed] if self.include_original else trimmed
         return self._deduplicate_queries(ordered)
@@ -173,7 +227,7 @@ class MultiQueryRetriever(BaseRetriever):
         run_manager: AsyncCallbackManagerForRetrieverRun | None = None,
     ) -> DocumentList:
         """비동기 환경에서 다중 쿼리 검색 파이프라인을 실행합니다."""
-        queries = self._generate_queries(query)
+        queries = await self._agenerate_queries(query)
         tasks = [self._ainvoke_base_retriever(candidate) for candidate in queries]
         results_list = await asyncio.gather(*tasks)
         merged = self._merge_results(results_list)

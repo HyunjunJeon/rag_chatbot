@@ -67,10 +67,10 @@ class TestEvaluationInput:
         )
         result = input_data.to_prompt_format()
 
-        assert "## 질문" in result
+        assert "## Question" in result
         assert "How to use PyTorch?" in result
-        assert "[답변 1]" in result
-        assert "[답변 2]" in result
+        assert "[Answer 1]" in result
+        assert "[Answer 2]" in result
 
     def test_empty_answers(self):
         """빈 답변 리스트."""
@@ -81,7 +81,7 @@ class TestEvaluationInput:
             source_file="test.json",
         )
         result = input_data.to_prompt_format()
-        assert "## 답변들" in result
+        assert "## Answers" in result
 
 
 class TestExtractForEvaluation:

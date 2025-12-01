@@ -52,7 +52,10 @@ def get_agent_app():
     embeddings = get_embeddings()
 
     # 2. LLM - 팩토리 함수 사용 (langchain_naver.ChatClovaX)
+    #    - 기본 llm: reasoning 비활성 (tools/structured output과 안전하게 사용)
+    #    - reasoning_llm: generate_answer_node 전용 Reasoning LLM (effort="medium")
     llm = get_chat_model()
+    reasoning_llm = get_chat_model(use_reasoning=True, reasoning_effort="medium")
 
     # 3. Retriever - 저장된 BM25 인덱스 로드 (없으면 Qdrant만 사용)
     bm25_index_path = PROJECT_ROOT / settings.retriever.bm25_index_path
@@ -88,7 +91,12 @@ def get_agent_app():
         )
 
     # 4. Build Graph
-    workflow_app = build_adaptive_rag_graph(retriever=retriever, llm=llm)
+    workflow_app = build_adaptive_rag_graph(
+        retriever=retriever,
+        llm=llm,
+        fast_llm=llm,
+        reasoning_llm=reasoning_llm,
+    )
     return workflow_app
 
 
@@ -120,9 +128,7 @@ def _check_rate_limit(user_id: str) -> tuple[bool, int]:
     window_start = now - timedelta(seconds=RATE_LIMIT_WINDOW_SECONDS)
 
     # 윈도우 내 요청만 유지
-    _rate_limit_cache[user_id] = [
-        ts for ts in _rate_limit_cache[user_id] if ts > window_start
-    ]
+    _rate_limit_cache[user_id] = [ts for ts in _rate_limit_cache[user_id] if ts > window_start]
 
     current_count = len(_rate_limit_cache[user_id])
 

@@ -82,17 +82,6 @@ class RetrievalUpdate(TypedDict, total=False):
     retrieval_metadata: dict
 
 
-class DocumentEvaluationUpdate(TypedDict, total=False):
-    """evaluate_documents_node 반환 타입.
-
-    문서 평가 결과를 state에 업데이트합니다.
-    """
-
-    sufficient_context: bool
-    relevant_doc_count: int
-    document_evaluation: dict
-
-
 class AnswerUpdate(TypedDict, total=False):
     """generate_answer_node 반환 타입.
 

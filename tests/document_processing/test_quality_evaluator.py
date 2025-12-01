@@ -10,7 +10,6 @@ from document_processing.slack_qa.quality_evaluator import (
 from document_processing.slack_qa.quality_schemas import (
     EvaluationInput,
     QualityEvaluation,
-    DimensionScore,
 )
 
 
@@ -24,7 +23,7 @@ class TestQualityEvaluator:
             mock_get.return_value = mock_llm
 
             evaluator = QualityEvaluator()
-            mock_get.assert_called_once_with(temperature=0.0)
+            mock_get.assert_called_once_with(temperature=0.0, max_tokens=4000)
             assert evaluator.llm is not None
 
     def test_init_with_custom_llm(self):
@@ -73,15 +72,18 @@ class TestQualityEvaluatorEvaluate:
         mock_chain = MagicMock()
 
         # Chain은 이제 JSON 문자열을 반환
-        mock_json_response = '''{
+        mock_json_response = """{
             "completeness": {"score": 4, "reasoning": "Good"},
             "context_independence": {"score": 3, "reasoning": "OK"},
             "technical_accuracy": {"score": 5, "reasoning": "Accurate"},
             "overall_quality": "high"
-        }'''
+        }"""
         mock_chain.ainvoke = AsyncMock(return_value=mock_json_response)
 
-        with patch("document_processing.slack_qa.quality_evaluator._create_evaluation_chain", return_value=mock_chain):
+        with patch(
+            "document_processing.slack_qa.quality_evaluator._create_evaluation_chain",
+            return_value=mock_chain,
+        ):
             evaluator = QualityEvaluator(llm=mock_llm)
             result = await evaluator.evaluate(sample_input)
 
@@ -94,7 +96,10 @@ class TestQualityEvaluatorEvaluate:
         mock_chain = MagicMock()
         mock_chain.ainvoke = AsyncMock(side_effect=Exception("API Error"))
 
-        with patch("document_processing.slack_qa.quality_evaluator._create_evaluation_chain", return_value=mock_chain):
+        with patch(
+            "document_processing.slack_qa.quality_evaluator._create_evaluation_chain",
+            return_value=mock_chain,
+        ):
             evaluator = QualityEvaluator(llm=mock_llm)
             result = await evaluator.evaluate(sample_input)
 
@@ -108,7 +113,10 @@ class TestQualityEvaluatorEvaluate:
         mock_chain = MagicMock()
         mock_chain.ainvoke = AsyncMock(return_value="This is not valid JSON")
 
-        with patch("document_processing.slack_qa.quality_evaluator._create_evaluation_chain", return_value=mock_chain):
+        with patch(
+            "document_processing.slack_qa.quality_evaluator._create_evaluation_chain",
+            return_value=mock_chain,
+        ):
             evaluator = QualityEvaluator(llm=mock_llm)
             result = await evaluator.evaluate(sample_input)
 

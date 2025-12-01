@@ -55,7 +55,7 @@ def get_chat_model(
         >>>
         >>> # 설정 오버라이드
         >>> llm = get_chat_model(
-        ...     model="HCX-003",
+        ...     model="HCX-007",
         ...     temperature=0.9,
         ...     thinking={"effort": "high"}
         ... )
@@ -75,6 +75,11 @@ def get_chat_model(
             ".env 파일에 CLOVASTUDIO_API_KEY를 설정하세요."
         )
 
+    # reasoning 관련 제어 플래그 (기본값: reasoning 비활성)
+    use_reasoning_flag = kwargs.get("use_reasoning")
+    reasoning_effort_override = kwargs.get("reasoning_effort")
+    use_reasoning = bool(use_reasoning_flag) or reasoning_effort_override is not None
+
     # 기본 파라미터 구성
     chat_params: dict[str, Any] = {
         "model": kwargs.get("model", config.model),
@@ -87,16 +92,26 @@ def get_chat_model(
     if max_tokens_value is not None and max_tokens_value > 1:
         chat_params["max_tokens"] = max_tokens_value
 
-    # thinking 설정 (config의 thinking_effort 또는 kwargs의 thinking)
+    # thinking / reasoning 설정 (config의 thinking_effort 또는 kwargs의 thinking/reasoning_effort)
     if "thinking" in kwargs:
         # kwargs에서 직접 전달된 경우 (우선순위 높음)
         chat_params["thinking"] = kwargs["thinking"]
-    elif config.thinking_effort:
-        # config에서 effort만 설정된 경우
-        chat_params["thinking"] = {"effort": config.thinking_effort}
+    else:
+        # use_reasoning이 활성화된 경우에만 settings의 thinking_effort 또는 override 적용
+        effective_effort = reasoning_effort_override or config.thinking_effort
+        if use_reasoning and effective_effort:
+            # ChatClovaX는 reasoning_effort 파라미터를 통해 Reasoning 모드를 제어합니다.
+            chat_params["reasoning_effort"] = effective_effort
 
     # kwargs에서 이미 처리한 키들 제외
-    excluded_keys = {"model", "temperature", "max_tokens", "thinking"}
+    excluded_keys = {
+        "model",
+        "temperature",
+        "max_tokens",
+        "thinking",
+        "use_reasoning",
+        "reasoning_effort",
+    }
     extra_kwargs = {k: v for k, v in kwargs.items() if k not in excluded_keys}
 
     return ChatClovaX(**chat_params, **extra_kwargs)

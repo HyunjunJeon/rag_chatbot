@@ -24,10 +24,18 @@ class DimensionScore(BaseModel):
 class QualityEvaluation(BaseModel):
     """Q&A 품질 평가 결과."""
 
-    completeness: DimensionScore = Field(description="답변 완전성: 질문의 모든 부분에 충분히 답변했는가")
-    context_independence: DimensionScore = Field(description="맥락 독립성: Q&A만 봐도 내용을 이해할 수 있는가")
-    technical_accuracy: DimensionScore = Field(description="기술적 정확성: 코드/개념/설명이 정확한가")
-    overall_quality: Literal["high", "medium", "low", "remove"] = Field(description="종합 품질 등급")
+    completeness: DimensionScore = Field(
+        description="답변 완전성: 질문의 모든 부분에 충분히 답변했는가"
+    )
+    context_independence: DimensionScore = Field(
+        description="맥락 독립성: Q&A만 봐도 내용을 이해할 수 있는가"
+    )
+    technical_accuracy: DimensionScore = Field(
+        description="기술적 정확성: 코드/개념/설명이 정확한가"
+    )
+    overall_quality: Literal["high", "medium", "low", "remove"] = Field(
+        description="종합 품질 등급"
+    )
     improvement_suggestion: str | None = Field(
         default=None,
         description="품질 개선을 위한 제안 (optional)",
@@ -38,7 +46,12 @@ class QualityEvaluation(BaseModel):
     def avg_score(self) -> float:
         """평균 점수 계산."""
         return round(
-            (self.completeness.score + self.context_independence.score + self.technical_accuracy.score) / 3,
+            (
+                self.completeness.score
+                + self.context_independence.score
+                + self.technical_accuracy.score
+            )
+            / 3,
             2,
         )
 
@@ -63,10 +76,14 @@ class EvaluationInput:
         truncated_answers = self.answers[:max_answers]
 
         if truncated_answers:
-            answers_formatted = "\n\n".join(f"[Answer {i + 1}]\n{answer}" for i, answer in enumerate(truncated_answers))
+            answers_formatted = "\n\n".join(
+                f"[Answer {i + 1}]\n{answer}" for i, answer in enumerate(truncated_answers)
+            )
             # 답변이 잘렸다면 표시
             if len(self.answers) > max_answers:
-                answers_formatted += f"\n\n(+{len(self.answers) - max_answers} more answers omitted)"
+                answers_formatted += (
+                    f"\n\n(+{len(self.answers) - max_answers} more answers omitted)"
+                )
         else:
             answers_formatted = "(No answers)"
 
@@ -96,7 +113,9 @@ def extract_for_evaluation(
     original_id = question_data.get("timestamp", "")
 
     answers_data = qa_pair.get("answers", [])
-    answer_texts = [answer.get("text", "").strip() for answer in answers_data if answer.get("text", "").strip()]
+    answer_texts = [
+        answer.get("text", "").strip() for answer in answers_data if answer.get("text", "").strip()
+    ]
 
     return EvaluationInput(
         question=question_text,

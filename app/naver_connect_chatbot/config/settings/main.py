@@ -4,14 +4,6 @@
 이 모듈은 모든 도메인별 설정을 통합하여 하나의 Settings 클래스로 제공합니다.
 .env 파일에서 환경변수를 자동으로 로드하며, 각 서브 설정은 자체 prefix를 가진
 환경변수를 통해 개별적으로 구성됩니다.
-
-사용 예:
-    from naver_connect_chatbot.config import settings
-
-    # 각 설정에 접근
-    print(settings.chat.model_name)
-    print(settings.qdrant_vector_store.url)
-    print(settings.retriever.default_k)
 """
 
 from pydantic import Field

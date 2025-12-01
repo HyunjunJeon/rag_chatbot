@@ -17,7 +17,6 @@ class AdaptiveRAGSettings(BaseSettings):
         # Agent Activation
         enable_intent_classification: 의도 분류 단계를 사용할지 여부
         enable_query_analysis: 질의 분석 및 정제 단계를 활성화할지 여부
-        enable_document_evaluation: 문서 적합성 평가 단계를 활성화할지 여부
         enable_answer_validation: 답변 품질 검증 단계를 활성화할지 여부
         enable_correction: 교정 루프를 활성화할지 여부
 
@@ -26,13 +25,10 @@ class AdaptiveRAGSettings(BaseSettings):
         max_correction_retries: 교정 반복 허용 횟수 상한
 
         # Quality Thresholds
-        min_quality_score: 허용 가능한 최소 답변 품질 점수 (0.0 ~ 1.0)
-        min_document_relevance: 허용 가능한 최소 문서 관련성 점수
         min_intent_confidence: 의도 분류에 요구되는 최소 신뢰도
 
         # Model Selection
         intent_model: 의도 분류용 경량 모델
-        evaluation_model: 문서/답변 평가에 사용할 모델
         main_model: 생성 및 복잡한 작업에 사용할 주 모델
 
         # Timeouts
@@ -52,9 +48,6 @@ class AdaptiveRAGSettings(BaseSettings):
     enable_query_analysis: bool = Field(
         default=True, description="Enable query quality analysis and improvement"
     )
-    enable_document_evaluation: bool = Field(
-        default=True, description="Enable document relevance and sufficiency evaluation"
-    )
     enable_answer_validation: bool = Field(
         default=False,  # Reasoning 모델 활용으로 비활성화
         description="Enable answer validation for hallucinations and quality (deprecated)",
@@ -73,12 +66,6 @@ class AdaptiveRAGSettings(BaseSettings):
     )
 
     # Quality Thresholds
-    min_quality_score: float = Field(
-        default=0.8, ge=0.0, le=1.0, description="Minimum acceptable answer quality score"
-    )
-    min_document_relevance: float = Field(
-        default=0.7, ge=0.0, le=1.0, description="Minimum acceptable document relevance score"
-    )
     min_intent_confidence: float = Field(
         default=0.6, ge=0.0, le=1.0, description="Minimum confidence for intent classification"
     )
@@ -86,9 +73,6 @@ class AdaptiveRAGSettings(BaseSettings):
     # Model Selection (for cost optimization)
     intent_model: str = Field(
         default="HCX-007", description="Model for intent classification (faster/cheaper)"
-    )
-    evaluation_model: str = Field(
-        default="HCX-007", description="Model for document and answer evaluation"
     )
     main_model: str = Field(
         default="HCX-007", description="Model for answer generation and complex tasks"
