@@ -47,6 +47,7 @@ def get_embeddings(settings_obj: "Settings | None" = None) -> ClovaXEmbeddings:
     return ClovaXEmbeddings(
         model=config.embeddings_model,
         api_key=config.api_key.get_secret_value(),
+        show_progress_bar=True,
     )
 
 

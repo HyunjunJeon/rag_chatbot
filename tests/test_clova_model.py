@@ -50,6 +50,7 @@ print("-" * 80)
 
 embeddings = ClovaXEmbeddings(
     model="bge-m3",  # 기본값: bge-m3
+    show_progress_bar=True,
 )
 
 query = (
@@ -188,9 +189,9 @@ else:
     """
     llm_tools = ChatClovaX(
         model="HCX-007",
-        max_tokens=8096,
+        max_tokens=20480,
         reasoning_effort="high",
-    ).bind_tools([dummy_tool])
+    )
     run_case("Tools / Reasoning only (bind_tools)", llm_tools)
 
     # Case 5: tools + reasoning_effort 동시 설정
