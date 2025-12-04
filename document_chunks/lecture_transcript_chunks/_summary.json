@@ -1,0 +1,679 @@
+{
+  "total_files": 108,
+  "total_chunks": 1009,
+  "course_stats": {
+    "Computer Vision": 45,
+    "Machine Learning": 16,
+    "기타": 76,
+    "NLP": 191,
+    "RecSys": 27,
+    "ML Engineering": 15,
+    "PyTorch": 24,
+    "Competition": 7,
+    "Data Engineering": 7,
+    "AI Math": 109,
+    "Deep Learning Basic": 42,
+    "8-1강": 16,
+    "8-2강": 6,
+    "9-1강": 7,
+    "9-2강": 12,
+    "실습 01": 10,
+    "Generative Model": 1,
+    "Generative AI": 72,
+    "ML for RecSys": 13,
+    "MLforRecSys": 122,
+    "MRC": 67,
+    "Object Detection": 22,
+    "RecSys 이론": 102
+  },
+  "files": [
+    {
+      "source_file": "(10강) 3D Human.json",
+      "lecture_name": "(10강) 3D Human",
+      "course": "Computer Vision",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "(10강) Binary Classification2.json",
+      "lecture_name": "(10강) Binary Classification2",
+      "course": "Machine Learning",
+      "chunk_count": 3
+    },
+    {
+      "source_file": "(10강) Decoding을 통한 자연어 생성.json",
+      "lecture_name": "(10강) Decoding을 통한 자연어 생성",
+      "course": "기타",
+      "chunk_count": 9
+    },
+    {
+      "source_file": "(10강) Transformer -3 - Transformer.json",
+      "lecture_name": "(10강) Transformer -3 - Transformer",
+      "course": "NLP",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "(10강) 대회에서 좋은 성적을 내기 위한 방법.json",
+      "lecture_name": "(10강) 대회에서 좋은 성적을 내기 위한 방법",
+      "course": "기타",
+      "chunk_count": 3
+    },
+    {
+      "source_file": "(11강) RecSys Competitions.json",
+      "lecture_name": "(11강) RecSys Competitions",
+      "course": "RecSys",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "(1강) Introduction to Computer Vision.json",
+      "lecture_name": "(1강) Introduction to Computer Vision",
+      "course": "Computer Vision",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "(1강) ML LifeCycle.json",
+      "lecture_name": "(1강) ML LifeCycle",
+      "course": "ML Engineering",
+      "chunk_count": 15
+    },
+    {
+      "source_file": "(1강) PyTorch Intro.json",
+      "lecture_name": "(1강) PyTorch Intro",
+      "course": "PyTorch",
+      "chunk_count": 3
+    },
+    {
+      "source_file": "(1강) Recommender System 기초 프로젝트.json",
+      "lecture_name": "(1강) Recommender System 기초 프로젝트",
+      "course": "RecSys",
+      "chunk_count": 14
+    },
+    {
+      "source_file": "(1강) Tokenization.json",
+      "lecture_name": "(1강) Tokenization",
+      "course": "NLP",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "(1강) 머신러닝 경진대회 입문하기(1).json",
+      "lecture_name": "(1강) 머신러닝 경진대회 입문하기(1)",
+      "course": "Competition",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(2강) CNN에서 ViT까지.json",
+      "lecture_name": "(2강) CNN에서 ViT까지",
+      "course": "기타",
+      "chunk_count": 1
+    },
+    {
+      "source_file": "(2강) Data type & Basic Functions.json",
+      "lecture_name": "(2강) Data type & Basic Functions",
+      "course": "기타",
+      "chunk_count": 3
+    },
+    {
+      "source_file": "(2강) Word Embedding.json",
+      "lecture_name": "(2강) Word Embedding",
+      "course": "NLP",
+      "chunk_count": 11
+    },
+    {
+      "source_file": "(2강) 텍스트 데이터 탐색과 전처리 이해하기(1).json",
+      "lecture_name": "(2강) 텍스트 데이터 탐색과 전처리 이해하기(1)",
+      "course": "Data Engineering",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(2강)선형대수-1_RegressionandNNClassifier.json",
+      "lecture_name": "(2강)선형대수-1_RegressionandNNClassifier",
+      "course": "AI Math",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "(3강) Creating Tensors.json",
+      "lecture_name": "(3강) Creating Tensors",
+      "course": "PyTorch",
+      "chunk_count": 4
+    },
+    {
+      "source_file": "(3강) 선형대수-2_ Linear Classifier and Softmax Classifier.json",
+      "lecture_name": "(3강) 선형대수-2_ Linear Classifier and Softmax Classifier",
+      "course": "AI Math",
+      "chunk_count": 17
+    },
+    {
+      "source_file": "(3강) 학습, 검증, 테스트 데이터 이해하기(1).json",
+      "lecture_name": "(3강) 학습, 검증, 테스트 데이터 이해하기(1)",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(3강)RNN과 Language Modeling.json",
+      "lecture_name": "(3강)RNN과 Language Modeling",
+      "course": "NLP",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "(4강) Exploding and Vanishing Gradient of Recurrent Neural Networks.json",
+      "lecture_name": "(4강) Exploding and Vanishing Gradient of Recurrent Neural Networks",
+      "course": "Deep Learning Basic",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "(4강) Manipulation of Tensors.json",
+      "lecture_name": "(4강) Manipulation of Tensors",
+      "course": "PyTorch",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "(4강) Segmentation & Detection.json",
+      "lecture_name": "(4강) Segmentation & Detection",
+      "course": "Computer Vision",
+      "chunk_count": 1
+    },
+    {
+      "source_file": "(4강) 기초 신경망 이론 -1 - Neural Networks.json",
+      "lecture_name": "(4강) 기초 신경망 이론 -1 - Neural Networks",
+      "course": "Deep Learning Basic",
+      "chunk_count": 9
+    },
+    {
+      "source_file": "(4강) 모델 학습 파이프라인 이해하기 (1).json",
+      "lecture_name": "(4강) 모델 학습 파이프라인 이해하기 (1)",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(5강) Basic Operations on Tensors.json",
+      "lecture_name": "(5강) Basic Operations on Tensors",
+      "course": "PyTorch",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(5강) LSTM과 GRU.json",
+      "lecture_name": "(5강) LSTM과 GRU",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(5강) 기초 신경망 이론 -2 - Back Propagation.json",
+      "lecture_name": "(5강) 기초 신경망 이론 -2 - Back Propagation",
+      "course": "Deep Learning Basic",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "(5강) 모델 학습 파이프라인 이해하기 (2).json",
+      "lecture_name": "(5강) 모델 학습 파이프라인 이해하기 (2)",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(6강) Seq2Seq with Attention.json",
+      "lecture_name": "(6강) Seq2Seq with Attention",
+      "course": "NLP",
+      "chunk_count": 4
+    },
+    {
+      "source_file": "(6강) Tensor Operations Vectors & Matrices_수정.json",
+      "lecture_name": "(6강) Tensor Operations Vectors & Matrices_수정",
+      "course": "PyTorch",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "(6강) 기초 신경망 이론 -3 - Training Neural Networks.json",
+      "lecture_name": "(6강) 기초 신경망 이론 -3 - Training Neural Networks",
+      "course": "Deep Learning Basic",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "(6강) 모델 실험 관리.json",
+      "lecture_name": "(6강) 모델 실험 관리",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(7강) Linear Regression1.json",
+      "lecture_name": "(7강) Linear Regression1",
+      "course": "Machine Learning",
+      "chunk_count": 4
+    },
+    {
+      "source_file": "(7강) Multimodal 2_Vision Language Models.json",
+      "lecture_name": "(7강) Multimodal 2_Vision Language Models",
+      "course": "NLP",
+      "chunk_count": 2
+    },
+    {
+      "source_file": "(7강) Transformer 1.json",
+      "lecture_name": "(7강) Transformer 1",
+      "course": "NLP",
+      "chunk_count": 11
+    },
+    {
+      "source_file": "(7강) 기초 신경망 이론 -4 - Training Neural Networks.json",
+      "lecture_name": "(7강) 기초 신경망 이론 -4 - Training Neural Networks",
+      "course": "Deep Learning Basic",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "(7강) 더 좋은 성능을 위한 기법 (1)-Pretrained Model.json",
+      "lecture_name": "(7강) 더 좋은 성능을 위한 기법 (1)-Pretrained Model",
+      "course": "기타",
+      "chunk_count": 6
+    },
+    {
+      "source_file": "(8-1강) Generative Models.json",
+      "lecture_name": "(8-1강) Generative Models",
+      "course": "8-1강",
+      "chunk_count": 16
+    },
+    {
+      "source_file": "(8-2강) Generative Models.json",
+      "lecture_name": "(8-2강) Generative Models",
+      "course": "8-2강",
+      "chunk_count": 6
+    },
+    {
+      "source_file": "(8강) Linear Regression2.json",
+      "lecture_name": "(8강) Linear Regression2",
+      "course": "Machine Learning",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "(8강) Transformer -1 - RNN-based Seq2seq model.json",
+      "lecture_name": "(8강) Transformer -1 - RNN-based Seq2seq model",
+      "course": "NLP",
+      "chunk_count": 15
+    },
+    {
+      "source_file": "(8강) Transformer 2.json",
+      "lecture_name": "(8강) Transformer 2",
+      "course": "NLP",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "(8강) 더 좋은 성능을 위한 기법 (2)-Hyperparameter Tune.json",
+      "lecture_name": "(8강) 더 좋은 성능을 위한 기법 (2)-Hyperparameter Tune",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(9-1강) 3D Understanding.json",
+      "lecture_name": "(9-1강) 3D Understanding",
+      "course": "9-1강",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(9-2강) 3D Understanding.json",
+      "lecture_name": "(9-2강) 3D Understanding",
+      "course": "9-2강",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "(9강) Binary Classification1.json",
+      "lecture_name": "(9강) Binary Classification1",
+      "course": "Machine Learning",
+      "chunk_count": 4
+    },
+    {
+      "source_file": "(9강) Self-Supervised Pre-trained Model_BERT.json",
+      "lecture_name": "(9강) Self-Supervised Pre-trained Model_BERT",
+      "course": "NLP",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "(9강) Transformer -2 - Attention.json",
+      "lecture_name": "(9강) Transformer -2 - Attention",
+      "course": "NLP",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "(9강) 더 좋은 성능을 위한 기법 (3)-앙상블.json",
+      "lecture_name": "(9강) 더 좋은 성능을 위한 기법 (3)-앙상블",
+      "course": "기타",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "(실습 01) Adding Conditional Control to Text-to-Image Diffusion Models.json",
+      "lecture_name": "(실습 01) Adding Conditional Control to Text-to-Image Diffusion Models",
+      "course": "실습 01",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "1강_벡터가_뭔가요.json",
+      "lecture_name": "1강_벡터가_뭔가요",
+      "course": "AI Math",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "2강_행렬이_뭔가요.json",
+      "lecture_name": "2강_행렬이_뭔가요",
+      "course": "AI Math",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "3강_행렬이랑_친해져보자.json",
+      "lecture_name": "3강_행렬이랑_친해져보자",
+      "course": "AI Math",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "4강_행렬이랑_더_친해져보자.json",
+      "lecture_name": "4강_행렬이랑_더_친해져보자",
+      "course": "AI Math",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "5강 Diffusion Recent Trends_v2.json",
+      "lecture_name": "5강 Diffusion Recent Trends_v2",
+      "course": "Generative Model",
+      "chunk_count": 1
+    },
+    {
+      "source_file": "5강_텐서가_뭔가요.json",
+      "lecture_name": "5강_텐서가_뭔가요",
+      "course": "기타",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "6강_경사하강법이_뭔가요.json",
+      "lecture_name": "6강_경사하강법이_뭔가요",
+      "course": "AI Math",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "7강_경사하강법이랑_친해져보자.json",
+      "lecture_name": "7강_경사하강법이랑_친해져보자",
+      "course": "AI Math",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "8강_경사하강법이랑_더_친해져보자.json",
+      "lecture_name": "8강_경사하강법이랑_더_친해져보자",
+      "course": "AI Math",
+      "chunk_count": 6
+    },
+    {
+      "source_file": "9강_인공지능을_위한_확률론.json",
+      "lecture_name": "9강_인공지능을_위한_확률론",
+      "course": "AI Math",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "GenAI CV part1.json",
+      "lecture_name": "GenAI CV part1",
+      "course": "Computer Vision",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "GenAI CV part2.json",
+      "lecture_name": "GenAI CV part2",
+      "course": "Computer Vision",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "GenAI NLP part1.json",
+      "lecture_name": "GenAI NLP part1",
+      "course": "Generative AI",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "GenAI NLP part2.json",
+      "lecture_name": "GenAI NLP part2",
+      "course": "Generative AI",
+      "chunk_count": 15
+    },
+    {
+      "source_file": "NLP Recent Trends Part 1 Reasoning & Planning.json",
+      "lecture_name": "NLP Recent Trends Part 1 Reasoning & Planning",
+      "course": "NLP",
+      "chunk_count": 19
+    },
+    {
+      "source_file": "NLP Recent Trends Part 2 LLM Applications.json",
+      "lecture_name": "NLP Recent Trends Part 2 LLM Applications",
+      "course": "NLP",
+      "chunk_count": 17
+    },
+    {
+      "source_file": "NLP Recent Trends Part 3 Ethics.json",
+      "lecture_name": "NLP Recent Trends Part 3 Ethics",
+      "course": "NLP",
+      "chunk_count": 29
+    },
+    {
+      "source_file": "NLP Recent Trends Part 4_Knowledge Update.json",
+      "lecture_name": "NLP Recent Trends Part 4_Knowledge Update",
+      "course": "NLP",
+      "chunk_count": 18
+    },
+    {
+      "source_file": "NLP Recent Trends Part 5_LLM Trends.json",
+      "lecture_name": "NLP Recent Trends Part 5_LLM Trends",
+      "course": "NLP",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "[AI Math]_10강_1_인공지능을 위한 통계학.json",
+      "lecture_name": "[AI Math]_10강_1_인공지능을 위한 통계학",
+      "course": "AI Math",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "[AI Math]_10강_2_인공지능을 위한 통계학.json",
+      "lecture_name": "[AI Math]_10강_2_인공지능을 위한 통계학",
+      "course": "AI Math",
+      "chunk_count": 9
+    },
+    {
+      "source_file": "[Generative AI] (1강) Generative AI Introduction.json",
+      "lecture_name": "[Generative AI] (1강) Generative AI Introduction",
+      "course": "Generative AI",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[Generative AI] (2강) Text Generation 1  LLM Pretrained Models.json",
+      "lecture_name": "[Generative AI] (2강) Text Generation 1  LLM Pretrained Models",
+      "course": "Generative AI",
+      "chunk_count": 6
+    },
+    {
+      "source_file": "[Generative AI] (3강) Text Generation 2 Parameter Efficient Tuning.json",
+      "lecture_name": "[Generative AI] (3강) Text Generation 2 Parameter Efficient Tuning",
+      "course": "Generative AI",
+      "chunk_count": 4
+    },
+    {
+      "source_file": "[Generative AI] (4강) Text Generation 4 sLLM Models.json",
+      "lecture_name": "[Generative AI] (4강) Text Generation 4 sLLM Models",
+      "course": "Generative AI",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[Generative AI] (5강) Image Generation 1 Image Generation  Models Overview.json",
+      "lecture_name": "[Generative AI] (5강) Image Generation 1 Image Generation  Models Overview",
+      "course": "Generative AI",
+      "chunk_count": 9
+    },
+    {
+      "source_file": "[Generative AI] (6강) Image Generation 2 Stable Diffusion & Evaluation.json",
+      "lecture_name": "[Generative AI] (6강) Image Generation 2 Stable Diffusion & Evaluation",
+      "course": "Generative AI",
+      "chunk_count": 6
+    },
+    {
+      "source_file": "[ML for RecSys] 2강 생성모델.json",
+      "lecture_name": "[ML for RecSys] 2강 생성모델",
+      "course": "ML for RecSys",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "[MLforRecSys] (10강) 인과성과 기계학습 II.json",
+      "lecture_name": "[MLforRecSys] (10강) 인과성과 기계학습 II",
+      "course": "MLforRecSys",
+      "chunk_count": 11
+    },
+    {
+      "source_file": "[MLforRecSys] (1강) 최신 RecSys 동향 및 통계학 기본.json",
+      "lecture_name": "[MLforRecSys] (1강) 최신 RecSys 동향 및 통계학 기본",
+      "course": "MLforRecSys",
+      "chunk_count": 15
+    },
+    {
+      "source_file": "[MLforRecSys] (3강) 변분추론 I.json",
+      "lecture_name": "[MLforRecSys] (3강) 변분추론 I",
+      "course": "MLforRecSys",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "[MLforRecSys] (4강) 변분추론 II.json",
+      "lecture_name": "[MLforRecSys] (4강) 변분추론 II",
+      "course": "MLforRecSys",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "[MLforRecSys] (5강) 마르코프 연쇄 몬테카를로 방법 I.json",
+      "lecture_name": "[MLforRecSys] (5강) 마르코프 연쇄 몬테카를로 방법 I",
+      "course": "MLforRecSys",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "[MLforRecSys] (6강) 마르코프 연쇄 몬테카를로 방법 II.json",
+      "lecture_name": "[MLforRecSys] (6강) 마르코프 연쇄 몬테카를로 방법 II",
+      "course": "MLforRecSys",
+      "chunk_count": 16
+    },
+    {
+      "source_file": "[MLforRecSys] (7강) 데이터의 가치측정 및 해석 I.json",
+      "lecture_name": "[MLforRecSys] (7강) 데이터의 가치측정 및 해석 I",
+      "course": "MLforRecSys",
+      "chunk_count": 11
+    },
+    {
+      "source_file": "[MLforRecSys] (8강) 데이터의 가치측정 및 해석 II.json",
+      "lecture_name": "[MLforRecSys] (8강) 데이터의 가치측정 및 해석 II",
+      "course": "MLforRecSys",
+      "chunk_count": 14
+    },
+    {
+      "source_file": "[MLforRecSys] (9강) 인과성과 기계학습 I.json",
+      "lecture_name": "[MLforRecSys] (9강) 인과성과 기계학습 I",
+      "course": "MLforRecSys",
+      "chunk_count": 17
+    },
+    {
+      "source_file": "[MRC] (1강)MRC Intro.json",
+      "lecture_name": "[MRC] (1강)MRC Intro",
+      "course": "MRC",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "[MRC] (2강)Extraction-based MRC.json",
+      "lecture_name": "[MRC] (2강)Extraction-based MRC",
+      "course": "MRC",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "[MRC] (4강)Passage Retrieval-Sparse Embedding.json",
+      "lecture_name": "[MRC] (4강)Passage Retrieval-Sparse Embedding",
+      "course": "MRC",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "[MRC] (5강)Passage Retrieval-Dense Embedding.json",
+      "lecture_name": "[MRC] (5강)Passage Retrieval-Dense Embedding",
+      "course": "MRC",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[MRC] (6강)Passage Retrieval-Scaling Up.json",
+      "lecture_name": "[MRC] (6강)Passage Retrieval-Scaling Up",
+      "course": "MRC",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "[MRC] (7강)Linking MRC and Retrieval.json",
+      "lecture_name": "[MRC] (7강)Linking MRC and Retrieval",
+      "course": "MRC",
+      "chunk_count": 9
+    },
+    {
+      "source_file": "[MRC] (8강)Reducing Training Bias.json",
+      "lecture_name": "[MRC] (8강)Reducing Training Bias",
+      "course": "MRC",
+      "chunk_count": 8
+    },
+    {
+      "source_file": "[Object Detection] 1.OD Overview.json",
+      "lecture_name": "[Object Detection] 1.OD Overview",
+      "course": "Object Detection",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[Object Detection] 2.실습Faster RCNN from scratch.json",
+      "lecture_name": "[Object Detection] 2.실습Faster RCNN from scratch",
+      "course": "Object Detection",
+      "chunk_count": 7
+    },
+    {
+      "source_file": "[Object Detection] 5.실습Yolo from scratch.json",
+      "lecture_name": "[Object Detection] 5.실습Yolo from scratch",
+      "course": "Object Detection",
+      "chunk_count": 5
+    },
+    {
+      "source_file": "[RecSys 이론] (10강) Bandit for Recommendation.mp4.json",
+      "lecture_name": "[RecSys 이론] (10강) Bandit for Recommendation.mp4",
+      "course": "RecSys 이론",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[RecSys 이론] (2강) 추천 시스템 Basic 2.json",
+      "lecture_name": "[RecSys 이론] (2강) 추천 시스템 Basic 2",
+      "course": "RecSys 이론",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[RecSys 이론] (3강) Collaborative Filtering 1.json",
+      "lecture_name": "[RecSys 이론] (3강) Collaborative Filtering 1",
+      "course": "RecSys 이론",
+      "chunk_count": 10
+    },
+    {
+      "source_file": "[RecSys 이론] (4강) Collaborative Filtering 2.json",
+      "lecture_name": "[RecSys 이론] (4강) Collaborative Filtering 2",
+      "course": "RecSys 이론",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "[RecSys 이론] (5강) Item2Vec and ANN.json",
+      "lecture_name": "[RecSys 이론] (5강) Item2Vec and ANN",
+      "course": "RecSys 이론",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "[RecSys 이론] (6강) Recommender System with Deep Learning 1.json",
+      "lecture_name": "[RecSys 이론] (6강) Recommender System with Deep Learning 1",
+      "course": "RecSys 이론",
+      "chunk_count": 12
+    },
+    {
+      "source_file": "[RecSys 이론] (7강) Recommender System with Deep Learning 2 .json",
+      "lecture_name": "[RecSys 이론] (7강) Recommender System with Deep Learning 2 ",
+      "course": "RecSys 이론",
+      "chunk_count": 11
+    },
+    {
+      "source_file": "[RecSys 이론] (8강) Context-aware Recommendation .json",
+      "lecture_name": "[RecSys 이론] (8강) Context-aware Recommendation ",
+      "course": "RecSys 이론",
+      "chunk_count": 13
+    },
+    {
+      "source_file": "[RecSys 이론] (9강)  DeepCTR.json",
+      "lecture_name": "[RecSys 이론] (9강)  DeepCTR",
+      "course": "RecSys 이론",
+      "chunk_count": 11
+    }
+  ]
+}

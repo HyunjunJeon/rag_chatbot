@@ -1,0 +1,29 @@
+{
+  "source_file": "5강 Diffusion Recent Trends_v2.json",
+  "lecture_name": "5강 Diffusion Recent Trends_v2",
+  "course": "Generative Model",
+  "total_chunks": 1,
+  "chunks": [
+    {
+      "id": "transcript_generative_model_5강_diffusion_recent_trends_v2_c000_118114",
+      "content": "[강의 녹취록] 과목: Generative Model | 강의: 5강 | 제목: Diffusion Recent Trends_v2\n\n일단 참고 있던 말을 할 수 있었습니다. 우리가 170 정도 제작을 하는 겁니다. 이렇게 제작하는 것이 있을 때까지 가 30분 정도 지나면 한.",
+      "metadata": {
+        "doc_type": "lecture_transcript",
+        "source_file": "5강 Diffusion Recent Trends_v2.json",
+        "lecture_name": "5강 Diffusion Recent Trends_v2",
+        "course": "Generative Model",
+        "lecture_num": "5강",
+        "lecture_title": "Diffusion Recent Trends_v2",
+        "chunk_idx": 0,
+        "total_chunks": 1,
+        "schema_version": "2.0.0",
+        "pipeline_version": "2.0.0",
+        "corpus_version": "2025.11.27",
+        "processed_at": "2025-12-04T15:35:42Z",
+        "source_hash": "sha256:bd41cad82251d177c3f7b290a22036835f06e00beba861025c68dd9b7116fd4d"
+      },
+      "token_estimate": 64,
+      "char_count": 153
+    }
+  ]
+}

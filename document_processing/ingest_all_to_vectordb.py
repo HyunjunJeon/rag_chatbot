@@ -452,6 +452,57 @@ class WeeklyMissionLoader(DocumentLoader):
         return Document(page_content=chunk["content"], metadata=doc_metadata)
 
 
+class LectureTranscriptLoader(DocumentLoader):
+    """강의 녹취록 Loader."""
+
+    doc_type = "lecture_transcript"
+    default_dir = "document_chunks/lecture_transcript_chunks"
+
+    def load(self, directory: Path) -> list[Document]:
+        """강의 녹취록 청크를 Document로 변환."""
+        print(f"\n🎙️ 강의 녹취록 로드: {directory}")
+
+        documents: list[Document] = []
+        chunk_files = sorted(directory.glob("*_chunks.json"))
+        print(f"   파일: {len(chunk_files)}개")
+
+        for chunk_file in chunk_files:
+            if chunk_file.name in ("_summary.json",):
+                continue
+
+            try:
+                with open(chunk_file, encoding="utf-8") as f:
+                    data = json.load(f)
+
+                for chunk in data.get("chunks", []):
+                    doc = self._to_document(chunk)
+                    documents.append(doc)
+
+            except Exception as e:
+                print(f"   ✗ {chunk_file.name}: {e}")
+
+        print(f"   총 문서: {len(documents):,}개")
+        return documents
+
+    def _to_document(self, chunk: dict[str, Any]) -> Document:
+        """LectureTranscriptChunk dict를 Document로 변환."""
+        metadata = chunk.get("metadata", {})
+
+        doc_metadata = {
+            "doc_id": chunk["id"],
+            "doc_type": self.doc_type,
+            "source_file": metadata.get("source_file", ""),
+            "lecture_name": metadata.get("lecture_name", ""),
+            "course": metadata.get("course", ""),
+            "lecture_num": metadata.get("lecture_num", ""),
+            "lecture_title": metadata.get("lecture_title", ""),
+            "chunk_idx": metadata.get("chunk_idx", 0),
+            "total_chunks": metadata.get("total_chunks", 1),
+        }
+
+        return Document(page_content=chunk["content"], metadata=doc_metadata)
+
+
 # =============================================================================
 # Loader 레지스트리
 # =============================================================================
@@ -462,6 +513,7 @@ REGISTERED_LOADERS: dict[str, type[DocumentLoader]] = {
     "slack_qa": SlackQALoader,
     "pdf": PDFLoader,
     "weekly_mission": WeeklyMissionLoader,
+    "lecture_transcript": LectureTranscriptLoader,
 }
 
 
@@ -582,7 +634,7 @@ class UnifiedVectorDBIngestion:
         """
         # 기본값: 모든 구현된 소스
         if sources is None:
-            sources = ["notebook", "slack_qa", "pdf", "weekly_mission"]
+            sources = ["notebook", "slack_qa", "pdf", "weekly_mission", "lecture_transcript"]
 
         if custom_dirs is None:
             custom_dirs = {}

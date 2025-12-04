@@ -1,0 +1,29 @@
+{
+  "source_file": "(4강) Segmentation & Detection.json",
+  "lecture_name": "(4강) Segmentation & Detection",
+  "course": "Computer Vision",
+  "total_chunks": 1,
+  "chunks": [
+    {
+      "id": "transcript_computer_vision_4강_segmentation_detection_c000_152cf2",
+      "content": "[강의 녹취록] 과목: Computer Vision | 강의: 4강 | 제목: Segmentation & Detection\n\n그리고 그래서 이런 경우들에 대해서는 좀 더 디테일하게 살펴보겠습니다. 먼저 색깔 부분은 기본적인.",
+      "metadata": {
+        "doc_type": "lecture_transcript",
+        "source_file": "(4강) Segmentation & Detection.json",
+        "lecture_name": "(4강) Segmentation & Detection",
+        "course": "Computer Vision",
+        "lecture_num": "4강",
+        "lecture_title": "Segmentation & Detection",
+        "chunk_idx": 0,
+        "total_chunks": 1,
+        "schema_version": "2.0.0",
+        "pipeline_version": "2.0.0",
+        "corpus_version": "2025.11.27",
+        "processed_at": "2025-12-04T15:35:42Z",
+        "source_hash": "sha256:083844cac8111082cd517a8b2d6ec8fb392363b946c6636faadedaa9e9d812b5"
+      },
+      "token_estimate": 53,
+      "char_count": 125
+    }
+  ]
+}
