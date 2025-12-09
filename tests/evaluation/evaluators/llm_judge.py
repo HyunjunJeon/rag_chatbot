@@ -131,11 +131,19 @@ class LLMJudgeEvaluator:
         """평가기 초기화.
 
         Args:
-            llm: 평가용 LLM. None이면 기본 HCX-007 사용.
+            llm: 평가용 LLM. None이면 HCX-007 + reasoning_effort="high" 사용.
+                 주의: HCX-007에서 reasoning과 tools를 동시에 사용할 수 없으므로
+                 structured_output 대신 수동 JSON 파싱을 사용합니다.
         """
         if llm is None:
             from naver_connect_chatbot.config.llm import get_chat_model
-            self.llm = get_chat_model()
+            # LLM-as-Judge는 reasoning_effort="high"를 사용하여 더 정확한 평가 수행
+            # tools/structured_output과 동시에 사용 불가능하므로 수동 JSON 파싱 필요
+            self.llm = get_chat_model(
+                model="HCX-007",
+                use_reasoning=True,
+                reasoning_effort="high",
+            )
         else:
             self.llm = llm
 

@@ -70,7 +70,8 @@ def hybrid_retriever(embeddings):
 
     bm25_path = PROJECT_ROOT / "sparse_index" / "unified_bm25"
     qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
-    collection_name = os.getenv("QDRANT_COLLECTION_NAME", "naver_connect_docs")
+    # 명시적으로 올바른 collection name 사용 (환경변수 오류 방지)
+    collection_name = "naver_connect_docs"
 
     return build_dense_sparse_hybrid_from_saved(
         bm25_index_path=str(bm25_path),
