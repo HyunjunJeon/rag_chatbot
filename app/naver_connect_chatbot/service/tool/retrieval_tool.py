@@ -4,13 +4,17 @@ Adaptive RAG에서 사용하는 검색 도구 모음.
 검색 기능을 LangChain 도구 형태로 감싸 에이전트나 워크플로에서 재사용합니다.
 """
 
-from typing import Any
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any
 from langchain_core.documents import Document
 from langchain_core.tools import tool
 from langchain_core.retrievers import BaseRetriever
 
 from naver_connect_chatbot.config import logger
-from naver_connect_chatbot.service.graph.types import RetrievalFilters
+
+if TYPE_CHECKING:
+    from naver_connect_chatbot.service.graph.types import RetrievalFilters
 
 
 def filter_documents_by_metadata(
@@ -41,8 +45,23 @@ def filter_documents_by_metadata(
             if doc_type not in filters["doc_type"]:
                 match = False
 
-        # 문자열 필터들 (정확히 일치)
-        string_filters = ["course", "course_level", "course_topic", "generation", "year", "year_month"]
+        # course 필터 (리스트, OR 조건) - 하위 호환성 유지
+        if "course" in filters and filters["course"]:
+            course_filter = filters["course"]
+            # 하위 호환: str이면 list로 변환 (deprecation warning)
+            if isinstance(course_filter, str):
+                logger.warning(
+                    f"DEPRECATED: course filter should be list[str], got str: '{course_filter}'. "
+                    "Auto-converting for backward compatibility. "
+                    "Please update your code to use list format."
+                )
+                course_filter = [course_filter]
+            doc_course = metadata.get("course")
+            if doc_course not in course_filter:
+                match = False
+
+        # 문자열 필터들 (정확히 일치) - course 제외
+        string_filters = ["course_level", "course_topic", "generation", "year", "year_month"]
         for key in string_filters:
             if key in filters and filters[key]:
                 if metadata.get(key) != filters[key]:

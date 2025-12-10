@@ -6,6 +6,7 @@ RAG (Retrieval-Augmented Generation) 패키지
 - Segmenter: 텍스트 문단 나누기
 - Summarizer: 텍스트 요약
 - RAG Reasoning: Function calling 기반 RAG 추론
+- Schema Registry: VectorDB 스키마 정보 캐시 및 제공
 """
 
 from .rerank import BaseReranker, ClovaStudioReranker
@@ -15,6 +16,13 @@ from .rag_reasoning import (
     ClovaStudioRAGReasoning,
     convert_langchain_tool_to_rag_reasoning,
     convert_langchain_tools_to_rag_reasoning,
+)
+from .schema_registry import (
+    SchemaRegistry,
+    VectorDBSchema,
+    DataSourceInfo,
+    get_schema_registry,
+    get_data_source_context,
 )
 
 __all__ = [
@@ -33,4 +41,10 @@ __all__ = [
     "ClovaStudioRAGReasoning",
     "convert_langchain_tool_to_rag_reasoning",
     "convert_langchain_tools_to_rag_reasoning",
+    # Schema Registry
+    "SchemaRegistry",
+    "VectorDBSchema",
+    "DataSourceInfo",
+    "get_schema_registry",
+    "get_data_source_context",
 ]

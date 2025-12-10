@@ -8,24 +8,43 @@ Adaptive RAG 시스템을 구성하는 에이전트 구현 모음.
 """
 
 from naver_connect_chatbot.service.agents.intent_classifier import (
-    create_intent_classifier,
+    classify_intent,
+    aclassify_intent,
     IntentClassification,
+    # Deprecated
+    create_intent_classifier,
 )
 from naver_connect_chatbot.service.agents.query_analyzer import (
-    create_query_analyzer,
+    analyze_query,
+    aanalyze_query,
     QueryAnalysis,
+    QueryRetrievalFilters,
+    # Deprecated
+    create_query_analyzer,
 )
 from naver_connect_chatbot.service.agents.answer_generator import (
+    generate_answer,
+    agenerate_answer,
+    get_generation_strategy,
+    # Deprecated
     create_answer_generator,
 )
 
 __all__ = [
     # 의도 분류
-    "create_intent_classifier",
+    "classify_intent",
+    "aclassify_intent",
     "IntentClassification",
+    "create_intent_classifier",  # Deprecated
     # 질의 분석
-    "create_query_analyzer",
+    "analyze_query",
+    "aanalyze_query",
     "QueryAnalysis",
+    "QueryRetrievalFilters",
+    "create_query_analyzer",  # Deprecated
     # 답변 생성
-    "create_answer_generator",
+    "generate_answer",
+    "agenerate_answer",
+    "get_generation_strategy",
+    "create_answer_generator",  # Deprecated
 ]

@@ -18,18 +18,20 @@ from naver_connect_chatbot.service.graph.types import (
     QueryAnalysisUpdate,
     RetrievalUpdate,
     AnswerUpdate,
+    OODResponseUpdate,
 )
-from naver_connect_chatbot.service.agents import (
-    create_intent_classifier,
+from naver_connect_chatbot.service.agents.intent_classifier import (
+    aclassify_intent,
     IntentClassification,
-    create_query_analyzer,
+)
+from naver_connect_chatbot.service.agents.query_analyzer import (
+    aanalyze_query,
     QueryAnalysis,
 )
 from naver_connect_chatbot.service.agents.answer_generator import (
     get_generation_strategy,
 )
-from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
-from naver_connect_chatbot.service.tool import retrieve_documents_async, RetrievalResult
+from naver_connect_chatbot.service.tool.retrieval_tool import retrieve_documents_async, RetrievalResult
 from naver_connect_chatbot.rag import ClovaStudioReranker
 from naver_connect_chatbot.config import logger, settings
 
@@ -65,50 +67,48 @@ def _extract_text_response(response: Any) -> str:
 
 async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> IntentUpdate:
     """
-    사용자 의도를 분류합니다.
+    사용자 의도를 분류합니다 (OUT_OF_DOMAIN 감지 포함).
+
+    Note:
+        tools/function calling 대신 llm.invoke(prompt) 형태로 직접 호출하여
+        CLOVA HCX-007의 reasoning 모드와 호환됩니다.
 
     매개변수:
         state: 현재 워크플로 상태
         llm: 분류에 사용할 언어 모델
 
     반환값:
-        의도 분류 결과가 포함된 상태 업데이트
+        의도 분류 결과가 포함된 상태 업데이트 (domain_relevance 포함)
     """
     logger.info("---CLASSIFY INTENT---")
     question = state["question"]
 
-    try:
-        # 의도 분류 에이전트를 생성합니다.
-        classifier = create_intent_classifier(llm)
+    # aclassify_intent 직접 호출 (내부에서 에러 처리)
+    response = await aclassify_intent(question, llm)
 
-        # 의도를 분류합니다.
-        response_raw = await classifier.ainvoke(
-            {"messages": [{"role": "user", "content": question}]}
+    # domain_relevance가 낮으면 OUT_OF_DOMAIN으로 보정
+    intent = response.intent
+    domain_relevance = response.domain_relevance
+
+    if domain_relevance < 0.3 and intent != "OUT_OF_DOMAIN":
+        logger.info(
+            f"Low domain_relevance ({domain_relevance:.2f}), "
+            f"overriding intent from {intent} to OUT_OF_DOMAIN"
+        )
+        intent = "OUT_OF_DOMAIN"
+
+    if intent == "OUT_OF_DOMAIN":
+        logger.info(
+            f"OUT_OF_DOMAIN detected: domain_relevance={domain_relevance:.2f}, "
+            f"question='{question[:50]}...'"
         )
 
-        # Response parser를 사용하여 일관성 있게 파싱합니다.
-        response = parse_agent_response(
-            response_raw,
-            IntentClassification,
-            fallback=IntentClassification(
-                intent="SIMPLE_QA", confidence=0.5, reasoning="Unable to classify intent"
-            ),
-        )
-
-        # 분류 결과를 추출합니다.
-        return {
-            "intent": response.intent,
-            "intent_confidence": response.confidence,
-            "intent_reasoning": response.reasoning,
-        }
-
-    except Exception as e:
-        logger.error(f"Intent classification error: {e}")
-        return {
-            "intent": "SIMPLE_QA",
-            "intent_confidence": 0.5,
-            "intent_reasoning": f"Error during classification: {str(e)}",
-        }
+    return {
+        "intent": intent,
+        "intent_confidence": response.confidence,
+        "intent_reasoning": response.reasoning,
+        "domain_relevance": domain_relevance,
+    }
 
 
 async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAnalysisUpdate:
@@ -119,6 +119,14 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
     1. 질의의 명확성, 구체성, 검색 가능성을 평가
     2. 다양한 관점의 검색 쿼리 3-5개 생성 (Multi-Query)
     3. 질문에서 메타데이터 기반 검색 필터 추출 (doc_type, course, etc.)
+
+    Pre-Retriever 데이터 소스 선택:
+    - VectorDB 스키마 정보를 프롬프트에 주입하여 LLM이 실제 데이터 소스를 알고 필터를 추출할 수 있게 함
+    - 서버 시작 시 로드된 SchemaRegistry에서 데이터 소스 컨텍스트를 가져옴
+
+    Note:
+        tools/function calling 대신 llm.invoke(prompt) 형태로 직접 호출하여
+        CLOVA HCX-007의 reasoning 모드와 호환됩니다.
 
     매개변수:
         state: 현재 워크플로 상태
@@ -132,27 +140,29 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
     intent = state.get("intent", "SIMPLE_QA")
 
     try:
-        # 질의 분석 에이전트를 생성합니다.
-        analyzer = create_query_analyzer(llm)
+        # VectorDB 스키마 정보를 가져와 프롬프트에 주입
+        data_source_context = None
+        try:
+            from naver_connect_chatbot.rag.schema_registry import (
+                get_data_source_context,
+                get_schema_registry,
+            )
 
-        # 질의를 분석합니다.
-        response_raw = await analyzer.ainvoke(
-            {"messages": [{"role": "user", "content": f"question: {question}\nintent: {intent}"}]}
-        )
+            data_source_context = get_data_source_context(max_courses=10)
 
-        # Response parser를 사용하여 일관성 있게 파싱합니다.
-        response = parse_agent_response(
-            response_raw,
-            QueryAnalysis,
-            fallback=QueryAnalysis(
-                clarity_score=0.5,
-                specificity_score=0.5,
-                searchability_score=0.5,
-                improved_queries=[question],
-                issues=["Unable to analyze query"],
-                recommendations=["Use the original query"],
-            ),
-        )
+            # 별칭 컨텍스트 추가 (VectorDB 기반 동적 생성)
+            registry = get_schema_registry()
+            if registry.is_loaded():
+                alias_context = registry.get_alias_context_for_prompt()
+                if alias_context:
+                    data_source_context = f"{data_source_context}\n\n{alias_context}"
+
+            logger.debug("Data source context with aliases loaded for query analysis")
+        except Exception as e:
+            logger.warning(f"Failed to load data source context: {e}")
+
+        # aanalyze_query 직접 호출
+        response = await aanalyze_query(question, intent, llm, data_source_context)
 
         # retrieval_filters를 RetrievalFilters TypedDict로 변환
         filters = {}
@@ -161,7 +171,39 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             if rf.doc_type:
                 filters["doc_type"] = rf.doc_type
             if rf.course:
-                filters["course"] = rf.course
+                # Fuzzy + Alias 후처리로 과정명 확장
+                try:
+                    from naver_connect_chatbot.rag.schema_registry import get_schema_registry
+
+                    registry = get_schema_registry()
+                    if not registry.is_loaded():
+                        logger.warning(
+                            "SchemaRegistry not loaded, using original course names"
+                        )
+                        filters["course"] = rf.course
+                    else:
+                        resolved_courses: list[str] = []
+                        for course in rf.course:
+                            try:
+                                resolved = registry.resolve_course_with_fuzzy(course)
+                                resolved_courses.extend(resolved)
+                            except Exception as course_error:
+                                logger.error(
+                                    f"Failed to resolve course '{course}': {course_error}",
+                                    exc_info=True,
+                                )
+                                resolved_courses.append(course)  # Fallback to original
+                        # 중복 제거 (순서 유지)
+                        filters["course"] = list(dict.fromkeys(resolved_courses))
+                        logger.info(
+                            f"Course names resolved: {rf.course} → {filters['course']}"
+                        )
+                except Exception as e:
+                    logger.error(
+                        f"Critical error in course fuzzy resolution: {e}",
+                        exc_info=True,
+                    )
+                    filters["course"] = rf.course
             if rf.course_topic:
                 filters["course_topic"] = rf.course_topic
             if rf.generation:
@@ -169,6 +211,16 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
 
         if filters:
             logger.info(f"Extracted retrieval filters: {filters}")
+
+        # filter_confidence 추출
+        filter_confidence = 1.0
+        if response.retrieval_filters:
+            filter_confidence = response.retrieval_filters.filter_confidence
+            if filter_confidence < 0.5:
+                logger.info(
+                    f"Low filter confidence ({filter_confidence:.2f}), "
+                    "clarification may be needed"
+                )
 
         # 분석 결과를 추출합니다.
         return {
@@ -182,6 +234,7 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             else [question],
             "original_query": question,
             "retrieval_filters": filters if filters else None,
+            "filter_confidence": filter_confidence,
         }
 
     except Exception as e:
@@ -191,6 +244,7 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             "refined_queries": [question],
             "original_query": question,
             "retrieval_filters": None,
+            "filter_confidence": 1.0,  # 에러 시 기본값
         }
 
 
@@ -400,6 +454,98 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
             "generation_metadata": {"error": str(e)},
             "generation_strategy": "error",
         }
+
+
+async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpdate:
+    """
+    Out-of-Domain 질문에 대한 정중한 거절 응답을 생성합니다.
+
+    AI/ML 교육과 무관한 질문 (날씨, 음식, 여행 등)에 대해
+    정중히 거절하고 도움 가능한 영역을 안내합니다.
+
+    매개변수:
+        state: 현재 워크플로 상태
+
+    반환값:
+        OOD 거절 응답을 포함한 상태 업데이트
+    """
+    logger.info("---GENERATE OOD RESPONSE---")
+
+    question = state.get("question", "")
+    domain_relevance = state.get("domain_relevance", 0.0)
+
+    # 질문 내용을 간략히 요약 (너무 길면 자르기)
+    question_preview = question[:50] + "..." if len(question) > 50 else question
+
+    response = (
+        f"죄송합니다. '{question_preview}'에 대해서는 답변드리기 어렵습니다.\n\n"
+        "저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n"
+        "• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n"
+        "• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n"
+        "• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n"
+        "• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n"
+        "• **실습/과제 관련 질문**\n\n"
+        "위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖"
+    )
+
+    logger.info(
+        f"OOD response generated for question: '{question_preview}' "
+        f"(domain_relevance: {domain_relevance:.2f})"
+    )
+
+    return {
+        "answer": response,
+        "generation_strategy": "ood_decline",
+        "workflow_stage": "completed",
+        "is_out_of_domain": True,
+    }
+
+
+async def clarify_node(state: AdaptiveRAGState) -> dict[str, Any]:
+    """
+    사용자에게 명확화를 요청하는 응답을 생성합니다.
+
+    필터 추출 신뢰도가 낮을 때 (filter_confidence < 0.5) 호출되어
+    사용자에게 검색 범위를 좁힐 수 있는 선택지를 제시합니다.
+
+    매개변수:
+        state: 현재 워크플로 상태
+
+    반환값:
+        명확화 요청 응답을 포함한 상태 업데이트
+    """
+    logger.info("---CLARIFY FILTER---")
+
+    question = state["question"]
+    filters = state.get("retrieval_filters", {})
+    courses = filters.get("course", []) if filters else []
+
+    # 명확화 메시지 생성
+    clarification_parts = [
+        "질문을 더 정확하게 이해하기 위해 확인이 필요합니다.\n"
+    ]
+
+    if courses:
+        clarification_parts.append(f"'{question}'에서 언급하신 과정이 다음 중 어느 것인가요?\n")
+        for i, course in enumerate(courses[:5], 1):
+            clarification_parts.append(f"{i}. {course}")
+        clarification_parts.append("\n원하시는 과정 번호를 알려주시거나, 더 구체적으로 질문해 주세요.")
+    else:
+        clarification_parts.append(
+            "어떤 자료에서 찾아볼까요?\n"
+            "- **강의자료** (PDF 슬라이드)\n"
+            "- **녹취록** (강의 내용)\n"
+            "- **슬랙 Q&A** (질의응답)\n"
+            "- **실습 노트북** (코드)\n"
+            "- **미션** (과제)\n"
+        )
+
+    clarification_message = "\n".join(clarification_parts)
+
+    return {
+        "answer": clarification_message,
+        "workflow_stage": "awaiting_clarification",
+    }
 
 
 def finalize_node(state: AdaptiveRAGState) -> dict[str, Any]:

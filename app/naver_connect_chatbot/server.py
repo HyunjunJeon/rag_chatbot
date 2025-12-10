@@ -64,6 +64,34 @@ async def lifespan(app: FastAPI):
     else:
         logger.info(f"BM25 인덱스 확인: {bm25_index_path}")
 
+    # VectorDB 스키마 로드 (Pre-Retriever 데이터 소스 선택용)
+    logger.info("VectorDB 스키마 로딩 중...")
+    try:
+        from qdrant_client import QdrantClient
+
+        from naver_connect_chatbot.rag.schema_registry import SchemaRegistry
+
+        qdrant_url = settings.qdrant_vector_store.url
+        qdrant_api_key = (
+            settings.qdrant_vector_store.api_key.get_secret_value()
+            if settings.qdrant_vector_store.api_key
+            else None
+        )
+        collection_name = settings.qdrant_vector_store.collection_name
+
+        client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
+        registry = SchemaRegistry.get_instance()
+        schema = registry.load_from_qdrant(client, collection_name)
+
+        logger.info(
+            f"VectorDB 스키마 로드 완료: "
+            f"{schema.total_documents:,}개 문서, "
+            f"{len(schema.data_sources)}개 데이터 소스"
+        )
+    except Exception as e:
+        logger.warning(f"VectorDB 스키마 로드 실패: {e}")
+        logger.warning("기본 필터링만 사용합니다.")
+
     yield
 
     # ========================================================================

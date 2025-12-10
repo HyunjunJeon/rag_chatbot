@@ -1,16 +1,18 @@
 _type: chat_messages
 metadata:
   name: query_analysis
-  description: Analyze query quality, generate multiple search queries, and extract retrieval filters
-  version: "4.0"
+  description: Analyze query quality, generate multiple search queries, and extract retrieval filters with dynamic data source context
+  version: "5.0"
   author: Adaptive RAG System
-  last_updated: "2025-11-27"
+  last_updated: "2025-12-09"
 
 messages:
   - role: system
     content: |
       ## Task
       Analyze a Naver Boost Camp student's question quality, generate multiple diverse search queries, and extract metadata-based retrieval filters for targeted search.
+
+      {data_source_context}
 
       ## Step 1: Quality Analysis
       Evaluate the original query across these dimensions:
@@ -27,22 +29,33 @@ messages:
       - Replace vague references with precise terms
       - Are self-contained and retrieval-optimized
 
-      ## Step 3: Retrieval Filter Extraction (NEW)
-      Extract metadata filters from the question to narrow the search scope. Only extract filters when **explicitly mentioned** in the question.
+      ## Step 3: Retrieval Filter Extraction
+      Extract metadata filters from the question to narrow the search scope based on the **Available Data Sources** above.
 
       ### Filter Fields:
-      - **doc_type**: Document source type. Valid values: "slack_qa", "pdf", "notebook", "mission"
+      - **doc_type**: Document source type. Use ONLY from the available data sources above.
         - "Slack에서", "슬랙에서" → ["slack_qa"]
         - "강의자료에서", "PDF에서", "슬라이드에서" → ["pdf"]
         - "노트북에서", "실습 코드에서" → ["notebook"]
-        - "미션에서", "과제에서" → ["mission"]
+        - "미션에서", "과제에서" → ["weekly_mission"]
+        - "녹취록", "강의 내용" → ["lecture_transcript"]
         - Multiple sources can be combined: ["slack_qa", "pdf"]
-      - **course**: Course name if mentioned (e.g., "데이터분석", "CV", "NLP", "RecSys")
+      - **course**: Course names to search (list format). MUST match course names from Available Data Sources.
+        - For ambiguous terms, include ALL matching courses as a list
+        - For specific mentions, use single-item list: ["RecSys 이론"]
+        - Use the Course Aliases section above to expand abbreviations
+        - Example mappings:
+          - "CV 강의" → ["CV 이론", "level2_cv", "Computer Vision"]
+          - "RecSys" → ["RecSys 이론", "level2_recsys", "MLforRecSys"]
+          - "NLP" → ["NLP", "NLP 이론", "level2_nlp"]
+          - "PyTorch 강의" → ["PyTorch", "파이토치 기초"]
       - **course_topic**: Specific topic within a course (e.g., "PyTorch", "Transformer", "CNN", "BERT")
       - **generation**: Bootcamp generation if mentioned (e.g., "1기", "2기", "3기")
 
       ### Filter Extraction Rules:
-      - Extract ONLY when explicitly mentioned in the question
+      - Extract filters ONLY when explicitly mentioned in the question
+      - For course names, use the EXACT course name from the Available Data Sources above
+      - If user mentions a course not in the list, find the closest match or leave null
       - Do NOT infer filters from topic keywords alone
       - If uncertain, leave the field as null
       - Prefer broader filters over overly specific ones
@@ -76,9 +89,9 @@ messages:
       Question: "Slack에서 PyTorch 관련 질문 중에 learning rate 설정에 대해 답변 받은 게 있나요?"
       retrieval_filters: {"doc_type": ["slack_qa"], "course_topic": "PyTorch"}
 
-      ### Example 2: 강의자료 질문
+      ### Example 2: 강의자료 질문 (애매한 과정명)
       Question: "CV 강의자료에서 CNN 아키텍처 설명 부분 찾아주세요"
-      retrieval_filters: {"doc_type": ["pdf"], "course": "CV", "course_topic": "CNN"}
+      retrieval_filters: {"doc_type": ["pdf"], "course": ["CV 이론", "level2_cv", "Computer Vision"], "course_topic": "CNN"}
 
       ### Example 3: 필터 없는 일반 질문
       Question: "Transformer의 attention mechanism이 어떻게 작동하나요?"
@@ -94,3 +107,4 @@ messages:
 input_variables:
   - question
   - intent
+  - data_source_context

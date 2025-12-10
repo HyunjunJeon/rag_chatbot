@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, computed_field
 
 
 class JudgeEvaluation(BaseModel):
@@ -39,6 +39,7 @@ class JudgeEvaluation(BaseModel):
         description="평가 근거 (2-3문장)"
     )
 
+    @computed_field
     @property
     def overall_score(self) -> float:
         """종합 점수 (0-1 스케일).
@@ -49,6 +50,7 @@ class JudgeEvaluation(BaseModel):
         penalty = 0.2 if self.hallucination_detected else 0
         return max(0.0, base - penalty)
 
+    @computed_field
     @property
     def is_passing(self) -> bool:
         """통과 여부 (overall_score >= 0.6)"""
@@ -130,16 +132,24 @@ class EvaluationReport(BaseModel):
     # 실패 질문 목록
     failed_questions: list[str] = Field(default_factory=list)
 
+    @computed_field
     @property
     def pass_rate(self) -> float:
-        """전체 통과율"""
+        """전체 통과율.
+
+        Note: @computed_field로 model_dump() 시 직렬화됩니다.
+        """
         if self.total_questions == 0:
             return 0.0
         return self.passed_questions / self.total_questions
 
+    @computed_field
     @property
     def overall_score(self) -> float:
-        """평균 overall_score"""
+        """평균 overall_score.
+
+        Note: @computed_field로 model_dump() 시 직렬화됩니다.
+        """
         scores = [
             r.get("judge", {}).get("overall_score", 0)
             for r in self.results

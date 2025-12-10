@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 import difflib
+import re
 
 from collections.abc import Iterable
 from typing import Final
@@ -74,11 +75,14 @@ class MultiQueryRetriever(BaseRetriever):
             chain: Runnable = _prompt | self.llm | StrOutputParser()
             try:
                 legacy_result = chain.invoke({"query": query, "num": self.num_queries})
-                queries = [
-                    candidate.strip()
-                    for candidate in legacy_result.split("\n")
-                    if candidate.strip()
-                ]
+                # 개선된 파서 사용: 다양한 형식 (번호, 불릿 등) 지원
+                queries = self._parse_legacy_queries(legacy_result)
+                if not queries:
+                    logger.warning(
+                        "Legacy parser returned no queries, using original query",
+                        raw_output=legacy_result[:200],
+                    )
+                    return [query]
             except Exception as legacy_exc:  # pragma: no cover
                 logger.error(
                     "MultiQuery generation failed, using original query only",
@@ -258,3 +262,51 @@ class MultiQueryRetriever(BaseRetriever):
             seen.add(normalized)
             unique_queries.append(candidate)
         return unique_queries
+
+    @staticmethod
+    def _parse_legacy_queries(text: str, min_length: int = 5) -> list[str]:
+        """
+        다양한 형식의 LLM 출력을 파싱하여 쿼리 리스트를 반환합니다.
+
+        지원 형식:
+        - 줄바꿈 구분: "쿼리1\\n쿼리2"
+        - 번호 형식: "1. 쿼리1\\n2. 쿼리2"
+        - 불릿 형식: "- 쿼리1\\n- 쿼리2"
+        - 혼합 형식
+
+        Args:
+            text: LLM의 raw 출력 텍스트
+            min_length: 유효한 쿼리의 최소 길이 (기본 5자)
+
+        Returns:
+            파싱된 쿼리 리스트
+        """
+        lines = text.strip().split("\n")
+        queries: list[str] = []
+
+        # 접두사 제거 패턴: "1.", "1)", "1:", "-", "*", "•", ">"
+        prefix_pattern = re.compile(r"^[\d]+[.\):\s]+|^[-*•>]\s*")
+
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+
+            # 접두사 제거
+            cleaned = prefix_pattern.sub("", line).strip()
+
+            # 너무 짧은 쿼리 스킵
+            if len(cleaned) < min_length:
+                continue
+
+            # 헤더/코멘트 스킵 (# 로 시작하거나 : 로 끝나는 경우)
+            if cleaned.startswith("#") or cleaned.endswith(":"):
+                continue
+
+            # 마크다운 코드블록 스킵
+            if cleaned.startswith("```") or cleaned.endswith("```"):
+                continue
+
+            queries.append(cleaned)
+
+        return queries

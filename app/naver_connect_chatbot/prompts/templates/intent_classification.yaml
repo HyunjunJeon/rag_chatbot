@@ -1,45 +1,66 @@
 _type: chat_messages
 metadata:
   name: intent_classification
-  description: Classify user intent for adaptive retrieval strategy
-  version: "2.0"
+  description: Classify user intent for adaptive retrieval strategy with OOD detection
+  version: "3.0"
   author: Adaptive RAG System
-  last_updated: "2025-11-21"
+  last_updated: "2025-12-10"
 
 messages:
   - role: system
     content: |
       ## Task
-      Classify a Naver Boost Camp student's question into one of four categories to determine the optimal retrieval and answer generation strategy.
+      Classify a Naver Boost Camp student's question into one of five categories to determine the optimal retrieval and answer generation strategy.
 
       ## Categories
-      1. **SIMPLE_QA** – Direct fact-finding questions with a concise, definitive answer
+      1. **SIMPLE_QA** – Direct fact-finding questions about AI/ML concepts with a concise, definitive answer
          Examples: "What is PyTorch?", "List common data augmentation methods", "Define overfitting"
 
-      2. **COMPLEX_REASONING** – Analytical questions comparing, justifying, or connecting multiple concepts
+      2. **COMPLEX_REASONING** – Analytical questions comparing, justifying, or connecting multiple AI/ML concepts
          Examples: "Why is Transformer more effective than RNN?", "Compare YOLO with Faster R-CNN", "Explain the trade-offs between precision and recall"
 
-      3. **EXPLORATORY** – Broad, open-ended questions seeking process overviews or learning roadmaps
+      3. **EXPLORATORY** – Broad, open-ended questions seeking AI/ML process overviews or learning roadmaps
          Examples: "How do I start an object detection project?", "What is the full pipeline of a recommender system?", "How should I learn deep learning?"
 
       4. **CLARIFICATION_NEEDED** – Ambiguous or underspecified questions lacking scope, subject, or objective
          Examples: "Can I do this?", "How does it work?" (without context), "What about that method?"
 
+      5. **OUT_OF_DOMAIN** – Questions completely unrelated to AI/ML education, programming, or Boost Camp content
+         Examples: "오늘 날씨 어때?", "맛있는 점심 메뉴 추천해줘", "주식 투자 어떻게 해?", "여행지 추천해줘"
+         - 날씨, 음식, 여행, 주식, 연예, 스포츠, 개인적 질문 등
+         - 이 챗봇의 범위를 벗어나는 질문은 정중히 거절해야 함
+
+      ## Domain Relevance Scoring (Critical)
+      질문이 Naver Boost Camp AI/ML 커리큘럼과 얼마나 관련 있는지 평가한다:
+
+      | 점수 | 의미 | 예시 |
+      |------|------|------|
+      | 0.9-1.0 | AI/ML 개념, 코드, 강의 내용 직접 관련 | "Transformer란?", "PyTorch 코드 에러" |
+      | 0.7-0.8 | 프로그래밍/데이터 사이언스 관련 | "Python 문법", "Git 사용법" |
+      | 0.4-0.6 | 간접적 관련 또는 모호함 | "컴퓨터 추천해줘", "취업 어떻게 해?" |
+      | 0.1-0.3 | 매우 약한 관련성 | "공부 잘하는 법", "영어 공부" |
+      | 0.0 | 완전히 무관 (OUT_OF_DOMAIN) | "날씨", "음식", "여행", "주식" |
+
+      **중요**: domain_relevance < 0.3 이면 반드시 intent를 OUT_OF_DOMAIN으로 분류한다.
+
       ## Instructions
-      1. Analyze the question structure, keywords, and implicit intent
-      2. Select exactly one category that best fits
-      3. Provide a confidence score (0.0-1.0) reflecting certainty
-      4. Explain the rationale referencing specific words or structures
+      1. 먼저 질문이 AI/ML 교육과 관련 있는지 판단한다 (domain_relevance)
+      2. domain_relevance < 0.3 이면 OUT_OF_DOMAIN으로 분류
+      3. 그렇지 않으면 질문 구조, 키워드, 암묵적 의도를 분석하여 적절한 카테고리 선택
+      4. confidence score (0.0-1.0) 제공
+      5. 분류 근거 설명
 
       ## Output Format
       Return a single JSON object with these fields:
-      - intent: one of "SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", or "CLARIFICATION_NEEDED"
+      - intent: one of "SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", "CLARIFICATION_NEEDED", or "OUT_OF_DOMAIN"
       - confidence: float between 0.0 and 1.0
+      - domain_relevance: float between 0.0 and 1.0 (how related to AI/ML education)
       - reasoning: string with concise justification
 
       Output rules:
       - JSON만 반환하며 코드펜스/추가 텍스트를 포함하지 않는다.
       - reasoning에는 질문에서 근거가 된 단어/구조를 1-2개 인용한다.
+      - domain_relevance 점수가 낮은 경우 (< 0.3), intent는 반드시 "OUT_OF_DOMAIN"이어야 한다.
 
   - role: human
     content: |

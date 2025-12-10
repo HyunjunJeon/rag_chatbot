@@ -44,9 +44,10 @@ class AdaptiveRAGState(TypedDict, total=False):
         messages: 대화 메시지 기록
 
         # Intent Classification
-        intent: 분류된 의도 (SIMPLE_QA | COMPLEX_REASONING | EXPLORATORY | CLARIFICATION_NEEDED)
+        intent: 분류된 의도 (SIMPLE_QA | COMPLEX_REASONING | EXPLORATORY | CLARIFICATION_NEEDED | OUT_OF_DOMAIN)
         intent_confidence: 의도 분류 신뢰도 (0.0 ~ 1.0)
         intent_reasoning: 의도 분류 근거
+        domain_relevance: 도메인 관련성 점수 (0.0 ~ 1.0, 낮으면 OUT_OF_DOMAIN)
 
         # Query Processing
         original_query: 사용자의 원본 질의
@@ -63,6 +64,9 @@ class AdaptiveRAGState(TypedDict, total=False):
         generation_metadata: 답변 생성 관련 메타데이터
         generation_strategy: 사용된 생성 전략
 
+        # Out-of-Domain
+        is_out_of_domain: OOD 질문 여부
+
         # Control Flow
         retry_count: 검색 재시도 횟수
         max_retries: 허용되는 최대 재시도 수
@@ -77,11 +81,13 @@ class AdaptiveRAGState(TypedDict, total=False):
     intent: str
     intent_confidence: float
     intent_reasoning: str
+    domain_relevance: float  # 도메인 관련성 점수 (0.0 ~ 1.0)
 
     # Query Processing
     original_query: str
     refined_queries: List[str]
     query_analysis: Dict[str, Any]
+    filter_confidence: float  # 필터 추출 신뢰도 (0.0 ~ 1.0, 낮으면 명확화 필요)
 
     # Retrieval
     context: List[Document]  # 하위 호환성 유지용 필드
@@ -95,6 +101,9 @@ class AdaptiveRAGState(TypedDict, total=False):
     answer: str
     generation_metadata: Dict[str, Any]
     generation_strategy: str
+
+    # Out-of-Domain
+    is_out_of_domain: bool  # OOD 질문 여부
 
     # Control Flow
     retry_count: int

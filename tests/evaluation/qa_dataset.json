@@ -1,0 +1,613 @@
+{
+  "version": "1.0.0",
+  "created_at": "2025-12-09",
+  "description": "Naver Connect Boost Camp RAG 평가 데이터셋",
+  "categories": {
+    "in_domain": {
+      "concept": "개념/정의 질문",
+      "implementation": "구현/코드 질문",
+      "troubleshooting": "트러블슈팅 질문",
+      "comparison": "비교/분석 질문",
+      "course_specific": "과정 특정 질문",
+      "source_specific": "자료 유형 특정 질문"
+    },
+    "out_of_domain": {
+      "unrelated": "관련 없는 질문",
+      "ambiguous": "불완전/애매한 질문",
+      "hallucination_inducing": "할루시네이션 유도 질문",
+      "boundary": "경계 질문"
+    }
+  },
+  "questions": [
+    {
+      "id": "in_concept_001",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "question": "Transformer의 Self-Attention 메커니즘이 무엇인가요?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": ["NLP", "NLP 이론"]
+      },
+      "expected_topics": ["transformer", "attention", "self-attention", "query", "key", "value"],
+      "ground_truth": {
+        "answer_keywords": ["query", "key", "value", "scaled dot-product", "attention weight"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["NLP"]
+      }
+    },
+    {
+      "id": "in_concept_002",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "question": "CNN에서 Convolution 연산의 원리를 설명해주세요",
+      "expected_filters": {
+        "doc_type": null,
+        "course": ["CV", "CV 이론", "level2_cv", "Computer Vision"]
+      },
+      "expected_topics": ["cnn", "convolution", "kernel", "filter", "feature map"],
+      "ground_truth": {
+        "answer_keywords": ["커널", "필터", "특징 맵", "stride", "padding"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["CV"]
+      }
+    },
+    {
+      "id": "in_concept_003",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "question": "Collaborative Filtering과 Content-Based Filtering의 차이점은?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": ["RecSys", "RecSys 이론", "level2_recsys"]
+      },
+      "expected_topics": ["collaborative filtering", "content-based", "추천 시스템"],
+      "ground_truth": {
+        "answer_keywords": ["협업 필터링", "콘텐츠 기반", "유사도", "아이템", "사용자"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": true,
+        "coverage": ["RecSys"]
+      }
+    },
+    {
+      "id": "in_impl_001",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "question": "PyTorch에서 DataLoader를 어떻게 사용하나요?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": ["PyTorch", "파이토치 기초"]
+      },
+      "expected_topics": ["dataloader", "dataset", "batch", "pytorch"],
+      "ground_truth": {
+        "answer_keywords": ["Dataset", "DataLoader", "batch_size", "shuffle", "num_workers"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": ["PyTorch"]
+      }
+    },
+    {
+      "id": "in_impl_002",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "question": "학습률 스케줄러를 구현하는 방법이 궁금해요",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": ["learning rate", "scheduler", "optimizer", "pytorch"],
+      "ground_truth": {
+        "answer_keywords": ["scheduler", "StepLR", "CosineAnnealing", "optimizer"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["PyTorch", "Deep Learning"]
+      }
+    },
+    {
+      "id": "in_trouble_001",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "question": "CUDA out of memory 에러가 발생하는데 어떻게 해결하나요?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": ["cuda", "memory", "gpu", "oom", "out of memory"],
+      "ground_truth": {
+        "answer_keywords": ["batch size", "gradient accumulation", "mixed precision", "메모리"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["PyTorch", "Deep Learning"]
+      }
+    },
+    {
+      "id": "in_trouble_002",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "question": "모델이 수렴하지 않고 loss가 발산하는데 원인이 뭘까요?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": ["loss", "diverge", "학습", "수렴", "발산"],
+      "ground_truth": {
+        "answer_keywords": ["학습률", "learning rate", "gradient", "초기화", "normalization"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "hard",
+        "requires_reasoning": true,
+        "coverage": ["Deep Learning"]
+      }
+    },
+    {
+      "id": "in_compare_001",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "question": "Adam과 SGD 옵티마이저의 장단점을 비교해주세요",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": ["adam", "sgd", "optimizer", "옵티마이저"],
+      "ground_truth": {
+        "answer_keywords": ["모멘텀", "adaptive", "learning rate", "수렴 속도", "일반화"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": true,
+        "coverage": ["Deep Learning", "PyTorch"]
+      }
+    },
+    {
+      "id": "in_compare_002",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "question": "ResNet과 VGG 아키텍처의 차이점은?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": ["CV", "CV 이론", "level2_cv"]
+      },
+      "expected_topics": ["resnet", "vgg", "skip connection", "residual"],
+      "ground_truth": {
+        "answer_keywords": ["skip connection", "residual", "깊이", "gradient", "vanishing"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": true,
+        "coverage": ["CV"]
+      }
+    },
+    {
+      "id": "in_course_001",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "question": "CV 강의에서 Object Detection 부분 설명해주세요",
+      "expected_filters": {
+        "doc_type": ["lecture_transcript", "pdf"],
+        "course": ["CV", "CV 이론", "level2_cv", "Computer Vision"]
+      },
+      "expected_topics": ["object detection", "yolo", "faster rcnn", "cv"],
+      "ground_truth": {
+        "answer_keywords": ["bounding box", "anchor", "YOLO", "R-CNN"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["CV"]
+      }
+    },
+    {
+      "id": "in_course_002",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "question": "NLP 강의에서 BERT 파인튜닝 방법 알려주세요",
+      "expected_filters": {
+        "doc_type": ["lecture_transcript", "pdf"],
+        "course": ["NLP", "NLP 이론"]
+      },
+      "expected_topics": ["bert", "fine-tuning", "nlp", "pretrained"],
+      "ground_truth": {
+        "answer_keywords": ["fine-tuning", "pre-trained", "downstream", "classification"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["NLP"]
+      }
+    },
+    {
+      "id": "in_course_003",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "question": "RecSys 3강에서 다룬 Matrix Factorization 내용 정리해주세요",
+      "expected_filters": {
+        "doc_type": ["lecture_transcript"],
+        "course": ["RecSys", "RecSys 이론"]
+      },
+      "expected_topics": ["matrix factorization", "svd", "latent factor"],
+      "ground_truth": {
+        "answer_keywords": ["행렬 분해", "잠재 요인", "user matrix", "item matrix"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["RecSys"]
+      }
+    },
+    {
+      "id": "in_source_001",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "question": "Slack에서 GPU 관련 질문 중에 유용한 답변 있나요?",
+      "expected_filters": {
+        "doc_type": ["slack_qa"],
+        "course": null
+      },
+      "expected_topics": ["gpu", "cuda", "memory"],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": ["slack_qa"]
+      }
+    },
+    {
+      "id": "in_source_002",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "question": "실습 노트북에서 데이터 전처리 예제 코드 찾아줘",
+      "expected_filters": {
+        "doc_type": ["notebook"],
+        "course": null
+      },
+      "expected_topics": ["preprocessing", "data", "전처리", "notebook"],
+      "ground_truth": {
+        "answer_keywords": ["pandas", "numpy", "transform"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": ["notebook"]
+      }
+    },
+    {
+      "id": "in_source_003",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "question": "이번 주 미션 루브릭에서 평가 기준 뭐야?",
+      "expected_filters": {
+        "doc_type": ["weekly_mission"],
+        "course": null
+      },
+      "expected_topics": ["mission", "rubric", "평가", "기준"],
+      "ground_truth": {
+        "answer_keywords": ["루브릭", "평가", "점수", "기준"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": ["weekly_mission"]
+      }
+    },
+    {
+      "id": "ood_unrelated_001",
+      "category": "out_of_domain",
+      "subcategory": "unrelated",
+      "question": "오늘 날씨 어때?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "politely_decline"
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": []
+      }
+    },
+    {
+      "id": "ood_unrelated_002",
+      "category": "out_of_domain",
+      "subcategory": "unrelated",
+      "question": "맛있는 점심 메뉴 추천해줘",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "politely_decline"
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": []
+      }
+    },
+    {
+      "id": "ood_ambiguous_001",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "question": "그거 어떻게 해?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "ask_clarification"
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": []
+      }
+    },
+    {
+      "id": "ood_ambiguous_002",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "question": "에러나요",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "ask_clarification"
+      },
+      "metadata": {
+        "difficulty": "easy",
+        "requires_reasoning": false,
+        "coverage": []
+      }
+    },
+    {
+      "id": "ood_ambiguous_003",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "question": "그 강의에서 설명한 알고리즘이 뭐였죠?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "ask_clarification"
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": []
+      }
+    },
+    {
+      "id": "ood_hallucination_001",
+      "category": "out_of_domain",
+      "subcategory": "hallucination_inducing",
+      "question": "부스트캠프 10기 NLP 커리큘럼 알려줘",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "acknowledge_no_info"
+      },
+      "metadata": {
+        "difficulty": "hard",
+        "requires_reasoning": false,
+        "coverage": [],
+        "hallucination_risk": "high"
+      }
+    },
+    {
+      "id": "ood_hallucination_002",
+      "category": "out_of_domain",
+      "subcategory": "hallucination_inducing",
+      "question": "김철수 마스터님이 설명한 GPT-5 내용 정리해줘",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": [],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "acknowledge_no_info"
+      },
+      "metadata": {
+        "difficulty": "hard",
+        "requires_reasoning": false,
+        "coverage": [],
+        "hallucination_risk": "high"
+      }
+    },
+    {
+      "id": "ood_boundary_001",
+      "category": "out_of_domain",
+      "subcategory": "boundary",
+      "question": "GPT-4o의 최신 업데이트 내용이 뭐야?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": ["gpt", "llm"],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "acknowledge_limitation"
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": [],
+        "note": "AI/ML 관련이지만 부스트캠프 자료에 없는 최신 정보"
+      }
+    },
+    {
+      "id": "ood_boundary_002",
+      "category": "out_of_domain",
+      "subcategory": "boundary",
+      "question": "Anthropic Claude의 Constitutional AI 논문 설명해줘",
+      "expected_filters": {
+        "doc_type": null,
+        "course": null
+      },
+      "expected_topics": ["claude", "anthropic", "ai safety"],
+      "ground_truth": {
+        "answer_keywords": [],
+        "should_have_context": false,
+        "expected_behavior": "acknowledge_limitation"
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": [],
+        "note": "AI 관련이지만 부스트캠프 커리큘럼 외 내용"
+      }
+    },
+    {
+      "id": "in_impl_003",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "question": "MRC 과제에서 BERT로 질의응답 모델 어떻게 구현하나요?",
+      "expected_filters": {
+        "doc_type": ["notebook", "weekly_mission"],
+        "course": ["MRC"]
+      },
+      "expected_topics": ["mrc", "bert", "question answering", "qa"],
+      "ground_truth": {
+        "answer_keywords": ["BertForQuestionAnswering", "start_positions", "end_positions"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "hard",
+        "requires_reasoning": false,
+        "coverage": ["MRC"]
+      }
+    },
+    {
+      "id": "in_concept_004",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "question": "AI Math에서 확률과 통계 기초 개념 정리해줘",
+      "expected_filters": {
+        "doc_type": ["lecture_transcript", "pdf"],
+        "course": ["AI Math", "AI 수학"]
+      },
+      "expected_topics": ["probability", "statistics", "확률", "통계"],
+      "ground_truth": {
+        "answer_keywords": ["확률", "분포", "기댓값", "분산"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["AI Math"]
+      }
+    },
+    {
+      "id": "in_impl_004",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "question": "Data Engineering에서 데이터 파이프라인 구축 방법?",
+      "expected_filters": {
+        "doc_type": null,
+        "course": ["Data Engineering", "Data Eng", "데이터 엔지니어링"]
+      },
+      "expected_topics": ["pipeline", "data engineering", "etl"],
+      "ground_truth": {
+        "answer_keywords": ["파이프라인", "ETL", "데이터 처리"],
+        "should_have_context": true
+      },
+      "metadata": {
+        "difficulty": "medium",
+        "requires_reasoning": false,
+        "coverage": ["Data Engineering"]
+      }
+    }
+  ],
+  "coverage_summary": {
+    "by_category": {
+      "in_domain": {
+        "concept": 4,
+        "implementation": 4,
+        "troubleshooting": 2,
+        "comparison": 2,
+        "course_specific": 3,
+        "source_specific": 3
+      },
+      "out_of_domain": {
+        "unrelated": 2,
+        "ambiguous": 3,
+        "hallucination_inducing": 2,
+        "boundary": 2
+      }
+    },
+    "by_course": {
+      "CV": 3,
+      "NLP": 2,
+      "RecSys": 2,
+      "PyTorch": 3,
+      "AI Math": 1,
+      "MRC": 1,
+      "Data Engineering": 1,
+      "Deep Learning": 3,
+      "General": 5
+    },
+    "by_doc_type": {
+      "slack_qa": 1,
+      "lecture_transcript": 4,
+      "pdf": 3,
+      "notebook": 2,
+      "weekly_mission": 2
+    },
+    "total_questions": 27
+  }
+}

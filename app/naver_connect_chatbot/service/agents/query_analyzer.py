@@ -2,17 +2,17 @@
 Adaptive RAG용 질의 분석 및 다중 쿼리 생성 에이전트 구현.
 
 질의 품질을 평가하고 검색 최적화를 위한 다중 쿼리를 생성합니다.
+
+Note:
+    CLOVA HCX-007은 tools와 reasoning을 동시에 지원하지 않으므로,
+    with_structured_output() 패턴을 사용하여 구조화된 출력을 생성합니다.
 """
 
-import json
-from typing import Annotated, Any
-from pydantic import BaseModel, Field
 from langchain_core.runnables import Runnable
-from langchain_core.tools import tool
-from langchain.agents import create_agent
+from pydantic import BaseModel, Field
 
-from naver_connect_chatbot.prompts import get_prompt
 from naver_connect_chatbot.config import logger
+from naver_connect_chatbot.prompts import get_prompt
 
 
 class QueryRetrievalFilters(BaseModel):
@@ -27,9 +27,10 @@ class QueryRetrievalFilters(BaseModel):
         default=None,
         description="Document types to search: 'slack_qa', 'pdf', 'notebook', 'mission'. Extract only if explicitly mentioned (e.g., 'Slack에서', '강의자료에서', '미션에서').",
     )
-    course: str | None = Field(
+    course: list[str] | None = Field(
         default=None,
-        description="Course name filter if explicitly mentioned (e.g., '데이터분석', 'CV', 'NLP').",
+        description="Course names to search (list format). For ambiguous terms, include all matching courses. "
+        "Example: 'CV' → ['CV 이론', 'level2_cv', 'Computer Vision']",
     )
     course_topic: str | None = Field(
         default=None,
@@ -37,6 +38,14 @@ class QueryRetrievalFilters(BaseModel):
     )
     generation: str | None = Field(
         default=None, description="Bootcamp generation if mentioned (e.g., '1기', '2기', '3기')."
+    )
+    filter_confidence: float = Field(
+        default=1.0,
+        ge=0.0,
+        le=1.0,
+        description="Confidence in the extracted filters (0.0 ~ 1.0). "
+        "Set below 0.5 when the query is highly ambiguous and multiple interpretations are equally valid. "
+        "Example: 'CV 관련 질문' with no context → confidence 0.3",
     )
 
 
@@ -73,157 +82,207 @@ class QueryAnalysis(BaseModel):
     )
 
 
-@tool(args_schema=QueryAnalysis)
-def emit_query_analysis_result(
-    clarity_score: Annotated[float, Field(description="Clarity score (0.0 ~ 1.0)", ge=0.0, le=1.0)],
-    specificity_score: Annotated[
-        float, Field(description="Specificity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
-    ],
-    searchability_score: Annotated[
-        float, Field(description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0)
-    ],
-    improved_queries: Annotated[list[str], Field(description="List of improved query variations")],
-    issues: Annotated[list[str], Field(description="Identified issues")],
-    recommendations: Annotated[list[str], Field(description="Recommendations for improvement")],
-    retrieval_filters: Annotated[
-        dict | None, Field(description="Metadata filters extracted from the question")
-    ] = None,
+def analyze_query(
+    question: str,
+    intent: str,
+    llm: Runnable,
+    data_source_context: str | None = None,
 ) -> QueryAnalysis:
     """
-    Emit structured query analysis results.
-
-    Call this tool after analyzing a query to return the final results as a QueryAnalysis model.
-    This ensures consistent structured output via ToolMessage.
-
-    Args:
-        clarity_score: Query clarity score (0.0 ~ 1.0)
-        specificity_score: Query specificity score (0.0 ~ 1.0)
-        searchability_score: Search-friendliness score (0.0 ~ 1.0)
-        improved_queries: List of improved query variations
-        issues: List of identified issues in the original query
-        recommendations: List of recommendations for query improvement
-        retrieval_filters: Optional metadata filters (doc_type, course, course_topic, generation)
-
-    Returns:
-        QueryAnalysis instance with all analysis results
-    """
-    # retrieval_filters가 dict인 경우 QueryRetrievalFilters로 변환
-    filters = QueryRetrievalFilters()
-    if retrieval_filters and isinstance(retrieval_filters, dict):
-        filters = QueryRetrievalFilters(**retrieval_filters)
-
-    return QueryAnalysis(
-        clarity_score=clarity_score,
-        specificity_score=specificity_score,
-        searchability_score=searchability_score,
-        improved_queries=improved_queries,
-        issues=issues,
-        recommendations=recommendations,
-        retrieval_filters=filters,
-    )
-
-
-def create_query_analyzer(llm: Runnable) -> Any:
-    """
-    질의 분석 에이전트를 생성합니다.
-
-    명확성, 구체성, 검색 친화도를 평가하고 개선 방향을 제안합니다.
-    에이전트는 emit_query_analysis 도구를 사용하여 구조화된 결과를
-    ToolMessage 형태로 반환합니다.
+    사용자 질의를 분석하고 다중 검색 쿼리를 생성합니다.
 
     매개변수:
-        llm: 분석에 사용할 언어 모델
-
-    반환값:
-        질의를 분석하는 에이전트
-
-    예시:
-        >>> from langchain_openai import ChatOpenAI
-        >>> llm = ChatOpenAI(model="gpt-4o")
-        >>> analyzer = create_query_analyzer(llm)
-        >>> result = analyzer.invoke({
-        ...     "messages": [{
-        ...         "role": "user",
-        ...         "content": "question: What is it?\nintent: CLARIFICATION_NEEDED"
-        ...     }]
-        ... })
-    """
-    try:
-        prompt_template = get_prompt("query_analysis")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
-
-        # 시스템 프롬프트에 도구 사용 가이드 추가
-        schema_text = json.dumps(
-            QueryAnalysis.model_json_schema(),
-            ensure_ascii=False,
-            indent=2,
-        )
-
-        enhanced_prompt = (
-            f"{system_prompt}\n\n"
-            "IMPORTANT: After analyzing the query, you MUST call the emit_query_analysis tool "
-            "with all required parameters (clarity_score, specificity_score, searchability_score, "
-            "improved_queries, issues, recommendations) to return your structured analysis."
-            "\n\nReturn outputs that match this JSON schema exactly (no extra fields, no prose):\n"
-            f"{schema_text}"
-        )
-
-        agent = create_agent(
-            model=llm,
-            tools=[emit_query_analysis_result],
-            system_prompt=enhanced_prompt,
-            name="query_analyzer",
-        )
-
-        logger.debug("Query analyzer agent created successfully with emit_query_analysis tool")
-        return agent
-
-    except Exception as e:
-        logger.error(f"Failed to create query analyzer: {e}")
-        raise
-
-
-def analyze_query(question: str, intent: str, llm: Runnable) -> QueryAnalysis:
-    """
-    단일 질의를 분석하는 편의 함수입니다.
-
-    에이전트가 emit_query_analysis 도구를 호출하면 ToolMessage로
-    결과가 반환되며, 이를 파싱하여 QueryAnalysis 객체를 추출합니다.
-
-    매개변수:
-        question: 분석 대상 사용자 질문
+        question: 분석할 사용자 질문
         intent: 분류된 질문 의도
-        llm: 사용할 언어 모델
+        llm: 분석에 사용할 언어 모델
+        data_source_context: VectorDB 데이터 소스 정보 (프롬프트에 주입)
 
     반환값:
         QueryAnalysis 결과
 
     예시:
-        >>> from langchain_openai import ChatOpenAI
-        >>> llm = ChatOpenAI(model="gpt-4o")
-        >>> result = analyze_query("What is it?", "CLARIFICATION_NEEDED", llm)
+        >>> from naver_connect_chatbot.config import get_chat_model
+        >>> llm = get_chat_model()
+        >>> result = analyze_query("What is PyTorch?", "SIMPLE_QA", llm)
         >>> print(result.improved_queries)
-        ['What is PyTorch?', 'What is the concept being discussed?']
+        ['PyTorch 개요', 'PyTorch 딥러닝 프레임워크', ...]
     """
-    from naver_connect_chatbot.service.agents.response_parser import parse_agent_response
+    try:
+        # 프롬프트 템플릿 로드
+        prompt_template = get_prompt("query_analysis")
+        system_prompt = (
+            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
+        )
 
-    analyzer = create_query_analyzer(llm)
-    response = analyzer.invoke(
-        {"messages": [{"role": "user", "content": f"question: {question}\nintent: {intent}"}]}
+        # 데이터 소스 컨텍스트 주입
+        if data_source_context:
+            system_prompt = system_prompt.replace("{data_source_context}", data_source_context)
+        else:
+            system_prompt = system_prompt.replace(
+                "{data_source_context}",
+                "## Available Data Sources\n데이터 소스 정보를 사용할 수 없습니다.\n"
+                "일반적인 doc_type: slack_qa, pdf, notebook, lecture_transcript, weekly_mission",
+            )
+
+        # 전체 프롬프트 구성
+        full_prompt = f"{system_prompt}\n\nquestion: {question}\nintent: {intent}"
+
+        # with_structured_output 사용하여 LLM 직접 호출
+        structured_llm = _get_structured_llm(llm, QueryAnalysis)
+        result = structured_llm.invoke(full_prompt)
+
+        if isinstance(result, QueryAnalysis):
+            return result
+
+        # fallback
+        logger.warning(f"Unexpected result type: {type(result)}")
+        return _default_query_analysis(question)
+
+    except Exception as e:
+        logger.error(f"Query analysis failed: {e}")
+        return _default_query_analysis(question, error=str(e))
+
+
+async def aanalyze_query(
+    question: str,
+    intent: str,
+    llm: Runnable,
+    data_source_context: str | None = None,
+) -> QueryAnalysis:
+    """
+    사용자 질의를 비동기로 분석하고 다중 검색 쿼리를 생성합니다.
+
+    매개변수:
+        question: 분석할 사용자 질문
+        intent: 분류된 질문 의도
+        llm: 분석에 사용할 언어 모델
+        data_source_context: VectorDB 데이터 소스 정보 (프롬프트에 주입)
+
+    반환값:
+        QueryAnalysis 결과
+    """
+    try:
+        # 프롬프트 템플릿 로드
+        prompt_template = get_prompt("query_analysis")
+        system_prompt = (
+            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
+        )
+
+        # 데이터 소스 컨텍스트 주입
+        if data_source_context:
+            system_prompt = system_prompt.replace("{data_source_context}", data_source_context)
+        else:
+            system_prompt = system_prompt.replace(
+                "{data_source_context}",
+                "## Available Data Sources\n데이터 소스 정보를 사용할 수 없습니다.\n"
+                "일반적인 doc_type: slack_qa, pdf, notebook, lecture_transcript, weekly_mission",
+            )
+
+        # 전체 프롬프트 구성
+        full_prompt = f"{system_prompt}\n\nquestion: {question}\nintent: {intent}"
+
+        # with_structured_output 사용하여 LLM 직접 호출
+        structured_llm = _get_structured_llm(llm, QueryAnalysis)
+        result = await structured_llm.ainvoke(full_prompt)
+
+        if isinstance(result, QueryAnalysis):
+            return result
+
+        # fallback
+        logger.warning(f"Unexpected result type: {type(result)}")
+        return _default_query_analysis(question)
+
+    except Exception as e:
+        logger.error(f"Async query analysis failed: {e}")
+        return _default_query_analysis(question, error=str(e))
+
+
+def _default_query_analysis(question: str, error: str | None = None) -> QueryAnalysis:
+    """기본 QueryAnalysis 결과를 반환합니다."""
+    issues = ["Unable to analyze query"]
+    if error:
+        issues.append(f"Error: {error}")
+
+    return QueryAnalysis(
+        clarity_score=0.5,
+        specificity_score=0.5,
+        searchability_score=0.5,
+        improved_queries=[question],
+        issues=issues,
+        recommendations=["Use the original query"],
     )
 
-    # Use centralized response parser with fallback
-    return parse_agent_response(
-        response,
-        model_type=QueryAnalysis,
-        fallback=QueryAnalysis(
-            clarity_score=0.5,
-            specificity_score=0.5,
-            searchability_score=0.5,
-            improved_queries=[question],
-            issues=["Unable to analyze query"],
-            recommendations=["Use the original query"],
-        ),
+
+def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
+    """
+    LLM에 structured output을 적용합니다.
+
+    with_structured_output()을 지원하지 않는 LLM의 경우
+    fallback으로 JSON 파싱을 시도합니다.
+
+    매개변수:
+        llm: 언어 모델
+        schema: 출력 스키마 (Pydantic 모델)
+
+    반환값:
+        구조화된 출력을 생성하는 Runnable
+    """
+    with_structured = getattr(llm, "with_structured_output", None)
+    if callable(with_structured):
+        return with_structured(schema)
+
+    # Fallback: PydanticOutputParser 사용
+    logger.warning(
+        "LLM does not support with_structured_output, using PydanticOutputParser fallback"
     )
+    from langchain_core.output_parsers import PydanticOutputParser
+
+    parser = PydanticOutputParser(pydantic_object=schema)
+
+    # 파서와 함께 호출하는 래퍼 반환
+    class ParserWrapper:
+        def __init__(self, llm, parser):
+            self._llm = llm
+            self._parser = parser
+
+        def invoke(self, prompt):
+            result = self._llm.invoke(prompt)
+            content = result.content if hasattr(result, "content") else str(result)
+            return self._parser.parse(content)
+
+        async def ainvoke(self, prompt):
+            result = await self._llm.ainvoke(prompt)
+            content = result.content if hasattr(result, "content") else str(result)
+            return self._parser.parse(content)
+
+    return ParserWrapper(llm, parser)
+
+
+# Deprecated: 이전 버전과의 호환성을 위해 유지
+def create_query_analyzer(llm: Runnable, data_source_context: str | None = None):
+    """
+    Deprecated: analyze_query() 또는 aanalyze_query()를 직접 사용하세요.
+
+    이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
+    """
+    logger.warning(
+        "create_query_analyzer() is deprecated. "
+        "Use analyze_query() or aanalyze_query() directly."
+    )
+
+    class QueryAnalyzerWrapper:
+        def __init__(self, llm, data_source_context):
+            self._llm = llm
+            self._data_source_context = data_source_context
+
+        def invoke(self, input_dict):
+            question = input_dict.get("question", "")
+            intent = input_dict.get("intent", "SIMPLE_QA")
+            return analyze_query(question, intent, self._llm, self._data_source_context)
+
+        async def ainvoke(self, input_dict):
+            question = input_dict.get("question", "")
+            intent = input_dict.get("intent", "SIMPLE_QA")
+            return await aanalyze_query(question, intent, self._llm, self._data_source_context)
+
+    return QueryAnalyzerWrapper(llm, data_source_context)

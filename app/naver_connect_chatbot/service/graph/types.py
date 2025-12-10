@@ -22,7 +22,7 @@ class RetrievalFilters(TypedDict, total=False):
 
     속성:
         doc_type: 문서 유형 필터 (예: ["slack_qa", "pdf", "notebook", "mission"])
-        course: 코스 이름 필터 (예: "데이터분석")
+        course: 코스 이름 필터 (예: ["CV 이론", "level2_cv"]) - 여러 코스를 OR 조건으로 검색
         course_level: 코스 난이도 필터 (예: "초급", "중급", "고급")
         course_topic: 코스 주제 필터
         generation: 기수 필터 (예: "1기", "2기")
@@ -31,7 +31,7 @@ class RetrievalFilters(TypedDict, total=False):
     """
 
     doc_type: list[str]
-    course: str
+    course: list[str]  # 단일 str → list[str] 변경 (OR 조건)
     course_level: str
     course_topic: str
     generation: str
@@ -50,9 +50,16 @@ class IntentUpdate(TypedDict, total=False):
     Intent 분류 결과를 state에 업데이트합니다.
     """
 
-    intent: Literal["SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", "CLARIFICATION_NEEDED"]
+    intent: Literal[
+        "SIMPLE_QA",
+        "COMPLEX_REASONING",
+        "EXPLORATORY",
+        "CLARIFICATION_NEEDED",
+        "OUT_OF_DOMAIN",
+    ]
     intent_confidence: float
     intent_reasoning: str
+    domain_relevance: float  # 도메인 관련성 점수 (0.0~1.0)
 
 
 class QueryAnalysisUpdate(TypedDict, total=False):
@@ -90,6 +97,18 @@ class AnswerUpdate(TypedDict, total=False):
 
     answer: str
     answer_metadata: dict
+
+
+class OODResponseUpdate(TypedDict, total=False):
+    """generate_ood_response_node 반환 타입.
+
+    Out-of-Domain 질문에 대한 정중한 거절 응답을 state에 업데이트합니다.
+    """
+
+    answer: str
+    generation_strategy: Literal["ood_decline"]
+    workflow_stage: Literal["completed"]
+    is_out_of_domain: bool
 
 
 class ErrorUpdate(TypedDict, total=False):

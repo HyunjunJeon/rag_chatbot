@@ -107,6 +107,20 @@ class AdaptiveRAGSettings(BaseSettings):
     )
     use_caching: bool = Field(default=False, description="Enable caching of intermediate results")
 
+    # Clarification Feature (애매한 질의 처리)
+    enable_clarification: bool = Field(
+        default=False,
+        description="Enable clarification when filter confidence is low. "
+        "When enabled, ambiguous queries will prompt users for clarification.",
+    )
+    clarification_threshold: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Filter confidence threshold for triggering clarification. "
+        "Queries with filter_confidence below this value will ask for user clarification.",
+    )
+
     model_config = SettingsConfigDict(
         env_prefix="ADAPTIVE_RAG_",
         case_sensitive=False,

@@ -17,11 +17,33 @@ import pytest
 from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_core.runnables.config import RunnableConfig
+from loguru import logger
 
 # 프로젝트 루트 추가
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "app"))
 sys.path.insert(0, str(PROJECT_ROOT))
+
+# ============================================================================
+# 테스트 전용 로깅 설정 (앱 로거 초기화 이후에 실행되도록 여기에 배치)
+# ============================================================================
+_EVAL_LOG_DIR = PROJECT_ROOT / "logs" / "tests"
+_EVAL_LOG_DIR.mkdir(parents=True, exist_ok=True)
+_EVAL_LOG_FILE = _EVAL_LOG_DIR / f"evaluation_{datetime.now():%Y%m%d_%H%M%S}.log"
+
+# 테스트 전용 파일 핸들러 추가
+_eval_handler_id = logger.add(
+    str(_EVAL_LOG_FILE),
+    format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level:8} | {message}",
+    level="DEBUG",
+    filter=lambda record: "evaluation" in record["extra"].get("context", ""),
+    encoding="utf-8",
+    enqueue=True,
+)
+
+# 테스트 로거 (context 바인딩)
+eval_logger = logger.bind(context="evaluation")
+eval_logger.info(f"Evaluation test logging initialized: {_EVAL_LOG_FILE}")
 
 # .env 파일 로드
 load_dotenv(PROJECT_ROOT / ".env")
@@ -219,11 +241,13 @@ def test_dataset_v2_coverage(qa_dataset_v2):
     expected_edge = {"multi_hop", "temporal", "negation", "code_execution", "meta_question"}
     assert expected_edge == edge_subcats, f"Edge Case 서브카테고리 누락: {expected_edge - edge_subcats}"
 
-    print(f"\n✅ 데이터셋 v2 커버리지 검증 완료")
-    print(f"   총 질문: {len(questions)}")
-    print(f"   In-Domain: {len(in_domain)}")
-    print(f"   Out-of-Domain: {len([q for q in questions if q['category'] == 'out_of_domain'])}")
-    print(f"   Edge Case: {len(edge_cases)}")
+    eval_logger.info(
+        "Dataset v2 coverage verified",
+        total_questions=len(questions),
+        in_domain=len(in_domain),
+        out_of_domain=len([q for q in questions if q["category"] == "out_of_domain"]),
+        edge_case=len(edge_cases),
+    )
 
 
 # ============================================================================
@@ -249,18 +273,25 @@ async def test_in_domain_by_subcategory(
     if not questions:
         pytest.skip(f"No questions for subcategory: {subcategory}")
 
-    print(f"\n{'='*60}")
-    print(f"Testing In-Domain / {subcategory} ({len(questions)} questions)")
-    print(f"{'='*60}")
+    eval_logger.info(
+        "=" * 60 + f" Testing In-Domain / {subcategory} " + "=" * 60,
+        category="in_domain",
+        subcategory=subcategory,
+        question_count=len(questions),
+    )
 
     results = []
     for q in questions[:3]:  # 서브카테고리당 최대 3개 테스트 (비용 절감)
         result = await evaluate_single_question(q, rag_graph, llm_judge)
         results.append(result)
 
-        status = "✅" if result.passed else "❌"
         score = result.judge_evaluation.overall_score if result.judge_evaluation else 0
-        print(f"{status} {q['id']}: score={score:.2f}")
+        eval_logger.info(
+            "Question evaluated",
+            question_id=q["id"],
+            passed=result.passed,
+            score=round(score, 3),
+        )
 
     # 통과율 계산
     pass_rate = sum(1 for r in results if r.passed) / len(results)
@@ -268,7 +299,12 @@ async def test_in_domain_by_subcategory(
         r.judge_evaluation.overall_score for r in results if r.judge_evaluation
     ) / len(results)
 
-    print(f"\n{subcategory} 결과: pass_rate={pass_rate:.0%}, avg_score={avg_score:.2f}")
+    eval_logger.info(
+        "Subcategory result",
+        subcategory=subcategory,
+        pass_rate=f"{pass_rate:.0%}",
+        avg_score=round(avg_score, 3),
+    )
 
     # 카테고리별 최소 통과 기준: 50%
     assert pass_rate >= 0.5, f"{subcategory} 통과율 미달: {pass_rate:.0%}"
@@ -291,9 +327,12 @@ async def test_edge_cases_by_subcategory(
     if not questions:
         pytest.skip(f"No questions for subcategory: {subcategory}")
 
-    print(f"\n{'='*60}")
-    print(f"Testing Edge Case / {subcategory} ({len(questions)} questions)")
-    print(f"{'='*60}")
+    eval_logger.info(
+        "=" * 60 + f" Testing Edge Case / {subcategory} " + "=" * 60,
+        category="edge_case",
+        subcategory=subcategory,
+        question_count=len(questions),
+    )
 
     results = []
     for q in questions[:2]:  # 서브카테고리당 최대 2개 테스트
@@ -301,8 +340,11 @@ async def test_edge_cases_by_subcategory(
         results.append(result)
 
         correct = result.judge_evaluation.behavior_correct if result.judge_evaluation else False
-        status = "✅" if correct else "⚠️"
-        print(f"{status} {q['id']}: behavior_correct={correct}")
+        eval_logger.info(
+            "Edge case evaluated",
+            question_id=q["id"],
+            behavior_correct=correct,
+        )
 
     # Edge Case는 behavior_correct 기준
     correct_rate = sum(
@@ -310,7 +352,11 @@ async def test_edge_cases_by_subcategory(
         if r.judge_evaluation and r.judge_evaluation.behavior_correct
     ) / len(results)
 
-    print(f"\n{subcategory} behavior_correct rate: {correct_rate:.0%}")
+    eval_logger.info(
+        "Edge case subcategory result",
+        subcategory=subcategory,
+        behavior_correct_rate=f"{correct_rate:.0%}",
+    )
 
 
 # ============================================================================
@@ -322,9 +368,9 @@ async def test_edge_cases_by_subcategory(
 @pytest.mark.integration
 async def test_full_evaluation_v2(qa_dataset_v2, llm_judge, rag_graph):
     """전체 평가 실행 및 리포트 생성"""
-    print(f"\n{'='*80}")
-    print("Full RAG Evaluation v2 with LLM-as-Judge")
-    print(f"{'='*80}")
+    eval_logger.info("=" * 80)
+    eval_logger.info("Starting Full RAG Evaluation v2 with LLM-as-Judge")
+    eval_logger.info("=" * 80)
 
     report = EvaluationReport(
         dataset_version=qa_dataset_v2["version"],
@@ -332,9 +378,16 @@ async def test_full_evaluation_v2(qa_dataset_v2, llm_judge, rag_graph):
     )
 
     questions = qa_dataset_v2["questions"]
+    eval_logger.info("Total questions to evaluate", count=len(questions))
 
     for i, q_data in enumerate(questions):
-        print(f"\n[{i+1}/{len(questions)}] Evaluating: {q_data['id']}")
+        eval_logger.info(
+            "Evaluating question",
+            progress=f"{i+1}/{len(questions)}",
+            question_id=q_data["id"],
+            category=q_data["category"],
+            subcategory=q_data["subcategory"],
+        )
 
         result = await evaluate_single_question(q_data, rag_graph, llm_judge)
 
@@ -364,10 +417,16 @@ async def test_full_evaluation_v2(qa_dataset_v2, llm_judge, rag_graph):
         # 결과 추가
         report.results.append(result.to_dict())
 
-        # 진행 상황 출력
-        status = "✅" if result.passed else "❌"
+        # 진행 상황 로깅
         score = result.judge_evaluation.overall_score if result.judge_evaluation else 0
-        print(f"  {status} score={score:.2f}, docs={result.retrieved_docs_count}")
+        eval_logger.info(
+            "Question evaluation complete",
+            question_id=q_data["id"],
+            passed=result.passed,
+            score=round(score, 3),
+            docs_count=result.retrieved_docs_count,
+            time_ms=round(result.retrieval_time_ms, 2),
+        )
 
     # 카테고리별 통과율 계산
     for cat in report.by_category:
@@ -382,19 +441,28 @@ async def test_full_evaluation_v2(qa_dataset_v2, llm_judge, rag_graph):
     with open(report_path, "w", encoding="utf-8") as f:
         json.dump(report_dict, f, ensure_ascii=False, indent=2)
 
-    # 결과 출력
-    print(f"\n{'='*80}")
-    print("Evaluation Report v2")
-    print(f"{'='*80}")
-    print(f"Total: {report.total_questions}")
-    print(f"Passed: {report.passed_questions}")
-    print(f"Pass Rate: {report.pass_rate:.1%}")
-    print(f"Overall Score: {report.overall_score:.2f}")
-    print(f"\nBy Category:")
-    for cat, stats in report.by_category.items():
-        print(f"  {cat}: {stats['passed']}/{stats['total']} ({stats['pass_rate']:.0%})")
+    # 결과 로깅
+    eval_logger.info("=" * 80)
+    eval_logger.info("Evaluation Report v2 Summary")
+    eval_logger.info("=" * 80)
+    eval_logger.info(
+        "Overall results",
+        total=report.total_questions,
+        passed=report.passed_questions,
+        pass_rate=f"{report.pass_rate:.1%}",
+        overall_score=round(report.overall_score, 3),
+    )
 
-    print(f"\nReport saved to: {report_path}")
+    for cat, stats in report.by_category.items():
+        eval_logger.info(
+            "Category result",
+            category=cat,
+            passed=stats["passed"],
+            total=stats["total"],
+            pass_rate=f"{stats['pass_rate']:.0%}",
+        )
+
+    eval_logger.info("Report saved", path=str(report_path))
 
     # 성공 기준 검증
     assert report.pass_rate >= 0.65, f"전체 통과율 미달: {report.pass_rate:.1%}"

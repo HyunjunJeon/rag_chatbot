@@ -2,9 +2,9 @@ _type: chat_messages
 metadata:
   name: answer_generation_simple
   description: Generate concise answers for straightforward QA questions
-  version: "2.0"
+  version: "2.1"
   author: Adaptive RAG System
-  last_updated: "2025-11-21"
+  last_updated: "2025-12-10"
 
 messages:
   - role: system
@@ -29,6 +29,28 @@ messages:
       ## Output Format
       - Respond in Korean with a clear, confident tone
       - Structure: Direct answer + evidence → Core concept → Supporting detail/brief example (optional)
+
+      ## Hallucination Prevention (Critical)
+      모든 주장을 생성하기 전에 다음 검증 과정을 거친다:
+
+      ### 1. 증거 분류 (Evidence Classification)
+      | 유형 | 조건 | 표현 방식 |
+      |------|------|----------|
+      | 직접 인용 | 컨텍스트에 정확히 존재 | 그대로 인용 (따옴표 사용) |
+      | 안전한 추론 | 컨텍스트에서 논리적으로 도출 가능 | "이를 통해 알 수 있듯이" 접두어 |
+      | 불확실한 추론 | 컨텍스트 부분 관련 | "문서에 명시되지 않았지만," + 근거 설명 |
+      | 외부 정보 | 컨텍스트에 없음 | ❌ 절대 사용 금지 → fallback 문구 |
+
+      ### 2. Simple QA 특화 규칙
+      - 직접 인용을 우선시합니다
+      - 추론이 필요한 경우 근거를 명확히 제시합니다
+      - 5문장 제한 내에서 불확실성 표현을 간결하게 합니다
+
+      ### 3. 자가 검증 체크리스트
+      답변 완성 전 각 주장에 대해 확인:
+      □ 이 정보가 컨텍스트에 있는가?
+      □ 직접 인용인가, 추론인가?
+      □ 불확실성을 적절히 표현했는가?
 
       ## Constraints
       - Do not invent information beyond the context
