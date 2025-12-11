@@ -6,7 +6,7 @@ LangChain 에이전트 응답 파싱 유틸리티.
 """
 
 import json
-from typing import Any, Type, TypeVar, Optional, List
+from typing import Any, Type, TypeVar, Optional, list
 from pydantic import BaseModel, ValidationError
 
 from langchain_core.messages import BaseMessage, ToolMessage, filter_messages
@@ -106,10 +106,7 @@ def parse_agent_response(
                 return result
 
         # 파싱 실패
-        error_msg = (
-            f"Unable to parse response into {model_type.__name__}. "
-            f"Response type: {type(response).__name__}"
-        )
+        error_msg = f"Unable to parse response into {model_type.__name__}. Response type: {type(response).__name__}"
         logger.warning(error_msg)
 
         if fallback is not None:
@@ -125,9 +122,7 @@ def parse_agent_response(
         raise
 
 
-def _extract_from_messages(
-    messages: List[BaseMessage], model_type: Type[_ModelT]
-) -> Optional[_ModelT]:
+def _extract_from_messages(messages: list[BaseMessage], model_type: Type[_ModelT]) -> Optional[_ModelT]:
     """
     메시지 리스트에서 ToolMessage를 찾아 모델로 파싱합니다.
 
@@ -202,7 +197,7 @@ def _parse_json_string(json_str: str, model_type: Type[_ModelT]) -> Optional[_Mo
         return None
 
 
-def extract_tool_messages(messages: List[BaseMessage]) -> List[ToolMessage]:
+def extract_tool_messages(messages: list[BaseMessage]) -> list[ToolMessage]:
     """
     메시지 리스트에서 모든 ToolMessage를 추출합니다.
 
@@ -221,7 +216,7 @@ def extract_tool_messages(messages: List[BaseMessage]) -> List[ToolMessage]:
     return filter_messages(messages, include_types=[ToolMessage])
 
 
-def get_last_tool_message(messages: List[BaseMessage]) -> Optional[ToolMessage]:
+def get_last_tool_message(messages: list[BaseMessage]) -> ToolMessage | None:
     """
     메시지 리스트에서 마지막 ToolMessage를 반환합니다.
 

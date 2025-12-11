@@ -1,0 +1,134 @@
+_type: chat_messages
+metadata:
+  name: query_quality_analysis
+  description: Analyze query quality only (clarity, specificity, searchability)
+  version: "1.0"
+  author: Adaptive RAG System
+  last_updated: "2025-12-11"
+
+messages:
+  - role: system
+    content: |
+      ## Task
+      Evaluate a Naver Boost Camp student's question quality across three dimensions.
+      This is a focused analysis that does NOT generate search queries or extract filters.
+
+      ## Evaluation Dimensions
+
+      ### 1. Clarity (명확성) - 0.0 ~ 1.0
+      질문이 모호한 표현 없이 명확한지 평가합니다:
+      - 1.0: 완전히 명확하고 해석의 여지가 없음
+      - 0.7-0.9: 대체로 명확하지만 약간의 모호함 존재
+      - 0.4-0.6: 일부 모호한 표현이 있어 해석이 필요함
+      - 0.0-0.3: 매우 모호하거나 이해하기 어려움
+
+      체크포인트:
+      - 주어/목적어가 명확한가?
+      - 대명사 참조가 불분명하지 않은가?
+      - 질문의 범위가 명확한가?
+
+      ### 2. Specificity (구체성) - 0.0 ~ 1.0
+      질문이 충분히 구체적인지 평가합니다:
+      - 1.0: 매우 구체적이고 범위가 좁음
+      - 0.7-0.9: 구체적이지만 약간 넓은 범위
+      - 0.4-0.6: 일반적인 수준의 구체성
+      - 0.0-0.3: 너무 광범위하거나 추상적임
+
+      체크포인트:
+      - 특정 기술/도구/개념이 명시되어 있는가?
+      - 맥락이나 제약 조건이 포함되어 있는가?
+      - 질문의 범위가 적절히 좁혀져 있는가?
+
+      ### 3. Searchability (검색 친화도) - 0.0 ~ 1.0
+      질문이 검색에 최적화되어 있는지 평가합니다:
+      - 1.0: 검색 가능한 키워드가 풍부함
+      - 0.7-0.9: 대부분의 용어가 검색 가능함
+      - 0.4-0.6: 일부 검색 가능한 용어 포함
+      - 0.0-0.3: 검색하기 어려운 표현 위주
+
+      체크포인트:
+      - 기술 용어나 고유명사가 포함되어 있는가?
+      - 일반적인 표현이 아닌 구체적 키워드가 있는가?
+      - 동의어/관련어로 확장 가능한가?
+
+      ## Output Format
+      JSON 형식으로 반환합니다. 코드펜스 없이 JSON만 반환하세요:
+      {
+        "clarity_score": 0.8,
+        "specificity_score": 0.7,
+        "searchability_score": 0.9,
+        "issues": ["이슈1", "이슈2"],
+        "recommendations": ["권장사항1", "권장사항2"]
+      }
+
+      ## Self-Validation (Before Returning)
+      반환 전에 다음을 확인합니다:
+      1. 각 점수가 0.0 ~ 1.0 범위인가?
+      2. issues가 실제 문제점을 반영하는가?
+      3. recommendations가 실행 가능한 개선안인가?
+
+      ## Examples
+
+      ### Example 1: 높은 품질 질문
+      Question: "PyTorch에서 DataLoader의 num_workers 파라미터를 어떻게 설정해야 GPU 활용률을 최대화할 수 있나요?"
+      Intent: SIMPLE_QA
+
+      Output:
+      {
+        "clarity_score": 0.95,
+        "specificity_score": 0.9,
+        "searchability_score": 0.95,
+        "issues": [],
+        "recommendations": []
+      }
+
+      ### Example 2: 개선이 필요한 질문
+      Question: "이거 왜 안 돼요?"
+      Intent: SIMPLE_QA
+
+      Output:
+      {
+        "clarity_score": 0.1,
+        "specificity_score": 0.1,
+        "searchability_score": 0.1,
+        "issues": [
+          "무엇이 안 되는지 명시되지 않음",
+          "어떤 기술/도구를 사용하는지 불명확",
+          "에러 메시지나 맥락 정보 부재"
+        ],
+        "recommendations": [
+          "구체적인 기술/도구명을 포함해 주세요",
+          "발생한 에러 메시지를 함께 알려주세요",
+          "어떤 상황에서 문제가 발생했는지 설명해 주세요"
+        ]
+      }
+
+      ### Example 3: 중간 품질 질문
+      Question: "Transformer 모델에 대해 알려주세요"
+      Intent: EXPLORATORY
+
+      Output:
+      {
+        "clarity_score": 0.7,
+        "specificity_score": 0.4,
+        "searchability_score": 0.8,
+        "issues": [
+          "질문 범위가 너무 넓음",
+          "Transformer의 어떤 측면에 관심 있는지 불명확"
+        ],
+        "recommendations": [
+          "관심 있는 특정 측면을 명시하세요 (예: attention mechanism, 학습 방법, 응용 분야 등)",
+          "사용 목적이나 맥락을 추가하면 더 정확한 답변이 가능합니다"
+        ]
+      }
+
+  - role: human
+    content: |
+      Question: {question}
+      Intent: {intent}
+
+      Analyze the quality of this question.
+
+input_variables:
+  - question
+  - intent

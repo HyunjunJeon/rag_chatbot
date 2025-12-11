@@ -9,6 +9,8 @@ Note:
 """
 
 from langchain_core.runnables import Runnable
+from langchain_core.messages import AIMessage
+from langchain_core.prompts import ChatPromptTemplate
 
 from naver_connect_chatbot.config import logger
 from naver_connect_chatbot.prompts import get_prompt
@@ -44,7 +46,10 @@ def generate_answer(
     """
     try:
         # 프롬프트 템플릿 로드
-        prompt_template = get_prompt(f"answer_generation_{strategy}")
+        prompt_template: ChatPromptTemplate = get_prompt(
+            prompt_name=f"answer_generation_{strategy}",
+            return_type="template",
+        )
         system_prompt = ""
         if prompt_template.messages:
             system_prompt = prompt_template.messages[0].prompt.template
@@ -53,7 +58,7 @@ def generate_answer(
         full_prompt = f"{system_prompt}\n\nquestion: {question}\n\ncontext:\n{context}"
 
         # LLM 직접 호출
-        result = llm.invoke(full_prompt)
+        result: AIMessage = llm.invoke(full_prompt)
 
         # 결과에서 content 추출
         if hasattr(result, "content"):
@@ -85,7 +90,10 @@ async def agenerate_answer(
     """
     try:
         # 프롬프트 템플릿 로드
-        prompt_template = get_prompt(f"answer_generation_{strategy}")
+        prompt_template: ChatPromptTemplate = get_prompt(
+            prompt_name=f"answer_generation_{strategy}",
+            return_type="template",
+        )
         system_prompt = ""
         if prompt_template.messages:
             system_prompt = prompt_template.messages[0].prompt.template
@@ -94,7 +102,7 @@ async def agenerate_answer(
         full_prompt = f"{system_prompt}\n\nquestion: {question}\n\ncontext:\n{context}"
 
         # LLM 직접 호출
-        result = await llm.ainvoke(full_prompt)
+        result: AIMessage = await llm.ainvoke(full_prompt)
 
         # 결과에서 content 추출
         if hasattr(result, "content"):
@@ -130,36 +138,35 @@ def get_generation_strategy(intent: str) -> str:
 
 
 # Deprecated: 이전 버전과의 호환성을 위해 유지
-def create_answer_generator(llm: Runnable, strategy: str = "simple"):
-    """
-    Deprecated: generate_answer() 또는 agenerate_answer()를 직접 사용하세요.
+# def create_answer_generator(llm: Runnable, strategy: str = "simple"):
+#     """
+#     Deprecated: generate_answer() 또는 agenerate_answer()를 직접 사용하세요.
 
-    이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
-    """
-    logger.warning(
-        "create_answer_generator() is deprecated. "
-        "Use generate_answer() or agenerate_answer() directly."
-    )
+#     이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
+#     """
+#     logger.warning("create_answer_generator() is deprecated. Use generate_answer() or agenerate_answer() directly.")
 
-    class AnswerGeneratorWrapper:
-        def __init__(self, llm, strategy):
-            self._llm = llm
-            self._strategy = strategy
+#     class AnswerGeneratorWrapper:
+#         def __init__(self, llm, strategy):
+#             self._llm = llm
+#             self._strategy = strategy
 
-        def invoke(self, input_dict):
-            question = input_dict.get("question", "")
-            context = input_dict.get("context", "")
-            answer = generate_answer(question, context, self._llm, self._strategy)
-            # AIMessage 형태로 반환 (호환성)
-            from langchain_core.messages import AIMessage
-            return AIMessage(content=answer)
+#         def invoke(self, input_dict):
+#             question = input_dict.get("question", "")
+#             context = input_dict.get("context", "")
+#             answer = generate_answer(question, context, self._llm, self._strategy)
+#             # AIMessage 형태로 반환 (호환성)
+#             from langchain_core.messages import AIMessage
 
-        async def ainvoke(self, input_dict):
-            question = input_dict.get("question", "")
-            context = input_dict.get("context", "")
-            answer = await agenerate_answer(question, context, self._llm, self._strategy)
-            # AIMessage 형태로 반환 (호환성)
-            from langchain_core.messages import AIMessage
-            return AIMessage(content=answer)
+#             return AIMessage(content=answer)
 
-    return AnswerGeneratorWrapper(llm, strategy)
+#         async def ainvoke(self, input_dict):
+#             question = input_dict.get("question", "")
+#             context = input_dict.get("context", "")
+#             answer = await agenerate_answer(question, context, self._llm, self._strategy)
+#             # AIMessage 형태로 반환 (호환성)
+#             from langchain_core.messages import AIMessage
+
+#             return AIMessage(content=answer)
+
+#     return AnswerGeneratorWrapper(llm, strategy)

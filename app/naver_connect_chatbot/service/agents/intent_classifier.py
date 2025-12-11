@@ -9,6 +9,7 @@ Note:
 """
 
 from langchain_core.runnables import Runnable
+from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
 from naver_connect_chatbot.config import logger
@@ -59,10 +60,8 @@ def classify_intent(question: str, llm: Runnable) -> IntentClassification:
     """
     try:
         # 프롬프트 템플릿 로드
-        prompt_template = get_prompt("intent_classification")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
+        prompt_template: ChatPromptTemplate = get_prompt(prompt_name="intent_classification", return_type="template")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
 
         # 전체 프롬프트 구성
         full_prompt = f"{system_prompt}\n\nUser question: {question}"
@@ -106,10 +105,8 @@ async def aclassify_intent(question: str, llm: Runnable) -> IntentClassification
     """
     try:
         # 프롬프트 템플릿 로드
-        prompt_template = get_prompt("intent_classification")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
+        prompt_template: ChatPromptTemplate = get_prompt(prompt_name="intent_classification", return_type="template")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
 
         # 전체 프롬프트 구성
         full_prompt = f"{system_prompt}\n\nUser question: {question}"
@@ -159,11 +156,11 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
         발생시키므로 사용하지 않습니다. 대신 프롬프트에서 JSON 형식을 요청하고
         PydanticOutputParser로 파싱합니다.
     """
-    from langchain_core.output_parsers import PydanticOutputParser
+    from langchain_core.output_parsers import JsonOutputParser
     import json
     import re
 
-    parser = PydanticOutputParser(pydantic_object=schema)
+    parser = JsonOutputParser(pydantic_object=schema)
 
     # 파서와 함께 호출하는 래퍼 반환
     class ParserWrapper:
@@ -215,27 +212,24 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
 
 
 # Deprecated: 이전 버전과의 호환성을 위해 유지
-def create_intent_classifier(llm: Runnable):
-    """
-    Deprecated: classify_intent() 또는 aclassify_intent()를 직접 사용하세요.
+# def create_intent_classifier(llm: Runnable):
+#     """
+#     Deprecated: classify_intent() 또는 aclassify_intent()를 직접 사용하세요.
 
-    이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
-    """
-    logger.warning(
-        "create_intent_classifier() is deprecated. "
-        "Use classify_intent() or aclassify_intent() directly."
-    )
+#     이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
+#     """
+#     logger.warning("create_intent_classifier() is deprecated. Use classify_intent() or aclassify_intent() directly.")
 
-    class IntentClassifierWrapper:
-        def __init__(self, llm):
-            self._llm = llm
+#     class IntentClassifierWrapper:
+#         def __init__(self, llm):
+#             self._llm = llm
 
-        def invoke(self, input_dict):
-            question = input_dict.get("question", "")
-            return classify_intent(question, self._llm)
+#         def invoke(self, input_dict):
+#             question = input_dict.get("question", "")
+#             return classify_intent(question, self._llm)
 
-        async def ainvoke(self, input_dict):
-            question = input_dict.get("question", "")
-            return await aclassify_intent(question, self._llm)
+#         async def ainvoke(self, input_dict):
+#             question = input_dict.get("question", "")
+#             return await aclassify_intent(question, self._llm)
 
-    return IntentClassifierWrapper(llm)
+#     return IntentClassifierWrapper(llm)

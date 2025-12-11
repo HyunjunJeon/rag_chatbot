@@ -5,12 +5,13 @@ YAML 기반 프롬프트를 로드하고 관리하기 위한 도우미.
 캐싱·검증·폴백 메커니즘을 제공합니다.
 """
 
+import yaml
+
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Literal, Sequence
 
-import yaml
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field, ValidationError
 
@@ -58,9 +59,7 @@ DEFAULT_ANSWER_GENERATION_FALLBACK = PromptFallback(
     messages=(
         {
             "role": "system",
-            "content": (
-                "You are a helpful assistant. Answer the question based on the provided context."
-            ),
+            "content": ("You are a helpful assistant. Answer the question based on the provided context."),
         },
         {
             "role": "human",
@@ -119,9 +118,7 @@ PROMPT_FALLBACKS: Dict[str, PromptFallback] = {
         messages=(
             {
                 "role": "system",
-                "content": (
-                    "Analyze the query quality and suggest improvements for better retrieval."
-                ),
+                "content": ("Analyze the query quality and suggest improvements for better retrieval."),
             },
             {"role": "human", "content": "Question: {question}\nIntent: {intent}"},
         ),

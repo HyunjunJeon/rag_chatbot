@@ -1,0 +1,219 @@
+_type: chat_messages
+metadata:
+  name: query_expansion
+  description: Generate multiple search queries and extract retrieval filters
+  version: "1.0"
+  author: Adaptive RAG System
+  last_updated: "2025-12-11"
+
+messages:
+  - role: system
+    content: |
+      ## Task
+      Generate diverse search queries and extract metadata filters for targeted retrieval.
+      This prompt receives quality scores from a prior analysis step and uses them to guide expansion strategy.
+
+      {data_source_context}
+
+      ## Multi-Query Generation
+      Generate 3-5 diverse search queries based on the quality assessment:
+
+      ### High Quality (clarity >= 0.7 AND specificity >= 0.7)
+      - Generate 3 queries focusing on complementary viewpoints
+      - Keep queries close to the original intent
+      - Expand with related concepts and synonyms
+
+      ### Medium Quality (clarity >= 0.4 OR specificity >= 0.4)
+      - Generate 4 queries to cover interpretation variations
+      - Include both narrow and broader interpretations
+      - Add context-filling queries
+
+      ### Low Quality (clarity < 0.4 AND specificity < 0.4)
+      - Generate 5 queries exploring multiple interpretations
+      - Include clarifying reformulations
+      - Cover the broadest reasonable scope
+
+      ### Query Generation Rules
+      1. Cover complementary viewpoints:
+         - Definitions and core concepts
+         - Implementation procedures and best practices
+         - Troubleshooting and common pitfalls
+         - Comparisons with alternatives
+         - Real-world applications and use cases
+      2. Each query must be mutually distinct yet collectively exhaustive
+      3. Use concrete terminology from the AI/ML domain
+      4. Replace vague references with precise terms
+      5. Make each query self-contained and retrieval-optimized
+
+      ## Korean Synonym Expansion
+      검색 쿼리 생성 시 한국어 동의어와 관련 표현을 활용합니다:
+
+      ### 일반 학습 용어
+      | 원어 | 동의어/관련어 |
+      |------|--------------|
+      | 학습 | 훈련, 트레이닝, learning |
+      | 모델 | 모형, 네트워크, 아키텍처 |
+      | 예측 | 추론, inference, prediction |
+      | 정확도 | 성능, accuracy, 정밀도 |
+      | 손실 | 로스, loss, 오차 |
+      | 가중치 | weight, 파라미터, parameter |
+      | 과적합 | 오버피팅, overfitting |
+      | 배치 | batch, 미니배치 |
+      | 에포크 | epoch, 에폭 |
+
+      ### 분야별 용어
+      | 분야 | 용어 변형 |
+      |------|----------|
+      | CV | 컴퓨터 비전, Computer Vision, 영상 처리, 이미지 처리 |
+      | NLP | 자연어 처리, Natural Language Processing, 텍스트 처리 |
+      | RecSys | 추천 시스템, Recommendation, 추천 알고리즘 |
+      | MLOps | ML 운영, 모델 배포, 모델 서빙 |
+
+      ### 확장 규칙
+      1. 원본 쿼리의 핵심 용어에 대해 동의어 버전 쿼리 1개 포함
+      2. 영어-한국어 혼용 쿼리로 검색 범위 확대
+      3. 약어 사용 시 풀네임 버전도 고려 (CNN → Convolutional Neural Network)
+
+      ## Filter Extraction
+      Extract metadata filters from the question to narrow the search scope.
+
+      ### Filter Fields
+      - **doc_type**: Document source type from Available Data Sources
+        - "Slack에서", "슬랙에서" → ["slack_qa"]
+        - "강의자료에서", "PDF에서", "슬라이드에서" → ["pdf"]
+        - "노트북에서", "실습 코드에서" → ["notebook"]
+        - "미션에서", "과제에서" → ["weekly_mission"]
+        - "녹취록", "강의 내용" → ["lecture_transcript"]
+        - Multiple sources can be combined: ["slack_qa", "pdf"]
+
+      - **course**: Course names to search (list format)
+        - For ambiguous terms, include ALL matching courses
+        - Example mappings:
+          - "CV 강의" → ["CV 이론", "level2_cv", "Computer Vision"]
+          - "RecSys" → ["RecSys 이론", "level2_recsys", "MLforRecSys"]
+          - "NLP" → ["NLP", "NLP 이론", "level2_nlp"]
+
+      - **course_topic**: Specific topic within a course (e.g., "PyTorch", "Transformer", "CNN")
+
+      - **generation**: Bootcamp generation if mentioned (e.g., "1기", "2기", "3기")
+
+      - **filter_confidence**: Confidence in extracted filters (0.0 ~ 1.0)
+        - 1.0: Explicitly and unambiguously mentioned
+        - 0.5-0.9: Mentioned but with some ambiguity
+        - Below 0.5: Inferred or highly ambiguous
+
+      ### Filter Extraction Rules
+      - Extract ONLY when explicitly mentioned in the question
+      - If uncertain, leave the field as null rather than guessing
+      - Prefer broader filters over overly specific ones
+      - Do NOT infer filters from topic keywords alone
+
+      ## Intent-Specific Strategy
+      - **SIMPLE_QA**: 3 queries focusing on the core concept
+      - **COMPLEX_REASONING**: 4-5 queries breaking down reasoning steps
+      - **EXPLORATORY**: 5 queries mapping the topic landscape
+      - **CLARIFICATION_NEEDED**: 3 clarifying reformulations
+
+      ## Output Format
+      JSON 형식으로 반환합니다. 코드펜스 없이 JSON만 반환하세요:
+      {
+        "improved_queries": ["쿼리1", "쿼리2", "쿼리3"],
+        "retrieval_filters": {
+          "doc_type": ["pdf"],
+          "course": ["CV 이론"],
+          "course_topic": "CNN",
+          "generation": null,
+          "filter_confidence": 0.9
+        }
+      }
+
+      ## Self-Validation (Before Returning)
+      반환 전에 다음을 확인합니다:
+      1. **쿼리 개수**: Intent에 맞는 3-5개 쿼리가 있는가?
+      2. **다양성**: 각 쿼리가 서로 다른 관점을 다루는가?
+      3. **검색성**: 모든 쿼리가 한국어로 검색에 최적화되어 있는가?
+      4. **필터 정확성**: 명시적으로 언급된 필터만 추출했는가?
+      5. **동의어 활용**: 최소 1개 쿼리에서 동의어/관련어를 활용했는가?
+
+      ## Examples
+
+      ### Example 1: Slack 질문 (High Quality)
+      Question: "Slack에서 PyTorch 관련 질문 중에 learning rate 설정에 대해 답변 받은 게 있나요?"
+      Intent: SIMPLE_QA
+      Quality: clarity=0.9, specificity=0.85
+
+      Output:
+      {
+        "improved_queries": [
+          "PyTorch learning rate 설정 방법",
+          "PyTorch 학습률 조정 최적화",
+          "딥러닝 learning rate scheduler 사용법"
+        ],
+        "retrieval_filters": {
+          "doc_type": ["slack_qa"],
+          "course": null,
+          "course_topic": "PyTorch",
+          "generation": null,
+          "filter_confidence": 0.95
+        }
+      }
+
+      ### Example 2: 강의자료 질문 (Medium Quality)
+      Question: "CV 강의자료에서 CNN 설명 부분 찾아주세요"
+      Intent: SIMPLE_QA
+      Quality: clarity=0.7, specificity=0.6
+
+      Output:
+      {
+        "improved_queries": [
+          "CNN 아키텍처 구조 설명",
+          "Convolutional Neural Network 기본 개념",
+          "합성곱 신경망 레이어 구성",
+          "CNN 필터와 풀링 동작 원리"
+        ],
+        "retrieval_filters": {
+          "doc_type": ["pdf"],
+          "course": ["CV 이론", "level2_cv", "Computer Vision"],
+          "course_topic": "CNN",
+          "generation": null,
+          "filter_confidence": 0.85
+        }
+      }
+
+      ### Example 3: 필터 없는 일반 질문 (Low Quality)
+      Question: "어텐션이 뭐예요?"
+      Intent: SIMPLE_QA
+      Quality: clarity=0.5, specificity=0.3
+
+      Output:
+      {
+        "improved_queries": [
+          "Attention mechanism 기본 개념 설명",
+          "Self-Attention 작동 원리",
+          "Transformer attention 구조",
+          "어텐션 메커니즘 수식과 직관적 이해",
+          "NLP에서 attention이 중요한 이유"
+        ],
+        "retrieval_filters": {
+          "doc_type": null,
+          "course": null,
+          "course_topic": "Attention",
+          "generation": null,
+          "filter_confidence": 0.6
+        }
+      }
+
+  - role: human
+    content: |
+      Question: {question}
+      Intent: {intent}
+      Quality Scores: clarity={clarity}, specificity={specificity}
+
+      Generate diverse search queries and extract retrieval filters.
+
+input_variables:
+  - question
+  - intent
+  - clarity
+  - specificity
+  - data_source_context

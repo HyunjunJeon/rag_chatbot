@@ -6,13 +6,57 @@ Adaptive RAG용 질의 분석 및 다중 쿼리 생성 에이전트 구현.
 Note:
     CLOVA HCX-007은 tools와 reasoning을 동시에 지원하지 않으므로,
     with_structured_output() 패턴을 사용하여 구조화된 출력을 생성합니다.
+
+Version History:
+    - v1.0: 통합 프롬프트 (query_analysis.yaml) 사용
+    - v2.0: 분리된 프롬프트 지원 추가 (query_quality_analysis.yaml + query_expansion.yaml)
 """
 
 from langchain_core.runnables import Runnable
+from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
 from naver_connect_chatbot.config import logger
 from naver_connect_chatbot.prompts import get_prompt
+
+
+# =============================================================================
+# 분리된 프롬프트용 모델
+# =============================================================================
+
+
+class QueryQualityResult(BaseModel):
+    """
+    질의 품질 평가 결과를 담는 모델입니다.
+    query_quality_analysis.yaml 프롬프트의 출력 형식입니다.
+    """
+
+    clarity_score: float = Field(description="Clarity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
+    specificity_score: float = Field(description="Specificity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
+    searchability_score: float = Field(description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0)
+    issues: list[str] = Field(description="Identified issues", default_factory=list)
+    recommendations: list[str] = Field(description="Recommendations for improvement", default_factory=list)
+
+
+class QueryExpansionResult(BaseModel):
+    """
+    쿼리 확장 및 필터 추출 결과를 담는 모델입니다.
+    query_expansion.yaml 프롬프트의 출력 형식입니다.
+    """
+
+    improved_queries: list[str] = Field(
+        description="List of diverse search queries for comprehensive retrieval",
+        default_factory=list,
+    )
+    retrieval_filters: "QueryRetrievalFilters" = Field(
+        default_factory=lambda: QueryRetrievalFilters(),
+        description="Metadata-based retrieval filters extracted from the question",
+    )
+
+
+# =============================================================================
+# 기존 통합 모델 (하위 호환성 유지)
+# =============================================================================
 
 
 class QueryRetrievalFilters(BaseModel):
@@ -65,17 +109,13 @@ class QueryAnalysis(BaseModel):
 
     clarity_score: float = Field(description="Clarity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
     specificity_score: float = Field(description="Specificity score (0.0 ~ 1.0)", ge=0.0, le=1.0)
-    searchability_score: float = Field(
-        description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0
-    )
+    searchability_score: float = Field(description="Searchability score (0.0 ~ 1.0)", ge=0.0, le=1.0)
     improved_queries: list[str] = Field(
         description="List of diverse search queries for comprehensive retrieval (Multi-Query)",
         default_factory=list,
     )
     issues: list[str] = Field(description="Identified issues", default_factory=list)
-    recommendations: list[str] = Field(
-        description="Recommendations for improvement", default_factory=list
-    )
+    recommendations: list[str] = Field(description="Recommendations for improvement", default_factory=list)
     retrieval_filters: QueryRetrievalFilters = Field(
         default_factory=QueryRetrievalFilters,
         description="Metadata-based retrieval filters extracted from the question",
@@ -109,10 +149,8 @@ def analyze_query(
     """
     try:
         # 프롬프트 템플릿 로드
-        prompt_template = get_prompt("query_analysis")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
+        prompt_template: ChatPromptTemplate = get_prompt("query_analysis", "template")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
 
         # 데이터 소스 컨텍스트 주입
         if data_source_context:
@@ -163,10 +201,8 @@ async def aanalyze_query(
     """
     try:
         # 프롬프트 템플릿 로드
-        prompt_template = get_prompt("query_analysis")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
+        prompt_template: ChatPromptTemplate = get_prompt("query_analysis")
+        system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
 
         # 데이터 소스 컨텍스트 주입
         if data_source_context:
@@ -232,11 +268,11 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
         발생시키므로 사용하지 않습니다. 대신 프롬프트에서 JSON 형식을 요청하고
         PydanticOutputParser로 파싱합니다.
     """
-    from langchain_core.output_parsers import PydanticOutputParser
+    from langchain_core.output_parsers import JsonOutputParser
     import json
     import re
 
-    parser = PydanticOutputParser(pydantic_object=schema)
+    parser = JsonOutputParser(pydantic_object=schema)
 
     # 파서와 함께 호출하는 래퍼 반환
     class ParserWrapper:
@@ -303,31 +339,179 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
     return ParserWrapper(llm, parser, schema)
 
 
-# Deprecated: 이전 버전과의 호환성을 위해 유지
-def create_query_analyzer(llm: Runnable, data_source_context: str | None = None):
-    """
-    Deprecated: analyze_query() 또는 aanalyze_query()를 직접 사용하세요.
+# # Deprecated: 이전 버전과의 호환성을 위해 유지
+# def create_query_analyzer(llm: Runnable, data_source_context: str | None = None):
+#     """
+#     Deprecated: analyze_query() 또는 aanalyze_query()를 직접 사용하세요.
 
-    이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
+#     이전 버전 호환성을 위한 래퍼 클래스를 반환합니다.
+#     """
+#     logger.warning("create_query_analyzer() is deprecated. Use analyze_query() or aanalyze_query() directly.")
+
+#     class QueryAnalyzerWrapper:
+#         def __init__(self, llm, data_source_context):
+#             self._llm = llm
+#             self._data_source_context = data_source_context
+
+#         def invoke(self, input_dict):
+#             question = input_dict.get("question", "")
+#             intent = input_dict.get("intent", "SIMPLE_QA")
+#             return analyze_query(question, intent, self._llm, self._data_source_context)
+
+#         async def ainvoke(self, input_dict):
+#             question = input_dict.get("question", "")
+#             intent = input_dict.get("intent", "SIMPLE_QA")
+#             return await aanalyze_query(question, intent, self._llm, self._data_source_context)
+
+#     return QueryAnalyzerWrapper(llm, data_source_context)
+
+
+# =============================================================================
+# 분리된 프롬프트 지원 함수
+# =============================================================================
+
+
+async def aanalyze_query_split(
+    question: str,
+    intent: str,
+    llm: Runnable,
+    data_source_context: str | None = None,
+) -> QueryAnalysis:
     """
-    logger.warning(
-        "create_query_analyzer() is deprecated. "
-        "Use analyze_query() or aanalyze_query() directly."
+    분리된 프롬프트를 사용하여 질의를 분석합니다.
+
+    품질 평가와 쿼리 확장을 두 단계로 나누어 처리합니다:
+    1. query_quality_analysis.yaml: 품질 평가만 수행
+    2. query_expansion.yaml: 품질 점수를 기반으로 쿼리 확장 및 필터 추출
+
+    매개변수:
+        question: 분석할 사용자 질문
+        intent: 분류된 질문 의도
+        llm: 분석에 사용할 언어 모델
+        data_source_context: VectorDB 데이터 소스 정보
+
+    반환값:
+        QueryAnalysis 결과 (기존 통합 모델과 동일한 형식)
+
+    사용 시기:
+        - 품질 평가와 쿼리 확장을 독립적으로 최적화하고 싶을 때
+        - 각 단계의 프롬프트를 개별적으로 튜닝하고 싶을 때
+        - 디버깅 시 각 단계의 출력을 확인하고 싶을 때
+    """
+    try:
+        # Step 1: 품질 평가
+        quality_result = await _analyze_quality(question, intent, llm)
+        logger.debug(
+            f"Quality analysis: clarity={quality_result.clarity_score}, specificity={quality_result.specificity_score}"
+        )
+
+        # Step 2: 쿼리 확장 (품질 점수 기반)
+        expansion_result = await _expand_query(
+            question=question,
+            intent=intent,
+            llm=llm,
+            clarity=quality_result.clarity_score,
+            specificity=quality_result.specificity_score,
+            data_source_context=data_source_context,
+        )
+
+        # 결과 병합
+        return _merge_results(quality_result, expansion_result)
+
+    except Exception as e:
+        logger.error(f"Split query analysis failed: {e}")
+        # 실패 시 기존 통합 프롬프트로 폴백
+        logger.info("Falling back to combined prompt")
+        return await aanalyze_query(question, intent, llm, data_source_context)
+
+
+async def _analyze_quality(
+    question: str,
+    intent: str,
+    llm: Runnable,
+) -> QueryQualityResult:
+    """
+    품질 평가만 수행합니다 (query_quality_analysis.yaml 사용).
+    """
+    prompt_template: ChatPromptTemplate = get_prompt("query_quality_analysis")
+    system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
+
+    full_prompt = f"{system_prompt}\n\nQuestion: {question}\nIntent: {intent}\n\nAnalyze the quality of this question."
+
+    structured_llm = _get_structured_llm(llm, QueryQualityResult)
+    result = await structured_llm.ainvoke(full_prompt)
+
+    if isinstance(result, QueryQualityResult):
+        return result
+
+    # fallback
+    return QueryQualityResult(
+        clarity_score=0.5,
+        specificity_score=0.5,
+        searchability_score=0.5,
+        issues=["Unable to analyze quality"],
+        recommendations=["Use the original query"],
     )
 
-    class QueryAnalyzerWrapper:
-        def __init__(self, llm, data_source_context):
-            self._llm = llm
-            self._data_source_context = data_source_context
 
-        def invoke(self, input_dict):
-            question = input_dict.get("question", "")
-            intent = input_dict.get("intent", "SIMPLE_QA")
-            return analyze_query(question, intent, self._llm, self._data_source_context)
+async def _expand_query(
+    question: str,
+    intent: str,
+    llm: Runnable,
+    clarity: float,
+    specificity: float,
+    data_source_context: str | None = None,
+) -> QueryExpansionResult:
+    """
+    쿼리 확장 및 필터 추출을 수행합니다 (query_expansion.yaml 사용).
+    """
+    prompt_template: ChatPromptTemplate = get_prompt("query_expansion")
+    system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
 
-        async def ainvoke(self, input_dict):
-            question = input_dict.get("question", "")
-            intent = input_dict.get("intent", "SIMPLE_QA")
-            return await aanalyze_query(question, intent, self._llm, self._data_source_context)
+    # 데이터 소스 컨텍스트 주입
+    if data_source_context:
+        system_prompt = system_prompt.replace("{data_source_context}", data_source_context)
+    else:
+        system_prompt = system_prompt.replace(
+            "{data_source_context}",
+            "## Available Data Sources\n데이터 소스 정보를 사용할 수 없습니다.\n"
+            "일반적인 doc_type: slack_qa, pdf, notebook, lecture_transcript, weekly_mission",
+        )
 
-    return QueryAnalyzerWrapper(llm, data_source_context)
+    full_prompt = (
+        f"{system_prompt}\n\n"
+        f"Question: {question}\n"
+        f"Intent: {intent}\n"
+        f"Quality Scores: clarity={clarity}, specificity={specificity}\n\n"
+        f"Generate diverse search queries and extract retrieval filters."
+    )
+
+    structured_llm = _get_structured_llm(llm, QueryExpansionResult)
+    result = await structured_llm.ainvoke(full_prompt)
+
+    if isinstance(result, QueryExpansionResult):
+        return result
+
+    # fallback
+    return QueryExpansionResult(
+        improved_queries=[question],
+        retrieval_filters=QueryRetrievalFilters(),
+    )
+
+
+def _merge_results(
+    quality: QueryQualityResult,
+    expansion: QueryExpansionResult,
+) -> QueryAnalysis:
+    """
+    품질 평가 결과와 쿼리 확장 결과를 통합 모델로 병합합니다.
+    """
+    return QueryAnalysis(
+        clarity_score=quality.clarity_score,
+        specificity_score=quality.specificity_score,
+        searchability_score=quality.searchability_score,
+        improved_queries=expansion.improved_queries,
+        issues=quality.issues,
+        recommendations=quality.recommendations,
+        retrieval_filters=expansion.retrieval_filters,
+    )

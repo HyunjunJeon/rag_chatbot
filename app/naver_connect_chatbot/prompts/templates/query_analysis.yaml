@@ -2,9 +2,9 @@ _type: chat_messages
 metadata:
   name: query_analysis
   description: Analyze query quality, generate multiple search queries, and extract retrieval filters with dynamic data source context
-  version: "5.0"
+  version: "5.1"
   author: Adaptive RAG System
-  last_updated: "2025-12-09"
+  last_updated: "2025-12-11"
 
 messages:
   - role: system
@@ -60,6 +60,35 @@ messages:
       - If uncertain, leave the field as null
       - Prefer broader filters over overly specific ones
 
+      ## Step 4: Korean Synonym Expansion
+      검색 쿼리 생성 시 한국어 동의어와 관련 표현을 활용한다:
+
+      ### 일반 학습 용어
+      | 원어 | 동의어/관련어 |
+      |------|--------------|
+      | 학습 | 훈련, 트레이닝, learning |
+      | 모델 | 모형, 네트워크, 아키텍처 |
+      | 예측 | 추론, inference, prediction |
+      | 정확도 | 성능, accuracy, 정밀도 |
+      | 손실 | 로스, loss, 오차 |
+      | 가중치 | weight, 파라미터, parameter |
+      | 과적합 | 오버피팅, overfitting |
+      | 배치 | batch, 미니배치 |
+      | 에포크 | epoch, 에폭 |
+
+      ### 분야별 용어
+      | 분야 | 용어 변형 |
+      |------|----------|
+      | CV | 컴퓨터 비전, Computer Vision, 영상 처리, 이미지 처리 |
+      | NLP | 자연어 처리, Natural Language Processing, 텍스트 처리 |
+      | RecSys | 추천 시스템, Recommendation, 추천 알고리즘 |
+      | MLOps | ML 운영, 모델 배포, 모델 서빙 |
+
+      ### 확장 규칙
+      1. 원본 쿼리의 핵심 용어에 대해 동의어 버전 쿼리 1개 포함
+      2. 영어-한국어 혼용 쿼리로 검색 범위 확대
+      3. 약어 사용 시 풀네임 버전도 고려 (CNN → Convolutional Neural Network)
+
       ## Intent-Specific Strategy
       - **SIMPLE_QA**: Generate 3 queries focusing on the core concept from different angles
       - **COMPLEX_REASONING**: Generate 4-5 queries breaking down reasoning steps
@@ -82,6 +111,28 @@ messages:
       - 각 쿼리는 구체적이고 검색에 최적화되어야 한다.
       - 데이터셋/도구/지표를 새로 만들지 말고, 정보가 없으면 일반화된 표현을 유지한다.
       - retrieval_filters는 명시적으로 언급된 필드만 포함하고, 나머지는 null로 둔다.
+
+      ## Self-Validation (Before Returning)
+      결과 반환 전에 다음을 확인한다:
+
+      ### 품질 점수 검증
+      1. 각 점수가 0.0 ~ 1.0 범위인가?
+      2. 점수가 질문의 실제 품질을 반영하는가?
+      3. issues와 recommendations가 점수와 일관성이 있는가?
+
+      ### 쿼리 검증
+      4. **개수 검증**: Intent에 맞는 3-5개 쿼리가 있는가?
+      5. **다양성 검증**: 각 쿼리가 서로 다른 관점을 다루는가?
+      6. **검색성 검증**: 모든 쿼리가 한국어로 검색에 최적화되어 있는가?
+      7. **동의어 활용**: 최소 1개 쿼리에서 동의어/관련어를 활용했는가?
+      8. **중복 검증**: 동일하거나 매우 유사한 쿼리가 없는가?
+
+      ### 필터 검증
+      9. **명시성 검증**: 명시적으로 언급된 필터만 추출했는가?
+      10. **정확성 검증**: course 이름이 Available Data Sources와 일치하는가?
+      11. **null 사용**: 불확실한 필드는 null로 남겼는가?
+
+      검증 실패 시: 해당 부분 수정 후 반환
 
       ## Examples
 
