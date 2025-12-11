@@ -144,8 +144,8 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
     """
     LLM에 structured output을 적용합니다.
 
-    with_structured_output()을 지원하지 않는 LLM의 경우
-    fallback으로 JSON 파싱을 시도합니다.
+    CLOVA HCX-007 API는 OpenAI의 tool calling/function calling 파라미터를
+    완전히 지원하지 않으므로, 항상 PydanticOutputParser를 사용합니다.
 
     매개변수:
         llm: 언어 모델
@@ -153,36 +153,65 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
 
     반환값:
         구조화된 출력을 생성하는 Runnable
-    """
-    with_structured = getattr(llm, "with_structured_output", None)
-    if callable(with_structured):
-        return with_structured(schema)
 
-    # Fallback: PydanticOutputParser 사용
-    logger.warning(
-        "LLM does not support with_structured_output, using PydanticOutputParser fallback"
-    )
+    Note:
+        with_structured_output()은 CLOVA API에서 parallel_tool_calls 에러를
+        발생시키므로 사용하지 않습니다. 대신 프롬프트에서 JSON 형식을 요청하고
+        PydanticOutputParser로 파싱합니다.
+    """
     from langchain_core.output_parsers import PydanticOutputParser
+    import json
+    import re
 
     parser = PydanticOutputParser(pydantic_object=schema)
 
     # 파서와 함께 호출하는 래퍼 반환
     class ParserWrapper:
-        def __init__(self, llm, parser):
+        def __init__(self, llm, parser, schema):
             self._llm = llm
             self._parser = parser
+            self._schema = schema
+
+        def _extract_json(self, content: str) -> str:
+            """응답에서 JSON 부분만 추출합니다."""
+            # 코드펜스 내 JSON 추출
+            json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", content, re.DOTALL)
+            if json_match:
+                return json_match.group(1)
+
+            # 직접 JSON 객체 추출
+            json_match = re.search(r"\{[^{}]*\}", content, re.DOTALL)
+            if json_match:
+                return json_match.group(0)
+
+            return content
+
+        def _parse_with_fallback(self, content: str):
+            """파싱 시도 후 실패 시 fallback 반환."""
+            try:
+                json_str = self._extract_json(content)
+                return self._parser.parse(json_str)
+            except Exception as parse_error:
+                logger.warning(f"JSON parsing failed: {parse_error}, trying direct parse")
+                try:
+                    # 직접 JSON 파싱 시도
+                    data = json.loads(self._extract_json(content))
+                    return self._schema(**data)
+                except Exception:
+                    logger.error(f"All parsing attempts failed for content: {content[:200]}")
+                    raise
 
         def invoke(self, prompt):
             result = self._llm.invoke(prompt)
             content = result.content if hasattr(result, "content") else str(result)
-            return self._parser.parse(content)
+            return self._parse_with_fallback(content)
 
         async def ainvoke(self, prompt):
             result = await self._llm.ainvoke(prompt)
             content = result.content if hasattr(result, "content") else str(result)
-            return self._parser.parse(content)
+            return self._parse_with_fallback(content)
 
-    return ParserWrapper(llm, parser)
+    return ParserWrapper(llm, parser, schema)
 
 
 # Deprecated: 이전 버전과의 호환성을 위해 유지
