@@ -82,8 +82,41 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
     """
     logger.info("---CLASSIFY INTENT---")
     question = state["question"]
+    question_lower = question.lower().strip()
 
-    # aclassify_intent 직접 호출 (내부에서 에러 처리)
+    # 1. 패턴 매칭으로 확실한 OUT_OF_DOMAIN 먼저 처리 (LLM 호출 없이 빠르게)
+    ood_patterns = {
+        "greeting": [
+            "안녕", "반가", "하이", "헬로", "hello", "hi ", "hey",
+            "잘 지내", "좋은 아침", "좋은 저녁",
+        ],
+        "self_intro": [
+            "이름이 뭐", "넌 누구", "너 누구", "뭘 할 수 있", "뭘 도와줄 수 있",
+            "어떤 봇", "무슨 봇", "뭐하는 봇", "소개해", "자기소개",
+            "who are you", "what can you do", "what's your name",
+        ],
+        "chitchat": [
+            "뭐해", "심심", "배고파", "졸려", "피곤",
+        ],
+        "off_topic": [
+            "날씨", "점심", "저녁", "아침", "메뉴 추천", "맛집",
+            "여행", "주식", "투자", "연예", "스포츠", "축구", "야구",
+        ],
+    }
+
+    for pattern_type, patterns in ood_patterns.items():
+        if any(pattern in question_lower for pattern in patterns):
+            logger.info(
+                f"Pattern-matched OUT_OF_DOMAIN ({pattern_type}): '{question[:50]}'"
+            )
+            return {
+                "intent": "OUT_OF_DOMAIN",
+                "intent_confidence": 0.95,
+                "intent_reasoning": f"Pattern matched: {pattern_type}",
+                "domain_relevance": 0.0,
+            }
+
+    # 2. 패턴 매칭에 걸리지 않으면 LLM으로 분류
     response = await aclassify_intent(question, llm)
 
     # domain_relevance가 낮으면 OUT_OF_DOMAIN으로 보정
@@ -458,40 +491,81 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
 
 async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpdate:
     """
-    Out-of-Domain 질문에 대한 정중한 거절 응답을 생성합니다.
+    Out-of-Domain 질문에 대한 응답을 생성합니다.
 
-    AI/ML 교육과 무관한 질문 (날씨, 음식, 여행 등)에 대해
+    인사/잡담에는 친근하게 응답하고, 그 외 AI/ML 교육과 무관한 질문에 대해서는
     정중히 거절하고 도움 가능한 영역을 안내합니다.
 
     매개변수:
         state: 현재 워크플로 상태
 
     반환값:
-        OOD 거절 응답을 포함한 상태 업데이트
+        OOD 응답을 포함한 상태 업데이트
     """
     logger.info("---GENERATE OOD RESPONSE---")
 
     question = state.get("question", "")
     domain_relevance = state.get("domain_relevance", 0.0)
 
-    # 질문 내용을 간략히 요약 (너무 길면 자르기)
-    question_preview = question[:50] + "..." if len(question) > 50 else question
+    # 패턴 감지
+    question_lower = question.lower().strip()
 
-    response = (
-        f"죄송합니다. '{question_preview}'에 대해서는 답변드리기 어렵습니다.\n\n"
-        "저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n"
-        "• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n"
-        "• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n"
-        "• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n"
-        "• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n"
-        "• **실습/과제 관련 질문**\n\n"
-        "위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖"
-    )
+    # 챗봇 자기소개 패턴
+    self_intro_patterns = [
+        "이름이 뭐", "넌 누구", "너 누구", "뭘 할 수 있", "뭘 도와줄 수 있",
+        "어떤 봇", "무슨 봇", "뭐하는 봇", "소개해", "자기소개",
+        "who are you", "what can you do", "what's your name",
+    ]
+    is_self_intro = any(pattern in question_lower for pattern in self_intro_patterns)
 
-    logger.info(
-        f"OOD response generated for question: '{question_preview}' "
-        f"(domain_relevance: {domain_relevance:.2f})"
-    )
+    # 인사/잡담 패턴
+    greeting_patterns = [
+        "안녕", "반가", "하이", "헬로", "hello", "hi ", "hey",
+        "잘 지내", "뭐해", "심심", "좋은 아침", "좋은 저녁",
+    ]
+    is_greeting = any(pattern in question_lower for pattern in greeting_patterns)
+
+    if is_self_intro:
+        # 챗봇 자기소개 응답
+        response = (
+            "안녕하세요! 저는 **네이버 부스트캠프 AI Tech 학습 도우미**입니다. 🤖\n\n"
+            "부스트캠프 교육 과정에서 학습하시면서 궁금한 점이 있을 때 도움을 드리기 위해 만들어졌어요.\n\n"
+            "**제가 도와드릴 수 있는 영역:**\n"
+            "• AI/ML 개념 설명 (Transformer, CNN, 추천 시스템 등)\n"
+            "• PyTorch, 딥러닝 코드 구현 방법\n"
+            "• 강의 내용 관련 질문 (CV, NLP, RecSys)\n"
+            "• 실습 및 과제 관련 질문\n\n"
+            "편하게 질문해주세요! 😊"
+        )
+        logger.info(f"Self-intro response generated for: '{question}'")
+    elif is_greeting:
+        # 친근한 인사 응답
+        response = (
+            "안녕하세요! 😊 네이버 부스트캠프 AI Tech 학습 도우미입니다.\n\n"
+            "무엇을 도와드릴까요? 다음과 같은 질문에 답변드릴 수 있어요:\n"
+            "• AI/ML 개념 (Transformer, CNN, 추천 시스템 등)\n"
+            "• PyTorch, 딥러닝 코드 구현\n"
+            "• 강의 내용 및 실습/과제 관련 질문\n\n"
+            "편하게 질문해주세요! 🤖"
+        )
+        logger.info(f"Greeting response generated for: '{question}'")
+    else:
+        # 일반 OOD 거절 응답
+        question_preview = question[:50] + "..." if len(question) > 50 else question
+        response = (
+            f"죄송합니다. '{question_preview}'에 대해서는 답변드리기 어렵습니다.\n\n"
+            "저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n"
+            "• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n"
+            "• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n"
+            "• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n"
+            "• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n"
+            "• **실습/과제 관련 질문**\n\n"
+            "위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖"
+        )
+        logger.info(
+            f"OOD response generated for question: '{question_preview}' "
+            f"(domain_relevance: {domain_relevance:.2f})"
+        )
 
     return {
         "answer": response,

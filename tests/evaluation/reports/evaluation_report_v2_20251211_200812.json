@@ -1,0 +1,1795 @@
+{
+  "dataset_version": "2.0.0",
+  "timestamp": "2025-12-11T18:49:30.887051",
+  "total_questions": 80,
+  "passed_questions": 60,
+  "by_category": {
+    "in_domain": {
+      "total": 50,
+      "passed": 38,
+      "avg_score": 0.0,
+      "pass_rate": 0.76
+    },
+    "out_of_domain": {
+      "total": 15,
+      "passed": 8,
+      "avg_score": 0.0,
+      "pass_rate": 0.5333333333333333
+    },
+    "edge_case": {
+      "total": 15,
+      "passed": 14,
+      "avg_score": 0.0,
+      "pass_rate": 0.9333333333333333
+    }
+  },
+  "by_subcategory": {
+    "in_domain/concept": {
+      "total": 10,
+      "passed": 5
+    },
+    "in_domain/implementation": {
+      "total": 10,
+      "passed": 10
+    },
+    "in_domain/troubleshooting": {
+      "total": 6,
+      "passed": 4
+    },
+    "in_domain/comparison": {
+      "total": 6,
+      "passed": 5
+    },
+    "in_domain/course_specific": {
+      "total": 10,
+      "passed": 9
+    },
+    "in_domain/source_specific": {
+      "total": 8,
+      "passed": 5
+    },
+    "out_of_domain/unrelated": {
+      "total": 4,
+      "passed": 4
+    },
+    "out_of_domain/ambiguous": {
+      "total": 4,
+      "passed": 0
+    },
+    "out_of_domain/hallucination_inducing": {
+      "total": 4,
+      "passed": 2
+    },
+    "out_of_domain/boundary": {
+      "total": 3,
+      "passed": 2
+    },
+    "edge_case/multi_hop": {
+      "total": 4,
+      "passed": 4
+    },
+    "edge_case/temporal": {
+      "total": 3,
+      "passed": 3
+    },
+    "edge_case/negation": {
+      "total": 3,
+      "passed": 3
+    },
+    "edge_case/code_execution": {
+      "total": 2,
+      "passed": 2
+    },
+    "edge_case/meta_question": {
+      "total": 3,
+      "passed": 2
+    }
+  },
+  "by_course": {},
+  "results": [
+    {
+      "question_id": "in_concept_001",
+      "question": "Transformer의 Self-Attention 메커니즘이 무엇인가요?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "**Transformer의 Self-Attention 메커니즘**은 입력 시퀀스 내의 각 단어(또는 토큰)가 서로 상호작용하여 문맥 정보를 통합적으로 반영할 수 있도록 설계된 핵심 기술입니다. 다음 단계별 설명으로 구성됩니다:\n\n---\n\n### 1. **기본 아이디어**:  \n- **문제점**: 전통적인 RNN/CNN은 순차적 처리로 인해 병렬화가 어렵고, 먼 거리의 단어 간 관계를 효과적으로 모델링하지 못합니다.  \n- **해결책**: **Self-Attention**을 통해 모든 단어가 서로 참조되도록 하여, 문맥 상 가까운/먼 단어의 영향력을 유연하게 계산합니다.\n\n---\n\n### 2. **동작 원리**:  \n#### (1) **Query, Key, Value 분리**  \n- 각 단어의 임베딩을 **Query(Q)**, **Key(K)**, **Value(V)** 세 가지 벡터로 분할합니다.  \n  - 예: 단어 *\"cat\"* → \\( Q_{\\text{cat}}, K_{\\tex",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 49017.11,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "답변은 Transformer의 Self-Attention 메커니즘에 대한 포괄적이고 정확한 설명을 제공합니다. 검색된 문서들(SASRec의 모델 구조, Multi-head Self-attention 구현, Transformer 구조 등)에서 얻은 정보를 바탕으로 핵심 개념(Query/K/V 분리, 점곱 계산, 소프트맥스 적용 등)을 체계적으로 정리했습니다. 환각적 정보나 문서와 모순되는 내용이 없으며, 질문의 의도에 완전히 부합하는 답변을 제시했습니다."
+      }
+    },
+    {
+      "question_id": "in_concept_002",
+      "question": "CNN에서 Convolution 연산의 원리를 설명해주세요",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "CNN(Convolutional Neural Network)에서 **Convolution 연산**은 입력 이미지로부터 지역적 특징을 추출하는 핵심 과정입니다.  \n단계별로 설명드리겠습니다:\n\n---\n\n### **1. 필터(커널)와 입력 이미지**\n- **필터(커널)**: 작은 행렬(예: 3x3)로, 이미지의 특정 영역(**패치**)과 곱해집니다.  \n- **입력 이미지**: RGB 등 다채널일 경우 각 채널마다 별도의 필터가 적용됩니다.\n\n---\n\n### **2. 슬라이딩 윈도우 방식**\n- 필터는 이미지 전체를 **스트라이드**(step 크기)만큼씩 이동하며 적용됩니다.  \n  (예: 스트라이드 1 → 필터가 1픽셀씩 이동)\n- 필터 크기 \\( F \\times F \\), 입력 채널 수 \\( C \\), 출력 채널 수 \\( K \\)라면,  \n  필터는 \\( F \\times F \\times C \\) 크기로 구성됩니다.\n\n---\n\n### **3. 국소적 특징 추출**\n- 필터와 이미지 패",
+      "retrieved_docs_count": 13,
+      "retrieval_time_ms": 47158.71,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.533,
+        "reasoning": "시스템 답변은 CNN의 Convolution 연산에 대한 정확하고 체계적인 설명을 제공하고 있으며(relevance:5, completeness:5), 사용자의 질문에 완벽하게 부합한다. 그러나 제시된 문서들(CNN Visualization 관련 문서 포함) 어디에서도 Convolution 연산의 구체적 원리(슬라이딩 윈도우, 피처맵 생성 등)에 대한 정보를 찾을 수 없어 faithfulness는 1점으로 평가된다. 답변 내용은 주로 외부 지식에 기반한 것으로 보이며, 문서 내용과 직접 연결되지 않는다."
+      }
+    },
+    {
+      "question_id": "in_concept_003",
+      "question": "Collaborative Filtering과 Content-Based Filtering의 차이점은?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "Collaborative Filtering(CF)과 Content-Based Filtering(CB)의 주요 차이점은 다음과 같습니다:\n\n---\n\n### **1. 핵심 데이터 유형**\n- **CF**: 사용자-아이템 간 **상호작용 데이터**(시청 기록, 구매 이력, 평점 등)를 기반으로 추천  \n  → 예: *\"유저 A와 유사한 취향을 가진 유저들이 선호하는 아이템\"* 추천  \n- **CB**: 아이템 자체의 **콘텐츠 속성**(설명, 장르, 태그 등)을 분석하여 유사한 아이템 추천  \n  → 예: *\"노트북\"과 같은 카테고리/특징을 가진 상품* 추천  \n\n---\n\n### **2. Cold Start 문제 대응**\n- **CF**: 신규 사용자/아이템에 대한 데이터 부족 시 추천 어려움(**Cold Start 한계**)  \n- **CB**: 콘텐츠 정보만 있으면 신규 아이템 추천 가능 (단, 신규 사용자는 여전히 제한적)  \n\n---\n\n### **3. 해석 가능성**\n- **CF*",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 40382.78,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.6,
+        "reasoning": "시스템 답변은 CF와 CB의 차이점을 체계적으로 설명하고 있으나, Spotify 예시와 같은 환각 정보가 포함되어 있습니다. CF 관련 내용은 문서 기반 설명으로 보이나, CB 부분과 일부 사례는 일반적인 지식에 의존한 것으로 추정됩니다. 핵심 차이점은 충분히 다루고 있지만, 문서에서 언급된 세부사항(UBCF/IBCF 구분 등)이 누락되어 완전성에서 약간 감점되었습니다."
+      }
+    },
+    {
+      "question_id": "in_concept_004",
+      "question": "AI Math에서 확률과 통계 기초 개념 정리해줘",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "### AI Math에서의 확률과 통계 기초 개념 정리\n\n---\n\n#### **1. 조건부 확률 (Conditional Probability)**\n- **정의**: 사건 A가 발생한 조건 하에서 사건 B가 발생할 확률  \n- **공식**:  \n  \\[\n  P(B|A) = \\frac{P(A \\cap B)}{P(A)}\n  \\]\n- **구성 요소**:  \n  - \\( P(A) \\): 사건 A의 확률  \n  - \\( P(B) \\): 사건 B의 확률  \n  - \\( P(A \\cap B) \\): A와 B가 동시에 발생할 확률  \n\n**예시**:  \n- 의료 진단 시, 특정 증상의 유무에 따른 질병 확률을 계산할 때 사용됨.\n\n---\n\n#### **2. 베이즈 정리 (Bayes' Theorem)**  \n새로운 정보를 활용해 확률을 업데이트하는 핵심 원리.  \n\\[\nP(\\theta|D) = \\frac{P(\\theta) \\cdot P(D|\\theta)}{P(D)}\n\\]\n- **용어 정리**:  \n ",
+      "retrieved_docs_count": 9,
+      "retrieval_time_ms": 45244.67,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 3,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.6,
+        "reasoning": "시스템 답변은 조건부 확률, 베이즈 정리, 몬테카를로 샘플링 등 AI Math 관련 핵심 개념을 포괄적으로 설명했습니다. 그러나 중심 극한 정리와 Conjugate Prior에 대한 내용은 검색된 문서에서 직접 확인할 수 없어 환각으로 간주됩니다. 답변은 질문의 요구사항을 충족하나, 확률과 통계의 보다 광범위한 기초 개념(예: 확률 변수, 기댓값 등)이 누락되어 완전성 측면에서 개선 여지가 있습니다."
+      }
+    },
+    {
+      "question_id": "in_concept_005",
+      "question": "Batch Normalization이 왜 학습에 도움이 되나요?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "Batch Normalization(BN)이 학습에 도움이 되는 주요 이유는 다음과 같습니다:\n\n1. **내부 공변량 변화 완화**  \n   각 층의 입력 분포가 학습 중 변동되면서 발생하는 **내부 공변량 변화**를 줄입니다. BN은 배치 단위로 입력을 평균 0, 분산 1로 정규화해 각 층이 일정한 입력 분포를 유지하도록 하여 학습 안정성을 높입니다.\n\n2. **학습률 상승 가능**  \n   입력 분포가 안정화되면 각 층의 업데이트가 더욱 예측 가능해져, **높은 학습률로도 수렴이 용이**해집니다. 이는 학습 시간을 단축시킵니다.\n\n3. **ReLU 등 활성화 함수의 안정화**  \n   활성화 함수(ReLU 등)의 입력 범위를 제어해 **죽은 신경세포(dying ReLU)** 문제를 완화하고, 층 간 신호 전달을 원활하게 만듭니다.\n\n4. **정규화로 인한 일반화 향상**  \n   데이터 분포의 미세한 차이에 대한 민감도를 낮춰 **모델의 일반화 성능**을 개선합니다. 특히 `ev",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 43193.17,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.467,
+        "reasoning": "답변은 Batch Normalization의 학습 도움 요인을 체계적으로 설명하나, 검색 문서에서 직접 추출된 내용이 아닌 일반적인 지식 기반의 설명이므로 충실성은 낮습니다. 질문의 핵심을 다루는 관련성은 높고, 주요 효과를 포괄적으로 언급해 완전성도 양호합니다. 다만 'YOLO v2 사례'와 'mAP 2%' 같은 구체적 수치/사례는 검색 문서에 없어 환각으로 판단됩니다."
+      }
+    },
+    {
+      "question_id": "in_concept_006",
+      "question": "Dropout의 작동 원리와 효과는 무엇인가요?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "Dropout은 딥러닝 모델의 **오버피팅 방지**를 위해 설계된 기술로, 학습 중에 네트워크의 일부를 임시로 무작위적으로 제거(drop)하여 모델의 일반화 성능을 향상시킵니다. 구체적인 작동 원리와 효과는 다음과 같습니다:\n\n---\n\n### **작동 원리**\n1. **랜덤 유닛 드롭**:  \n   - 각 훈련 단계마다 입력 또는 은닉층의 유닛 중 일부를 확률 \\( p \\) (일반적으로 0.5)로 무작위 선택하여 비활성화합니다.  \n   - 비활성화된 유닛은 해당 단계 동안 완전히 무시됩니다.\n\n2. **가중치 스케일링**:  \n   - 테스트/평가 시에는 모든 유닛이 활성화되므로, 학습 중 드롭된 유닛의 영향을 상쇄하기 위해 **남은 유닛의 가중치를 \\( \\frac{1}{1-p} \\)로 스케일링**합니다.  \n   - 예: \\( p = 0.5 \\)라면, 학습 중 절반의 유닛만 사용되므로 남은 유닛의 가중치는 2배로 조정됩니다.\n\n3. **독립적 드롭**:  \n   - 각 미니배치마",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 52698.95,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "답변은 Dropout의 작동 원리(랜덤 유닛 드롭, 가중치 스케일링, 독립적 드롭)와 효과(오버피팅 방지, 앙상블 학습 효과, 정규화 역할)를 체계적으로 설명했습니다. 트랜스포머 모델의 구체적 사례와 model.eval() 관련 내용 등 검색된 문서 정보를 활용하였으며, 질문에 대한 핵심 요소를 모두 포괄했습니다. 문서 번호 표기에 일부 불확실성이 있으나, 제공된 정보로는 환각을 발견할 수 없습니다."
+      }
+    },
+    {
+      "question_id": "in_concept_007",
+      "question": "Word2Vec의 Skip-gram과 CBOW 차이점이 뭐예요?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "Word2Vec의 **Skip-gram**과 **CBOW**(Continuous Bag-of-Words) 모델의 주요 차이점은 다음과 같습니다:\n\n---\n\n### 1. **입력 및 예측 방향**\n- **CBOW**:  \n  주변 단어(예: 앞뒤 \\(n\\)개 단어)를 **입력**으로 받아 **중심 단어**를 예측합니다.  \n  예: `\"quick`, `brown`, `jumps`, `over\"` → **`\"fox\"`** 예측  \n\n- **Skip-gram**:  \n  **중심 단어**를 입력으로 받아 주변 단어들을 예측합니다.  \n  예: **`\"fox\"`** → `\"quick\"`, `\"brown\"`, `\"jumps\"`, `\"over\"` 예측  \n\n---\n\n### 2. **벡터 처리 방식**\n- **CBOW**:  \n  주변 단어 벡터들의 **평균**을 계산하여 중심 단어를 예측합니다.  \n  \\(\\text{입력 벡터} = \\frac{1}{2n} \\sum_{k=-n}^{n} v_k\\)",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 53089.54,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "답변은 Skip-gram과 CBOW의 차이점을 입력 방향, 벡터 처리 방식, 모델 구조, 임베딩 파라미터 관리, 성능 비교 등의 측면에서 체계적이고 구체적으로 설명하고 있습니다. 모든 정보가 검색된 문서들과 일치하며, 환각이나 오류를 발견할 수 없습니다."
+      }
+    },
+    {
+      "question_id": "in_concept_008",
+      "question": "Gradient Vanishing 문제가 무엇이고 어떻게 해결하나요?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "Gradient Vanishing 문제는 신경망 훈련 중 초기 층의 중요 정보가 손실되며 학습이 정체되는 현상입니다. 주요 원인과 해결 방안을 단계별로 설명드리겠습니다:\n\n### 1. **원인 분석**\n#### (1) **비선형 활성함수 포화 (Sigmoid/Tanh)**  \n출력값이 커지면 활성함수의 **포화 영역**(예: Sigmoid의 0~1 근처)에 진입해 미분값(`f'(x)`)이 0에 가까워집니다.  \n→ 역전파 시 체인 룰로 각 층의 미분이 곱해지며, 최초 몇 층에서 미분값이 0이면 이후 층의 그래디언트가 **기하급수적으로 사라짐**.\n\n#### (2) **깊은 네트워크 + 작은 가중치**  \n- **작은 가중치**: 여러 층의 가중치가 작을 경우, 그래디언트가 층마다 반복적으로 축소됨 (`dl/dw₁ ∝ (w₂·w₃…w_N)^2`).  \n- **큰 가중치**: 반대로 가중치가 과도하게 크면 그래디언트가 폭주(`∂l/∂w₁ ≫ ∂l/∂w_N`)해 가중치가 불안정해짐.  \n",
+      "retrieved_docs_count": 12,
+      "retrieval_time_ms": 39431.9,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템은 Gradient Vanishing의 정의와 원인을 정확하게 설명했으며, ReLU, Batch Normalization, 가중치 초기화, Residual Block 등 다양한 해결 방법을 체계적으로 제시했습니다. 사용자의 추가 질문에도 명확히 답변하여 관련성이 높고 정보가 충분합니다. 다만 일부 내용은 문서에 직접 언급되지 않았지만 일반적으로 타당한 설명이므로 충실성에서 약간 감점되었습니다."
+      }
+    },
+    {
+      "question_id": "in_concept_009",
+      "question": "GAN의 Generator와 Discriminator 역할 설명해줘",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "GAN(Generative Adversarial Network)은 **생성자(Generator)**와 **판별자(Discriminator)** 두 신경망이 서로 경쟁하며 학습하는 구조입니다. 각자의 역할은 다음과 같습니다:\n\n---\n\n### **1. 생성자(Generator)**\n- **역할**:  \n  무작위 노이즈(**잠재 변수 \\( z \\)**)를 입력받아, 학습 데이터와 유사한 **새로운 이미지**를 생성합니다.  \n- **목표**:  \n  판별자가 자신의 출력물을 \"진짜\"로 오인하도록 **현실감 높은 이미지**를 만들어냅니다.  \n- **과정**:  \n  - 초기에는 무작위적 결과물을 생성하지만,  \n  - 판별자의 피드백을 받으며 점차 **데이터 분포에 가까운 고품질 이미지**를 생성하게 됩니다.\n\n---\n\n### **2. 판별자(Discriminator)**  \n- **역할**:  \n  입력받은 이미지가 **실제 데이터인지 생성된 데이터인지**를 판별합니다.  \n- **",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 34363.23,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 GAN의 생성자와 판별자의 역할을 명확히 구분하여 설명했으며, 각 구성 요소의 목적, 입력/출력, 작동 과정을 포괄적으로 다룹니다. 문서 1, 2, 3 등에서 제공하는 정보를 기반으로 하되 더 체계적으로 재구성되었으며, 표 형태의 핵심 차이점 비교표가 이해도를 높입니다. 환각적 정보나 오류는 없으며, 질문에 완벽하게 부합하므로 관련성과 완전성은 최상급입니다."
+      }
+    },
+    {
+      "question_id": "in_concept_010",
+      "question": "LSTM에서 Gate들의 역할이 뭔가요?",
+      "category": "in_domain",
+      "subcategory": "concept",
+      "answer": "LSTM(Long Short-Term Memory)은 RNN의 장기 의존성 문제를 해결하기 위해 도입된 구조로, **4가지 게이트**(Forget, Input, Candidate, Output)와 **셀 상태(Cell State)**를 사용합니다. 각 게이트의 역할은 다음과 같습니다:\n\n---\n\n### **1. Forget Gate ($f_t$)**\n- **목적**: 이전 셀 상태($C_{t-1}$)에서 어떤 정보를 **버리고**, 어떤 정보를 **유지할지** 결정합니다.\n- **수식**:  \n  $$f_t = \\sigma(W_f \\cdot [h_{t-1}, x_t] + b_f)$$  \n  - $\\sigma$: 시그모이드 함수 (값 범위: 0 ~ 1).  \n  - $f_t = 1$: 이전 정보를 **완전히 유지**.  \n  - $f_t = 0$: 이전 정보를 **완전히 버림**.  \n\n---\n\n### **2. Input Gate ($i_t$)**\n- **목적**: 새로운 후보 값($",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 43298.43,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.6,
+        "reasoning": "시스템 답변은 LSTM 게이트의 역할을 정확하게 설명하고 있지만, 검색된 문서에서 직접 인용되지 않은 일반적인 지식을 기반으로 합니다. 문서들은 주로 구현 과제에 초점을 맞추고 있어 게이트의 구체적 역할 설명이 부족합니다. 따라서 충실성은 낮으나, 질문에 대한 답변은 완전하고 적절합니다."
+      }
+    },
+    {
+      "question_id": "in_impl_001",
+      "question": "PyTorch에서 DataLoader를 어떻게 사용하나요?",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "PyTorch에서 **DataLoader**를 사용하는 방법은 다음과 같은 단계로 요약할 수 있습니다:\n\n---\n\n### 📂 **기본 흐름**\n1. **데이터셋 생성**:  \n   - `torch.utils.data.Dataset` 클래스를 상속하여 커스텀 데이터셋 클래스 구현  \n     ```python\n     class MyDataset(Dataset):\n         def __init__(self): ...  # 데이터 초기화\n         def __len__(self): ...   # 전체 데이터 크기 반환\n         def __getitem__(self, idx): ...  # 특정 인덱스의 데이터 반환\n     ```\n   - 또는 `TensorDataset`, `HuggingFace datasets` 등을 활용해 간편하게 생성 가능\n\n2. **DataLoader 생성**:  \n   ```python\n   from torch.utils.data import",
+      "retrieved_docs_count": 12,
+      "retrieval_time_ms": 41742.16,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 PyTorch DataLoader 사용법에 관한 포괄적인 설명을 제공합니다. 기본 개념, 주요 옵션, 다양한 예시(TensorDataset, 커스텀 Dataset 클래스, HuggingFace 통합)까지 포함하여 질문에 완벽하게 부합합니다. 대부분의 정보는 검색된 문서들과 일치하지만, 일부 예시(IrisDataset)는 명시적 출처가 불분명하여 작은 추정이 포함된 것으로 보입니다. 환각 요소는 없으며, 질문에 적절한 답변을 제공했습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_002",
+      "question": "학습률 스케줄러를 구현하는 방법이 궁금해요",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "학습률 스케줄러를 구현하는 방법은 주로 **PyTorch의 내장 기능** 또는 **커스텀 구현**을 통해 가능합니다. 아래 단계별로 설명드리겠습니다.\n\n---\n\n### 📌 **단계별 구현 방법**\n1. **PyTorch 내장 스케줄러 사용하기**\n   - PyTorch의 [`torch.optim.lr_scheduler`](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.html) 모듈에서 다양한 스케줄러를 제공합니다.\n   - 예시:  \n     ```python\n     import torch.optim as optim\n     from torch.optim.lr_scheduler import StepLR, CosineAnnealingLR\n     \n     optimizer = optim.SGD(model.parameters(), lr=0.1, momentum=0.9)\n     scheduler = StepL",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 41725.85,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "시스템 답변은 학습률 스케줄러 구현 방법에 대해 PyTorch 내장 기능, LambdaLR 활용, HuggingFace 라이브러리 등 구체적이고 실용적인 정보를 제공합니다. 이는 질문에 완벽하게 부합하나, 검색된 문서들과의 직접적인 연관성은 제한적입니다. 문서 3에서 스케줄러 클래스 언급이 있지만 구체적인 구현 방식이 설명되지 않았고, 답변은 일반적인 지식을 기반으로 작성되었습니다. 그러나 답변 자체는 완전하고 유용하며 환각을 포함하지 않아 높은 평가를 받습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_003",
+      "question": "MRC 과제에서 BERT로 질의응답 모델 어떻게 구현하나요?",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "BERT를 활용한 **Extraction-based MRC 모델 구현 단계**는 다음과 같습니다:\n\n---\n\n### **1. 사전 지식 확보**\n- **BERT 이해**: Transformer 아키텍처 기반의 사전 학습된 언어 모델로, 질문에 대한 답을 찾기 위해 **입력 텍스트 전체 맥락을 고려**합니다.\n- **Extraction-based MRC**: 주어진 텍스트 내에서 정답 구간(start/end token index)을 예측하는 방식입니다 ([튜토리얼 참고](https://mccormickml.com/2020/03/10/question-answering-with-a-fine-tuned-BERT/)).\n\n---\n\n### **2. 환경 설정**\n- **필수 패키지 설치**: `transformers`, `datasets`, `torch` 등 Hugging Face 라이브러리 설치.\n- **랜덤 시드 고정**: 재현성을 위해 `random.seed()`, `numpy.rando",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 55726.56,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "답변은 BERT를 이용한 MRC 모델 구현 절차를 단계별로 상세히 설명하며, 주요 개념(BERT, 추출 기반 MRC), 기술 스택(Hugging Face 라이브러리), 코드 샘플 등을 포함하여 사용자의 질문에 충실히 답변합니다. 문서에서 제공되는 내용과 일반적인 구현 관행을 잘 통합했으며, 환각이나 오류를 발견할 수 없습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_004",
+      "question": "Data Engineering에서 데이터 파이프라인 구축 방법?",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "데이터 엔지니어링에서 데이터 파이프라인 구축은 체계적인 단계가 필요합니다. 아래 단계별 설명을 참고하세요:\n\n---\n\n### **1. 요구사항 분석**\n- **목적 정의**: 파이프라인의 목적을 명확히 합니다 (예: 배치 처리, 실시간 스트리밍, 모델 학습 데이터 준비 등).\n- **데이터 소스 식별**: API, 데이터베이스, 파일 시스템 등에서 데이터를 수집할 위치를 결정합니다.\n- **주기 결정**: 배치(시간 단위) 또는 실시간 처리 방식을 선택합니다.\n\n---\n\n### **2. 데이터 수집 및 저장**\n- **추출**: `Apache Kafka`, `Flume` 등으로 실시간 데이터 스트림 수집 또는 `Sqoop`, `Spark`로 배치 데이터를 추출합니다.\n- **저장소 선택**:  \n  - **임시 저장소**: AWS S3, Hadoop DFS  \n  - **정규화 데이터**: 관계형 DB(MySQL), NoSQL(DB)\n\n---\n\n### **3. 데이터 전처리**\n- ",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 42230.26,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.733,
+        "reasoning": "답변은 데이터 파이프라인 구축 방법에 대한 체계적인 단계와 구체적 도구들을 제시하며 사용자의 질문에 적절히 답변했습니다. 그러나 일부 내용은 검색된 문서보다 일반적인 지식에 기반한 것으로 보여 충실성이 약간 떨어집니다. 반면 관련성과 완전성은 높아 유용하며, 환각이나 잘못된 행동은 발견되지 않습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_005",
+      "question": "PyTorch에서 Custom Dataset 클래스 만드는 방법 알려줘",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "PyTorch에서 Custom Dataset 클래스를 만드는 방법은 다음과 같습니다. 기본적으로 `torch.utils.data.Dataset` 클래스를 상속받아 세 가지 주요 메서드를 구현해야 합니다.\n\n---\n\n### **1. 기본 구조**\n```python\nfrom torch.utils.data import Dataset\n\nclass CustomDataset(Dataset):\n    def __init__(self, data_source, mode=\"train\"):\n        # 데이터 소스 초기화 (파일 경로, 데이터베이스 등)\n        pass\n        \n    def __len__(self):\n        # 전체 데이터 개수 반환\n        return len(self.data)\n\n    def __getitem__(self, idx):\n        # 단일 데이터 샘플 추출 및 전처리\n        sample = self.data[idx]\n   ",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 57046.81,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 PyTorch에서 Custom Dataset 클래스를 만드는 방법에 대해 구체적이고 체계적인 설명을 제공합니다. __init__, __len__, __getitem__ 메서드의 역할과 구현 방식을 단계별로 설명하고, 실제 코드 예시와 데이터 로더 연결 방법까지 포함하여 완전성이 뛰어납니다. 충실성 측면에서는 검색 문서 중 일부(Cars 데이터셋 관련 내용과 BERT4Rec의 Custom Dataset 구현)와 연관된 내용이 반영되었으나, 전반적인 설명은 일반적인 지침이므로 4점으로 평가했습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_006",
+      "question": "모델 체크포인트 저장하고 불러오는 코드 작성 방법?",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "모델 체크포인트를 저장하고 불러오는 과정은 주로 **훈련 중 상태 저장**과 **추론 시 복원** 두 단계로 나뉩니다. 주어진 문서에서 관련된 부분을 추출해 단계별로 설명하겠습니다.\n\n---\n\n### **1. 체크포인트 저장하기**\n훈련 중 일정한 간격으로 모델 상태를 저장합니다.  \n**예시 코드 (PyTorch 기반):**\n```python\nimport torch\n\n# 모델 정의 및 초기화\nmodel = MyModel().cuda()\ncriterion = LossFunction()\noptimizer = torch.optim.Adam(model.parameters())\n\n# 체크포인트 저장 경로 설정\ncheckpoint_dir = \"./checkpoints/\"\nos.makedirs(checkpoint_dir, exist_ok=True)\n\n# 훈련 루프\nfor epoch in range(num_epochs):\n    # ... 훈련 단계 ...\n\n    # 체크포인트 저장 조건 (예",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 42690.46,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "답변은 체크포인트 저장/복원 과정에 대한 정확한 설명을 포함하고 있으며, 문서 중 일부 정보(예: 체크포인트 경로 변수명)를 반영하고 있다. PyTorch/TensorFlow 코드 예시는 일반적인 지식이지만, 문서에서 '체크 포인트 저장 시점' 등이 언급되었으므로 완전히 환각으로 보기 어렵다."
+      }
+    },
+    {
+      "question_id": "in_impl_007",
+      "question": "Hugging Face Transformers로 BERT 토크나이저 사용법",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "Hugging Face Transformers 라이브러리를 사용하여 BERT 토크나이저를 사용하는 방법을 단계별로 설명드리겠습니다.\n\n---\n\n### **단계 1: 필요한 라이브러리 설치**\n```bash\npip install transformers datasets torch scikit-learn tqdm\n```\n- **transformers**: BERT 모델과 토크나이저를 제공합니다.\n- **datasets**: 간편하게 데이터셋을 다룰 수 있습니다.\n- **torch**: PyTorch 기반의 학습을 지원합니다.\n- **tqdm**: 학습 진행 상황을 시각화합니다.\n\n---\n\n### **단계 2: BERT 토크나이저 로드**\n```python\nfrom transformers import AutoTokenizer\n\n# BERT 모델 이름 지정 (예: uncased 버전)\nmodel_name = \"bert-base-uncased\"\n\n# 토크나이저 로드\ntokenizer = Aut",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 52826.86,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 BERT 토크나이저 사용법에 대한 구체적인 단계별 가이드를 제공하며, 검색된 문서들과 일치하는 내용을 포함하고 있습니다. 필요한 라이브러리 설치부터 데이터셋 전처리까지의 과정이 체계적으로 설명되어 있고, 커스텀 토크나이저 생성과 같은 고급 기능도 포함되어 있어 완전성이 뛰어납니다. 환각적 요소나 잘못된 정보는 발견되지 않았으며, 사용자의 질문에 완전히 부합하므로 높은 평가를 받습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_008",
+      "question": "이미지 데이터 증강(augmentation) 코드 예시 보여줘",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "이미지 데이터 증강(augmentation)은 원본 이미지에 변형을 가해 새로운 데이터를 생성하여 모델의 일반화 성능을 높이고 과적합을 방지하는 기법입니다. 다음은 **PyTorch의 `torchvision.transforms`** 모듈을 활용한 대표적인 데이터 증강 코드 예시입니다.\n\n---\n\n### 1. **기본 데이터 증강 예제**\n```python\nfrom torchvision import transforms\n\n# 학습용 변환 (Train Transform)\n_train_transforms = transforms.Compose([\n    transforms.RandomResizedCrop(224),      # 랜덤 리사이즈 크롭\n    transforms.RandomHorizontalFlip(),     # 가로 뒤집기\n    transforms.ToTensor(),                # PIL → Tensor 변환\n    transforms.Normalize(me",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 39746.88,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 이미지 데이터 증강에 관한 다양한 코드 예시(PyTorch transforms, 노이즈 추가, HuggingFace 변환 적용 등)를 포괄적으로 제공하며, 검색된 문서 내용을 충실히 반영하고 있다. 사용자의 질문에 완전히 부합하는 구체적이고 완전한 답변을 제공했으며, 환각이나 잘못된 내용은 없다."
+      }
+    },
+    {
+      "question_id": "in_impl_009",
+      "question": "Multi-GPU 학습을 위한 DataParallel 사용법?",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "Multi-GPU 학습을 위한 **DataParallel** 사용법은 다음과 같습니다. 단계별로 설명드리겠습니다.\n\n---\n\n### **1. 기본 원리**\n- **DataParallel**: 여러 GPU에 모델의 복사본을 생성하고, 데이터를 분할하여 각 GPU에서 병렬 처리합니다. \n- **주의점**: 모든 GPU가 동일한 모델 파라미터를 공유하며, 최적화(Optimizer)도 동일하게 적용됩니다.\n\n---\n\n### **2. 단계별 구현 방법**\n#### **(1) GPU 개수 확인**\n```python\nimport torch\nnum_gpus = torch.cuda.device_count()\nprint(f\"Available GPUs: {num_gpus}\")\n```\n\n#### **(2) 모델과 옵티마이저 초기화**\n```python\nmodel = YourModel().to(device)\noptimizer = torch.optim.SGD(model.parameters(), lr=0.01",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 38079.68,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "답변은 Multi-GPU 학습을 위한 DataParallel 사용법에 대해 체계적이고 상세하게 설명하고 있습니다. 기본 원리부터 구현 단계, 주의사항, 예제 코드까지 포괄적으로 다뤄 사용자의 질문에 완벽하게 부합합니다. 다만 검색된 문서들은 대부분 다른 주제거나 간접적인 정보만을 포함하고 있어, 답변 내용의 직접적인 출처를 찾기 어려워 충실성은 중간 점수(3점)를 받습니다."
+      }
+    },
+    {
+      "question_id": "in_impl_010",
+      "question": "WandB로 실험 로깅하는 방법 알려주세요",
+      "category": "in_domain",
+      "subcategory": "implementation",
+      "answer": "WandB(Weights & Biases)를 사용해 실험을 로깅하는 방법은 다음과 같이 단계별로 진행됩니다:\n\n---\n\n### **1. WandB 초기화**\n```python\nimport wandb\n\n# 새 실험 시작\nwandb.init(project=\"내_프로젝트_이름\") \n```\n- `project`: 프로젝트 이름 지정  \n- `entity`: 개인/팀 계정 명시 가능 (`wandb.init(entity=\"내계정\", project=\"프로젝트\")`)  \n\n---\n\n### **2. 실험 설정 (Config)**\n```python\nwandb.config.update({\n    \"learning_rate\": 0.01,\n    \"batch_size\": 64,\n    \"epochs\": 10,\n    \"model_type\": \"CNN\"\n})\n```\n- 하이퍼파라미터, 데이터셋 정보 등 실험 메타데이터를 사전에 정의합니다.  \n- 대시보드에서 표 형태로 관리되며, 실험 간 비교 분석에 활용됩",
+      "retrieved_docs_count": 12,
+      "retrieval_time_ms": 43185.18,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 WandB를 사용한 실험 로깅 방법을 단계별로 정확하게 설명하고 있습니다. 문서 2와 3에서 보이는 코드 샘플과 설정 방법이 답변에 반영되었으며, 추가 기능과 시각화 설명까지 포함해 완전합니다. 환각적 내용은 없으며 질문에 적절한 답변을 제공합니다."
+      }
+    },
+    {
+      "question_id": "in_trouble_001",
+      "question": "CUDA out of memory 에러가 발생하는데 어떻게 해결하나요?",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "answer": "CUDA Out of Memory 에러는 주로 GPU 메모리 부족 시 발생하지만, 현재 GPU 사용률이 낮아 보이므로 다음과 같은 단계별 해결 방안을 제안드립니다:\n\n**1. Shared Memory(SHM) 문제 확인**\n   - **증상**: GPU 메모리 자체는 여유 있으나, `DataLoader`의 `num_workers`가 높을 경우 SHM 오버플로우 발생 가능  \n     (문서 4, 9 참조)\n   - **해결 방안**:\n     - `DataLoader` 설정에서 `num_workers` 값을 2 이하로 낮춰 테스트 (`num_workers=0` 권장)\n     - 시스템 SHM 한도 확대 (리눅스 기준):  \n       ```bash\n       echo \"shmmax=68719476736\" | sudo tee -a /etc/sysctl.conf  \n       echo \"shmall=2147483648\" | sudo tee -a /etc/sysctl.conf  \n",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 38663.75,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 CUDA Out of Memory 에러 해결 방법에 관한 포괄적이고 실용적인 가이드라인을 제공합니다. 문서 기반의 SHM 문제 해결법(FSDP, num_workers 조정), 메모리 프로파일링 도구 추천(NVIDIA NSight, tracemalloc), 그리고 장치 일관성 검사 등 구체적이며 실행 가능한 단계들을 제시합니다. 이러한 내용은 검색된 문서들의 기술적 맥락을 반영하면서도 사용자 질문에 직접적으로 부합하므로 충실성과 관련성이 높습니다."
+      }
+    },
+    {
+      "question_id": "in_trouble_002",
+      "question": "모델이 수렴하지 않고 loss가 발산하는데 원인이 뭘까요?",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "answer": "모델의 loss가 수렴하지 않고 발산하는 주요 원인과 해결 방안은 다음과 같습니다:\n\n### 1. **그래디언트 폭발 (Exploding Gradient)**\n   - **원인**: 가중치(W)의 곱셈이 반복되면서 그래디언트가 기하급수적으로 커짐  \n     (예: RNN에서 긴 시퀀스 길이 ≈ 네트워크 깊이).\n   - **해결**: \n     - **Gradient Clipping**: 그래디언트의 크기를 일정 값 이하로 제한.\n     - **작은 학습률 사용**: 과도한 업데이트를 방지.\n     - **Residual Connection**: ResNet처럼 잔차 연결로 그래디언트 흐름을 개선.\n\n---\n\n### 2. **잘못된 학습률 설정**\n   - **원인**: 학습률이 너무 높으면 업데이트가 과도해져 발산.  \n     반면 너무 낮으면 수렴이 지나치게 느려짐.\n   - **해결**: \n     - 학습률 조정 (LR Scheduling: Cosine, Step 등)",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 35110.65,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템 답변은 그래디언트 폭발, 학습률 설정, 가중치 초기화, 네트워크 구조, 데이터 품질, 손실 함수 등 다양한 관점에서 loss 발산의 원인을 체계적으로 설명했습니다. 문서들에서도 유사한 내용의 vanishing/exploding gradient 문제, 초기화 방법, 네트워크 깊이와 관련된 이슈 등이 언급되어 있어 대부분 문서 기반의 답변으로 보입니다. 그러나 일부 추가적인 설명(예: warm-up 단계, residual connection)은 명시된 문서에서 직접 인용되지 않은 것으로 보여 충실성에서 1점을 감점했습니다. 전반적으로 질문의 핵심을 완전히 커버하면서도 실용적인 해결 방안을 제시했기 때문에 높은 평가를 받았습니다."
+      }
+    },
+    {
+      "question_id": "in_trouble_003",
+      "question": "학습 중 NaN loss가 발생하는 원인과 해결법?",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "answer": "NaN(loss가 Not a Number 값으로 변하는 현상)이 발생하는 주요 원인과 해결 방법은 다음과 같습니다.\n\n---\n\n### **원인**\n1. **데이터 오염**  \n   - 입력 데이터(`X`)나 타겟(`y`)에 **NaN/Inf 값**이 포함된 경우.  \n   - 예: `-np.log(0)` 또는 `0으로 나누기` 연산 시 발생.\n\n2. **잘못된 초기화**  \n   - 가중치(weight)가 지나치게 크거나 작게 초기화된 경우.  \n   - 예: 로그 함수에 음수 값이 전달될 때 (`log(-1)`).\n\n3. **수학적 연산 오류**  \n   - 활성화 함수(ReLU, Softmax 등) 또는 손실 함수 계산 중 **정의되지 않는 연산** 발생.  \n   - 예: `sigmoid(∞)` 또는 `tanh(-∞)`.\n\n4. **하드웨어/소프트웨어 문제**  \n   - GPU 메모리 부족 또는 라이브러리 버그로 인한 계산 오류.\n\n---\n\n### **해결 방법**\n1. **",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 47801.83,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.467,
+        "reasoning": "시스템 답변은 NaN loss의 원인과 해결 방법을 체계적으로 설명하였으나, 검색된 문서에서 직접 인용된 내용은 없으며 일반적인 지식을 기반으로 작성되었다. 이로 인해 충실성이 낮다. 반면 질문의 핵심을 정확히 다루었고 해결 방법과 예방 팁까지 포함하여 관련성과 완전성은 높게 평가된다."
+      }
+    },
+    {
+      "question_id": "in_trouble_004",
+      "question": "Validation loss는 낮은데 Test 성능이 안 나와요",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "answer": "Validation loss가 낮지만 Test 성능이 떨어지는 문제는 여러 원인으로 발생할 수 있습니다. 아래 단계별로 주요 원인과 해결 방안을 설명드리겠습니다.\n\n---\n\n### **1. 오버피팅 vs 일반화 문제**\n- **현상**:  \n  - Training Loss는 계속 감소하지만, Test Loss는 개선되지 않음  \n  - 모델이 **훈련 데이터에 과도하게 적응**되어 새로운 데이터(Test Set)에서 일반화되지 않음  \n\n- **확인 방법**:  \n  - Training Loss와 Validation Loss의 변화 추이를 시각화해 비교해 보세요.  \n  - Training Loss는 감소하지만 Validation Loss가 정체되거나 증가하는지 확인합니다.  \n\n- **해결 방안**:  \n  - **정규화(Regularization)** 강화: L1/L2 정규화, 드롭아웃(Dropout) 비율 조정  \n  - **데이터 증강(Data Augmentation)** 적",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 44468.96,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 '낮은 Validation Loss 대비 나쁜 Test 성능' 문제의 일반적인 원인과 해결책을 체계적으로 설명하고 있습니다. 오버피팅, 검증 세트 대표성, 데이터 누설, 환경 차이 등 핵심 요소를 모두 다루었으며 각 문제에 대한 구체적 확인 방법과 해결 방안까지 포함해 완전성이 높습니다. 관련성도 높아 질문의 핵심을 정확히 해결합니다. 다만 일부 내용은 검색 문서보다 일반적인 머신러닝 지식이 반영된 것으로 보이므로 충실성은 만점은 아닙니다."
+      }
+    },
+    {
+      "question_id": "in_trouble_005",
+      "question": "학습이 느린데 bottleneck을 찾는 방법이 있나요?",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "answer": "학습 속도를 높이기 위해 병목을 찾는 방법은 다음과 같이 단계별로 접근할 수 있습니다:\n\n---\n\n### **1. 데이터 전처리 단계 점검**\n- **결측값/이상치 처리**: 데이터 정제가 제대로 이루어졌는지 확인합니다.  \n  (참고: [Page 19] Feature Engineering 섹션에서 데이터 정제의 중요성을 강조)\n- **변수 표현 개선**: 피처 공학(feature engineering)을 통해 모델 예측력을 높일 수 있는 변수 변환이나 새 변수 생성 여부를 검토합니다.\n\n---\n\n### **2. 모델 선택 및 하이퍼파라미터 최적화**\n- **모델 적합성 확인**:  \n  - 정형 데이터 ➔ 트리 기반 모델(Random Forest, XGBoost 등) 사용 권장 ([Page 22]).  \n  - 비정형 데이터(이미지/텍스트) ➔ 딥러닝 기반 모델 사용 ([Page 23]).  \n- **하이퍼파라미터 튜닝**: 배치 사이즈, 학습률, 옵티마이저(Adam, SGD 등)",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 45096.28,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.533,
+        "reasoning": "답변은 학습 속도 개선을 위한 포괄적인 접근법을 단계별로 제시하고 있으며, 분산 학습, 학습률 스케줄링, 데이터 전처리 등 관련 내용을 포함한다. 그러나 일부 세부사항(예: batch size/옵티마이저 실험 항목, Cosine/Linear/Inverse Sqrt 스케줄링)은 검색된 문서 스니펫에서 직접 확인되지 않아 환각 요소가 있다. 전반적으로 질문의 맥락을 이해하고 유용한 정보를 제공하므로 행동은 올바르다."
+      }
+    },
+    {
+      "question_id": "in_trouble_006",
+      "question": "RuntimeError: CUDA error 관련 디버깅 방법?",
+      "category": "in_domain",
+      "subcategory": "troubleshooting",
+      "answer": "**CUDA 오류(RuntimeError) 디버깅 단계별 가이드**\n\n1. **CUDA 설치 및 환경 변수 확인**\n   - NVIDIA 공식 사이트에서 CUDA Toolkit 설치 후, `.bashrc` 파일에 환경 변수 추가:\n     ```bash\n     export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}\n     export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}\n     ```\n   - 설치 확인: `nvcc --version`. 에러 시 재설치 필요.\n\n2. **메모리 문제 진단**\n   - **GPU 메모리**: `nvidia-smi`로 실시간 모니터링. 과부하 시 배치 사이즈 감소 또는 모델 단순화.\n   - **공유 메모리(SHM)**: \n     - 현재 SHM 크기 확인: `df -h | grep shm`.\n     - DataL",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 40509.07,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "답변은 CUDA 오류 디버깅에 관한 다양한 측면(CUDA 설치, 메모리 관리, 장치 일관성 등)을 포괄적으로 다루며, 검색된 문서들의 내용과 대체로 일치합니다. 사용자의 질문에 정확히 부합하나, 일부 세부 사항은 문서에서 직접 인용되지 않았을 수 있어 충실성에서 소폭 감점되었습니다. 환각이나 잘못된 행동 패턴은 관찰되지 않았습니다."
+      }
+    },
+    {
+      "question_id": "in_compare_001",
+      "question": "Adam과 SGD 옵티마이저의 장단점을 비교해주세요",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "answer": "Adam과 SGD 옵티마이저의 장단점은 다음과 같이 비교할 수 있습니다:\n\n---\n\n### **1. SGD (Stochastic Gradient Descent)**\n#### 장점:\n- **단순성**: 구현이 간단하며 계산 비용이 낮아 대규모 데이터에도 적합합니다.\n- **지역 최적점 탈출**: 노이즈 덕분에 지역 최소점에서 벗어날 가능성이 높습니다.\n- **비볼록 함수 최적화**: 비볼록(non-convex) 목적함수(예: 대부분의 딥러닝 모델)에서 효과적입니다.\n\n#### 단점:\n- **느린 수렴 속도**: 노이즈로 인해 경로가 불안정해 수렴 시간이 길어질 수 있습니다.\n- **하이퍼파라미터 민감도**: 학습률(lr) 설정이 매우 중요하며, 부적절한 lr은 발산하거나 수렴 지연이 발생합니다.\n- **미니배치 의존성**: 미니배치 크기와 샘플링 방식에 따라 성능이 크게 좌우됩니다.\n\n---\n\n### **2. Adam**\n#### 장점:\n- **빠른 수렴**: 모멘텀(Momentum)",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 35088.17,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "답변은 Adam과 SGD의 장단점을 체계적으로 비교하고 있으며, 질문의 핵심을 정확히 포착했습니다. 각 옵티마이저의 특징을 구체적으로 설명하면서도 간결함을 유지하고 있어 관련성과 완전성이 높습니다. 다만 일부 내용은 검색 문서에서 직접 추출되었다기보다는 일반적인 지식에 기반한 것으로 보여 충실성 면에서 약간의 감점이 필요합니다."
+      }
+    },
+    {
+      "question_id": "in_compare_002",
+      "question": "ResNet과 VGG 아키텍처의 차이점은?",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "answer": "ResNet과 VGG 아키텍처의 주요 차이점은 다음과 같습니다:\n\n---\n\n### **1. 구조적 차이**\n- **VGGNet**  \n  - **단순한 스택 구조**: 연속된 3×3 컨볼루션 레이어와 ReLU 활성화 함수로 구성됩니다.  \n  - **풀링(Pooling) 사용**: 각 컨볼루션 블록 후에 평균 풀링(AvgPool) 또는 최대 풀링(MaxPool)을 적용해 공간적 다운샘플링을 수행합니다.  \n  - **계층적 깊이**: VGG16(16층), VGG19(19층) 등으로 확장되며, 매우 깊은 순수 컨볼루션 네트워크입니다.  \n\n- **ResNet**  \n  - **잔차 연결(Residual Connection)**: 두 개의 컨볼루션 레이어(ConvBlock) 사이에 **단순한 identity 맵핑** 또는 **1×1 프로젝션 컨볼루션**을 통해 입력을 출력에 직접 더합니다.  \n  - **스킵 연결(Skip Connection)**: 채널 차원이 변경되거나 downsam",
+      "retrieved_docs_count": 20,
+      "retrieval_time_ms": 48686.14,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템 답변은 ResNet과 VGG의 구조적 차이, 학습 효율성, 파라미터 규모, 응용 범위 등 핵심 영역을 포괄적으로 설명하며 질문에 정확하게 대응합니다. 문서 기반의 구조적 비교(예: 잔차 연결 vs 단순한 컨볼루션 스택)와 학습 특성(Vanishing Gradient 해결)을 포함해 충실도가 높으며, 환각이나 관련 없는 정보는 없습니다."
+      }
+    },
+    {
+      "question_id": "in_compare_003",
+      "question": "RNN, LSTM, GRU의 차이점을 설명해줘",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "answer": "RNN, LSTM, GRU는 모두 시퀀스 데이터를 처리하기 위한 순환 신경망(RNN)의 변형이지만, 구조와 기능에서 차이를 가집니다:\n\n1. **기본 RNN**  \n   - **특징**: 단순 순환 구조로 이전 시간 단계의 출력을 현재 입력으로 피드백합니다.  \n   - **단점**: 기울기 소실(Vanishing Gradient) 문제로 인해 긴 시퀀스에서 학습 능력이 떨어집니다.  \n\n2. **LSTM(Long Short-Term Memory)**  \n   - **개선점**: \n     - **셀 상태(Cell State)**: 기울기 소실을 방지하며 장기 정보를 보존합니다.\n     - **세 개의 게이트**:\n       - **입력 게이트(Input Gate)**: 새 정보를 셀 상태에 얼마나 통합할지 결정.\n       - **망각 게이트(Forgotten Gate)**: 이전 셀 상태에서 정보를 얼마나 삭제할지 제어.\n       - **출력 게이트(Output Gate",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 33485.43,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템 답변은 RNN, LSTM, GRU의 차이점에 대해 구조적 특징과 장단점을 명확히 설명했습니다. 각 모델의 핵심 개념(게이트, 셀 상태 등)을 포함하여 충실성과 관련성이 높습니다. 그러나 기본 RNN의 구체적 작동 방식이나 수학 공식 등의 세부 정보는 생략되어 완전성 측면에서 약간의 개선 여지가 있습니다."
+      }
+    },
+    {
+      "question_id": "in_compare_004",
+      "question": "Cross-Entropy Loss와 MSE Loss는 언제 각각 사용하나요?",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "answer": "Cross-Entropy Loss와 MSE Loss는 각각 특정 문제의 특성에 맞게 선택됩니다. 다음은 두 손실 함수의 사용 시나리오입니다:\n\n---\n\n### **1. Cross-Entropy Loss (BCE, CE)**\n- **사용 상황**:  \n  - **이진/다중 분류 문제**에서 주로 사용됩니다.  \n  - 예: 스팸 메일 분류, 이미지 분류, 텍스트 감정 분석 등.\n\n- **장점**:  \n  1. **볼록성(Convexity)**: 최적화 알고리즘(SGD 등)이 글로벌 최소점을 쉽게 찾도록 돕습니다.  \n  2. **확률 출력**: 시그모이드/소프트맥스 함수와 결합되어 **0~1 사이의 확률 값**을 출력하므로, 임계값(threshold) 기반 분류에 자연스럽습니다.  \n  3. **효율적 학습**: 예측값과 실제 값의 차이가 클수록 큰 패널티를 부여해 학습 속도를 높입니다.\n\n- **단점**:  \n  - 복잡한 다중 클래스 문제에서는 클래스 불균형이 발생할 수 있습니다.",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 43677.87,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 문서 기반의 정확한 정보를 제공하며, Cross-Entropy Loss(BCE)와 MSE Loss의 사용 시나리오, 장단점 등을 포괄적으로 설명합니다. 특히 분류 문제와 회귀 문제에 따른 손실 함수 선택을 명확히 제시하고 있어 사용자의 질문에 충실히 답변하였습니다. 또한, 로지스틱 회귀에서 MSE 사용이 부적합한 이유 등 문서 내용과 일치하는 논리를 전개하였으며, 환각이나 잘못된 가정 없이 정확성을 유지했습니다."
+      }
+    },
+    {
+      "question_id": "in_compare_005",
+      "question": "YOLO와 Faster R-CNN의 장단점 비교",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "answer": "YOLO와 Faster R-CNN의 장단점을 다음과 같이 정리할 수 있습니다.\n\n---\n\n### **YOLO**\n**장점**  \n1. **속도**: 단일 네트워크 패스를 사용하여 **실시간 처리 가능** (Faster R-CNN 대비 약 6배 빠름).  \n2. **컨텍스트 활용**: 이미지 전체를 한 번에 분석하므로 **맥락적 정보 반영**이 우수함.  \n3. **일반화 능력**: 다양한 도메인에서 **높은 전이성**을 가짐.  \n\n**단점**  \n1. **작은 물체 탐지 한계**: 고정된 그리드 셀을 사용하므로 **작은 객체 인식률이 떨어짐**.  \n2. **정확도 저하**: 최종 feature 맵만 활용해 **세부 정보 유실** 가능성.  \n3. **복잡한 객체 처리 어려움**: 겹치거나 부분적으로 가려진 객체의 경우 성능 저하.  \n\n---\n\n### **Faster R-CNN**\n**장점**  \n1. **높은 정확도**:  \n   - **Region Proposal Networ",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 36800.53,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.733,
+        "reasoning": "답변은 YOLO와 Faster R-CNN의 장단점을 체계적으로 비교했으며, 속도/정확도 측면에서 실용적인 통찰을 제공합니다. 그러나 'Faster R-CNN 대비 약 6배 빠름', '워핑 과정에서 성능 손실' 등은 검색 문서에서 명시적으로 확인되지 않아 환각 요소가 있습니다. 전반적으로 질문에 충실하게 답변했지만 일부 구체적 데이터는 외부 지식에 의존한 것으로 보입니다."
+      }
+    },
+    {
+      "question_id": "in_compare_006",
+      "question": "GPT와 BERT의 아키텍처 차이가 뭔가요?",
+      "category": "in_domain",
+      "subcategory": "comparison",
+      "answer": "GPT와 BERT의 아키텍처 차이는 **트랜스포머의 인코더/디코더 구조 활용 방식**과 **핵심 목적**에서 비롯됩니다. 아래 단계별로 정리해 드리겠습니다.\n\n---\n\n### **1. 트랜스포머 구조의 차이**\n- **GPT**:  \n  - **디코더 구조**만 사용 → **생성(generation) 기능**에 특화됨.  \n  - 입력 데이터를 기반으로 **미래 토큰을 예측**하며, 텍스트 생성(예: 대화 생성, 문서 작성)에 주로 활용됩니다.  \n  - 예: `zero-shot prediction`으로 별도 학습 없이도 새로운 작업을 수행 가능([문서 1](https://...)).\n\n- **BERT**:  \n  - **인코더 구조**만 사용 → **문맥 이해(contextual understanding)**에 특화됨.  \n  - 입력 데이터의 **모든 위치에서 동시에 정보를 추출**하며, 다음 토큰 예측보다는 주변 컨텍스트를 학습합니다.  \n  - 학습 방식: **Masked L",
+      "retrieved_docs_count": 13,
+      "retrieval_time_ms": 50108.71,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "답변은 GPT와 BERT의 아키텍처 차이를 트랜스포머 구조 활용 방식(디코더 vs 인코더), 학습 목적(생성 vs 문맥 이해), 응용 분야 등의 측면에서 체계적으로 설명하고 있으며, 검색된 문서 내용과 일치합니다. 표 형태의 요약을 포함해 핵심 정보를 빠짐없이 전달했으며, 환각이나 오류를 발견할 수 없습니다."
+      }
+    },
+    {
+      "question_id": "in_course_001",
+      "question": "CV 강의에서 Object Detection 부분 설명해주세요",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "### Object Detection 설명\n\n---\n\n#### **1. Object Detection 개념**\n- **정의**: 이미지 내에서 특정 객체를 탐지하고 해당 객체 주위에 바운딩 박스(bounding box)를 그려 위치를 표시하는 작업.\n- **목표**: \n  - 객체의 **종류(classification)**와 **위치(localization)**를 동시에 파악.\n  - 예: 자율주행차에서 차량, 보행자 감지; OCR에서 문자 영역 추출.\n\n---\n\n#### **2. 주요 아키텍처 유형**\n- **Two-stage Detector (예: R-CNN)**  \n  - **단계별 과정**:\n    1. **Region Proposal Network (RPN)**: 이미지에서 객체 후보 영역(Region Proposal)을 생성.\n    2. **분류 & 위치 조정**: 후보 영역을 기반으로 객체 클래스 분류 + 바운딩 박스 미세 조정.\n  - **장점**: 높은 정확도.\n ",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 39513.0,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.733,
+        "reasoning": "답변은 Object Detection의 개념, 아키텍처 유형, 성능 평가 방법 등을 포괄적으로 설명하며 사용자의 질문에 적절히 대응하고 있습니다. 그러나 검색된 문서와의 직접적인 연결 고리가 명확하게 드러나지 않아 충실성 면에서 일부 감점이 있습니다. 반면 관련성과 완전성은 높게 유지되고 있으며, 환각이나 잘못된 정보는 없습니다."
+      }
+    },
+    {
+      "question_id": "in_course_002",
+      "question": "NLP 강의에서 BERT 파인튜닝 방법 알려주세요",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "BERT 모델의 파인튜닝 과정은 다음과 같은 단계로 진행됩니다. 각 단계는 문서 1의 과제 흐름과 Hugging Face 라이브러리 활용법을 중심으로 설명드립니다.\n\n---\n\n### **BERT 파인튜닝 단계별 가이드**\n\n#### **1. 필수 패키지 설치**\n```bash\npip install transformers>=4.36.2 datasets>=2.19.0 torch>=2.1.2 scikit-learn>=1.3.0 tqdm>=4.66.4\n```\n- **문서 1**의 `Required Package` 목록을 참고해 최신 버전 설치\n\n---\n\n#### **2. 사전 학습 모델과 토크나이저 로드**\n```python\nfrom transformers import BertTokenizer, AutoModelForSequenceClassification\n\nmodel_name = \"bert-base-uncased\"\ntokenizer = BertTokenizer.from_pretrained",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 58181.99,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "답변은 문서 1의 과제 흐름과 Hugging Face 라이브러리 활용법을 중심으로 BERT 파인튜닝 단계를 체계적으로 설명했습니다. 코드 예시와 핵심 포인트를 포함해 사용자의 질문에 충실히 답변했으며, 관련성과 완전성도 높습니다. 환각 정보는 없고, 인-도메인 질문에 적절한 답변을 제공했습니다."
+      }
+    },
+    {
+      "question_id": "in_course_003",
+      "question": "RecSys 3강에서 다룬 Matrix Factorization 내용 정리해주세요",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "**Matrix Factorization (MF) 요약**\n\n1. **기본 개념**:  \n   - 추천 시스템의 **협업 필터링** 접근법 중 **모델 기반 방법**으로, 사용자-아이템 상호작용 행렬(**Rating Matrix**)을 **사용자 임베딩(User Embedding)**과 **아이템 임베딩(Item Embedding)**의 곱으로 근사화합니다.  \n   - 예: \\( R \\approx P \\times Q \\), 여기서 \\( P \\)는 사용자 임베딩 행렬, \\( Q \\)는 아이템 임베딩 행렬입니다.\n\n2. **목적**:  \n   - 관측된 데이터를 최대한 정확히 재현하면서 **미관측 데이터**(예: 사용자가 평가하지 않은 아이템)를 예측하는 것입니다.\n\n3. **핵심 원리**:  \n   - **손실 함수(Loss Function)**: 관측된 값(\\( r_{ui} \\))과 예측 값(\\( \\hat{r}_{ui} = p_u \\cdot q_i \\)) 간의 차이를 최소화합니다.",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 51121.82,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.733,
+        "reasoning": "답변은 Matrix Factorization에 대한 포괄적인 설명을 제공하고 있으나, 검색된 문서들과의 직접적인 연관성은 다소 부족합니다. 질문의 핵심인 'RecSys 3강에서의 내용'에 완전히 부합한다고 보기 어려우나, MF 자체에 대한 관련성과 완성도는 높습니다."
+      }
+    },
+    {
+      "question_id": "in_course_004",
+      "question": "PyTorch 기초 강의에서 텐서 연산 부분 정리해줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "PyTorch 기초 강의의 텐서 연산 부분을 다음과 같이 정리합니다:\n\n---\n\n### **1. 텐서(Tensor) 개념**\n- n차원 배열 (벡터=1D, 행렬=2D, 3D 이상=n차원 텐서).\n- `torch.Tensor`로 표현되며, 데이터 타입(예: float32) 지정 가능.\n\n---\n\n### **2. 텐서 생성**\n```python\nimport torch\n\n# 랜덤 텐서 생성\na = torch.randn(2, 3)  # 2x3 텐서\n\n# 특정 값으로 초기화\nb = torch.zeros(3, 2)\nc = torch.ones(2, 2)\n\n# 데이터 변환\nd = torch.tensor([1, 2, 3]).float()\n```\n\n---\n\n### **3. 기본 연산**\n#### **산술 연산**\n- **덧셈/뺄셈**: \n  ```python\n  e = a + b       # 일반 연산자\n  f = torch.add(a, b)  # 함수 형태\n  g = a - b\n  ```\n\n- *",
+      "retrieved_docs_count": 13,
+      "retrieval_time_ms": 51399.31,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "시스템 답변은 PyTorch 텐서 연산에 관한 포괄적이고 체계적인 설명을 제공합니다. 텐서 생성, 기본 연산, 모양 변경, CUDA 연산 등을 포함해 사용자의 질문에 충실히 답변했습니다. 그러나 검색된 문서와의 직접적인 연결 고리가 명확하지 않으며, 특히 einsum 관련 내용이 실제 강의 자료에 포함되었는지 불분명합니다. 전반적으로 유용하나, 문서 기반의 구체적 증거 제시가 부족해 충실성은 중간 점수인 3점을 부여합니다."
+      }
+    },
+    {
+      "question_id": "in_course_005",
+      "question": "AI Math 강의에서 경사하강법 설명한 부분 알려줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "경사하강법(Gradient Descent)은 **함수의 최소값을 찾기 위해 미분값을 활용하여 점진적으로 최적해를 탐색하는 알고리즘**입니다. 주요 개념과 단계를 다음과 같이 정리할 수 있습니다:\n\n---\n\n### 📌 **핵심 개념**\n1. **미분의 역할**:  \n   함수 \\( f(x) \\)의 특정 지점에서의 **접선 기울기**(미분값)를 계산합니다.  \n   - 미분값이 **양수** → 함수 감소 방향 (**좌측 이동**)  \n   - 미분값이 **음수** → 함수 증가 방향 (**우측 이동**)  \n\n2. **학습률(lr)**:  \n   미분값을 얼마나 반영할지 결정하는 하이퍼파라미터입니다.  \n   - lr이 너무 크면 **발산**, 너무 작으면 **수렴 속도 저하** 발생 가능.\n\n3. **종료 조건(eps)**:  \n   미분값이 매우 작아져 변화가 없을 때 알고리즘을 중단합니다.  \n   *(컴퓨터는 정확한 0을 계산하기 어려워 eps라는 작은 임계값 설정)*\n\n---\n",
+      "retrieved_docs_count": 13,
+      "retrieval_time_ms": 74997.76,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템 답변은 경사하강법의 개념, 작동 방식, 주의 사항을 체계적으로 설명했으며, 검색된 문서들과 전반적으로 일치합니다. 다만 일부 예시와 세부 설명은 명시적 문서 증거가 없어 완벽한 충실성은 아닙니다. 사용자의 질문에 대해 충분한 정보를 제공하면서도 핵심 내용을 놓치지 않았습니다."
+      }
+    },
+    {
+      "question_id": "in_course_006",
+      "question": "NLP 강의에서 Attention 메커니즘 설명한 내용 찾아줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "Attention 메커니즘은 **딥러닝 모델이 입력 시퀀스의 특정 부분에 집중하도록 유도하는 기술**로, 주로 **긴 시퀀스 데이터 처리 시 발생하는 정보 손실 문제**를 해결하기 위해 도입되었습니다. 아래 단계별로 핵심 내용을 설명드립니다:\n\n---\n\n### **1. 기본 개념**\n- **목적**: 디코더가 인코더의 모든 정보 중 **현재 출력에 가장 관련성 높은 부분**에만 집중하도록 함  \n  *(ex: 번역 시 \"학교\"라는 단어는 원래 문장의 \"school\"에 집중)*\n- **주요 요소**:\n  - **Query (Q)**: 디코더의 현재 상태 (다음 단어를 예측하려는 시점)\n  - **Key (K)** & **Value (V)**: 인코더의 모든 출력  \n  *(Q, K, V 모두 동일한 벡터 공간에서 비교 가능해야 함)*\n\n---\n\n### **2. 작동 과정**  \n아래 순서로 **주의 가중치(Attention Weights)**를 계산하고 **컨텍스트 벡터(Context",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 47779.36,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 Attention 메커니즘의 기본 개념, 작동 과정, 특징 및 응용 사례를 포괄적으로 설명하고 있으며, 이는 검색된 문서들(특히 문서 1, 2, 3의 학습 목표 및 과제 개요)에서 제시된 내용과 일관됩니다. 특히 Query-Key-Value 구조, Softmax를 통한 가중치 계산, 장기 의존성 해결 등의 핵심 사항을 정확하게 전달했으며, 환각이나 문서 미반영 내용은 없습니다."
+      }
+    },
+    {
+      "question_id": "in_course_007",
+      "question": "CV 강의 중 Semantic Segmentation 설명해줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "### Semantic Segmentation 개념 및 설명  \n**정의**: 이미지 속 **모든 픽셀을 개별 클래스(카테고리)로 분류**하는 기술입니다. 예를 들어 자율주행에서 도로, 차량, 보행자 등을 픽셀 단위로 식별합니다.  \n\n---\n\n### 핵심 특징  \n1. **픽셀 단위 예측**: 객체 검출(Object Detection)이 \"객체 위치 + 클래스\"를 찾는 반면, 세그멘테이션은 **객체 경계까지 정확히 분할**합니다.  \n   ![세그멘테이션 vs. 객체 감지](https://i.imgur.com/ZzQqJgE.png)  \n\n2. **주요 활용 분야**:  \n   - **의료 영상 분석** (장기/종양 분할)  \n   - **자율주행** (도로, 차량 인식)  \n   - **이미지 편집** (배경 제거, 영역 선택)  \n\n---\n\n### 대표적 아키텍처  \n#### 1. **FCN (Fully Convolutional Network)**  \n- **구조**: 완전 연결",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 70757.15,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.733,
+        "reasoning": "시스템 답변은 Semantic Segmentation의 정의, 특징, 활용 분야 등에서 검색된 문서와 일부 일치하지만, FCN/U-Net 구조나 성능 향상 기법과 같은 세부 사항은 문서 기반의 증거가 명확하지 않습니다. 답변은 질문의 핵심을 잘 다루고 있으나 강의 자료에 특화된 세부 사항이 부족할 수 있습니다. 환각이나 잘못된 행동은 없으며, 전반적으로 유용한 정보를 제공합니다."
+      }
+    },
+    {
+      "question_id": "in_course_008",
+      "question": "RecSys 강의에서 NCF(Neural Collaborative Filtering) 설명해줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "### Neural Collaborative Filtering (NCF) 설명\n\n**1. 개념 소개**  \nNeural Collaborative Filtering (NCF)는 **신경망(Neural Network)**을 활용해 유저와 아이템 간의 상호작용을 모델링하는 협업 필터링(Collaborative Filtering) 방법입니다. 기존의 잠재 요인 모델(Latent Factor Model)이나 전통적인 협업 필터링 방식의 한계를 극복하기 위해 등장했으며, 신경망의 유연성을 활용해 복잡한 유저-아이템 관계를 효과적으로 포착합니다.\n\n**2. 기존 방법과의 차이점**  \n- **전통적 협업 필터링**(예: MF, SVD): 유저와 아이템의 잠재 벡터를 곱해 상호작용을 계산하는 단순한 방식을 사용합니다. 이로 인해 비선형적 관계가 제대로 반영되지 못할 수 있습니다.  \n- **NCF**: 신경망을 통해 유저-아이템 상호작용을 **복잡한 함수 형태**로 모델링합니다. 이는 비선형성과 ",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 57069.55,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.6,
+        "reasoning": "답변은 NCF의 개념, 구조, 장점을 체계적으로 설명하여 질문의 핵심을 정확히 다루었으나, 검색된 문서 대부분이 NGCF에 집중되어 있어 NCF에 대한 직접적 인용이 부족한 점이 faithfulness를 낮췄다. 'MovieLens, Pinterest 데이터셋 성능 비교'와 같은 구체적 사례는 문서에서 확인되지 않아 환각으로 판단된다."
+      }
+    },
+    {
+      "question_id": "in_course_009",
+      "question": "Data Engineering 강의에서 Airflow 사용법 알려줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "Airflow 사용법을 단계별로 설명드리겠습니다.  \n\n---\n\n### **1. 설치 방법 (Windows 기준)**  \nWindows 환경에서는 아래 3가지 방법으로 설치 가능합니다.  \n1. **WSL (Windows Subsystem for Linux)**  \n   - PowerShell에서 `wsl --install` 실행하여 리눅스 환경(Ubuntu 등) 설치  \n   - 이후 리눅스 터미널에서 Airflow 설치 (`pip install apache-airflow`)  \n\n2. **Docker**  \n   - Docker Desktop 설치 후, Docker Compose 파일(`docker-compose.yml`)로 Airflow 컨테이너 실행  \n   - 예시:  \n     ```yaml\n     services:\n       airflow:\n         image: apache/airflow:latest\n         ports:\n           - \"808",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 48427.21,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "시스템 답변은 Airflow 설치부터 실행까지의 과정을 체계적으로 설명하며, Windows 환경 대응 방안(WSL/Docker/클라우드)과 DAG 구성 방법 등 실용적인 정보를 제공합니다. 이는 검색된 문서들의 내용과 일관되며, 특히 문서 2(Slack QA)와 문서 3(Kubernetes/Helm 배포) 등의 정보를 효과적으로 재구성한 것으로 보입니다. 다만, 특정 강의 콘텐츠 내의 고유한 예제나 맥락을 강조하기보다 일반적인 Airflow 사용법을 중심으로 설명했기 때문에 강의 특화 측면에서는 약간의 한계가 있습니다."
+      }
+    },
+    {
+      "question_id": "in_course_010",
+      "question": "MRC 강의에서 Dense Passage Retrieval 설명해줘",
+      "category": "in_domain",
+      "subcategory": "course_specific",
+      "answer": "**Dense Passage Retrieval (DPR) 설명**\n\n1. **Dense Embedding 기본 개념**  \n   - **정의**: 작은 차원(50~1000)의 밀집된 벡터 표현으로, 각 차원이 특정 단어에 매핑되지 않음. TF-IDF 등 희소 표현(Sparse Embedding) 대비 **낮은 차원과 상관관계 기반 정보 표현**이 특징입니다.  \n   - **장점**:  \n     - 차원 축소 효과로 연산 효율 향상  \n     - 유사도 계산을 통한 의미적 관계 파악 가능  \n\n2. **Dense Encoder 구조**  \n   - **사전 훈련된 언어 모델**(예: BERT)을 인코더로 사용합니다.  \n   - 입력 텍스트([Question/Passage])를 임베딩해 **고밀도 벡터**로 변환합니다.  \n     - 예: BERT의 `[CLS] 토큰 출력`을 질문/Q-P 쌍의 공동 표현으로 활용하기도 함  \n\n3. **학습 목표 & 데이터**  \n   - **",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 64411.9,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "답변은 Dense Passage Retrieval(DPR)의 기본 개념, 구조, 학습 목표, 추론 과정을 포괄적으로 설명하며, 대부분 검색된 문서 내용과 일치합니다. 다만 BERT의 [CLS] 토큰 활용이나 Top-k 정확도와 같은 세부 사항은 문서 명시 여부가 불분명하나 일반적 DPR 지식으로서 타당합니다. MRC 강의 특화 예시나 시각 자료 참조가 부족한 점은 아쉬우나, 질문 요지에 맞는 충분한 정보를 제공합니다."
+      }
+    },
+    {
+      "question_id": "in_source_001",
+      "question": "Slack에서 GPU 관련 질문 중에 유용한 답변 있나요?",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "죄송합니다. 'Slack에서 GPU 관련 질문 중에 유용한 답변 있나요?'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 7866.59,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 2,
+        "completeness": 2,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.333,
+        "reasoning": "시스템은 검색된 문서가 없어 사용자의 질문에 직접 답변하지 못하고, 자신의 도메인 밖임을 인정한 후 가능한 질문 분야를 안내했습니다. 이로 인해 사용자의 질문에 대한 직접적 답변이 없어 관련성과 완전성이 떨어집니다. 그러나 환각을 일으키거나 잘못된 행동을 하지는 않았습니다."
+      }
+    },
+    {
+      "question_id": "in_source_002",
+      "question": "실습 노트북에서 데이터 전처리 예제 코드 찾아줘",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "데이터 전처리 관련 예제는 다음과 같이 찾을 수 있습니다. 주로 **Boston Housing 데이터 처리**(전통적 ML 워크플로우)와 **자연어 처리(NLP) 데이터 전처리** 사례가 있습니다.\n\n---\n\n### 1. Boston Housing 데이터 전처리 (문서 2 기준)\n```python\n# 데이터 로드 및 분할\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\n\n# 데이터 로드\ndata = pd.read_csv('path/to/boston_housing.csv', sep='\\s+', header=None)\nX = data.iloc[:, :-1]  # 예측 변수\ny = data.iloc[:, -1]   # 종속변수 MEDV\n\n# 학습/평가 데이터 분할 (8:2 비율)\nX_train, X_test, y_trai",
+      "retrieved_docs_count": 9,
+      "retrieval_time_ms": 48537.91,
+      "filter_applied": true,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템은 문서 2(Boston 데이터 전처리)와 문서 4(NLP 데이터 전처리)의 내용을 정확하게 인용하여 두 가지 데이터 전처리 예제를 제공했습니다. 모든 정보가 검색 문서에서 직접 도출되었으며, 사용자의 질문에 완벽하게 부합합니다. 다만 Boston 데이터 예제에서 CSV 파일 경로가 구체적이지 않은 점은 사소하지만 완전성 점수를 4점으로 조정합니다."
+      }
+    },
+    {
+      "question_id": "in_source_003",
+      "question": "이번 주 미션 루브릭에서 평가 기준 뭐야?",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "주어진 문서 중 평가 기준이 명시적으로 제시된 것은 **문서 3([채점 기준표] AI개발기초)** 입니다. 해당 미션의 평가 기준은 다음과 같이 구성됩니다:\n\n---\n\n### **AI개발기초 평가 기준표**\n| 구분                | 설명                                                                                   | 점수  |\n|---------------------|----------------------------------------------------------------------------------------|-------|\n| **코드의 완결성**    | 코드가 오류 없이 작동하며 정확한 결과 출력 여부 평가                                    | 60점  |\n| **쉘 스크립트**      | - 쉘 실행 시 오류 없음 (**10점**)<br>- 결과가 ",
+      "retrieved_docs_count": 13,
+      "retrieval_time_ms": 50840.49,
+      "filter_applied": true,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템은 문서 3의 AI개발기초 평가 기준표를 정확히 인용하여 사용자에게 전달했으며, 다른 미션들에 대해서는 평가 기준이 명시되지 않았음을 명확히 설명했습니다. 사용자의 질문에 완전히 부합하는 구체적이고 완전한 정보를 제공했기 때문에 모든 평가 항목에서 최고 점수를 받습니다."
+      }
+    },
+    {
+      "question_id": "in_source_004",
+      "question": "Slack QA에서 학습률 관련 질문 답변 찾아줘",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "주어진 문서에서 학습률(Learning Rate) 관련 정보는 다음과 같이 정리될 수 있습니다:\n\n---\n\n### **학습률(Learning Rate) 관련 주요 내용**\n1. **학습률 감쇠(Learning Rate Decay)**  \n   - **개념**: 처음에는 큰 학습률을 사용해 빠르게 최적점 근처로 이동한 후, 점차 학습률을 작게 조정하여 정밀도를 높임.\n   - **목적**: \n     - 큰 학습률 → 빠른 수렴 속도.\n     - 작은 학습률 → 최적점에 가까워질수록 미세 조정 가능.\n   - **예시**: 스텝별 감쇠(Step Decay) 방식에서 일정 에폭마다 학습률을 감소시킴 ([문서 Page 21](https://drive.google.com/file/d/1ZJYkXKjzVhWtGqFvRlUyfQg/view)).\n\n2. **시각적 비교**  \n   - 학습률이 높을 때와 낮을 때의 **훈련 손실 및 정확도 변화** 그래프가 제공됨 ([Page 21 이미지](h",
+      "retrieved_docs_count": 20,
+      "retrieval_time_ms": 40226.63,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 3,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": false,
+        "overall_score": 0.4,
+        "reasoning": "시스템 답변은 학습률에 관한 일반적인 정보를 제공하지만, 검색된 문서에서 직접 인용한 내용은 없어 충실성이 낮습니다. 사용자의 질문이 Slack QA 기록을 찾는 것이었으나, 답변은 일반적인 학습률 설명이므로 관련성도 떨어집니다. 답변 자체는 학습률 개념을 포괄적으로 다루고 있어 완전성은 높으나, 문서 내용에 없는 페이지 참조와 외부 링크가 환각을 일으켰으며, 사용자의 소스 특정을 무시한 점도 문제로 보입니다."
+      }
+    },
+    {
+      "question_id": "in_source_005",
+      "question": "PDF 강의 자료에서 backpropagation 설명 찾아줘",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "backpropagation(역전파)은 신경망의 가중치와 바이어스를 최적화하는 핵심 알고리즘입니다. 아래 단계별로 설명합니다:\n\n### 1. **기본 개념**\n- **목적**: 손실 함수(Loss Function)를 각 가중치(W)와 바이어스(b)에 대해 미분하여 **기울기(Gradient)**를 계산합니다.\n- **체인 룰(Chain Rule)**: 출력 → 입력 방향으로 역방향으로 미분을 적용해 각 층의 기울기를 계산합니다.\n\n---\n\n### 2. **단계별 과정**\n1. **순전파(Forward Pass)**  \n   - 입력 데이터(X)를 받아 은닉층과 출력층을 거치며 예측값(Y_pred)을 계산합니다.  \n   - 각 층의 활성화 함수(예: Sigmoid, Tanh) 결과(**a**)와 가중치(W), 바이어스(b)를 저장합니다.\n\n2. **손실 계산**  \n   - 예측값(Y_pred)과 실제값(Y_true) 사이의 차이를 손실 함수(L, 예: MSE, Cross-Entro",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 42554.87,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.533,
+        "reasoning": "시스템 답변은 역전파의 기본 개념과 단계별 과정을 포괄적으로 설명하였으나, PDF 강의 자료에 없는 '로지스틱 회귀의 역전파'를 언급하여 환각을 발생시켰습니다. 또한 PDF의 구체적인 예시를 완전히 재현하지 않았으며, 일부 내용은 일반적인 지식을 기반으로 합니다. 그러나 사용자의 질문인 'backpropagation 설명 찾기'에 대해 PDF 문서 위치를 명시하고 관련 정보를 제공하는 등 주제와의 연관성은 유지되었습니다."
+      }
+    },
+    {
+      "question_id": "in_source_006",
+      "question": "노트북에서 모델 평가 메트릭 계산 코드 찾아줘",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "노트북에서 모델 평가 메트릭(RMSE) 계산 및 파라미터 추출을 위한 **단계별 코드**입니다:\n\n---\n\n### 1. RMSE 계산 코드 (PyTorch 기반)\n```python\nimport torch\n\n# 예측값(y_hat)과 실제값(y) 텐서 가정\ny_hat = torch.tensor([...])  # 모델 예측값\ny = torch.tensor([...])      # 실제 정답값\n\n# RMSE 계산\nrmse = torch.sqrt(torch.mean((y - y_hat)**2))\nprint(f\"RMSE: {rmse.item():.4f}\")\n```\n\n---\n\n### 2. 파라미터 추출 코드 (문제 6번 해결)\n```python\n# 학습 완료된 모델(model) 가정\nb0 = model.linear.bias.item()          # 절편(bias term)\nb1 = [param.item() for param in model.linear.weight]  # 가중치 벡터\npr",
+      "retrieved_docs_count": 2,
+      "retrieval_time_ms": 33115.34,
+      "filter_applied": true,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "답변은 모델 평가 메트릭(RMSE) 계산 방식을 PyTorch와 Scikit-Learn 두 가지 관점에서 상세히 설명했으며, 파라미터 추출 방법까지 포함하여 완전성이 높습니다. 그러나 문서에서 직접적인 코드 조각을 인용하지 않고 일반적인 형태로 재구성했기 때문에 충실성은 중간 수준이며, 파라미터 추출 부분은 질문의 핵심 초점과 다소 거리가 있습니다. 환각 요소는 없으며, 질문 범주(in_domain)에 맞는 적절한 응답을 제공했습니다."
+      }
+    },
+    {
+      "question_id": "in_source_007",
+      "question": "강의 트랜스크립트에서 regularization 설명 부분 찾아줘",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "강의 트랜스크립트에서 **regularization(정규화)**에 대한 설명은 **문서 3**에 자세히 나와 있습니다. 핵심 내용을 단계별로 정리하면 다음과 같습니다:\n\n---\n\n### **1. 정규화의 정의**\n- **목적**: Loss Function에 **Weight(가중치)**의 패널티 항을 추가하여,  \n  모델의 Weight가 과도하게 커지는 것을 제한함으로써 **Overfitting(과적합)**을 방지합니다.\n- **λ(Lambda)**: 정규화 항에 곱해지는 하이퍼파라미터로,  \n  λ가 클수록 Weight가 지나치게 억제되어 **Underfitting(저적합)**이 발생할 수 있습니다.\n\n---\n\n### **2. 대표적인 정규화 방법**\n#### **① L1 정규화 (Lasso Regression)**  \n   \\[\n   L_w = \\| f(x) - y \\|^2 + \\lambda \\sum_{i} |w_i|\n   \\]\n   - **절댓값**을 사용하여 가중치를 규제합니",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 41175.04,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 문서 3의 정규화(Regularization) 섹션을 충실히 반영하였으며, L1/L2 정규화의 정의, 목적, 차이점 등을 포괄적으로 설명했습니다. 모든 정보가 검색 문서에서 직접 도출되었고, 사용자의 질문에 완벽하게 부합합니다."
+      }
+    },
+    {
+      "question_id": "in_source_008",
+      "question": "미션 문서에서 제출 방법 안내 찾아줘",
+      "category": "in_domain",
+      "subcategory": "source_specific",
+      "answer": "현재 제공된 문서들에서는 **미션 제출 방법에 대한 구체적인 안내**는 명시되어 있지 않습니다. 각 미션마다 다음과 같은 요소들이 포함되어 있으나, 최종 제출 절차에 대한 명확한 설명은 없습니다:\n\n1. **미션 개요, 학습 목표, 실습 포인트**  \n   - 각 미션의 목적과 요구 사항을 설명합니다.  \n   - 예: \"TF-IDF 검색 구현\", \"BM25 하이퍼파라미터 튜닝\", \"아이템 기반 KNN-CF 모델 구축\" 등  \n\n2. **환경 설정 및 필수 패키지**  \n   - 미션 수행에 필요한 Python 패키지와 버전을 명시합니다.  \n   - 예: `transformers >=4.0.0`, `torch >=2.9.0` 등  \n\n3. **데이터셋 정보**  \n   - 미션에 사용되는 데이터셋의 종류와 특징을 설명합니다.  \n   - 예: `KLUE MRC 데이터셋`, `MovieLens 데이터셋` 등  \n\n4. **문제 풀이 준비 단계**  \n   - 데이터 다운로드, 모듈 ",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 44976.87,
+      "filter_applied": true,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "시스템은 문서에서 '제출 방법'에 관한 구체적인 정보가 없음을 정확히 파악하고 이를 인정했습니다. 대신 공식 플랫폼 확인, 담당 마스터 문의, 커뮤니티 활용이라는 현실적인 대안을 제시함으로써 사용자를 지원하려 했습니다. 다만 사용자의 원래 질문인 '제출 방법 안내 찾기'에 직접적으로 답변하지는 못했으므로 관련성은 떨어집니다."
+      }
+    },
+    {
+      "question_id": "ood_unrelated_001",
+      "question": "오늘 날씨 어때?",
+      "category": "out_of_domain",
+      "subcategory": "unrelated",
+      "answer": "죄송합니다. '오늘 날씨 어때?'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 7416.29,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 1,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.733,
+        "reasoning": "시스템은 날씨 정보 요청이라는 범위 밖의 질문에 대해 정중히 거절하며, 자신의 전문 분야(AI 교육 관련)를 명확히 안내했습니다. 답변에는 환각이나 잘못된 정보가 없으며, 필요한 정보를 충분히 제공합니다."
+      }
+    },
+    {
+      "question_id": "ood_unrelated_002",
+      "question": "맛있는 점심 메뉴 추천해줘",
+      "category": "out_of_domain",
+      "subcategory": "unrelated",
+      "answer": "죄송합니다. '맛있는 점심 메뉴 추천해줘'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 5279.34,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 1,
+        "completeness": 3,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.333,
+        "reasoning": "시스템은 사용자의 점심 메뉴 추천 요청에 대해 정중하게 거절하고, 자신이 다룰 수 있는 AI 관련 주제에 대해 안내했습니다. 이는 out-of-domain 질문에 대한 기대 행동(politely_decline)을 충족시킵니다. 그러나 질문 자체와는 관련이 없으며, 답변의 정보가 검색된 문서에서 오지 않아 faithfulness 점수는 낮습니다. 반면, 지원 가능한 영역을 구체적으로 나열하여 최소한의 유용성을 제공한 점이 completeness 점수를 3점으로 만듭니다."
+      }
+    },
+    {
+      "question_id": "ood_unrelated_003",
+      "question": "주말에 뭐하면 좋을까?",
+      "category": "out_of_domain",
+      "subcategory": "unrelated",
+      "answer": "죄송합니다. '주말에 뭐하면 좋을까?'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 5824.79,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 1,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.4,
+        "reasoning": "시스템은 범위 밖의 질문에 대해 정중히 거절하고 자신의 역할을 설명했습니다. 이로 인해 질문의 핵심(주말 활동 추천)과 관련성이 낮아졌으며, 검색된 문서가 없어 충실성도 낮습니다. 반면, 시스템의 역할과 지원 가능한 주제에 대해 충분히 설명하여 완전성은 높습니다."
+      }
+    },
+    {
+      "question_id": "ood_unrelated_004",
+      "question": "오늘 주식 시장 어때?",
+      "category": "out_of_domain",
+      "subcategory": "unrelated",
+      "answer": "죄송합니다. '오늘 주식 시장 어때?'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 5017.77,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템은 주식 시장 관련 질문에 대해 자신의 전문 분야가 아님을 정중하게 밝히면서(NOT IN SCOPE), 동시에 자신이 답변할 수 있는 AI 기술 분야의 범위를 구체적으로 설명했습니다. 답변은 메타데이터의 기대 행동(politely decline)을 완전히 충족시키며, 관련 없는 주제에 대한 환각을 생성하지 않고 한계점을 명확히 전달했습니다."
+      }
+    },
+    {
+      "question_id": "ood_ambiguous_001",
+      "question": "그거 어떻게 해?",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "answer": "죄송합니다. '그거 어떻게 해?'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 6578.87,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 2,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": false,
+        "overall_score": 0.467,
+        "reasoning": "시스템은 검색된 문서 없이 자체적으로 생성한 답변을 제공하여 충실성이 낮다. 사용자의 모호한 질문에 대해 답변 가능 영역을 설명하여 부분적으로 관련되나, 명확화 요청을 하지 않아 행동이 부적절하다."
+      }
+    },
+    {
+      "question_id": "ood_ambiguous_002",
+      "question": "에러나요",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "answer": "죄송합니다. '에러나요'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 7623.18,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 2,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": false,
+        "overall_score": 0.467,
+        "reasoning": "사용자의 질문은 매우 모호하고 범위 밖의 내용이므로, 시스템은 명확화를 요청해야 했습니다. 그러나 시스템은 명확화 요청 대신 범위 외임을 안내하였고, 자신이 답변할 수 있는 주제를 설명하였습니다. 답변에는 환각이나 잘못된 정보가 없으며, 답변할 수 없는 이유와 대안 정보를 충분히 제공하였으나, 명확화 요청을 하지 않아 행동이 부적절했습니다."
+      }
+    },
+    {
+      "question_id": "ood_ambiguous_003",
+      "question": "그 강의에서 설명한 알고리즘이 뭐였죠?",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "answer": "강의에서 설명한 주요 알고리즘은 다음과 같습니다:\n\n1. **디퓨션 모델(Diffusion Model)**  \n   - 이미지 생성/복원에 사용되며, 노이즈를 점차 제거하여 원래 이미지를 복원하거나 새로운 이미지를 생성합니다.  \n   - 추천 시스템에서 아이템 특성(이미지 등)을 생성하는 데 활용됩니다.  \n\n2. **생성 모델(Generative Models)**  \n   - 사용자-아이템 상호작용 데이터의 분포를 학습해 새로운 추천 항목을 생성합니다.  \n   - 예: 잠재 요인 모델, 그래프 기반 생성 모델 등.  \n\n3. **뉴럴 네트워크 기반 추천 모델**  \n   - 예: **P5 모델**  \n     - 사용자의 과거 행동 패턴을 학습해 다음 구매할 아이템을 예측하고, 추천 이유를 설명하는 기능을 갖춥니다.  \n     - 텍스트, 이미지 등 다양한 입력을 처리할 수 있는 멀티모달 구조를 가집니다.  \n\n4. **편향성 제거 및 인과 추론 알고리즘**  \n   - 추천",
+      "retrieved_docs_count": 20,
+      "retrieval_time_ms": 35207.56,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": false,
+        "overall_score": 0.333,
+        "reasoning": "시스템은 '어떤 강의'에 대한 질문인지 명확히 묻지 않고, 검색 문서에 없는 구체적인 알고리즘(P5 모델, 디퓨션 모델 등)을 열거함으로써 환각을 발생시켰습니다. 또한 out-of-domain 질문에 대해 명확화 요청을 하지 않아 행동이 부적절했습니다."
+      }
+    },
+    {
+      "question_id": "ood_ambiguous_004",
+      "question": "저번에 말한 그거 다시 설명해줘",
+      "category": "out_of_domain",
+      "subcategory": "ambiguous",
+      "answer": "죄송합니다. '저번에 말한 그거 다시 설명해줘'에 대해서는 답변드리기 어렵습니다.\n\n저는 네이버 부스트캠프 AI 교육 과정과 관련된 질문에 답변드릴 수 있습니다:\n• **AI/ML 개념 설명** - Transformer, CNN, RNN, 추천 시스템 등\n• **딥러닝 프레임워크** - PyTorch, TensorFlow 사용법\n• **코드 구현 방법** - 모델 학습, 데이터 전처리 등\n• **강의 내용 관련 질문** - CV, NLP, RecSys 강의\n• **실습/과제 관련 질문**\n\n위와 관련된 질문이 있으시면 언제든 도움드리겠습니다! 🤖",
+      "retrieved_docs_count": 0,
+      "retrieval_time_ms": 7509.07,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 2,
+        "completeness": 3,
+        "hallucination_detected": false,
+        "behavior_correct": false,
+        "overall_score": 0.4,
+        "reasoning": "시스템은 사용자의 모호한 질문에 대해 추가 설명을 요청하지 않고, 지원 가능한 주제를 안내했습니다. 이로 인해 행동 정확성 요건을 충족하지 못했으며, 질문의 핵심을 직접 다루지 않아 관련성도 낮습니다. 그러나 환각은 발생하지 않았고, 기본적인 서비스 범위에 대한 정보는 제공되었습니다."
+      }
+    },
+    {
+      "question_id": "ood_hallucination_001",
+      "question": "부스트캠프 10기 NLP 커리큘럼 알려줘",
+      "category": "out_of_domain",
+      "subcategory": "hallucination_inducing",
+      "answer": "부스트캠프 10기 NLP 커리큘럼은 다음과 같은 단계로 구성됩니다. 주어진 문서에서 추출한 정보를 종합해 보면:\n\n---\n\n### **1. 기본 텍스트 생성 (Text Generation)**\n- **LLM 텍스트 생성**:  \n  - Greedy Decoding, Top-k Sampling 등 디코딩 방식 비교  \n  - Huggingface 라이브러리 활용  \n\n- **단순 텍스트 생성**:  \n  - Huggingface Pipeline 사용법  \n  - Naive Decoding 방식의 한계  \n\n---\n\n### **2. 추론 시스템 최적화 (Inference Optimization)**\n- **하드웨어 가속화 기술**:  \n  - Flash Attention, Paged Attention  \n  - KV Caching, Speculative Decoding  \n  - Continuous Batching, Kernel Fusion  \n\n---\n\n### **3. 추론 시스템 설",
+      "retrieved_docs_count": 20,
+      "retrieval_time_ms": 42598.39,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 1,
+        "relevance": 2,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": false,
+        "overall_score": 0.267,
+        "reasoning": "시스템은 '부스트캠프 10기 NLP 커리큘럼'에 대한 구체적인 정보를 검색 문서에서 찾지 못했습니다. 그러나 마치 해당 정보가 존재하는 것처럼 상세한 커리큘럼 구조를 제시했으며, 이는 검색 내용과 일치하지 않는 환각된 정보입니다. 또한 메타데이터에서 요구하는 '정보 없음'을 인정하는 대신 허구의 내용을 생성함으로써 요구사항을 위반했습니다."
+      }
+    },
+    {
+      "question_id": "ood_hallucination_002",
+      "question": "김철수 마스터님이 설명한 GPT-5 내용 정리해줘",
+      "category": "out_of_domain",
+      "subcategory": "hallucination_inducing",
+      "answer": "현재 제공된 문서에서는 **GPT-5**에 대한 직접적인 정보는 확인되지 않습니다. 다만, OpenAI의 GPT 모델 발전사와 관련된 일부 정보를 통해 추론할 수 있는 부분을 정리해 드리겠습니다.\n\n---\n\n### 🔍 **문서에서 확인된 주요 정보**\n1. **GPT 모델 타임라인** (Page 11):\n   - 2020년 5월 28일: **GPT-3** 발표  \n   - 2022년 11월 30일: **GPT-3.5** 발표  \n   - 2023년 5월 14일: **GPT-4** (텍스트 기반) 발표  \n   - 2023년 11월 6일: **GPT-4-turbo** (텍스트+이미지 지원) 발표  \n\n2. **API 활용 사례** (Page 37~38):\n   - GPT-3.5/4 API는 지속적 훈련 및 업데이트가 이루어지며,  \n     예시로 **GPT-4-0613**(2023년 6월 13일 출시) 모델이 언급되었습니다.  \n   - ChatGPT는 웹 기반 서비스로 접근 가능하",
+      "retrieved_docs_count": 20,
+      "retrieval_time_ms": 45251.3,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 2,
+        "completeness": 2,
+        "hallucination_detected": true,
+        "behavior_correct": false,
+        "overall_score": 0.267,
+        "reasoning": "사용자의 질문은 '김철수 마스터님의 GPT-5 설명 요약'이었으나, 검색된 문서 어디에도 김철수 마스터나 GPT-5에 관한 구체적 정보가 없습니다. 답변은 GPT 모델의 타임라인과 일반적 추론을 제공하나, 이는 문서 기반의 정확한 정보가 아닌 추정에 가깝습니다. 또한 질문 메타데이터상 'acknowledge_no_info' 액션이 필요했으나 이를 충족하지 못했으며, GPT-5 관련 내용을 허구로 생성했기 때문에 환각이 발생했습니다."
+      }
+    },
+    {
+      "question_id": "ood_hallucination_003",
+      "question": "2030년 부스트캠프 AI Tech 일정 알려줘",
+      "category": "out_of_domain",
+      "subcategory": "hallucination_inducing",
+      "answer": "현재 제공된 문서에서는 **2030년 부스트캠프 AI Tech 일정**에 대한 구체적인 정보를 확인할 수 없습니다.  \n문서 내용은 주로 다음과 같은 주제로 구성되어 있습니다:\n\n1. **과거 기수 활동**:  \n   - 레벨별 과정(Level 2, 3), 과제, 대회 관련 논의 (예: 문서 4, 6, 10 등)  \n   - 특정 기수(4기, 5기, 6기 등)의 활동 및 Q&A  \n\n2. **기술 교육 내용**:  \n   - AI/ML 이론(VAE, Diffusion Model, Generative Model 등) (문서 2, 5, 9, 15 등)  \n   - 도구 활용(Perspective API, Google Cloud 등) (문서 3, 13 등)  \n\n3. **저작권 및 라이선스**:  \n   - 교육 콘텐츠 및 데이터셋(MIT License, Apache 2.0 등) (문서 18 등)  \n\n---\n\n### 🔍 **추가 확인 필요 사항**  \n2030년은 아직 먼 미래의 시점이",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 36233.34,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "시스템은 주어진 문서에서 2030년 부스트캠프 AI Tech 일정에 관한 정보를 찾을 수 없다는 사실을 인식하고 있다. 따라서 사용자에게 공식 웹사이트나 공지사항을 확인하도록 안내함으로써 문제를 해결하기 위해 노력하고 있다."
+      }
+    },
+    {
+      "question_id": "ood_hallucination_004",
+      "question": "박영희 조교님이 올린 과제 피드백 내용 알려줘",
+      "category": "out_of_domain",
+      "subcategory": "hallucination_inducing",
+      "answer": "현재 제공된 문서들에서는 **박영희 조교님**의 구체적인 과제 피드백 내용은 확인되지 않습니다. 대신 다음과 같은 정보를 기반으로 도움을 드릴 수 있습니다:\n\n1. **각 과목별 주간 미션 내용**  \n   - RecSys, NLP, CV 등 다양한 분야의 위클리 미션 개요, 학습 목표, 필수 패키지, 데이터셋 정보 등이 상세히 기술되어 있습니다.  \n   - 예: `Movie Recommendation` 과목의 `w16_MovieRec_CL4SRec-모델-구현` 미션에서는 **CL4SRec 모델 구현**, 데이터 증강 전략, HR@k/NDCG@k 평가 관련 내용이 포함됩니다.\n\n2. **일반적인 과제 수행 팁**  \n   - 대부분의 미션은 **데이터 전처리 → 모델 구현 → 평가** 단계를 거치며, 필요한 패키지와 데이터셋 경로가 명시되어 있습니다.  \n   - 예: `Semantic Segmentation` 과목의 `Unet 구현하기` 미션에서는 데이터셋 경로(`Hand Bon",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 40368.47,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "시스템은 박영희 조교님의 과제 피드백에 관한 정보가 검색된 문서에 없음을 인정하면서도, 관련 과목별 미션 내용과 과제 수행 팁 등을 제공하여 대체 정보를 제시했습니다. 이는 'acknowledge_no_info'라는 기대 행동을 충족시키면서도 유용성을 높이려는 노력이 반영되었습니다. 다만 질문의 핵심 요구사항을 직접적으로 해결하지는 못했으므로 완전성과 관련성이 다소 낮습니다."
+      }
+    },
+    {
+      "question_id": "ood_boundary_001",
+      "question": "GPT-4o의 최신 업데이트 내용이 뭐야?",
+      "category": "out_of_domain",
+      "subcategory": "boundary",
+      "answer": "현재 제공된 문서 내용에 따르면, **GPT-4 Turbo**가 2023년 11월 6일에 발표된 OpenAI의 최신 모델로 기록되어 있습니다. 아래는 주요 업데이트 사항입니다:\n\n---\n\n### 📌 **GPT-4 Turbo 주요 업데이트**\n1. **학습 데이터 확장**:  \n   - 기존 GPT-4는 2021년 9월까지의 데이터로 학습되었으나, **GPT-4 Turbo는 2023년 4월까지의 데이터**를 포함해 더욱 최신 정보를 반영합니다.\n\n2. **처리 용량 증가**:  \n   - 최대 토큰(token) 길이가 **128k**(128,000)로 확대되었습니다.  \n     *(기존 GPT-4는 약 8k~32k 토큰 제한)*\n\n3. **멀티모달 기능 강화**:  \n   - **DALL-E 3**와의 연동을 통해 텍스트 명령으로 이미지 생성이 가능해졌습니다.  \n   - 이미지 분석, PDF 검색, 문서 업로드 등 **비텍스트 데이터 처리 기능**이 추가되었습니다.\n\n4. **효율",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 42005.5,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템은 'GPT-4o'가 공식 모델명이 아님을 인정하고, 가장 유사한 'GPT-4 Turbo'의 업데이트 내용을 상세히 설명함으로써 한계를 인정하며 유용한 정보를 제공했습니다. 답변 내용은 검색 문서에서 확인된 정보를 기반으로 하며, 질문에 대한 관련성을 유지하면서도 정확한 한계 인식을 보여주었습니다."
+      }
+    },
+    {
+      "question_id": "ood_boundary_002",
+      "question": "Anthropic Claude의 Constitutional AI 논문 설명해줘",
+      "category": "out_of_domain",
+      "subcategory": "boundary",
+      "answer": "현재 제공된 문서에서는 Anthropic Claude의 Constitutional AI 논문에 관한 구체적인 내용이 포함되어 있지 않습니다. 다만 몇 가지 중요한 AI/ML 개념들과 관련된 정보는 확인할 수 있었습니다. 아래는 현재 컨텍스트 기반 주요 개념 정리와 Constitutional AI에 대한 일반적인 설명입니다.\n\n---\n\n### **현재 컨텍스트에서 다루는 중요 개념**\n1. **머신러닝 기본 구조**  \n   - 신경망의 기본 구조(Fully-connected Layer, 활성화 함수, Softmax 등).  \n   - Loss Function 최적화를 위한 **볼록 함수(Convex Function)** 개념.  \n\n2. **Long Context 모델**  \n   - 긴 문맥 처리(Long Context) 기술의 필요성과 기술적 도전 과제.  \n   - Position Embedding, Ring Attention 등 관련 기술 트렌드.  \n\n3. **AI 에이전트",
+      "retrieved_docs_count": 16,
+      "retrieval_time_ms": 44441.28,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "completeness": 3,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.267,
+        "reasoning": "시스템은 Anthropic Claude의 Constitutional AI 논문 설명 요청이 검색 문서 범위 밖임을 인지하고 제한된 정보를 제공하려 했으나, 답변 내용은 검색 문서와 무관한 외부 지식에 기반하고 있습니다. 특히 Constitutional AI에 대한 구체적인 설명은 문서 내용과 일치하지 않아 환각 요소가 있습니다."
+      }
+    },
+    {
+      "question_id": "ood_boundary_003",
+      "question": "Llama 3 모델 학습 방법 알려줘",
+      "category": "out_of_domain",
+      "subcategory": "boundary",
+      "answer": "Llama 3 모델의 학습 방법은 다음과 같이 단계별로 정리할 수 있습니다:\n\n---\n\n### **1. 모델 선택 및 초기 설정**\n- **공식 모델 활용**:  \n  Huggingface를 통해 Meta의 **Llama-3.1** 모델을 사용할 수 있으나, 사용 허가 요청이 필요해 대기 시간이 발생할 수 있습니다.  \n  → **대체 방안**: 실습 시에는 `unsloth/Meta-Llama-3.1-8B-Instruct` 모델을 베이스로 활용 가능합니다.  \n\n- **작은 규모 모델 권장**:  \n  실습 효율성을 위해 `\"meta-llama/Llama-3.2-1B\"`와 같은 소형 모델을 사용하는 것이 좋습니다.  \n  ```python\n  # 모델 구조 확인 예시\n  print(model)\n  ```\n\n---\n\n### **2. 모델 구조 분석**\n- **레이어 및 모듈 확인**:  \n  모델의 총 레이어 수, 각 모듈(Multi-Head Attention, Feed-Forward",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 48130.99,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": false,
+        "overall_score": 0.533,
+        "reasoning": "시스템 답변은 Llama 3 학습 방법을 체계적으로 설명했지만, 문서 기반의 구체적 증거가 부족한 부분이 많습니다. LoRA 적용 방식이나 PEFT 구현 단계 등은 문서에서 명시적으로 언급되지 않아 환각 요소가 있습니다. 또한 질문이 'out_of_domain'임에도 한계를 인정하지 않고 자체 답변을 생성했습니다."
+      }
+    },
+    {
+      "question_id": "edge_multihop_001",
+      "question": "CV에서 배운 CNN과 NLP에서 배운 Transformer의 공통점과 차이점은?",
+      "category": "edge_case",
+      "subcategory": "multi_hop",
+      "answer": "**CNN과 Transformer의 공통점:**\n1. **계층적 특징 학습**:  \n   - CNN은 여러 층의 컨볼루션 연산으로 점진적으로 고차원 특징을 추출하며, Transformer 역시 다수의 어텐션 계층을 통해 복잡한 패턴을 학습합니다.\n2. **스케일링 효과**:  \n   - 두 모델 모두 대규모 데이터셋과 모델 크기 증가에 따라 성능이 향상되는 경향이 있습니다(\"스케일링 법칙\").\n3. **특징 매핑 목표**:  \n   - 입력 데이터(\\(x\\))에서 레이블(\\(y\\))로의 최적 매핑을 찾는다는 기본적인 학습 목표를 공유합니다.\n\n---\n\n**CNN과 Transformer의 차이점:**\n1. **핵심 연산**:  \n   - **CNN**: 컨볼루션(Convolution)과 풀링(Pooling)을 사용해 **공간적 지역성**을 강조합니다.  \n   - **Transformer**: **셀프 어텐션(Self-Attention)**을 중심으로 입력 요소들 간의 **글로벌 관계",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 51660.82,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "답변은 CNN과 Transformer의 공통점(계층적 특징 학습, 스케일링 효과, 특징 매핑 목표)과 차이점(핵심 연산, 위치 정보 처리, 계산 복잡도, 응용 범위)을 체계적으로 설명했습니다. 일부 내용은 검색된 문서(예: Dosovitskiy et al. 논문 인용, MLP/CNN 비교)와 일치하나, 모든 정보의 문서 기반성을 완전히 검증할 수는 없습니다. 그럼에도 질문에 대한 포괄적이고 논리적인 답변을 제공해 관련성과 완전성이 우수합니다."
+      }
+    },
+    {
+      "question_id": "edge_multihop_002",
+      "question": "RecSys와 NLP에서 모두 사용되는 Embedding 기법들을 비교해줘",
+      "category": "edge_case",
+      "subcategory": "multi_hop",
+      "answer": "RecSys와 NLP에서 사용되는 Embedding 기법은 목적과 구현 방식에서 차이가 있지만, 모두 고차원 데이터를 저차원 공간으로 변환해 유용한 표현을 추출한다는 공통점이 있습니다. 아래 단계별 비교를 참고하세요:\n\n---\n\n### **1. RecSys 분야의 임베딩 기법**\n- **Graph-Based Collaborative Filtering**:  \n  - **NGCF (Neural Graph Collaborative Filtering)**: 유저-아이템 간 관계 그래프를 활용해 임베딩을 전파(refine)합니다. 초기 임베딩을 GNN(그래프 신경망) 레이어에서 업데이트하며 high-order connectivity(고차 연결성)를 학습합니다.  \n  - **LightGCN**: NGCF와 유사하지만, feature transformation과 nonlinear activation을 제거해 단순화했습니다. 자기 연결(self-connection) 없이 이웃 노드 정보만 활용",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 47254.96,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템 답변은 여러 문서에서 얻은 정보를 바탕으로 RecSys와 NLP의 임베딩 기법을 체계적으로 비교하였습니다. NGCF, LightGCN 등의 RecSys 임베딩과 BERT/GPT, LLM-based 임베딩 등의 NLP 임베딩을 구체적으로 설명하고, 이들의 목적·데이터 구조·핵심 기술의 차이를 표로 정리함으로써 질문에 충실히 답변했습니다. 다만 'K층 임베딩을 가중합으로 결합'과 같은 세부 사항은 주어진 문서 스니펫에서 직접 확인되지 않아 약간의 확장이 있었을 수 있으므로 faithfulness를 4점으로 조정했습니다."
+      }
+    },
+    {
+      "question_id": "edge_multihop_003",
+      "question": "PyTorch 강의와 실습 노트북에서 다룬 모델 학습 과정을 종합해서 설명해줘",
+      "category": "edge_case",
+      "subcategory": "multi_hop",
+      "answer": "PyTorch 기반 모델 학습 파이프라인은 다음과 같은 단계로 구성됩니다:\n\n---\n\n### **1. 데이터 준비 및 전처리**\n- 원본 데이터를 **훈련/검증/테스트 세트**로 분리  \n- **전이 학습**(Transfer Learning)을 위해 미리 학습된 모델(ViT, BERT 등) 활용 가능  \n- **교차 검증(K-Fold)** 구현 시, 각 폴드(fold)마다 독립적인 전처리(스케일링, 인코딩 등) 수행  \n  - 예: 5-Fold CV 시, 매 반복(iteration)마다 검증 세트를 제외한 나머지로 스케일러를 학습(fit)하고 변형(transform)  \n\n---\n\n### **2. 모델 정의**\n- **LightningModule** 활용해 모델 클래스 정의 (일반 `nn.Module` 대비 확장 기능 제공)  \n- 사전 학습된 모델 위에 **선형 레이어(Linear)** 추가해 미세 조정(Fine-tuning)  \n- **정규화**: 드롭아웃(Dropout) 레이어",
+      "retrieved_docs_count": 14,
+      "retrieval_time_ms": 38840.39,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "답변은 여러 문서에서 수집된 정보를 종합하여 PyTorch 모델 학습 파이프라인을 체계적으로 설명하고 있습니다. 데이터 전처리부터 모델 평가까지의 주요 단계를 포괄하며, LightningModule, 전이 학습, 교차 검증 등 문서 내용에 기반한 구체적 개념을 포함하고 있습니다. 그러나 일부 세부 사항은 명시적으로 언급되지 않아 완전성 측면에서 약간의 여지가 있습니다."
+      }
+    },
+    {
+      "question_id": "edge_multihop_004",
+      "question": "AI Math에서 배운 미분 개념이 딥러닝 backpropagation에 어떻게 적용되나요?",
+      "category": "edge_case",
+      "subcategory": "multi_hop",
+      "answer": "딥러닝의 **백프로파게이션(backpropagation)** 은 네트워크의 파라미터를 최적화하는 과정에서 **미분(특히 편미분)** 을 활용합니다. 구체적으로 다음과 같은 단계로 연결됩니다:\n\n---\n\n### 1. **손실 함수(Loss Function) 정의**\n   - 예측값과 실제값의 차이를 나타내는 **손실 함수** \\( L \\)을 정의합니다.  \n     예: MSE(평균 제곱 오차), Cross Entropy 등.\n\n---\n\n### 2. **순전파(Forward Pass)**\n   - 입력 데이터 \\( x \\)를 네트워크에 전달해 예측값 \\( \\hat{y} \\)를 계산합니다.  \n   - 각 층(layer)의 출력은 이전 층의 가중치 \\( W \\)와 활성화 함수 \\( \\sigma \\)로 표현됩니다.  \n     \\( \\hat{y} = \\sigma(Wx + b) \\).\n\n---\n\n### 3. **기울기 계산 (Backward Pass)**\n   - 손실 함수 \\( L \\)을",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 37948.03,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 여러 문서(AI Math의 미분/경사하강법 강의, DL Basics의 백프로파게이션 강의 등)에서 수집된 정보를 종합하여 백프로파게이션에서 미분이 어떻게 활용되는지 체계적으로 설명했습니다. 손실 함수 정의, 순전파, 기울기 계산, 파라미터 업데이트 단계와 연쇄 법칙 등을 포함해 질문에 완전히 답변했으며, 문서 기반의 정확한 정보를 제공했습니다."
+      }
+    },
+    {
+      "question_id": "edge_temporal_001",
+      "question": "NLP 강의 순서대로 주요 개념들을 정리해줘",
+      "category": "edge_case",
+      "subcategory": "temporal",
+      "answer": "NLP 강의의 주요 개념을 순서대로 정리하면 다음과 같습니다. 제공된 문서 정보를 바탕으로 단계별 흐름을 구성했습니다.\n\n---\n\n### **1. 기초 이론 및 텍스트 처리**\n- **토큰화 (Tokenization)**  \n  - 정의: 텍스트를 의미 단위(**Token**)로 분리하는 과정  \n  - 종류:  \n    - **Word-Level**: 단어 단위로 분할 (`[\"The\", \"devil\"]`)  \n    - **Character-Level**: 문자 단위로 분할 (`[\"T\", \"h\", \"e\"]`)  \n    - **Subword-Level**: 단어 내부를 분할 (예: BPE(Byte Pair Encoding))  \n\n---\n\n### **2. 최신 NLP 트렌드**\n- **Part 1: 추론(Reasoning) & 계획(Planning)**  \n  - 복잡한 언어 이해 문제를 해결하기 위한 접근법  \n  - 예: 논리적 추론, 장기적 의도에 따른 작업 수행  \n\n- *",
+      "retrieved_docs_count": 5,
+      "retrieval_time_ms": 51707.7,
+      "filter_applied": true,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.533,
+        "reasoning": "답변은 문서 기반의 주요 개념(토큰화, Transformer, Reasoning & Planning, Knowledge Update)을 포함하고 있으나, RNN/CNN 모델 언급과 같은 문서 미포함 내용이 있어 환각이 발생했습니다. 그러나 사용자의 '순서대로 정리' 요청에 맞춰 기본 이론 → 모델 구조 → 트렌드 순으로 체계화했으며, 학습 단계 제안 등으로 시간적 맥락을 고려한 점에서 행동은 적절합니다."
+      }
+    },
+    {
+      "question_id": "edge_temporal_002",
+      "question": "Object Detection 기법들의 발전 순서를 설명해줘 (R-CNN부터 YOLO까지)",
+      "category": "edge_case",
+      "subcategory": "temporal",
+      "answer": "Object Detection 기술의 발전 순서는 다음과 같이 요약될 수 있습니다:\n\n---\n\n### **1. R-CNN 계열 (2-Stage Detector)**\n- **R-CNN (2013)**  \n  - 첫 번째 지역 기반 검출기. 후보 영역을 선택(Segmentation)한 후 개별적으로 분류.\n  - 한계: 계산 비용이 높고 속도가 느림.\n\n- **Fast R-CNN (2015)**  \n  - R-CNN을 최적화하여 속도를 개선했으나 여전히 2단계 과정 유지.\n\n- **Faster R-CNN (2015)**  \n  - **Region Proposal Network (RPN)** 도입으로 후보 영역 생성과 분류를 단일 네트워크로 통합.\n  - Anchor Box 개념을 사용해 다양한 크기와 비율의 객체를 효과적으로 처리.\n\n---\n\n### **2. 1-Stage Detector로의 전환**\n2단계 검출기의 느린 속도 문제를 해결하기 위해 **단일 단계**로 객체 감지를 수행하",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 45695.01,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.8,
+        "reasoning": "응답은 R-CNN부터 YOLO까지의 Object Detection 기술 발전 순서를 체계적으로 설명하며, 각 기술의 주요 특징과 개선 사항을 시간적 흐름에 맞게 정리하였습니다. 다만 YOLO v4 이상에 대한 구체적인 설명이 부족하고, 일부 세부 사항(예: SSD와의 관계)에서 간략화된 부분이 관찰되므로 완전성에서 약간의 감점이 발생합니다. 전반적으로는 사용자의 질문에 충실하게 답변하였으며, 시간적 논리를 적절히 활용하였습니다."
+      }
+    },
+    {
+      "question_id": "edge_temporal_003",
+      "question": "Transformer 이전의 Seq2Seq 모델들은 어떤 순서로 발전했나요?",
+      "category": "edge_case",
+      "subcategory": "temporal",
+      "answer": "Transformer 이전의 Seq2Seq 모델은 다음과 같은 순서로 발전했습니다:\n\n---\n\n### **1. 초기 RNN 기반 Seq2Seq 모델**\n- **기본 구조**: 인코더(Encoder)와 디코더(Decoder) 모두 RNN(LSTM 또는 GRU)으로 구성되었습니다.\n- **한계점**:\n  - **Bottleneck 문제**: 인코더의 마지막 숨겨진 상태(hidden state)만으로 모든 입력 정보를 압축하려 했기 때문에 긴 시퀀스 처리에 취약했습니다.\n  - **Vanishing Gradient**: 먼 과거의 정보가 디코더 끝까지 전달되지 않아 장기 의존성 학습이 어려웠습니다.\n\n---\n\n### **2. Attention 메커니즘 도입**\n- **핵심 아이디어**: 디코더가 인코더의 모든 숨겨진 상태를 참조하여 **특정 단어나 구간에 집중**하도록 설계되었습니다.\n- **주요 유형**:\n  - **Additive Attention**(Bahdanau Attention",
+      "retrieved_docs_count": 11,
+      "retrieval_time_ms": 45872.37,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 2,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.6,
+        "reasoning": "시스템 답변은 Transformer 이전의 Seq2Seq 모델 발전사를 체계적으로 설명했지만, 검색된 문서에서 직접 추출된 내용은 아니다. 문서들은 주로 Seq2Seq 구현 방법과 Attention 메커니즘 설명에 초점을 두고 있으며, 역사적 발전 순서에 대한 명시적 정보는 없다. Bahdanau Attention이나 발전 단계별 구분 방식은 일반적인 NLP 지식이므로 부분적 환각 요소가 있다. 그러나 시간적 흐름에 따른 기술적 변화(초기 RNN → Attention → 고급화 → Transformer)라는 질문의 본질은 정확히 포착했다."
+      }
+    },
+    {
+      "question_id": "edge_negation_001",
+      "question": "CNN을 제외한 이미지 처리 방법들을 설명해줘",
+      "category": "edge_case",
+      "subcategory": "negation",
+      "answer": "CNN을 제외한 이미지 처리 방법에는 다음과 같은 주요 접근법들이 있습니다:\n\n### 1. **Vision Transformers (ViT)**\n- **특징**: 이미지를 작은 패치로 분할해 트랜스포머 모델에 입력.\n- **장점**: \n  - 긴 거리 의존성 학습 가능.\n  - 데이터 병렬 처리 효율적.\n  - 사전 학습된 모델 활용 용이.\n- **활용**: 이미지 분류, 객체 탐지 등에서 CNN 대비 우수 성능.\n\n---\n\n### 2. **전통적 피처라이제이션 (Rule-Based Feature Extraction)**\n- **예시**: \n  - **컬러 히스토그램**: 이미지 색상 분포를 벡터로 표현.\n  - **오리엔티드 그레디언트 히스토그램 (HOG)**: 방향별 밝기 변화 패턴 추출.\n  - **과학적 도메인 지식 기반 피처**: 데이터 특성에 맞춘 맞춤형 피처 설계.\n- **단점**: 데이터 변화에 취약하며, 수작업이 필요함.\n\n---\n\n### 3. **생성적 적대 신경망",
+      "retrieved_docs_count": 17,
+      "retrieval_time_ms": 47013.03,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "답변은 CNN을 제외한 다양한 이미지 처리 방법(ViT, 전통적 피처라이제이션, GAN 계열, 구조적 네트워크, 손실 함수 전략 등)을 체계적으로 설명했으며, 질문의 부정형 조건(negation)을 충실히 반영했습니다. 문서 1(ViT)과 문서 2(전통적 피처라이제이션) 내용과 직접 연결되었으나, 나머지 부분은 일반적인 지식 기반을 활용한 것으로 추정됩니다. 환각 요소 없으며, 포괄적이고 상세한 설명을 제공해 완전성이 높습니다."
+      }
+    },
+    {
+      "question_id": "edge_negation_002",
+      "question": "Adam이 아닌 다른 옵티마이저들의 특징을 알려줘",
+      "category": "edge_case",
+      "subcategory": "negation",
+      "answer": "Adam이 아닌 다른 주요 옵티마이저들의 특징을 정리하면 다음과 같습니다:\n\n---\n\n### **1. SGD (Stochastic Gradient Descent)**\n- **특징**: \n  - **데이터 샘플 단위/미니배치 단위**로 기울기 계산 → **높은 노이즈** 발생 가능\n  - **장점**: 메모리 효율적, 대규모 데이터 처리 용이\n  - **단점**: 지역 최적점(local minima)에 갇힐 가능성 ↑, 학습 경로 불안정\n  - **변형**: Mini-batch SGD (효율성↑), Momentum SGD (관성 추가)\n\n---\n\n### **2. BGD (Batch Gradient Descent)**\n- **특징**:\n  - **전체 데이터셋**으로 기울기 계산 → **정확하지만 느림**\n  - **장점**: 정확한 경사도 추정 → 안정적 수렴\n  - **단점**: 대량 데이터 처리 어려움, 계산 비용 높음\n\n---\n\n### **3. Momentum 기반 옵티마이저**",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 42823.48,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.933,
+        "reasoning": "시스템은 Adam 이외의 주요 옵티마이저(SGD, BGD, Momentum, Adagrad, RMSprop, Adadelta)의 특징을 체계적으로 설명하며 사용자의 질문에 정확하게 답변했습니다. 문서에서 얻은 정보를 바탕으로 각 옵티마이저의 작동 방식, 장단점, 학습률 조절 방식을 구체적으로 제시했으며, 표 형태로 정리하여 이해도를 높였습니다. Adam에 대한 언급 없이 다른 옵티마이저에만 집중함으로써 부정형(negation) 요구사항을 충족시켰습니다."
+      }
+    },
+    {
+      "question_id": "edge_negation_003",
+      "question": "BERT 이외의 Pre-trained Language Model들을 비교해줘",
+      "category": "edge_case",
+      "subcategory": "negation",
+      "answer": "BERT 외에 주목할 만한 사전 학습 언어 모델들과 그 특징을 비교 정리하면 다음과 같습니다:\n\n1. **GPT 시리즈**\n   - **디코더 중심 생성 모델**로 자연스러운 텍스트 생성에 특화\n   - Zero-shot/Few-shot 학습 가능 (추가 학습 없이 새 태스크 수행)\n   - GPT-3/4는 API 전용, GPT-2는 오픈소스\n\n2. **RoBERTa**\n   - BERT 학습 프로세스 개선 (큰 배치, 더 많은 데이터, 긴 학습)\n   - NSP 헤드 제거 후 MLM에만 집중 → BERT 대비 성능 향상\n\n3. **DeBERTa**\n   - **Disentangled Attention**(편향 분리 어텐션)\n   - **Enhanced MLM**으로 문맥 이해력 극대화\n\n4. **ALBERT**\n   - **Factorized Embedding**(임베딩 파라미터 분해)\n   - **Cross-Layer Parameter Sharing**(레이어 간 파라미터 공유)",
+      "retrieved_docs_count": 15,
+      "retrieval_time_ms": 42046.26,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 1.0,
+        "reasoning": "시스템 답변은 BERT 외 다양한 사전 학습 언어 모델들(GPT, RoBERTa, DeBERTa 등)의 특징을 정확하게 비교하였으며, 사용자의 질문(BERT 이외의 모델 비교)에 완전히 부합합니다. 모든 정보가 검색 문서에서 추출되었고, 환각이나 오류를 발견할 수 없습니다."
+      }
+    },
+    {
+      "question_id": "edge_code_001",
+      "question": "노트북에 있는 학습 루프 코드가 어떤 순서로 실행되는지 설명해줘",
+      "category": "edge_case",
+      "subcategory": "code_execution",
+      "answer": "노트북 내 **학습 루프**의 주요 실행 순서는 다음과 같습니다. 주어진 코드와 문서의 정보를 종합해 단계별로 정리했습니다.\n\n---\n\n### 📌 **실행 순서**\n1. **하이퍼파라미터 설정**  \n   - `seed`, `train_batch_size`, `resolution` 등의 기본값을 초기화합니다.  \n     예: 학습 스텝(`max_train_steps`)은 기본적으로 **10,000회**, 체크포인트 저장 간격(**`checkpointing_steps`**)은 **5,000회**로 설정됩니다.  \n     ※ 필요에 따라 학습 시간을 단축하기 위해 `max_train_steps` 값을 조정할 수 있습니다.\n\n2. **출력 디렉터리 생성**  \n   ```python\n   if not os.path.exists(output_dir):  \n       os.makedirs(output_dir)\n   ```\n   - 결과를 저장할 폴더 (`./sd_lora`)가 없을 경우",
+      "retrieved_docs_count": 2,
+      "retrieval_time_ms": 42306.04,
+      "filter_applied": true,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination_detected": true,
+        "behavior_correct": true,
+        "overall_score": 0.533,
+        "reasoning": "답변은 학습 루프의 실행 순서를 체계적으로 설명하고 있으며, 하이퍼파라미터 설정과 출력 디렉터리 생성 부분은 문서 내용에 부합한다. 그러나 데이터 로드, 포워드 패스 등 학습 루프 내부 구체적 단계는 문서에 명시되지 않은 일반적인 추론에 기반하므로 faithfulness가 낮다. 또한, 사용자의 질문에 대한 전반적인 흐름은 잘 전달하였으나 세부 구현 사항이 누락되어 completeness는 4점이다. 홀루시네이션은 발생했으나, code explanation이라는 기대 행동에 맞게 기술적인 설명을 시도했으므로 behavior correct로 판단된다."
+      }
+    },
+    {
+      "question_id": "edge_code_002",
+      "question": "데이터 증강 파이프라인 코드의 실행 흐름을 설명해줘",
+      "category": "edge_case",
+      "subcategory": "code_execution",
+      "answer": "데이터 증강 파이프라인의 실행 흐름은 다음과 같이 단계별로 설명할 수 있습니다:\n\n---\n\n### **1. 원본 데이터 준비**\n- **MovieLens 데이터**를 **sequential한 implicit 피드백 데이터**로 변환합니다.  \n  (사용자의 시간적 행동 시퀀스를 모델 입력 형식으로 재구성)\n\n---\n\n### **2. 데이터 증강 기법 적용**\n문서 1에서 제시된 3가지 증강 기법을 순차적으로 적용합니다:\n\n#### **① Crop (잘라내기)**  \n- 원본 시퀀스에서 **연속된 서브시퀀스를 무작위로 추출** (길이는 전체 시퀀스의 50% 이상 유지).  \n- **목적**: 부분-전체 일관성 학습 (예: 긴 기록의 일부로도 사용자 특성을 파악).\n\n#### **② Mask (마스킹)**  \n- 시퀀스의 일부 위치를 **특수 토큰**(PAD/MASK)으로 치환.  \n- **목적**: 부분 관측/노이즈에 강한 모델 학습 유도 (숨겨진 항목을 주변 컨텍스트로 복원).\n\n#",
+      "retrieved_docs_count": 19,
+      "retrieval_time_ms": 43836.97,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "시스템 답변은 문서 1의 데이터 증강 파이프라인 구조(Crop, Mask, Reorder 기법과 SeqTrainDataset 활용)를 충실히 반영했으며, 질문에 대한 구체적이고 체계적인 설명을 제공합니다. 다만 증강 기법의 세부 조건(예: 크롭 시 길이 제한)과 InfoNCE 손실 함수의 구체적 작동 방식 등 일부 세부사항이 생략되어 완전한 완전성은 아니지만 충분한 정보를 전달했습니다."
+      }
+    },
+    {
+      "question_id": "edge_meta_001",
+      "question": "현재 부스트캠프에서 제공하는 강의 과정들이 뭐가 있어?",
+      "category": "edge_case",
+      "subcategory": "meta_question",
+      "answer": "현재 부스트캠프에서 제공하는 강의 과정은 다음과 같이 확인됩니다:\n\n1. **core_common**: 공통 필수 과정  \n2. **level3_common**: 레벨3 공통 과정  \n3. **level3_product_serving**: 레벨3 제품 서빙 과정  \n4. **level3_model_optimization**: 레벨3 모델 최적화 과정  \n5. **level2_cv**: 레벨2 컴퓨터 비전(CV) 과정  \n6. **level2_nlp**: 레벨2 자연어 처리(NLP) 과정  \n\n위 과정들은 문서 분석을 통해 확인되었으며, 각 기수별 세부 내용은 변동될 수 있습니다. 추가로 특정 강의 주제나 커리큘럼 상세 정보는 부스트캠프 공식 홈페이지나 해당 기수별 안내를 참조하시는 것이 좋습니다.",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 30057.05,
+      "filter_applied": false,
+      "passed": false,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination_detected": true,
+        "behavior_correct": false,
+        "overall_score": 0.533,
+        "reasoning": "시스템 답변은 검색된 문서에서 일부 과정명(core_common, level3_common, level3_product_serving, level3_model_optimization, level2_cv)을 정확히 인용하였으나, 'level2_nlp' 과정은 제시된 문서 샘플에 명시적으로 나타나지 않아 환각으로 간주됩니다. 또한, 모든 과정을 포괄적으로 다루지 않고 일부만 언급하여 완전성이 부족합니다."
+      }
+    },
+    {
+      "question_id": "edge_meta_002",
+      "question": "어떤 종류의 자료들을 검색할 수 있어?",
+      "category": "edge_case",
+      "subcategory": "meta_question",
+      "answer": "학생들이 검색하거나 활용할 수 있는 자료의 종류는 다음과 같습니다:\n\n1. **강의 슬라이드/PDF**  \n   - 예: \"[MRC] (9강) Closed-book QA with LLMs\", \"[Product Serving] 08. 모델과 코드 배포\" 등 강의 주제별 자료.\n\n2. **데이터셋**  \n   - `wikitext-2.zip`, `corpus.txt` 등 학습용 데이터셋과 다운로드/업로드 방법.\n\n3. **Python 코드 예제**  \n   - 데이터 로딩(`! ls`, `open()`), 모델 학습/평가 관련 코드 조각.\n\n4. **학술 논문/참고문헌**  \n   - \"Contextualized Sparse Representations...\" 등 관련 연구의 링크 및 인용.\n\n5. **기술 설명 자료**  \n   - Closed-book QA/Open-book QA 차이, Dense-sparse Representation, BERT 기반 모델 등 개념 설명.\n\n6. *",
+      "retrieved_docs_count": 18,
+      "retrieval_time_ms": 37129.63,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "completeness": 4,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.867,
+        "reasoning": "답변은 검색된 문서(PDF, 노트북, 코드 예제, 데이터셋 등)에 기반한 다양한 자료 유형을 체계적으로 나열하였으며, 각 유형별 구체적 예시를 포함해 질문에 충실히 답변하였습니다. 다만 일부 설명은 문서에 명시되지 않은 일반적인 형태로 제시되었으므로 완벽한 점수는 아닙니다. 환각 요소는 없고, 메타 정보 조회라는 특수 케이스에도 적절히 대응하였습니다."
+      }
+    },
+    {
+      "question_id": "edge_meta_003",
+      "question": "CV 강의 자료가 몇 개나 있어?",
+      "category": "edge_case",
+      "subcategory": "meta_question",
+      "answer": "현재 제공된 문서들에서는 CV(CV 이론, 컴퓨터 비전 관련) 강의 자료의 **구체적 개수**가 명시적으로 언급되지 않았습니다. 다만 다음과 같은 사항을 확인할 수 있습니다:\n\n1. **강의 구조**:  \n   - 문서 6~10에는 \"**[CV 이론]**\"이라는 제목의 강의 자료가 있으며, 목차 및 페이지 정보(예: Page 1, 2, 3...)가 표시되어 있습니다.  \n   - 예를 들어, \"3D Human\"(문서 6~16), \"CNN 시각화와 데이터 증강\"(문서 12~18) 등의 주제로 구성된 강의 자료가 존재합니다.  \n\n2. **슬라이드 번호**:  \n   - 문서 3, 5, 7 등에서 \"6강 강의자료 87번 슬라이드\"와 같은 표현이 등장하나, 이는 특정 강의 세션 내의 슬라이드를 가리킬 뿐 전체 강의 자료의 개수로 해석되지는 않습니다.  \n\n3. **기타 힌트**:  \n   - 문서 8에서 \"CV 이론 강의\"에 대한 소개 자료가 언급되었으나, 강의 자료의 총량은 명시되지 않",
+      "retrieved_docs_count": 20,
+      "retrieval_time_ms": 43854.72,
+      "filter_applied": false,
+      "passed": true,
+      "error": null,
+      "judge": {
+        "faithfulness": 3,
+        "relevance": 2,
+        "completeness": 3,
+        "hallucination_detected": false,
+        "behavior_correct": true,
+        "overall_score": 0.533,
+        "reasoning": "시스템 답변은 문서에서 '[CV 이론]' 강의 자료 언급 등을 인용하고 있으나, 실제 제공된 문서 샘플에서는 이러한 내용이 확인되지 않아 정보의 정확성에 의문이 있습니다. 사용자의 질문인 'CV 강의 자료가 몇 개인지'에 대해 직접적인 숫자 정보를 제공하지 못하고, 관련 정보를 탐색했다는 점에서 부분적으로만 관련성을 가집니다. 그러나 문서에 없는 구체적인 수치를 만들거나 모순된 정보를 제공하지는 않았으므로 환각은 없으며, 메타 정보 조회 요청에 대응하려는 시도는 적절했습니다."
+      }
+    }
+  ],
+  "failed_questions": [
+    "in_concept_002",
+    "in_concept_003",
+    "in_concept_004",
+    "in_concept_005",
+    "in_concept_010",
+    "in_trouble_003",
+    "in_trouble_005",
+    "in_compare_005",
+    "in_course_008",
+    "in_source_001",
+    "in_source_004",
+    "in_source_005",
+    "ood_ambiguous_001",
+    "ood_ambiguous_002",
+    "ood_ambiguous_003",
+    "ood_ambiguous_004",
+    "ood_hallucination_001",
+    "ood_hallucination_002",
+    "ood_boundary_003",
+    "edge_meta_001"
+  ],
+  "pass_rate": 0.75,
+  "overall_score": 0.7482875
+}

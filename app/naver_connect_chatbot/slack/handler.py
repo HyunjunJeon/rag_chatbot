@@ -9,6 +9,8 @@ Slack App 을 초기화하고, 이벤트를 처리하는 핸들러를 제공합�
 import asyncio
 from collections import defaultdict
 from datetime import datetime, timedelta
+from typing import TYPE_CHECKING
+
 from slack_bolt.async_app import AsyncApp
 
 from naver_connect_chatbot.config.settings.main import settings
@@ -22,6 +24,9 @@ from naver_connect_chatbot.rag.retriever_factory import (
 )
 from naver_connect_chatbot.service.graph.workflow import build_adaptive_rag_graph
 from naver_connect_chatbot.config.settings.base import PROJECT_ROOT
+
+if TYPE_CHECKING:
+    from langgraph.checkpoint.base import BaseCheckpointSaver
 
 # Logging setup
 logger = get_logger()
@@ -37,9 +42,13 @@ app = AsyncApp(
 # For simplicity, we'll initialize them lazily or globally if env vars are present.
 
 
-def get_agent_app():
+def get_agent_app(checkpointer: "BaseCheckpointSaver | None" = None):
     """
     LangGraph 애플리케이션을 초기화하고 반환합니다.
+
+    매개변수:
+        checkpointer: LangGraph 체크포인터 (대화 상태 저장용)
+                      None이면 대화 상태가 저장되지 않음
 
     반환값:
         Compiled LangGraph application
@@ -90,13 +99,19 @@ def get_agent_app():
             k=settings.retriever.default_k,
         )
 
-    # 4. Build Graph
+    # 4. Build Graph with Checkpointer
     workflow_app = build_adaptive_rag_graph(
         retriever=retriever,
         llm=llm,
-        fast_llm=llm,
         reasoning_llm=reasoning_llm,
+        check_pointers=checkpointer,
     )
+
+    if checkpointer:
+        logger.info("✓ Checkpointer 활성화됨 - 대화 상태가 저장됩니다")
+    else:
+        logger.warning("⚠ Checkpointer 없음 - 대화 상태가 저장되지 않습니다")
+
     return workflow_app
 
 
@@ -104,6 +119,26 @@ def get_agent_app():
 _agent_app = None
 _agent_lock = asyncio.Lock()
 _agent_init_failed = False
+
+# Global checkpointer instance (initialized in server.py lifespan)
+_checkpointer: "BaseCheckpointSaver | None" = None
+
+
+def set_checkpointer(checkpointer: "BaseCheckpointSaver | None") -> None:
+    """
+    전역 체크포인터를 설정합니다.
+
+    이 함수는 server.py의 lifespan에서 호출되어야 합니다.
+
+    매개변수:
+        checkpointer: AsyncSqliteSaver 등의 체크포인터 인스턴스
+    """
+    global _checkpointer
+    _checkpointer = checkpointer
+    if checkpointer:
+        logger.info("전역 checkpointer 설정 완료")
+    else:
+        logger.warning("전역 checkpointer가 None으로 설정됨")
 
 # Rate limiting configuration
 RATE_LIMIT_MAX_REQUESTS = 5  # 분당 최대 요청 수
@@ -145,6 +180,7 @@ async def get_or_create_agent():
     Thread-safe하게 Agent 인스턴스를 가져오거나 생성합니다.
 
     동시 요청 시 race condition을 방지하기 위해 asyncio.Lock을 사용합니다.
+    전역 checkpointer가 설정되어 있으면 대화 상태가 저장됩니다.
 
     반환값:
         Compiled LangGraph application
@@ -170,7 +206,8 @@ async def get_or_create_agent():
 
         try:
             logger.info("Agent 초기화 시작...")
-            agent = get_agent_app()
+            # 전역 checkpointer를 사용하여 Agent 생성
+            agent = get_agent_app(checkpointer=_checkpointer)
             _agent_app = agent
             logger.info("Agent 초기화 완료")
             return _agent_app
@@ -228,9 +265,13 @@ async def handle_app_mention(event, say):
     # Prepare callbacks list (empty if LangFuse disabled)
     callbacks = [langfuse_handler] if langfuse_handler else []
 
-    # Create runnable config with callbacks and metadata
+    # Create runnable config with callbacks, metadata, and thread_id for checkpointing
+    # thread_ts를 thread_id로 사용하여 같은 Slack 스레드의 대화 맥락을 유지
     config = {
         "callbacks": callbacks,
+        "configurable": {
+            "thread_id": thread_ts,  # Slack thread_ts를 LangGraph thread_id로 사용
+        },
         "metadata": {
             "source": "slack",
             "user_id": user_id,
@@ -281,20 +322,54 @@ async def handle_app_mention(event, say):
 
 
 @app.message("")
-async def handle_message(message, say):
+async def handle_message(message, say, client):
     """
-    Handle direct messages or messages where the bot is mentioned (if configured).
-    Usually app_mention is preferred for bots in channels.
-    This handler might catch all messages if not careful.
+    Handle direct messages and thread replies in conversations where the bot participated.
+
+    봇이 이미 참여한 Thread 내에서는 @멘션 없이도 자동 응답합니다.
+    이를 통해 자연스러운 대화 흐름을 유지할 수 있습니다.
 
     매개변수:
         message: Slack message payload
         say: Slack response function
+        client: Slack WebClient for API calls
     """
-    # Ignore bot's own messages
-    if message.get("subtype") is None and message.get("bot_id") is None:
-        # For now, let's only respond to mentions to avoid noise,
-        # or if it's a DM.
-        channel_type = message.get("channel_type")
-        if channel_type == "im":
-            await handle_app_mention(message, say)
+    # Ignore bot's own messages and message subtypes (edits, deletes, etc.)
+    if message.get("subtype") is not None or message.get("bot_id") is not None:
+        return
+
+    channel_type = message.get("channel_type")
+    thread_ts = message.get("thread_ts")
+
+    # Case 1: DM (Direct Message) - 항상 응답
+    if channel_type == "im":
+        await handle_app_mention(message, say)
+        return
+
+    # Case 2: Thread 내 메시지 - 봇이 참여한 Thread인지 확인
+    if thread_ts:
+        try:
+            # Thread 내 메시지 목록 조회
+            result = await client.conversations_replies(
+                channel=message.get("channel"),
+                ts=thread_ts,
+                limit=50,  # 최근 50개 메시지만 확인
+            )
+
+            # 봇이 이 Thread에 참여했는지 확인
+            bot_user_id = (await client.auth_test())["user_id"]
+            bot_participated = any(
+                msg.get("user") == bot_user_id or msg.get("bot_id") is not None
+                for msg in result.get("messages", [])
+            )
+
+            if bot_participated:
+                logger.info(
+                    f"Thread reply detected (bot participated): {message.get('text', '')[:50]}"
+                )
+                await handle_app_mention(message, say)
+                return
+
+        except Exception as e:
+            logger.warning(f"Failed to check thread participation: {e}")
+            # 실패 시 무시 (멘션이 있을 때만 응답)

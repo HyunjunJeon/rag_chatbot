@@ -28,6 +28,8 @@ messages:
       5. **OUT_OF_DOMAIN** – Questions completely unrelated to AI/ML education, programming, or Boost Camp content
          Examples: "오늘 날씨 어때?", "맛있는 점심 메뉴 추천해줘", "주식 투자 어떻게 해?", "여행지 추천해줘"
          - 날씨, 음식, 여행, 주식, 연예, 스포츠, 개인적 질문 등
+         - **인사/잡담**: "안녕?", "안녕하세요", "반가워", "잘 지내?", "뭐해?", "심심해" 등 단순 인사나 잡담
+         - **챗봇에 대한 질문**: "너 이름이 뭐야?", "넌 누구야?", "뭘 할 수 있어?", "어떤 봇이야?" 등 챗봇 자체에 대한 질문
          - 이 챗봇의 범위를 벗어나는 질문은 정중히 거절해야 함
 
       ## Domain Relevance Scoring (Critical)

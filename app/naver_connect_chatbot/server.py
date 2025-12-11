@@ -12,17 +12,25 @@ Slack Events API 엔드포인트와 헬스체크 엔드포인트를 포함합니
 import subprocess
 import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
 
+import aiosqlite
 from fastapi import FastAPI, Request
 from slack_bolt.adapter.fastapi.async_handler import AsyncSlackRequestHandler
+from langgraph.checkpoint.sqlite.aio import AsyncSqliteSaver
 
 from naver_connect_chatbot.config.log import get_logger
 from naver_connect_chatbot.config.settings.main import settings
 from naver_connect_chatbot.config.settings.base import PROJECT_ROOT
 from naver_connect_chatbot.slack import app as slack_app
+from naver_connect_chatbot.slack.handler import set_checkpointer
 
 # Logging setup
 logger = get_logger()
+
+
+# Checkpointer database path
+CHECKPOINTER_DB_PATH = PROJECT_ROOT / "data" / "checkpoints.db"
 
 
 @asynccontextmanager
@@ -32,6 +40,11 @@ async def lifespan(app: FastAPI):
 
     서버 시작 시 초기화 작업을 수행하고,
     서버 종료 시 정리 작업을 수행합니다.
+
+    포함된 초기화 작업:
+    - AsyncSqliteSaver checkpointer 초기화 (대화 상태 저장)
+    - BM25 인덱스 자동 복구
+    - VectorDB 스키마 로드
     """
     # ========================================================================
     # Startup
@@ -41,6 +54,17 @@ async def lifespan(app: FastAPI):
     logger.info(f"포트: {settings.slack.port}")
     logger.info(f"로그 레벨: {settings.logging.level}")
     logger.info("=" * 80)
+
+    # Checkpointer 데이터베이스 디렉토리 생성
+    CHECKPOINTER_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    # AsyncSqliteSaver 초기화
+    logger.info(f"Checkpointer 초기화 중... (DB: {CHECKPOINTER_DB_PATH})")
+    sqlite_conn = await aiosqlite.connect(str(CHECKPOINTER_DB_PATH))
+    checkpointer = AsyncSqliteSaver(sqlite_conn)
+    await checkpointer.setup()  # 테이블 생성
+    set_checkpointer(checkpointer)
+    logger.info("✓ Checkpointer 초기화 완료 - 대화 상태가 SQLite에 저장됩니다")
 
     # BM25 인덱스 자동 복구
     bm25_index_path = PROJECT_ROOT / settings.retriever.bm25_index_path
@@ -113,8 +137,14 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning(f"Agent app 정리 중 오류 발생: {e}")
 
-    # 기타 전역 리소스 cleanup (필요 시 추가)
-    # 예: HTTP clients, database connections, cache 등
+    # Checkpointer 정리 (SQLite connection 닫기)
+    try:
+        logger.info("Checkpointer SQLite connection 정리 중...")
+        set_checkpointer(None)  # 전역 checkpointer 해제
+        await sqlite_conn.close()
+        logger.info("✓ Checkpointer SQLite connection 정리 완료")
+    except Exception as e:
+        logger.warning(f"Checkpointer 정리 중 오류 발생: {e}")
 
     logger.info("=" * 80)
     logger.info("서버 종료 완료")
