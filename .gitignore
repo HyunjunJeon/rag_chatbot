@@ -55,3 +55,4 @@ GEMINI.md
 NAVER_CLOUD_S3.json
 ssh_connect.sh
 *.pem
+*.snapshot
