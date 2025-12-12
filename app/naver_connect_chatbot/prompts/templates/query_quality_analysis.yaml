@@ -2,16 +2,16 @@ _type: chat_messages
 metadata:
   name: query_quality_analysis
   description: Analyze query quality only (clarity, specificity, searchability)
-  version: "1.0"
-  author: Adaptive RAG System
-  last_updated: "2025-12-11"
+  version: "1.1"
+  author: TPC
+  last_updated: "2025-12-12"
 
 messages:
   - role: system
     content: |
       ## Task
-      Evaluate a Naver Boost Camp student's question quality across three dimensions.
-      This is a focused analysis that does NOT generate search queries or extract filters.
+      네이버 부스트캠프 수강생의 질문 품질을 세 가지 차원에서 평가합니다.
+      이 단계는 검색 쿼리를 생성하거나 필터를 추출하지 않는 순수한 분석 단계입니다.
 
       ## Evaluation Dimensions
 
@@ -19,13 +19,13 @@ messages:
       질문이 모호한 표현 없이 명확한지 평가합니다:
       - 1.0: 완전히 명확하고 해석의 여지가 없음
       - 0.7-0.9: 대체로 명확하지만 약간의 모호함 존재
-      - 0.4-0.6: 일부 모호한 표현이 있어 해석이 필요함
+      - 0.4-0.6: 해석이 필요한 모호한 표현들이 있음
       - 0.0-0.3: 매우 모호하거나 이해하기 어려움
 
       체크포인트:
       - 주어/목적어가 명확한가?
-      - 대명사 참조가 불분명하지 않은가?
-      - 질문의 범위가 명확한가?
+      - 대명사 참조가 분명한가?
+      - 질문의 의도가 명확한가?
 
       ### 2. Specificity (구체성) - 0.0 ~ 1.0
       질문이 충분히 구체적인지 평가합니다:
@@ -57,14 +57,14 @@ messages:
         "clarity_score": 0.8,
         "specificity_score": 0.7,
         "searchability_score": 0.9,
-        "issues": ["이슈1", "이슈2"],
-        "recommendations": ["권장사항1", "권장사항2"]
+        "issues": ["문제점1", "문제점2"],
+        "recommendations": ["개선안1", "개선안2"]
       }
 
       ## Self-Validation (Before Returning)
       반환 전에 다음을 확인합니다:
       1. 각 점수가 0.0 ~ 1.0 범위인가?
-      2. issues가 실제 문제점을 반영하는가?
+      2. issues가 실제 문제점을 지적하고 있는가?
       3. recommendations가 실행 가능한 개선안인가?
 
       ## Examples

@@ -2,30 +2,31 @@ _type: chat_messages
 metadata:
   name: multi_query_generation
   description: Generate multiple search queries for comprehensive retrieval
-  version: "1.1"
-  author: Naver Connect Chatbot Team
-  last_updated: "2025-12-11"
+  version: "1.2"
+  author: TPC
+  last_updated: "2025-12-12"
 
 messages:
   - role: system
     content: |
       ## Task
-      Generate {num} diverse search queries to comprehensively explore the user's question across a Naver Boost Camp AI/ML knowledge base.
+      사용자의 질문을 네이버 부스트캠프 AI/ML 지식 베이스에서 포괄적으로 탐색하기 위해서
+      {num}개의 다양한 검색용 질문을 생성합니다.
 
       ## Instructions
-      1. Parse the user's wording to extract explicit objectives and entities
-      2. Infer implicit needs such as causes, effects, tooling, metrics, or comparisons
-      3. Draft targeted search directions covering complementary viewpoints:
-         - Definitions and core concepts
-         - Implementation procedures and best practices
-         - Troubleshooting and common pitfalls
-         - Benchmarking and comparisons with alternatives
-         - Real-world applications and use cases
-      4. Ensure queries are mutually distinct yet collectively exhaustive
-      5. New datasets/tools/metrics must not be invented; 정보가 없으면 일반적 표현을 유지한다.
+      1. 사용자의 질문을 분석하여 명시적 목적과 엔티티를 추출합니다.
+      2. 원인, 결과, 도구, 지표, 비교 등 암묵적인 니즈를 추론합니다.
+      3. 다음의 상호보완적인 관점을 다루는 타겟 검색 방향을 설정합니다:
+         - 정의 및 핵심 개념
+         - 구현 방법 및 베스트 프랙티스
+         - 문제 해결(Troubleshooting) 및 흔한 실수
+         - 대안과의 비교 및 벤치마킹
+         - 실제 활용 사례
+      4. 쿼리들은 서로 겹치지 않으면서도 전체적으로 포괄적이어야 합니다.
+      5. 없는 데이터셋/도구/지표를 지어내지 말고, 정보가 없으면 일반적 표현을 유지합니다.
 
       ## Output Format
-      검색 쿼리를 {num}개 생성하여 반환한다.
+      검색용 질문을 {num}개 생성하여 반환합니다.
 
       ### 허용되는 형식 (아래 중 하나 선택):
       1. **줄바꿈 구분** (권장):
@@ -50,10 +51,10 @@ messages:
          ```
 
       ### 규칙:
-      - 쿼리 개수는 정확히 {num}개
-      - 각 쿼리는 구체적이고 검색에 최적화
-      - 추가 설명이나 코멘트 없이 쿼리만 반환
-      - 한국어로 작성
+      - 쿼리 개수는 정확히 {num}개여야 합니다.
+      - 각 쿼리는 구체적이고 검색에 최적화되어야 합니다.
+      - 추가 설명이나 코멘트 없이 쿼리만 반환합니다.
+      - 한국어로 작성합니다.
 
       ### 오류 방지:
       - {num}개 미만 생성 시: 가능한 만큼 생성 (최소 2개)
@@ -61,14 +62,14 @@ messages:
       - 원본 쿼리와 동일한 쿼리 포함 가능
 
       ## Self-Validation (Before Returning)
-      쿼리 생성 후, 반환 전에 다음을 확인한다:
+      쿼리 생성 후, 반환 전에 다음을 확인합니다:
       1. **개수 검증**: 정확히 {num}개의 쿼리가 있는가?
       2. **다양성 검증**: 각 쿼리가 서로 다른 관점을 다루는가?
       3. **검색성 검증**: 각 쿼리가 검색에 최적화되어 있는가?
       4. **중복 검증**: 동일하거나 매우 유사한 쿼리가 없는가?
 
       ## Example
-      User query: "How to improve model accuracy?"
+      User query: "모델 정확도 높이는 방법 알려줘"
       Output:
       딥러닝 모델 정확도 향상 기법
       데이터 증강이 모델 일반화에 미치는 영향

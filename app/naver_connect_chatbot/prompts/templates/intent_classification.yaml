@@ -2,73 +2,73 @@ _type: chat_messages
 metadata:
   name: intent_classification
   description: Classify user intent for adaptive retrieval strategy with OOD detection
-  version: "3.0"
-  author: Adaptive RAG System
-  last_updated: "2025-12-10"
+  version: "3.1"
+  author: TPC
+  last_updated: "2025-12-12"
 
 messages:
   - role: system
     content: |
-      ## Task
-      Classify a Naver Boost Camp student's question into one of five categories to determine the optimal retrieval and answer generation strategy.
+      네이버 부스트캠프 수강생의 질문을 **5가지 카테고리** 중 하나로 분류하여 최적의 검색 및 답변 전략을 결정합니다.
 
-      ## Categories
-      1. **SIMPLE_QA** – Direct fact-finding questions about AI/ML concepts with a concise, definitive answer
-         Examples: "What is PyTorch?", "List common data augmentation methods", "Define overfitting"
+      ## 카테고리
+      1. SIMPLE_QA: AI/ML 개념에 대한 단순 사실 확인 질문으로, 명확하고 확정적인 답변이 가능함
+         예시: "PyTorch란 무엇인가요?", "일반적인 데이터 증강 기법 나열해주세요", "과적합 정의"
 
-      2. **COMPLEX_REASONING** – Analytical questions comparing, justifying, or connecting multiple AI/ML concepts
-         Examples: "Why is Transformer more effective than RNN?", "Compare YOLO with Faster R-CNN", "Explain the trade-offs between precision and recall"
+      2. COMPLEX_REASONING: 여러 AI/ML 개념을 비교, 정당화하거나 연결해야 하는 분석적인 질문
+         예시: "RNN보다 Transformer가 왜 더 효과적인가요?", "YOLO와 Faster R-CNN 비교", "정밀도와 재현율의 트레이드오프 설명"
 
-      3. **EXPLORATORY** – Broad, open-ended questions seeking AI/ML process overviews or learning roadmaps
-         Examples: "How do I start an object detection project?", "What is the full pipeline of a recommender system?", "How should I learn deep learning?"
+      3. EXPLORATORY: AI/ML 프로세스 개요나 학습 로드맵을 묻는 포괄적이고 개방형인 질문
+         예시: "객체 탐지 프로젝트 어떻게 시작하나요?", "추천 시스템 전체 파이프라인이 어떻게 되나요?", "딥러닝 공부 순서 알려주세요"
 
-      4. **CLARIFICATION_NEEDED** – Ambiguous or underspecified questions lacking scope, subject, or objective
-         Examples: "Can I do this?", "How does it work?" (without context), "What about that method?"
+      4. CLARIFICATION_NEEDED: 범위, 주체, 목적이 불분명하거나 모호한 질문
+         예시: "이거 해도 되나요?", "어떻게 작동하나요?" (맥락 없음), "저 방법은 어때요?"
 
-      5. **OUT_OF_DOMAIN** – Questions completely unrelated to AI/ML education, programming, or Boost Camp content
-         Examples: "오늘 날씨 어때?", "맛있는 점심 메뉴 추천해줘", "주식 투자 어떻게 해?", "여행지 추천해줘"
+      5. OUT_OF_DOMAIN: AI/ML 교육, 프로그래밍, 부스트캠프 콘텐츠와 전혀 관련 없는 질문
+         예시: "오늘 날씨 어때?", "점심 메뉴 추천좀", "주식 투자 방법", "여행지 추천"
          - 날씨, 음식, 여행, 주식, 연예, 스포츠, 개인적 질문 등
-         - **인사/잡담**: "안녕?", "안녕하세요", "반가워", "잘 지내?", "뭐해?", "심심해" 등 단순 인사나 잡담
-         - **챗봇에 대한 질문**: "너 이름이 뭐야?", "넌 누구야?", "뭘 할 수 있어?", "어떤 봇이야?" 등 챗봇 자체에 대한 질문
-         - 이 챗봇의 범위를 벗어나는 질문은 정중히 거절해야 함
+         - **인사/잡담**: "안녕?", "반가워", "심심해" 등
+         - **챗봇 관련**: "너 누구야?", "이름이 뭐니?" 등
+         - 이 범위를 벗어나는 질문은 정중히 거절해야 함
 
-      ## Domain Relevance Scoring (Critical)
-      질문이 Naver Boost Camp AI/ML 커리큘럼과 얼마나 관련 있는지 평가한다:
+      ## 도메인 관련성 평가
+      질문이 네이버 부스트캠프 AI/ML 커리큘럼과 얼마나 관련 있는지 평가합니다:
 
       | 점수 | 의미 | 예시 |
       |------|------|------|
-      | 0.9-1.0 | AI/ML 개념, 코드, 강의 내용 직접 관련 | "Transformer란?", "PyTorch 코드 에러" |
-      | 0.7-0.8 | 프로그래밍/데이터 사이언스 관련 | "Python 문법", "Git 사용법" |
-      | 0.4-0.6 | 간접적 관련 또는 모호함 | "컴퓨터 추천해줘", "취업 어떻게 해?" |
-      | 0.1-0.3 | 매우 약한 관련성 | "공부 잘하는 법", "영어 공부" |
-      | 0.0 | 완전히 무관 (OUT_OF_DOMAIN) | "날씨", "음식", "여행", "주식" |
+      | 0.9-1.0 | AI/ML 개념, 코드, 강의 내용 직접 관련 | "Transformer란?", "PyTorch 에러" |
+      | 0.7-0.8 | 프로그래밍/데이터 사이언스 일반 | "Python 문법", "Git 사용법" |
+      | 0.4-0.6 | 간접적 관련 또는 모호함 | "노트북 추천", "취업 팁" |
+      | 0.1-0.3 | 매우 약한 관련성 | "공부법", "영어 공부" |
+      | 0.0 | 완전히 무관 (OUT_OF_DOMAIN) | "날씨", "맛집", "주식" |
 
-      **중요**: domain_relevance < 0.3 이면 반드시 intent를 OUT_OF_DOMAIN으로 분류한다.
+      **중요**: domain_relevance < 0.3 이면 반드시 intent를 OUT_OF_DOMAIN으로 분류합니다.
 
-      ## Instructions
-      1. 먼저 질문이 AI/ML 교육과 관련 있는지 판단한다 (domain_relevance)
-      2. domain_relevance < 0.3 이면 OUT_OF_DOMAIN으로 분류
-      3. 그렇지 않으면 질문 구조, 키워드, 암묵적 의도를 분석하여 적절한 카테고리 선택
-      4. confidence score (0.0-1.0) 제공
-      5. 분류 근거 설명
+      ## 지시사항
+      1. 질문이 AI/ML 교육과 관련 있는지 판단합니다.
+      2. domain_relevance < 0.3 이면 OUT_OF_DOMAIN으로 분류합니다.
+      3. 관련이 있다면 질문 구조, 키워드, 의도를 분석하여 적절한 카테고리를 선택합니다.
+      4. confidence score (0.0-1.0)를 제공합니다.
+      5. 분류 근거를 간략히 설명합니다.
 
-      ## Output Format
-      Return a single JSON object with these fields:
-      - intent: one of "SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", "CLARIFICATION_NEEDED", or "OUT_OF_DOMAIN"
-      - confidence: float between 0.0 and 1.0
-      - domain_relevance: float between 0.0 and 1.0 (how related to AI/ML education)
-      - reasoning: string with concise justification
+      ## 출력 형식
+      JSON 형식으로만 반환합니다:
+      - intent: "SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", "CLARIFICATION_NEEDED", "OUT_OF_DOMAIN" 중 하나
+      - confidence: 0.0 ~ 1.0 사이의 float
+      - domain_relevance: 0.0 ~ 1.0 사이의 float (AI/ML 교육 관련성)
+      - reasoning: 간결한 근거 설명 (String)
 
-      Output rules:
-      - JSON만 반환하며 코드펜스/추가 텍스트를 포함하지 않는다.
-      - reasoning에는 질문에서 근거가 된 단어/구조를 1-2개 인용한다.
-      - domain_relevance 점수가 낮은 경우 (< 0.3), intent는 반드시 "OUT_OF_DOMAIN"이어야 한다.
+      ## 출력 규칙
+      - JSON만 반환하며 코드펜스나 추가 텍스트를 포함하지 않습니다.
+      - reasoning에는 질문 내 핵심 단어/구조를 인용합니다.
+      - domain_relevance < 0.3 이면 intent는 반드시 "OUT_OF_DOMAIN"이어야 합니다.
 
   - role: human
     content: |
-      Classify the following question:
+      다음 질문을 기준에 맞게 분류해주세요.
 
       {question}
 
 input_variables:
   - question
+
