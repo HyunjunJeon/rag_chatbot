@@ -5,8 +5,9 @@ LangGraph Node 반환 타입 정의.
 이를 통해 IDE 자동완성, 타입 체커, 그리고 명확한 계약(contract)을 제공합니다.
 """
 
-from typing import TypedDict, Literal
+from typing import TypedDict, Literal, Sequence
 from langchain_core.documents import Document
+from langchain_core.messages import BaseMessage
 
 
 # ============================================================================
@@ -48,6 +49,7 @@ class IntentUpdate(TypedDict, total=False):
     """classify_intent_node 반환 타입.
 
     Intent 분류 결과를 state에 업데이트합니다.
+    messages 필드로 사용자 질문을 HumanMessage로 저장하여 Multi-turn 대화를 지원합니다.
     """
 
     intent: Literal[
@@ -60,6 +62,7 @@ class IntentUpdate(TypedDict, total=False):
     intent_confidence: float
     intent_reasoning: str
     domain_relevance: float  # 도메인 관련성 점수 (0.0~1.0)
+    messages: Sequence[BaseMessage]  # Multi-turn: 사용자 질문 저장
 
 
 class QueryAnalysisUpdate(TypedDict, total=False):
@@ -97,6 +100,9 @@ class AnswerUpdate(TypedDict, total=False):
 
     answer: str
     answer_metadata: dict
+    generation_metadata: dict
+    generation_strategy: str
+    messages: Sequence[BaseMessage]  # Multi-turn: AI 응답 저장
 
 
 class OODResponseUpdate(TypedDict, total=False):
@@ -109,6 +115,7 @@ class OODResponseUpdate(TypedDict, total=False):
     generation_strategy: Literal["ood_decline"]
     workflow_stage: Literal["completed"]
     is_out_of_domain: bool
+    messages: Sequence[BaseMessage]  # Multi-turn: OOD 응답도 저장
 
 
 class ErrorUpdate(TypedDict, total=False):

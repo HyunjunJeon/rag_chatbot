@@ -10,7 +10,7 @@ from typing import Any
 
 from langchain_core.runnables import Runnable
 from langchain_core.retrievers import BaseRetriever
-from langchain_core.messages import AIMessage
+from langchain_core.messages import AIMessage, HumanMessage, BaseMessage
 
 from naver_connect_chatbot.service.graph.state import AdaptiveRAGState
 from naver_connect_chatbot.service.graph.types import (
@@ -34,6 +34,59 @@ from naver_connect_chatbot.service.agents.answer_generator import (
 from naver_connect_chatbot.service.tool.retrieval_tool import retrieve_documents_async, RetrievalResult
 from naver_connect_chatbot.rag import ClovaStudioReranker
 from naver_connect_chatbot.config import logger, settings
+
+
+# =============================================================================
+# Multi-turn 대화 지원 유틸리티
+# =============================================================================
+
+# 대화 히스토리 최대 턴 수 (메모리 및 컨텍스트 길이 관리)
+MAX_HISTORY_TURNS = 5
+
+
+def _format_chat_history(messages: list[BaseMessage], max_turns: int = MAX_HISTORY_TURNS) -> str:
+    """
+    대화 히스토리를 프롬프트용 텍스트로 포맷팅합니다.
+
+    매개변수:
+        messages: BaseMessage 리스트 (HumanMessage, AIMessage)
+        max_turns: 포함할 최대 턴 수 (기본값: 5)
+
+    반환값:
+        포맷팅된 대화 히스토리 문자열
+
+    예시:
+        >>> messages = [HumanMessage(content="안녕"), AIMessage(content="안녕하세요!")]
+        >>> _format_chat_history(messages)
+        "[이전 대화]\n사용자: 안녕\n어시스턴트: 안녕하세요!\n"
+    """
+    if not messages:
+        return ""
+
+    # 최근 N턴만 사용 (1턴 = 사용자 + AI 쌍)
+    # 메시지 리스트에서 최근 2*max_turns개만 선택
+    recent_messages = messages[-(max_turns * 2):]
+
+    if not recent_messages:
+        return ""
+
+    history_lines = ["[이전 대화]"]
+    for msg in recent_messages:
+        if isinstance(msg, HumanMessage):
+            history_lines.append(f"사용자: {msg.content}")
+        elif isinstance(msg, AIMessage):
+            # AI 응답은 너무 길면 요약
+            content = msg.content
+            if len(content) > 200:
+                content = content[:200] + "..."
+            history_lines.append(f"어시스턴트: {content}")
+
+    return "\n".join(history_lines) + "\n"
+
+
+# =============================================================================
+# 응답 추출 유틸리티
+# =============================================================================
 
 
 def _extract_text_response(response: Any) -> str:
@@ -114,6 +167,8 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
                 "intent_confidence": 0.95,
                 "intent_reasoning": f"Pattern matched: {pattern_type}",
                 "domain_relevance": 0.0,
+                # Multi-turn: 사용자 질문을 HumanMessage로 저장
+                "messages": [HumanMessage(content=question)],
             }
 
     # 2. 패턴 매칭에 걸리지 않으면 LLM으로 분류
@@ -136,11 +191,13 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
             f"question='{question[:50]}...'"
         )
 
+    # Multi-turn: 사용자 질문을 HumanMessage로 저장
     return {
         "intent": intent,
         "intent_confidence": response.confidence,
         "intent_reasoning": response.reasoning,
         "domain_relevance": domain_relevance,
+        "messages": [HumanMessage(content=question)],
     }
 
 
@@ -382,13 +439,8 @@ async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
         }
 
     try:
-        # Clova Studio Reranker 초기화
-        reranker = ClovaStudioReranker(
-            api_key=settings.clova_llm.api_key.get_secret_value()
-            if settings.clova_llm.api_key
-            else "",
-            max_tokens=1024,
-        )
+        # Clova Studio Reranker 초기화 (settings.reranker에서 endpoint, api_key 등 로드)
+        reranker = ClovaStudioReranker.from_settings(settings.reranker)
 
         # Reranking 수행
         logger.info(f"Reranking {len(documents)} documents")
@@ -434,6 +486,15 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
     documents = state.get("documents", [])
     intent = state.get("intent", "SIMPLE_QA")
 
+    # Multi-turn: 이전 대화 히스토리 가져오기 (현재 질문 HumanMessage 제외)
+    messages = state.get("messages", [])
+    # 마지막 메시지(현재 질문)를 제외한 이전 대화만 포함
+    previous_messages = messages[:-1] if messages else []
+    chat_history = _format_chat_history(previous_messages)
+
+    if chat_history:
+        logger.info(f"Multi-turn context: {len(previous_messages)} previous messages")
+
     try:
         # 사용할 생성 전략을 결정합니다.
         strategy = get_generation_strategy(intent)
@@ -458,17 +519,27 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
         if not context_text:
             context_text = "참고할 수 있는 문서가 없습니다."
 
-        # 답변을 생성합니다. Reasoning이 활성화된 LLM을 직접 호출하며, tools는 사용하지 않습니다.
-        prompt = (
-            "당신은 Naver Boost Camp 학생들에게 AI/ML을 가르치는 조교입니다. "
-            "주어진 문맥만을 근거로, 단계별로 사고한 뒤 한국어로 답변하세요.\n\n"
-            f"question: {question}\n\ncontext:\n{context_text}"
-        )
+        # Multi-turn 프롬프트 구성
+        # 이전 대화가 있으면 포함
+        if chat_history:
+            prompt = (
+                "당신은 Naver Boost Camp 학생들에게 AI/ML을 가르치는 조교입니다. "
+                "주어진 문맥과 이전 대화 맥락을 참고하여, 단계별로 사고한 뒤 한국어로 답변하세요.\n\n"
+                f"{chat_history}\n"
+                f"[현재 질문]\nquestion: {question}\n\ncontext:\n{context_text}"
+            )
+        else:
+            prompt = (
+                "당신은 Naver Boost Camp 학생들에게 AI/ML을 가르치는 조교입니다. "
+                "주어진 문맥만을 근거로, 단계별로 사고한 뒤 한국어로 답변하세요.\n\n"
+                f"question: {question}\n\ncontext:\n{context_text}"
+            )
 
         response_raw = await llm.ainvoke(prompt)
         answer = _extract_text_response(response_raw)
         logger.info(f"Generated answer with reasoning: {answer[:100]}...")
 
+        # Multi-turn: AI 응답을 AIMessage로 저장
         return {
             "answer": answer,
             "generation_metadata": {
@@ -476,16 +547,20 @@ async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> Answer
                 "context_length": len(context_text),
                 "thinking_effort": thinking_effort,
                 "reasoning_enabled": True,
+                "has_chat_history": bool(chat_history),
             },
             "generation_strategy": strategy,
+            "messages": [AIMessage(content=answer)],
         }
 
     except Exception as e:
         logger.error(f"Answer generation error: {e}")
+        error_answer = f"죄송합니다. 답변 생성 중 오류가 발생했습니다: {str(e)}"
         return {
-            "answer": f"죄송합니다. 답변 생성 중 오류가 발생했습니다: {str(e)}",
+            "answer": error_answer,
             "generation_metadata": {"error": str(e)},
             "generation_strategy": "error",
+            "messages": [AIMessage(content=error_answer)],
         }
 
 
@@ -567,11 +642,13 @@ async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpda
             f"(domain_relevance: {domain_relevance:.2f})"
         )
 
+    # Multi-turn: OOD 응답도 AIMessage로 저장
     return {
         "answer": response,
         "generation_strategy": "ood_decline",
         "workflow_stage": "completed",
         "is_out_of_domain": True,
+        "messages": [AIMessage(content=response)],
     }
 
 

@@ -7,6 +7,7 @@ Slack App 을 초기화하고, 이벤트를 처리하는 핸들러를 제공합�
 """
 
 import asyncio
+import re
 from collections import defaultdict
 from datetime import datetime, timedelta
 from typing import TYPE_CHECKING
@@ -140,6 +141,110 @@ def set_checkpointer(checkpointer: "BaseCheckpointSaver | None") -> None:
     else:
         logger.warning("전역 checkpointer가 None으로 설정됨")
 
+# =============================================================================
+# 메시지 전처리 유틸리티
+# =============================================================================
+
+# Slack 멘션 패턴: <@U0A091KUCDV> 형태
+SLACK_MENTION_PATTERN = re.compile(r"<@[A-Z0-9]+>")
+
+# 간단한 인사/감정 표현 패턴 (RAG 파이프라인 불필요)
+GREETING_PATTERNS = [
+    r"^(안녕|하이|헬로|hi|hello|hey)[\s!?.]*$",
+    r"^(야호|우와|와|오|헉|ㅎㅎ|ㅋㅋ|ㄱㄱ|ㄴㄴ)[\s!?.]*$",
+    r"^(감사|고마워|땡큐|thanks|thx)[\s!?.]*$",
+    r"^(ㅇㅇ|ㅇㅋ|ㄹㅇ|ㄳ|ㅎㅇ)[\s!?.]*$",
+    r"^[\s!?.~ㅋㅎ]+$",  # 이모티콘/감탄사만 있는 경우
+]
+GREETING_REGEX = re.compile("|".join(GREETING_PATTERNS), re.IGNORECASE)
+
+# 간단한 인사에 대한 응답 목록
+GREETING_RESPONSES = [
+    "안녕하세요! 👋 네이버 부스트캠프 관련 질문이 있으시면 말씀해주세요.",
+    "안녕하세요! 무엇을 도와드릴까요? 🤖",
+    "반갑습니다! AI/ML 학습 관련 궁금한 점이 있으시면 질문해주세요.",
+]
+
+
+def preprocess_slack_message(text: str) -> str:
+    """
+    Slack 메시지를 전처리합니다.
+
+    처리 내용:
+    1. Slack 멘션 제거 (<@U0A091KUCDV> → "")
+    2. Slack 특수 포맷 정리 (<#C12345|channel> → #channel 등)
+    3. 앞뒤 공백 정리
+
+    매개변수:
+        text: 원본 Slack 메시지 텍스트
+
+    반환값:
+        전처리된 텍스트
+
+    예시:
+        >>> preprocess_slack_message("<@U0A091KUCDV> 야호!")
+        "야호!"
+        >>> preprocess_slack_message("<@U123> PyTorch가 뭐야?")
+        "PyTorch가 뭐야?"
+    """
+    if not text:
+        return ""
+
+    # 1. Slack 멘션 제거
+    cleaned = SLACK_MENTION_PATTERN.sub("", text)
+
+    # 2. Slack 채널/링크 포맷 정리 (<#C12345|channel> → #channel)
+    cleaned = re.sub(r"<#[A-Z0-9]+\|([^>]+)>", r"#\1", cleaned)
+
+    # 3. Slack URL 포맷 정리 (<http://...|label> → label 또는 URL)
+    cleaned = re.sub(r"<(https?://[^|>]+)\|([^>]+)>", r"\2", cleaned)
+    cleaned = re.sub(r"<(https?://[^>]+)>", r"\1", cleaned)
+
+    # 4. 앞뒤 공백 및 연속 공백 정리
+    cleaned = " ".join(cleaned.split())
+
+    return cleaned.strip()
+
+
+def is_simple_greeting(text: str) -> bool:
+    """
+    메시지가 간단한 인사/감정 표현인지 확인합니다.
+
+    RAG 파이프라인을 거치지 않고 바로 응답할 수 있는 메시지인지 판단합니다.
+
+    매개변수:
+        text: 전처리된 메시지 텍스트
+
+    반환값:
+        True이면 간단한 인사, False이면 실제 질문
+
+    예시:
+        >>> is_simple_greeting("야호!")
+        True
+        >>> is_simple_greeting("PyTorch가 뭐야?")
+        False
+    """
+    if not text:
+        return True  # 빈 메시지는 인사로 처리
+
+    # 너무 짧은 메시지 (3자 이하)
+    if len(text) <= 3:
+        return True
+
+    # 패턴 매칭
+    return bool(GREETING_REGEX.match(text))
+
+
+def get_greeting_response() -> str:
+    """무작위 인사 응답을 반환합니다."""
+    import random
+    return random.choice(GREETING_RESPONSES)
+
+
+# =============================================================================
+# Rate Limiting
+# =============================================================================
+
 # Rate limiting configuration
 RATE_LIMIT_MAX_REQUESTS = 5  # 분당 최대 요청 수
 RATE_LIMIT_WINDOW_SECONDS = 60  # 제한 윈도우 (초)
@@ -230,12 +335,27 @@ async def handle_app_mention(event, say):
     # Extract Slack context (먼저 추출하여 rate limiting에 사용)
     user_id = event.get("user")
     channel_id = event.get("channel")
-    user_input = event.get("text")
+    raw_input = event.get("text", "")
     thread_ts = event.get("ts")  # Use message ts as thread_ts for the reply
 
     # If it's already in a thread, use that thread_ts
     if "thread_ts" in event:
         thread_ts = event["thread_ts"]
+
+    # =========================================================================
+    # 메시지 전처리: Slack 멘션 제거 및 정리
+    # =========================================================================
+    user_input = preprocess_slack_message(raw_input)
+    logger.info(f"멘션 수신 (원본): {raw_input}")
+    logger.info(f"멘션 수신 (전처리): {user_input} (thread: {thread_ts})")
+
+    # =========================================================================
+    # 간단한 인사/감정 표현 처리 (RAG 파이프라인 우회)
+    # =========================================================================
+    if is_simple_greeting(user_input):
+        logger.info(f"간단한 인사로 감지됨: '{user_input}' → 빠른 응답")
+        await say(text=get_greeting_response(), thread_ts=thread_ts)
+        return
 
     # Rate limiting 체크
     allowed, remaining = _check_rate_limit(user_id)
@@ -247,7 +367,7 @@ async def handle_app_mention(event, say):
         )
         return
 
-    logger.info(f"멘션 수신: {user_input} (thread: {thread_ts}, remaining: {remaining})")
+    logger.info(f"RAG 파이프라인 시작: '{user_input[:50]}...' (remaining: {remaining})")
 
     try:
         agent_app = await get_or_create_agent()

@@ -315,7 +315,11 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
             """파싱 시도 후 실패 시 fallback 반환."""
             try:
                 json_str = self._extract_json(content)
-                return self._parser.parse(json_str)
+                # JsonOutputParser는 dict를 반환하므로 Pydantic 모델로 변환
+                parsed = self._parser.parse(json_str)
+                if isinstance(parsed, dict):
+                    return self._schema(**parsed)
+                return parsed
             except Exception as parse_error:
                 logger.warning(f"JSON parsing failed: {parse_error}, trying direct parse")
                 try:

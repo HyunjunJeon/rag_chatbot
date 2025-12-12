@@ -264,9 +264,11 @@ class SchemaRegistry:
                 )
 
             # 스키마 생성 및 캐시
+            # Note: total_documents는 실제 컬렉션의 points_count를 사용
+            # (sample_size로 인해 스크롤된 데이터 수와 다를 수 있음)
             self._schema = VectorDBSchema(
                 data_sources=data_sources,
-                total_documents=sum(ds.total_count for ds in data_sources),
+                total_documents=total_points,  # 실제 컬렉션의 포인트 수 사용
                 collection_name=collection_name,
                 last_updated=datetime.now().isoformat(),
             )

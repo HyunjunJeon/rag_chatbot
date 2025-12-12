@@ -15,7 +15,6 @@ dependencies = [
     "langgraph>=1.0.3",
     "langgraph-checkpoint-redis>=0.2.0",
     "langgraph-checkpoint-sqlite>=3.0.0",
-    "langgraph-cli[inmem]>=0.4.7",
     "loguru>=0.7.3",
     "pandas>=2.3.3",
     "pydantic-settings>=2.12.0",
@@ -32,13 +31,14 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-package-dir = {"naver_connect_chatbot" = "app/naver_connect_chatbot", "document_processing" = "document_processing"}
-packages = ["naver_connect_chatbot", "document_processing", "document_processing.slack_qa"]
+package-dir = {"naver_connect_chatbot" = "app/naver_connect_chatbot"}
+packages = ["naver_connect_chatbot"]
 
 [dependency-groups]
 dev = [
     "chonkie>=1.4.2",
     "langchain-text-splitters>=1.0.0",
+    "langgraph-cli[inmem]>=0.4.7",
     "mypy>=1.18.2",
     "openpyxl>=3.1.5",
     "pre-commit>=4.4.0",

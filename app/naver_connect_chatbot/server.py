@@ -2,13 +2,24 @@
 FastAPI 웹 서버 모듈
 
 Slack Bot을 위한 FastAPI 웹 서버를 제공합니다.
-Slack Events API 엔드포인트와 헬스체크 엔드포인트를 포함합니다.
+Socket Mode와 HTTP Mode를 모두 지원합니다.
+
+Socket Mode (권장):
+    - SLACK_APP_TOKEN 환경변수 설정 시 자동 활성화
+    - URL 설정 불필요, WebSocket 기반
+    - IP 주소로도 사용 가능
+
+HTTP Mode (기존):
+    - SLACK_APP_TOKEN 미설정 시 사용
+    - Slack Events API URL 설정 필요
+    - HTTPS 도메인 필요
 
 참고 문서:
     - https://github.com/slackapi/bolt-python/tree/main/examples/fastapi
-    - https://api.slack.com/apis/connections/events-api
+    - https://api.slack.com/apis/connections/socket-mode
 """
 
+import asyncio
 import subprocess
 import sys
 from contextlib import asynccontextmanager
@@ -17,6 +28,7 @@ from pathlib import Path
 import aiosqlite
 from fastapi import FastAPI, Request
 from slack_bolt.adapter.fastapi.async_handler import AsyncSlackRequestHandler
+from slack_bolt.adapter.socket_mode.async_handler import AsyncSocketModeHandler
 from langgraph.checkpoint.sqlite.aio import AsyncSqliteSaver
 
 from naver_connect_chatbot.config.log import get_logger
@@ -27,6 +39,9 @@ from naver_connect_chatbot.slack.handler import set_checkpointer
 
 # Logging setup
 logger = get_logger()
+
+# Socket Mode 사용 여부
+USE_SOCKET_MODE = settings.slack.app_token is not None
 
 
 # Checkpointer database path
@@ -53,6 +68,7 @@ async def lifespan(app: FastAPI):
     logger.info("Naver Connect Chatbot 서버 시작")
     logger.info(f"포트: {settings.slack.port}")
     logger.info(f"로그 레벨: {settings.logging.level}")
+    logger.info(f"Slack 모드: {'Socket Mode ✅' if USE_SOCKET_MODE else 'HTTP Mode (Events API)'}")
     logger.info("=" * 80)
 
     # Checkpointer 데이터베이스 디렉토리 생성
@@ -97,9 +113,7 @@ async def lifespan(app: FastAPI):
 
         qdrant_url = settings.qdrant_vector_store.url
         qdrant_api_key = (
-            settings.qdrant_vector_store.api_key.get_secret_value()
-            if settings.qdrant_vector_store.api_key
-            else None
+            settings.qdrant_vector_store.api_key.get_secret_value() if settings.qdrant_vector_store.api_key else None
         )
         collection_name = settings.qdrant_vector_store.collection_name
 
@@ -108,13 +122,28 @@ async def lifespan(app: FastAPI):
         schema = registry.load_from_qdrant(client, collection_name)
 
         logger.info(
-            f"VectorDB 스키마 로드 완료: "
-            f"{schema.total_documents:,}개 문서, "
-            f"{len(schema.data_sources)}개 데이터 소스"
+            f"VectorDB 스키마 로드 완료: {schema.total_documents:,}개 문서, {len(schema.data_sources)}개 데이터 소스"
         )
     except Exception as e:
         logger.warning(f"VectorDB 스키마 로드 실패: {e}")
         logger.warning("기본 필터링만 사용합니다.")
+
+    # Socket Mode 시작 (SLACK_APP_TOKEN 설정 시)
+    socket_mode_handler = None
+    socket_mode_task = None
+    if USE_SOCKET_MODE:
+        logger.info("Socket Mode 연결 시작...")
+        try:
+            socket_mode_handler = AsyncSocketModeHandler(
+                slack_app,
+                settings.slack.app_token.get_secret_value(),
+            )
+            # 백그라운드 태스크로 실행 (블로킹 방지)
+            socket_mode_task = asyncio.create_task(socket_mode_handler.start_async())
+            logger.info("✓ Socket Mode 연결 완료 - Slack 이벤트 수신 준비됨")
+        except Exception as e:
+            logger.error(f"Socket Mode 연결 실패: {e}")
+            logger.warning("HTTP Mode로 fallback합니다. Event Subscriptions URL 설정이 필요합니다.")
 
     yield
 
@@ -124,6 +153,21 @@ async def lifespan(app: FastAPI):
     logger.info("=" * 80)
     logger.info("서버 종료 중...")
     logger.info("=" * 80)
+
+    # Socket Mode 정리
+    if socket_mode_handler is not None:
+        try:
+            logger.info("Socket Mode 연결 종료 중...")
+            await socket_mode_handler.close_async()
+            if socket_mode_task is not None:
+                socket_mode_task.cancel()
+                try:
+                    await socket_mode_task
+                except asyncio.CancelledError:
+                    pass
+            logger.info("✓ Socket Mode 연결 종료 완료")
+        except Exception as e:
+            logger.warning(f"Socket Mode 종료 중 오류 발생: {e}")
 
     # Slack handler의 global agent app cleanup
     try:
@@ -213,9 +257,7 @@ async def health():
 
         qdrant_url = settings.qdrant_vector_store.url
         qdrant_api_key = (
-            settings.qdrant_vector_store.api_key.get_secret_value()
-            if settings.qdrant_vector_store.api_key
-            else None
+            settings.qdrant_vector_store.api_key.get_secret_value() if settings.qdrant_vector_store.api_key else None
         )
         client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key, timeout=5.0)
         collections = client.get_collections()
@@ -240,10 +282,14 @@ async def health():
 @api.post("/slack/events")
 async def slack_events(req: Request):
     """
-    Slack Events API 엔드포인트
+    Slack Events API 엔드포인트 (HTTP Mode용)
 
     Slack으로부터 이벤트를 수신하고 처리합니다.
     URL Verification과 Event Callback을 처리합니다.
+
+    Note:
+        Socket Mode 사용 시 이 엔드포인트는 사용되지 않습니다.
+        Socket Mode는 WebSocket으로 직접 이벤트를 수신합니다.
 
     매개변수:
         req: FastAPI Request 객체
@@ -254,7 +300,9 @@ async def slack_events(req: Request):
     예외:
         HTTPException: Slack 요청 검증 실패 시
     """
-    logger.debug("Slack 이벤트 수신")
+    if USE_SOCKET_MODE:
+        logger.warning("Socket Mode 활성화 상태에서 HTTP 이벤트 수신됨. Slack App 설정 확인 필요.")
+    logger.debug("Slack 이벤트 수신 (HTTP Mode)")
     return await slack_handler.handle(req)
 
 
