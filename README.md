@@ -5,6 +5,28 @@ Slack Bot을 통해 부스트캠프 관련 문서에 대한 질문에 답변합�
 
 ---
 
+## 아키텍처
+
+```mermaid
+graph TD
+    A[Slack Message] --> B[Slack Handler]
+    B --> C[Intent Classifier]
+    C --> D{Intent?}
+    D -->|QA| E[Query Analyzer]
+    D -->|Greeting| F[Simple Response]
+    E --> G[Hybrid Retriever]
+    G --> H[Dense Search<br/>Qdrant]
+    G --> I[Sparse Search<br/>BM25]
+    H --> J[Reranker]
+    I --> J
+    J --> L[Answer Generator (Reasoning)]
+    L --> M[Response Parser]
+    M --> N[Slack Response]
+    F --> N
+```
+
+---
+
 ## 기술 스택
 
 | 카테고리 | 기술 |
@@ -36,7 +58,7 @@ app/naver_connect_chatbot/
 │   ├── loader.py       # 템플릿 로더
 │   └── templates/      # 한국어 프롬프트 템플릿
 ├── rag/                # RAG 핵심 로직
-│   ├── rag_reasoning.py    # Clova Studio RAG Reasoning API
+
 │   ├── rerank.py           # Clova Reranker
 │   ├── retriever/          # 하이브리드 검색 (Dense + BM25)
 │   ├── retriever_factory.py
@@ -54,7 +76,7 @@ app/naver_connect_chatbot/
 │   │   ├── routing.py      # 라우팅 로직
 │   │   ├── state.py        # 상태 정의
 │   │   └── workflow.py     # 워크플로우 구성
-│   └── tool/           # MCP 도구들
+│   └── tool/           # 도구들(Retriever Tool)
 └── slack/              # Slack 통합
     └── handler.py      # Slack 이벤트 핸들러
 ```
@@ -219,27 +241,4 @@ uv run pytest -k "not integration"
 
 # 통합 테스트 (실제 API 호출, Docker 서비스 필요)
 uv run pytest -m integration -v
-```
-
----
-
-## 아키텍처
-
-```mermaid
-graph TD
-    A[Slack Message] --> B[Slack Handler]
-    B --> C[Intent Classifier]
-    C --> D{Intent?}
-    D -->|QA| E[Query Analyzer]
-    D -->|Greeting| F[Simple Response]
-    E --> G[Hybrid Retriever]
-    G --> H[Dense Search<br/>Qdrant]
-    G --> I[Sparse Search<br/>BM25]
-    H --> J[Reranker]
-    I --> J
-    J --> K[RAG Reasoning]
-    K --> L[Answer Generator]
-    L --> M[Response Parser]
-    M --> N[Slack Response]
-    F --> N
 ```

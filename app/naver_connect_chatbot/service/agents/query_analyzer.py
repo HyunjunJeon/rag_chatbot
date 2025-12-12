@@ -14,7 +14,7 @@ Version History:
 
 from langchain_core.runnables import Runnable
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from naver_connect_chatbot.config import logger
 from naver_connect_chatbot.prompts import get_prompt
@@ -76,9 +76,9 @@ class QueryRetrievalFilters(BaseModel):
         description="Course names to search (list format). For ambiguous terms, include all matching courses. "
         "Example: 'CV' → ['CV 이론', 'level2_cv', 'Computer Vision']",
     )
-    course_topic: list[str] | str | None = Field(
+    course_topic: list[str] | None = Field(
         default=None,
-        description="Specific topic(s) within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN'). Can be a single string or a list of strings.",
+        description="Specific topic(s) within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN'). Always provide as a list.",
     )
     generation: str | None = Field(
         default=None, description="Bootcamp generation if mentioned (e.g., '1기', '2기', '3기')."
@@ -91,6 +91,20 @@ class QueryRetrievalFilters(BaseModel):
         "Set below 0.5 when the query is highly ambiguous and multiple interpretations are equally valid. "
         "Example: 'CV 관련 질문' with no context → confidence 0.3",
     )
+
+    @field_validator("doc_type", "course", "course_topic", mode="before")
+    @classmethod
+    def normalize_list_fields(cls, v):
+        """단일 문자열을 리스트로 변환합니다.
+
+        LLM이 "pdf" 대신 ["pdf"]를, "CV" 대신 ["CV"]를 반환해야 하지만,
+        때로는 단일 문자열을 반환하므로 자동 변환합니다.
+        """
+        if v is None:
+            return None
+        if isinstance(v, str):
+            return [v]
+        return v
 
 
 class QueryAnalysis(BaseModel):

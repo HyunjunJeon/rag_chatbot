@@ -1,4 +1,18 @@
 """
+[DEPRECATED] 이 모듈은 현재 아키텍처에서 사용되지 않습니다.
+현재 LangGraph Workflow는 Tool 변환 없이 retriever_node에서 직접 검색기를 사용합니다.
+"""
+
+from __future__ import annotations
+import warnings
+
+warnings.warn(
+    "rag.tools module is deprecated. Workflow uses direct node references instead of tools.",
+    DeprecationWarning,
+    stacklevel=2,
+)
+
+"""
 Retriever를 LangChain Tool로 변환하는 유틸리티 모듈.
 
 이 모듈은 BaseRetriever를 LangChain agent가 사용할 수 있는 Tool로
@@ -7,8 +21,6 @@ Retriever를 LangChain Tool로 변환하는 유틸리티 모듈.
 LangChain v1.0+의 create_retriever_tool을 활용하여 retriever를
 agent-compatible tool로 변환합니다.
 """
-
-from __future__ import annotations
 
 from typing import TYPE_CHECKING
 

@@ -170,16 +170,32 @@ def _get_structured_llm(llm: Runnable, schema: type[BaseModel]) -> Runnable:
             self._schema = schema
 
         def _extract_json(self, content: str) -> str:
-            """응답에서 JSON 부분만 추출합니다."""
-            # 코드펜스 내 JSON 추출
-            json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", content, re.DOTALL)
+            """응답에서 JSON 부분만 추출합니다 (중첩 객체 지원)."""
+            # 코드펜스 내 JSON 추출 (중첩 객체 포함)
+            json_match = re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, re.DOTALL)
             if json_match:
                 return json_match.group(1)
 
-            # 직접 JSON 객체 추출
-            json_match = re.search(r"\{[^{}]*\}", content, re.DOTALL)
-            if json_match:
-                return json_match.group(0)
+            # 직접 JSON 객체 추출 (중첩 객체 포함)
+            # 가장 바깥쪽 중괄호를 찾음
+            start_idx = content.find("{")
+            if start_idx == -1:
+                return content
+
+            # 중괄호 카운팅으로 JSON 끝 찾기
+            brace_count = 0
+            end_idx = start_idx
+            for i, char in enumerate(content[start_idx:], start_idx):
+                if char == "{":
+                    brace_count += 1
+                elif char == "}":
+                    brace_count -= 1
+                    if brace_count == 0:
+                        end_idx = i
+                        break
+
+            if brace_count == 0:
+                return content[start_idx : end_idx + 1]
 
             return content
 

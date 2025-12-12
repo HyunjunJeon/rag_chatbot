@@ -1,4 +1,17 @@
 """
+[DEPRECATED] 이 모듈은 현재 아키텍처에서 사용되지 않습니다.
+대신 service/agents/answer_generator.py 및 generate_answer_node를 사용합니다.
+"""
+
+import warnings
+
+warnings.warn(
+    "rag_reasoning module is deprecated and renamed unused in the current defined graph.",
+    DeprecationWarning,
+    stacklevel=2,
+)
+
+"""
 Naver Clova Studio RAG Reasoning 구현 모듈
 
 이 모듈은 Function calling 기반 RAG 추론을 위한 Clova Studio RAG Reasoning API를 제공합니다.
@@ -188,9 +201,7 @@ def convert_langchain_tool_to_rag_reasoning(tool: Any) -> dict[str, Any]:
         from langchain_core.utils.function_calling import convert_to_openai_tool
     except ImportError as e:
         msg = (
-            "langchain_core를 import할 수 없습니다. "
-            "langchain 또는 langchain-core를 설치해주세요: "
-            "uv add langchain-core"
+            "langchain_core를 import할 수 없습니다. langchain 또는 langchain-core를 설치해주세요: uv add langchain-core"
         )
         raise ImportError(msg) from e
 
