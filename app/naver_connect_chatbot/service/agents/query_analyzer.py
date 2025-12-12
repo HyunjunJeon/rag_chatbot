@@ -76,9 +76,9 @@ class QueryRetrievalFilters(BaseModel):
         description="Course names to search (list format). For ambiguous terms, include all matching courses. "
         "Example: 'CV' → ['CV 이론', 'level2_cv', 'Computer Vision']",
     )
-    course_topic: str | None = Field(
+    course_topic: list[str] | str | None = Field(
         default=None,
-        description="Specific topic within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN').",
+        description="Specific topic(s) within a course if mentioned (e.g., 'PyTorch', 'Transformer', 'CNN'). Can be a single string or a list of strings.",
     )
     generation: str | None = Field(
         default=None, description="Bootcamp generation if mentioned (e.g., '1기', '2기', '3기')."

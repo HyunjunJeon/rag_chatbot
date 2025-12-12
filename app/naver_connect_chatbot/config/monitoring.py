@@ -61,9 +61,7 @@ async def check_langfuse_health(settings: LangfuseSettings) -> bool:
             if is_healthy:
                 logger.debug(f"LangFuse health check passed: {settings.host}")
             else:
-                logger.warning(
-                    f"LangFuse health check failed: {settings.host} (status={response.status_code})"
-                )
+                logger.warning(f"LangFuse health check failed: {settings.host} (status={response.status_code})")
 
             return is_healthy
 
@@ -135,21 +133,13 @@ def get_langfuse_callback(
             public_key=langfuse_settings.public_key,  # Can also be passed explicitly
         )
 
-        # Set Slack user ID for trace filtering
-        if user_id:
-            handler.set_trace_params(user_id=user_id)
+        # Note: set_trace_params was removed in langfuse SDK v3+
+        # User and channel metadata should be passed via the config at invoke time:
+        #   config={"callbacks": [handler], "metadata": {"user_id": ..., "channel_id": ...}}
+        # Keeping handler creation simple for compatibility
+        _ = user_id, channel_id, metadata  # Acknowledge params for logging
 
-        # Set additional metadata (channel, custom fields)
-        if channel_id or metadata:
-            trace_metadata = {}
-            if channel_id:
-                trace_metadata["channel_id"] = channel_id
-            trace_metadata.update(metadata)
-            handler.set_trace_params(metadata=trace_metadata)
-
-        logger.debug(
-            f"LangFuse callback created successfully (user_id={user_id}, channel_id={channel_id})"
-        )
+        logger.debug(f"LangFuse callback created successfully (user_id={user_id}, channel_id={channel_id})")
         return handler
 
     except Exception as e:
