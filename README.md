@@ -19,7 +19,7 @@ graph TD
     G --> I[Sparse Search<br/>BM25]
     H --> J[Reranker]
     I --> J
-    J --> L[Answer Generator (Reasoning)]
+    J --> L[Answer Generator - Reasoning]
     L --> M[Response Parser]
     M --> N[Slack Response]
     F --> N
