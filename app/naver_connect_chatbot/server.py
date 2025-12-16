@@ -128,6 +128,17 @@ async def lifespan(app: FastAPI):
         logger.warning(f"VectorDB 스키마 로드 실패: {e}")
         logger.warning("기본 필터링만 사용합니다.")
 
+    # Slack Bot Token 검증 (auth.test)
+    logger.info("Slack Bot Token 검증 중...")
+    try:
+        auth_info = await slack_app.client.auth_test()
+        logger.info(
+            f"✅ Slack Bot 연결 성공: {auth_info['team']} (Team ID: {auth_info['team_id']}, Bot ID: {auth_info['user_id']})"
+        )
+    except Exception as e:
+        logger.error(f"❌ Slack Bot 연결 실패: {e}")
+        logger.error("SLACK_BOT_TOKEN이 올바른지, 해당 워크스페이스 토큰인지 확인해주세요.")
+
     # Socket Mode 시작 (SLACK_APP_TOKEN 설정 시)
     socket_mode_handler = None
     socket_mode_task = None
