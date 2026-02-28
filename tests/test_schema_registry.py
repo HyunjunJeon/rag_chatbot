@@ -10,8 +10,6 @@ SchemaRegistry 단위 테스트.
 
 import threading
 import pytest
-from unittest.mock import MagicMock, patch
-from langchain_core.documents import Document
 
 import sys
 from pathlib import Path
@@ -26,7 +24,6 @@ from naver_connect_chatbot.rag.schema_registry import (
     DataSourceInfo,
     CourseInfo,
     KEYWORD_PATTERNS,
-    get_schema_registry,
 )
 
 

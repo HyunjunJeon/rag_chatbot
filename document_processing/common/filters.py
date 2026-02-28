@@ -566,7 +566,7 @@ class ContentFilter:
 
     def print_stats(self) -> None:
         """필터링 통계를 출력합니다."""
-        print(f"\n📊 필터링 통계:")
+        print("\n📊 필터링 통계:")
         print(f"   전체: {self.stats['total']}개")
         print(f"   저작권 제거: {self.stats['filtered_copyright']}개")
         print(f"   목차 제외: {self.stats['filtered_toc']}개")

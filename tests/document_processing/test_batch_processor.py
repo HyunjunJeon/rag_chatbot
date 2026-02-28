@@ -1,9 +1,7 @@
 """배치 처리 로직 테스트."""
 
-import json
 import pytest
-from pathlib import Path
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock
 
 from document_processing.slack_qa.batch_processor import (
     BatchConfig,

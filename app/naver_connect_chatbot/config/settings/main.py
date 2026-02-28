@@ -16,6 +16,7 @@ from .clova import (
     ClovaStudioRerankerSettings,
     ClovaStudioRAGReasoningSettings,
 )
+from .gemini import GeminiLLMSettings
 from .logging import LoggingSettings
 from .retriever import (
     AdvancedHybridSettings,
@@ -92,10 +93,16 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # Clova X 설정 (langchain_naver)
+    # Gemini LLM 설정 (langchain_google_genai) — 메인 LLM
+    gemini_llm: GeminiLLMSettings = Field(
+        default_factory=GeminiLLMSettings,
+        description="Gemini LLM 설정 (langchain_google_genai.ChatGoogleGenerativeAI)",
+    )
+
+    # Clova X 설정 (langchain_naver) — Embeddings/Reranker용으로 유지
     clova_llm: ClovaXLLMSettings = Field(
         default_factory=ClovaXLLMSettings,
-        description="Clova X LLM 설정 (langchain_naver.ChatClovaX)",
+        description="[Deprecated] Clova X LLM 설정 — Embeddings/Reranker API 키 공유용으로 유지",
     )
     clova_embeddings: ClovaXEmbeddingsSettings = Field(
         default_factory=ClovaXEmbeddingsSettings,

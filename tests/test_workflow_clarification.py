@@ -7,7 +7,6 @@ should_clarify 라우팅 함수와 filter_confidence 처리를 테스트합니�
 - Default values
 """
 
-import pytest
 
 import sys
 from pathlib import Path

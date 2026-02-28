@@ -6,7 +6,6 @@ LangGraph Node 반환 타입 정의.
 """
 
 from typing import TypedDict, Literal, Sequence
-from langchain_core.documents import Document
 from langchain_core.messages import BaseMessage
 
 
@@ -78,18 +77,28 @@ class QueryAnalysisUpdate(TypedDict, total=False):
     retrieval_filters: RetrievalFilters
 
 
-class RetrievalUpdate(TypedDict, total=False):
-    """retrieve_node 반환 타입.
+class AgentUpdate(TypedDict, total=False):
+    """agent_node 반환 타입.
 
-    검색된 문서와 메타데이터를 state에 업데이트합니다.
+    LLM의 tool calling 응답(AIMessage)과 루프 카운터를 state에 업데이트합니다.
+    messages에는 AIMessage(tool_calls 포함 가능)가 append됩니다.
     """
 
-    documents: list[Document]
-    context: list[Document]  # 하위 호환성
-    retrieval_strategy: str
-    retrieval_filters_applied: bool
-    retrieval_fallback_used: bool
-    retrieval_metadata: dict
+    messages: Sequence[BaseMessage]
+    tool_call_count: int
+
+
+class PostProcessUpdate(TypedDict, total=False):
+    """post_process_node 반환 타입.
+
+    agent 루프 완료 후 최종 답변과 메타데이터를 state에 업데이트합니다.
+    post-retrieval OOD 감지 시 soft decline 응답으로 대체됩니다.
+    """
+
+    answer: str
+    generation_metadata: dict
+    generation_strategy: str
+    is_out_of_domain: bool
 
 
 class AnswerUpdate(TypedDict, total=False):

@@ -27,7 +27,6 @@ import hashlib
 import json
 import logging
 from collections import Counter
-from pathlib import Path
 from typing import Any
 
 from document_processing.audit.auditors.base import BaseAuditor

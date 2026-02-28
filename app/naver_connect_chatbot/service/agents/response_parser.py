@@ -6,7 +6,7 @@ LangChain 에이전트 응답 파싱 유틸리티.
 """
 
 import json
-from typing import Any, Type, TypeVar, Optional, list
+from typing import Any, Optional, Type, TypeVar
 from pydantic import BaseModel, ValidationError
 
 from langchain_core.messages import BaseMessage, ToolMessage, filter_messages
@@ -122,7 +122,9 @@ def parse_agent_response(
         raise
 
 
-def _extract_from_messages(messages: list[BaseMessage], model_type: Type[_ModelT]) -> Optional[_ModelT]:
+def _extract_from_messages(
+    messages: list[BaseMessage], model_type: Type[_ModelT]
+) -> Optional[_ModelT]:
     """
     메시지 리스트에서 ToolMessage를 찾아 모델로 파싱합니다.
 

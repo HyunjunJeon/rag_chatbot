@@ -6,7 +6,6 @@ Pydantic v2 모델로 평가 결과의 타입 안전성을 보장합니다.
 
 from __future__ import annotations
 
-from typing import Literal
 
 from pydantic import BaseModel, Field, computed_field
 

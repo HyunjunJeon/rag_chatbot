@@ -24,6 +24,7 @@ from naver_connect_chatbot.config.embedding import get_embeddings
 from naver_connect_chatbot.config.settings import (
     PROJECT_ROOT,
     AdvancedHybridSettings,
+    GeminiLLMSettings,
     ClovaXLLMSettings,
     ClovaXEmbeddingsSettings,
     ClovaStudioRerankerSettings,
@@ -62,7 +63,9 @@ __all__ = [
     # LLM and Embeddings (langchain_naver)
     "get_chat_model",
     "get_embeddings",
-    # Clova X Settings
+    # Gemini LLM Settings
+    "GeminiLLMSettings",
+    # Clova X Settings (Embeddings/Reranker용)
     "ClovaXLLMSettings",
     "ClovaXEmbeddingsSettings",
     # Clova Studio Reranker

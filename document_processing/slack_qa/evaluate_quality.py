@@ -216,7 +216,7 @@ async def main(
     print("=" * 60)
     print(f"Input:  {input_dir}")
     print(f"Output: {output_dir}")
-    print(f"Model:  Clova X HCX-007")
+    print("Model:  Clova X HCX-007")
     if checkpoint_path:
         print(f"Checkpoint: {checkpoint_path}")
 

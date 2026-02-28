@@ -23,7 +23,6 @@ import asyncio
 import subprocess
 import sys
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 import aiosqlite
 from fastapi import FastAPI, Request

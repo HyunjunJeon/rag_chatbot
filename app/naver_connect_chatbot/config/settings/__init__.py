@@ -22,7 +22,10 @@ from .base import PROJECT_ROOT
 # Enums
 from .enums import HybridMethodType, RetrieverStrategy
 
-# Clova X Settings (langchain_naver)
+# Gemini LLM Settings (langchain_google_genai)
+from .gemini import GeminiLLMSettings
+
+# Clova X Settings (langchain_naver) — Embeddings/Reranker용 유지
 from .clova import (
     ClovaXLLMSettings,
     ClovaXEmbeddingsSettings,
@@ -57,6 +60,8 @@ __all__ = [
     # Main Settings
     "Settings",
     "settings",
+    # Gemini LLM Settings
+    "GeminiLLMSettings",
     # Clova X Settings
     "ClovaXLLMSettings",
     "ClovaXEmbeddingsSettings",

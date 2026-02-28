@@ -215,13 +215,13 @@ def print_summary(report: AuditReport) -> None:
     print(f"총 소요 시간: {report.total_duration_seconds:.2f}초")
 
     # 이슈 요약
-    print(f"\n📋 이슈 요약:")
+    print("\n📋 이슈 요약:")
     print(f"  - 전체: {report.total_issues}개")
     print(f"  - 🔴 치명적: {report.total_critical}개")
     print(f"  - 🟡 경고: {report.total_warnings}개")
 
     # 레이어별 결과
-    print(f"\n📁 레이어별 결과:")
+    print("\n📁 레이어별 결과:")
     for layer in report.layers:
         status_emoji = {"pass": "✅", "warning": "⚠️", "fail": "❌"}.get(layer.status, "❓")
         print(
@@ -231,7 +231,7 @@ def print_summary(report: AuditReport) -> None:
 
     # 권장 사항
     if report.recommendations:
-        print(f"\n💡 권장 조치 사항:")
+        print("\n💡 권장 조치 사항:")
         for i, rec in enumerate(report.recommendations, 1):
             print(f"  {i}. {rec}")
 
@@ -265,7 +265,7 @@ def main() -> int:
         generated_files = generate_reports(report, args.output, args.format)
 
         if generated_files:
-            print(f"\n📄 생성된 리포트:")
+            print("\n📄 생성된 리포트:")
             for filepath in generated_files:
                 print(f"  - {filepath}")
 

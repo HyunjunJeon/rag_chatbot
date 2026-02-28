@@ -61,11 +61,11 @@ def get_agent_app(checkpointer: "BaseCheckpointSaver | None" = None):
     # 1. Embeddings - 팩토리 함수 사용 (langchain_naver.ClovaXEmbeddings)
     embeddings = get_embeddings()
 
-    # 2. LLM - 팩토리 함수 사용 (langchain_naver.ChatClovaX)
-    #    - 기본 llm: reasoning 비활성 (tools/structured output과 안전하게 사용)
-    #    - reasoning_llm: generate_answer_node 전용 Reasoning LLM (effort="medium")
-    llm = get_chat_model()
-    reasoning_llm = get_chat_model(use_reasoning=True, reasoning_effort="medium")
+    # 2. LLM - 팩토리 함수 사용 (langchain_google_genai.ChatGoogleGenerativeAI)
+    #    - 기본 llm: thinking_level="low" (분류/분석 등 가벼운 작업용)
+    #    - reasoning_llm: generate_answer_node 전용 (기본 thinking_level="high")
+    llm = get_chat_model(thinking_level="low")
+    reasoning_llm = get_chat_model()
 
     # 3. Retriever - 저장된 BM25 인덱스 로드 (없으면 Qdrant만 사용)
     bm25_index_path = PROJECT_ROOT / settings.retriever.bm25_index_path
@@ -100,11 +100,13 @@ def get_agent_app(checkpointer: "BaseCheckpointSaver | None" = None):
             k=settings.retriever.default_k,
         )
 
-    # 4. Build Graph with Checkpointer
+    # 4. Build Graph with Checkpointer (tool-based agent)
     workflow_app = build_adaptive_rag_graph(
         retriever=retriever,
         llm=llm,
         reasoning_llm=reasoning_llm,
+        reranker_settings=settings.reranker,
+        gemini_llm_settings=settings.gemini_llm,
         check_pointers=checkpointer,
     )
 
@@ -140,6 +142,7 @@ def set_checkpointer(checkpointer: "BaseCheckpointSaver | None") -> None:
         logger.info("전역 checkpointer 설정 완료")
     else:
         logger.warning("전역 checkpointer가 None으로 설정됨")
+
 
 # =============================================================================
 # 메시지 전처리 유틸리티
@@ -238,6 +241,7 @@ def is_simple_greeting(text: str) -> bool:
 def get_greeting_response() -> str:
     """무작위 인사 응답을 반환합니다."""
     import random
+
     return random.choice(GREETING_RESPONSES)
 
 

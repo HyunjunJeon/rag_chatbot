@@ -6,14 +6,19 @@ Adaptive RAG에서 사용하는 검색 도구 모음.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from collections import Counter
+from typing import TYPE_CHECKING, Annotated, Any
+
 from langchain_core.documents import Document
-from langchain_core.tools import tool
 from langchain_core.retrievers import BaseRetriever
+from langchain_core.tools import tool
+from langgraph.prebuilt import InjectedState
 
 from naver_connect_chatbot.config import logger
 
 if TYPE_CHECKING:
+    from naver_connect_chatbot.config.settings.gemini import GeminiLLMSettings
+    from naver_connect_chatbot.rag.rerank import ClovaStudioReranker
     from naver_connect_chatbot.service.graph.types import RetrievalFilters
 
 
@@ -322,4 +327,413 @@ async def retrieve_multi_query_async(
     except Exception as e:
         logger.error(f"Async multi-query retrieval error: {e}")
         return []
+
+
+# ============================================================================
+# 문서 라벨 빌더 (안정 식별자)
+# ============================================================================
+
+DOC_TYPE_DISPLAY = {
+    "pdf": "강의자료",
+    "notebook": "실습노트북",
+    "slack_qa": "Slack Q&A",
+    "lecture_transcript": "강의녹취록",
+    "weekly_mission": "주간미션",
+}
+
+
+def _build_document_label(doc: Document, index: int) -> str:
+    """
+    메타데이터 기반 안정 식별자를 생성합니다.
+
+    메타데이터의 doc_type, course, lecture_num, topic 등을 조합하여
+    멀티턴에서도 일관된 문서 라벨을 생성합니다.
+    메타데이터가 없으면 [문서 N] 형태로 폴백합니다.
+
+    매개변수:
+        doc: LangChain Document 객체
+        index: 문서 인덱스 (0-based, 폴백용)
+
+    반환값:
+        "[강의자료: CV 이론/3강]" 같은 형태의 문서 라벨
+    """
+    metadata = doc.metadata or {}
+    doc_type = metadata.get("doc_type", "")
+    doc_type_label = DOC_TYPE_DISPLAY.get(doc_type, doc_type)
+    course = metadata.get("course", "")
+
+    if not doc_type_label and not course:
+        return f"[문서 {index + 1}]"
+
+    parts = []
+    if doc_type_label:
+        parts.append(doc_type_label)
+
+    detail_parts = []
+    if course:
+        detail_parts.append(course)
+
+    lecture_num = metadata.get("lecture_num", "")
+    topic = metadata.get("topic", "")
+    if lecture_num:
+        detail_parts.append(f"{lecture_num}강")
+    elif topic:
+        detail_parts.append(topic)
+
+    if parts and detail_parts:
+        return f"[{parts[0]}: {'/'.join(detail_parts)}]"
+    elif parts:
+        return f"[{parts[0]}]"
+    elif detail_parts:
+        return f"[{'/'.join(detail_parts)}]"
+
+    return f"[문서 {index + 1}]"
+
+
+# ============================================================================
+# Tool-based Retrieval (LLM Agent용)
+# ============================================================================
+
+
+def create_qdrant_search_tool(
+    retriever: BaseRetriever,
+    reranker_settings: Any | None = None,
+) -> Any:
+    """
+    LLM Agent용 Qdrant 검색 도구를 생성합니다.
+
+    InjectedState를 통해 analyze_query_node가 추출한 retrieval_filters에 접근합니다.
+    검색 → 필터링 → Reranking → 포맷팅을 하나의 도구 호출로 완료합니다.
+
+    매개변수:
+        retriever: Qdrant 기반 BaseRetriever
+        reranker_settings: ClovaStudioRerankerSettings (None이면 reranking 생략)
+
+    반환값:
+        LangChain @tool 데코레이터가 적용된 async 함수
+    """
+
+    @tool
+    async def qdrant_search(
+        query: str,
+        state: Annotated[dict, InjectedState],
+    ) -> str:
+        """부스트캠프 교육 자료를 검색합니다. 강의자료, 실습 노트북, Slack Q&A, 미션 등에서 관련 정보를 찾습니다."""
+        filters = state.get("retrieval_filters")
+        if filters:
+            logger.info(f"Qdrant search with filters: {filters}")
+
+        # 1. 검색 + 메타데이터 필터링
+        result: RetrievalResult = await retrieve_documents_async(
+            retriever, query, filters=filters, fallback_on_empty=True, min_results=1
+        )
+
+        if not result.documents:
+            return f"검색 결과 없음: '{query}'에 대한 관련 교육 자료를 찾지 못했습니다."
+
+        documents = result.documents
+
+        # 2. Reranking (설정이 있을 때만)
+        if reranker_settings:
+            try:
+                from naver_connect_chatbot.rag.rerank import ClovaStudioReranker
+
+                reranker = ClovaStudioReranker.from_settings(reranker_settings)
+                documents = await reranker.arerank(
+                    query=query,
+                    documents=documents,
+                    top_k=min(len(documents), 10),
+                )
+                logger.info(f"Reranked to {len(documents)} documents")
+            except Exception as e:
+                logger.warning(f"Reranking failed, using original order: {e}")
+
+        # 3. 문서 포맷팅 (라벨 + 본문)
+        parts = [f"[검색 결과: {len(documents)}건]"]
+        for i, doc in enumerate(documents):
+            label = _build_document_label(doc, i)
+            parts.append(f"{label}\n{doc.page_content}")
+
+        return "\n\n".join(parts)
+
+    return qdrant_search
+
+
+# ============================================================================
+# Dual Source Retrieval (Qdrant + Web Search)
+# ============================================================================
+
+
+class DualRetrievalResult:
+    """Qdrant + WebSearch 이중 검색 결과를 담는 클래스."""
+
+    def __init__(
+        self,
+        documents: list[Document],
+        qdrant_count: int = 0,
+        web_count: int = 0,
+        duplicates_removed: int = 0,
+        web_search_activated: bool = False,
+    ):
+        self.documents = documents
+        self.qdrant_count = qdrant_count
+        self.web_count = web_count
+        self.duplicates_removed = duplicates_removed
+        self.web_search_activated = web_search_activated
+
+
+def _tag_source_type(documents: list[Document], source_type: str) -> list[Document]:
+    """문서 리스트에 source_type 메타데이터를 태깅합니다 (이미 있으면 유지)."""
+    for doc in documents:
+        if doc.metadata is None:
+            doc.metadata = {}
+        doc.metadata.setdefault("source_type", source_type)
+    return documents
+
+
+def _deduplicate_documents(documents: list[Document]) -> tuple[list[Document], int]:
+    """
+    page_content hash 기반으로 중복 문서를 제거합니다.
+
+    반환값:
+        (중복 제거된 문서 리스트, 제거된 문서 수)
+    """
+    seen: set[int] = set()
+    unique: list[Document] = []
+    for doc in documents:
+        content_hash = hash(doc.page_content)
+        if content_hash not in seen:
+            seen.add(content_hash)
+            unique.append(doc)
+    removed = len(documents) - len(unique)
+    return unique, removed
+
+
+async def retrieve_dual_source_async(
+    query: str,
+    retriever: BaseRetriever,
+    llm_settings: GeminiLLMSettings,
+    *,
+    filters: RetrievalFilters | None = None,
+    enable_web_search: bool = True,
+    min_qdrant_results: int = 2,
+) -> DualRetrievalResult:
+    """
+    Qdrant VectorDB + Google WebSearch 이중 검색 후 병합합니다.
+
+    전략:
+    - enable_web_search=True이면 항쪽 모두 병렬 검색
+    - enable_web_search=False이면 Qdrant만 사용
+    - 결과를 source_type으로 태깅하여 병합
+    - page_content hash 기반 중복 제거
+
+    매개변수:
+        query: 검색 질의 문자열
+        retriever: Qdrant 기반 BaseRetriever
+        llm_settings: GeminiLLMSettings (WebSearch용)
+        filters: 메타데이터 필터 (Qdrant 검색에만 적용)
+        enable_web_search: WebSearch 활성화 여부
+        min_qdrant_results: 이 값 미만이면 WebSearch 강제 활성화
+
+    반환값:
+        DualRetrievalResult: 병합된 검색 결과
+    """
+    # 1. Qdrant 검색
+    qdrant_result = await retrieve_documents_async(
+        retriever, query, filters=filters, fallback_on_empty=True
+    )
+    qdrant_docs = _tag_source_type(qdrant_result.documents, "qdrant")
+
+    # Qdrant 결과가 부족하면 WebSearch 강제 활성화
+    if len(qdrant_docs) < min_qdrant_results:
+        enable_web_search = True
+
+    # 2. WebSearch (조건부 병렬 실행)
+    web_docs: list[Document] = []
+    web_search_activated = False
+
+    if enable_web_search:
+        web_search_activated = True
+        try:
+            from naver_connect_chatbot.rag.web_search import google_search_retrieve
+
+            web_docs = await google_search_retrieve(query, llm_settings)
+            # web_search 모듈에서 이미 source_type 태깅하지만, 안전하게 한번 더
+            web_docs = _tag_source_type(web_docs, "web_search")
+        except Exception as e:
+            logger.warning(f"WebSearch failed, continuing with Qdrant only: {e}")
+            web_docs = []
+
+    # 3. 병합 + 중복 제거
+    combined = qdrant_docs + web_docs
+    merged_docs, duplicates_removed = _deduplicate_documents(combined)
+
+    logger.info(
+        f"Dual retrieval: qdrant={len(qdrant_docs)}, web={len(web_docs)}, "
+        f"merged={len(merged_docs)}, dedup={duplicates_removed}"
+    )
+
+    return DualRetrievalResult(
+        documents=merged_docs,
+        qdrant_count=len(qdrant_docs),
+        web_count=len(web_docs),
+        duplicates_removed=duplicates_removed,
+        web_search_activated=web_search_activated,
+    )
+
+
+# ============================================================================
+# Rerank + Score Cutoff Filter
+# ============================================================================
+
+
+async def rerank_and_filter(
+    query: str,
+    documents: list[Document],
+    reranker: ClovaStudioReranker,
+    *,
+    top_k: int = 10,
+    min_rank: int = 5,
+) -> list[Document]:
+    """
+    ClovaStudio Reranker로 재순위화 후 rank 기반 필터링합니다.
+
+    ClovaStudio Reranker 특성:
+    - API가 순위(rank) 기반으로 점수를 합성: 1등=1.0, 2등=0.9, ...
+    - 따라서 score cutoff보다 rank cutoff가 더 안정적
+    - min_rank=5 → rank 1~5 문서만 반환 (상위 50% at top_k=10)
+
+    매개변수:
+        query: 사용자 질의
+        documents: 재순위화할 문서 리스트
+        reranker: ClovaStudioReranker 인스턴스
+        top_k: reranker에 전달할 상위 문서 수
+        min_rank: 이 rank 이하만 통과 (1=최고, 5=상위 50%)
+
+    반환값:
+        rank 필터링이 적용된 문서 리스트.
+        metadata에 rerank_score, rerank_rank 포함.
+
+    예외:
+        빈 문서 리스트이면 빈 리스트 반환 (reranker 호출 안 함).
+    """
+    if not documents:
+        return []
+
+    # ClovaStudio Reranker 호출
+    reranked = await reranker.arerank(query=query, documents=documents, top_k=top_k)
+
+    # rank cutoff 필터링
+    filtered = [
+        doc for doc in reranked
+        if doc.metadata.get("rerank_rank", float("inf")) <= min_rank
+    ]
+
+    logger.info(
+        f"Rerank filter: {len(documents)} → reranked {len(reranked)} → "
+        f"rank<={min_rank} kept {len(filtered)}"
+    )
+
+    return filtered
+
+
+# ============================================================================
+# Full Validated Pipeline
+# ============================================================================
+
+
+class ValidatedRetrievalResult:
+    """전체 파이프라인 결과: Dual Retrieval → Rerank → Filter."""
+
+    def __init__(
+        self,
+        verified_documents: list[Document],
+        all_documents: list[Document],
+        qdrant_count: int = 0,
+        web_count: int = 0,
+        reranked_count: int = 0,
+        filtered_count: int = 0,
+        source_distribution: dict[str, int] | None = None,
+    ):
+        self.verified_documents = verified_documents
+        self.all_documents = all_documents
+        self.qdrant_count = qdrant_count
+        self.web_count = web_count
+        self.reranked_count = reranked_count
+        self.filtered_count = filtered_count
+        self.source_distribution = source_distribution or {}
+
+
+async def retrieve_and_validate(
+    query: str,
+    retriever: BaseRetriever,
+    reranker: ClovaStudioReranker,
+    llm_settings: GeminiLLMSettings,
+    *,
+    filters: RetrievalFilters | None = None,
+    enable_web_search: bool = True,
+    min_qdrant_results: int = 2,
+    rerank_top_k: int = 10,
+    rerank_min_rank: int = 5,
+) -> ValidatedRetrievalResult:
+    """
+    전체 파이프라인: Dual Retrieval → Rerank → Filter → Validated Documents.
+
+    매개변수:
+        query: 검색 질의 문자열
+        retriever: Qdrant 기반 BaseRetriever
+        reranker: ClovaStudioReranker 인스턴스
+        llm_settings: GeminiLLMSettings (WebSearch용)
+        filters: 메타데이터 필터 (Qdrant 검색에만 적용)
+        enable_web_search: WebSearch 활성화 여부
+        min_qdrant_results: Qdrant 결과 최소 수 (미만 시 WebSearch 강제)
+        rerank_top_k: reranker에 전달할 상위 문서 수
+        rerank_min_rank: rank cutoff (이하만 통과)
+
+    반환값:
+        ValidatedRetrievalResult: 검증된 최종 결과
+    """
+    # Step 1: Dual Source Retrieval
+    dual_result = await retrieve_dual_source_async(
+        query=query,
+        retriever=retriever,
+        llm_settings=llm_settings,
+        filters=filters,
+        enable_web_search=enable_web_search,
+        min_qdrant_results=min_qdrant_results,
+    )
+
+    all_documents = dual_result.documents
+
+    # Step 2: Rerank + Filter (문서가 있을 때만)
+    if all_documents:
+        verified = await rerank_and_filter(
+            query=query,
+            documents=all_documents,
+            reranker=reranker,
+            top_k=rerank_top_k,
+            min_rank=rerank_min_rank,
+        )
+    else:
+        verified = []
+
+    # Step 3: source_distribution 계산
+    source_distribution = dict(
+        Counter(doc.metadata.get("source_type", "unknown") for doc in verified)
+    )
+
+    logger.info(
+        f"Validated pipeline: dual={len(all_documents)} → "
+        f"verified={len(verified)}, distribution={source_distribution}"
+    )
+
+    return ValidatedRetrievalResult(
+        verified_documents=verified,
+        all_documents=all_documents,
+        qdrant_count=dual_result.qdrant_count,
+        web_count=dual_result.web_count,
+        reranked_count=len(verified),
+        filtered_count=len(verified),
+        source_distribution=source_distribution,
+    )
 

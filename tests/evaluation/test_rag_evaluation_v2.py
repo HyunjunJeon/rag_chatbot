@@ -15,7 +15,6 @@ from typing import Any
 
 import pytest
 from dotenv import load_dotenv
-from langchain_core.documents import Document
 from langchain_core.runnables.config import RunnableConfig
 from loguru import logger
 
@@ -49,7 +48,6 @@ eval_logger.info(f"Evaluation test logging initialized: {_EVAL_LOG_FILE}")
 load_dotenv(PROJECT_ROOT / ".env")
 
 from tests.evaluation.evaluators import (
-    JudgeEvaluation,
     QuestionEvaluation,
     EvaluationReport,
     LLMJudgeEvaluator,

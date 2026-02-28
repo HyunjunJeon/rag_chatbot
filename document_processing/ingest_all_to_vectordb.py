@@ -240,7 +240,7 @@ class SlackQALoader(DocumentLoader):
                 print(f"   ✗ {json_file.name}: {e}")
 
         # 필터링 통계 출력
-        print(f"   필터링 결과:")
+        print("   필터링 결과:")
         print(f"      전체 Q&A: {self._stats['total_qa']:,}개")
         print(f"      짧은 답변 제외: {self._stats['filtered_short']:,}개")
         print(f"      행정 내용 제외: {self._stats['filtered_admin']:,}개")

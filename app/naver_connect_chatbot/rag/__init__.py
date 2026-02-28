@@ -24,6 +24,7 @@ from .schema_registry import (
     get_schema_registry,
     get_data_source_context,
 )
+from .web_search import extract_grounding_documents, google_search_retrieve
 
 __all__ = [
     # Reranker
@@ -47,4 +48,7 @@ __all__ = [
     "DataSourceInfo",
     "get_schema_registry",
     "get_data_source_context",
+    # Web Search
+    "extract_grounding_documents",
+    "google_search_retrieve",
 ]

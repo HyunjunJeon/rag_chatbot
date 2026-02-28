@@ -109,3 +109,4 @@ class AdaptiveRAGState(TypedDict, total=False):
     retry_count: int
     max_retries: int
     workflow_stage: str
+    tool_call_count: int  # agent ⇄ tools 루프 반복 횟수 제어

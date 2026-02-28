@@ -26,7 +26,6 @@
 
 import logging
 import time
-from pathlib import Path
 from typing import Any
 
 from document_processing.audit.auditors.base import BaseAuditor

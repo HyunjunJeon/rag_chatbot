@@ -21,7 +21,6 @@ sys.path.insert(0, str(PROJECT_ROOT / "app"))
 
 from naver_connect_chatbot.service.tool.retrieval_tool import (
     filter_documents_by_metadata,
-    RetrievalResult,
 )
 
 

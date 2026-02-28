@@ -9,31 +9,19 @@ from __future__ import annotations
 from typing import Any
 
 from langchain_core.runnables import Runnable
-from langchain_core.retrievers import BaseRetriever
-from langchain_core.messages import AIMessage, HumanMessage, BaseMessage
+from langchain_core.messages import AIMessage, HumanMessage, BaseMessage, SystemMessage, ToolMessage
 
 from naver_connect_chatbot.service.graph.state import AdaptiveRAGState
 from naver_connect_chatbot.service.graph.types import (
     IntentUpdate,
     QueryAnalysisUpdate,
-    RetrievalUpdate,
-    AnswerUpdate,
+    AgentUpdate,
+    PostProcessUpdate,
     OODResponseUpdate,
 )
-from naver_connect_chatbot.service.agents.intent_classifier import (
-    aclassify_intent,
-    IntentClassification,
-)
-from naver_connect_chatbot.service.agents.query_analyzer import (
-    aanalyze_query,
-    QueryAnalysis,
-)
-from naver_connect_chatbot.service.agents.answer_generator import (
-    get_generation_strategy,
-)
-from naver_connect_chatbot.service.tool.retrieval_tool import retrieve_documents_async, RetrievalResult
-from naver_connect_chatbot.rag import ClovaStudioReranker
-from naver_connect_chatbot.config import logger, settings
+from naver_connect_chatbot.service.agents.intent_classifier import aclassify_intent
+from naver_connect_chatbot.service.agents.query_analyzer import aanalyze_query
+from naver_connect_chatbot.config import logger
 
 
 # =============================================================================
@@ -53,33 +41,33 @@ def _format_chat_history(messages: list[BaseMessage], max_turns: int = MAX_HISTO
         max_turns: 포함할 최대 턴 수 (기본값: 5)
 
     반환값:
-        포맷팅된 대화 히스토리 문자열
-
-    예시:
-        >>> messages = [HumanMessage(content="안녕"), AIMessage(content="안녕하세요!")]
-        >>> _format_chat_history(messages)
-        "[이전 대화]\n사용자: 안녕\n어시스턴트: 안녕하세요!\n"
+        포맷팅된 대화 히스토리 문자열 (턴 번호 포함, 중복 방지 지시 포함)
     """
     if not messages:
         return ""
 
     # 최근 N턴만 사용 (1턴 = 사용자 + AI 쌍)
-    # 메시지 리스트에서 최근 2*max_turns개만 선택
-    recent_messages = messages[-(max_turns * 2):]
+    recent_messages = messages[-(max_turns * 2) :]
 
     if not recent_messages:
         return ""
 
     history_lines = ["[이전 대화]"]
+    turn_num = 0
     for msg in recent_messages:
         if isinstance(msg, HumanMessage):
-            history_lines.append(f"사용자: {msg.content}")
+            turn_num += 1
+            history_lines.append(f"[턴 {turn_num}] 사용자: {msg.content}")
         elif isinstance(msg, AIMessage):
-            # AI 응답은 너무 길면 요약
+            # AI 응답은 너무 길면 요약 (500자로 확장)
             content = msg.content
-            if len(content) > 200:
-                content = content[:200] + "..."
-            history_lines.append(f"어시스턴트: {content}")
+            if len(content) > 500:
+                content = content[:500] + "..."
+            history_lines.append(f"[턴 {turn_num}] 어시스턴트: {content}")
+
+    history_lines.append(
+        "[주의] 위 대화에서 이미 답변한 내용을 반복하지 마세요. 새로운 정보에 집중하세요."
+    )
 
     return "\n".join(history_lines) + "\n"
 
@@ -89,20 +77,50 @@ def _format_chat_history(messages: list[BaseMessage], max_turns: int = MAX_HISTO
 # =============================================================================
 
 
+def _extract_text_from_content(content: Any) -> str:
+    """
+    content 필드에서 텍스트를 추출합니다.
+
+    Gemini thinking_level 사용 시 content가 리스트 형태로 반환될 수 있습니다:
+    [{"type": "thinking", "text": "..."}, {"type": "text", "text": "actual answer"}]
+    이 경우 type="text" 블록만 추출합니다.
+    """
+    if isinstance(content, str):
+        return content
+
+    if isinstance(content, list):
+        text_parts = []
+        for block in content:
+            if isinstance(block, dict):
+                # Gemini thinking block 형식: {"type": "text", "text": "..."}
+                if block.get("type") == "text":
+                    text_parts.append(block.get("text", ""))
+                elif "text" in block and "type" not in block:
+                    # type 필드 없는 단순 텍스트 블록
+                    text_parts.append(block["text"])
+            elif isinstance(block, str):
+                text_parts.append(block)
+        if text_parts:
+            return "\n".join(text_parts)
+        # thinking 블록만 있는 경우 (text 블록 없음) → 첫 번째 블록의 text 사용
+        for block in content:
+            if isinstance(block, dict) and "text" in block:
+                return block["text"]
+
+    return str(content)
+
+
 def _extract_text_response(response: Any) -> str:
     """
     LangChain 에이전트 응답에서 텍스트를 안전하게 추출합니다.
+
+    Gemini thinking blocks (리스트 형태 content)도 올바르게 처리합니다.
     """
     if isinstance(response, AIMessage):
-        if isinstance(response.content, str):
-            return response.content
-        return str(response.content)
+        return _extract_text_from_content(response.content)
 
     if hasattr(response, "content"):
-        content = response.content
-        if isinstance(content, str):
-            return content
-        return str(content)
+        return _extract_text_from_content(response.content)
 
     if isinstance(response, dict):
         output = response.get("output")
@@ -122,9 +140,7 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
     """
     사용자 의도를 분류합니다 (OUT_OF_DOMAIN 감지 포함).
 
-    Note:
-        tools/function calling 대신 llm.invoke(prompt) 형태로 직접 호출하여
-        CLOVA HCX-007의 reasoning 모드와 호환됩니다.
+    Gemini with_structured_output()을 사용하여 IntentClassification을 직접 반환받습니다.
 
     매개변수:
         state: 현재 워크플로 상태
@@ -140,28 +156,59 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
     # 1. 패턴 매칭으로 확실한 OUT_OF_DOMAIN 먼저 처리 (LLM 호출 없이 빠르게)
     ood_patterns = {
         "greeting": [
-            "안녕", "반가", "하이", "헬로", "hello", "hi ", "hey",
-            "잘 지내", "좋은 아침", "좋은 저녁",
+            "안녕",
+            "반가",
+            "하이",
+            "헬로",
+            "hello",
+            "hi ",
+            "hey",
+            "잘 지내",
+            "좋은 아침",
+            "좋은 저녁",
         ],
         "self_intro": [
-            "이름이 뭐", "넌 누구", "너 누구", "뭘 할 수 있", "뭘 도와줄 수 있",
-            "어떤 봇", "무슨 봇", "뭐하는 봇", "소개해", "자기소개",
-            "who are you", "what can you do", "what's your name",
+            "이름이 뭐",
+            "넌 누구",
+            "너 누구",
+            "뭘 할 수 있",
+            "뭘 도와줄 수 있",
+            "어떤 봇",
+            "무슨 봇",
+            "뭐하는 봇",
+            "소개해",
+            "자기소개",
+            "who are you",
+            "what can you do",
+            "what's your name",
         ],
         "chitchat": [
-            "뭐해", "심심", "배고파", "졸려", "피곤",
+            "뭐해",
+            "심심",
+            "배고파",
+            "졸려",
+            "피곤",
         ],
         "off_topic": [
-            "날씨", "점심", "저녁", "아침", "메뉴 추천", "맛집",
-            "여행", "주식", "투자", "연예", "스포츠", "축구", "야구",
+            "날씨",
+            "점심 메뉴",
+            "저녁 메뉴",
+            "아침 메뉴",
+            "메뉴 추천",
+            "맛집",
+            "여행",
+            "주식",
+            "투자",
+            "연예",
+            "스포츠",
+            "축구 경기",
+            "야구 경기",
         ],
     }
 
     for pattern_type, patterns in ood_patterns.items():
         if any(pattern in question_lower for pattern in patterns):
-            logger.info(
-                f"Pattern-matched OUT_OF_DOMAIN ({pattern_type}): '{question[:50]}'"
-            )
+            logger.info(f"Pattern-matched OUT_OF_DOMAIN ({pattern_type}): '{question[:50]}'")
             return {
                 "intent": "OUT_OF_DOMAIN",
                 "intent_confidence": 0.95,
@@ -174,11 +221,11 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
     # 2. 패턴 매칭에 걸리지 않으면 LLM으로 분류
     response = await aclassify_intent(question, llm)
 
-    # domain_relevance가 낮으면 OUT_OF_DOMAIN으로 보정
+    # domain_relevance가 매우 낮으면 OUT_OF_DOMAIN으로 보정 (Hard OOD 임계값)
     intent = response.intent
     domain_relevance = response.domain_relevance
 
-    if domain_relevance < 0.3 and intent != "OUT_OF_DOMAIN":
+    if domain_relevance < 0.2 and intent != "OUT_OF_DOMAIN":
         logger.info(
             f"Low domain_relevance ({domain_relevance:.2f}), "
             f"overriding intent from {intent} to OUT_OF_DOMAIN"
@@ -209,14 +256,6 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
     1. 질의의 명확성, 구체성, 검색 가능성을 평가
     2. 다양한 관점의 검색 쿼리 3-5개 생성 (Multi-Query)
     3. 질문에서 메타데이터 기반 검색 필터 추출 (doc_type, course, etc.)
-
-    Pre-Retriever 데이터 소스 선택:
-    - VectorDB 스키마 정보를 프롬프트에 주입하여 LLM이 실제 데이터 소스를 알고 필터를 추출할 수 있게 함
-    - 서버 시작 시 로드된 SchemaRegistry에서 데이터 소스 컨텍스트를 가져옴
-
-    Note:
-        tools/function calling 대신 llm.invoke(prompt) 형태로 직접 호출하여
-        CLOVA HCX-007의 reasoning 모드와 호환됩니다.
 
     매개변수:
         state: 현재 워크플로 상태
@@ -267,9 +306,7 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
 
                     registry = get_schema_registry()
                     if not registry.is_loaded():
-                        logger.warning(
-                            "SchemaRegistry not loaded, using original course names"
-                        )
+                        logger.warning("SchemaRegistry not loaded, using original course names")
                         filters["course"] = rf.course
                     else:
                         resolved_courses: list[str] = []
@@ -285,9 +322,7 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
                                 resolved_courses.append(course)  # Fallback to original
                         # 중복 제거 (순서 유지)
                         filters["course"] = list(dict.fromkeys(resolved_courses))
-                        logger.info(
-                            f"Course names resolved: {rf.course} → {filters['course']}"
-                        )
+                        logger.info(f"Course names resolved: {rf.course} → {filters['course']}")
                 except Exception as e:
                     logger.error(
                         f"Critical error in course fuzzy resolution: {e}",
@@ -308,8 +343,7 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
             filter_confidence = response.retrieval_filters.filter_confidence
             if filter_confidence < 0.5:
                 logger.info(
-                    f"Low filter confidence ({filter_confidence:.2f}), "
-                    "clarification may be needed"
+                    f"Low filter confidence ({filter_confidence:.2f}), clarification may be needed"
                 )
 
         # 분석 결과를 추출합니다.
@@ -338,230 +372,206 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
         }
 
 
-async def retrieve_node(state: AdaptiveRAGState, retriever: BaseRetriever) -> RetrievalUpdate:
+# =============================================================================
+# Agent Node (Tool-based Retrieval)
+# =============================================================================
+
+
+def _build_agent_system_prompt(
+    intent: str,
+    domain_relevance: float,
+    refined_queries: list[str],
+) -> str:
     """
-    문서를 검색하고 메타데이터 기반 필터를 적용합니다.
+    Agent LLM에 전달할 시스템 프롬프트를 구성합니다.
 
     매개변수:
-        state: 현재 워크플로 상태
-        retriever: 문서 검색기
+        intent: 분류된 질문 의도
+        domain_relevance: 도메인 관련성 점수 (0.0~1.0)
+        refined_queries: 분석을 통해 생성된 개선 검색 쿼리 목록
 
     반환값:
-        검색된 문서와 필터링 메타데이터를 포함한 상태 업데이트
+        시스템 프롬프트 문자열
     """
-    logger.info("---RETRIEVE---")
-
-    # 가능하면 정제된 질의를 사용하여 검색합니다.
-    queries = state.get("refined_queries", [state["question"]])
-    primary_query = queries[0] if queries else state["question"]
-
-    # 상태에서 필터를 가져옵니다.
-    filters = state.get("retrieval_filters")
-    if filters:
-        logger.info(f"Applying retrieval filters: {filters}")
-
-    try:
-        # 문서를 검색하고 필터를 적용합니다.
-        result: RetrievalResult = await retrieve_documents_async(
-            retriever,
-            primary_query,
-            filters=filters,
-            fallback_on_empty=True,
-            min_results=1,
+    queries_hint = ""
+    if refined_queries:
+        queries_hint = (
+            "\n\n## 추천 검색 쿼리 (참고용)\n"
+            + "\n".join(f"- {q}" for q in refined_queries)
         )
 
-        logger.info(
-            f"Retrieved {result.original_count} docs, "
-            f"filtered to {result.filtered_count}, "
-            f"filters_applied={result.filters_applied}, "
-            f"fallback_used={result.fallback_used}"
-        )
-
-        return {
-            "documents": result.documents,
-            "context": result.documents,  # 하위 호환성 유지를 위한 필드
-            "retrieval_strategy": "hybrid",
-            "retrieval_filters_applied": result.filters_applied,
-            "retrieval_fallback_used": result.fallback_used,
-            "retrieval_metadata": {
-                "original_count": result.original_count,
-                "filtered_count": result.filtered_count,
-                "filters": filters,
-            },
-        }
-
-    except Exception as e:
-        logger.error(f"Retrieval error: {e}")
-        return {
-            "documents": [],
-            "context": [],
-            "retrieval_strategy": "hybrid",
-            "retrieval_filters_applied": False,
-            "retrieval_fallback_used": False,
-        }
-
-
-async def rerank_node(state: AdaptiveRAGState) -> dict[str, Any]:
-    """
-    검색된 문서를 Clova Studio Reranker로 재정렬합니다.
-
-    Post-Retriever 단계로, 검색된 문서의 관련도를 재평가하여
-    가장 관련성 높은 문서를 상위로 정렬합니다.
-
-    매개변수:
-        state: 현재 워크플로 상태
-
-    반환값:
-        재정렬된 문서를 포함한 상태 업데이트
-    """
-    logger.info("---RERANK DOCUMENTS---")
-
-    question = state["question"]
-    documents = state.get("documents", [])
-
-    if not documents:
-        logger.warning("No documents to rerank")
-        return {
-            "documents": [],
-            "context": [],
-        }
-
-    # Reranking 설정 확인
-    use_reranking = (
-        settings.adaptive_rag.use_reranking if hasattr(settings, "adaptive_rag") else True
+    return (
+        "<role>당신은 Naver Boost Camp AI Tech 학생들을 위한 학습 도우미입니다.</role>\n\n"
+        "## 도구 사용 지침\n"
+        "- `qdrant_search`: 부스트캠프 교육 자료(강의, 노트북, Slack Q&A, 미션) 검색\n"
+        "- `web_search`: 웹에서 최신 정보 검색 (교육 자료에 없는 일반 개념/최신 정보용)\n\n"
+        "## 규칙\n"
+        "1. 교육 자료 관련 질문은 먼저 `qdrant_search`를 사용하세요.\n"
+        "2. 교육 자료에 정보가 부족하면 `web_search`로 보충하세요.\n"
+        "3. 이전 대화에서 이미 충분한 정보가 있으면 도구 없이 바로 답변하세요.\n"
+        "4. 답변은 한국어로 작성하세요.\n"
+        "5. 문서를 인용할 때는 대괄호 라벨을 사용하세요 (예: [강의자료: CV 이론/3강]).\n"
+        "6. '문서 1', '문서 2' 같은 순번 참조는 사용하지 마세요.\n"
+        "7. 이전 대화에서 이미 답변한 내용을 반복하지 마세요.\n\n"
+        f"## 현재 질문 분석\n"
+        f"- 의도: {intent}\n"
+        f"- 도메인 관련성: {domain_relevance:.2f}\n"
+        f"{queries_hint}"
     )
 
-    if not use_reranking:
-        logger.info("Reranking disabled, skipping")
-        return {
-            "documents": documents,
-            "context": documents,
-        }
 
-    try:
-        # Clova Studio Reranker 초기화 (settings.reranker에서 endpoint, api_key 등 로드)
-        reranker = ClovaStudioReranker.from_settings(settings.reranker)
-
-        # Reranking 수행
-        logger.info(f"Reranking {len(documents)} documents")
-        reranked_docs = await reranker.arerank(
-            query=question,
-            documents=documents,
-            top_k=min(len(documents), 10),  # 최대 10개까지 유지
-        )
-
-        logger.info(f"Reranked to {len(reranked_docs)} documents")
-
-        return {
-            "documents": reranked_docs,
-            "context": reranked_docs,
-        }
-
-    except Exception as e:
-        logger.error(f"Reranking error: {e}, using original documents")
-        return {
-            "documents": documents,
-            "context": documents,
-        }
-
-
-async def generate_answer_node(state: AdaptiveRAGState, llm: Runnable) -> AnswerUpdate:
+async def agent_node(
+    state: AdaptiveRAGState,
+    llm: Runnable,
+    tools: list,
+) -> AgentUpdate:
     """
-    문맥을 기반으로 답변을 생성합니다 (Reasoning 모드 활용).
+    LLM에 도구를 바인딩하고 호출하는 에이전트 노드입니다.
 
-    CLOVA HCX-007 모델의 Reasoning 능력을 활용하여:
-    1. 단계별 추론을 통해 답변 품질 향상
-    2. 자체 검증을 통해 환각 방지
-    3. 복잡한 질문에 대한 논리적 답변 생성
+    LLM이 필요에 따라 qdrant_search, web_search 도구를 선택적으로 호출합니다.
+    tool_calls가 있으면 tools 노드로, 없으면 post_process 노드로 라우팅됩니다.
+
+    Multi-turn 지원:
+    - 이전 턴의 HumanMessage + AIMessage(최종 답변만) 포함
+    - 이전 턴의 ToolMessage는 필터링하여 컨텍스트 절약
 
     매개변수:
         state: 현재 워크플로 상태
-        llm: 생성에 사용할 언어 모델 (Reasoning 지원)
+        llm: 도구 호출이 가능한 LLM (Gemini)
+        tools: 바인딩할 도구 리스트
 
     반환값:
-        생성된 답변을 포함한 상태 업데이트
+        messages에 AIMessage가 append된 상태 업데이트
     """
-    logger.info("---GENERATE ANSWER (with Reasoning)---")
-    question = state["question"]
-    documents = state.get("documents", [])
-    intent = state.get("intent", "SIMPLE_QA")
-
-    # Multi-turn: 이전 대화 히스토리 가져오기 (현재 질문 HumanMessage 제외)
+    logger.info("---AGENT NODE---")
     messages = state.get("messages", [])
-    # 마지막 메시지(현재 질문)를 제외한 이전 대화만 포함
-    previous_messages = messages[:-1] if messages else []
-    chat_history = _format_chat_history(previous_messages)
+    intent = state.get("intent", "SIMPLE_QA")
+    domain_relevance = state.get("domain_relevance", 1.0)
+    refined_queries = state.get("refined_queries", [])
 
-    if chat_history:
-        logger.info(f"Multi-turn context: {len(previous_messages)} previous messages")
+    # 1. 시스템 프롬프트 구성
+    system_content = _build_agent_system_prompt(intent, domain_relevance, refined_queries)
 
-    try:
-        # 사용할 생성 전략을 결정합니다.
-        strategy = get_generation_strategy(intent)
+    # 2. LLM용 메시지 리스트 구성
+    llm_messages: list[BaseMessage] = [SystemMessage(content=system_content)]
 
-        # Reasoning effort 설정 (intent 기반)
-        # COMPLEX_REASONING: high, EXPLORATORY: medium, SIMPLE_QA: low
-        thinking_effort = "medium"  # 기본값
-        if intent == "COMPLEX_REASONING":
-            thinking_effort = "high"
-        elif intent == "SIMPLE_QA":
-            thinking_effort = "low"
-        elif intent == "EXPLORATORY":
-            thinking_effort = "medium"
+    # 현재 턴 시작점 찾기 (마지막 HumanMessage)
+    current_turn_idx = 0
+    for i in range(len(messages) - 1, -1, -1):
+        if isinstance(messages[i], HumanMessage):
+            current_turn_idx = i
+            break
 
-        logger.info(f"Using thinking_effort: {thinking_effort} for intent: {intent}")
+    # 이전 턴: HumanMessage + AIMessage(tool_calls 없는 최종 답변만)
+    for msg in messages[:current_turn_idx]:
+        if isinstance(msg, HumanMessage):
+            llm_messages.append(msg)
+        elif isinstance(msg, AIMessage) and not getattr(msg, "tool_calls", None):
+            content = _extract_text_from_content(msg.content)
+            if len(content) > 500:
+                content = content[:500] + "..."
+            llm_messages.append(AIMessage(content=content))
 
-        # 생성에 사용할 문맥을 포맷합니다.
-        context_text = "\n\n".join(
-            [f"[문서 {i + 1}]\n{doc.page_content}" for i, doc in enumerate(documents)]
+    # 현재 턴: HumanMessage + 도구 호출/응답 전부 포함
+    for msg in messages[current_turn_idx:]:
+        llm_messages.append(msg)
+
+    # 3. LLM 호출 (tools bind)
+    llm_with_tools = llm.bind_tools(tools)
+    response = await llm_with_tools.ainvoke(llm_messages)
+
+    # 4. tool_call_count 업데이트
+    tool_call_count = state.get("tool_call_count", 0)
+    if response.tool_calls:
+        tool_call_count += 1
+        logger.info(
+            f"Agent requested {len(response.tool_calls)} tool call(s), "
+            f"iteration {tool_call_count}"
         )
+    else:
+        answer_preview = _extract_text_from_content(response.content)[:100]
+        logger.info(f"Agent produced final answer: {answer_preview}...")
 
-        if not context_text:
-            context_text = "참고할 수 있는 문서가 없습니다."
+    return {
+        "messages": [response],
+        "tool_call_count": tool_call_count,
+    }
 
-        # Multi-turn 프롬프트 구성
-        # 이전 대화가 있으면 포함
-        if chat_history:
-            prompt = (
-                "당신은 Naver Boost Camp 학생들에게 AI/ML을 가르치는 조교입니다. "
-                "주어진 문맥과 이전 대화 맥락을 참고하여, 단계별로 사고한 뒤 한국어로 답변하세요.\n\n"
-                f"{chat_history}\n"
-                f"[현재 질문]\nquestion: {question}\n\ncontext:\n{context_text}"
-            )
-        else:
-            prompt = (
-                "당신은 Naver Boost Camp 학생들에게 AI/ML을 가르치는 조교입니다. "
-                "주어진 문맥만을 근거로, 단계별로 사고한 뒤 한국어로 답변하세요.\n\n"
-                f"question: {question}\n\ncontext:\n{context_text}"
-            )
 
-        response_raw = await llm.ainvoke(prompt)
-        answer = _extract_text_response(response_raw)
-        logger.info(f"Generated answer with reasoning: {answer[:100]}...")
+async def post_process_node(state: AdaptiveRAGState) -> PostProcessUpdate:
+    """
+    Agent 루프 완료 후 최종 답변을 추출하고 후처리합니다.
 
-        # Multi-turn: AI 응답을 AIMessage로 저장
+    처리 내용:
+    1. messages에서 마지막 AIMessage(tool_calls 없는 것)의 텍스트 추출
+    2. Post-retrieval OOD 감지: 모든 도구가 "검색 결과 없음" + domain_relevance < 0.5
+    3. 답변과 생성 메타데이터 반환
+
+    매개변수:
+        state: 현재 워크플로 상태
+
+    반환값:
+        최종 답변과 메타데이터를 포함한 상태 업데이트
+    """
+    logger.info("---POST PROCESS---")
+    messages = state.get("messages", [])
+    domain_relevance = state.get("domain_relevance", 1.0)
+    question = state.get("question", "")
+
+    # 마지막 AIMessage에서 최종 답변 추출
+    answer = ""
+    for msg in reversed(messages):
+        if isinstance(msg, AIMessage):
+            if not msg.tool_calls:
+                answer = _extract_text_from_content(msg.content)
+                break
+            else:
+                # max iterations 도달 — tool_calls는 있지만 텍스트도 있을 수 있음
+                text = _extract_text_from_content(msg.content)
+                if text.strip():
+                    answer = text
+                    break
+
+    if not answer:
+        answer = "죄송합니다. 답변을 생성할 수 없었습니다. 질문을 다시 시도해주세요."
+
+    # Post-retrieval OOD 감지
+    tool_msgs = [m for m in messages if isinstance(m, ToolMessage)]
+    all_tools_empty = (
+        tool_msgs
+        and all("검색 결과 없음" in m.content for m in tool_msgs)
+        and domain_relevance < 0.5
+    )
+
+    if all_tools_empty:
+        logger.info(
+            f"Post-retrieval soft decline: all tools empty + "
+            f"low relevance ({domain_relevance:.2f})"
+        )
         return {
-            "answer": answer,
+            "answer": (
+                f"'{question}'에 대해 교육 자료에서 관련 정보를 검색했으나, "
+                "직접적으로 관련된 문서를 찾지 못했습니다.\n\n"
+                "다음을 시도해보세요:\n"
+                "- 질문에 구체적인 기술 용어를 포함해주세요\n"
+                "- 부스트캠프 강의나 과제와 관련된 맥락을 추가해주세요"
+            ),
             "generation_metadata": {
-                "strategy": strategy,
-                "context_length": len(context_text),
-                "thinking_effort": thinking_effort,
-                "reasoning_enabled": True,
-                "has_chat_history": bool(chat_history),
+                "strategy": "post_retrieval_soft_decline",
+                "domain_relevance": domain_relevance,
             },
-            "generation_strategy": strategy,
-            "messages": [AIMessage(content=answer)],
+            "generation_strategy": "post_retrieval_soft_decline",
+            "is_out_of_domain": True,
         }
 
-    except Exception as e:
-        logger.error(f"Answer generation error: {e}")
-        error_answer = f"죄송합니다. 답변 생성 중 오류가 발생했습니다: {str(e)}"
-        return {
-            "answer": error_answer,
-            "generation_metadata": {"error": str(e)},
-            "generation_strategy": "error",
-            "messages": [AIMessage(content=error_answer)],
-        }
+    return {
+        "answer": answer,
+        "generation_metadata": {
+            "strategy": "tool_based_agent",
+            "tool_calls_count": state.get("tool_call_count", 0),
+        },
+        "generation_strategy": "tool_based_agent",
+    }
 
 
 async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpdate:
@@ -587,21 +597,40 @@ async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpda
 
     # 챗봇 자기소개 패턴
     self_intro_patterns = [
-        "이름이 뭐", "넌 누구", "너 누구", "뭘 할 수 있", "뭘 도와줄 수 있",
-        "어떤 봇", "무슨 봇", "뭐하는 봇", "소개해", "자기소개",
-        "who are you", "what can you do", "what's your name",
+        "이름이 뭐",
+        "넌 누구",
+        "너 누구",
+        "뭘 할 수 있",
+        "뭘 도와줄 수 있",
+        "어떤 봇",
+        "무슨 봇",
+        "뭐하는 봇",
+        "소개해",
+        "자기소개",
+        "who are you",
+        "what can you do",
+        "what's your name",
     ]
     is_self_intro = any(pattern in question_lower for pattern in self_intro_patterns)
 
     # 인사/잡담 패턴
     greeting_patterns = [
-        "안녕", "반가", "하이", "헬로", "hello", "hi ", "hey",
-        "잘 지내", "뭐해", "심심", "좋은 아침", "좋은 저녁",
+        "안녕",
+        "반가",
+        "하이",
+        "헬로",
+        "hello",
+        "hi ",
+        "hey",
+        "잘 지내",
+        "뭐해",
+        "심심",
+        "좋은 아침",
+        "좋은 저녁",
     ]
     is_greeting = any(pattern in question_lower for pattern in greeting_patterns)
 
     if is_self_intro:
-        # 챗봇 자기소개 응답
         response = (
             "안녕하세요! 저는 **네이버 부스트캠프 AI Tech 학습 도우미**입니다. 🤖\n\n"
             "부스트캠프 교육 과정에서 학습하시면서 궁금한 점이 있을 때 도움을 드리기 위해 만들어졌어요.\n\n"
@@ -614,7 +643,6 @@ async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpda
         )
         logger.info(f"Self-intro response generated for: '{question}'")
     elif is_greeting:
-        # 친근한 인사 응답
         response = (
             "안녕하세요! 😊 네이버 부스트캠프 AI Tech 학습 도우미입니다.\n\n"
             "무엇을 도와드릴까요? 다음과 같은 질문에 답변드릴 수 있어요:\n"
@@ -625,7 +653,6 @@ async def generate_ood_response_node(state: AdaptiveRAGState) -> OODResponseUpda
         )
         logger.info(f"Greeting response generated for: '{question}'")
     else:
-        # 일반 OOD 거절 응답
         question_preview = question[:50] + "..." if len(question) > 50 else question
         response = (
             f"죄송합니다. '{question_preview}'에 대해서는 답변드리기 어렵습니다.\n\n"
@@ -656,9 +683,6 @@ async def clarify_node(state: AdaptiveRAGState) -> dict[str, Any]:
     """
     사용자에게 명확화를 요청하는 응답을 생성합니다.
 
-    필터 추출 신뢰도가 낮을 때 (filter_confidence < 0.5) 호출되어
-    사용자에게 검색 범위를 좁힐 수 있는 선택지를 제시합니다.
-
     매개변수:
         state: 현재 워크플로 상태
 
@@ -672,15 +696,15 @@ async def clarify_node(state: AdaptiveRAGState) -> dict[str, Any]:
     courses = filters.get("course", []) if filters else []
 
     # 명확화 메시지 생성
-    clarification_parts = [
-        "질문을 더 정확하게 이해하기 위해 확인이 필요합니다.\n"
-    ]
+    clarification_parts = ["질문을 더 정확하게 이해하기 위해 확인이 필요합니다.\n"]
 
     if courses:
         clarification_parts.append(f"'{question}'에서 언급하신 과정이 다음 중 어느 것인가요?\n")
         for i, course in enumerate(courses[:5], 1):
             clarification_parts.append(f"{i}. {course}")
-        clarification_parts.append("\n원하시는 과정 번호를 알려주시거나, 더 구체적으로 질문해 주세요.")
+        clarification_parts.append(
+            "\n원하시는 과정 번호를 알려주시거나, 더 구체적으로 질문해 주세요."
+        )
     else:
         clarification_parts.append(
             "어떤 자료에서 찾아볼까요?\n"

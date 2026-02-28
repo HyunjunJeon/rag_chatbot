@@ -92,7 +92,7 @@ def process_all_pdfs(
         current_files = {pdf.file_path.name: pdf.file_path for pdf in all_pdfs}
         new_files, changed_files, deleted_files = existing_version.get_changed_files(current_files)
 
-        print(f"\n📊 변경 감지 결과:")
+        print("\n📊 변경 감지 결과:")
         print(f"   🆕 새 파일: {len(new_files)}개")
         print(f"   ✏️  변경됨: {len(changed_files)}개")
         print(f"   🗑️  삭제됨: {len(deleted_files)}개")

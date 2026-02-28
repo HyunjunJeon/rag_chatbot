@@ -63,7 +63,7 @@ def create_indexes(
     # 컬렉션 존재 확인
     try:
         info = client.get_collection(collection_name)
-        print(f"📊 현재 컬렉션 상태:")
+        print("📊 현재 컬렉션 상태:")
         print(f"   문서 수: {info.points_count:,}")
         print(f"   인덱스된 벡터: {info.indexed_vectors_count:,}")
         print(f"   현재 Payload 스키마: {info.payload_schema or '(없음)'}")
@@ -169,7 +169,7 @@ def create_indexes(
 
     # 최종 상태 확인
     info = client.get_collection(collection_name)
-    print(f"📋 최종 Payload 스키마:")
+    print("📋 최종 Payload 스키마:")
     if info.payload_schema:
         for field_name, field_info in info.payload_schema.items():
             print(f"   • {field_name}: {field_info}")

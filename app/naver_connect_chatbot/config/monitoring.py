@@ -61,7 +61,9 @@ async def check_langfuse_health(settings: LangfuseSettings) -> bool:
             if is_healthy:
                 logger.debug(f"LangFuse health check passed: {settings.host}")
             else:
-                logger.warning(f"LangFuse health check failed: {settings.host} (status={response.status_code})")
+                logger.warning(
+                    f"LangFuse health check failed: {settings.host} (status={response.status_code})"
+                )
 
             return is_healthy
 
@@ -139,7 +141,9 @@ def get_langfuse_callback(
         # Keeping handler creation simple for compatibility
         _ = user_id, channel_id, metadata  # Acknowledge params for logging
 
-        logger.debug(f"LangFuse callback created successfully (user_id={user_id}, channel_id={channel_id})")
+        logger.debug(
+            f"LangFuse callback created successfully (user_id={user_id}, channel_id={channel_id})"
+        )
         return handler
 
     except Exception as e:

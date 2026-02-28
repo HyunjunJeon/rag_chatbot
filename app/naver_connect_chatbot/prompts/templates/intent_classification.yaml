@@ -37,16 +37,19 @@ messages:
       | 점수 | 의미 | 예시 |
       |------|------|------|
       | 0.9-1.0 | AI/ML 개념, 코드, 강의 내용 직접 관련 | "Transformer란?", "PyTorch 에러" |
-      | 0.7-0.8 | 프로그래밍/데이터 사이언스 일반 | "Python 문법", "Git 사용법" |
-      | 0.4-0.6 | 간접적 관련 또는 모호함 | "노트북 추천", "취업 팁" |
-      | 0.1-0.3 | 매우 약한 관련성 | "공부법", "영어 공부" |
-      | 0.0 | 완전히 무관 (OUT_OF_DOMAIN) | "날씨", "맛집", "주식" |
+      | 0.7-0.8 | 프로그래밍/데이터 사이언스 일반 | "Python 문법", "Git 사용법", "Docker 컨테이너" |
+      | 0.5-0.6 | 기술 관련이지만 간접적 | "노트북 추천", "취업 팁", "코딩 테스트" |
+      | 0.3-0.4 | 교육/학습 관련이나 AI/ML 아님 | "영어 공부", "자기소개서" |
+      | 0.0-0.2 | 완전히 무관 (OUT_OF_DOMAIN) | "날씨", "맛집", "주식", "연예인" |
 
-      **중요**: domain_relevance < 0.3 이면 반드시 intent를 OUT_OF_DOMAIN으로 분류합니다.
+      **핵심 규칙**:
+      - 프로그래밍, CS, 데이터 사이언스 일반 질문(Python, Git, Linux, Docker 등)은 **최소 0.7 이상**으로 평가합니다. 교육 자료에 관련 내용이 있을 가능성이 높기 때문입니다.
+      - domain_relevance < 0.2 이면 반드시 intent를 OUT_OF_DOMAIN으로 분류합니다.
+      - 0.2 ≤ domain_relevance < 0.5 구간은 검색을 시도해볼 가치가 있는 "회색 영역"입니다.
 
       ## 지시사항
       1. 질문이 AI/ML 교육과 관련 있는지 판단합니다.
-      2. domain_relevance < 0.3 이면 OUT_OF_DOMAIN으로 분류합니다.
+      2. domain_relevance < 0.2 이면 OUT_OF_DOMAIN으로 분류합니다.
       3. 관련이 있다면 질문 구조, 키워드, 의도를 분석하여 적절한 카테고리를 선택합니다.
       4. confidence score (0.0-1.0)를 제공합니다.
       5. 분류 근거를 간략히 설명합니다.
@@ -61,7 +64,7 @@ messages:
       ## 출력 규칙
       - JSON만 반환하며 코드펜스나 추가 텍스트를 포함하지 않습니다.
       - reasoning에는 질문 내 핵심 단어/구조를 인용합니다.
-      - domain_relevance < 0.3 이면 intent는 반드시 "OUT_OF_DOMAIN"이어야 합니다.
+      - domain_relevance < 0.2 이면 intent는 반드시 "OUT_OF_DOMAIN"이어야 합니다.
 
   - role: human
     content: |
