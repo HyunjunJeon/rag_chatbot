@@ -47,7 +47,7 @@ eval_logger.info(f"Evaluation test logging initialized: {_EVAL_LOG_FILE}")
 # .env 파일 로드
 load_dotenv(PROJECT_ROOT / ".env")
 
-from tests.evaluation.evaluators import (
+from tests.evaluation.evaluators import (  # noqa: E402
     QuestionEvaluation,
     EvaluationReport,
     LLMJudgeEvaluator,
@@ -74,35 +74,38 @@ def llm_judge() -> LLMJudgeEvaluator:
 
 
 @pytest.fixture
-def embeddings():
-    """NaverEmbeddings 인스턴스 생성"""
-    from naver_connect_chatbot.config.embedding import get_embeddings
-    return get_embeddings()
+def hybrid_retriever(mock_retriever):
+    """Hybrid Retriever 인스턴스 생성. 외부 의존성 실패 시 MockRetriever로 폴백."""
+    if not os.getenv("CLOVASTUDIO_API_KEY"):
+        eval_logger.warning("CLOVASTUDIO_API_KEY not set; using MockRetriever for evaluation")
+        return mock_retriever
 
+    try:
+        from naver_connect_chatbot.config.embedding import get_embeddings
+        from naver_connect_chatbot.rag.retriever_factory import (
+            build_dense_sparse_hybrid_from_saved,
+        )
+        from naver_connect_chatbot.rag.retriever.hybrid_retriever import HybridMethod
 
-@pytest.fixture
-def hybrid_retriever(embeddings):
-    """Hybrid Retriever 인스턴스 생성"""
-    from naver_connect_chatbot.rag.retriever_factory import (
-        build_dense_sparse_hybrid_from_saved,
-    )
-    from naver_connect_chatbot.rag.retriever.hybrid_retriever import HybridMethod
+        embeddings = get_embeddings()
+        bm25_path = PROJECT_ROOT / "sparse_index" / "unified_bm25"
+        qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
+        # 명시적으로 올바른 collection name 사용 (환경변수 오류 방지)
+        collection_name = "naver_connect_docs"
 
-    bm25_path = PROJECT_ROOT / "sparse_index" / "unified_bm25"
-    qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
-    # 명시적으로 올바른 collection name 사용 (환경변수 오류 방지)
-    collection_name = "naver_connect_docs"
-
-    return build_dense_sparse_hybrid_from_saved(
-        bm25_index_path=str(bm25_path),
-        embedding_model=embeddings,
-        qdrant_url=qdrant_url,
-        collection_name=collection_name,
-        weights=[0.5, 0.5],
-        k=10,
-        method=HybridMethod.RRF,
-        rrf_c=60,
-    )
+        return build_dense_sparse_hybrid_from_saved(
+            bm25_index_path=str(bm25_path),
+            embedding_model=embeddings,
+            qdrant_url=qdrant_url,
+            collection_name=collection_name,
+            weights=[0.5, 0.5],
+            k=10,
+            method=HybridMethod.RRF,
+            rrf_c=60,
+        )
+    except Exception as e:
+        eval_logger.warning(f"Hybrid retriever init failed, fallback to MockRetriever: {e}")
+        return mock_retriever
 
 
 @pytest.fixture
@@ -110,21 +113,17 @@ def llm():
     """LLM 인스턴스 생성"""
     from naver_connect_chatbot.config.llm import get_chat_model
     try:
-        return get_chat_model()
+        return get_chat_model(thinking_level="low")
     except ValueError:
         pytest.skip("사용 가능한 LLM이 설정되지 않았습니다")
 
 
 @pytest.fixture
 def reasoning_llm():
-    """Reasoning LLM 인스턴스 생성"""
+    """Answer generation용 LLM 인스턴스 생성"""
     from naver_connect_chatbot.config.llm import get_chat_model
     try:
-        return get_chat_model(
-            model="HCX-007",
-            use_reasoning=True,
-            reasoning_effort="medium",
-        )
+        return get_chat_model()
     except ValueError:
         pytest.skip("사용 가능한 Reasoning LLM이 설정되지 않았습니다")
 

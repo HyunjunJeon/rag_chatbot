@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field, computed_field
 class JudgeEvaluation(BaseModel):
     """LLM-as-Judge 평가 결과.
 
-    HCX-007이 반환하는 구조화된 평가 결과입니다.
+    Judge LLM이 반환하는 구조화된 평가 결과입니다.
     """
 
     faithfulness: int = Field(

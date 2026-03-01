@@ -1,7 +1,7 @@
 """
 LLM-as-Judge 평가기 구현.
 
-HyperClovaX HCX-007을 사용하여 RAG 답변 품질을 평가합니다.
+Gemini를 사용하여 RAG 답변 품질을 평가합니다.
 """
 
 from __future__ import annotations
@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from typing import Any
 
 import yaml
 from langchain_core.documents import Document
@@ -72,7 +73,31 @@ def format_documents(documents: list[Document], max_docs: int = 5) -> str:
     return "\n".join(formatted)
 
 
-def extract_json_from_response(response_text: str) -> dict:
+def _normalize_response_text(response_content: Any) -> str:
+    """Gemini 응답 content를 JSON 추출 가능한 문자열로 정규화합니다."""
+    if isinstance(response_content, str):
+        return response_content
+
+    if isinstance(response_content, list):
+        text_parts: list[str] = []
+        for block in response_content:
+            if isinstance(block, dict):
+                block_type = block.get("type")
+                block_text = block.get("text")
+                if block_type == "text" and isinstance(block_text, str):
+                    text_parts.append(block_text)
+                elif block_type is None and isinstance(block_text, str):
+                    text_parts.append(block_text)
+            elif isinstance(block, str):
+                text_parts.append(block)
+        if text_parts:
+            return "\n".join(text_parts)
+        return str(response_content)
+
+    return str(response_content)
+
+
+def extract_json_from_response(response_text: Any) -> dict:
     """LLM 응답에서 JSON 추출.
 
     Args:
@@ -84,6 +109,8 @@ def extract_json_from_response(response_text: str) -> dict:
     Raises:
         ValueError: JSON 파싱 실패 시
     """
+    response_text = _normalize_response_text(response_text)
+
     # 1. 전체가 JSON인 경우
     try:
         return json.loads(response_text.strip())
@@ -110,12 +137,12 @@ def extract_json_from_response(response_text: str) -> dict:
 
 
 class LLMJudgeEvaluator:
-    """HCX-007 기반 LLM-as-Judge 평가기.
+    """Gemini 기반 LLM-as-Judge 평가기.
 
     RAG 시스템의 답변 품질을 LLM이 평가합니다.
 
     Attributes:
-        llm: 평가에 사용할 LLM (기본: HCX-007)
+        llm: 평가에 사용할 LLM (기본: Gemini)
         system_prompt: 시스템 프롬프트
         user_template: 사용자 프롬프트 템플릿
 
@@ -130,19 +157,12 @@ class LLMJudgeEvaluator:
         """평가기 초기화.
 
         Args:
-            llm: 평가용 LLM. None이면 HCX-007 + reasoning_effort="high" 사용.
-                 주의: HCX-007에서 reasoning과 tools를 동시에 사용할 수 없으므로
-                 structured_output 대신 수동 JSON 파싱을 사용합니다.
+            llm: 평가용 LLM. None이면 Gemini 기본 모델을 사용합니다.
+                 Judge 응답 파싱 안정성을 위해 structured_output 대신 수동 JSON 파싱을 사용합니다.
         """
         if llm is None:
             from naver_connect_chatbot.config.llm import get_chat_model
-            # LLM-as-Judge는 reasoning_effort="high"를 사용하여 더 정확한 평가 수행
-            # tools/structured_output과 동시에 사용 불가능하므로 수동 JSON 파싱 필요
-            self.llm = get_chat_model(
-                model="HCX-007",
-                use_reasoning=True,
-                reasoning_effort="high",
-            )
+            self.llm = get_chat_model()
         else:
             self.llm = llm
 
