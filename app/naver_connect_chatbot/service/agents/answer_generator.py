@@ -16,11 +16,18 @@ from naver_connect_chatbot.config import logger
 from naver_connect_chatbot.prompts import get_prompt
 
 
+def _render_prompt_text(prompt_template: ChatPromptTemplate, **kwargs) -> str:
+    """템플릿에 선언된 변수만 사용해 프롬프트를 문자열로 렌더링합니다."""
+    prompt_inputs = {k: v for k, v in kwargs.items() if k in prompt_template.input_variables}
+    return prompt_template.format_prompt(**prompt_inputs).to_string()
+
+
 def generate_answer(
     question: str,
     context: str,
     llm: Runnable,
     strategy: str = "simple",
+    conversation_history: str = "",
 ) -> str:
     """
     검색된 문맥을 기반으로 답변을 생성합니다.
@@ -50,12 +57,13 @@ def generate_answer(
             prompt_name=f"answer_generation_{strategy}",
             return_type="template",
         )
-        system_prompt = ""
-        if prompt_template.messages:
-            system_prompt = prompt_template.messages[0].prompt.template
-
-        # 전체 프롬프트 구성
-        full_prompt = f"{system_prompt}\n\nquestion: {question}\n\ncontext:\n{context}"
+        history_text = conversation_history.strip() or "No prior conversation."
+        full_prompt = _render_prompt_text(
+            prompt_template,
+            question=question,
+            context=context,
+            conversation_history=history_text,
+        )
 
         # LLM 직접 호출
         result: AIMessage = llm.invoke(full_prompt)
@@ -75,6 +83,7 @@ async def agenerate_answer(
     context: str,
     llm: Runnable,
     strategy: str = "simple",
+    conversation_history: str = "",
 ) -> str:
     """
     검색된 문맥을 기반으로 비동기로 답변을 생성합니다.
@@ -94,12 +103,13 @@ async def agenerate_answer(
             prompt_name=f"answer_generation_{strategy}",
             return_type="template",
         )
-        system_prompt = ""
-        if prompt_template.messages:
-            system_prompt = prompt_template.messages[0].prompt.template
-
-        # 전체 프롬프트 구성
-        full_prompt = f"{system_prompt}\n\nquestion: {question}\n\ncontext:\n{context}"
+        history_text = conversation_history.strip() or "No prior conversation."
+        full_prompt = _render_prompt_text(
+            prompt_template,
+            question=question,
+            context=context,
+            conversation_history=history_text,
+        )
 
         # LLM 직접 호출
         result: AIMessage = await llm.ainvoke(full_prompt)

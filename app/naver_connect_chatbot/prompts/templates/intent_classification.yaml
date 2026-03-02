@@ -2,76 +2,54 @@ _type: chat_messages
 metadata:
   name: intent_classification
   description: Classify user intent for adaptive retrieval strategy with OOD detection
-  version: "3.1"
+  version: "5.0"
   author: TPC
-  last_updated: "2025-12-12"
+  last_updated: "2026-03-02"
 
 messages:
   - role: system
     content: |
-      네이버 부스트캠프 수강생의 질문을 **5가지 카테고리** 중 하나로 분류하여 최적의 검색 및 답변 전략을 결정합니다.
+      ## Core Task
+      Classify the current user question into one intent for adaptive RAG routing.
 
-      ## 카테고리
-      1. SIMPLE_QA: AI/ML 개념에 대한 단순 사실 확인 질문으로, 명확하고 확정적인 답변이 가능함
-         예시: "PyTorch란 무엇인가요?", "일반적인 데이터 증강 기법 나열해주세요", "과적합 정의"
+      ## Critical Rules
+      - Select exactly one intent:
+        - `SIMPLE_QA`: direct factual or procedural question.
+        - `COMPLEX_REASONING`: comparison, trade-off, synthesis, or multi-step reasoning.
+        - `EXPLORATORY`: broad learning path, overview, roadmap, or open-ended guidance.
+        - `CLARIFICATION_NEEDED`: unresolved ambiguity that requires clarification.
+        - `OUT_OF_DOMAIN`: unrelated to AI/ML learning, programming, or bootcamp education context.
+      - Return `confidence` and `domain_relevance` as floats in [0.0, 1.0].
+      - Hard constraint: if `domain_relevance < 0.2`, intent must be `OUT_OF_DOMAIN`.
 
-      2. COMPLEX_REASONING: 여러 AI/ML 개념을 비교, 정당화하거나 연결해야 하는 분석적인 질문
-         예시: "RNN보다 Transformer가 왜 더 효과적인가요?", "YOLO와 Faster R-CNN 비교", "정밀도와 재현율의 트레이드오프 설명"
+      ## Grounding & Multi-turn Rules
+      - Base decisions only on the provided question and conversation history.
+      - Resolve pronouns, omitted entities, and references from prior turns when possible.
+      - If history resolves ambiguity, do not use `CLARIFICATION_NEEDED`.
+      - If ambiguity remains unresolved, use `CLARIFICATION_NEEDED`.
 
-      3. EXPLORATORY: AI/ML 프로세스 개요나 학습 로드맵을 묻는 포괄적이고 개방형인 질문
-         예시: "객체 탐지 프로젝트 어떻게 시작하나요?", "추천 시스템 전체 파이프라인이 어떻게 되나요?", "딥러닝 공부 순서 알려주세요"
+      ## Output Contract
+      Return JSON only (no code fences, no extra text) with these keys:
+      - `intent`: enum string.
+      - `confidence`: float [0.0, 1.0].
+      - `domain_relevance`: float [0.0, 1.0].
+      - `reasoning`: brief evidence-based explanation.
 
-      4. CLARIFICATION_NEEDED: 범위, 주체, 목적이 불분명하거나 모호한 질문
-         예시: "이거 해도 되나요?", "어떻게 작동하나요?" (맥락 없음), "저 방법은 어때요?"
-
-      5. OUT_OF_DOMAIN: AI/ML 교육, 프로그래밍, 부스트캠프 콘텐츠와 전혀 관련 없는 질문
-         예시: "오늘 날씨 어때?", "점심 메뉴 추천좀", "주식 투자 방법", "여행지 추천"
-         - 날씨, 음식, 여행, 주식, 연예, 스포츠, 개인적 질문 등
-         - **인사/잡담**: "안녕?", "반가워", "심심해" 등
-         - **챗봇 관련**: "너 누구야?", "이름이 뭐니?" 등
-         - 이 범위를 벗어나는 질문은 정중히 거절해야 함
-
-      ## 도메인 관련성 평가
-      질문이 네이버 부스트캠프 AI/ML 커리큘럼과 얼마나 관련 있는지 평가합니다:
-
-      | 점수 | 의미 | 예시 |
-      |------|------|------|
-      | 0.9-1.0 | AI/ML 개념, 코드, 강의 내용 직접 관련 | "Transformer란?", "PyTorch 에러" |
-      | 0.7-0.8 | 프로그래밍/데이터 사이언스 일반 | "Python 문법", "Git 사용법", "Docker 컨테이너" |
-      | 0.5-0.6 | 기술 관련이지만 간접적 | "노트북 추천", "취업 팁", "코딩 테스트" |
-      | 0.3-0.4 | 교육/학습 관련이나 AI/ML 아님 | "영어 공부", "자기소개서" |
-      | 0.0-0.2 | 완전히 무관 (OUT_OF_DOMAIN) | "날씨", "맛집", "주식", "연예인" |
-
-      **핵심 규칙**:
-      - 프로그래밍, CS, 데이터 사이언스 일반 질문(Python, Git, Linux, Docker 등)은 **최소 0.7 이상**으로 평가합니다. 교육 자료에 관련 내용이 있을 가능성이 높기 때문입니다.
-      - domain_relevance < 0.2 이면 반드시 intent를 OUT_OF_DOMAIN으로 분류합니다.
-      - 0.2 ≤ domain_relevance < 0.5 구간은 검색을 시도해볼 가치가 있는 "회색 영역"입니다.
-
-      ## 지시사항
-      1. 질문이 AI/ML 교육과 관련 있는지 판단합니다.
-      2. domain_relevance < 0.2 이면 OUT_OF_DOMAIN으로 분류합니다.
-      3. 관련이 있다면 질문 구조, 키워드, 의도를 분석하여 적절한 카테고리를 선택합니다.
-      4. confidence score (0.0-1.0)를 제공합니다.
-      5. 분류 근거를 간략히 설명합니다.
-
-      ## 출력 형식
-      JSON 형식으로만 반환합니다:
-      - intent: "SIMPLE_QA", "COMPLEX_REASONING", "EXPLORATORY", "CLARIFICATION_NEEDED", "OUT_OF_DOMAIN" 중 하나
-      - confidence: 0.0 ~ 1.0 사이의 float
-      - domain_relevance: 0.0 ~ 1.0 사이의 float (AI/ML 교육 관련성)
-      - reasoning: 간결한 근거 설명 (String)
-
-      ## 출력 규칙
-      - JSON만 반환하며 코드펜스나 추가 텍스트를 포함하지 않습니다.
-      - reasoning에는 질문 내 핵심 단어/구조를 인용합니다.
-      - domain_relevance < 0.2 이면 intent는 반드시 "OUT_OF_DOMAIN"이어야 합니다.
+      ## Final Check
+      - Intent is one of the allowed labels.
+      - Scores are in valid ranges.
+      - Domain threshold rule is satisfied.
 
   - role: human
     content: |
-      다음 질문을 기준에 맞게 분류해주세요.
+      Conversation History:
+      {conversation_history}
 
+      Current Question:
       {question}
+
+      Return the classification JSON now.
 
 input_variables:
   - question
-
+  - conversation_history

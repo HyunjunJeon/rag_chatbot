@@ -55,12 +55,15 @@ class MultiQueryRetriever(BaseRetriever):
 
     def _generate_queries_sync(self, query: str) -> list[str]:
         _prompt = get_prompt("multi_query_generation")
+        prompt_inputs = {"query": query, "num": self.num_queries}
+        if "conversation_history" in _prompt.input_variables:
+            prompt_inputs["conversation_history"] = ""
 
         try:
             with_structured = getattr(self.llm, "with_structured_output", None)
             if callable(with_structured):
                 structured_llm = with_structured(MultiQueryOutput)
-                prompt_value = _prompt.format_prompt(query=query, num=self.num_queries)
+                prompt_value = _prompt.format_prompt(**prompt_inputs)
                 input_text = prompt_value.to_string()
                 result = structured_llm.invoke(input_text)
                 queries = result.queries
@@ -73,7 +76,7 @@ class MultiQueryRetriever(BaseRetriever):
             )
             chain: Runnable = _prompt | self.llm | StrOutputParser()
             try:
-                legacy_result = chain.invoke({"query": query, "num": self.num_queries})
+                legacy_result = chain.invoke(prompt_inputs)
                 # 개선된 파서 사용: 다양한 형식 (번호, 불릿 등) 지원
                 queries = self._parse_legacy_queries(legacy_result)
                 if not queries:
@@ -95,12 +98,15 @@ class MultiQueryRetriever(BaseRetriever):
 
     async def _agenerate_queries(self, query: str) -> list[str]:
         _prompt = get_prompt("multi_query_generation")
+        prompt_inputs = {"query": query, "num": self.num_queries}
+        if "conversation_history" in _prompt.input_variables:
+            prompt_inputs["conversation_history"] = ""
 
         try:
             with_structured = getattr(self.llm, "with_structured_output", None)
             if callable(with_structured):
                 structured_llm = with_structured(MultiQueryOutput)
-                prompt_value = _prompt.format_prompt(query=query, num=self.num_queries)
+                prompt_value = _prompt.format_prompt(**prompt_inputs)
                 input_text = prompt_value.to_string()
                 result = await structured_llm.ainvoke(input_text)
                 queries = result.queries

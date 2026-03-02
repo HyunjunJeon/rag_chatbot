@@ -1,117 +1,72 @@
 _type: chat_messages
 metadata:
   name: query_analysis
-  description: Analyze query quality, generate multiple search queries, and extract retrieval filters with dynamic data source context
-  version: "5.2"
+  description: Analyze query quality, generate diverse search queries, and extract retrieval filters
+  version: "7.0"
   author: TPC
-  last_updated: "2025-12-12"
+  last_updated: "2026-03-02"
 
 messages:
   - role: system
     content: |
-      ## Task
-      네이버 부스트캠프 수강생의 질문 품질을 분석하고, 다양성을 갖춘 검색 쿼리를 생성하며, 타겟 검색을 위한 메타데이터 필터를 추출합니다.
+      ## Core Task
+      Perform integrated pre-retrieval optimization for adaptive RAG.
 
-      {data_source_context}
+      ## Critical Rules
+      - Return quality scores:
+        - `clarity_score`, `specificity_score`, `searchability_score` in [0.0, 1.0].
+      - Generate `improved_queries` (3 to 5 total):
+        - `SIMPLE_QA`: 3 focused retrieval queries.
+        - `COMPLEX_REASONING`: 4 to 5 complementary reasoning queries.
+        - `EXPLORATORY`: 5 breadth-oriented exploration queries.
+        - `CLARIFICATION_NEEDED`: 3 disambiguation-oriented queries.
+      - Return `issues` and `recommendations`.
+      - Extract `retrieval_filters` only from explicit evidence plus allowed values in data source context.
 
-      ## Step 1: Quality Analysis
-      원본 질문을 다음 차원에서 평가합니다:
-      1. **Clarity (명확성)** – 모호한 표현이나 누락된 주체 확인
-      2. **Specificity (구체성)** – 범위, 엔티티, 제약 조건이 명시적인지 확인
-      3. **Retrievability (검색 가능성)** – 용어가 검색 가능한 키워드와 잘 매핑되는지 확인
-      4. **Context completeness (맥락 완전성)** – 필요한 세부 정보(도메인, 제약, 맥락) 포함 여부 확인
+      ## Grounding & Multi-turn Rules
+      - Do not invent courses, sources, tools, datasets, or generations.
+      - Resolve references using conversation history.
+      - If uncertainty remains, keep filters broad/null and document uncertainty in `issues`.
+      - Keep each improved query self-contained and retrieval-ready.
 
-      ## Step 2: Multi-Query Generation
-      다음 조건을 만족하는 다양한 검색 쿼리를 3-5개 생성합니다:
-      - 상호 보완적인 관점 포함 (정의, 구현, 문제 해결, 비교, 활용 사례)
-      - 서로 겹치지 않으면서도 포괄적으로 커버
-      - 없는 데이터셋/도구/지표를 지어내지 말고, 구체적인 기술 용어 사용
-      - 모호한 참조를 명확한 용어로 대체
-      - 각 쿼리는 독립적이고 검색에 최적화된 한국어 문장/구문이어야 함
+      ## Output Contract
+      Return JSON only (no code fences, no extra text) with these keys:
+      - `clarity_score`: float [0.0, 1.0].
+      - `specificity_score`: float [0.0, 1.0].
+      - `searchability_score`: float [0.0, 1.0].
+      - `improved_queries`: list of 3-5 strings.
+      - `issues`: list of strings.
+      - `recommendations`: list of strings.
+      - `retrieval_filters`: object with keys:
+        - `doc_type`: list of strings or null.
+        - `course`: list of strings or null.
+        - `course_topic`: list of strings or null.
+        - `generation`: string or null.
+        - `filter_confidence`: float [0.0, 1.0].
 
-      ## Step 3: Retrieval Filter Extraction
-      위의 **Available Data Sources**를 기반으로 검색 범위를 좁히기 위한 메타데이터 필터를 추출합니다.
-
-      ### Filter Fields:
-      - **doc_type**: 문서 소스 타입. 반드시 위의 Available Data Sources에 있는 것만 사용.
-        - "Slack에서", "슬랙에서" → ["slack_qa"]
-        - "강의자료에서", "PDF에서", "슬라이드에서" → ["pdf"]
-        - "노트북에서", "실습 코드에서" → ["notebook"]
-        - "미션에서", "과제에서" → ["weekly_mission"]
-        - "녹취록", "강의 내용" → ["lecture_transcript"]
-        - 여러 소스 결합 가능: ["slack_qa", "pdf"]
-      - **course**: 검색할 과정 이름 (리스트). Available Data Sources와 정확히 일치해야 함.
-        - 모호한 경우 일치하는 모든 과정 포함
-        - 알리아스(Alias) 섹션을 참고하여 약어 확장
-        - 예: "CV 강의" → ["CV 이론", "level2_cv", "Computer Vision"]
-      - **course_topic**: 과정 내 특정 주제 (예: "PyTorch", "Transformer", "CNN")
-      - **generation**: 기수 정보가 언급된 경우 (예: "1기", "2기")
-
-      ### Filter Extraction Rules:
-      - 질문에 **명시적으로** 언급된 경우에만 추출
-      - Available Data Sources 목록에 없는 과정명은 가장 유사한 것을 찾거나 null
-      - 주제 키워드만으로 필터를 추론하지 말 것
-      - 불확실하면 null로 남김
-      - 너무 지엽적인 필터보다는 포괄적인 필터 선호
-
-      ## Step 4: Korean Synonym Expansion
-      검색 쿼리 생성 시 한국어 동의어와 관련 표현을 적극 활용합니다:
-
-      ### 확장 규칙
-      1. 원본 쿼리의 핵심 용어에 대해 동의어/관련어 버전 쿼리 포함
-      2. 영어-한국어 혼용 쿼리로 검색 범위 확대 (예: "Loss function", "손실 함수")
-      3. 약어 사용 시 풀네임 버전도 고려 (CNN → Convolutional Neural Network)
-
-      ## Intent-Specific Strategy
-      - **SIMPLE_QA**: 핵심 개념을 다른 각도에서 묻는 쿼리 3개
-      - **COMPLEX_REASONING**: 추론 단계를 세분화한 쿼리 4-5개
-      - **EXPLORATORY**: 주제 전반을 탐색하는 쿼리 5개
-      - **CLARIFICATION_NEEDED**: 의도를 구체화하기 위한 명확화 쿼리 3개
-
-      ## Output Format
-      단일 JSON 객체로 반환합니다:
-      - clarity_score: 0.0 ~ 1.0 (float)
-      - specificity_score: 0.0 ~ 1.0 (float)
-      - searchability_score: 0.0 ~ 1.0 (float)
-      - improved_queries: 3-5개의 다양한 한국어 검색 쿼리 배열
-      - issues: 원본 질문의 문제점 배열
-      - recommendations: 개선 권장사항 배열
-      - retrieval_filters: 객체 (doc_type, course, course_topic, generation 포함, 없으면 null)
-
-      Output rules:
-      - JSON만 반환하며 코드펜스/추가 텍스트 금지
-      - improved_queries 개수 준수 (3~5개)
-      - 없는 정보(도구, 데이터셋 등)를 지어내지 말 것
-      - retrieval_filters는 명시된 것만 포함
-
-      ## Self-Validation (Before Returning)
-      1. 점수가 질문 품질을 제대로 반영하는가?
-      2. 쿼리가 Intent에 맞게 3-5개 생성되었고 서로 다양한가?
-      3. 쿼리가 검색에 최적화된 한국어인가?
-      4. 필터는 명시된 내용만 정확히 추출했는가? (추측 금지)
-
-      ## Examples
-      ### Example 1: Slack 질문
-      Question: "Slack에서 PyTorch 관련 질문 중에 learning rate 설정에 대해 답변 받은 게 있나요?"
-      retrieval_filters: {"doc_type": ["slack_qa"], "course_topic": "PyTorch"}
-
-      ### Example 2: 강의자료 질문
-      Question: "CV 강의자료에서 CNN 아키텍처 설명 부분 찾아주세요"
-      retrieval_filters: {"doc_type": ["pdf"], "course": ["CV 이론", "level2_cv", "Computer Vision"], "course_topic": "CNN"}
-
-      ### Example 3: 필터 없는 일반 질문
-      Question: "Transformer의 attention mechanism이 어떻게 작동하나요?"
-      retrieval_filters: {}
+      ## Final Check
+      - Query count and intent policy are aligned.
+      - Queries are diverse and non-duplicated.
+      - Filters are explicit, schema-compatible, and conservative.
 
   - role: human
     content: |
-      Question: {question}
-      Intent: {intent}
+      Conversation History:
+      {conversation_history}
 
-      Analyze this query, generate multiple diverse search queries, and extract retrieval filters.
+      Data Source Context:
+      {data_source_context}
+
+      Intent:
+      {intent}
+
+      Current Question:
+      {question}
+
+      Return the full query-analysis JSON now.
 
 input_variables:
   - question
   - intent
   - data_source_context
-
+  - conversation_history

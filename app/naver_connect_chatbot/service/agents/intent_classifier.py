@@ -39,7 +39,17 @@ class IntentClassification(BaseModel):
     )
 
 
-def classify_intent(question: str, llm: Runnable) -> IntentClassification:
+def _render_prompt_text(prompt_template: ChatPromptTemplate, **kwargs) -> str:
+    """템플릿의 선언된 변수만 사용해 안전하게 프롬프트를 렌더링합니다."""
+    prompt_inputs = {k: v for k, v in kwargs.items() if k in prompt_template.input_variables}
+    return prompt_template.format_prompt(**prompt_inputs).to_string()
+
+
+def classify_intent(
+    question: str,
+    llm: Runnable,
+    conversation_history: str = "",
+) -> IntentClassification:
     """
     사용자 질문의 의도를 분류합니다.
 
@@ -61,11 +71,13 @@ def classify_intent(question: str, llm: Runnable) -> IntentClassification:
         prompt_template: ChatPromptTemplate = get_prompt(
             prompt_name="intent_classification", return_type="template"
         )
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
+        history_text = conversation_history.strip() or "No prior conversation."
 
-        full_prompt = f"{system_prompt}\n\nUser question: {question}"
+        full_prompt = _render_prompt_text(
+            prompt_template,
+            question=question,
+            conversation_history=history_text,
+        )
 
         structured_llm = llm.with_structured_output(IntentClassification)
         result = structured_llm.invoke(full_prompt)
@@ -91,7 +103,11 @@ def classify_intent(question: str, llm: Runnable) -> IntentClassification:
         )
 
 
-async def aclassify_intent(question: str, llm: Runnable) -> IntentClassification:
+async def aclassify_intent(
+    question: str,
+    llm: Runnable,
+    conversation_history: str = "",
+) -> IntentClassification:
     """
     사용자 질문의 의도를 비동기로 분류합니다.
 
@@ -106,11 +122,13 @@ async def aclassify_intent(question: str, llm: Runnable) -> IntentClassification
         prompt_template: ChatPromptTemplate = get_prompt(
             prompt_name="intent_classification", return_type="template"
         )
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-        )
+        history_text = conversation_history.strip() or "No prior conversation."
 
-        full_prompt = f"{system_prompt}\n\nUser question: {question}"
+        full_prompt = _render_prompt_text(
+            prompt_template,
+            question=question,
+            conversation_history=history_text,
+        )
 
         structured_llm = llm.with_structured_output(IntentClassification)
         result = await structured_llm.ainvoke(full_prompt)

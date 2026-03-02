@@ -19,6 +19,12 @@ from pydantic import BaseModel, Field, field_validator
 from naver_connect_chatbot.config import logger
 from naver_connect_chatbot.prompts import get_prompt
 
+DEFAULT_DATA_SOURCE_CONTEXT = (
+    "## Available Data Sources\n"
+    "Data source metadata is unavailable.\n"
+    "Common doc_type values: slack_qa, pdf, notebook, lecture_transcript, weekly_mission"
+)
+
 
 # =============================================================================
 # 분리된 프롬프트용 모델
@@ -140,11 +146,25 @@ class QueryAnalysis(BaseModel):
     )
 
 
+def _get_data_source_context_text(data_source_context: str | None) -> str:
+    """프롬프트 주입용 데이터 소스 컨텍스트 문자열을 반환합니다."""
+    if data_source_context and data_source_context.strip():
+        return data_source_context
+    return DEFAULT_DATA_SOURCE_CONTEXT
+
+
+def _render_prompt_text(prompt_template: ChatPromptTemplate, **kwargs) -> str:
+    """템플릿에 선언된 변수만 사용해 프롬프트를 문자열로 렌더링합니다."""
+    prompt_inputs = {k: v for k, v in kwargs.items() if k in prompt_template.input_variables}
+    return prompt_template.format_prompt(**prompt_inputs).to_string()
+
+
 def analyze_query(
     question: str,
     intent: str,
     llm: Runnable,
     data_source_context: str | None = None,
+    conversation_history: str = "",
 ) -> QueryAnalysis:
     """
     사용자 질의를 분석하고 다중 검색 쿼리를 생성합니다.
@@ -160,20 +180,14 @@ def analyze_query(
     """
     try:
         prompt_template: ChatPromptTemplate = get_prompt("query_analysis", return_type="template")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
+        history_text = conversation_history.strip() or "No prior conversation."
+        full_prompt = _render_prompt_text(
+            prompt_template,
+            question=question,
+            intent=intent,
+            data_source_context=_get_data_source_context_text(data_source_context),
+            conversation_history=history_text,
         )
-
-        if data_source_context:
-            system_prompt = system_prompt.replace("{data_source_context}", data_source_context)
-        else:
-            system_prompt = system_prompt.replace(
-                "{data_source_context}",
-                "## Available Data Sources\n데이터 소스 정보를 사용할 수 없습니다.\n"
-                "일반적인 doc_type: slack_qa, pdf, notebook, lecture_transcript, weekly_mission",
-            )
-
-        full_prompt = f"{system_prompt}\n\nquestion: {question}\nintent: {intent}"
 
         structured_llm = llm.with_structured_output(QueryAnalysis)
         result = structured_llm.invoke(full_prompt)
@@ -194,6 +208,7 @@ async def aanalyze_query(
     intent: str,
     llm: Runnable,
     data_source_context: str | None = None,
+    conversation_history: str = "",
 ) -> QueryAnalysis:
     """
     사용자 질의를 비동기로 분석하고 다중 검색 쿼리를 생성합니다.
@@ -209,20 +224,14 @@ async def aanalyze_query(
     """
     try:
         prompt_template: ChatPromptTemplate = get_prompt("query_analysis")
-        system_prompt = (
-            prompt_template.messages[0].prompt.template if prompt_template.messages else ""
+        history_text = conversation_history.strip() or "No prior conversation."
+        full_prompt = _render_prompt_text(
+            prompt_template,
+            question=question,
+            intent=intent,
+            data_source_context=_get_data_source_context_text(data_source_context),
+            conversation_history=history_text,
         )
-
-        if data_source_context:
-            system_prompt = system_prompt.replace("{data_source_context}", data_source_context)
-        else:
-            system_prompt = system_prompt.replace(
-                "{data_source_context}",
-                "## Available Data Sources\n데이터 소스 정보를 사용할 수 없습니다.\n"
-                "일반적인 doc_type: slack_qa, pdf, notebook, lecture_transcript, weekly_mission",
-            )
-
-        full_prompt = f"{system_prompt}\n\nquestion: {question}\nintent: {intent}"
 
         structured_llm = llm.with_structured_output(QueryAnalysis)
         result = await structured_llm.ainvoke(full_prompt)
@@ -264,6 +273,7 @@ async def aanalyze_query_split(
     intent: str,
     llm: Runnable,
     data_source_context: str | None = None,
+    conversation_history: str = "",
 ) -> QueryAnalysis:
     """
     분리된 프롬프트를 사용하여 질의를 분석합니다.
@@ -282,7 +292,7 @@ async def aanalyze_query_split(
         QueryAnalysis 결과 (기존 통합 모델과 동일한 형식)
     """
     try:
-        quality_result = await _analyze_quality(question, intent, llm)
+        quality_result = await _analyze_quality(question, intent, llm, conversation_history)
         logger.debug(
             f"Quality analysis: clarity={quality_result.clarity_score}, specificity={quality_result.specificity_score}"
         )
@@ -294,6 +304,7 @@ async def aanalyze_query_split(
             clarity=quality_result.clarity_score,
             specificity=quality_result.specificity_score,
             data_source_context=data_source_context,
+            conversation_history=conversation_history,
         )
 
         return _merge_results(quality_result, expansion_result)
@@ -301,19 +312,30 @@ async def aanalyze_query_split(
     except Exception as e:
         logger.error(f"Split query analysis failed: {e}")
         logger.info("Falling back to combined prompt")
-        return await aanalyze_query(question, intent, llm, data_source_context)
+        return await aanalyze_query(
+            question=question,
+            intent=intent,
+            llm=llm,
+            data_source_context=data_source_context,
+            conversation_history=conversation_history,
+        )
 
 
 async def _analyze_quality(
     question: str,
     intent: str,
     llm: Runnable,
+    conversation_history: str = "",
 ) -> QueryQualityResult:
     """품질 평가만 수행합니다 (query_quality_analysis.yaml 사용)."""
     prompt_template: ChatPromptTemplate = get_prompt("query_quality_analysis")
-    system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-
-    full_prompt = f"{system_prompt}\n\nQuestion: {question}\nIntent: {intent}\n\nAnalyze the quality of this question."
+    history_text = conversation_history.strip() or "No prior conversation."
+    full_prompt = _render_prompt_text(
+        prompt_template,
+        question=question,
+        intent=intent,
+        conversation_history=history_text,
+    )
 
     structured_llm = llm.with_structured_output(QueryQualityResult)
     result = await structured_llm.ainvoke(full_prompt)
@@ -337,26 +359,19 @@ async def _expand_query(
     clarity: float,
     specificity: float,
     data_source_context: str | None = None,
+    conversation_history: str = "",
 ) -> QueryExpansionResult:
     """쿼리 확장 및 필터 추출을 수행합니다 (query_expansion.yaml 사용)."""
     prompt_template: ChatPromptTemplate = get_prompt("query_expansion")
-    system_prompt = prompt_template.messages[0].prompt.template if prompt_template.messages else ""
-
-    if data_source_context:
-        system_prompt = system_prompt.replace("{data_source_context}", data_source_context)
-    else:
-        system_prompt = system_prompt.replace(
-            "{data_source_context}",
-            "## Available Data Sources\n데이터 소스 정보를 사용할 수 없습니다.\n"
-            "일반적인 doc_type: slack_qa, pdf, notebook, lecture_transcript, weekly_mission",
-        )
-
-    full_prompt = (
-        f"{system_prompt}\n\n"
-        f"Question: {question}\n"
-        f"Intent: {intent}\n"
-        f"Quality Scores: clarity={clarity}, specificity={specificity}\n\n"
-        f"Generate diverse search queries and extract retrieval filters."
+    history_text = conversation_history.strip() or "No prior conversation."
+    full_prompt = _render_prompt_text(
+        prompt_template,
+        question=question,
+        intent=intent,
+        clarity=clarity,
+        specificity=specificity,
+        data_source_context=_get_data_source_context_text(data_source_context),
+        conversation_history=history_text,
     )
 
     structured_llm = llm.with_structured_output(QueryExpansionResult)

@@ -60,7 +60,7 @@ def _format_chat_history(messages: list[BaseMessage], max_turns: int = MAX_HISTO
             history_lines.append(f"[턴 {turn_num}] 사용자: {msg.content}")
         elif isinstance(msg, AIMessage):
             # AI 응답은 너무 길면 요약 (500자로 확장)
-            content = msg.content
+            content = _extract_text_from_content(msg.content)
             if len(content) > 500:
                 content = content[:500] + "..."
             history_lines.append(f"[턴 {turn_num}] 어시스턴트: {content}")
@@ -219,7 +219,12 @@ async def classify_intent_node(state: AdaptiveRAGState, llm: Runnable) -> Intent
             }
 
     # 2. 패턴 매칭에 걸리지 않으면 LLM으로 분류
-    response = await aclassify_intent(question, llm)
+    conversation_history = _format_chat_history(list(state.get("messages", [])))
+    response = await aclassify_intent(
+        question=question,
+        llm=llm,
+        conversation_history=conversation_history or "No prior conversation.",
+    )
 
     # domain_relevance가 매우 낮으면 OUT_OF_DOMAIN으로 보정 (Hard OOD 임계값)
     intent = response.intent
@@ -290,8 +295,16 @@ async def analyze_query_node(state: AdaptiveRAGState, llm: Runnable) -> QueryAna
         except Exception as e:
             logger.warning(f"Failed to load data source context: {e}")
 
+        conversation_history = _format_chat_history(list(state.get("messages", [])))
+
         # aanalyze_query 직접 호출
-        response = await aanalyze_query(question, intent, llm, data_source_context)
+        response = await aanalyze_query(
+            question=question,
+            intent=intent,
+            llm=llm,
+            data_source_context=data_source_context,
+            conversation_history=conversation_history or "No prior conversation.",
+        )
 
         # retrieval_filters를 RetrievalFilters TypedDict로 변환
         filters = {}
