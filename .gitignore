@@ -57,6 +57,7 @@ GEMINI.md
 # SECRET
 NAVER_CLOUD_S3.json
 ssh_connect.sh
+deploy.sh
 *.pem
 *.snapshot
 .omc/

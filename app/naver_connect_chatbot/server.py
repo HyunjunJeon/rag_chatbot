@@ -112,7 +112,9 @@ async def lifespan(app: FastAPI):
 
         qdrant_url = settings.qdrant_vector_store.url
         qdrant_api_key = (
-            settings.qdrant_vector_store.api_key.get_secret_value() if settings.qdrant_vector_store.api_key else None
+            settings.qdrant_vector_store.api_key.get_secret_value()
+            if settings.qdrant_vector_store.api_key
+            else None
         )
         collection_name = settings.qdrant_vector_store.collection_name
 
@@ -145,8 +147,8 @@ async def lifespan(app: FastAPI):
         logger.info("Socket Mode 연결 시작...")
         try:
             socket_mode_handler = AsyncSocketModeHandler(
-                slack_app,
-                settings.slack.app_token.get_secret_value(),
+                app=slack_app,
+                app_token=settings.slack.app_token.get_secret_value(),
             )
             # 백그라운드 태스크로 실행 (블로킹 방지)
             socket_mode_task = asyncio.create_task(socket_mode_handler.start_async())
@@ -267,9 +269,11 @@ async def health():
 
         qdrant_url = settings.qdrant_vector_store.url
         qdrant_api_key = (
-            settings.qdrant_vector_store.api_key.get_secret_value() if settings.qdrant_vector_store.api_key else None
+            settings.qdrant_vector_store.api_key.get_secret_value()
+            if settings.qdrant_vector_store.api_key
+            else None
         )
-        client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key, timeout=5.0)
+        client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key, timeout=float(5))
         collections = client.get_collections()
         checks["qdrant"] = "connected"
         details["qdrant"] = f"{len(collections.collections)}개 컬렉션"

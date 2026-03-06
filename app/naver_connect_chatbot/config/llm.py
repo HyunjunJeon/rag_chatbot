@@ -50,10 +50,6 @@ def get_chat_model(
             - thinking_level: "minimal", "low", "medium", "high" (기본 high)
             - 기타 ChatGoogleGenerativeAI가 지원하는 모든 파라미터
 
-        [하위 호환성] 기존 ClovaX 팩토리의 kwargs도 자동 매핑:
-            - use_reasoning: True → thinking_level 유지 (기본 high)
-            - reasoning_effort: "low"/"medium"/"high" → thinking_level 매핑
-
     반환값:
         ChatGoogleGenerativeAI 인스턴스
 
@@ -68,9 +64,6 @@ def get_chat_model(
         >>>
         >>> # 분류 작업용 (가벼운 thinking)
         >>> llm = get_chat_model(thinking_level="low")
-        >>>
-        >>> # 하위 호환성: 기존 reasoning_effort 인터페이스도 동작
-        >>> llm = get_chat_model(use_reasoning=True, reasoning_effort="medium")
     """
     # 순환 import 방지를 위해 여기서 import
     from naver_connect_chatbot.config.settings.main import settings
@@ -98,13 +91,9 @@ def get_chat_model(
     if max_tokens_value is not None and max_tokens_value > 0:
         chat_params["max_output_tokens"] = max_tokens_value
 
-    # thinking_level 설정 (Gemini 3 기본값: high)
-    # 직접 thinking_level이 전달된 경우 우선 적용
+    # thinking_level 설정 (Gemini 3.1 Pro 기본값: high)
     if "thinking_level" in kwargs:
         chat_params["thinking_level"] = kwargs["thinking_level"]
-    # 하위 호환성: reasoning_effort → thinking_level 매핑
-    elif "reasoning_effort" in kwargs:
-        chat_params["thinking_level"] = kwargs["reasoning_effort"]
 
     # kwargs에서 이미 처리한 키들 제외
     excluded_keys = {
@@ -114,8 +103,6 @@ def get_chat_model(
         "max_tokens",
         "thinking_level",
         "thinking",
-        "use_reasoning",
-        "reasoning_effort",
     }
     extra_kwargs = {k: v for k, v in kwargs.items() if k not in excluded_keys}
 

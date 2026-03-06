@@ -71,9 +71,7 @@ def reasoning_llm():
 
     try:
         llm_instance = get_chat_model(
-            model="HCX-007",
-            use_reasoning=True,
-            reasoning_effort="medium",
+            thinking_level="medium",
         )
         return llm_instance
     except ValueError:
