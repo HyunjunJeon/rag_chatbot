@@ -60,3 +60,4 @@ ssh_connect.sh
 *.pem
 *.snapshot
 .omc/
+.omx/
