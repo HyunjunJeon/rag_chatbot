@@ -27,9 +27,17 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 get_pid() {
+    # 1) PID 파일에서 읽기
     if [ -f "$PID_FILE" ]; then
-        cat "$PID_FILE"
+        local pid
+        pid=$(cat "$PID_FILE")
+        if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
+            echo "$pid"
+            return
+        fi
     fi
+    # 2) PID 파일이 없거나 유효하지 않으면 프로세스명으로 검색
+    pgrep -f "uvicorn naver_connect_chatbot.server:api" 2>/dev/null | head -1
 }
 
 is_running() {
@@ -40,13 +48,34 @@ is_running() {
     return 1
 }
 
+# 포트를 점유 중인 모든 프로세스를 종료
+kill_port_holders() {
+    if command -v fuser &> /dev/null; then
+        fuser -k "$PORT/tcp" 2>/dev/null || true
+    else
+        # fuser 없으면 ss + kill로 대체
+        local pids
+        pids=$(ss -tlnp "sport = :$PORT" 2>/dev/null | grep -oP 'pid=\K[0-9]+' | sort -u)
+        for p in $pids; do
+            kill -TERM "$p" 2>/dev/null || true
+        done
+    fi
+}
+
 start_server() {
     if is_running; then
-        echo -e "${YELLOW}⚠️  Server is already running (PID: $(get_pid))${NC}"
+        echo -e "${YELLOW}Server is already running (PID: $(get_pid))${NC}"
         exit 1
     fi
 
-    echo -e "${GREEN}🚀 Starting Naver Connect Chatbot Server${NC}"
+    # 포트가 점유되어 있으면 정리
+    if ss -tlnp 2>/dev/null | grep -q ":$PORT "; then
+        echo -e "${YELLOW}Port $PORT is in use. Cleaning up...${NC}"
+        kill_port_holders
+        sleep 2
+    fi
+
+    echo -e "${GREEN}Starting Naver Connect Chatbot Server${NC}"
     echo "   Host: $HOST"
     echo "   Port: $PORT"
     echo "   Workers: $WORKERS"
@@ -68,11 +97,21 @@ start_server() {
     # 서버 시작 대기
     sleep 2
 
+    # PID 파일이 유효하지 않을 수 있으므로 프로세스명으로 재확인
+    if ! is_running; then
+        # nohup 래퍼 PID가 종료되었을 수 있으므로 실제 uvicorn PID로 갱신
+        local real_pid
+        real_pid=$(pgrep -f "uvicorn naver_connect_chatbot.server:api" 2>/dev/null | head -1)
+        if [ -n "$real_pid" ]; then
+            echo "$real_pid" > "$PID_FILE"
+        fi
+    fi
+
     if is_running; then
-        echo -e "${GREEN}✅ Server started successfully (PID: $(get_pid))${NC}"
+        echo -e "${GREEN}Server started successfully (PID: $(get_pid))${NC}"
         echo "   View logs: tail -f $LOG_FILE"
     else
-        echo -e "${RED}❌ Failed to start server. Check logs: $LOG_FILE${NC}"
+        echo -e "${RED}Failed to start server. Check logs: $LOG_FILE${NC}"
         rm -f "$PID_FILE"
         exit 1
     fi
@@ -80,7 +119,16 @@ start_server() {
 
 stop_server() {
     if ! is_running; then
-        echo -e "${YELLOW}⚠️  Server is not running${NC}"
+        # PID 파일로 찾지 못해도 포트로 한번 더 확인
+        if ss -tlnp 2>/dev/null | grep -q ":$PORT "; then
+            echo -e "${YELLOW}No tracked PID, but port $PORT is in use. Cleaning up...${NC}"
+            kill_port_holders
+            sleep 2
+            rm -f "$PID_FILE"
+            echo -e "${GREEN}Server stopped${NC}"
+            return 0
+        fi
+        echo -e "${YELLOW}Server is not running${NC}"
         rm -f "$PID_FILE"
         return 0
     fi
